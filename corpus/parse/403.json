@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/boolean-json-schema/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"login\": {\n            \"type\": \"string\"\n          },\n          \"password\": {\n            \"type\": \"string\"\n          },\n          \"profile\": {\n            \"$ref\": \"#/components/schemas/UserProfile\"\n          }\n        }\n      },\n      \"UserProfile\": true\n    }\n  }\n}\n"
+			"name": "dereferenced.json",
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$schema-undefined/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"avatar\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Components.components.schemas of type ogen.Schema"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

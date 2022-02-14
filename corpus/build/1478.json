@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/internal-indirections/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/~1path2\"\n    },\n    \"/path2\": {\n      \"$ref\": \"#/paths/~1path3\"\n    },\n    \"/path3\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "sample-api-upper.json",
+			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-upper.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"0.1.9\"\n  },\n  \"servers\" : [\n    {\"url\": \"https://petstore3.swagger.io/api/v3/pet\"}\n  ],\n  \"paths\" : {\n    \"/a\" : {\n      \"get\": {\n        \"operationId\": \"AGET\"\n      },\n      \"post\": {\n        \"operationId\": \"apost\"\n      }\n    },\n    \"/b\" : {\n      \"post\": {\n        \"operationId\": \"bpost\"\n      }\n    },\n    \"/2\" : {\n      \"get\": {\n        \"operationId\": \"2get\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /path3: get: : responses: no responses"
+	"Error": "parse: paths: /a: get: AGET: responses: no responses"
 }
