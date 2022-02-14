@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_with_dot_in_key.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/V1.Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"\u003ccaret\u003eV1.Pet\": {}\n    }\n  }\n}\n"
+			"name": "rename_component_parameter_after.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_parameter_after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/NewParameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"\u003ccaret\u003eNewParameter\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/V1.Pet\": resolve reference \"#/components/schemas/V1.Pet\": schema not found"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/NewParameter\" reference: component by reference \"#/components/parameters/NewParameter\" not found"
 }

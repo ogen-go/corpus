@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "responses.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/responses.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"components.json#/Pet\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "example.json",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/example.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"pet.json\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : responses: 200: resolve \"components.json#/Pet\" reference: invalid response reference: \"components.json#/Pet\""
+	"Error": "parse: paths: /: get: : responses: 200: resolve: \"pet.json\": invalid parameter reference: \"pet.json\""
 }

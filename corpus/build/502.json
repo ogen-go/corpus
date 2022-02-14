@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RicoSuter/NSwag"
 		},
 		"file": {
-			"name": "openapi.json",
-			"path": "tests/specs/issue_78/openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Test API\",\n    \"version\": \"1\"\n  },\n  \"paths\": {\n    \"/endpoint\": {\n      \"post\": {\n        \"requestBody\": {\n           \"$ref\": \"tests/specs/issue_78/_schemas.json#/$defs/Body\"\n        },\n        \"responses\": {}\n      }\n    }\n  }\n}\n"
+			"name": "PathItemWithRef.json",
+			"path": "src/NSwag.Core.Tests/Serialization/PathItemTest/PathItemWithRef.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Path Item With Ref\",\n    \"description\": \"Testing external $ref on path items\"\n  },\n  \"paths\": {\n    \"/aValidPath\": {\n      \"$ref\": \"./refs/PathItem.json#/aValidPath\"\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /endpoint: post: : requestBody: resolve \"tests/specs/issue_78/_schemas.json#/$defs/Body\" reference: invalid requestBody reference: \"tests/specs/issue_78/_schemas.json#/$defs/Body\""
+	"Error": "parse: /aValidPath: referenced pathItem not supported"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "yaml_reference.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/yaml_reference.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"pet.yaml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "parameters.json",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/parameters.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"components.json#/Pet\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"pet.yaml\": resolve reference \"pet.yaml\": invalid schema reference \"pet.yaml\""
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"components.json#/Pet\" reference: invalid parameter reference: \"components.json#/Pet\""
 }

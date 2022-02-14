@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/external-only/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex.json#/~1path2\"\n    }\n  }\n}\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/request-body-object/fixtures/operation-object/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/requestBody2\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"requestBody2\": {\n        \"description\": \"description of request body 2\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /path: get: : responses: no responses"
 }

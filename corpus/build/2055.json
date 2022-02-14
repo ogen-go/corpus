@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_parameter_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_parameter_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/NewParameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"\u003ccaret\u003eNewParameter\": {}\n    }\n  }\n}\n"
+			"name": "rename_component_callback.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_callback.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"callbacks\": {\n          \"foo\": {\n            \"$ref\": \"#/components/callbacks/Callback\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"callbacks\": {\n      \"\u003ccaret\u003eCallback\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/NewParameter\" reference: component by reference \"#/components/parameters/NewParameter\" not found"
+	"Error": "parse: paths: /pathA: get: : responses: no responses"
 }

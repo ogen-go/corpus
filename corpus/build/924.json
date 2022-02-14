@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/open-api-3"
+			"name": "github.com/janephp/open-api"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "Tests/fixtures/exceptions/swagger.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-exception\": {\n            \"get\": {\n                \"operationId\": \"Test No Tag\",\n                \"responses\": {\n                    \"400\": {\n                        \"description\": \"Bad request on test exception\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    },\n                    \"404\": {\n                        \"description\": \"Not found get\"\n                    },\n                    \"500\": {\n                        \"description\": \"Internal server error on test exception\"\n                    },\n                    \"600\": {\n                        \"description\": \"New update available\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"servers\": [\n        {\n            \"url\": \"/\"\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Message\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"message\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "swagger2.json",
+			"path": "Tests/fixtures/multi-specs/swagger2.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-query\": {\n            \"get\": {\n                \"operationId\": \"Test Reference Response\",\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"test\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"swagger1.json#/components/schemas/body\"\n                                }\n                            }\n                        }\n                    }\n                },\n                \"tags\": [\n                    \"Test\"\n                ]\n            }\n        }\n    },\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test-exception: get: Test No Tag: responses: 600: unknown status code: 600"
+	"Error": "parse: paths: /test-query: get: Test Reference Response: responses: 200: content: application/json: schema: parse schema: reference \"swagger1.json#/components/schemas/body\": resolve reference \"swagger1.json#/components/schemas/body\": invalid schema reference \"swagger1.json#/components/schemas/body\""
 }
