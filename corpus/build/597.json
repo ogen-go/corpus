@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "invalid-style-for-parameter.json",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-style-for-parameter.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"WebAPI 2 Service\",\n    \"version\": \"1.0\"\n  },\n  \"components\": {\n  },\n  \"paths\": {\n    \"/complex\": {\n      \"put\": {\n        \"operationId\": \"putComplex\",\n        \"parameters\": [\n          {\n            \"name\": \"strValue\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"style\": \"simple\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK response\"\n          }\n        }\n      }\n    }\n\n  }\n}"
+		}
+	},
+	"Error": "parse: paths: /complex: put: putComplex: parameters: parse parameter \"strValue\": style: unexpected style: simple"
+}

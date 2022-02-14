@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
+		},
+		"file": {
+			"name": "has_external_ref.json",
+			"path": "test/input/openapi_3/has_external_ref.json",
+			"content": "{\n    \"info\": {\n        \"title\": \"Nodejs\",\n        \"version\": \"1.0.0\"\n    },\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/articles\": {\n            \"get\": {\n                \"operationId\": \"ArticleController.getAll\",\n                \"responses\": {\n                    \"200\": {\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"./external_ref.json\"\n                                }\n                            }\n                        },\n                        \"description\": \"Successful response\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"./external_ref_fragment.json#/responses/Error\"\n                    }\n                },\n                \"summary\": \"Get all\",\n                \"tags\": [\n                    \"Article\"\n                ]\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "parse: paths: /articles: get: ArticleController.getAll: responses: 200: content: application/json: schema: parse schema: reference \"./external_ref.json\": resolve reference \"./external_ref.json\": invalid schema reference \"./external_ref.json\""
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/qaware/openapi-generator-for-spring"
+		},
+		"file": {
+			"name": "app32.json",
+			"path": "openapi-generator-for-spring-test/src/test/resources/openApiJson/app32.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"API for App32\",\n    \"version\": \"unknown\"\n  },\n  \"paths\": {\n    \"/mapping1\": {\n      \"get\": {\n        \"operationId\": \"mapping1_throwingSomeException\",\n        \"responses\": {\n          \"500\": {\n            \"$ref\": \"#/components/responses/409_500\"\n          },\n          \"200\": {\n            \"$ref\": \"#/components/responses/200\"\n          }\n        }\n      }\n    },\n    \"/mapping2\": {\n      \"get\": {\n        \"operationId\": \"mapping2_throwingAnotherException\",\n        \"responses\": {\n          \"409\": {\n            \"$ref\": \"#/components/responses/409_500\"\n          },\n          \"200\": {\n            \"$ref\": \"#/components/responses/200\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"409_500\": {\n        \"description\": \"Default response\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/App32Controller.ErrorDto\"\n            }\n          }\n        }\n      },\n      \"200\": {\n        \"description\": \"Default response\"\n      }\n    },\n    \"schemas\": {\n      \"string_0\": {\n        \"type\": \"string\",\n        \"description\": \"Error code, machine-readable\"\n      },\n      \"string_1\": {\n        \"type\": \"string\",\n        \"description\": \"Error description, human-readable\"\n      },\n      \"App32Controller.ErrorDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"errorCode\": {\n            \"$ref\": \"#/components/schemas/string_0\"\n          },\n          \"errorDescription\": {\n            \"$ref\": \"#/components/schemas/string_1\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:7: expected 'IDENT', found 200 (and 2 more errors)"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/qaware/openapi-generator-for-spring"
+		},
+		"file": {
+			"name": "app6.json",
+			"path": "openapi-generator-for-spring-test/src/test/resources/openApiJson/app6.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"API for App6\",\n    \"version\": \"unknown\"\n  },\n  \"paths\": {\n    \"/simple/get-mapping-1/{pathVariableName}\": {\n      \"get\": {\n        \"operationId\": \"getMappingRequestParam1\",\n        \"parameters\": [\n          {\n            \"name\": \"pathVariableName\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"someQueryStringParameterWithoutExplicitName\",\n            \"in\": \"query\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\",\n              \"nullable\": true\n            }\n          },\n          {\n            \"name\": \"headerName\",\n            \"in\": \"header\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/200\"\n          }\n        }\n      }\n    },\n    \"/simple/get-mapping-2\": {\n      \"get\": {\n        \"operationId\": \"getMappingRequestParam2\",\n        \"parameters\": [\n          {\n            \"name\": \"someStringParam1\",\n            \"in\": \"query\",\n            \"description\": \"Description for String parameter\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"someStringParam2\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"deprecated\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"hiddenParam\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/200\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"200\": {\n        \"description\": \"Default response\"\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:7: expected 'IDENT', found 200"
+}
