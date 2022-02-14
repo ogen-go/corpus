@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/ahmadnassri/node-oas-fastify"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/callbacks/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"callbacks\": {\n          \"callback\": {\n            \"http://notificationServer.com?transactionId={$request.body#/id}\u0026email={$request.body#/email}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"strin\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "openapi-with-security.json",
+			"path": "test/fixtures/openapi-with-security.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Auth Example\"\n  },\n  \"paths\": {\n    \"/login-with-http\": {\n      \"get\": {\n        \"operationId\": \"login-with-http\",\n        \"security\": [\n          {\n            \"httpAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-header\": {\n      \"get\": {\n        \"operationId\": \"login-with-header\",\n        \"security\": [\n          {\n            \"headerAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-query\": {\n      \"get\": {\n        \"operationId\": \"login-with-query\",\n        \"security\": [\n          {\n            \"queryAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-cookie\": {\n      \"get\": {\n        \"operationId\": \"login-with-cookie\",\n        \"security\": [\n          {\n            \"cookieAuth\": []\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"httpAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"headerAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"X-API-Key\"\n      },\n      \"queryAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"query\",\n        \"name\": \"X-API-Key\"\n      },\n      \"cookieAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"cookie\",\n        \"name\": \"X-API-Key\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
+	"Error": "parse: paths: /login-with-http: get: login-with-http: responses: no responses"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "paths-get-requestBody-example.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody-example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User Example\",\n                  \"description\": \"User example description.\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.json\"\n                }\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User example in XML\",\n                  \"description\": \"User example description (in XML).\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.xml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "callbacks2.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_callbacks/callbacks2.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"x-vendor-1\": 1,\n            \"x-vendor-2\": 2\n          },\n          \"myWebhook\": {\n            \"x-vendor-property-1\": true,\n            \"x-vendor-property-2\": 17,\n            \"x-vendor-property-3\": \"foo bar\"\n          },\n          \"anotherCallback\": {\n            \"$ref\": \"#/components/callbacks/AnotherCallback\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "parse: paths: /foo: get: : responses: no responses"
 }

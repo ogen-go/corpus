@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/refset-as-option/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"parameters\": {\n        \"externalRef\": {\n          \"name\": \"externalParameter\",\n          \"in\": \"query\",\n          \"description\": \"external ref\",\n          \"required\": true\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/ignore-external/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"parameters\": {\n        \"userId\": {\n          \"name\": \"userId\",\n          \"in\": \"query\",\n          \"description\": \"override\",\n          \"required\": true\n        },\n        \"indirection1\": {\n          \"name\": \"userId\",\n          \"in\": \"query\",\n          \"description\": \"ID of the user\",\n          \"required\": true\n        },\n        \"indirection2\": {\n          \"name\": \"userId\",\n          \"in\": \"query\",\n          \"description\": \"ID of the user\",\n          \"required\": true\n        },\n        \"userIdRef\": {\n          \"name\": \"userId\",\n          \"in\": \"query\",\n          \"description\": \"ID of the user\",\n          \"required\": true\n        },\n        \"externalRef\": {\n          \"$ref\": \"./ex.json#/externalParameter\",\n          \"description\": \"another ref\"\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

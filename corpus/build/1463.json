@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/springdoc/springdoc-openapi"
 		},
 		"file": {
-			"name": "sample-api-upper.json",
-			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-upper.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"0.1.9\"\n  },\n  \"servers\" : [\n    {\"url\": \"https://petstore3.swagger.io/api/v3/pet\"}\n  ],\n  \"paths\" : {\n    \"/a\" : {\n      \"get\": {\n        \"operationId\": \"AGET\"\n      },\n      \"post\": {\n        \"operationId\": \"apost\"\n      }\n    },\n    \"/b\" : {\n      \"post\": {\n        \"operationId\": \"bpost\"\n      }\n    },\n    \"/2\" : {\n      \"get\": {\n        \"operationId\": \"2get\"\n      }\n    }\n  }\n}\n"
+			"name": "app26.json",
+			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/app26.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/persons\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"operationId\": \"persons\",\n        \"parameters\": [\n          {\n            \"name\": \"myModel\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyModel\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MyModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyModel\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"thing\": {\n            \"type\": \"object\",\n            \"description\": \"Hello\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /a: get: AGET: responses: no responses"
+	"Error": "make ir: path \"/persons\": post: parameters: field \"thing\": nested objects not allowed"
 }

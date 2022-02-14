@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "headers-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/inner-security/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"petstore_auth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"securityDefinitions\": {\n    \"petstore_auth\": {\n      \"type\": \"oauth2\",\n      \"authorizationUrl\": \"http://petstore.swagger.io/oauth/dialog\",\n      \"flow\": \"implicit\",\n      \"scopes\": {\n        \"write:pets\": \"modify pets in your account\",\n        \"read:pets\": \"read your pets\"\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : responses: no responses"
+	"Error": "parse: paths: /pet: post: : responses: no responses"
 }
