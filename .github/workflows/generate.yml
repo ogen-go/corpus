@@ -31,6 +31,8 @@ jobs:
             update-corpus-${{ runner.os }}-go-
 
       - name: Generate files
+        env:
+          GOPROXY: direct
         run: make generate
 
       - name: Create PR
