@@ -5,10 +5,10 @@
 			"name": "github.com/NHS-digital-website/hippo"
 		},
 		"file": {
-			"name": "oasV3_operationOrderNotSupplied.json",
-			"path": "site/components/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_operationOrderNotSupplied.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/path-a\": {\n            \"get\": {\n                \"summary\": \"Get operation A\"\n            },\n            \"post\": {\n                \"summary\": \"Post operation A\"\n            }\n        },\n        \"/path-b\": {\n            \"get\": {\n                \"summary\": \"Get operation B\"\n            },\n            \"post\": {\n                \"summary\": \"Post operation B\"\n            }\n        }\n    },\n    \"components\": {}\n}\n"
+			"name": "schemaObject-requiredField.json",
+			"path": "site/components/src/test/resources/test-data/api-specifications/SchemaHelperTest/schemaObject-requiredField.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"content\": {\n                        \"application/json\": {\n\n                            \"schema\": {\n                                \"type\": \"object\",\n                                \"title\": \"parent-object\",\n\n                                \"required\": [\n                                    \"first-object\",\n                                    \"third-object\"\n                                ],\n\n                                \"properties\": {\n                                    \"first-object\": {\n                                        \"title\": \"first object - required\"\n                                    },\n                                    \"second-object\": {\n                                        \"title\": \"second object - NOT required\"\n                                    },\n                                    \"third-object\": {\n                                        \"title\": \"third object - required\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /path-a: get: : responses: no responses"
+	"Error": "parse: paths: /test: post: : responses: no responses"
 }

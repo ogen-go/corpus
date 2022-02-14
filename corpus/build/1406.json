@@ -5,10 +5,10 @@
 			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "paths-get-callbacks.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "merged.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_pathDefault/merged.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "security.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/paths/path-object/operation/security/security.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"securitySchemes\": {\n      \"internalApiKey\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"api_key\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"security\": [\n          \"*\"\n        ]\n      }\n    }\n  }\n}"
+			"name": "headers-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /p: get: : responses: no responses"
 }

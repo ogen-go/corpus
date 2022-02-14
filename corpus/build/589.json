@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "documentation-in-operation.json",
-			"path": "amf-cli/shared/src/test/resources/compatibility/oas30/documentation-in-operation.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"v1\",\n    \"title\": \"OpenAPI 3 Doc Created From Scratch\"\n  },\n  \"paths\": {\n    \"/articles\": {\n      \"summary\": \"Articles managed by this API.\",\n      \"description\": \"Something\",\n      \"get\": {\n        \"description\": \"Get all articles, optionally using paging.\",\n        \"externalDocs\": {\n          \"description\": \"Performance characteristics of this operation in the `prod` environment.\",\n          \"url\": \"asdasdasd\"\n        },\n        \"responses\": {}\n      }\n    }\n  }\n}"
+			"name": "security.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/paths/path-object/operation/security/security.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"securitySchemes\": {\n      \"internalApiKey\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"api_key\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"security\": [\n          \"*\"\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /articles: get: : responses: no responses"
+	"Error": "parse: paths: /: get: : responses: no responses"
 }

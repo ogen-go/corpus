@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "response.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/response.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"pet.json\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "callbacks.json",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/callbacks.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"callbacks\": {\n          \"foo\": {\n            \"$ref\": \"components.json#/Pet\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : responses: 200: resolve \"pet.json\" reference: invalid response reference: \"pet.json\""
+	"Error": "parse: paths: /pathA: get: : responses: no responses"
 }

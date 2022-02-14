@@ -5,10 +5,10 @@
 			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "paths-with-extensions.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-with-extensions.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"x-not-a-path\" : \"extension-value\",\n      \"x-some-number\" : 42,\n      \"x-some-boolean\" : true,\n      \"x-some-object\" : {\n        \"foo\": \"bar\"\n      },\n      \"x-some-array\" : [ \"foo\", \"bar\" ]\n    }\n  }\n}\n"
+			"name": "paths-get-requestBody-example.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody-example.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User Example\",\n                  \"description\": \"User example description.\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.json\"\n                }\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User example in XML\",\n                  \"description\": \"User example description (in XML).\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.xml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
 }

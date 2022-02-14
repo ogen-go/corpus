@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RicoSuter/NSwag"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "response-reference.json",
-			"path": "src/NSwag.Core.Tests/TestFiles/response-reference.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"description\": \"Test path\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"./common.json#/components/responses/TestResponse\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "openapi.json",
+			"path": "__tests__/lint/no-invalid-media-type-examples-recursion-oneOf/openapi.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"TEST\",\n    \"description\": \"TEST\",\n    \"version\": \"v1\",\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"servers\": [{\n    \"url\": \"http://petstore.swagger.io/v1\"\n  }],\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": { \"$ref\": \"#/components/schemas/Pet\" },\n                \"example\": {}\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Error\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"oneOf\": [\n          { \"$ref\": \"#/components/schemas/Pet\" },\n          { \"$ref\": \"#/components/schemas/Cat\" }\n        ]\n      },\n      \"Cat\": {\n        \"type\": \"object\",\n        \"allOf\": [{ \"$ref\": \"#/components/schemas/Cat\" }]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: resolve \"./common.json#/components/responses/TestResponse\" reference: invalid response reference: \"./common.json#/components/responses/TestResponse\""
+	"Error": "parse: paths: /test: get: test: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": parse schema: oneOf: [0]: parse schema: reference \"#/components/schemas/Pet\": infinite recursion: \"#/components/schemas/Pet\""
 }

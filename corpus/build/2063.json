@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_with_dot_in_key_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/NewName\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"\u003ccaret\u003eNewName\": {}\n    }\n  }\n}\n"
+			"name": "rename_component_request_body.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_request_body.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Foo\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"\u003ccaret\u003eFoo\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/NewName\": resolve reference \"#/components/schemas/NewName\": schema not found"
+	"Error": "parse: paths: /pathA: get: : requestBody: resolve \"#/components/requestBodies/Foo\" reference: component by reference \"#/components/requestBodies/Foo\" not found"
 }

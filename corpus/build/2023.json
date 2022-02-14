@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/xuorig/anicca"
 		},
 		"file": {
-			"name": "example.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"pet.json\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "pet-store.json",
+			"path": "fixtures/pet-store.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List all pets\",\n        \"operationId\": \"listPets\",\n        \"parameters\": [\n          {\n            \"name\": \"another\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"stays\",\n            \"in\": \"path\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A paged array of pets\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pets\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"$ref\": \"#/components/schemas/Pet\"\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"pet.json\": invalid parameter reference: \"pet.json\""
+	"Error": "parse: paths: /pets: get: listPets: parameters: parse parameter \"stays\": path parameters must be required"
 }

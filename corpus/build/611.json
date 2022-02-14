@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anttiviljami/openapi-backend"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "refs.openapi.json",
-			"path": "__tests__/resources/refs.openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Circular References\",\n    \"description\": \"API with circular references\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/trees\": {\n\t\t\t\"post\": {\n\t\t\t\t\"operationId\": \"createTree\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"description\": \"ok\" \n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"requestBody\": { \n\t\t\t\t\t\"$ref\": \"#/components/requestBodies/CreateTree\" \n\t\t\t\t}\n\t\t\t},\n\t\t\t\"get\": {\n\t\t\t\t\"operationId\": \"getTrees\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"parameters\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"subtree\",\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"description\": \"Filter trees by existance of a subtree\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n\t\t\t\"BinTree\": {\n\t\t\t\t\"title\": \"BinTree\",\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"nullable\": true,\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"left\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"right\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\"type\": \"number\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"requestBodies\": {\n\t\t\t\"CreateTree\": {\n\t\t\t\t\"content\": {\n\t\t\t\t\t\"application/json\": {\n\t\t\t\t\t\t\"schema\": { \"$ref\": \"#/components/schemas/BinTree\" }\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n  }\n}"
+			"name": "unresolved-ref-in-schema.json",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Backlog API\",\n    \"version\": \"1.0.0-oas3\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"user\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"The response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/invalid reference in the document\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /trees: get: getTrees: responses: 200: resolve \"#/components/schemas/BinTree\" reference: invalid response reference: \"#/components/schemas/BinTree\""
+	"Error": "parse: paths: /test: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/invalid reference in the document\": resolve reference \"#/invalid reference in the document\": invalid schema reference \"#/invalid reference in the document\""
 }

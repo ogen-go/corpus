@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cue-lang/cue"
+			"name": "github.com/bkbnio/kompendium"
 		},
 		"file": {
-			"name": "nums-v3.1.0.json",
-			"path": "encoding/openapi/testdata/nums-v3.1.0.json",
-			"content": "{\n   \"openapi\": \"3.1.0\",\n   \"info\": {\n      \"title\": \"test\",\n      \"version\": \"v1\"\n   },\n   \"paths\": {},\n   \"components\": {\n      \"schemas\": {\n         \"exMax\": {\n            \"type\": \"number\",\n            \"exclusiveMaximum\": 6\n         },\n         \"exMin\": {\n            \"type\": \"number\",\n            \"exclusiveMinimum\": 5\n         },\n         \"int\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n         },\n         \"intNull\": {\n            \"type\": \"integer\",\n            \"minimum\": -9223372036854775808,\n            \"maximum\": 9223372036854775807,\n            \"nullable\": true\n         },\n         \"mul\": {\n            \"type\": \"number\",\n            \"multipleOf\": 5\n         },\n         \"neq\": {\n            \"type\": \"number\",\n            \"not\": {\n               \"allOff\": [\n                  {\n                     \"minimum\": 4\n                  },\n                  {\n                     \"maximum\": 4\n                  }\n               ]\n            }\n         }\n      }\n   }\n}"
+			"name": "min_max_double_field.json",
+			"path": "kompendium-core/src/test/resources/min_max_double_field.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Test API\",\n    \"version\": \"1.33.7\",\n    \"description\": \"An amazing, fully-ish 😉 generated API spec\",\n    \"termsOfService\": \"https://example.com\",\n    \"contact\": {\n      \"name\": \"Homer Simpson\",\n      \"url\": \"https://gph.is/1NPUDiM\",\n      \"email\": \"chunkylover53@aol.com\"\n    },\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://github.com/bkbnio/kompendium/blob/main/LICENSE\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://myawesomeapi.com\",\n      \"description\": \"Production instance of my API\"\n    },\n    {\n      \"url\": \"https://staging.myawesomeapi.com\",\n      \"description\": \"Where the fun stuff happens\"\n    }\n  ],\n  \"paths\": {\n    \"/test/constrained_int\": {\n      \"get\": {\n        \"tags\": [],\n        \"summary\": \"Constrained int field\",\n        \"description\": \"Cool stuff\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A successful endeavor\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"properties\": {\n                    \"a\": {\n                      \"format\": \"double\",\n                      \"type\": \"number\",\n                      \"minimum\": 5.5,\n                      \"maximum\": 13.37,\n                      \"exclusiveMinimum\": false,\n                      \"exclusiveMaximum\": false\n                    }\n                  },\n                  \"required\": [\n                    \"a\"\n                  ],\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        },\n        \"deprecated\": false\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {},\n    \"securitySchemes\": {}\n  },\n  \"security\": [],\n  \"tags\": []\n}\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Schema.components.schemas.exclusiveMaximum of type bool"
+	"Error": "callback: json: cannot unmarshal number 5.5 into Go struct field Schema.minimum of type int64"
 }
