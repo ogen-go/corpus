@@ -5,10 +5,10 @@
 			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "non-unique-enum-values.yml",
-			"path": "packages/core/src/__tests__/enums/non-unique-enum-values.yml",
-			"content": "---\n# An example where there are enum values that will map to duplicate names\nopenapi: 3.0.3\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      parameters:\n      - name: param1\n        in: query\n        schema:\n          type: string\n          enum: [0, 1, 2, 3, -1]\n      responses:\n        200:\n          description: OK\n"
+			"name": "external-nested-response-schema.yml",
+			"path": "packages/core/src/__tests__/naming/external-nested-response-schema.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          description: Testing\n          content:\n            application/json:\n              schema:\n                $ref: './external-part.yml#/paths/%2Ftest-part/get/responses/200/content/application%2Fjson/schema'\n"
 		}
 	},
-	"Error": "parse: paths: /test1: get: : parameters: parse parameter \"param1\": schema: parse enum values: parse value \"0\": expected type \"string\", got \"number\""
+	"Error": "parse: paths: /test1: get: : responses: 200: content: application/json: schema: parse schema: reference \"./external-part.yml#/paths/%2Ftest-part/get/responses/200/content/application%2Fjson/schema\": resolve reference \"./external-part.yml#/paths/%2Ftest-part/get/responses/200/content/application%2Fjson/schema\": invalid schema reference \"./external-part.yml#/paths/%2Ftest-part/get/responses/200/content/application%2Fjson/schema\""
 }

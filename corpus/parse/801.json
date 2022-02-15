@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/oleksandrvorob/openapi-typescript"
+			"name": "github.com/nordic-institute/X-Road"
 		},
 		"file": {
-			"name": "null-in-enum.yaml",
-			"path": "tests/v3/specs/null-in-enum.yaml",
-			"content": "openapi: 3.0\npaths:\n  /test:\n    get:\n      tags:\n        - test\n      summary: \"Just a test path\"\n      responses:\n        200:\n          description: A list of types.\ncomponents:\n  schemas:\n    MyType:\n      description: Enum with null and nullable\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n          nullable: true\n    MyTypeNotNullable:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n    MyTypeNotNullableNotNull:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\"]\n    MyTypeMixed:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", 2, false, null]"
+			"name": "valid_modified.yaml",
+			"path": "src/proxy-ui-api/src/test/resources/openapiparser/valid_modified.yaml",
+			"content": "---\nopenapi: 3.0.2\nservers:\n  - description: test\n    url: https://example.org/api\ninfo:\n  title: Test\n  version: 1.0\npaths:\n  /test:\n    get:\n      summary: get\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n    patch:\n      summary: patch\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n      responses:\n        '200':\n          description: OK\n  /foo:\n    get:\n      summary: get foo\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

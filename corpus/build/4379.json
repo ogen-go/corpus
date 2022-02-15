@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "deep-linking.openapi.yaml",
-			"path": "test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
+			"name": "additionalProperties.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative/additionalProperties.yaml",
+			"content": "---\nopenapi: 3.0.0\nservers:\n- url: http://swagger.io/show-bug\ninfo:\n  title: Test API\n  version: 1.0.0\npaths:\n  \"/tests\":\n    get:\n      operationId: listTests\n      responses:\n        '200':\n          description: Returns results.\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"./globals.yaml#/components/schemas/result\""
 		}
 	},
-	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
+	"Error": "parse: paths: /tests: get: listTests: responses: 200: content: application/json: schema: parse schema: reference \"./globals.yaml#/components/schemas/result\": resolve reference \"./globals.yaml#/components/schemas/result\": invalid schema reference \"./globals.yaml#/components/schemas/result\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive7.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/positive7.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default:\n                  - { \"message\": \"hello\", \"code\": 200 }\n"
+			"name": "positive4.yaml",
+			"path": "assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/pets\":\n    get:\n      description: Returns all pets from the system that the user has access to\n      responses:\n        \"200\":\n          description: A list of pets.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/pet\"\n      security:\n        - api_key:\n            - write:pets\n            - read:pets\n        - petstore_auth:\n            - write:pets\n            - read:pets\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n    petstore_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://example.org/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: unexpected type: \"object\""
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/pet\": resolve reference \"#/components/schemas/pet\": schema not found"
 }

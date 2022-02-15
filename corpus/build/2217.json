@@ -5,10 +5,10 @@
 			"name": "github.com/ballerina-platform/openapi-tools"
 		},
 		"file": {
-			"name": "arrayNB.yaml",
-			"path": "openapi-validator/src/test/resources/openapiValidator/resources/recordValidation/swagger/invalidTests/arrayNB.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: localhost\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n  - url: localhost\n    description: The production API server\n    variables:\n      subdomain:\n        default: petstore\n        description: this value is assigned by the service provider\n      port:\n        enum:\n          - '8443'\n          - '443'\n        default: '443'\n      basePath:\n        default: v2\ntags:\n  - name: pets\n    description: Pets Tag\n  - name: list\n    description: List Tag\nsecurity:\n  - petstore_auth:\n      - write:pets\n      - read:pets\n  - user_auth:\n      - read:user\n\npaths:\n  /user/{userId}:\n    get:\n      summary: Returns a user by ID.\n      parameters:\n        - name: userId\n          in: path\n          required: true\n          description: Parameter description in CommonMark or HTML.\n          schema:\n            type: array\n            items:\n              type: array\n              items:\n                type: string\n\n      responses:\n        '200':\n          description: OK\n"
+			"name": "inline_oneOf_response.yaml",
+			"path": "openapi-cli/src/test/resources/generators/client/swagger/return_type/inline_oneOf_response.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: 'payloadV'\n  version: 1.0.0\nservers:\n  - url: localhost:9090/payloadV\npaths:\n  /pet:\n    get:\n      operationId: operationId01\n      description: \"op1\"\n      responses:\n        \"2XX\":\n          description: \"Test function\"\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - items:\n                      $ref: \"#/components/schemas/ChannelDetails\"\n                    type: array\n                  - items:\n                      type: string\n                    type: array\n\ncomponents:\n  schemas:\n    ChannelDetails:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
 		}
 	},
-	"Error": "make ir: path \"/user/{userId}\": get: parameters: nested arrays not allowed"
+	"Error": "make ir: path \"/pet\": get: responses: parse response status code: strconv.Atoi: parsing \"2XX\": invalid syntax"
 }

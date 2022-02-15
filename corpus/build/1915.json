@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
 		},
 		"file": {
-			"name": "file_reference_from_root.spec.yaml",
-			"path": "tests/specs/translating_parser/file_reference_from_root.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A simple local reference\n          content:\n            application/json:\n              schema:\n                $ref: 'file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject'\n"
+			"name": "validation_type.yaml",
+			"path": "com.reprezen.swagedit.openapi3.tests/resources/tests/validation_type.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Foo\n\npaths:\n  /foo:\n    get:\n      responses:\n        200:\n          description: \"OK\"\n          content:\n            default:\n              schema:\n                type: xxx"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\": resolve reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\": invalid schema reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\""
+	"Error": "parse: paths: /foo: get: : responses: 200: content: default: schema: parse schema: unexpected schema type: \"xxx\""
 }

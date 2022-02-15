@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/BioKIC/NEON-Biorepository"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/negative2.yaml",
-			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API definition22222\n  community.aws.aws_api_gateway:\n    swagger_dict:\n      {\n        \"openapi\": \"3.0.0\",\n        \"info\":\n          {\n            \"title\": \"Simple API Overview\",\n            \"version\": \"1.0.0\",\n            \"contact\": { \"name\": \"contact\", \"email\": \"user@gmail.com\" },\n          },\n        \"components\":\n          {\n            \"securitySchemes\":\n              {\n                \"request_authorizer_single_stagevar\":\n                  {\n                    \"type\": \"apiKey\",\n                    \"name\": \"Unused\",\n                    \"in\": \"header\",\n                    \"x-amazon-apigateway-authtype\": \"custom\",\n                    \"x-amazon-apigateway-authorizer\":\n                      {\n                        \"type\": \"request\",\n                        \"identitySource\": \"stageVariables.stage\",\n                        \"authorizerCredentials\": \"arn:aws:iam::123456789012:role/AWSepIntegTest-CS-LambdaRole\",\n                        \"authorizerUri\": \"arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:123456789012:function:APIGateway-Request-Authorizer:vtwo/invocations\",\n                        \"authorizerResultTtlInSeconds\": 300,\n                      },\n                  },\n              },\n          },\n      }\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
+			"name": "5188.yaml",
+			"path": "api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/bugs/5188.yaml",
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: sdf\n  version: \"1.0.0\"\n  title: Swagger Petstore\npaths:\n  /pet:\n    get:\n      tags:\n        - default\n      summary: \n        whatever: 123 \n      operationId: objectSummary\n      responses:\n        '405':\n          description: Invalid input\n    post:\n      tags:\n        - default\n      operationId: noSummary\n      responses:\n        '405':\n          description: Invalid input"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.summary of type string"
 }

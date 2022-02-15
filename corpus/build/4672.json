@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_example.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_example.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: \"#/components/examples/Example\"\ncomponents:\n  examples:\n    \u003ccaret\u003eExample:\n"
+			"name": "response_ref.yaml",
+			"path": "src/test/resources/testing/completion/value/openapi/response_ref.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '404':\n          $ref: \"\u003ccaret\u003e\"\ncomponents:\n  responses:\n    NotFound:\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/Example\": component by reference \"#/components/examples/Example\" not found"
+	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"\u003ccaret\u003e\" reference: invalid response reference: \"\u003ccaret\u003e\""
 }

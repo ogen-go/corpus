@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RepreZen/GenFlow"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "beamup_path_history.yaml",
-			"path": "modules/genflow-tests/src/main/resources/models/openapiv3/examples/Multi-File Beamup/pathItems/beamup_path_history.yaml",
-			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: \"1.0.0\"\n  title: BeamUp API\n\npaths:\n  /history:\n    get:\n      summary: User Activity\n      description: |\n        The User Activity endpoint returns data about a user's lifetime activity with \n        BeamUp. The response will include pickup locations and times, dropoff locations \n        and times, the distance of past requests, and information about which products \n        were requested.\u003cbr\u003e\u003cbr\u003eThe history array in the response will have a maximum \n        length based on the limit parameter. The response value count may exceed limit, \n        therefore subsequent API requests may be necessary.\n      parameters:\n        - $ref: \"../components/beamup_parameters.yaml#/components/parameters/offset\"\n        - $ref: \"../components/beamup_parameters.yaml#/components/parameters/limit\"\n      tags: \n        - User\n      responses:\n        200:\n          description: History information for the given user\n          content:\n            application/json:\n              schema:\n                # Reference to a Schema Object described in beamup_schemas.yaml\n                $ref: \"../components/beamup_schemas.yaml#/components/schemas/Activities\"\n        default:\n          # Defaults to an unexpected error response, defined in beamup_responses.yaml.\n          $ref: \"../components/beamup_responses.yaml#/components/responses/ErrorResponse\"\n"
+			"name": "openapi-with-external-refs-conflicting-names.yaml",
+			"path": "packages/core/__tests__/fixtures/refs/openapi-with-external-refs-conflicting-names.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pet:\n    parameters:\n      - $ref: '#/components/parameters/path-param'\n    put:\n      parameters:\n        - $ref: '#/components/parameters/param-b'\n        - $ref: ./param-b.yaml\n    get:\n      parameters:\n        - $ref: '#/components/parameters/param-a'\n        - $ref: ./param-c.yaml\ncomponents:\n  parameters:\n    param-a:\n      name: test\n    param-b:\n      name: param_b_alt\n    path-param:\n      name: path_param"
 		}
 	},
-	"Error": "parse: paths: /history: get: : parameters: parse parameter \"\": resolve \"../components/beamup_parameters.yaml#/components/parameters/offset\" reference: invalid parameter reference: \"../components/beamup_parameters.yaml#/components/parameters/offset\""
+	"Error": "parse: /pet: parameters: parse parameter \"\": resolve \"#/components/parameters/path-param\" reference: unsupported parameter type "
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_response.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_response.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '404':\n          $ref: \"#/components/responses/NotFound\"\ncomponents:\n  responses:\n    \u003ccaret\u003eNotFound:\n"
+			"name": "schema_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/schema_ref.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /users:\n    get:\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: '\u003ccaret\u003e#/components/schemas/Example'\ncomponents:\n  schemas:\n    Example:\n      type: object\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"#/components/responses/NotFound\" reference: component by reference \"#/components/responses/NotFound\" not found"
+	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/softwaremill/tapir"
 		},
 		"file": {
-			"name": "expected_recursive_coproducts.yml",
-			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Clause'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Clause:\n      oneOf:\n        - $ref: '#/components/schemas/Expression'\n        - $ref: '#/components/schemas/Not'\n    Expression:\n      required:\n        - v\n      type: object\n      properties:\n        v:\n          type: string\n    Not:\n      required:\n        - not\n      type: object\n      properties:\n        not:\n          $ref: '#/components/schemas/Clause'"
+			"name": "expected_coproduct_discriminator_with_enum_circe.yml",
+			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_coproduct_discriminator_with_enum_circe.yml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: My Bookshop\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Shape'\ncomponents:\n  schemas:\n    Shape:\n      oneOf:\n        - $ref: '#/components/schemas/Square'\n      discriminator:\n        propertyName: shapeType\n        mapping:\n          Square: '#/components/schemas/Square'\n    Square:\n      required:\n        - color\n        - shapeType\n      type: object\n      properties:\n        color:\n          type: string\n          enum:\n            - blue\n            - red\n        shapeType:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /: post: postRoot: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/Clause\": parse schema: oneOf: [1]: parse schema: reference \"#/components/schemas/Not\": parse schema: not: parse schema: reference \"#/components/schemas/Clause\": infinite recursion: \"#/components/schemas/Clause\""
+	"Error": "make ir: path \"/\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map Square to #/components/schemas/Square"
 }

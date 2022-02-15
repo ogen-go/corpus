@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/alamminsalo/ram"
+			"name": "github.com/aiidalab/aiidalab"
 		},
 		"file": {
-			"name": "farm.yaml",
-			"path": "examples/openapi/farm.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Test for object reference collect\n  version: v2\npaths:\n  /farm:\n    get:\n      operationId: getFarm\n      tags:\n        - Farm\n      responses:\n        '200':\n          description: \"get farm content\"\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/Farm\"\ncomponents:\n  schemas:\n    Farm:\n      x-sql-table: \"farm\"\n      x-sql-pk: \"id\"\n      properties:\n        id:\n          type: integer\n        tails:\n          $ref: \"extra/animals.yaml#/Dog\"\n        claws:\n          $ref: \"extra/animals.yaml#/Cat\"\n          nullable: true\n        herd: \n          type: array\n          items:\n            $ref: \"extra/animals.yaml#/Cow\"\n          x-sql-m2m: \"farm_cows\"\n          x-sql-m2m-table: \"cow\"\n          x-sql-m2m-pk: \"id\"\n      additionalProperties:\n        properties:\n          hidden:\n            $ref: \"extra/loop.yaml#/Loop\"\n            nullable: true\n          numbers:\n            type: array\n            items:\n              type: integer\n          dogId:\n            type: integer\n            x-sql-fk: \"dog(id)\"\n          catId:\n            type: integer\n            x-sql-fk: \"cat(id)\"\n"
+			"name": "openapi-v1.yaml",
+			"path": "aiidalab/registry/static/api/openapi-v1.yaml",
+			"content": "---\nopenapi: 3.0.1\ninfo:\n    title: AiiDAlab apps registry API\n    description: API to query for registered AiiDAlab apps.\n    version: '1.1'\npaths:\n    /api/v1/apps_index.json:\n        get:\n            description: Complete index of all registered AiiDAlab apps.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/apps_index.schema.json#/definitions/AppsAndCategories\n    /api/v1/apps/{appId}.json:\n        parameters:\n            - name: appId\n              in: path\n              required: true\n              schema:\n                  type: string\n              example: hello-world\n        get:\n            description: Curated data and metadata for a single app entry.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\n"
 		}
 	},
-	"Error": "parse: paths: /farm: get: getFarm: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Farm\": parse schema: additionalProperties: parse schema: hidden: parse schema: reference \"extra/loop.yaml#/Loop\": resolve reference \"extra/loop.yaml#/Loop\": invalid schema reference \"extra/loop.yaml#/Loop\""
+	"Error": "parse: paths: /api/v1/apps/{appId}.json: get: : responses: 200: content: application/json: schema: parse schema: reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": resolve reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": invalid schema reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\""
 }

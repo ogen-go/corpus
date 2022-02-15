@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "example1_from_._Different_parameters.md.yaml",
-			"path": "3.0/fail/gluecon/example1_from_._Different_parameters.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: The simplest parameter example\n  version: 1.0.0\npaths:\n  /customer/{id}:    # https://api.example.org/customer/72\n    parameters:\n    - name: id\n      in: path\n      schema:\n        type: int\n        title: A unique identifier for the customer\n"
+			"name": "openapi.yaml",
+			"path": "test/validator/escapedRef/openapi.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: API\n  version: 1.0.0\n  contact:\n    name: example.com\n    email: foo@bar.com\n    url: https://foobar.com\ntags:\n  - name: tag\n    description: A tag\npaths:\n  x-foo/bar:\n    get:\n      responses:\n        '200':\n          description: OK\n  /test:\n    $ref: '#/paths/x-foo~1bar'\n"
 		}
 	},
-	"Error": "parse: /customer/{id}: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

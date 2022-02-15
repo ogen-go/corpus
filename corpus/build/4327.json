@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue-289.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-289.yaml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: Path include test case\n\npaths:\n  /foo:\n    $ref: './issue-289-b.yaml#/paths/~1foo'"
+			"name": "api.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1040/api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n\npaths:\n  /value:\n    get:\n      operationId: getValues\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: 'lib/lib.yaml#/components/schemas/Value'"
 		}
 	},
-	"Error": "parse: /foo: referenced pathItem not supported"
+	"Error": "parse: paths: /value: get: getValues: responses: 200: content: application/json: schema: parse schema: reference \"lib/lib.yaml#/components/schemas/Value\": resolve reference \"lib/lib.yaml#/components/schemas/Value\": invalid schema reference \"lib/lib.yaml#/components/schemas/Value\""
 }

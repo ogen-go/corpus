@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "config.yaml",
-			"path": "examples/wings/config.yaml",
-			"content": "ontologies:\n  - http://www.wings-workflows.org/ontology/workflow.owl\n  - http://www.wings-workflows.org/ontology/data.owl\n  - http://www.wings-workflows.org/ontology/component.owl\nname: wings\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Wings Ontology\n    title: Wings Workflow Catalog\n    version: v0.0.1\n  externalDocs:\n    description: Wings Workflow Catalog\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/wings\n  prefix: http://www.wings-workflows.org/ontology\n  graph_base: http://localhost:3030/wings/data/\n\n"
+			"path": "examples/saref4city/config.yaml",
+			"content": "ontologies:\n  - https://raw.githubusercontent.com/mariapoveda/saref-ext/master/SAREF4CITY/ontology/saref4city.ttl\n  #Test using directly a raw file URL\nname: saref4city\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example with the Saref4city ontology\n    title: Saref4city\n    version: v1.0.0\n  externalDocs:\n    description: Saref4city\n    url: https://w3id.org/def/saref4city\n\nfirebase:\n  key:\n\nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n"
 		}
 	},
 	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"

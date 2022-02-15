@@ -5,10 +5,10 @@
 			"name": "github.com/OAI/OpenAPI-Specification"
 		},
 		"file": {
-			"name": "schema.yaml",
-			"path": "tests/v3.1/pass/schema.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: API\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    model:\n      type: object\n      properties:\n        one:\n          description: type array\n          type:\n            - integer\n            - string\n        two:\n          description: type 'null'\n          type: \"null\"\n        three:\n          description: type array including 'null'\n          type:\n            - string\n            - \"null\"\n        four:\n          description: array with no items\n          type: array\n        five:\n          description: singular example\n          type: string\n          examples:\n            - exampleValue\n        six:\n          description: exclusiveMinimum true\n          exclusiveMinimum: 10\n        seven:\n          description: exclusiveMinimum false\n          minimum: 10\n        eight:\n          description: exclusiveMaximum true\n          exclusiveMaximum: 20\n        nine:\n          description: exclusiveMaximum false\n          maximum: 20\n        ten:\n          description: nullable string\n          type:\n            - string\n            - \"null\"\n        eleven:\n          description: x-nullable string\n          type:\n            - string\n            - \"null\"\n        twelve:\n          description: file/binary\n"
+			"name": "invalid_schema_types.yaml",
+			"path": "tests/v3.1/fail/invalid_schema_types.yaml",
+			"content": "openapi: 3.1.1\n\n# this example shows invalid types for the schemaObject\n\ninfo:\n  title: API\n  version: 1.0.0\ncomponents:\n  schemas:\n    invalid_null: null\n    invalid_number: 0\n    invalid_array: []\n\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.exclusiveMaximum of type bool"
+	"Error": "json: cannot unmarshal array into Go struct field Components.components.schemas of type ogen.Schema"
 }

@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "positive3.yaml",
-			"path": "assets/queries/openAPI/general/schema_enum_invalid/test/positive3.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"201\":\n          description: 201 response\n          content:\n            \"text/html\":\n              schema:\n                type: number\n                enum:\n                  - black\n"
+			"path": "assets/queries/openAPI/general/required_property_default_value/test/positive3.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      required:\n      - id\n      properties:\n        id:\n          type: string\n          default: 4056684e4e1347579362617ad82e5b4e\n        name:\n          type: string\n          default: guest\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 201: content: text/html: schema: parse enum values: parse value \"\\\"black\\\"\": expected type \"number\", got \"string\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

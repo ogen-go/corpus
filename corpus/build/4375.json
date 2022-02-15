@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue749-main.yaml",
-			"path": "modules/swagger-parser/src/test/resources/issue749-main.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: ping test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /some/ping:\n    get:\n      operationId: pingGet\n      parameters:\n        - name: i\n          in: query\n          description: Test\n          required: true\n          schema:\n            $ref: './issue749-reference.yaml#/SomeId'\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas: {}"
+			"name": "parent.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
+			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /health:\n    $ref: ./paths/healthPath.yaml\ninfo:\n  version: \"\"\n  title: \"\"\ncomponents:\n  schemas:\n    refInDefinitions:\n      $ref: ./models/example.yaml\n    arrayModel:\n      type: array\n      items:\n        $ref: ./models/foo.yaml\n    composedCat:\n      allOf:\n      - $ref: ./models/pet.yaml\n      - $ref: ./models/conflict.yaml#/foo\n      - properties:\n          huntingSkill:\n            type: string\n            description: The measured skill for hunting\n            default: lazy\n            enum:\n            - clueless\n            - lazy\n            - adventurous\n            - aggressive\n          prop2:\n            $ref: ./models/foo.yaml\n          reflexes:\n            type: array\n            items:\n              $ref: ./models/reflex.yaml\n          reflexMap:\n            type: object\n            additionalProperties:\n              $ref: ./models/reflex.yaml\n        required:\n        - huntingSkill\n    externalArray:\n      $ref: ./models/localreference.yaml#/localArray\n    externalObject:\n      $ref: ./models/localreference.yaml#/localObject\n"
 		}
 	},
-	"Error": "parse: paths: /some/ping: get: pingGet: parameters: parse parameter \"i\": schema: parse schema: reference \"./issue749-reference.yaml#/SomeId\": resolve reference \"./issue749-reference.yaml#/SomeId\": invalid schema reference \"./issue749-reference.yaml#/SomeId\""
+	"Error": "parse: /health: referenced pathItem not supported"
 }

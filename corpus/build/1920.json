@@ -5,10 +5,10 @@
 			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "root_file_reference_from_root.spec.yaml",
-			"path": "tests/specs/translating_parser/root_file_reference_from_root.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to the root file\n          content:\n            application/json:\n              schema:\n                $ref: 'root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject'\ncomponents:\n  schemas:\n    PlainObject:\n      type: object\n"
+			"name": "issue_38_b.yaml",
+			"path": "tests/specs/issue_38_b.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Minimal test for refs in sequences\n  version: 0.0.1\nservers:\n  - url: https://localhost/\npaths:\n  /api/v2/vms:\n    get:\n      operationId: list_vm\n      description: get all\n"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": resolve reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": invalid schema reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\""
+	"Error": "parse: paths: /api/v2/vms: get: list_vm: responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/technocreatives/openapi-eller"
+			"name": "github.com/taymyr/lagom-openapi"
 		},
 		"file": {
-			"name": "discriminator-field-apispec.yml",
-			"path": "tests/discriminator-field-apispec.yml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Example discriminator field API spec\n  version: 0.0.1\nservers:\n  - url: \"http://example.com\"\npaths:\n  /tagged:\n    get:\n      operationId: get_tagged\n      description: Endpoint to retrieve a single tagged interface.\n      responses:\n        \"200\":\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Tagged\"\ncomponents:\n  schemas:\n    Tagged:\n      oneOf:\n        - $ref: \"#/components/schemas/TaggedFoo\"\n      discriminator:\n        propertyName: type\n        mapping:\n          foo: \"#/components/schemas/TaggedFoo\"\n    TaggedFoo:\n      type: object\n      required:\n        - type\n      properties:\n        type:\n          type: string"
+			"name": "ParameterService.yml",
+			"path": "core/src/test/resources/ParameterService.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Test\n  description: Description\n  version: 1.0.0\npaths:\n  /test/{id}:\n    get:\n      operationId: test\n      parameters:\n        - name: id\n          in: path\n          description: parameter description\n          required: true\n          style: simple\n          allowReserved: true\n          schema:\n            type: string\n            description: the generated UUID\n            format: uuid\n            readOnly: true\n      responses: {}\ncomponents: {}"
 		}
 	},
-	"Error": "make ir: path \"/tagged\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map foo to #/components/schemas/TaggedFoo"
+	"Error": "parse: paths: /test/{id}: get: test: responses: no responses"
 }

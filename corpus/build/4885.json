@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "paths-get-callbacks.json",
-			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "replace-example-requestBody.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/set-example/openapi-3/replace-example-requestBody.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              },\n              \"example\": {\n                \"foo\": \"bar\",\n                \"hello\": [ \"world\" ]\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
 }

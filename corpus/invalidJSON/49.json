@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/snyk/vervet"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "spec.yaml.tmpl",
-			"path": "testdata/.vervet/resource/version/spec.yaml.tmpl",
-			"content": "openapi: 3.0.3\n{{ if .Stability -}}\nx-snyk-api-stability: {{ .Stability }}\n{{ end -}}\ninfo:\n  title: {{ .API }}\n  version: 3.0.0\nservers:\n  - url: /api/{{ .API }}\n    description: {{ .API|capitalize }} API\npaths:\n  /{{ .Resource }}:\n    post:\n      description: Create a new {{ .Resource }}\n      operationId: create{{ .Resource|capitalize }}\n      responses:\n        '200':\n          description: Created {{ .Resource }} successfully\n    get:\n      description: List instances of {{ .Resource }}\n      operationId: list{{ .Resource|capitalize }}\n      responses:\n        '200':\n          description: Returns a list of {{ .Resource }} instances\n  /{{ .Resource }}/{{ \"{\" }}{{ .Resource|uncapitalize }}Id{{ \"}\" }}:\n    get:\n      description: Get an instance of {{ .Resource }}\n      operationId: get{{ .Resource|capitalize }}\n      parameters:\n        - { $ref: '#/components/parameters/{{ .Resource|capitalize }}Id' }\n      responses:\n        '200':\n          description: Returns an instance of {{ .Resource }}\n    patch:\n      description: Update an instance of {{ .Resource }}\n      operationId: update{{ .Resource|capitalize }}\n      parameters:\n        - { $ref: '#/components/parameters/{{ .Resource|capitalize }}Id' }\n      responses:\n        '200':\n          description: Instance of {{ .Resource }} is updated.\n    delete:\n      description: Delete an instance of {{ .Resource }}\n      operationId: delete{{ .Resource|capitalize }}\n      parameters:\n        - { $ref: '#/components/parameters/{{ .Resource|capitalize }}Id' }\n      responses:\n        '204':\n          description: Instance of {{ .Resource }} is deleted.\ncomponents:\n  parameters:\n    {{ .Resource|capitalize }}Id:\n      name: {{ .Resource|uncapitalize }}Id\n      in: path\n      required: true\n      description: Unique identifier for {{ .Resource }} instances\n      schema:\n        type: string\n"
+			"name": "flows-implicit.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/securitySchemes/flows/flows-object/flows-implicit.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"securitySchemes\": {\n      \"test\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"*\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
 	"Error": "invalid json"

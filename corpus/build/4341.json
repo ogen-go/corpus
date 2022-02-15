@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/main.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://myhost.com/testpath'\ninfo:\n  title: Tests\n  description: Tests\n  version: beta\npaths:\n  pets:\n    get:\n      summary: null\n      description: null\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './Pet.yaml#/Pet'"
+			"name": "issue-822.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-822.yaml",
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: Path include test case\n\npaths:\n  /foo:\n    $ref: './issue-822-b.yaml#/paths/~1foo'\n  /wtf/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1wtf~1%7Bbar%7D'\n  /bar/wtf:\n    $ref: './issue-822-b.yaml#/paths/~1bar~1wtf'\n  /haha/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1haha~1{bar}'\n  /haha2/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1haha/{bar}'\n  /bar/haha:\n    $ref: './issue-822-b.yaml#/paths/bar/haha'\n"
 		}
 	},
-	"Error": "parse: paths: pets: get: list: responses: 200: content: */*: schema: parse schema: reference \"./Pet.yaml#/Pet\": resolve reference \"./Pet.yaml#/Pet\": invalid schema reference \"./Pet.yaml#/Pet\""
+	"Error": "parse: /bar/haha: referenced pathItem not supported"
 }

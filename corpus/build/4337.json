@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue1335.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue1335.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example references\n  version: 1.0.0\npaths:\n  /foo:\n    get:\n      responses:\n        '200':\n          $ref: './domain-issue-1335.yaml#/components/responses/200ok'"
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1543/openapi.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Innotech API backend\n  description: \u003e\n    API for the Innotech backend\n  version: 1.0.0\n\npaths:\n\n  ## Miscellaneous ###################################################################\n  \"/misc/ping\":\n    get:\n      tags:\n        - Ping\n      operationId: getPing\n      parameters:\n        - in: query\n          name: param\n          schema:\n            type: string\n            maxLength: 255\n          required: true\n      responses:\n        \"200\":\n          description: Ping response\n          content:\n            application/json:\n              schema:\n                $ref: \"schemas/_index.yaml#/pingResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: resolve \"./domain-issue-1335.yaml#/components/responses/200ok\" reference: invalid response reference: \"./domain-issue-1335.yaml#/components/responses/200ok\""
+	"Error": "parse: paths: /misc/ping: get: getPing: responses: 200: content: application/json: schema: parse schema: reference \"schemas/_index.yaml#/pingResponse\": resolve reference \"schemas/_index.yaml#/pingResponse\": invalid schema reference \"schemas/_index.yaml#/pingResponse\""
 }

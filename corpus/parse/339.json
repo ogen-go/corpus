@@ -5,10 +5,10 @@
 			"name": "github.com/IBM/openapi-validator"
 		},
 		"file": {
-			"name": "test-compose-model.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/oas3/test-compose-model.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    oneOfError:\n      description: should be array but instead just a ref\n      oneOf:\n        $ref: '#/components/schemas/A'\n    allOfError:\n      description: should be array but instead just a type\n      allOf:\n        type: string\n    anyOfError:\n      description: should be array but instead just a ref\n      anyOf:\n        $ref: '#/components/schemas/A'\n"
+			"name": "complex-test-compose-model.yaml",
+			"path": "packages/validator/test/cli-validator/mock-files/oas3/complex-test-compose-model.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    complexOneOfError:\n      description: second oneOf should be array\n      oneOf:\n        - oneOf:\n            $ref: '#/components/schemas/A'\n    complexAllOfError:\n      description: allOf should be array\n      oneOf:\n        - allOf:\n            type: string\n    complexAnyOfError:\n      description: anyOf should be array\n      oneOf:\n        - anyOf:\n            $ref: '#/components/schemas/A'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.allOf of type []*ogen.Schema"
+	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.oneOf.allOf of type []*ogen.Schema"
 }

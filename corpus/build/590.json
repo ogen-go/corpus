@@ -5,10 +5,10 @@
 			"name": "github.com/pubg/api-documentation-content"
 		},
 		"file": {
-			"name": "players.yml",
-			"path": "swagger/en/players.yml",
-			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"kakao\"\r\n        - \"psn\"\r\n        - \"stadia\"\r\n        - \"steam\"\r\n        - \"xbox\"\r\n        default: steam\r\n\r\nsecurity:\r\n  - ApiKeyAuth: []\r\n\r\npaths:\r\n  /players:\r\n    $ref: './paths/index.yml#/players'\r\n\r\n  /players/{accountId}:\r\n    $ref: './paths/index.yml#/player'\r\n\r\ncomponents:\r\n  securitySchemes:\r\n    ApiKeyAuth:\r\n      type: http\r\n      description: \"Enter your API key here to be used with the interactive documentation!\"\r\n      scheme: bearer\r\n      bearerFormat: JWT\r\n\r\n  schemas:\r\n    player:\r\n      $ref: 'schemas/index.yml#/player'\r\n    matchList:\r\n      $ref: 'schemas/index.yml#/matchList'\r\n"
+			"name": "samples.yml",
+			"path": "swagger/en/samples.yml",
+			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n  description: \"Note: Sample rates are independent for each platform and not uniform across any time interval.\"\r\n\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"steam\"\r\n        - \"console\"\r\n        - \"kakao\"\r\n        default: steam\r\n\r\nsecurity:\r\n  - ApiKeyAuth: []\r\n\r\npaths:\r\n  /samples:\r\n    $ref: './paths/index.yml#/samples'\r\n\r\ncomponents:\r\n  securitySchemes:\r\n    ApiKeyAuth:\r\n      type: http\r\n      description: \"Enter your API key here to be used with the interactive documentation!\"\r\n      scheme: bearer\r\n      bearerFormat: JWT\r\n\r\n  schemas:\r\n    sample:\r\n      $ref: 'schemas/index.yml#/sample'\r\n"
 		}
 	},
-	"Error": "parse: /players: referenced pathItem not supported"
+	"Error": "parse: /samples: referenced pathItem not supported"
 }

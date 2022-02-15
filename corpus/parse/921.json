@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "a.yaml",
-			"path": "test/golden/common/tuple-items/homogeneous-component-mismatch/a.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\ncomponents:\n  schemas:\n    Test:\n      type: array\n      items:\n        - type: string\n        - type: number\n"
+			"path": "test/golden/common/tuple-items/heterogeneous-length-mismatch/a.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\ncomponents:\n  schemas:\n    Test:\n      type: array\n      items:\n        - type: number\n        - type: string\n        - type: object\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"

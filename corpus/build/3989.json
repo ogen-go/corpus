@@ -5,10 +5,10 @@
 			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "PhenotypeAssociationSets_Search_POST.yaml",
-			"path": "Specification/GA4GH_BrAPI/GenotypePhenotypeService/PhenotypeAssociationSets_Search_POST.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/genotype_phenotype_service.proto\n  version: version not set\npaths:\n  /phenotypeassociationsets/search:\n    post:\n      summary: \u003e-\n        Gets a list of association sets accessible through the API.\n\n        `POST /phenotypeassociationsets/search` must accept a JSON version of\n\n        `SearchPhenotypeAssociationSetsRequest` as the post body and will return\n        a JSON version\n\n        of `SearchPhenotypeAssociationSetsResponse`.\n      operationId: SearchPhenotypeAssociationSets\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: \u003e-\n                  #/components/schemas/SearchPhenotypeAssociationSetsResponse\n      tags:\n        - GA4GH\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SearchPhenotypeAssociationSetsRequest'\n        required: true"
+			"name": "DataSets_DataSetId_GET.yaml",
+			"path": "Specification/GA4GH_BrAPI/DataSets/DataSets_DataSetId_GET.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/metadata_service.proto\n  version: version not set\npaths:\n  /datasets/{dataset_id}:\n    get:\n      summary: Gets a `Dataset` by ID.\n      description: |-\n        `GET /datasets/{dataset_id}` will return a JSON version of\n        `Dataset`.\n      operationId: GetDataset\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Dataset'\n      parameters:\n        - name: dataset_id\n          description: The ID of the `Dataset` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n      tags:\n        - GA4GH"
 		}
 	},
-	"Error": "parse: paths: /phenotypeassociationsets/search: post: SearchPhenotypeAssociationSets: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/SearchPhenotypeAssociationSetsRequest\": resolve reference \"#/components/schemas/SearchPhenotypeAssociationSetsRequest\": schema not found"
+	"Error": "parse: paths: /datasets/{dataset_id}: get: GetDataset: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Dataset\": resolve reference \"#/components/schemas/Dataset\": schema not found"
 }

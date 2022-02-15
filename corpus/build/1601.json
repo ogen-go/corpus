@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/empoa"
+			"name": "github.com/OAI/OpenAPI-Specification"
 		},
 		"file": {
-			"name": "multiple-responses.yaml",
-			"path": "empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/multiple-responses.yaml",
-			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: A Specification\n  version: \"1.0\"\nservers:\n- url: http://localhost:8080/\npaths:\n  /ping:\n    get:\n      operationId: pingGet\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PingObject'\n        \"4XX\":\n          $ref: '#/components/responses/BusinessErrorResponse'\n        default:\n          description: Server Error\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Error'\n    post:\n      operationId: pingPost\n      responses:\n        \"405\":\n          description: POST is not allowed\ncomponents:\n  schemas:\n    PingObject:\n      type: object\n      title: Title\n      description: Some description\n      properties:\n        id:\n          type: integer\n          format: int32\n        name:\n          type: string\n    Error:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  responses:\n    BusinessErrorResponse:\n      description: Business Error\n      content:\n        '*/*':\n          schema:\n            $ref: '#/components/schemas/Error'\n"
+			"name": "non-oauth-scopes.yaml",
+			"path": "examples/v3.1/non-oauth-scopes.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Non-oAuth Scopes example\n  version: 1.0.0\npaths:\n  /users:\n    get:\n      security:\n        - bearerAuth:\n            - 'read:users'\n            - 'public'\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: jwt\n      description: 'note: non-oauth scopes are not defined at the securityScheme level'\n\n"
 		}
 	},
-	"Error": "make ir: path \"/ping\": get: responses: parse response status code: strconv.Atoi: parsing \"4XX\": invalid syntax"
+	"Error": "parse: paths: /users: get: : responses: no responses"
 }

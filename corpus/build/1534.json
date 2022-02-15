@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "internalPathItemRef.yaml",
-			"path": "3.0/fail/internalPathItemRef.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid internal $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '#/paths/test2'\n  /test2: {}\n"
+			"name": "duplicateParameter.yaml",
+			"path": "3.0/fail/duplicateParameter.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate parameter\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      parameters:\n      - name: test\n        in: query\n        schema:\n          type: string\n      - name: test\n        in: query\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /test: get: same: parameters: duplicate parameter: \"test\" in \"query\""
 }

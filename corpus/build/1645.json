@@ -5,10 +5,10 @@
 			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "issue7325-use-delegate-reactive-tags-kotlin.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: test\n  version: \"1.0\"\n\npaths:\n\n  /api/v1/test/{id}:\n    get:\n      tags: [Test v1]\n      operationId: test1\n      parameters:\n        - name: id\n          in: path\n          schema:\n            type: string\n      responses:\n        200:\n          description: OK\n\n  /api/v2/test:\n    get:\n      tags: [Test v2]\n      operationId: test2\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n\n\n"
+			"name": "issue_1517.yaml",
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Test Regex generation for parameter validation\n  version: 1.0.0\ncomponents:\n  headers:\n\n  responses:\n    OK_200:\n      description: OK\n\npaths:\n  /ping:\n    get:\n      summary: Get Payment Information\n      description: Returns the content of a payment object\n      parameters:\n        - name: pattern_no_forward_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern$'\n        - name: pattern_two_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern$/'\n        - name: pattern_dont_escape_backslash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\d{3}$'\n        - name: pattern_dont_escape_escaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\/\\d{3}$'\n        - name: pattern_escape_unescaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern/\\d{3}$'\n        - name: pattern_with_modifiers\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern\\d{3}$/i'\n        - name: pattern_with_backslash_after_bracket\n          in: header\n          schema:\n            type: string\n            pattern: '/^[\\pattern\\d{3}$/i'\n\n      responses:\n        '200':\n          $ref: \"#/components/responses/OK_200\""
 		}
 	},
-	"Error": "parse: paths: /api/v1/test/{id}: get: test1: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "make ir: path \"/ping\": get: parameters: \"pattern_with_backslash_after_bracket\": string validator: pattern: error parsing regexp: invalid character class range: `\\pa`"
 }

@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/no-server-trailing-slash-error/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\nservers:\n  - url: https://development.gigantic-server.com/v1/\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
+			"path": "__tests__/lint/no-path-trailing-slash-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\nservers:\n  - url: 'http://api.redoc.ly'\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anz-bank/sysl"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "all-of-recursive.yaml",
-			"path": "pkg/importer/tests/openapi3/errors/all-of-recursive.yaml",
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: Simple\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n      responses:\n        '200':\n          description: Updated\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - pet_type\n      properties:\n        pet_type:\n          type: string\n      discriminator:\n        propertyName: pet_type\n    Dog:     # \"Dog\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Dog`-specific properties \n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Dog`\n          properties:\n            color:\n              type: string\n              format: \"uuid\"\n            bark:\n              type: boolean\n            breed:\n              type: string\n              enum: [Dingo, Husky, Retriever, Shepherd]\n    Cat:     # \"Cat\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Cat`-specific properties \n        - $ref: '#/components/schemas/Dog'\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Cat`\n          properties:\n            hunts:\n              type: boolean\n            age:\n              type: integer\n"
+			"name": "facet-string-pattern-valid.yaml",
+			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/facet-string-pattern-valid.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: OpenAPI Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:9999/v2\npaths:\n  /ping:\n    post:\n      summary: test\n      description: test it\n      operationId: pingOp\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SomeObj'\n        required: true\n      responses:\n        '200':\n          description: OK\n          content: {}\ncomponents:\n  schemas:\n    SomeObj:\n      type: string\n      pattern: ^([\\u30a0-\\u30ff]+)\n      example: キンギョ"
 		}
 	},
-	"Error": "parse: paths: /pets: patch: : requestBody: content: application/json: parse schema: parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Cat\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Dog\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Cat\": infinite recursion: \"#/components/schemas/Cat\""
+	"Error": "make ir: path \"/ping\": post: requestBody: contents: application/json: schema: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
 }

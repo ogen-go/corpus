@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_example/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              examples:\n                objectExample:\n                  \"$ref\": \"#/components/examples/wrongExample\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  examples:\n    objectExample:\n      value:\n        id: '1'\n        name: new object\n      summary: A sample object\n"
+			"name": "negative4.yaml",
+			"path": "assets/queries/openAPI/3.0/header_object_with_incorrect_ref/test/negative4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"50\":\n          description: Server error response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n        \"6xx\":\n          description: \"[600-699] response\"\n          headers:\n            X-Rate-Limit-Limit:\n              $ref: \"#/components/headers/\"\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve: \"#/components/examples/wrongExample\": component by reference \"#/components/examples/wrongExample\" not found"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 50: unknown status code: 50"
 }

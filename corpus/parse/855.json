@@ -5,10 +5,10 @@
 			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "simpleSchemaWithExamplesNotMachingType.yaml",
-			"path": "test/data/valid_openapi31X/yaml/simpleSchemaWithExamplesNotMachingType.yaml",
-			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with examples\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type:\n        - object\n      properties:\n        id:\n          type:\n            - string\n            - integer\n          examples:\n            - 1234\n            - 12\n"
+			"name": "wrong-body.yaml",
+			"path": "test/data/valid_openapi/wrong-body.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n    description:\n        Test Service\n    version: 0.1\n    title: Test Service Name\nservers:\n    -   url: https://test.com\n        description: Test API\npaths:\n    /entity:\n        put:\n            summary: Update entity\n            operationId: updateEntity\n            requestBody:\n                schema: object # This is wrong,\n                # but the converter should just ignore the formHeaders if not present\n            responses:\n                200:\n                    description: 200 OK\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

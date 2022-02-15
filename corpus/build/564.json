@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi3.yml",
-			"path": "commonTestResources/exampleOpenApiFiles/valid/preferNonTemplatedPathOverTemplatedPath/nonTemplatedPathAfterTemplatedPath/openapi3.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test OpenApi 3 spec\n  description: Test that our plugins prefer to match responses to non-templated paths over templated paths\n  version: 0.1.0\npaths:\n  /preferNonTemplatedPathOverTemplatedPath/{templatedPath}:\n    get:\n      responses:\n        200:\n          description: Response body should be a number\n          content:\n            application/json:\n              schema:\n                type: number\n  /preferNonTemplatedPathOverTemplatedPath/nonTemplatedPath:\n    get:\n      responses:\n        200:\n          description: Response body should be a string\n          content:\n            application/json:\n              schema:\n                type: string\n"
+			"path": "commonTestResources/exampleOpenApiFiles/valid/preferNonTemplatedPathOverTemplatedPath/nonTemplatedPathBeforeTemplatedPath/openapi3.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test OpenApi 3 spec\n  description: Test that our plugins prefer to match responses to non-templated paths over templated paths\n  version: 0.1.0\npaths:\n  /preferNonTemplatedPathOverTemplatedPath/nonTemplatedPath:\n    get:\n      responses:\n        200:\n          description: Response body should be a string\n          content:\n            application/json:\n              schema:\n                type: string\n  /preferNonTemplatedPathOverTemplatedPath/{templatedPath}:\n    get:\n      responses:\n        200:\n          description: Response body should be a number\n          content:\n            application/json:\n              schema:\n                type: number\n"
 		}
 	},
 	"Error": "parse: paths: /preferNonTemplatedPathOverTemplatedPath/{templatedPath}: get: : parse path: path parameter not specified: \"templatedPath\""

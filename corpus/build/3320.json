@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kvikuz/sls-web-application"
+			"name": "github.com/kota65535/openapi-merger"
 		},
 		"file": {
-			"name": "website.yaml",
-			"path": "openapi/website.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Movies Website\nx-yc-apigateway:\n  service_account_id: ${movies_api_sa_id}\n\npaths:\n  /:\n    get:\n      operationId: index\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: 'index.html'\n  /{file+}:\n    get:\n      operationId: website\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: '{file}'\n  /images/{file+}:\n    get:\n      operationId: posters\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_images_bucket}\n        object: '{file}'\n"
+			"name": "openapi.yaml",
+			"path": "test/resources/petstore/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - $ref: \"components/Limit.yaml\"\n      responses:\n        '200':\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:    \n              schema:\n                $ref: \"components/Pets.yaml\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"components/Error.yaml\"\n    post:\n      summary: Create a pet\n      operationId: createPets\n      tags:\n        - pets\n      responses:\n        '201':\n          description: Null response\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"components/Error.yaml\"\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"components/Pet.yaml\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"components/Error.yaml\"\n\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: index: responses: no responses"
+	"Error": "parse: paths: /pets: get: listPets: parameters: parse parameter \"\": resolve \"components/Limit.yaml\" reference: invalid parameter reference: \"components/Limit.yaml\""
 }

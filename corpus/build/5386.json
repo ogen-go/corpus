@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/awslabs/smithy"
+			"name": "github.com/apioo/psx-model"
 		},
 		"file": {
-			"name": "greedy-labels-for-rest.openapi.json",
-			"path": "smithy-aws-apigateway-openapi/src/test/resources/software/amazon/smithy/aws/apigateway/openapi/greedy-labels-for-rest.openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Service\",\n    \"version\": \"2006-03-01\"\n  },\n  \"paths\": {\n    \"/{baz+}\": {\n      \"post\": {\n        \"operationId\": \"Operation\",\n        \"parameters\": [\n          {\n            \"name\": \"baz\",\n            \"in\": \"path\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"required\": true\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Operation 200 response\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "openapi_security.json",
+			"path": "tests/OpenAPI/resources/openapi_security.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"\\/pets\\/{petId}\": {\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"security\": [\n          {\n            \"oauth\": [\n              \"foo\",\n              \"bar\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"oauth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"http:\\/\\/api.phpsx.org\\/authorization\",\n            \"tokenUrl\": \"http:\\/\\/api.phpsx.org\\/token\",\n            \"refreshUrl\": \"http:\\/\\/api.phpsx.org\\/token\\/refresh\",\n            \"scopes\": {\n              \"foo\": \"Foo scope\",\n              \"bar\": \"Bar scope\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /{baz+}: post: Operation: parse path: path parameter not specified: \"baz+\""
+	"Error": "parse: paths: /pets/{petId}: get: : parse path: path parameter not specified: \"petId\""
 }

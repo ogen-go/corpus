@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_with_dot_in_key.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_with_dot_in_key.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/V1.Pets\"\ncomponents:\n  schemas:\n    \u003ccaret\u003eV1.Pets:\n"
+			"name": "rename_component_callback.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_callback.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      callbacks:\n        foo:\n          $ref: \"#/components/callbacks/Callback\"\ncomponents:\n  callbacks:\n    \u003ccaret\u003eCallback:\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/V1.Pets\": resolve reference \"#/components/schemas/V1.Pets\": schema not found"
+	"Error": "parse: paths: /pathA: get: : responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "request_body_direct.yaml",
-			"path": "core/src/test/resources/api/request_body/request_body_direct.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            required:\n              - id\n            type: object\n            properties:\n              id:\n                type: string\n"
+			"name": "service.yaml",
+			"path": "openapi3/testdata/303bis/service.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'some service spec'\n  version: 1.2.3\n\npaths:\n  /service:\n    get:\n      tags:\n        - services/service\n      summary: List services\n      description: List services.\n      operationId: list-services\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/model_service\"\n\ncomponents:\n  schemas:\n    model_service:\n      allOf:\n        - $ref: \"common/properties.yaml#/timestamps\"\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: addPet: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
+	"Error": "parse: paths: /service: get: list-services: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/model_service\": parse schema: allOf: [0]: parse schema: reference \"common/properties.yaml#/timestamps\": resolve reference \"common/properties.yaml#/timestamps\": invalid schema reference \"common/properties.yaml#/timestamps\""
 }

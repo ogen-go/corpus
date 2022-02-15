@@ -5,9 +5,9 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "discriminator-mapping.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/discriminator/discriminator-mapping.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Cat:\n      properties:\n        legs:\n          type: integer\n        name:\n          type: string\n        pet-type:\n          type: string\n    Dog:\n      properties:\n        legs:\n          type: integer\n        nickname:\n          type: string\n        pet-type:\n          type: string\n    test:\n      oneOf:\n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Dog'\n      discriminator:\n        propertyName: pet-type\n        mapping:\n          *"
+			"name": "discriminator-mapping-value.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/discriminator/discriminator-mapping-value.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Cat:\n      properties:\n        legs:\n          type: integer\n        name:\n          type: string\n        pet-type:\n          type: string\n    Dog:\n      properties:\n        legs:\n          type: integer\n        nickname:\n          type: string\n        pet-type:\n          type: string\n    test:\n      oneOf:\n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Dog'\n      discriminator:\n        propertyName: pet-type\n        mapping:\n          dog: *"
 		}
 	},
 	"Error": "yaml: line 27: did not find expected alphabetic or numeric character"

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kearch/kearch"
+			"name": "github.com/kawasima/darzana"
 		},
 		"file": {
-			"name": "me_admin_spec.yaml",
-			"path": "packages/me-admin/me_admin_spec.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: kearch meta search engine admin API\n  description: kearch meta search engine admin API\n  version: 0.1.0\nservers:\n  - url: '{scheme}://{me_host}:{port}/me/admin'\n    variables:\n      scheme:\n        enum:\n          - http\n          - https\n        default: http\n      me_host:\n        default: localhost\n      port:\n        default: '32600'\npaths:\n  /login:\n    get:\n      parameters:\n        - in: query\n          name: username\n          schema:\n            type: string\n          required: true\n        - in: query\n          name: password\n          schema:\n            type: string\n          required: true\n  /logout:\n    get:\n      summary:\n  /update_password:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                required: true\n                password:\n                  type: string\n                password_again:\n                  type: string\n  /learn_params_for_evaluator:\n    get:\n      summary:\n  /approve_a_connection_request:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                required: true\n                sp_host:\n                  type: string\n  /delete_a_connection_request:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                required: true\n                sp_host:\n                  type: string\n  /send_a_connection_request:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                required: true\n                sp_host:\n                  type: string\n"
+			"name": "jsonplaceholder.yaml",
+			"path": "dev/resources/swagger/jsonplaceholder.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: JSONPlaceholder\n  license:\n    name: MIT\nservers:\n  - url: https://jsonplaceholder.typicode.com\npaths:\n  /posts:\n    get:\n      summary: List of all posts\n      operationId: getPosts\n      tags:\n        - posts\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Post'\n  /posts/{id}:\n    get:\n      summary: Get a post\n      operationId: getPost\n      tags:\n        - posts\n      parameters:\n        id:\n          type: integer\n          format: int64\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Post'\n\ncomponents:\n  schemas:\n    Post:\n      properties:\n        id:\n          type: integer\n          format: int64\n        userId:\n          type: integer\n          format: int64\n        title:\n          type: string\n        body:\n          type: string\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal bool into Go value of type ogen.Schema"
+	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.parameters of type []*ogen.Parameter"
 }

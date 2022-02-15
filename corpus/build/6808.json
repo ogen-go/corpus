@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/xuorig/anicca"
 		},
 		"file": {
-			"name": "schema_ref.json",
-			"path": "src/test/resources/testing/completion/value/openapi/schema_ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003e\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {}\n    }\n  }\n}\n"
+			"name": "pet-store-changed.json",
+			"path": "fixtures/pet-store-changed.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List all dogs\",\n        \"operationId\": \"listDogs\",\n        \"tags\": [\"felines\"],\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"stays\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A paged array of dogs\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/pets2\": {\n      \"get\": {\n        \"summary\": \"List all dogs\",\n        \"operationId\": \"listDogs\",\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"stays\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A paged array of dogs\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Dogs\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Dogs\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"$ref\": \"#/components/schemas/Dog\"\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e\": resolve reference \"\u003ccaret\u003e\": invalid schema reference \"\u003ccaret\u003e\""
+	"Error": "parse: paths: /pets2: get: duplicate operationId: \"listDogs\""
 }

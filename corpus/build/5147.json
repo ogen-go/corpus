@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/JustinFeng/fakeit"
+			"name": "github.com/ErikWittern/openapi-snippet"
 		},
 		"file": {
-			"name": "reference.json",
-			"path": "spec/fixtures/reference.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Reference\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/response\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"response\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"invalid_ref\": {\n            \"$ref\": \"#/components/schemas/invalid\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "parameter_schema_reference.json",
+			"path": "test/parameter_schema_reference.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"description\": \"A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"contact\": {\n      \"name\": \"Swagger API Team\",\n      \"email\": \"apiteam@swagger.io\",\n      \"url\": \"http://swagger.io\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/api\"\n    }\n  ],\n  \"paths\": {\n    \"/pets\": {\n      \"post\": {\n        \"description\": \"Creates a new pet in the store.  Duplicates are allowed\",\n        \"operationId\": \"addPet\",\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"pet\",\n            \"description\": \"Pet to add to the store\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/NewPet\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"pet response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"NewPet\": {\n        \"required\": [\"name\"],\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"tag\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/response\": parse schema: invalid_ref: parse schema: reference \"#/components/schemas/invalid\": resolve reference \"#/components/schemas/invalid\": schema not found"
+	"Error": "parse: paths: /pets: post: addPet: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

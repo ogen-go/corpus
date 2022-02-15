@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "negative3.yaml",
-			"path": "assets/queries/openAPI/general/required_property_default_value/test/negative3.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      required:\n      - id\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n          default: guest\n"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        required: false\n        schema:\n          type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: /: parameters: parse parameter \"id\": path parameters must be required"
 }

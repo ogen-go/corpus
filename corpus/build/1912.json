@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
 		},
 		"file": {
-			"name": "issue_38_b.yaml",
-			"path": "tests/specs/issue_38_b.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Minimal test for refs in sequences\n  version: 0.0.1\nservers:\n  - url: https://localhost/\npaths:\n  /api/v2/vms:\n    get:\n      operationId: list_vm\n      description: get all\n"
+			"name": "PathItem.yaml",
+			"path": "com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/PathItem.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Callbacks Object\n  version: \"1.0.0\"  \n  \npaths: \n\n  /pets:\n    #KZOE-ref name=\"path item in paths\", value=\"paths\"\n    $ref: \"HeadersObject.yaml#/paths/~1pets\"\n      \ncomponents: \n\n  callbacks:\n    myWebhook:\n      '$request.body#/url':\n        #KZOE-ref name=\"path item in callback\", value=\"paths\"\n        $ref: \"HeadersObject.yaml#/paths/~1pets\"\n\n "
 		}
 	},
-	"Error": "parse: paths: /api/v2/vms: get: list_vm: responses: no responses"
+	"Error": "parse: /pets: referenced pathItem not supported"
 }

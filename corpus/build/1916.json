@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RepreZen/KaiZen-OpenApi-Parser"
 		},
 		"file": {
-			"name": "local_reference_from_file.spec.yaml",
-			"path": "tests/specs/translating_parser/local_reference_from_file.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a local reference\n          content:\n            application/json:\n              schema:\n                $ref: 'local_reference_from_file_schemas.spec.yaml#/$defs/RefObject'\n"
+			"name": "invalidParam.yaml",
+			"path": "kaizen-openapi-parser/src/test/resources/models/params/invalidParam.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: My API Spec\npaths:\n  /{id:\n    get:\n      parameters:\n      - in: path\n        name: id\n        required: true\n      responses:\n        200:\n          description: Ok\n"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": resolve reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": invalid schema reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\""
+	"Error": "parse: paths: /{id: get: : parse path: invalid path: /{id"
 }

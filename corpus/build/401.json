@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "for-serverless-shortener.yml",
-			"path": "steps/3-use-api-gateway/for-serverless-shortener.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: for-serverless-shortener\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket:             \u003cbucket_name\u003e        # \u003c-- название бакета\n        object:             \u003chtml_file\u003e          # \u003c-- название html-файла\n        presigned_redirect: false\n        service_account:    \u003cservice_account_id\u003e # \u003c-- ID сервисного аккаунта\n      operationId: static\n"
+			"path": "steps/4-create-cloud-function/for-serverless-shortener.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: for-serverless-shortener\n  version: 1.0.0\nservers:\n- url: # не трогаем, оставляем, как было\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket:             \u003cbucket_name\u003e        # \u003c-- название бакета\n        object:             \u003chtml_file\u003e          # \u003c-- название html-файла\n        presigned_redirect: false\n        service_account:    \u003cservice_account_id\u003e # \u003c-- ID сервисного аккаунта\n      operationId: static\n  /shorten:\n    post:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id:  \u003cfunction_id\u003e               # \u003c-- ID функции\n      operationId: shorten\n  /r/{id}:\n    get:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id:  \u003cfunction_id\u003e               # \u003c-- ID функции\n      operationId: redirect\n      parameters:\n      - description: id of the url\n        explode: false\n        in: path\n        name: id\n        required: true\n        schema:\n          type: string\n        style: simple\n        \n"
 		}
 	},
 	"Error": "parse: paths: /: get: static: responses: no responses"

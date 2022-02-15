@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/urykhy/stuff"
+			"name": "github.com/typeable/compaREST"
 		},
 		"file": {
-			"name": "redirect.v1.yaml",
-			"path": "swagger/redirect.v1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: redirect\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000/api/v1/redirect'\npaths:\n  /temporary_1:\n    get:\n      summary: Begin tmp redirect chain\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/octet-stream:\n              schema: {}\n              examples: {}\n        '302':\n          description: Found\n          headers:\n            location:\n              schema:\n                type: string\n      operationId: get-temporary_1\n  /temporary_2:\n    get:\n      summary: Continue redirect chain\n      tags: []\n      responses:\n        '307':\n          description: Temporary Redirect\n          headers:\n            location:\n              schema:\n                type: string\n      operationId: get-temporary_2\n  /permanent:\n    get:\n      summary: Create permanent redirect\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/octet-stream:\n              schema: {}\n        '308':\n          description: Permanent Redirect (experiemental)\n          headers:\n            location:\n              schema:\n                type: string\n      operationId: get-permanent\n  /finish:\n    get:\n      summary: Redirect final point\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/octet-stream:\n              schema: {}\n      operationId: get-finish\n"
+			"name": "a.yaml",
+			"path": "test/golden/common/unguarded-recursive/silent/a.yaml",
+			"content": "components:\n  schemas:\n    A:\n      type: object\n      properties:\n        bar:\n          $ref: \"#/components/schemas/B\"\n    B:\n      anyOf:\n        - $ref: \"#/components/schemas/B\"\n      type: object\nopenapi: 3.0.0\ninfo:\n  version: \"\"\n  title: \"\"\npaths:\n  /foo:\n    get:\n      responses:\n        \"200\":\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/A\"\n          description: \"\"\n"
 		}
 	},
-	"Error": "make ir: path \"/finish\": get: responses: 200: contents: application/octet-stream: octet stream with schema not supported"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json;charset=utf-8: schema: parse schema: reference \"#/components/schemas/A\": parse schema: bar: parse schema: reference \"#/components/schemas/B\": parse schema: anyOf: [0]: parse schema: reference \"#/components/schemas/B\": infinite recursion: \"#/components/schemas/B\""
 }

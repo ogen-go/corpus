@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "paths-response-with-examples.expected.json",
-			"path": "src/test/resources/fixtures/transformation/oai2-oai3/paths/paths-response-with-examples.expected.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A simple string response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/String\"\n                },\n                \"example\": {\n                  \"name\": \"Puma\",\n                  \"type\": \"Dog\",\n                  \"color\": \"Black\",\n                  \"gender\": \"Female\",\n                  \"breed\": \"Mixed\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "paths-get-security-anon.json",
+			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-security-anon.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"security\": [\n          {},\n          {\n            \"oauth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: listPets: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/String\": resolve reference \"#/components/schemas/String\": schema not found"
+	"Error": "parse: paths: /foo: get: : responses: no responses"
 }

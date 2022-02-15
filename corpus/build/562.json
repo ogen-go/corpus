@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/nponeccop/serverless-openapi-templates"
+			"name": "github.com/openapi-library/OpenAPIValidators"
 		},
 		"file": {
-			"name": "minimal.yml",
-			"path": "min/minimal.yml",
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Serverless Minimal OpenAPI\"\npaths:\n  /min-dev-hello:\n    post:\n      x-serverless.com:\n        handler: handler.hello\n        function: hello\n\n"
+			"name": "openapi3WithNoComponents.yml",
+			"path": "commonTestResources/exampleOpenApiFiles/valid/noResponseComponents/openapi3WithNoComponents.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example OpenApi 3 spec\n  description: Has various paths with responses to use in testing\n  version: 0.1.0\npaths:\n  /endpointPath:\n    get:\n      responses:\n        204:\n          $ref: '#/components/responses/NonExistentResponse'\n"
 		}
 	},
-	"Error": "parse: paths: /min-dev-hello: post: : responses: no responses"
+	"Error": "parse: paths: /endpointPath: get: : responses: 204: resolve \"#/components/responses/NonExistentResponse\" reference: component by reference \"#/components/responses/NonExistentResponse\" not found"
 }

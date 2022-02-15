@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/app-generator/fullstack-openapi-generator"
 		},
 		"file": {
-			"name": "ordersEndpoints.v1.yaml",
-			"path": "sample/Demo.ApiDesign/MultiFileVersion/orders/ordersEndpoints.v1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  $ref: ../common/components/endpoints.v1.yaml#/info\nservers:\n  $ref: ../common/components/endpoints.v1.yaml#/servers\n\npaths:\n  '/orders/{id}':\n    get:\n      tags:\n        - Orders\n      summary: Get order by id\n      description: Get order by id\n      operationId: getOrderById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the order to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          $ref: ../common/components/responses.v1.yaml#/400\n        '404':\n          $ref: ../common/components/responses.v1.yaml#/404\n        default:\n          $ref: ../common/components/responses.v1.yaml#/400\ncomponents:\n  schemas:\n    Order:\n      $ref: ./models/order.v1.yaml\n    Orders:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n      x-tags:\n        - Orders\n      title: Orders\n      description: A list of orders.\n"
+			"name": "api.yaml",
+			"path": "spec/api.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: NodeJS API Seed\n  description: \u003e-\n   API Seed with NodeJs and OpenAPI\n  version: 1.0.0\nservers:\n  - url: \"http://localhost:9000/\"\ntags:\n  - name: article\n    description: Everything concerning articles, comments \n  - name: user\n    description: Operations about users\n\npaths:\n  /article:\n    $ref: \"./article/article.yaml\"\n  /article/{id}:\n    $ref: \"./article/article-id.yaml\"\n  /user:\n    $ref: \"./user/user.yaml\"\n  /user/{id}:\n    $ref: \"./user/user-id.yaml\"\n  /data:\n    $ref: \"./data/data.yaml\"\n  /data/{id}:\n    $ref: \"./data/data-id.yaml\"\n  \n\ncomponents:\n  schemas:\n    $ref: \"./schemas/_index.yaml\"\n  securitySchemes:\n    auth:\n      type: openIdConnect\n      openIdConnectUrl: https://seed.eu.auth0.com/.well-known/openid-configuration"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.schemas of type ogen.Schema"
 }

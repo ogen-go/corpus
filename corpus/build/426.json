@@ -5,10 +5,10 @@
 			"name": "github.com/influxdata/openapi"
 		},
 		"file": {
-			"name": "svc-datasourcesd.yml",
-			"path": "src/svc-datasourcesd.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Cloud Data Sources Service\n  version: '1.0'\nservers:\n  - url: /\npaths:\n  /datasources:\n    $ref: ./svc/datasourcesd/paths/datasources.yml\n  '/datasources/{datasourceID}':\n    $ref: ./svc/datasourcesd/paths/datasources-id.yml\n  '/webhooks/{token}':\n    $ref: ./svc/datasourcesd/paths/webhooks.yml\ncomponents:\n  schemas:\n    Datasource:\n      $ref: ./svc/datasourcesd/schemas/Datasource.yml\n    ListenerEndpoint:\n      $ref: ./svc/datasourcesd/schemas/ListenerEndpoint.yml\n    Service:\n      $ref: ./svc/datasourcesd/schemas/Service.yml\n"
+			"name": "svc-fluxdocsd.yml",
+			"path": "src/svc-fluxdocsd.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: fluxdocsd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /fluxdocs:\n    $ref: './svc/fluxdocsd/paths/fluxdocs.yml'\n  /fluxdocs/{id}:\n    $ref: './svc/fluxdocsd/paths/fluxdocs_id.yml'\ncomponents:\n  requestBodies:\n    FluxdocsParams:\n      $ref: './svc/fluxdocsd/requestBodies/FluxdocsParams.yml'\n  schemas:\n    Fluxdocs:\n      $ref: './svc/fluxdocsd/schemas/fluxdocs.yml'\n    FluxdocsArray:\n      $ref: './svc/fluxdocsd/schemas/fluxdocsArray.yml'\n    FluxdocsParameters:\n      $ref: './svc/fluxdocsd/schemas/fluxdocsParameters.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
 		}
 	},
-	"Error": "parse: /datasources: referenced pathItem not supported"
+	"Error": "parse: /fluxdocs: referenced pathItem not supported"
 }

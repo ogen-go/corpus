@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "new-operation.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-operation/openapi-3/new-operation.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"put\": {}\n    }\n  }\n}\n"
+			"name": "delete-server-pathItem.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-server/openapi-3/delete-server-pathItem.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"required\": true\n        }\n      },\n      \"servers\": [\n        {\n          \"url\": \"https://development.gigantic-server.com/v1\",\n          \"description\": \"Development server\"\n        },\n        {\n          \"url\": \"https://staging.gigantic-server.com/v1\",\n          \"description\": \"Staging server\"\n        }\n      ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /foo: get: : responses: no responses"
 }

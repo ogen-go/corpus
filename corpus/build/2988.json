@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/go-kratos/kratos-layout"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "openapi.yaml",
-			"content": "# Generated with protoc-gen-openapi\n# https://github.com/google/gnostic/tree/master/apps/protoc-gen-openapi\n\nopenapi: 3.0.3\ninfo:\n    title: Greeter\n    description: The greeting service definition.\n    version: 0.0.1\npaths:\n    /helloworld/{name}:\n        get:\n            summary: Sends a greeting\n            operationId: Greeter_SayHello\n            parameters:\n                - name: name\n                  in: query\n                  schema:\n                    type: string\n            responses:\n                \"200\":\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/HelloReply'\ncomponents:\n    schemas:\n        HelloReply:\n            properties:\n                message:\n                    type: string\n            description: The response message containing the greetings\n"
+			"name": "component_req_body_unnest_expected.yaml",
+			"path": "core/src/test/resources/openapi/enum_flattener/component_req_body_unnest_expected.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\nservers:\n  - url: /\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n    Id:\n      type: string\n      enum:\n        - a\n        - b\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            required:\n              - id\n            type: object\n            properties:\n              id:\n                $ref: \"#/components/schemas/Id\"\n"
 		}
 	},
-	"Error": "parse: paths: /helloworld/{name}: get: Greeter_SayHello: parse path: path parameter not specified: \"name\""
+	"Error": "parse: paths: /pet: post: addPet: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
 }

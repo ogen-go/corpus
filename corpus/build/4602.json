@@ -5,10 +5,10 @@
 			"name": "github.com/wikimedia/restbase"
 		},
 		"file": {
-			"name": "random.yaml",
-			"path": "v1/random.yaml",
-			"content": "openapi: 3.0.1\npaths:\n  /random/{format}:\n    get:\n      tags:\n        - Page content\n      summary: Get content for a random page\n      description: |\n        Redirects the client to the URI for the desired format for a random page title.\n\n        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n      parameters:\n        - name: format\n          in: path\n          description: The desired return format\n          required: true\n          schema:\n            type: string\n            enum:\n              - title\n              - html\n              - summary\n              - related\n              - mobile-sections\n              - mobile-sections-lead\n      responses:\n        303:\n          description: The redirect to the desired format URI for a random page\n          content:\n            application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/Random/0.7.0\":\n              schema:\n                type: object\n        default:\n          description: Error\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-request-handler:\n        - title_from_mobileapps:\n            request:\n              uri: '{{options.host}}/{domain}/v1/page/random/title'\n            return:\n              status: 303\n              headers:\n                location: ../{request.params.format}/{title_from_mobileapps.body.items[0].title}\n      x-monitor: false\n"
+			"name": "post_data.yaml",
+			"path": "sys/post_data.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: '1.0.0'\n  title: RESTBase post data storage module\n  description: Revisioned post data storage with HTTP interface, backed by table storage\npaths:\n  /{bucket}:\n    put:\n      operationId: createBucket\n\n  /{bucket}/:\n    put:\n      operationId: putRevision\n\n  /{bucket}/{key}: \u0026bucket_key\n    get:\n      operationId: getRevision\n  /{bucket}/{key}/{tid}:\n    \u003c\u003c: *bucket_key\n\n  /{bucket}/hash:\n    post:\n      operationId: calculateHash\n"
 		}
 	},
-	"Error": "parse: paths: /random/{format}: get: : responses: default: content: application/problem+json: schema: parse schema: reference \"#/components/schemas/problem\": resolve reference \"#/components/schemas/problem\": schema not found"
+	"Error": "parse: paths: /{bucket}/{key}: get: getRevision: parse path: path parameter not specified: \"bucket\""
 }
