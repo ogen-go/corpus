@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/podhmo/dictknife"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "examples/swaggerknife/migrate/dst/02/main.yaml",
-			"content": "info:\n  description: API description in Markdown.\n  title: Sample API\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /users:\n    $ref: './api.yaml#/paths/~1users'\nservers:\n- description: ''\n  url: 'http://api.example.com/v1'\n"
+			"name": "Scales_ScaleDbId_GET_PUT.yaml",
+			"path": "Specification/BrAPI-Phenotyping/Scales/Scales_ScaleDbId_GET_PUT.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /scales/{scaleDbId}:\n    get:\n      summary: Get the details of a specific Scale\n      description: 'Retrieve details about a specific scale\n\n\n        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'\n      parameters:\n      - description: Id of the scale to retrieve details of.\n        in: path\n        name: scaleDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/ScaleSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Scales\n    put:\n      summary: Update an existing Scale\n      description: Update the details of an existing scale\n      parameters:\n      - description: Id of the scale to retrieve details of.\n        in: path\n        name: scaleDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ScaleNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/ScaleSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Scales\ncomponents:\n  responses:\n    ScaleSingleResponse:\n      content:\n        application/json:\n          schema:\n            title: ScaleSingleResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/Scale'\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}\n"
 		}
 	},
-	"Error": "parse: /users: referenced pathItem not supported"
+	"Error": "parse: paths: /scales/{scaleDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

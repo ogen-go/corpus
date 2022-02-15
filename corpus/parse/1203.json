@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bkbnio/kompendium"
+			"name": "github.com/atlassian/oas3-chow-chow"
 		},
 		"file": {
-			"name": "min_max_double_field.json",
-			"path": "kompendium-core/src/test/resources/min_max_double_field.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Test API\",\n    \"version\": \"1.33.7\",\n    \"description\": \"An amazing, fully-ish 😉 generated API spec\",\n    \"termsOfService\": \"https://example.com\",\n    \"contact\": {\n      \"name\": \"Homer Simpson\",\n      \"url\": \"https://gph.is/1NPUDiM\",\n      \"email\": \"chunkylover53@aol.com\"\n    },\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://github.com/bkbnio/kompendium/blob/main/LICENSE\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://myawesomeapi.com\",\n      \"description\": \"Production instance of my API\"\n    },\n    {\n      \"url\": \"https://staging.myawesomeapi.com\",\n      \"description\": \"Where the fun stuff happens\"\n    }\n  ],\n  \"paths\": {\n    \"/test/constrained_int\": {\n      \"get\": {\n        \"tags\": [],\n        \"summary\": \"Constrained int field\",\n        \"description\": \"Cool stuff\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A successful endeavor\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"properties\": {\n                    \"a\": {\n                      \"format\": \"double\",\n                      \"type\": \"number\",\n                      \"minimum\": 5.5,\n                      \"maximum\": 13.37,\n                      \"exclusiveMinimum\": false,\n                      \"exclusiveMaximum\": false\n                    }\n                  },\n                  \"required\": [\n                    \"a\"\n                  ],\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        },\n        \"deprecated\": false\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {},\n    \"securitySchemes\": {}\n  },\n  \"security\": [],\n  \"tags\": []\n}\n"
+			"name": "deref-error.json",
+			"path": "__test__/fixtures/deref-error.json",
+			"content": "{\n\t\"openapi\": \"3.0.2\",\n\t\"info\": {\n\t\t\"version\": \"1.0.0\",\n\t\t\"title\": \"Chow chow test\",\n\t\t\"description\": \"test\",\n\t\t\"contact\": {\n\t\t\t\"name\": \"test\",\n\t\t\t\"email\": \"test@test.com\",\n\t\t\t\"url\": \"http://test.com\"\n\t\t},\n\t\t\"license\": {\n\t\t\t\"name\": \"Apache 2.0\",\n\t\t\t\"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\"\n\t\t}\n\t},\n\t\"servers\": [\n\t\t{\n\t\t\t\"url\": \"http://test.com\",\n\t\t\t\"description\": \"test\"\n\t\t}\n\t],\n\t\"paths\": {\n\t\t\"/v1/test\": {\n\t\t\t\"get\": {\n\t\t\t\t\"description\": \"test\",\n\t\t\t\t\"operationId\": \"test\",\n\t\t\t\t\"responses\": {\n\t\t\t\t\t\"200\": {\n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/TestSchema\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\t\"components\": {\n\t\t\"schemas\": {\n\t\t\t\"TestSchema\": {\n\t\t\t\t\"description\": \"test\",\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"test\": {\n\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\"$ref\": \"#/components/schemas/blahBlahBlah\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"description\": \"test\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal number 5.5 into Go struct field Schema.minimum of type int64"
+	"Error": "callback: json: cannot unmarshal object into Go struct field Schema.type of type string"
 }

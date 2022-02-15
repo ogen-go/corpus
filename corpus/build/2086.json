@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/alamminsalo/ram"
 		},
 		"file": {
-			"name": "consumer.yaml",
-			"path": "amf-cli/shared/src/test/resources/compiler/apikit-apisync/jar-protocol/consumer.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: consumer\n\npaths:\n  /pets:\n    get:\n      responses:\n        '500':\n          $ref: 'utility.yaml#/components/responses/500'"
+			"name": "farm.yaml",
+			"path": "examples/openapi/farm.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Test for object reference collect\n  version: v2\npaths:\n  /farm:\n    get:\n      operationId: getFarm\n      tags:\n        - Farm\n      responses:\n        '200':\n          description: \"get farm content\"\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/Farm\"\ncomponents:\n  schemas:\n    Farm:\n      x-sql-table: \"farm\"\n      x-sql-pk: \"id\"\n      properties:\n        id:\n          type: integer\n        tails:\n          $ref: \"extra/animals.yaml#/Dog\"\n        claws:\n          $ref: \"extra/animals.yaml#/Cat\"\n          nullable: true\n        herd: \n          type: array\n          items:\n            $ref: \"extra/animals.yaml#/Cow\"\n          x-sql-m2m: \"farm_cows\"\n          x-sql-m2m-table: \"cow\"\n          x-sql-m2m-pk: \"id\"\n      additionalProperties:\n        properties:\n          hidden:\n            $ref: \"extra/loop.yaml#/Loop\"\n            nullable: true\n          numbers:\n            type: array\n            items:\n              type: integer\n          dogId:\n            type: integer\n            x-sql-fk: \"dog(id)\"\n          catId:\n            type: integer\n            x-sql-fk: \"cat(id)\"\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 500: resolve \"utility.yaml#/components/responses/500\" reference: invalid response reference: \"utility.yaml#/components/responses/500\""
+	"Error": "parse: paths: /farm: get: getFarm: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Farm\": parse schema: additionalProperties: parse schema: hidden: parse schema: reference \"extra/loop.yaml#/Loop\": resolve reference \"extra/loop.yaml#/Loop\": invalid schema reference \"extra/loop.yaml#/Loop\""
 }

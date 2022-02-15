@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/optim-corp/cios-golang-sdk"
+			"name": "github.com/nponeccop/serverless-openapi-templates"
 		},
 		"file": {
-			"name": "auth.openapi.yml",
-			"path": "openapi/openapis/auth.openapi.yml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Account API\n  version: 1.0.0\npaths:\n  '/connect/token':\n    post:\n      tags:\n        - auth\n      operationId: refreshToken\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              $ref: \"../components/auth-component.openapi.yml#/components/schemas/ConnectTokenRequest\"\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: \"../components/auth-component.openapi.yml#/components/schemas/ConnectTokenResponse\"\n      security:\n        - basicAuth: [ ]\n\n"
+			"name": "minimal.yml",
+			"path": "min/minimal.yml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Serverless Minimal OpenAPI\"\npaths:\n  /min-dev-hello:\n    post:\n      x-serverless.com:\n        handler: handler.hello\n        function: hello\n\n"
 		}
 	},
-	"Error": "parse: paths: /connect/token: post: refreshToken: requestBody: content: application/x-www-form-urlencoded: parse schema: parse schema: reference \"../components/auth-component.openapi.yml#/components/schemas/ConnectTokenRequest\": resolve reference \"../components/auth-component.openapi.yml#/components/schemas/ConnectTokenRequest\": invalid schema reference \"../components/auth-component.openapi.yml#/components/schemas/ConnectTokenRequest\""
+	"Error": "parse: paths: /min-dev-hello: post: : responses: no responses"
 }

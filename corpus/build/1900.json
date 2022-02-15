@@ -5,10 +5,10 @@
 			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "openapi-with-external-refs.yaml",
-			"path": "packages/core/__tests__/fixtures/refs/openapi-with-external-refs.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pet:\n    parameters:\n      - $ref: '#/components/parameters/path-param'\n    put:\n      parameters:\n        - $ref: '#/components/parameters/param-a'\n        - $ref: ./param-b.yaml\n        - name: test\n    get:\n      parameters:\n        - $ref: '#/components/parameters/param-a'\n        - $ref: ./param-c.yaml\n    post:\n      parameters:\n        - $ref: '#/paths/~1pet/put/parameters/2'\ncomponents:\n  parameters:\n    param-a:\n      name: param_a\n      schema:\n        $ref: ./schema-a.yaml\n      examples:\n        first:\n          $ref: ./examples.yaml#/param-a/first\n        second:\n          $ref: ./examples.yaml#/param-a/second\n    path-param:\n      name: path_param\n      examples:\n        first:\n          $ref: ./examples.yaml#/path-param/first"
+			"name": "bar.yaml",
+			"path": "__tests__/join/fails-if-no-info-section/bar.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example OpenAPI 3 definition.\n  description: Information about API\n  license:\n    name: MIT\n    url: 'https://opensource.org/licenses/MIT'\nservers:\n  - url: 'https://redocly.com/v1'\npaths:\n  '/pets/{petId}':\n    post:\n      summary: summary example\n      operationId: exampleBar\n      responses:\n        '201':\n          description: example description"
 		}
 	},
-	"Error": "parse: /pet: parameters: parse parameter \"\": resolve \"#/components/parameters/path-param\" reference: unsupported parameter type "
+	"Error": "parse: paths: /pets/{petId}: post: exampleBar: parse path: path parameter not specified: \"petId\""
 }

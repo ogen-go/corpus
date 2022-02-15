@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/payara/Payara-Examples"
 		},
 		"file": {
-			"name": "Studies_StudyDbId_GET_PUT.yaml",
-			"path": "Specification/BrAPI-Core/Studies/Studies_StudyDbId_GET_PUT.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /studies/{studyDbId}:\n    get:\n      description: |-\n        Retrieve the information of the study required for field data collection\n        \n        An additionalInfo field was added to provide a controlled vocabulary for less common data fields.\n      parameters:\n      - description: Identifier of the study. Usually a number, could be alphanumeric.\n        in: path\n        name: studyDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/StudySingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      summary: Get the details for a specific Study\n      tags:\n      - Studies\n    put:\n      summary: Update an existing Study\n      description: Update an existing Study with new data\n      parameters:\n      - description: Identifier of the study. Usually a number, could be alphanumeric.\n        in: path\n        name: studyDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/StudyNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/StudySingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Studies\ncomponents:\n  responses:\n    StudySingleResponse:\n      content:\n        application/json:\n          schema:\n            title: StudySingleResponse\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/Study'\n            required:\n            - metadata\n            - result\n            type: object\n      description: OK\n      headers: {}\n      "
+			"name": "openapi.yaml",
+			"path": "microprofile/openapi-example/src/main/resources/META-INF/openapi.yaml",
+			"content": "# A static document to be applied to the base model\n# created from the ModelReader if one exists.\nopenapi: 3.0.0\ninfo:\n  title: A Test Application\n  version: 1.0-SNAPSHOT\npaths:\n  /api/fake/static:\n    get:\n      operationId: fake static resource"
 		}
 	},
-	"Error": "parse: paths: /studies/{studyDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+	"Error": "parse: paths: /api/fake/static: get: fake static resource: responses: no responses"
 }

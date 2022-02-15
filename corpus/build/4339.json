@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "issue-289.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-289.yaml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: Path include test case\n\npaths:\n  /foo:\n    $ref: './issue-289-b.yaml#/paths/~1foo'"
+			"name": "sample-api-noquotes.yaml",
+			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-noquotes.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.9\nservers:\n  - url: https://petstore3.swagger.io/api/v3/pet\npaths:\n  /a:\n    get:\n      operationId: aget\n    post:\n      operationId: apost\n  /b:\n    post:\n      operationId: bpost\n  /2:\n    get:\n      operationId: 2get\n"
 		}
 	},
-	"Error": "parse: /foo: referenced pathItem not supported"
+	"Error": "parse: paths: /2: get: 2get: responses: no responses"
 }

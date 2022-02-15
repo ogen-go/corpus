@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/marcelthole/openapi-merge"
+			"name": "github.com/mamund/alps-unified"
 		},
 		"file": {
-			"name": "routes.yml",
-			"path": "tests/Fixtures/routes.yml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI Definition for routes\n  description: This is the routes description\n  version: '1.1'\npaths:\n  /ping:\n    get:\n      summary: Your GET endpoint\n      tags:\n        - Base Route\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/pingResponse'\n        '400':\n          description: Bad Request\n          content:\n            application/problem+json:\n              schema:\n                $ref: 'errors.yml#/components/schemas/ProblemResponse'\n      operationId: get-ping\n      description: Description of Ping\n      parameters:\n        - schema:\n            type: string\n            minLength: 0\n            maxLength: 20\n          in: query\n          name: responseWith\n          description: response with this message\n\ncomponents:\n  schemas:\n    pingResponse:\n      type: object\n      properties:\n        response:\n          type: string\n      required:\n        - response\ntags:\n  - name: Route\n  - name: Base Route\n"
+			"name": "test-6.yml",
+			"path": "test/suite/oas/test-6.yml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Generated OAS from ALPS'\n  version: 0.0.1\npaths:\n  /test6:\n    get:\n      summary: test6\n      operationId: test6\n      responses:\n        '200':\n          description: test6\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/result'\n"
 		}
 	},
-	"Error": "parse: paths: /ping: get: get-ping: responses: 400: content: application/problem+json: schema: parse schema: reference \"errors.yml#/components/schemas/ProblemResponse\": resolve reference \"errors.yml#/components/schemas/ProblemResponse\": invalid schema reference \"errors.yml#/components/schemas/ProblemResponse\""
+	"Error": "parse: paths: /test6: get: test6: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/result\": resolve reference \"#/components/schemas/result\": schema not found"
 }

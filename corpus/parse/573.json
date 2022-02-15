@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/app-generator/fullstack-openapi-generator"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "spec/api.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: NodeJS API Seed\n  description: \u003e-\n   API Seed with NodeJs and OpenAPI\n  version: 1.0.0\nservers:\n  - url: \"http://localhost:9000/\"\ntags:\n  - name: article\n    description: Everything concerning articles, comments \n  - name: user\n    description: Operations about users\n\npaths:\n  /article:\n    $ref: \"./article/article.yaml\"\n  /article/{id}:\n    $ref: \"./article/article-id.yaml\"\n  /user:\n    $ref: \"./user/user.yaml\"\n  /user/{id}:\n    $ref: \"./user/user-id.yaml\"\n  /data:\n    $ref: \"./data/data.yaml\"\n  /data/{id}:\n    $ref: \"./data/data-id.yaml\"\n  \n\ncomponents:\n  schemas:\n    $ref: \"./schemas/_index.yaml\"\n  securitySchemes:\n    auth:\n      type: openIdConnect\n      openIdConnectUrl: https://seed.eu.auth0.com/.well-known/openid-configuration"
+			"name": "content-media-type-filter.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/responses/content/content-media-type-filter.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OAS3 Test\npaths:\n  /color:\n    post:\n      operationId: Id\n      description: Desc\n      responses:\n        201:\n          description: my description\n          content:\n            a*"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.schemas of type ogen.Schema"
+	"Error": "json: cannot unmarshal string into Go struct field Response.paths.post.responses.content of type map[string]ogen.Media"
 }

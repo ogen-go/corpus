@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/akx/lepo"
 		},
 		"file": {
-			"name": "pure-member-portal.yaml",
-			"path": "amf-cli/shared/src/test/resources/compiler/apikit-apisync/dot-slash-ref/pure-member-portal.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: pure-member-portal\npaths: \n  /requestcoverages:\n    summary: \"Initial Load\"\n    description: \"Get the initial payload including memberm, policy, coverage information\" \n    post: \n      requestBody: \n        content: \n          application/json: \n            schema: \n              type: object\n      responses:\n        \"400\":\n          $ref: \"./responses.yaml#/components/responses/400BadRequest\"\n"
+			"name": "path-refs.yaml",
+			"path": "lepo_tests/tests/openapi3/path-refs.yaml",
+			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /a:\n    get:\n      operationId: foo\n      responses:\n        default:\n          description: Default response\n  /b:\n    $ref: '#/paths/~1a'\ninfo:\n  version: ''\n  title: ''\n"
 		}
 	},
-	"Error": "parse: paths: /requestcoverages: post: : responses: 400: resolve \"./responses.yaml#/components/responses/400BadRequest\" reference: invalid response reference: \"./responses.yaml#/components/responses/400BadRequest\""
+	"Error": "parse: /b: referenced pathItem not supported"
 }

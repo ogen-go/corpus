@@ -5,9 +5,9 @@
 			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "src/test/resources/missing_import/config.yaml",
-			"content": "ontologies:\n  - src/test/resources/missing_import/missing_import.ttl\nname: missing-import-example\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API for the restrictions example ontology\n    version: v1.5.0\n    title: Missing import example ontology\n  externalDocs:\n    description: Missing import example ontology\n    url: https://w3id.org/example\n  servers:\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://localhost:8080/example-1.5.0\n  prefix: https://w3id.org/example\n  graph_base: http://localhost:8080/example-1.5.0/data/\n\nenable_get_paths: true\nenable_post_paths: true\nenable_delete_paths: true\nenable_put_paths: true\n\nauth:\n  provider: firebase\nfollow_references: true\n"
+			"name": "missing_file.yaml",
+			"path": "src/test/config/missing_file.yaml",
+			"content": "ontologies:\n  - src/test/resources/non_existent_file.ttl\nname: modelcatalog-reduced\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Software Description Ontology at [https://w3id.org/okn/o/sdm](https://w3id.org/okn/o/sdm)\n    title: Model Catalog\n    version: v1.5.0\n  externalDocs:\n    description: Model Catalog\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: https://api.models.mint.isi.edu/v1.5.0\n    - url: https://dev.api.models.mint.isi.edu/v1.5.0\n    - url: http://localhost:8080/v1.5.0\n\n\nendpoint:\n  url: http://endpoint.mint.isi.edu/modelCatalog-1.4.0\n  prefix: https://w3id.org/okn/i/masd\n  graph_base: http://endpoint.mint.isi.edu/modelCatalog-1.4.0/data/\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
 		}
 	},
 	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"

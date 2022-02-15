@@ -5,10 +5,10 @@
 			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "issue#193.yml",
-			"path": "test/data/valid_openapi/issue#193.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0\n  title: Demo API dodo\npaths:\n  /api:\n    get:\n      summary: 'Demo invalid type'\n      responses:\n        '200':\n          description: 'Cannot use type boolean'\n          content:\n            application/json:\n                schema:\n                  type: object\n                  properties:\n                    nominmax:\n                      type: array\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomin:\n                      type: array\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomax:\n                      type: array\n                      minItems: 4\n                      items:\n                        type: string\n                      exmaple: hello\n                    minmax:\n                      type: array\n                      minItems: 3\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    max:\n                      type: array\n                      minItems: 30\n                      maxItems: 40\n                      items:\n                        type: string\n                      exmaple: hello\n                    min:\n                      type: array\n                      minItems: 1\n                      items:\n                        type: string\n                      exmaple: hello"
+			"name": "issue#150.yml",
+			"path": "test/data/31CollectionTransactions/issues/issue#150.yml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Swagger Petstore\n  description: des\n  version: 1.0.0\npaths:\n    /get:\n        get:\n            summary: Some API\n            responses:\n                '200':\n                    description: Some description\n                    content:\n                        application/json:\n                            schema:\n                                type: \n                                    - array\n                                items:\n                                    type: \n                                        - string\n                            examples: {}"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal array into Go struct field Schema.paths.get.responses.content.schema.items.type of type string"
 }

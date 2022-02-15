@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/jdkandersson/OpenAlchemy"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "url-example-spec.yml",
-			"path": "examples/remote/url-example-spec.yml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate OpenAlchemy MVP.\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Employee:\n      \"$ref\": \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\"\n"
+			"name": "numbers-test.yml",
+			"path": "rules/tests/numbers-test.yml",
+			"content": "components:\n  schemas:\n    ko_Integer_bad1:\n        type: integer\n        format: bad\n    ko_Number_bad1:\n        type: number\n        format: bad\n    ko_Number:\n        type: number\n    Number:\n        type: number\n        format: int32\n    ko_Integer:\n        type: integer\n    Integer:\n        type: integer\n        format: int32\nopenapi: 3.0.1\npaths:\n  /number-ok:\n    put:\n      requestBody:\n        content:\n          application/json-patch+json:\n            schema:\n              type: number\n              format: int32\n  /integer-ok:\n    put:\n      requestBody:\n        content:\n          application/json-patch+json:\n            schema:\n              $ref: '#/components/schemas/Integer'\n\n  /number-ko:\n     put:\n      requestBody:\n       content:\n         application/json-patch+json:\n           schema:\n             type: number\n  /integer-ko:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ko_Integer'\n  /integer-ko-bad:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                ibad1:\n                  $ref: '#/components/schemas/ko_Integer_bad1'\n                nbad1:\n                  $ref: '#/components/schemas/ko_Number_bad1'\ninfo:\n  version: 1.0.1\n  title: test\nservers: []\ntags: []\n"
 		}
 	},
-	"Error": "parse: paths: /employee: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/Employee\": parse schema: reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\": resolve reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\": invalid schema reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\""
+	"Error": "parse: paths: /integer-ko: put: : responses: no responses"
 }

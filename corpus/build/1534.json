@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "duplicateParameter.yaml",
-			"path": "3.0/fail/duplicateParameter.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate parameter\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      parameters:\n      - name: test\n        in: query\n        schema:\n          type: string\n      - name: test\n        in: query\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: OK\n"
+			"name": "input.yaml",
+			"path": "test/resolver/prevalidate/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: './include.yaml#/components/schemas/xyz'\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: same: parameters: duplicate parameter: \"test\" in \"query\""
+	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"./include.yaml#/components/schemas/xyz\": resolve reference \"./include.yaml#/components/schemas/xyz\": invalid schema reference \"./include.yaml#/components/schemas/xyz\""
 }

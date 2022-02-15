@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zaproxy/zap-extensions"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "openapi_default_values.yaml",
-			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/openapi_default_values.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: http://localhost:@@@PORT@@@/\npaths:\n  /parameters/path/{Name}/:\n    get:\n      operationId: parameters/path\n      parameters:\n      - in: path\n        name: Name\n        schema:\n          type: string\n          default: DefaultValue\n      responses:\n        default:\n          content:\n            text/plain: {}\n  /parameters/query:\n    get:\n      operationId: parameters/query\n      parameters:\n      - in: query\n        name: Name\n        schema:\n          type: string\n          default: DefaultValue\n      responses:\n        default:\n          content:\n            text/plain: {}\n  /parameters/header:\n    get:\n      operationId: parameters/header\n      parameters:\n      - in: header\n        name: Name\n        schema:\n          type: string\n          default: DefaultValue\n      responses:\n        default:\n          content:\n            text/plain: {}\n  /parameters/cookie:\n    post:\n      operationId: parameters/cookie\n      parameters:\n      - in: cookie\n        name: Name\n        schema:\n          type: string\n          default: DefaultValue\n      responses:\n        default:\n          content:\n            text/plain: {}\n  /body/x-www-form-urlencoded:\n    post:\n      operationId: body/x-www-form-urlencoded\n      requestBody:\n        content:\n          'application/x-www-form-urlencoded':\n            schema:\n              properties:\n                NameA:\n                  type: string\n                  default: DefaultValue\n                NameB:\n                  type: boolean\n                  default: true\n                NameC:\n                  type: integer\n                  default: 2\n      responses:\n        default:\n          content:\n            text/plain: {}\n  /body/json/object:\n    post:\n      operationId: body/json\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              properties:\n                NameA:\n                  type: string\n                  default: DefaultValue\n                NameB:\n                  type: boolean\n                  default: true\n                NameC:\n                  type: integer\n                  default: 2\n      responses:\n        default:\n          content:\n            text/plain: {}\n\n"
+			"name": "parameter_ref.yaml",
+			"path": "src/test/resources/testing/completion/value/openapi/parameter_ref.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: \"\u003ccaret\u003e\"\ncomponents:\n  parameters:\n    Parameter:\n"
 		}
 	},
-	"Error": "parse: paths: /parameters/path/{Name}/: get: parameters/path: parameters: parse parameter \"Name\": path parameters must be required"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e\" reference: invalid parameter reference: \"\u003ccaret\u003e\""
 }

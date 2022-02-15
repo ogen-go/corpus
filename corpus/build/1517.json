@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/KNowledgeOnWebScale/walder"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/issue152/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n"
+			"name": "config-with-invalid-refs.yaml",
+			"path": "test/resources/multiple-config-files/config-with-invalid-refs.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './invalid/paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './invalid/paths/more-movies-actor.yaml'\n\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
 		}
 	},
-	"Error": "parse: paths: /bar: post: postBar: responses: 201: resolve \"responses.yaml#/components/responses/Post201\" reference: invalid response reference: \"responses.yaml#/components/responses/Post201\""
+	"Error": "parse: /more_movies/{actor}: referenced pathItem not supported"
 }

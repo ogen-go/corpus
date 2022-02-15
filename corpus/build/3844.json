@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/p1c2u/openapi-spec-validator"
+			"name": "github.com/optimizely/agent"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/integration/data/v3.0/parent-reference/openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - $ref: \"recursive.yaml#/parameters/RecursiveReference\"\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"spec/components.yaml#/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"common.yaml#/schemas/Error\"\n"
+			"name": "webhook.yaml",
+			"path": "api/openapi-spec/webhook.yaml",
+			"content": "openapi: 3.0.0\ninfo:  \n  title: Optimizely Server API\n  description: Optimizely.\n  termsOfService: http://optimizely.com/terms/\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: 0.1.0\nservers:\n  - url: https://api.optimizely.com\n    description: \"Hosted Optimizely Decision Service\"\npaths:\n  /webhooks/optimizely:\n    post:\n      summary: Incoming webhook message from Optimizely\n      operationId: handleWebhook\n      requestBody:\n        description: Webhook message received from Optimizely\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/WebhookRequest\"\n      responses:\n        '204':\n          description: No content. Webhook message received and processed.\n        '400':\n          description: Invalid webhook message received.\ncomponents:\n  schemas:\n    DatafileUpdateData:\n      properties:\n        revision:\n          type: integer\n        origin_url:\n          type: string\n        cdn_url:\n          type: string\n        environment:\n          type: string\n      required:\n        - revision\n        - cdn_url\n    WebhookRequest:\n      properties:\n        project_id:\n          type: number\n        timestamp:\n          type: number\n        event:\n          type: string\n          enum:\n            - project.datafile_updated\n        data:\n          $ref: '#/components/schemas/DatafileUpdateData    '\n      required:\n        - project_id\n        - timestamp\n        - event\n        - data\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: listPets: parameters: parse parameter \"\": resolve \"recursive.yaml#/parameters/RecursiveReference\" reference: invalid parameter reference: \"recursive.yaml#/parameters/RecursiveReference\""
+	"Error": "parse: paths: /webhooks/optimizely: post: handleWebhook: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/WebhookRequest\": parse schema: data: parse schema: reference \"#/components/schemas/DatafileUpdateData    \": resolve reference \"#/components/schemas/DatafileUpdateData    \": schema not found"
 }

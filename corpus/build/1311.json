@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive5.yaml",
-			"path": "assets/queries/openAPI/general/array_items_has_no_type/test/positive5.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n          content:\n            \"application/x-www-form-urlencoded\":\n              schema:\n                type: array\n                items:\n                  oneOf: []\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: float\n        result:\n          type: number\n          format: double\n    MyIntArray:\n      type: array\n      items:\n        type: integer\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/property_allow_reserved_improperly_defined/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: query\n        description: ID of the API version\n        required: true\n        allowReserved: true\n        schema:\n          type: integer\n  /users/{id}:\n    get:\n      parameters:\n        - in: query\n          name: id\n          required: true\n          allowReserved: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /users/{id}: get: : parse path: path parameter not specified: \"id\""
 }

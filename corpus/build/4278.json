@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/surfstudio/SurfGen"
+			"name": "github.com/stoplightio/prism"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "Tests/Common/ProjectA/history_of_payment/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n\nsecurity:\n  - bearerAuth: []\n\npaths:\n  /billings/history:\n    get:\n      summary: История операций\n      parameters:\n        - $ref: \"../common/resources/models.yaml#/components/parameters/limit\"\n        - $ref: \"../common/resources/models.yaml#/components/parameters/offset\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/HistoryResponse\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
+			"name": "client-service.oas3.yaml",
+			"path": "examples/callbacks/client-service.oas3.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /notify:\n    post:\n      summary: 'Receive notification about certain invoice'\n      security:\n        - Token: []\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'payment-service.oas3.yaml#/components/schemas/notification'\n      responses:\n        '200':\n          description: 'Notification successfully processed'\n          content:\n            text/plain:\n              examples:\n                ok:\n                  value: 'ok'\ncomponents:\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: token\n      in: query\n"
 		}
 	},
-	"Error": "parse: paths: /billings/history: get: : parameters: parse parameter \"\": resolve \"../common/resources/models.yaml#/components/parameters/limit\" reference: invalid parameter reference: \"../common/resources/models.yaml#/components/parameters/limit\""
+	"Error": "parse: paths: /notify: post: : requestBody: content: application/json: parse schema: parse schema: reference \"payment-service.oas3.yaml#/components/schemas/notification\": resolve reference \"payment-service.oas3.yaml#/components/schemas/notification\": invalid schema reference \"payment-service.oas3.yaml#/components/schemas/notification\""
 }

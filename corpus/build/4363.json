@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue-454.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: /v1\ninfo:\n  description: This is a simple API\n  version: 1.0.0\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: admins\n    description: Secured Admin-only calls\n  - name: developers\n    description: Operations available to regular developers\npaths:\n  /inventory:\n    get:\n      summary: searches inventory test\n      operationId: searchInventory\n      responses:\n        '200':\n          description: search results matching criteria\n        default:\n          $ref: 'https://remote-components.com/issue-454-components#/components/responses/GeneralError'\ncomponents:\n  schemas:\n    ModelWithNestedProperties:\n      properties:\n        remoteProperty:\n          $ref: 'https://remote-components.com/issue-454-components#/components/schemas/RemoteComponent'\n"
+			"name": "api.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1040/api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n\npaths:\n  /value:\n    get:\n      operationId: getValues\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: 'lib/lib.yaml#/components/schemas/Value'"
 		}
 	},
-	"Error": "parse: paths: /inventory: get: searchInventory: responses: default: resolve \"https://remote-components.com/issue-454-components#/components/responses/GeneralError\" reference: invalid response reference: \"https://remote-components.com/issue-454-components#/components/responses/GeneralError\""
+	"Error": "parse: paths: /value: get: getValues: responses: 200: content: application/json: schema: parse schema: reference \"lib/lib.yaml#/components/schemas/Value\": resolve reference \"lib/lib.yaml#/components/schemas/Value\": invalid schema reference \"lib/lib.yaml#/components/schemas/Value\""
 }

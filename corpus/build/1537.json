@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "example2_from_._Different_requestbody.md.yaml",
-			"path": "3.0/fail/gluecon/example2_from_._Different_requestbody.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Example of request body in 3.0\n  version: 1.0.0\npaths:\n  /opinions:\n    post:\n      requestBody:\n        description: \n        required: true\n        content:\n          text/plain:\n            schema:\n              type: string\n            example:\n              I think the V3 way is cleaner\n          application/json:\n            schema:\n              type: string\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue102/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n    /ping:\n       $ref: \"endpoints/ping.yaml#/paths/~1ping\"\ncomponents:\n    schemas:\n        ping:\n            $ref: 'schemas/ping.json'\n"
 		}
 	},
-	"Error": "parse: paths: /opinions: post: : responses: no responses"
+	"Error": "parse: /ping: referenced pathItem not supported"
 }

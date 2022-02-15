@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anttiviljami/openapi-backend"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "refs.openapi.json",
-			"path": "__tests__/resources/refs.openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Circular References\",\n    \"description\": \"API with circular references\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/trees\": {\n\t\t\t\"post\": {\n\t\t\t\t\"operationId\": \"createTree\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"description\": \"ok\" \n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"requestBody\": { \n\t\t\t\t\t\"$ref\": \"#/components/requestBodies/CreateTree\" \n\t\t\t\t}\n\t\t\t},\n\t\t\t\"get\": {\n\t\t\t\t\"operationId\": \"getTrees\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"parameters\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"subtree\",\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"description\": \"Filter trees by existance of a subtree\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n\t\t\t\"BinTree\": {\n\t\t\t\t\"title\": \"BinTree\",\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"nullable\": true,\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"left\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"right\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\"type\": \"number\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"requestBodies\": {\n\t\t\t\"CreateTree\": {\n\t\t\t\t\"content\": {\n\t\t\t\t\t\"application/json\": {\n\t\t\t\t\t\t\"schema\": { \"$ref\": \"#/components/schemas/BinTree\" }\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n  }\n}"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/callbacks/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"callbacks\": {\n          \"callback\": {\n            \"http://notificationServer.com?transactionId={$request.body#/id}\u0026email={$request.body#/email}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"strin\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /trees: get: getTrees: responses: 200: resolve \"#/components/schemas/BinTree\" reference: invalid response reference: \"#/components/schemas/BinTree\""
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

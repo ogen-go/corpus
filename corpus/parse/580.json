@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aws-samples/aws-serverless-ecommerce-platform"
+			"name": "github.com/atc-net/atc-rest-api-generator"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "delivery-pricing/resources/openapi.yaml",
-			"content": "openapi: \"3.0.2\"\ninfo:\n  title:\n    Fn::Sub: \"${AWS::StackName}-api\"\n  version: 1.0.0\n  description: Delivery Pricing API definition\n  license:\n    name: MIT-0\n    url: https://github.com/aws/mit-0\n\npaths:\n  /backend/pricing:\n    post:\n      description: |\n        Pricing calculator for deliveries.\n\n        This takes into account the dimension of the product and the address of delivery.\n      operationId: backendPricingDelivery\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - products\n                - address\n              properties:\n                products:\n                  type: array\n                  items:\n                    $ref: \"../../shared/resources/schemas.yaml#/Product\"\n                address:\n                  $ref: \"../../shared/resources/schemas.yaml#/Address\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - price\n                properties:\n                  price:\n                    type: integer\n        default:\n          description: Error\n          content:\n            application/json:\n              schema:\n                $ref: \"../../shared/resources/schemas.yaml#/Message\"\n      x-amazon-apigateway-auth:\n        type: AWS_IAM\n      x-amazon-apigateway-integration:\n        httpMethod: \"POST\"\n        type: aws_proxy\n        uri:\n          Fn::Sub: \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${PricingFunction.Arn}/invocations\"\n"
+			"name": "ordersEndpoints.v1.yaml",
+			"path": "sample/Demo.ApiDesign/MultiFileVersion/orders/ordersEndpoints.v1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  $ref: ../common/components/endpoints.v1.yaml#/info\nservers:\n  $ref: ../common/components/endpoints.v1.yaml#/servers\n\npaths:\n  '/orders/{id}':\n    get:\n      tags:\n        - Orders\n      summary: Get order by id\n      description: Get order by id\n      operationId: getOrderById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the order to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          $ref: ../common/components/responses.v1.yaml#/400\n        '404':\n          $ref: ../common/components/responses.v1.yaml#/404\n        default:\n          $ref: ../common/components/responses.v1.yaml#/400\ncomponents:\n  schemas:\n    Order:\n      $ref: ./models/order.v1.yaml\n    Orders:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n      x-tags:\n        - Orders\n      title: Orders\n      description: A list of orders.\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Info.info.title of type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/springdoc/springdoc-openapi"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "app151.json",
-			"path": "springdoc-openapi-webflux-core/src/test/resources/results/app151.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/users/test/greeter\": {\n      \"get\": {\n        \"operationId\": \"get-users\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/greeter3/titi\": {\n      \"post\": {\n        \"operationId\": \"create-user-group-special\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/greeter3/toto\": {\n      \"get\": {\n        \"operationId\": \"get-user-groups\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/greeter4/titi\": {\n      \"post\": {\n        \"operationId\": \"create-user-group-special_1\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/greeter4/toto\": {\n      \"get\": {\n        \"operationId\": \"get-user-groups_1\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/groups/titi\": {\n      \"post\": {\n        \"operationId\": \"create-user-group-special_2\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/groups/toto\": {\n      \"get\": {\n        \"operationId\": \"get-user-groups_2\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/groups2/titi\": {\n      \"post\": {\n        \"operationId\": \"create-user-group-special_3\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/groups2/toto\": {\n      \"get\": {\n        \"operationId\": \"get-user-groups_3\",\n        \"responses\": {}\n      }\n    },\n    \"/users/test/greeter/special\": {\n      \"post\": {\n        \"operationId\": \"create-user-special\",\n        \"responses\": {}\n      }\n    }\n  },\n  \"components\": {}\n}\n"
+			"name": "paths-get-requestBody.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"description\": \"The request body.\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            }\n          },\n          \"required\": true\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /users/test/greeter/greeter4/toto: get: get-user-groups_1: responses: no responses"
+	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
 }

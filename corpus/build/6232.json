@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/springdoc/springdoc-openapi"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "app2.json",
-			"path": "springdoc-openapi-data-rest/src/test/resources/results/app2.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/search\": {\n      \"get\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"operationId\": \"getAllPets\",\n        \"parameters\": [\n          {\n            \"name\": \"pageable\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Pageable\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/xml\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/PersonDTO\"\n                  }\n                }\n              },\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/PersonDTO\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pageable\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"page\": {\n            \"minimum\": 0,\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"size\": {\n            \"minimum\": 1,\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"sort\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      },\n      \"PersonDTO\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"email\": {\n            \"type\": \"string\"\n          },\n          \"firstName\": {\n            \"type\": \"string\"\n          },\n          \"lastName\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "opTags1.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_opTags/opTags1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "make ir: path \"/search\": get: parameters: field \"sort\": nested arrays not allowed"
+	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
 }

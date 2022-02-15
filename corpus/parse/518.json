@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/operation-tag-defined-rule/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      operationId: getPetByStatus\n      summary: Example summary\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /pet:\n    post:\n      operationId: createPet\n      summary: Adds a new pet to the store\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /store/inventory:\n    get:\n      operationId: getPetInventories\n      summary: Returns pet inventories\n      tags:\n        - store\n      esponses:\n        '200':\n          description: example description\ntags:\n  - name: pets\n    description: Everything about your Pets\n    externalDocs:\n      url: http://docs.my-api.com/pet-operations.htm\n  - name: store\n    description: Access to Petstore orders\n    externalDocs:\n      url: http://docs.my-api.com/store-orders.htm\n"
+			"path": "__tests__/lint/operation-parameters-unique-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /user:\n    get:\n      operationId: getUser\n      summary: example summary\n      parameters:\n        - in: query\n          name: offset\n          schema:\n            type: integer\n            minimum: 0\n            default: 0\n          required: false\n          description: The number of items to skip before starting to collect the result set.\n        - in: query\n          name: limit\n          schema:\n            type: integer\n            minimum: 1\n            maximum: 100\n            default: 20\n          required: false\n          description: The number of items to return.\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

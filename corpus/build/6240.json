@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/springdoc/springdoc-openapi"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "app26.json",
-			"path": "springdoc-openapi-javadoc/src/test/resources/results/app26.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/persons\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"description\": \"Persons my model.\",\n        \"operationId\": \"persons\",\n        \"parameters\": [\n          {\n            \"name\": \"myModel\",\n            \"in\": \"query\",\n            \"description\": \"the my model\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyModel\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the my model\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MyModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyModel\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"thing\": {\n            \"type\": \"object\",\n            \"description\": \"Hello\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "paths-all-operations.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-all-operations.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"summary\": \"Foo - GET\"\n      },\n      \"put\": {\n        \"summary\": \"Foo - PUT\"\n      },\n      \"post\": {\n        \"summary\": \"Foo - POST\"\n      },\n      \"delete\": {\n        \"summary\": \"Foo - DELETE\"\n      },\n      \"options\": {\n        \"summary\": \"Foo - OPTIONS\"\n      },\n      \"head\": {\n        \"summary\": \"Foo - HEAD\"\n      },\n      \"patch\": {\n        \"summary\": \"Foo - PATCH\"\n      },\n      \"trace\": {\n        \"summary\": \"Foo - TRACE\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "make ir: path \"/persons\": post: parameters: field \"thing\": nested objects not allowed"
+	"Error": "parse: paths: /foo: get: : responses: no responses"
 }

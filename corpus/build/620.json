@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/softwaremill/tapir"
+			"name": "github.com/simplesmiler/taxios"
 		},
 		"file": {
-			"name": "expected_recursive_coproducts.yml",
-			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Clause'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Clause:\n      oneOf:\n        - $ref: '#/components/schemas/Expression'\n        - $ref: '#/components/schemas/Not'\n    Expression:\n      required:\n        - v\n      type: object\n      properties:\n        v:\n          type: string\n    Not:\n      required:\n        - not\n      type: object\n      properties:\n        not:\n          $ref: '#/components/schemas/Clause'"
+			"name": "query-params.yml",
+			"path": "packages/taxios-sandbox/src/query-params.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Structured query params\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /v1/test:\n    get:\n      parameters:\n        - schema:\n            type: string\n          in: query\n          name: firstName\n          required: true\n        - schema:\n            type: string\n          in: query\n          name: lastName\n        - schema:\n            type: number\n          in: query\n          name: age\n        - schema:\n            type: boolean\n          in: query\n          name: employed\n          required: true\n        - schema:\n            type: array\n            items:\n              type: string\n              enum: ['ru', 'en', 'fr', 'de', 'jp']\n          in: query\n          name: languages\n        - schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/Asset'\n          in: query\n          name: assets\n        - schema:\n            type: object\n            additionalProperties: false\n            properties:\n              good:\n                type: array\n                items:\n                  type: string\n              bad:\n                type: array\n                items:\n                  type: string\n          in: query\n          name: qualities\n      responses:\n        '200':\n          description: OK\n    parameters: []\ncomponents:\n  schemas:\n    Asset:\n      title: Asset\n      type: object\n      properties:\n        currency:\n          type: string\n        amount:\n          type: integer\n      required:\n        - currency\n        - amount\n"
 		}
 	},
-	"Error": "parse: paths: /: post: postRoot: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/Clause\": parse schema: oneOf: [1]: parse schema: reference \"#/components/schemas/Not\": parse schema: not: parse schema: reference \"#/components/schemas/Clause\": infinite recursion: \"#/components/schemas/Clause\""
+	"Error": "make ir: path \"/v1/test\": get: parameters: nested objects not allowed"
 }

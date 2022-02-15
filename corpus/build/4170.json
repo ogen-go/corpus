@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/snyk/vervet"
+			"name": "github.com/snapscale/snapscale"
 		},
 		"file": {
-			"name": "spec.yaml",
-			"path": "versionware/example/resources/things/2021-11-01/spec.yaml",
-			"content": "openapi: 3.0.3\nx-snyk-api-stability: experimental\ninfo:\n  title: api\n  version: 3.0.0\nservers:\n  - url: /api\n    description: Example API\npaths:\n  /things:\n    post:\n      description: Create a new things\n      operationId: createThings\n      responses:\n        '200':\n          description: Created things successfully\n          content:\n            application/json:\n              schema: { $ref: '../../common.yaml#/schemas/ThingResponse' }\n      requestBody:\n        description: Thing to be created\n        content:\n          application/json:\n            schema: { $ref: '../../common.yaml#/schemas/ThingAttributes' }\n  /things/{thingsId}:\n    get:\n      description: Get an instance of things\n      operationId: getThings\n      parameters:\n        - { $ref: '../../common.yaml#/parameters/ThingsId' }\n      responses:\n        '200':\n          description: Returns an instance of things\n          content:\n            application/json:\n              schema: { $ref: '../../common.yaml#/schemas/ThingResponse' }\n"
+			"name": "test_control.swagger.yaml",
+			"path": "plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Control API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\ntags:\n  - name: eosio\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /test_control/kill_node_or_producer:\n    post:\n      tags:\n        - TestControl\n      summary: kill_node_or_producer\n      description: Kills node or producer\n      operationId: kill_node_or_producer\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - params\n              properties:\n                params:\n                  type: object\n                  properties:\n                    producer:\n                      $ref: 'https://eosio.github.io/schemata/v2.0/oas/Name.yaml'\n                    where_in_sequence:\n                      type: integer\n                    based_on_lib:\n                      type: integer\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                description: Returns Nothing\n"
 		}
 	},
-	"Error": "parse: paths: /things: post: createThings: requestBody: content: application/json: parse schema: parse schema: reference \"../../common.yaml#/schemas/ThingAttributes\": resolve reference \"../../common.yaml#/schemas/ThingAttributes\": invalid schema reference \"../../common.yaml#/schemas/ThingAttributes\""
+	"Error": "parse: paths: /test_control/kill_node_or_producer: post: kill_node_or_producer: requestBody: content: application/json: parse schema: parse schema: params: parse schema: producer: parse schema: reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": resolve reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": invalid schema reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\""
 }

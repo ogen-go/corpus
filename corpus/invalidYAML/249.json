@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/yaml"
+			"name": "github.com/stoplightio/spectral"
 		},
 		"file": {
-			"name": "spectral-481.yaml",
-			"path": "src/__tests__/fixtures/spectral-481.yaml",
-			"content": "%YAML 1.2\n---\nopenapi: 3.0.0\ninfo:\n  title: Random title\n  description: Random description\n  version: 0.0.1\n  contact:\n    email: random@random.com\npaths: {}\nservers:\n  - url: https://www.random.com\ncomponents:\n  schemas:\n    RandomRequest:\n      description: A random request\n      type: object\n      properties:\n        implicit_string_date:\n          description: Some YAML 1.2 implicit string.\n          type: string\n          example: 2012-10-12\n        another_implicit_string_date:\n          description: Some string.\n          type: string\n          example: x20121012\n        explicit_string_date:\n          description: Explicit string.\n          type: string\n          example: \"2012-10-12\"\n"
+			"name": "lib.yaml",
+			"path": "packages/core/src/__tests__/__fixtures__/gh-658/lib.yaml",
+			"content": "%YAML 1.2\n---\nopenapi: 3.0.0\n\ninfo:\n  title: Library\n  description: Collection of reusable standard definitions.\n  version: 2.0.0\npaths: {}\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        error:\n          type: string\n          maxLength: 1\n        error_description:\n          type: string\n          maxLength: 1\n        status_code:\n          type: string\n        test:\n          $ref: ./URIError.yaml#/components/schemas/Foo\n"
 		}
 	},
 	"Error": "yaml: found incompatible YAML document"

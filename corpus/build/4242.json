@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/prism"
+			"name": "github.com/spec-first/connexion"
 		},
 		"file": {
-			"name": "client-service.oas3.yaml",
-			"path": "examples/callbacks/client-service.oas3.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /notify:\n    post:\n      summary: 'Receive notification about certain invoice'\n      security:\n        - Token: []\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'payment-service.oas3.yaml#/components/schemas/notification'\n      responses:\n        '200':\n          description: 'Notification successfully processed'\n          content:\n            text/plain:\n              examples:\n                ok:\n                  value: 'ok'\ncomponents:\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: token\n      in: query\n"
+			"name": "openapi.yaml",
+			"path": "tests/fixtures/default_param_error/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n"
 		}
 	},
-	"Error": "parse: paths: /notify: post: : requestBody: content: application/json: parse schema: parse schema: reference \"payment-service.oas3.yaml#/components/schemas/notification\": resolve reference \"payment-service.oas3.yaml#/components/schemas/notification\": invalid schema reference \"payment-service.oas3.yaml#/components/schemas/notification\""
+	"Error": "parse: paths: /default-param-query-does-not-match-type: get: fakeapi.hello.test_default_missmatch_definition: parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
 }

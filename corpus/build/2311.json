@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bow-swift/bow-openapi"
+			"name": "github.com/boscore/ibc_plugin_eos"
 		},
 		"file": {
-			"name": "schema-yaml.yaml",
-			"path": "Tests/__Snapshots__/Schemas/schema-yaml.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: testSchemaFormat\n"
+			"name": "test_control.swagger.yaml",
+			"path": "plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Control API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\ntags:\n  - name: eosio\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /test_control/kill_node_or_producer:\n    post:\n      tags:\n        - TestControl\n      summary: kill_node_or_producer\n      description: Kills node or producer\n      operationId: kill_node_or_producer\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - params\n              properties:\n                params:\n                  type: object\n                  properties:\n                    producer:\n                      $ref: 'https://eosio.github.io/schemata/v2.0/oas/Name.yaml'\n                    where_in_sequence:\n                      type: integer\n                    based_on_lib:\n                      type: integer\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                description: Returns Nothing\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: testSchemaFormat: responses: no responses"
+	"Error": "parse: paths: /test_control/kill_node_or_producer: post: kill_node_or_producer: requestBody: content: application/json: parse schema: parse schema: params: parse schema: producer: parse schema: reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": resolve reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": invalid schema reference \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\""
 }

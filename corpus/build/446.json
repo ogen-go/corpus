@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/jdkandersson/OpenAlchemy"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "example-spec.yml",
-			"path": "examples/remote/example-spec.yml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate OpenAlchemy MVP.\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Employee:\n      \"$ref\": \"remote-example-spec.yml#/Employee\"\n"
+			"name": "https-test.yml",
+			"path": "rules/tests/https-test.yml",
+			"content": "openapi: \"3.0.1\"\nservers:\n  - url: https://ko.nodescription\n  - url: https://ok.example\n    description: production\n  - url: http://ok.sandbox.examle\n    x-sandbox: true\n    description: ok\n  - url: http://ko.example\n    description: should be https\n  - url: http://ko.sandbox.examle\n    x-sandbox: false\n    description: should be https\npaths:\n  /foo-ko:\n    get:\n      servers:\n        - url: https://ko.nodesc.example\n        - url: https://ok.example\n          description: production\n        - url: http://ko.example\n          description: production\n        - url: http://ok.sandbox.examle\n          x-sandbox: true\n          description: ok\n"
 		}
 	},
-	"Error": "parse: paths: /employee: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/Employee\": parse schema: reference \"remote-example-spec.yml#/Employee\": resolve reference \"remote-example-spec.yml#/Employee\": invalid schema reference \"remote-example-spec.yml#/Employee\""
+	"Error": "parse: paths: /foo-ko: get: : responses: no responses"
 }

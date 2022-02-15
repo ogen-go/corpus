@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "ResponseObject.yaml",
-			"path": "com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/ResponseObject.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Response Object\n  version: \"1.0.0\"\n  \npaths: \n\n  /pets:\n    get:\n      summary: Read\n      description: Provide\n      responses:\n        '200':\n          #KZOE-ref name=\"response operation 200\", value=\"components/responses\"\n          $ref: \"#/components/responses/clientErrorResponse\"\n        default:\n           #KZOE-ref name=\"response in operation default\", value=\"components/responses\"\n          $ref: \"#/components/responses/clientErrorResponse\"\n          \ncomponents:\n  responses:\n    clientErrorResponse:\n      description: Client error\n    circular:\n       #KZOE-ref name=\"response in components/responses\", value=\"components/responses\"\n      $ref: \"#/components/responses/clientErrorResponse\"\n"
+			"name": "externalref.yaml",
+			"path": "packages/core/__tests__/fixtures/refs/externalref.yaml",
+			"content": "openapi: 3.1.0\r\ninfo:\r\n  title: My API\r\n  description: It ain't so wonderful, but at least it's mine.\r\n  version: '1.0'\r\n  contact:\r\n    email: me@theintenet.com\r\n    name: me\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: 'test'\r\n      responses:\r\n        200:\r\n          description: test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: ./vendor.schema.yaml\r\ncomponents:\r\n  schemas:\r\n    vendor:\r\n      $ref: ./vendor.schema.yaml\r\n    myvendor:\r\n      $ref: ./vendor.schema.yaml\r\n    simple:\r\n      $ref: ./simple.yaml\r\n    A:\r\n      $ref: ./definitions.yaml#/$defs/A\r\n    test:\r\n      $ref: ./rename.yaml\r\n    rename:\r\n      type: string\r\n    rename-2:\r\n      $ref: ./rename.yaml"
 		}
 	},
-	"Error": "make ir: reduce default: too complicated to reduce default error"
+	"Error": "parse: paths: /test: get: : responses: 200: content: application/json: schema: parse schema: reference \"./vendor.schema.yaml\": resolve reference \"./vendor.schema.yaml\": invalid schema reference \"./vendor.schema.yaml\""
 }

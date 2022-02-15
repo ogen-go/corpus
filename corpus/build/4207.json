@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/spec-first/connexion"
+			"name": "github.com/snyk/vervet"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/fixtures/module_does_not_exist/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Not Exist API\n  version: '1.0'\npaths:\n  /module-not-implemented/{some_path}:\n    get:\n      summary: Operation function does not exist.\n      operationId: m.module_does_not_exist\n      parameters:\n      - in: path\n        name: some_path\n        schema:\n          type: string\n      responses:\n        '200':\n          description: OK\nservers:\n  - url: /na\n"
+			"name": "spec.yaml",
+			"path": "versionware/example/resources/things/2021-11-20/spec.yaml",
+			"content": "openapi: 3.0.3\nx-snyk-api-stability: experimental\ninfo:\n  title: api\n  version: 3.0.0\nservers:\n  - url: /api/api\n    description: Api API\npaths:\n  /things/{thingsId}:\n    delete:\n      description: Get an instance of things\n      operationId: getThings\n      parameters:\n        - { $ref: '../../common.yaml#/parameters/ThingsId' }\n      responses:\n        '204':\n          description: Returns an instance of things\n"
 		}
 	},
-	"Error": "parse: paths: /module-not-implemented/{some_path}: get: m.module_does_not_exist: parameters: parse parameter \"some_path\": path parameters must be required"
+	"Error": "parse: paths: /things/{thingsId}: delete: getThings: parameters: parse parameter \"\": resolve \"../../common.yaml#/parameters/ThingsId\" reference: invalid parameter reference: \"../../common.yaml#/parameters/ThingsId\""
 }

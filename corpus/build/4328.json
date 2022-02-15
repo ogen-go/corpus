@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/surfstudio/SurfGen"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-1063/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: an API\n  description: An API for reproduce a *There are duplicate parameter values*.\n\npaths:\n  /anPath:\n    get:\n      parameters:\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_One'\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_Two'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string"
+			"name": "api.yaml",
+			"path": "Tests/PipelinesTests/CommonTestSpecs/feedback/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n     \npaths:\n  /feedback/report:\n    post:\n      summary: Этот метод используется для того, чтобы отправить форму на тему \"Другое\". То есть на любую другую тему кроме объединения аккаунтов\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/Report\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"../common/models.yaml#/components/schemas/InfoMessage\" \n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n  /feedback/reportAddAccounts:\n    post:\n      summary: Этот метод используется для того, чтобы заполнить форму на объединение аккаунтов\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/ReportAddAccounts\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"../common/models.yaml#/components/schemas/InfoMessage\" \n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n  /feedback/attachments:\n    post:\n      summary: Файлы для обратной связи\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"../common/models.yaml#/components/schemas/FileModelForMultipart\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/Attachment\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /anPath: get: : parameters: parse parameter \"\": resolve \"./references.oas3.yaml#/components/parameters/ParamQ_One\" reference: invalid parameter reference: \"./references.oas3.yaml#/components/parameters/ParamQ_One\""
+	"Error": "parse: paths: /feedback/attachments: post: : requestBody: content: multipart/form-data: parse schema: parse schema: reference \"../common/models.yaml#/components/schemas/FileModelForMultipart\": resolve reference \"../common/models.yaml#/components/schemas/FileModelForMultipart\": invalid schema reference \"../common/models.yaml#/components/schemas/FileModelForMultipart\""
 }

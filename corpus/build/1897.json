@@ -5,10 +5,10 @@
 			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "externalref.yaml",
-			"path": "packages/core/__tests__/fixtures/refs/externalref.yaml",
-			"content": "openapi: 3.1.0\r\ninfo:\r\n  title: My API\r\n  description: It ain't so wonderful, but at least it's mine.\r\n  version: '1.0'\r\n  contact:\r\n    email: me@theintenet.com\r\n    name: me\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: 'test'\r\n      responses:\r\n        200:\r\n          description: test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: ./vendor.schema.yaml\r\ncomponents:\r\n  schemas:\r\n    vendor:\r\n      $ref: ./vendor.schema.yaml\r\n    myvendor:\r\n      $ref: ./vendor.schema.yaml\r\n    simple:\r\n      $ref: ./simple.yaml\r\n    A:\r\n      $ref: ./definitions.yaml#/$defs/A\r\n    test:\r\n      $ref: ./rename.yaml\r\n    rename:\r\n      type: string\r\n    rename-2:\r\n      $ref: ./rename.yaml"
+			"name": "openapi.yaml",
+			"path": "__tests__/bundle/bundle-lint-format/openapi.yaml",
+			"content": "openapi: 3.1.0\nservers:\n  - url: https://api.example.com/v1\n\ninfo:\n  title: Title\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  description: Description\n  version: 1.0.0\n\npaths:\n  /my_post:\n    post:\n      operationId: my_post\n      summary: my_post\n      requestBody:\n        content:\n          application/json:\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: content: application/json: schema: parse schema: reference \"./vendor.schema.yaml\": resolve reference \"./vendor.schema.yaml\": invalid schema reference \"./vendor.schema.yaml\""
+	"Error": "parse: paths: /my_post: post: my_post: responses: no responses"
 }

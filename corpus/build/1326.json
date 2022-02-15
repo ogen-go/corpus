@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/general/invalid_format/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n    parameters:\n      - name: id\n        in: path\n        description: ID of pet to use\n        required: true\n        schema:\n          type: array\n          items:\n            type: object\n            properties:\n              myObject:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              length:\n                type: integer\n                format: int32\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: float\n        result:\n          type: number\n          format: double\n"
+			"name": "positive6.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive6.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: number\n                minimum: 0\n                exclusiveMinimum: true\n                maximum: 50\n                default: \"a\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"number\", got \"string\""
 }

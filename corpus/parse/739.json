@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kube-HPC/hkube"
+			"name": "github.com/koxudaxi/datamodel-code-generator"
 		},
 		"file": {
-			"name": "index.yaml",
-			"path": "core/openapi-spec/swagger/index.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  $ref: ./swagger/info/index.yaml\ntags:\n  $ref: ./swagger/tags/index.yaml\nexternalDocs:\n  description: Find out more about Hkube\n  url: \"http://hkube.io\"\nservers: []\npaths:\n  $ref: ./swagger/paths/index.yaml\ncomponents:\n  schemas:\n    $ref: ./swagger/definitions/index.yaml\n  parameters:\n    $ref: ./swagger/paths/datasource/parameters.yaml\n"
+			"name": "x_enum_varnames.yaml",
+			"path": "tests/data/openapi/x_enum_varnames.yaml",
+			"content": "openapi: 3.0\ncomponents:\n  schemas:\n    string:\n      type: string\n      enum:\n        - 'dog'\n        - 'cat'\n        - 'snake'\n    unknown_type_string:\n      enum:\n        - 'dog'\n        - 'cat'\n        - 'snake'\n    named_string:\n      type: string\n      description: Operator to filter data by.\n      enum:\n        - '='\n        - '!='\n        - '\u003e'\n        - '\u003c'\n        - '\u003e='\n        - '\u003c='\n      x-enum-varnames:\n        - EQ\n        - NE\n        - GT\n        - LT\n        - GE\n        - LE\n      example: '\u003e='\n      xml:\n        attribute: true\n    named_number:\n      type: number\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      x-enum-varnames:\n        - one\n        - two\n        - three\n      example: 1\n    number:\n      type: number\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      example: 1\n    unknown_type_number:\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      example: 1"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
 }

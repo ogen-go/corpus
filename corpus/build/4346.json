@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/swagger-js"
 		},
 		"file": {
-			"name": "ApiSpecification.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-913/BS/ApiSpecification.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n    title: Service Model\n    version: 2.4.0\npaths:\n    /networkAccessProfile:\n        get:\n            tags:\n            - AccessProfile\n            operationId: getList\n            parameters:\n            - name: id\n              in: query\n              schema:\n                  type: string\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                type: array\n                                items:\n                                    $ref: '#/components/schemas/accessProfileBO'\nservers:\n- url: 'https://api.com/{access}/accessProfileAPI'\n  variables:\n      access:\n          default: unknown\ncomponents:\n    parameters:\n        fields:\n            name: fields\n            in: query\n            schema:\n                type: string\n    schemas:\n        accessProfileBO:\n            $ref: ../BO/Resource/ApiSpecificationBO.json"
+			"name": "relative-server.openapi.yaml",
+			"path": "test/data/relative-server.openapi.yaml",
+			"content": "openapi: \"3.0.0\"\nservers:\n- url: \"/v1/\"\npaths:\n  /endpoint:\n    get:\n      summary: an operation!\n      operationId: myOp\n      parameters:\n      - name: filter\n        in: query\n        schema:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /networkAccessProfile: get: getList: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/accessProfileBO\": parse schema: reference \"../BO/Resource/ApiSpecificationBO.json\": resolve reference \"../BO/Resource/ApiSpecificationBO.json\": invalid schema reference \"../BO/Resource/ApiSpecificationBO.json\""
+	"Error": "parse: paths: /endpoint: get: myOp: responses: no responses"
 }

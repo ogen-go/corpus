@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/GDSC-University-of-Seoul/2021-spring-project"
+			"name": "github.com/DuckbillGroup/followercount"
 		},
 		"file": {
-			"name": "_openapi.yaml",
-			"path": "server/backend/swagger/_openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Kids Keeper API Docs\n  description: Kids Keeper API 문서\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - description: localhost\n    url: http://localhost:3000/api/\npaths:\n  $ref: \"./paths/index.yaml\"\ntags:\n  - name: district\n  - name: children care center\n  - name: cctv\n  - name: anomaly log\n  - name: auth\ncomponents:\n  securitySchemes:\n    bearerAuth: # arbitrary name for the security scheme\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\n"
+			"name": "openapi.yaml",
+			"path": "openapi.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title:\n    Ref: AWS::StackName\n  description: REST API for Follower Count\npaths:\n  /{twitter_handle}:\n    get:\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: \"aws\"\n        credentials:\n          Fn::GetAtt: [RestAPIRole, Arn]\n        uri: \n          Fn::Sub: \"arn:aws:apigateway:${AWS::Region}:dynamodb:action/Query\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: |\n                #set($inputRoot = $input.path('$'))\n                {\n                \"twitter_handle\": \"$input.params('twitter_handle')\",\n                \"Items\": [#foreach($item in $inputRoot.Items){\n                  \"EpochTime\": $item.EpochTime.N,\n                  \"followers\": $item.followers.N\n                }#if($foreach.hasNext),#end\n                #end\n                ],\n                #if(!$inputRoot.LastEvaluatedKey.EpochTime.isEmpty())\n                \"LastEvaluatedKey\": $inputRoot.LastEvaluatedKey.EpochTime.N,\n                #end\n                \"ScannedCount\": $inputRoot.ScannedCount\n                }\n        requestTemplates:\n          application/json:\n            Fn::Join:\n              - ''\n              - - \u003e-\n                  {\"TableName\": \"\n                - Ref: FollowerCount\n                - \u003e-\n                  \"\n                - |\n                  ,\n                  #if(!$method.request.querystring.LastEvaluatedKey.isEmpty())\n                  \"ExclusiveStartKey\": {\"twitter_handle\":{\"S\":\"$input.params('twitter_handle')\"}, \"EpochTime\":{\"N\":\"$method.request.querystring.LastEvaluatedKey\"}},\n                  #end\n                  \"KeyConditionExpression\": \"twitter_handle = :twitter_handle\",\n                  \"ExpressionAttributeValues\": {\n                      \":twitter_handle\": {\"S\": \"$input.params('twitter_handle')\"}\n                    }\n                  }\n        passthroughBehavior: \"never\"\n        httpMethod: \"POST\"\ncomponents:\n  schemas:\n    Empty:\n      type: object\n      title: Empty Schema\n      description: Empty Schema\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal object into Go struct field Info.info.title of type string"
 }

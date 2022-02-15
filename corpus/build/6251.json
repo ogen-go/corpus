@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/springdoc/springdoc-openapi"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "app26.json",
-			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/app26.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/persons\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"operationId\": \"persons\",\n        \"parameters\": [\n          {\n            \"name\": \"myModel\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyModel\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MyModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyModel\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"thing\": {\n            \"type\": \"object\",\n            \"description\": \"Hello\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "paths-with-extensions.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-with-extensions.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"x-not-a-path\" : \"extension-value\",\n      \"x-some-number\" : 42,\n      \"x-some-boolean\" : true,\n      \"x-some-object\" : {\n        \"foo\": \"bar\"\n      },\n      \"x-some-array\" : [ \"foo\", \"bar\" ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "make ir: path \"/persons\": post: parameters: field \"thing\": nested objects not allowed"
+	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
 }

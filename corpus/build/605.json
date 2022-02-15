@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/scionproto/scion"
+			"name": "github.com/rafaelcaricio/sticker"
 		},
 		"file": {
-			"name": "spec.yml",
-			"path": "spec/dispatcher/spec.yml",
-			"content": "openapi: \"3.0.2\"\ninfo:\n  description: \"Service Management API for the SCION Dispatcher\"\n  title: Dispatcher Management API\n  version: \"0.1.0\"\nservers:\n  - url: http://{host}:{port}/api/v1\n    variables:\n      host:\n        default: \"localhost\"\n      port:\n        default: \"30441\"\ntags:\n  - name: common\n    description: Common API exposed by SCION services.\npaths:\n  /info:\n    $ref: \"../common/process.yml#/paths/~1info\"\n  /log/level:\n    $ref: \"../common/process.yml#/paths/~1log~1level\"\n  /config:\n    $ref: \"../common/process.yml#/paths/~1config\"\n"
+			"name": "async_api.yml",
+			"path": "examples/async_api/async_api.yml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      operationId: async_api.handle_request\n"
 		}
 	},
-	"Error": "parse: /config: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: async_api.handle_request: responses: no responses"
 }

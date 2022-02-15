@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "api.yml",
-			"path": "als-structure/shared/src/test/resources/OAS30/operation/security/api.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      security:\n        - one\n        - two\n"
+			"path": "als-structure/shared/src/test/resources/OAS30/encoding/api.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      requestBody:\n        description: a request\n        content:\n          application/json:\n            encoding:\n              name:\n                contentType: application/json\n                headers:\n                  header:\n                    description: a header\n                style: plain\n                explode: false\n                allowReserved: false\n"
 		}
 	},
 	"Error": "parse: paths: /endpoint1: get: : responses: no responses"

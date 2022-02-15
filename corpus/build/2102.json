@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anz-bank/sysl"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "all-of-recursive.yaml",
-			"path": "pkg/importer/tests/openapi3/errors/all-of-recursive.yaml",
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: Simple\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n      responses:\n        '200':\n          description: Updated\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - pet_type\n      properties:\n        pet_type:\n          type: string\n      discriminator:\n        propertyName: pet_type\n    Dog:     # \"Dog\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Dog`-specific properties \n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Dog`\n          properties:\n            color:\n              type: string\n              format: \"uuid\"\n            bark:\n              type: boolean\n            breed:\n              type: string\n              enum: [Dingo, Husky, Retriever, Shepherd]\n    Cat:     # \"Cat\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Cat`-specific properties \n        - $ref: '#/components/schemas/Dog'\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Cat`\n          properties:\n            hunts:\n              type: boolean\n            age:\n              type: integer\n"
+			"name": "runtime-inside-string.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/runtime-expressions/runtime-inside-string.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      callbacks:\n        callback:\n          'http://notificationServer.com?transactionId={*':"
 		}
 	},
-	"Error": "parse: paths: /pets: patch: : requestBody: content: application/json: parse schema: parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Cat\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Dog\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Cat\": infinite recursion: \"#/components/schemas/Cat\""
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

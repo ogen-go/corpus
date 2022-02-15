@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/path-segment-plural-error/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\nservers:\n  - url: https://development.com/v1\n\npaths:\n  '/pet':\n    get:\n      summary: example pet\n      operationId: petId\n      responses:\n        '200':\n          description: pet example\n  /v1/pets:\n    parameters:\n      - name: Accept-Language\n        in: header\n        description: \"The language you prefer for messages\"\n        example: en-US\n        required: false\n        schema:\n          type: string\n          default: en-AU\n"
+			"path": "__tests__/lint/path-not-include-query-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\nservers:\n  - url: 'http://api.redoc.ly'\n\npaths:\n  '/ping':\n    get:\n      operationId: getPing\n      summary: Example summary\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/vscode-spectral"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "simple.yaml",
-			"path": "client/src/test/e2e/fixtures/invalid/simple.yaml",
-			"content": "openapi: 3.0.0\n\ninfo: 12\n"
+			"name": "multiline-lines.yaml",
+			"path": "openapi-front-end/src/test/resources/metrics/multiline-lines.yaml",
+			"content": "openapi: \"3.0.1\"\nx-no-sonar: SomeId\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    # a comment line\n    x-sonar-disable: SomeId\n    get:\n      responses:\n        x-sonar-enable: SomeId\n        '200':\n          description: |\n            some multiline\n            description\n  #\n  # another comment line\n  /newpets:\n    $ref: '#/paths/~1pets'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Spec.info of type ogen.Info"
+	"Error": "json: cannot unmarshal string into Go struct field Operation.paths.get.responses of type ogen.Response"
 }

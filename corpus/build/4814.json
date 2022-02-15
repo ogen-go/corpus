@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "delete-operation.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-operation/openapi-3/delete-operation.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\"\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "change-parameter-type-enum.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/change-parameter-type/openapi-3/change-parameter-type-enum.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"description\": \"username to fetch\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"number\"\n            }\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the object to fetch\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"option1\", \"option2\", \"option3\"\n              ]\n            },\n            \"style\": \"form\",\n            \"explode\": true\n          },\n          {\n            \"name\": \"freeForm\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"object\",\n              \"additionalProperties\": {\n                \"type\": \"integer\"\n              }\n            },\n            \"style\": \"form\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo/{fooId}: get: getFoo: parse path: path parameter not specified: \"fooId\""
+	"Error": "parse: paths: /foo: get: : responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/springdoc/springdoc-openapi"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/max-depth/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "app85.json",
+			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/app85.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/api/test/{id}\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"operationId\": \"testme\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/paramA\"\n          },\n          {\n            \"$ref\": \"#/components/parameters/paramB\"\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {}\n}\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /api/test/{id}: post: testme: parameters: parse parameter \"\": resolve \"#/components/parameters/paramA\" reference: component by reference \"#/components/parameters/paramA\" not found"
 }

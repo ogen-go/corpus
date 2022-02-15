@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ConsenSys/web3signer"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "web3signer.yaml",
-			"path": "core/src/main/resources/openapi-specs/eth2/web3signer.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: 'Web3Signer ETH2 Api'\n  description: 'Sign Eth2 Artifacts'\n  version: '@VERSION@'\n  license:\n    name: 'Apache 2.0'\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\nservers:\n  - url: /\n  - url: http://localhost:9000/\n\npaths:\n  /api/v1/eth2/sign/{identifier}:\n    $ref: './signing/paths/sign.yaml'\n  /api/v1/eth2/publicKeys:\n    $ref: './signing/paths/public_keys.yaml'\n  /reload:\n    $ref: './signing/paths/reload.yaml'\n  /upcheck:\n    $ref: './signing/paths/upcheck.yaml'\n  /eth/v1/keystores:\n    $ref: './keymanager/paths/keystores.yaml'\n\nexternalDocs:\n  description: 'Web3Signer User Documentation'\n  url: 'https://docs.web3signer.consensys.net/'\n"
+			"name": "positive8.yaml",
+			"path": "assets/queries/openAPI/general/security_operations_empty_array/test/positive8.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      security:\n      - OAuth2:\n        - admin\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\n  \"/apis\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      security: []\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\nsecurity:\n- OAuth2:\n  - read\n"
 		}
 	},
-	"Error": "parse: /upcheck: referenced pathItem not supported"
+	"Error": "parse: paths: /apis: get: duplicate operationId: \"listVersionsv2\""
 }

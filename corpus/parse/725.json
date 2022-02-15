@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "test/resources/petstore_4/openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
+			"path": "test/resources/petstore_11/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  $include: ./servers.yaml\npaths:\n  $include.pets: ./paths/_index.yaml\ncomponents:\n  $include: ./securitySchemes.yaml\ntags:\n  $include#1: ./tags1.yaml#/tags\n  $include#2: ./tags2.yaml#/tags\n"
 		}
 	},
 	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"

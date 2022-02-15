@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/karlvr/openapi-generator-plus"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "non-unique-enum-values.yml",
-			"path": "packages/core/src/__tests__/enums/non-unique-enum-values.yml",
-			"content": "---\n# An example where there are enum values that will map to duplicate names\nopenapi: 3.0.3\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      parameters:\n      - name: param1\n        in: query\n        schema:\n          type: string\n          enum: [0, 1, 2, 3, -1]\n      responses:\n        200:\n          description: OK\n"
+			"name": "patch-test.yml",
+			"path": "rules/tests/patch-test.yml",
+			"content": "openapi: 3.0.1\npaths:\n    /ko-patch-generic-mediatype:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json:\n              schema:\n                type: string\n    /ko-patch-mediatype-not-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: string\n    /ok-patch-mediatype-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: array\n    /ko-patch-without-body:\n      patch:\n        description: Patch without body\n    /ko-patch-empty-body:\n      patch:\n        description: Patch empty body\n        requestBody: {}\n"
 		}
 	},
-	"Error": "parse: paths: /test1: get: : parameters: parse parameter \"param1\": schema: parse enum values: parse value \"0\": expected type \"string\", got \"number\""
+	"Error": "parse: paths: /ok-patch-mediatype-array: patch: : responses: no responses"
 }
