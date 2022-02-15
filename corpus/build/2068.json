@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "response_ref.json",
-			"path": "src/test/resources/testing/documentation/openapi/json/response_ref.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"\u003ccaret\u003e#/components/responses/Response\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"Response\": {\n        \"description\": \"Description\"\n      }\n    }\n  }\n}\n"
+			"name": "extract-example-oas3-golden.yaml",
+			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-example-oas3-golden.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\n\n  examples:\n    newexample:\n      value: textplain\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            type: string\n            example: \n              $ref: \"#/components/examples/newexample\"\n"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 200: resolve \"\u003ccaret\u003e#/components/responses/Response\" reference: invalid response reference: \"\u003ccaret\u003e#/components/responses/Response\""
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

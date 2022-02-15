@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/pubg/api-documentation-content"
 		},
 		"file": {
-			"name": "headers-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "mastery.yml",
+			"path": "swagger/en/mastery.yml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: 1.0.0\n  title: \"\"\n  description: \"\"\nservers:\n  - url: https://api.pubg.com/shards/{platform}\n    variables:\n      \"platform\":\n        enum:\n        - \"console\"\n        - \"kakao\"\n        - \"psn\"\n        - \"stadia\"\n        - \"steam\"\n        - \"xbox\"\n        default: steam\n\nsecurity:\n  - ApiKeyAuth: []\n\npaths:\n  /players/{accountId}/weapon_mastery:\n    $ref: './paths/index.yml#/weaponMastery'\n  /players/{accountId}/survival_mastery:\n    $ref: './paths/index.yml#/survivalMastery'\n\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: http\n      description: \"Enter your API key here to be used with the interactive documentation!\"\n      scheme: bearer\n      bearerFormat: JWT\n\n  schemas:\n    weaponMastery:\n      $ref: './schemas/index.yml#/weaponMastery'\n    weaponSummary:\n      $ref: './schemas/index.yml#/weaponSummary'\n    survivalMastery:\n      $ref: './schemas/index.yml#/survivalMastery'\n"
 		}
 	},
-	"Error": "parse: paths: /p: get: : responses: no responses"
+	"Error": "parse: /players/{accountId}/weapon_mastery: referenced pathItem not supported"
 }

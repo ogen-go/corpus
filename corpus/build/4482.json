@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "a.yaml",
+			"path": "test/golden/common/unguarded-recursive/silent/a.yaml",
+			"content": "components:\n  schemas:\n    A:\n      type: object\n      properties:\n        bar:\n          $ref: \"#/components/schemas/B\"\n    B:\n      anyOf:\n        - $ref: \"#/components/schemas/B\"\n      type: object\nopenapi: 3.0.0\ninfo:\n  version: \"\"\n  title: \"\"\npaths:\n  /foo:\n    get:\n      responses:\n        \"200\":\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/A\"\n          description: \"\"\n"
+		}
+	},
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json;charset=utf-8: schema: parse schema: reference \"#/components/schemas/A\": parse schema: bar: parse schema: reference \"#/components/schemas/B\": parse schema: anyOf: [0]: parse schema: reference \"#/components/schemas/B\": infinite recursion: \"#/components/schemas/B\""
+}

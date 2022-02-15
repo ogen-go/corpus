@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/anz-bank/sysl-catalog"
 		},
 		"file": {
-			"name": "syntax-error.json",
-			"path": "als-actions/shared/src/test/resources/actions/documentFormatting/json/expected/syntax-error.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"a\",\n    \"version\": \"2\"\n  }\n  \"paths\": {\n    \"dd\"\n    dd\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"petstore_auth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"authorizationUrl\": \"http://example.org/api/oauth/dialog\",\n            \"scopes\": {\n              \"write:pets\": \"modify pets in your account\",\n              \"read:pets\": \"read your pets\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "mastercard.yaml@c63b9e92813a94197094f97655bcff248874ac16",
+			"path": "demo/markdown/github.com/anz-bank/sysl-examples/demos/sizzle_restaurant/mastercard.yaml@c63b9e92813a94197094f97655bcff248874ac16",
+			"content": "openapi: \"3.0\"\ninfo:\n  title: MasterCard\npaths:\n  /pay:\n    post:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n        500:\n          $ref: \"#/components/responses/500Response\"\ncomponents:\n  schemas:\n    SimpleObj:\n      type: object\n      properties:\n        name:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj\n    AustralianState:\n      type: string\n      enum: [act, nsw, nt, qld, sa, tas, vic, wa]\n  responses:\n    500Response:\n      description: Internal Server Error\n      schema:\n        $ref: \"#/components/schemas/SimpleObj\"\n"
 		}
 	},
 	"Error": "invalid json"

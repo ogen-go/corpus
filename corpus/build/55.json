@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/GetDKAN/dkan2"
 		},
 		"file": {
-			"name": "delete-media-type-requestBody.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-media-type/openapi-3/delete-media-type-requestBody.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "dkan_api_openapi_spec.yml",
+			"path": "modules/dkan_api/tests/src/Unit/Controller/docs/dkan_api_openapi_spec.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: API Documentation\n  version: Alpha\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\npaths:\n  /api/1/metastore/schemas/dataset/items/{identifier}:\n    get:\n      summary: Get this dataset\n      # description:\n      tags:\n        - Dataset\n      parameters:\n        - name: \"identifier\"\n          in: \"path\"\n          description: \"Dataset uuid\"\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: Ok\n    delete:\n      summary: This operation should not be present in dataset-specific docs.\n      security:\n        - basicAuth: []\n      responses:\n        200:\n          description: Ok\n    # Though an empty verb invalidates the spec, test its removal by dataset-specific docs.\n    post:\n  /api/1/some/other/path:\n    patch:\n      summary: This path and operation should not be present in dataset-specific docs.\n      security:\n        - basicAuth: []\n      responses:\n        200:\n          description: Ok\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
+	"Error": "parse: paths: /api/1/metastore/schemas/dataset/items/{identifier}: delete: : parse path: path parameter not specified: \"identifier\""
 }

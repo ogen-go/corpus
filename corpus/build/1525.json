@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/direct-external-circular/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex.json\"\n    }\n  }\n}\n"
+			"name": "duplicateOperationId.yaml",
+			"path": "3.0/fail/duplicateOperationId.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate operationId\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      responses:\n        '200':\n          description: OK\n  '/test2':\n    post:\n      operationId: same\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /test2: post: duplicate operationId: \"same\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/internal-external/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex.json#/~1path2\"\n    },\n    \"/path3\": {\n      \"$ref\": \"#/paths/~1path4\"\n    },\n    \"/path4\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "example2_from_._Improved_examples.md.yaml",
+			"path": "3.0/fail/gluecon/example2_from_._Improved_examples.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Examples of the new example object using a $ref and a external link\n  version: 1.0.0\npaths:\n  '/pets':\n    get:\n      responses:\n        '200':\n          content:\n            application/json: \n              schema:\n                $ref: '#/components/schemas/Pet'\n              examples:\n                dog:\n                  summary: An example of a dog with a cat's name\n                  value:\n                    name: Puma\n                    petType: Dog\n                    color: Black\n                    gender: Female\n                    breed: Mixed\n                frog:\n                  $ref: '#/components/examples/frog-example'\n                cat:\n                  summary: An example of a cat\n                  externalValue: '/examples/cat.json'\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

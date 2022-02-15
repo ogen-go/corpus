@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/awslabs/smithy"
+		},
+		"file": {
+			"name": "streaming-service.openapi.json",
+			"path": "smithy-openapi/src/test/resources/software/amazon/smithy/openapi/fromsmithy/streaming-service.openapi.json",
+			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n        \"title\": \"Streaming\",\n        \"version\": \"2018-01-01\"\n    },\n    \"paths\": {\n        \"/\": {\n            \"get\": {\n                \"operationId\": \"StreamingOperation\",\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"StreamingOperation 200 response\",\n                        \"content\": {\n                            \"application/octet-stream\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/StreamingOperationOutputPayload\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"StreamingOperationOutputPayload\": {\n                \"type\": \"string\",\n                \"format\": \"byte\"\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "make ir: path \"/\": get: responses: 200: contents: application/octet-stream: octet stream with schema not supported"
+}

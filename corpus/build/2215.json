@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "responseOneOf200.yaml",
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/response/responseOneOf200.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: refComponent\n  description: refComponent\n  version: 1.0.0\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n  - url: https://{subdomain}.swagger.io:{port}/{basePath}\n    description: The production API server\n    variables:\n      subdomain:\n        default: petstore\n        description: this value is assigned by the service provider\n      port:\n        enum:\n          - '8443'\n          - '443'\n        default: '443'\n      basePath:\n        default: v2\npaths:\n  /user:\n    post:\n      summary: Creates a new user.\n      responses:\n        '200':\n          description: A JSON object containing pet information\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Cat'\n                  - $ref: '#/components/schemas/Dog'\n                  - $ref: '#/components/schemas/Hamster'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n    Pet:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n    PetForm:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n"
+		}
+	},
+	"Error": "parse: paths: /user: post: : responses: 200: content: application/json: schema: parse schema: oneOf: [0]: parse schema: reference \"#/components/schemas/Cat\": resolve reference \"#/components/schemas/Cat\": schema not found"
+}

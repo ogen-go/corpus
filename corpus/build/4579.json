@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wework/speccy"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "test/fixtures/loader/json-schema/openapi.yaml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n    version: 1.0.0\n    title: OpenAPI /w JSON Schema Example\npaths:\n    /a:\n        get:\n            summary: foo\n            responses:\n                200:\n                    description: 'OK'\n                    content:\n                        application/json:\n                            schema:\n                                $ref: './a.json'\n"
+		}
+	},
+	"Error": "parse: paths: /a: get: : responses: 200: content: application/json: schema: parse schema: reference \"./a.json\": resolve reference \"./a.json\": invalid schema reference \"./a.json\""
+}

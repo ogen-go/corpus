@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "rename_component_example_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_example_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"#/components/examples/NewExample\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"examples\": {\n      \"\u003ccaret\u003eNewExample\": {}\n    }\n  }\n}\n"
+			"name": "consumer.yaml",
+			"path": "amf-cli/shared/src/test/resources/compiler/apikit-apisync/jar-protocol/consumer.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: consumer\n\npaths:\n  /pets:\n    get:\n      responses:\n        '500':\n          $ref: 'utility.yaml#/components/responses/500'"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/NewExample\": component by reference \"#/components/examples/NewExample\" not found"
+	"Error": "parse: paths: /pets: get: : responses: 500: resolve \"utility.yaml#/components/responses/500\" reference: invalid response reference: \"utility.yaml#/components/responses/500\""
 }

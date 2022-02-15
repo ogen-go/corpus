@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "schema_ref_without_type.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/schema_ref_without_type.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /users:\n    get:\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: '\u003ccaret\u003e#/components/schemas/Example'\ncomponents:\n  schemas:\n    Example:\n"
+		}
+	},
+	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
+}

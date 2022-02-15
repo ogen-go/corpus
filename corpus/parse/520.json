@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/path-parameters-defined-error/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/user/{id}':\n    get:\n      parameters:\n        - in: path\n          name: test\n          description: User id\n          required: true\n          schema:\n            type: string\n      operationId: withPathParam\n      description: Get user by id\n      summary: Example summary\n      responses:\n        '200':\n          description: example description\n          content:\n            application/json:\n              schema:\n                type: object\n"
+		}
+	},
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_example.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_example.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: \"#/components/examples/Example\"\ncomponents:\n  examples:\n    \u003ccaret\u003eExample:\n"
+		}
+	},
+	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/Example\": component by reference \"#/components/examples/Example\" not found"
+}

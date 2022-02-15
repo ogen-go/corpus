@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "slashes.yaml",
+			"path": "src/test/resources/testing/reference/slashes.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Title\n  description: Description\n  version: 1.0.0\npaths:\n  '/foo':\n    $ref: '#/paths/~1bar\u003ccaret\u003e'\n  '/bar':\n"
+		}
+	},
+	"Error": "parse: /bar: unexpected nil schema"
+}

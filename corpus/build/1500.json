@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Kong/insomnia"
 		},
 		"file": {
-			"name": "sample-api-upper.json",
-			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-upper.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"0.1.9\"\n  },\n  \"servers\" : [\n    {\"url\": \"https://petstore3.swagger.io/api/v3/pet\"}\n  ],\n  \"paths\" : {\n    \"/a\" : {\n      \"get\": {\n        \"operationId\": \"AGET\"\n      },\n      \"post\": {\n        \"operationId\": \"apost\"\n      }\n    },\n    \"/b\" : {\n      \"post\": {\n        \"operationId\": \"bpost\"\n      }\n    },\n    \"/2\" : {\n      \"get\": {\n        \"operationId\": \"2get\"\n      }\n    }\n  }\n}\n"
+			"name": "request-validator-plugin.yaml",
+			"path": "packages/openapi-2-kong/src/declarative-config/fixtures/request-validator-plugin.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Example\n  version: 1.0.0\n\nservers:\n  - url: http://backend.com/path\n\nx-kong-plugin-request-validator:\n\npaths:\n  /global:\n    get:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/jsonSchema'\n  /params/{pathid}/:\n    get:\n      x-kong-plugin-request-validator:\n        enabled: true\n        config:\n          body_scheme: '{}'\n      parameters:\n        - in: query\n          name: queryid\n          schema:\n            type: integer\n          required: true\n        - in: header\n          name: User-Id\n          schema:\n            type: integer\n          required: true\n        - in: cookie\n          name: cookieid\n          schema:\n            type: integer\n          required: true\n        - in: path\n          name: pathid\n          schema:\n            type: integer\n          required: true\n  /body:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/jsonSchema'\n          application/xml:\n            schema:\n              $ref: '#/components/schemas/xmlSchema'\n\ncomponents:\n  schemas:\n    jsonSchema:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n    xmlSchema:\n      type: object\n      properties:\n        prop:\n          type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /a: get: AGET: responses: no responses"
+	"Error": "parse: paths: /body: post: : responses: no responses"
 }

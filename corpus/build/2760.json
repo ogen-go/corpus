@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/emanuelfreitas/3gpp-documentation"
+		},
+		"file": {
+			"name": "TS29573_SeppTelescopicFqdnMapping.yaml",
+			"path": "apis/TS29573_SeppTelescopicFqdnMapping.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: '1.1.0-alpha.1'\n  title: 'SEPP Telescopic FQDN Mapping API'\n  description: |\n    SEPP Telescopic FQDN Mapping Service.\n    © 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).\n    All rights reserved.\n\nservers:\n  - url: '{apiRoot}/nsepp-telescopic/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description:  apiRoot as defined in clause 4.4 of 3GPP TS 29.501.\n\nexternalDocs:\n  description: 3GPP TS 29.573 V17.1.0; 5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3\n  url: http://www.3gpp.org/ftp/Specs/archive/29_series/29.573/\n\npaths:\n  /mapping:\n    get:\n      summary: Maps an FQDN to/from a telescopic FQDN\n      operationId: GetTelescopicMapping\n      tags:\n        - Telescopic Mapping (Document)\n      parameters:\n        - name: foreign-fqdn\n          in: query\n          description: FQDN of the NF in the foreign PLMN\n          schema:\n            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn'\n        - name: telescopic-label\n          in: query\n          description: Telescopic Label\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TelescopicMapping'\n        '400':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/400'\n        '404':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/404'\n        default:\n          $ref: 'TS29571_CommonData.yaml#/components/responses/default'\n\ncomponents:\n  schemas:\n    TelescopicMapping:\n      description: Contains the Telescopic mapping data\n      type: object\n      properties:\n        telescopicLabel:\n          type: string\n        seppDomain:\n          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn'\n        foreignFqdn:\n          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn'\n"
+		}
+	},
+	"Error": "parse: paths: /mapping: get: GetTelescopicMapping: parameters: parse parameter \"foreign-fqdn\": schema: parse schema: reference \"TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn\": resolve reference \"TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn\": invalid schema reference \"TS29510_Nnrf_NFManagement.yaml#/components/schemas/Fqdn\""
+}

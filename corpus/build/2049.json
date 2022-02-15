@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aip-dev/site-generator"
 		},
 		"file": {
-			"name": "parameter.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/parameter.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"pet.json\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "les_mis.oas.yaml",
+			"path": "tests/test_data/aip/general/0062/les_mis.oas.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Library\n  version: 1.0.0\npaths:\n  /publishers/{publisherId}/books/{bookId}:\n    get:\n      operationId: getBook\n      description: Retrieve a single book.\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Book'\ncomponents:\n  schema:\n    Book:\n      description: A representation of a single book.\n      properties:\n        name:\n          type: string\n          description: |\n            The name of the book.\n            Format: publishers/{publisher}/books/{book}\n        isbn:\n          type: string\n          description: |\n            The ISBN (International Standard Book Number) for this book.\n        title:\n          type: string\n          description: The title of the book.\n        authors:\n          type: array\n          items:\n            type: string\n          description: The author or authors of the book.\n        rating:\n          type: float\n          description: The rating assigned to the book.\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"pet.json\" reference: invalid parameter reference: \"pet.json\""
+	"Error": "parse: paths: /publishers/{publisherId}/books/{bookId}: get: getBook: parse path: path parameter not specified: \"publisherId\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/invalid-pointer/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "example2_from_._New_links.md.yaml",
+			"path": "3.0/fail/gluecon/example2_from_._New_links.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Employees and Managers\n  version: 1.0.1\npaths:\n  '/employees/{id}':\n    get:\n      operationId: getEmployeeById\n      parameters:\n      - name: id\n        in: path\n        schema:\n          type: string\n      responses:\n        '200': \n          description: A representation of an employee\n          content: \n            application/json: \n              schema:\n                type: object\n                properties:\n                  id: \n                    type: string\n                  username:\n                    type: string\n                  managerId:\n                    type: string\n          links:\n            userManager:\n              operationId: getEmployeeById\n              parameters:\n                id: $response.body#managerId\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /employees/{id}: get: getEmployeeById: parameters: parse parameter \"id\": path parameters must be required"
 }

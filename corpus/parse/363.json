@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/link-object/fixtures/operation-id/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"links\": {\n        \"link1\": {\n          \"operationId\": \"op1\",\n          \"operation\": {\n            \"operationId\": \"op1\",\n            \"description\": \"description of operation\"\n          }\n        }\n      },\n      \"pathItems\": {\n        \"pathItem1\": {\n          \"get\": {\n            \"operationId\": \"op1\",\n            \"description\": \"description of operation\"\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "pplan.yaml",
+			"path": "src/test/config/pplan.yaml",
+			"content": "ontologies:\n  - http://purl.org/net/p-plan\nname: p-plan\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example of the P-Plan ontology\n    title: P-Plan\n    version: v1.0.0\n  externalDocs:\n    description: P-Plan\n    url: http://purl.org/net/p-plan\n\n#not used for this example.\nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

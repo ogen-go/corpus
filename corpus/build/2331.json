@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "component.params.yaml",
+			"path": "test/resources/component.params.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Manual Handling\n  description: API documentation for manual handling.\n  version: 0.1.9\nservers:\n  - url: /\n    description: Self\n  - url: http://localhost:3010\n    description: local\n  - url: https://mhcore.quinoid.in\n    description: Development server\npaths:\n  /api/v1/meeting/{meetingId}:\n    get:\n      description: Get meeting details by meeting id\n      summary: Get meeting details by meeting id\n      tags:\n        - Meeting\n      parameters:\n        - $ref: '#/components/parameters/MeetingId'\n        # - name: meetingId\n        #   in: path\n        #   required: true\n        #   description: Meeting id\n        #   schema:\n        #     $ref: '#/components/parameters/MeetingId'\n      responses:\n        '200':\n          description: Meeting token obtained successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/parameters/MeetingId'\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  parameters:\n    MeetingId:\n      name: meetingId\n      description: Meeting id of the session\n      required: true\n      in: path\n      example: 01701deb-34cb-46c2-972d-6eeea3850342\n      schema:\n        type: string\n"
+		}
+	},
+	"Error": "parse: paths: /api/v1/meeting/{meetingId}: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/parameters/MeetingId\": resolve reference \"#/components/parameters/MeetingId\": invalid schema reference \"#/components/parameters/MeetingId\""
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cr0hn/aiohttp-swagger"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "aiohttp_swagger/templates/openapi.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: {{ title }}\n  description: {{ description }}\n  version: \"{{ version }}\"\n  {% if contact %}\n  contact:\n    name: {{ contact }}\n  {% endif %}\nservers:\n  - url: {{ base_path }}\ncomponents:\n  {% if definitions %}\n  schemas:\n{{ definitions|nesteddict2yaml }}\n  {% endif %}\n  {% if security_definitions %}\n  securitySchemes:\n{{ security_definitions|nesteddict2yaml }}\n  {% endif %}\npaths:\n\n"
+		}
+	},
+	"Error": "yaml: line 6: found character that cannot start any token"
+}

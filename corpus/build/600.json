@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/rafaelcaricio/sticker"
 		},
 		"file": {
-			"name": "example.json",
-			"path": "amf-cli/shared/src/test/resources/compiler/apikit-apisync/uri-file-prefix/example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"New API\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/items\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"components/schemas/okResponse.json#/components/responses/okResponse\"\n          }\n        }\n      }\n    },\n    \"/moreItems\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"components/schemas/okResponse.json#/components/responses/okResponse\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "api.yml",
+			"path": "tests/fixtures/api_simple_get/api.yml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      operationId: api.say_hello\n"
 		}
 	},
-	"Error": "parse: paths: /items: get: : responses: 200: resolve \"components/schemas/okResponse.json#/components/responses/okResponse\" reference: invalid response reference: \"components/schemas/okResponse.json#/components/responses/okResponse\""
+	"Error": "parse: paths: /: get: api.say_hello: responses: no responses"
 }

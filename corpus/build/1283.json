@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "zero_in_default_value.json",
-			"path": "test/data/valid_openapi/zero_in_default_value.json",
-			"content": "{\n\t\"openapi\": \"3.0.0\",\n\t\"info\": {\n\t\t\"title\": \"Test\",\n\t\t\"description\": \"Test Resources\",\n\t\t\"contact\": {},\n\t\t\"version\": \"1.0\"\n\t},\n\t\"servers\": [\n\t\t{\n\t\t\t\"url\": \"http://example.com\",\n\t\t\t\"description\": \"example server\"\n\t\t}\n\t],\n\t\"paths\": {\n\t\t\"/v1/test/{id}\": {\n\t\t\t\"get\": {\n\t\t\t\t\"tags\": [\n\t\t\t\t\t\"TEST\"\n\t\t\t\t],\n\t\t\t\t\"summary\": \"TEST\",\n\t\t\t\t\"operationId\": \"test\",\n\t\t\t\t\"Description\": \"Test\",\n\t\t\t\t\"parameters\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"in\": \"path\",\n\t\t\t\t\t\t\"name\": \"id\",\n\t\t\t\t\t\t\"description\": \"This description doesn't show up.\",\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"type\": \"string\",\n\t\t\t\t\t\t\t\"default\": \"123456\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"name\": \"minTimestamp\",\n\t\t\t\t\t\t\"description\": \"Restrict the results to be above minTimestamp\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"type\": \"number\",\n\t\t\t\t\t\t\t\"default\": 0\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"name\": \"maxTimestamp\",\n\t\t\t\t\t\t\"description\": \"Restrict the results to be below maxTimestamp\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"type\": \"number\",\n\t\t\t\t\t\t\t\"default\": 1600290830\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t}\n\t}\n}\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/parameter_object_schema_content/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        required: true\n        schema:\n          type: integer\n  /users/{id}:\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n"
 		}
 	},
-	"Error": "parse: paths: /v1/test/{id}: get: test: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /users/{id}: get: : responses: no responses"
 }

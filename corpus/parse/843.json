@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "primitiveDataTypeBodySpec.yaml",
+			"path": "test/data/31CollectionTransactions/validate30Scenarios/primitiveDataTypeBodySpec.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0\n  title: Demo API\npaths:\n  /api:\n    post:\n      summary: 'Demo invalid type'\n      requestBody:\n        description: 'Cannot use type boolean'\n        content:\n          application/json:\n              schema:\n                type: \n                  - boolean\n      responses:\n        '200':\n          content:\n            application/json:\n                schema:\n                  type: \n                    - integer\n                  minimum: 5\n                  maximum: 10\n"
+		}
+	},
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

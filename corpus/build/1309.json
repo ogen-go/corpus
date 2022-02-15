@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/readmeio/api-explorer"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "oas.json",
-			"path": "packages/api-explorer/__tests__/__fixtures__/boolean/oas.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://example.com\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/boolean-with-default\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"boolean\",\n                \"default\": false\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/boolean-without-default\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"boolean\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "positive8.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive8.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                default: { \"a\": \"b\" }\n"
 		}
 	},
-	"Error": "parse: paths: /boolean-with-default: get: : responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"array\", got \"object\""
 }

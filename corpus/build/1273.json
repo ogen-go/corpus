@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "example_in_schema.json",
-			"path": "test/data/valid_openapi/example_in_schema.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"name\": \"limit\",\n            \"in\": \"header\",\n            \"description\": \"How many items to return at one time (max 100)\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\",\n              \"example\": 123\n            }\n          },\n          {\n            \"name\": \"variable2\",\n            \"in\": \"query\",\n            \"description\": \"another random variable\",\n            \"style\": \"spaceDelimited\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"example\": 123\n              }\n            }\n          },\n          {\n            \"name\": \"variable3\",\n            \"in\": \"query\",\n            \"description\": \"another random variable\",\n            \"style\": \"spaceDelimited\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"example\": 456\n              }\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"a\": {\n                    \"type\": \"string\",\n                    \"example\": \"example-a\"\n                  },\n                  \"b\": {\n                    \"type\": \"string\",\n                    \"example\": \"example-b\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"subscription successfully created\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_parameter/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/Success\"\n      parameters:\n      - \"$ref\": \"#/components/parameters/limitParam\"\ncomponents:\n  parameters:\n    limitParam:\n      name: limit\n      in: query\n      description: max records to return\n      required: true\n      schema:\n        type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: : parameters: parse parameter \"variable2\": style: unexpected style: spaceDelimited"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
 }

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ExpressionLevels_ExpressionLevelId_GET.yaml",
+			"path": "Specification/GA4GH_BrAPI/RNAQuantifications/ExpressionLevels_ExpressionLevelId_GET.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/rna_quantification_service.proto\n  version: version not set\npaths:\n  /expressionlevels/{expression_level_id}:\n    get:\n      summary: |-\n        Gets a `ExpressionLevel` by ID.\n        `GET /expressionlevels/{id}` will return a JSON version of\n        `ExpressionLevel`.\n      operationId: GetExpressionLevel\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ExpressionLevel'\n      parameters:\n        - name: expression_level_id\n          description: The ID of the `ExpressionLevel`.\n          in: path\n          required: true\n          schema:\n            type: string\n      tags:\n        - GA4GH"
+		}
+	},
+	"Error": "parse: paths: /expressionlevels/{expression_level_id}: get: GetExpressionLevel: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/ExpressionLevel\": resolve reference \"#/components/schemas/ExpressionLevel\": schema not found"
+}

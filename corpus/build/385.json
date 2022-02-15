@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ErikWittern/openapi-snippet"
+			"name": "github.com/evilmint/aws-openapi-lint"
 		},
 		"file": {
-			"name": "form_urlencoded_example.json",
-			"path": "test/form_urlencoded_example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Sample API\",\n    \"description\": \"A sample API to demonstrate x-www-form-encoded request body example\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://auth.io/api\"\n    }\n  ],\n  \"paths\": {\n    \"/auth/token\": {\n      \"post\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/x-www-form-urlencoded\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"required\": [\"id\", \"secret\"],\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"example\": \"id example value\"\n                  },\n                  \"secret\": {\n                    \"type\": \"string\",\n                    \"example\": \"secret example value\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "options_no_cors_present.yml",
+			"path": "test_files/options_no_cors_present.yml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/{resourceId}/{otherId}:\n    get:\n      parameters:\n        - name: \"resourceId\"\n          in: \"path\"\n          required: true\n          description: \"Some path param\"\n          schema:\n            type: \"string\"\n        - name: \"otherId\"\n          in: \"path\"\n          required: true\n          description: \"Some path param\"\n          schema:\n            type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n        400:\n          description: \"400 response\"\n      security:\n        - Some-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.resourceId: \"method.request.header.resourceId\"\n          integration.request.header.otherId: \"method.request.header.otherId\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\"\n        responses:\n          200:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'*'\"\n    options:\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        passthroughBehavior: \"when_no_templates\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        responses:\n          default:\n            statusCode: \"200\""
 		}
 	},
-	"Error": "parse: paths: /auth/token: post: : responses: no responses"
+	"Error": "parse: paths: /test/resource/{resourceId}/{otherId}: options: : parse path: path parameter not specified: \"resourceId\""
 }

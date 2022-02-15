@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/spec-first/connexion"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "tests/fixtures/default_param_error/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n"
+		}
+	},
+	"Error": "parse: paths: /default-param-query-does-not-match-type: get: fakeapi.hello.test_default_missmatch_definition: parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
+}

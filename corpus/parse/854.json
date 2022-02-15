@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "simpleSchemaWithExamples.yaml",
+			"path": "test/data/valid_openapi31X/yaml/simpleSchemaWithExamples.yaml",
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with examples\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type: \n        - object\n      properties:\n        objectType:\n          type: \n            - integer\n            - string\n          examples:\n            - 1234\n            - 'This is an string as example'\n"
+		}
+	},
+	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+}

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/FINRAOS/herd"
 		},
 		"file": {
-			"name": "paths-get-requestBody-example.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody-example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User Example\",\n                  \"description\": \"User example description.\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.json\"\n                }\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User example in XML\",\n                  \"description\": \"User example description (in XML).\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.xml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "5164.yaml",
+			"path": "herd-build/herd-docs/herd-docs-swagger/src/swagger-ui-master/test/e2e-cypress/static/documents/bugs/5164.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                first:\n                  type: object\n                  example:\n                    one: abc\n                    two: 123\n                second:\n                  type: array\n                  items:\n                    type: string\n                  example:\n                  - \"hi\""
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "parse: paths: /: post: : responses: no responses"
 }

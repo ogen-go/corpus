@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive3.json",
+			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"id\": {\n                  \"type\": \"string\"\n                },\n                \"name\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"additionalProperties\": \"false\"\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"oneOf\": [\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"string\"\n              },\n              \"name\": {\n                \"type\": \"string\"\n              }\n            },\n            \"additionalProperties\": \"true\"\n          },\n          {\n            \"type\": \"string\",\n            \"additionalProperties\": \"true\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "unexpected type string"
+}

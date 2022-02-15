@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$schema-unrecognized/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$schema\": \"https://www.google.com/\",\n              \"type\": \"object\",\n              \"properties\": {\n                \"avatar\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "issue_1347.yaml",
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1347.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Name demo\n  version: 1.0\npaths:\n  /{country}/document:\n    get:\n      summary: Get a document\n      tags:\n      - document\n      operationId: getDocument\n      parameters:\n      - name: country\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        \"201\":\n          description: The document\n        \"500\":\n          description: Server error\ntags:\n- name: document\n  description: Document tag"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

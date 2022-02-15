@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Azure/autorest"
+			"name": "github.com/EMResearch/EvoMaster"
 		},
 		"file": {
-			"name": "polymorphism.json",
-			"path": "packages/extensions/core/test/plugins/components-cleaner/inputs/polymorphism.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"\",\n    \"version\": \"1.0.0\",\n    \"title\": \"\"\n  },\n  \"paths\": {},\n  \"components\": {\n    \"schemas\": {\n      \"MainFileObj\": {\n        \"x-ms-metadata\": {\n          \"apiVersions\": [\"1.0.0\"],\n          \"x-ms-secondary-file\": false\n        },\n        \"type\": \"object\",\n        \"properties\": {\n          \"pet\": { \"$ref\": \"#/components/schemas/Pet\" }\n        }\n      },\n      \"Pet\": {\n        \"x-ms-metadata\": {\n          \"apiVersions\": [\"1.0.0\"],\n          \"x-ms-secondary-file\": true\n        },\n        \"type\": \"object\",\n        \"discriminator\": \"type\",\n        \"properties\": {\n          \"type\": { \"type\": \"string\" }\n        }\n      },\n      \"Cat\": {\n        \"x-ms-metadata\": {\n          \"apiVersions\": [\"1.0.0\"],\n          \"x-ms-secondary-file\": true\n        },\n        \"type\": \"object\",\n        \"x-ms-discriminator-value\": \"Cat\",\n        \"allOf\": [{ \"$ref\": \"#/components/schemas/Pet\" }],\n        \"properties\": {\n          \"type\": { \"meow\": \"string\" }\n        }\n      },\n      \"Dog\": {\n        \"x-ms-metadata\": {\n          \"apiVersions\": [\"1.0.0\"],\n          \"x-ms-secondary-file\": true\n        },\n        \"type\": \"object\",\n        \"x-ms-discriminator-value\": \"Dog\",\n        \"allOf\": [{ \"$ref\": \"#/components/schemas/Pet\" }],\n        \"properties\": {\n          \"type\": { \"bark\": \"string\" }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "openapi-enum.yml",
+			"path": "e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-enum.yml",
+			"content": "openapi: 3.0.0\nhost: localhost:8080\npaths:\n  /api/enum:\n    get:\n      parameters:\n        - in: query\n          name: x\n          schema:\n            type: string\n            enum: [foo, bar]\n        - in: query\n          name: y\n          schema:\n            type: integer\n            enum: [42, 1234567]\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EnumDto'\ncomponents:\n  schemas:\n    EnumDto:\n      type: Object\n      properties:\n        values:\n          type: array\n          items:\n            type: string\n            enum: [foo, bar]"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Schema.components.schemas.discriminator of type ogen.Discriminator"
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/direct-internal-circular/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/~1path2\"\n    },\n    \"/path2\": {\n      \"$ref\": \"#/paths/~1path1\"\n    }\n  }\n}\n"
+			"name": "input.yaml",
+			"path": "test/http2/simple/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: 'https://localhost:8321/simple/schema.yaml#/components/schemas/xyz'\n"
 		}
 	},
-	"Error": "parse: /path2: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"https://localhost:8321/simple/schema.yaml#/components/schemas/xyz\": resolve reference \"https://localhost:8321/simple/schema.yaml#/components/schemas/xyz\": invalid schema reference \"https://localhost:8321/simple/schema.yaml#/components/schemas/xyz\""
 }

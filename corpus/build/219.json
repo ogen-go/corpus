@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/WorkShoft/capablanca-api"
 		},
 		"file": {
-			"name": "negative1.json",
-			"path": "assets/queries/openAPI/3.0/components_parameter_definition_unused/test/negative1.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/Success\"\n          }\n        },\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/limitParam\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"limitParam\": {\n        \"name\": \"limit\",\n        \"in\": \"query\",\n        \"description\": \"max records to return\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}\n"
+			"name": "openapi-schema.yml",
+			"path": "openapi-schema.yml",
+			"content": "info:\n  description: ''\n  title: ''\n  version: ''\nopenapi: 3.0.0\npaths:\n  /auth-token/:\n    post:\n      operationId: auth-token_create\n      tags:\n      - auth-token\nservers:\n- url: ''\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
+	"Error": "parse: paths: /auth-token/: post: auth-token_create: responses: no responses"
 }

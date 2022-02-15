@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/header-object/fixtures/components-headers/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"headers\": {\n        \"content-type\": {\n          \"description\": \"content type header description\"\n        },\n        \"x-custom-header\": {\n          \"description\": \"content type header description\"\n        }\n      }\n    }\n  }\n]\n"
+			"name": "config.yaml",
+			"path": "examples/wings/config.yaml",
+			"content": "ontologies:\n  - http://www.wings-workflows.org/ontology/workflow.owl\n  - http://www.wings-workflows.org/ontology/data.owl\n  - http://www.wings-workflows.org/ontology/component.owl\nname: wings\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Wings Ontology\n    title: Wings Workflow Catalog\n    version: v0.0.1\n  externalDocs:\n    description: Wings Workflow Catalog\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/wings\n  prefix: http://www.wings-workflows.org/ontology\n  graph_base: http://localhost:3030/wings/data/\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

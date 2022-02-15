@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/external-indirections/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "input.yaml",
+			"path": "test/resolver/issue152/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: post: postFoo: responses: 201: resolve \"responses.yaml#/components/responses/Post201\" reference: invalid response reference: \"responses.yaml#/components/responses/Post201\""
 }

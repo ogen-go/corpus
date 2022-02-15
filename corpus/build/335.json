@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cornutum/tcases"
+			"name": "github.com/cebe/php-openapi"
 		},
 		"file": {
-			"name": "examples-33.json",
-			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/examples-33.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"examples\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/examples\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"header\",\n                        \"required\": false,\n                        \"schema\": {\n                            \"type\": \"object\",\n                            \"enum\": [\n                                {\"French\": \"Allô\"},\n                                null,\n                                {\"Spanish\": \"Hola\"},\n                                {\"Texan\": \"Howdy\"}\n                            ],\n                            \"nullable\": true\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "ReferencedCommonParamsInReferencedPath.yml",
+			"path": "tests/spec/data/reference/ReferencedCommonParamsInReferencedPath.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Nested reference with common path params\n  version: 1.0.0\npaths:\n  /example:\n    $ref: 'paths/ReferencesCommonParams.yml'\n  /something:\n    parameters:\n      - $ref: './parameters/TestParameter.yml'\n    x-something: something\n    get:\n      responses:\n        200:\n          description: OK if common params can be references\n"
 		}
 	},
-	"Error": "parse: paths: /examples: post: : parameters: parse parameter \"param0\": schema: parse enum values: parse value \"{\\\"French\\\": \\\"Allô\\\"}\": unexpected type: \"object\""
+	"Error": "parse: /something: parameters: parse parameter \"\": resolve \"./parameters/TestParameter.yml\" reference: invalid parameter reference: \"./parameters/TestParameter.yml\""
 }

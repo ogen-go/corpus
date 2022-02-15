@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/response-object/fixtures/components-responses/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"responses\": {\n        \"201\": {\n          \"description\": \"201 description\",\n          \"headers\": {\n            \"Content-Type\": {\n              \"description\": \"The number of allowed requests in the current period\",\n              \"schema\": {\n                \"type\": \"integer\"\n              }\n            }\n          }\n        },\n        \"400\": {\n          \"description\": \"201 description\",\n          \"headers\": {\n            \"Content-Type\": {\n              \"description\": \"The number of allowed requests in the current period\",\n              \"schema\": {\n                \"type\": \"integer\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "example1_from_._Fixed_file.md.yaml",
+			"path": "3.0/fail/gluecon/example1_from_._Fixed_file.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: API to upload a file\n  version: 1.0.0\npaths:\n  /files/{filename}:\n    put:\n      parameters:\n        filename:\n          in: path\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.put.parameters of type []*ogen.Parameter"
 }

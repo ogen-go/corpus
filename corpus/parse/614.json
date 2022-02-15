@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "calculator.yaml",
+			"path": "tests/generator-testclass/calculator.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Calculator\n  description: \"A simple calculator that allows you to do basic math operations\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"A simple calculator that allows you to do basic math operations\"\npaths:\n  /Calculator/dividefloat:\n     get:\n      summary: \"Divide int by float.\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: calculator.Calculator.dividefloat\n      parameters:\n        - in: query\n          name: x\n          description: \"the value of input #1\"\n          schema:\n            type: integer\n        - in: query\n          name: y\n          description: \"the value of input #2\"\n          schema:\n            type: number\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: number\n\n  /Calculator/multiplyint:\n     get:\n      summary: \"Multiply int by int.\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: calculator.Calculator.multiplyint\n      parameters:\n        - in: query\n          name: x\n          description: \"the value of input #1\"\n          schema:\n            type: integer\n        - in: query\n          name: y\n          description: \"the value of input #2\"\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: integer"
+		}
+	},
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+}

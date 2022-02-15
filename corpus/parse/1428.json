@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/thim81/openapi-format"
+		},
+		"file": {
+			"name": "output.json",
+			"path": "test/json-default-bug-big-numbers/output.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pet\": {\n      \"get\": {\n        \"operationId\": \"getPet\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"properties\": {\n            \"type\": \"string\",\n            \"example\": \"123e4567-e89b-12d3-a456-426614174000\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"example\": 10\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"123e4567\"\n          },\n          \"NumberLimitsSchema\": {\n            \"type\": \"number\",\n            \"maximum\": 9999999999999.99999,\n            \"minimum\": 0,\n            \"multipleOf\": 0.0000000001\n          }\n        },\n        \"required\": [\n          \"name\"\n        ]\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "callback: json: cannot unmarshal number 9999999999999.99999 into Go struct field Schema.maximum of type int64"
+}

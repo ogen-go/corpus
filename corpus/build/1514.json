@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/internal-external/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex.json#/~1path2\"\n    },\n    \"/path3\": {\n      \"$ref\": \"#/paths/~1path4\"\n    },\n    \"/path4\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "input.yaml",
+			"path": "test/resolver/speccy249/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: include/xyz.json\n"
 		}
 	},
-	"Error": "parse: paths: /path4: get: : responses: no responses"
+	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"include/xyz.json\": resolve reference \"include/xyz.json\": invalid schema reference \"include/xyz.json\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/simplesmiler/taxios"
 		},
 		"file": {
-			"name": "invalid-ref-missing-slash.json",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-ref-missing-slash.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Alamo Quay API\",\n    \"description\": \"Docker image info from Quay for Alamo\"\n  },\n  \"paths\": {\n    \"/repository\": {\n      \"get\": {\n        \"responses\": {\n          \"404\": {\n            \"description\": \"repoistory not found\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#components/schemas/Message\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Message\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"status\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "query-params.yml",
+			"path": "packages/taxios-sandbox/src/query-params.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Structured query params\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /v1/test:\n    get:\n      parameters:\n        - schema:\n            type: string\n          in: query\n          name: firstName\n          required: true\n        - schema:\n            type: string\n          in: query\n          name: lastName\n        - schema:\n            type: number\n          in: query\n          name: age\n        - schema:\n            type: boolean\n          in: query\n          name: employed\n          required: true\n        - schema:\n            type: array\n            items:\n              type: string\n              enum: ['ru', 'en', 'fr', 'de', 'jp']\n          in: query\n          name: languages\n        - schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/Asset'\n          in: query\n          name: assets\n        - schema:\n            type: object\n            additionalProperties: false\n            properties:\n              good:\n                type: array\n                items:\n                  type: string\n              bad:\n                type: array\n                items:\n                  type: string\n          in: query\n          name: qualities\n      responses:\n        '200':\n          description: OK\n    parameters: []\ncomponents:\n  schemas:\n    Asset:\n      title: Asset\n      type: object\n      properties:\n        currency:\n          type: string\n        amount:\n          type: integer\n      required:\n        - currency\n        - amount\n"
 		}
 	},
-	"Error": "parse: paths: /repository: get: : responses: 404: content: application/json: schema: parse schema: reference \"#components/schemas/Message\": resolve reference \"#components/schemas/Message\": invalid schema reference \"#components/schemas/Message\""
+	"Error": "make ir: path \"/v1/test\": get: parameters: nested objects not allowed"
 }

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ota42y/openapi_parser"
+		},
+		"file": {
+			"name": "remote-file-ref.yaml",
+			"path": "spec/data/remote-file-ref.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /local_file_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: normal.yml#/components/schemas/all_of_base\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\n  /reference_to_path_item_with_path_param:\n    $ref: 'path-item-ref.yaml#/paths/~1sample~1%7Bsample_id%7D'\n"
+		}
+	},
+	"Error": "parse: /reference_to_path_item_with_path_param: referenced pathItem not supported"
+}

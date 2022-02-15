@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/FINRAOS/herd"
 		},
 		"file": {
-			"name": "paths-get-requestBody.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"description\": \"The request body.\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            }\n          },\n          \"required\": true\n        }\n      }\n    }\n  }\n}\n"
+			"name": "deep-linking.openapi.yaml",
+			"path": "herd-build/herd-docs/herd-docs-swagger/src/swagger-ui-master/test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
 }

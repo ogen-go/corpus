@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/baloise-incubator/spectral-ruleset"
 		},
 		"file": {
-			"name": "positive5.json",
-			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive5.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"components\": {\n    \"parameters\": {\n      \"idParam\": {\n        \"name\": \"id\",\n        \"in\": \"path\",\n        \"description\": \"ID of the API the version\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"nameParam\": {\n        \"name\": \"nameAPI\",\n        \"in\": \"path\",\n        \"description\": \"Name of the API the version\",\n        \"schema\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\",\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ]\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"$ref\": \"#components/parameters/idParam\"\n        }\n      ]\n    }\n  }\n}\n"
+			"name": "example-openapi.yml",
+			"path": "example/example-openapi.yml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  x-audience: who-cares\n  version: 1.0.0\n  title: API Title\n  license:\n    name: GNU\npaths:\n  /pet:\n    patch:\n      description: update a pet\n      operationId: update-pet\n      tags: [foo]\n      responses:\n        '200':\n          description: ok\n          content: {}\n        '500':\n          description: server error\n          content:\n            application/problem+json:\n              schema:\n                $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'"
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#components/parameters/idParam\" reference: invalid parameter reference: \"#components/parameters/idParam\""
+	"Error": "parse: paths: /pet: patch: update-pet: responses: 500: content: application/problem+json: schema: parse schema: reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": resolve reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": invalid schema reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\""
 }

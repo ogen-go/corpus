@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/readmeio/api-explorer"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "no-security-schemes.json",
-			"path": "packages/api-explorer/__tests__/__fixtures__/auth-types/no-security-schemes.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Multiple Securities\"\n  },\n  \"paths\": {\n    \"/oauth\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"oauth\": [\"write:things\"]\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "positive6.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive6.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: number\n                minimum: 0\n                exclusiveMinimum: true\n                maximum: 50\n                default: \"a\"\n"
 		}
 	},
-	"Error": "parse: paths: /oauth: post: : responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"number\", got \"string\""
 }

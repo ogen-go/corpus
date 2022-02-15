@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/spec-first/connexion"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "tests/fixtures/bad_specs/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /welcome:\n    get:\n      operationId: fakeapi.foo_bar.search\n      parameters:\n        - name: foo\n          in: query\n          schema:\n            type: integer\n            default: somestring\n      responses:\n        '200':\n          description: search\n          content:\n            '*/*':\n              schema:\n                type: object\nservers:\n  - url: /v1.0\n"
+		}
+	},
+	"Error": "parse: paths: /welcome: get: fakeapi.foo_bar.search: parameters: parse parameter \"foo\": schema: parse default: expected type \"integer\", got \"string\""
+}

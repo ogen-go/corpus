@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "deviceConnection-scopeId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/deviceConnection/deviceConnection-scopeId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Connection\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/deviceconnections:\n    get:\n      tags:\n        - Device Connection\n      summary: Get all the Connections\n      operationId: connectionList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../device/device.yaml#/components/parameters/clientId'\n        - $ref: './deviceConnection.yaml#/components/parameters/connectionStatus'\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Connections available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './deviceConnection.yaml#/components/schemas/connectionListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+		}
+	},
+	"Error": "parse: paths: /{scopeId}/deviceconnections: get: connectionList: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+}

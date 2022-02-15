@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Announce_POST.yaml",
+			"path": "Specification/GA4GH_BrAPI/Peers/Announce_POST.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/peer_service.proto\n  version: version not set\npaths:\n  /announce:\n    post:\n      summary: |-\n        Allows a client to notify a service of a potential peer.\n        Services are expected to log these requests and implement\n        policies for adding peers to their peer lists as desired.\n      description: |-\n        The AnnouncePeerResponse only notifies the requester whether\n        the request was valid. To find if their announce request\n        has been accepted they must make a `ListPeersRequest`.\n        `POST /peers/announce` must accept a JSON version of\n        `AnnouncePeerRequest` as the post body and will return a JSON\n        version of `AnnouncePeerResponse`.\n      operationId: AnnouncePeer\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AnnouncePeerResponse'\n      tags:\n        - GA4GH"
+		}
+	},
+	"Error": "parse: paths: /announce: post: AnnouncePeer: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/AnnouncePeerResponse\": resolve reference \"#/components/schemas/AnnouncePeerResponse\": schema not found"
+}

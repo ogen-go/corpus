@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "inner_refs.yaml",
+			"path": "vertx-web-openapi/src/test/resources/yaml/valid/inner_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local inner ref spec\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      type: object\n      properties:\n        fileName:\n          type: string\n          format: binary\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n"
+		}
+	},
+	"Error": "make ir: reduce default: default: contents: unsupported content types: [text/plain]"
+}

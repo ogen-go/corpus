@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1063/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: an API\n  description: An API for reproduce a *There are duplicate parameter values*.\n\npaths:\n  /anPath:\n    get:\n      parameters:\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_One'\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_Two'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string"
+		}
+	},
+	"Error": "parse: paths: /anPath: get: : parameters: parse parameter \"\": resolve \"./references.oas3.yaml#/components/parameters/ParamQ_One\" reference: invalid parameter reference: \"./references.oas3.yaml#/components/parameters/ParamQ_One\""
+}

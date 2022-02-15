@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/societe-generale/sonar-openapi"
+		},
+		"file": {
+			"name": "file1.yaml",
+			"path": "sonar-openapi-plugin/src/test/resources/sensor/file1.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets/{petId}:\n    get:\n      responses:\n        '200':\n          description: success\n          content:\n            'application/json':\n              schema:\n                # this should rather be an object with a \"pets\" array property\n                type: array\n                items:\n                  $ref: '#/components/schemas/Pet'\n  /pets/1234:\n    get:\n      responses:\n        '200':\n          description: success\n          content:\n            'application/json':\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Pet:\n      type: object"
+		}
+	},
+	"Error": "parse: paths: /pets/{petId}: get: : parse path: path parameter not specified: \"petId\""
+}
