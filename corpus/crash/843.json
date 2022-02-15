@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/island-is/island.is"
+		},
+		"file": {
+			"name": "clientConfig.json",
+			"path": "libs/clients/criminal-record/src/clientConfig.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"RLS Criminal Registry API\",\n    \"description\": \"RESTFul services for criminal registry. Programmed in .NET5 API \",\n    \"contact\": {\n      \"name\": \"TMD\",\n      \"email\": \"tmd@tmd.is\"\n    },\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/api/pdf/v1/Create/{personId}\": {\n      \"get\": {\n        \"tags\": [\"CrimeCertificate\"],\n        \"summary\": \"Create pdf report for open criminal record\",\n        \"parameters\": [\n          {\n            \"name\": \"personId\",\n            \"in\": \"path\",\n            \"description\": \"Person social number\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"api-version\",\n            \"in\": \"header\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/pdf\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/api/pdf/v1/Create/Personal/{personId}\": {\n      \"get\": {\n        \"tags\": [\"CrimeCertificate\"],\n        \"summary\": \"Create pdf report for private record\",\n        \"parameters\": [\n          {\n            \"name\": \"personId\",\n            \"in\": \"path\",\n            \"description\": \"Person social number\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"api-version\",\n            \"in\": \"header\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/pdf\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {}\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/schwer/graphql-to-openapi"
+		},
+		"file": {
+			"name": "customScalars.json",
+			"path": "tests/basics/customScalars.json",
+			"content": "{\n  \"info\": {\n    \"license\": {\n      \"name\": \"Not specified\"\n    },\n    \"title\": \"Not specified\",\n    \"version\": \"Not specified\"\n  },\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/customScalarsQuery\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"c\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"properties\": {\n                    \"arrayOfCustomScalars\": {\n                      \"items\": {\n                        \"nullable\": false,\n                        \"type\": \"string\"\n                      },\n                      \"nullable\": false,\n                      \"type\": \"array\"\n                    },\n                    \"customScalar\": {\n                      \"nullable\": true,\n                      \"type\": \"string\"\n                    },\n                    \"someObject\": {\n                      \"nullable\": true,\n                      \"properties\": {\n                        \"customScalar\": {\n                          \"nullable\": true,\n                          \"type\": \"string\"\n                        },\n                        \"integer\": {\n                          \"nullable\": true,\n                          \"type\": \"integer\"\n                        }\n                      },\n                      \"type\": \"object\"\n                    }\n                  },\n                  \"type\": \"object\"\n                }\n              }\n            },\n            \"description\": \"response\"\n          }\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"/\"\n    }\n  ]\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

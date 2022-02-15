@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "replace-example-requestBody.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/set-example/openapi-3/replace-example-requestBody.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              },\n              \"example\": {\n                \"foo\": \"bar\",\n                \"hello\": [ \"world\" ]\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "replace-path-item.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/replace-path-item/openapi-3/replace-path-item.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
+	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
 }

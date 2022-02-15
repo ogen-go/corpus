@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
+		},
+		"file": {
+			"name": "XKCD.json",
+			"path": "test/output/openapi_3/XKCD.json",
+			"content": "{\n  \"components\": {\n    \"schemas\": {\n      \"comic\": {\n        \"properties\": {\n          \"alt\": {\n            \"type\": \"string\"\n          },\n          \"day\": {\n            \"type\": \"string\"\n          },\n          \"img\": {\n            \"type\": \"string\"\n          },\n          \"link\": {\n            \"type\": \"string\"\n          },\n          \"month\": {\n            \"type\": \"string\"\n          },\n          \"news\": {\n            \"type\": \"string\"\n          },\n          \"num\": {\n            \"type\": \"number\"\n          },\n          \"safe_title\": {\n            \"type\": \"string\"\n          },\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"transcript\": {\n            \"type\": \"string\"\n          },\n          \"year\": {\n            \"type\": \"string\"\n          }\n        },\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"title\": \"XKCD\",\n    \"version\": \"\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/info.0.json\": {\n      \"get\": {\n        \"description\": \"Fetch current comic and metadata.\\n\",\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/comic\"\n                }\n              }\n            },\n            \"description\": \"OK\"\n          }\n        }\n      }\n    },\n    \"/{comicId}/info.0.json\": {\n      \"get\": {\n        \"description\": \"Fetch comics and metadata  by comic id.\\n\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"comicId\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/comic\"\n                }\n              }\n            },\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://xkcd.com/\"\n    }\n  ]\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

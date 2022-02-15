@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "circular-property.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/circular-property.json",
+			"content": "{\n    \"openapi\": \"3.0.1\",\n    \"info\": {\n        \"title\": \"Circular property\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/tree\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"required\": true,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/BTree\"\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"BTree\": {\n                \"$ref\": \"#/components/schemas/Node\"\n            },\n            \n            \"Node\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"value\": {\n                        \"type\": \"string\"\n                    },\n                    \"before\": {\n                        \"$ref\": \"#/components/schemas/Node\"\n                    },\n                    \"after\": {\n                        \"$ref\": \"#/components/schemas/Node\"\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

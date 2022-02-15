@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "anyOf-4.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-4.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"AnyOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/anyOf\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"cookie\",\n\n                        \"schema\": {\n                            \"pattern\": \".\",\n                            \"anyOf\": [\n                                {\n                                    \"nullable\": true\n                                },\n                                {\n                                    \"allOf\": [\n                                        {\n                                            \"oneOf\": [\n                                                {\n                                                    \"type\": \"integer\"\n                                                },\n                                                {\n                                                    \"type\": \"string\"\n                                                },\n                                                {\n                                                    \"additionalProperties\": false\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"maxProperties\": 1\n                                        }\n                                    ]\n                                }\n                            ]\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

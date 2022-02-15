@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.enum-form-param.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.enum-form-param.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/enum/formparam\": {\n      \"post\": {\n        \"parameters\": [\n          {\n          \"name\": \"restr\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"$ref\": \"#/components/schemas/RestrictedEnum\"\n          }\n        }, {\n          \"name\": \"val\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"$ref\": \"#/components/schemas/TestEnum\"\n          }\n        }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/TestEnum\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"TestEnum\": {\n        \"type\": \"string\",\n        \"enum\": [ \"VAL1\", \"VAL2\", \"VAL3\" ]\n      },\n      \"RestrictedEnum\": {\n        \"type\": \"string\",\n        \"title\": \"Restricted enum with fewer values\",\n        \"enum\": [ \"VAL1\", \"VAL3\" ],\n        \"externalDocs\": {\n           \"url\": \"http://example.com/RestrictedEnum/info.html\",\n           \"description\": \"When to use RestrictedEnum?\"\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

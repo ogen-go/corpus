@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "callbacks2.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_callbacks/callbacks2.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"x-vendor-1\": 1,\n            \"x-vendor-2\": 2\n          },\n          \"myWebhook\": {\n            \"x-vendor-property-1\": true,\n            \"x-vendor-property-2\": 17,\n            \"x-vendor-property-3\": \"foo bar\"\n          },\n          \"anotherCallback\": {\n            \"$ref\": \"#/components/callbacks/AnotherCallback\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "root.json",
+			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/invalid-pointer/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: /path1: referenced pathItem not supported"
 }

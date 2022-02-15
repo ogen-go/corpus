@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/anttiviljami/openapi-backend"
 		},
 		"file": {
-			"name": "examples-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/examples/examples-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"examples\": {\n      \"test\": {\n        \"prop\": \"a\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"examples\": {\n              \"name\": {\n                \"$ref\": \"*\"\n              }\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
+			"name": "refs.openapi.json",
+			"path": "__tests__/resources/refs.openapi.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Circular References\",\n    \"description\": \"API with circular references\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/trees\": {\n\t\t\t\"post\": {\n\t\t\t\t\"operationId\": \"createTree\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"description\": \"ok\" \n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"requestBody\": { \n\t\t\t\t\t\"$ref\": \"#/components/requestBodies/CreateTree\" \n\t\t\t\t}\n\t\t\t},\n\t\t\t\"get\": {\n\t\t\t\t\"operationId\": \"getTrees\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"parameters\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"subtree\",\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"description\": \"Filter trees by existance of a subtree\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n\t\t\t\"BinTree\": {\n\t\t\t\t\"title\": \"BinTree\",\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"nullable\": true,\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"left\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"right\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\"type\": \"number\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"requestBodies\": {\n\t\t\t\"CreateTree\": {\n\t\t\t\t\"content\": {\n\t\t\t\t\t\"application/json\": {\n\t\t\t\t\t\t\"schema\": { \"$ref\": \"#/components/schemas/BinTree\" }\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /trees: get: getTrees: responses: 200: resolve \"#/components/schemas/BinTree\" reference: invalid response reference: \"#/components/schemas/BinTree\""
 }

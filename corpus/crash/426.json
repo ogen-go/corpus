@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "input.json",
+			"path": "amf-cli/shared/src/test/resources/org/oas/json_schema/oas30/multiple-examples/input.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"0.1.0\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"root\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"a\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/first\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"example\": {\n                  \"accountId\": \"value 1\"\n                },\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/root\"\n                }\n              }\n            },\n            \"description\": \"sd\"\n          }\n        }\n      }\n    },\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"example\": {\n                  \"accountId\": \"value 2\"\n                },\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/root\"\n                }\n              }\n            },\n            \"description\": \"sd\"\n          }\n        }\n      }\n    },\n    \"/other\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"example\": {\n                  \"accountId\": \"value 3\"\n                },\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/root\"\n                }\n              }\n            },\n            \"description\": \"sd\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

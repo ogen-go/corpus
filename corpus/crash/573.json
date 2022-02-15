@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/byjg/php-swagger-test"
+		},
+		"file": {
+			"name": "openapi3.json",
+			"path": "tests/example/openapi3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"Validate OpenApi Schema #27\",\n    \"version\": \"1.0.0\",\n    \"title\": \"Validate OpenApi Schema #27\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"contact\": {\n      \"email\": \"apiteam@swagger.io\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"paths\": {\n    \"/tests/{test_id}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/count\"\n          },\n          {\n            \"$ref\": \"#/components/parameters/offset\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Empty response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"description\": \"Empty response\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"$ref\": \"#/components/parameters/test_id\"\n        }\n      ]\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"count\": {\n        \"name\": \"count\",\n        \"in\": \"query\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"integer\",\n          \"default\": 10,\n          \"maximum\": 500,\n          \"readOnly\": true\n        }\n      },\n      \"offset\": {\n        \"name\": \"offset\",\n        \"in\": \"query\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"integer\",\n          \"default\": 0,\n          \"readOnly\": true\n        }\n      },\n      \"test_id\": {\n        \"name\": \"test_id\",\n        \"in\": \"path\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

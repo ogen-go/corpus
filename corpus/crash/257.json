@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "writeOnly-3.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/writeOnly-3.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Objects\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/objects\": {\n            \"get\": {\n                \"responses\": {\n                    \"default\": {\n                        \"description\": \"Success\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"object\",\n                                    \"properties\": {\n                                        \"alpha\": {\n                                            \"type\": \"string\",\n                                            \"writeOnly\": false,\n                                            \"readOnly\": true\n                                        }\n                                    },\n                                    \"minProperties\": 3,\n                                    \"maxProperties\": 4,\n                                    \"required\": [ \"alpha\" ],\n                                    \"additionalProperties\": true\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

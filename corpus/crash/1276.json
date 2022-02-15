@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "responses.generic-collection.set-unindexed.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.generic-collection.set-unindexed.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/fruits\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"uniqueItems\": true,\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Fruit\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Fruit\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"uniqueItems\": true,\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Fruit\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"delete\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Fruit\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"uniqueItems\": true,\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Fruit\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Seed\": {\n        \"type\": \"object\"\n      },\n      \"Fruit\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"description\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"seeds\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/Seed\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

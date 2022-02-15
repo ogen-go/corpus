@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/daniloab/fullstack-playground"
+		},
+		"file": {
+			"name": "fpApi.json",
+			"path": "packages/api/src/swagger/fpApi.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Fullstack Playground\",\n    \"description\": \"Fullstack Playground api docs\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/api/auth/v1/login/email\": {\n      \"post\": {\n        \"tags\": [\n          \"auth\"\n        ],\n        \"summary\": \"Login by Email\",\n        \"description\": \"Endpoint to login with email and validate it\",\n        \"requestBody\": {\n          \"description\": \"Data to do login by email\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"email\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"example\": {\n                \"email\": \"test@test.com\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Email valid\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"companyId\": {\n                      \"type\": \"string\"\n                    },\n                    \"message\": {\n                      \"type\": \"string\"\n                    }\n                  },\n                  \"example\": {\n                    \"companyId\": \"9134e286-6f71-427a-bf00-241681624586\",\n                    \"message\": \"Email successful\"\n                  }\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"An error message\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"status\": {\n                      \"type\": \"string\"\n                    },\n                    \"message\": {\n                      \"type\": \"string\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {},\n  \"tags\": []\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

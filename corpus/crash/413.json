@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alexa-labs/alexa-custom-task-definitions"
+		},
+		"file": {
+			"name": "CountDown.1.json",
+			"path": "samples/SuperCountdown/tasks/CountDown.1.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Task to perform a count down\",\n        \"version\": \"1\"\n    },\n    \"tags\": [{\n        \"name\": \"count down\"\n    }],\n    \"paths\": {\n        \"/CountDown\": {\n            \"summary\": \"Count Down\",\n            \"description\": \"To start a count down\",\n            \"post\": {\n                \"requestBody\": {\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/Input\"\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"When the count down finishes successfully\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/SuccessfulResponse\"\n                                }\n                            }\n                        }\n                    },\n                    \"400\": {\n                        \"description\": \"When the given parameters fail validations - e.g. lowerLimit cannot be higher than upperLimit\"\n                    },\n                    \"500\": {\n                        \"description\": \"When the count down fails\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Input\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"upperLimit\": {\n                        \"type\": \"number\",\n                        \"maximum\": 100,\n                        \"minimum\": 1\n                    },\n                    \"lowerLimit\": {\n                        \"type\": \"number\",\n                        \"maximum\": 100,\n                        \"minimum\": 1\n                    }\n                }\n            },\n            \"SuccessfulResponse\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"endTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

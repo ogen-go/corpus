@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.serialized-annotation-index.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.serialized-annotation-index.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/greet/{name}\": {\n      \"get\": {\n        \"summary\": \"Returns a personalized greeting\",\n        \"parameters\": [\n          {\n            \"name\": \"name\",\n            \"in\": \"path\",\n            \"description\": \"The greeting name\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Simple JSON containing the greeting\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/GreetingMessage\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"GreetingMessage\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
 			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/inner-security/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"petstore_auth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"securityDefinitions\": {\n    \"petstore_auth\": {\n      \"type\": \"oauth2\",\n      \"authorizationUrl\": \"http://petstore.swagger.io/oauth/dialog\",\n      \"flow\": \"implicit\",\n      \"scopes\": {\n        \"write:pets\": \"modify pets in your account\",\n        \"read:pets\": \"read your pets\"\n      }\n    }\n  }\n}"
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/nested-libraries/nested-requests/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/something\": {\n      \"post\": {\n        \"requestBody\": {\n          \"$ref\": \"./libraries/first-lib.json#/definitions/firstRequest\"\n        },\n        \"responses\": {\n          \"default\": {\n            \"description\": \"something\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: : responses: no responses"
+	"Error": "parse: paths: /something: post: : requestBody: resolve \"./libraries/first-lib.json#/definitions/firstRequest\" reference: invalid requestBody reference: \"./libraries/first-lib.json#/definitions/firstRequest\""
 }

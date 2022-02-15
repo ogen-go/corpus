@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "paths-get-response-links.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-response-links.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"links\": {\n              \"link1\": {\n                \"operationRef\": \"#paths~12.0~1repositories~1{$response.body#/username}\",\n                \"operationId\": \"getRepositoriesByOwner\",\n                \"parameters\": {\n                  \"username\": \"$response.body#/username\"\n                },\n                \"requestBody\": {\n                  \"description\": \"The request body.\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/User\"\n                      }\n                    },\n                    \"application/xml\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/User\"\n                      }\n                    }\n                  },\n                  \"required\": true\n                },\n                \"description\": \"The link1 description.\",\n                \"server\": {\n                  \"url\": \"https://development.gigantic-server.com/v1\",\n                  \"description\": \"Development server\"\n                }\n              },\n              \"link2\": {\n                \"$ref\": \"#/components/links/UserRepositories\"\n              },\n              \"link3\": {\n                \"operationId\": \"mergePullRequest\",\n                \"parameters\": {\n                  \"username\": \"$response.body#/author/username\",\n                  \"slug\": \"$response.body#/repository/slug\",\n                  \"pid\": \"$response.body#/id\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:8: expected 'IDENT', found 'struct'"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nijens/openapi-bundle"
+		},
+		"file": {
+			"name": "route-loader-symfony-controller.json",
+			"path": "tests/Resources/specifications/route-loader-symfony-controller.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"OpenAPI bundle Symfony controller test specification\",\n        \"version\": \"0.1.0\"\n    },\n    \"paths\": {\n        \"/pets/{uuid}\": {\n            \"put\": {\n                \"requestBody\": {\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/Pet\"\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"Returns the stored pet.\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"array\",\n                                    \"items\": {\n                                        \"$ref\": \"#/components/schemas/Pet\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                },\n                \"x-symfony-controller\": \"Nijens\\\\OpenapiBundle\\\\Controller\\\\FooController::bar\"\n            },\n            \"parameters\": [\n                {\n                    \"name\": \"uuid\",\n                    \"in\": \"path\",\n                    \"required\": true,\n                    \"schema\": {\n                        \"type\": \"string\",\n                        \"format\": \"uuid\"\n                    }\n                }\n            ]\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Pet\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"id\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int32\",\n                        \"readOnly\": true,\n                        \"example\": 1\n                    },\n                    \"name\": {\n                        \"type\": \"string\",\n                        \"example\": \"Dog\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

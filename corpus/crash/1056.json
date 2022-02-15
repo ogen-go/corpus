@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nathyts/twidio"
+		},
+		"file": {
+			"name": "swagger.json",
+			"path": "src/swagger.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"TwiDIO API\",\n    \"description\": \"API para aprendizado de TDD com Node.ts\"\n  },\n  \"contact\": {\n    \"email\": \"nathallyccd@gmail.com\"\n  },\n  \"license\": \"MIT\",\n  \"version\": \"1.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:5000/v1\",\n      \"description\": \"Production API\"\n    }\n  ],\n  \"paths\": {\n    \"/posts\": {\n      \"post\": {\n        \"summary\": \"Cadastro de novos posts\",\n        \"description\": \"Rota para salvar novos posts\",\n        \"tags\": [\"Posts\"],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Post\"\n              },\n              \"examples\": {\n                \"post\": {\n                  \"value\": {\n                    \"author\": \"author@email.com\",\n                    \"content\": \"Tuite de exemplo\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"$ref\": \"#/components/schemas/Post\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Post\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"author\": {\n            \"type\": \"string\"\n          },\n          \"content\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

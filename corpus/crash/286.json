@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/EMResearch/EvoMaster"
+		},
+		"file": {
+			"name": "xyz2.json",
+			"path": "core/src/test/resources/swagger/artificial/xyz2.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"xyz2\",\n    \"description\": \"xyz2\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"/v2\"\n    }\n  ],\n  \"paths\": {\n    \"/xyz2\": {\n      \"post\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/XYZ\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"XYZ\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"f1\": {\n            \"type\": \"number\",\n            \"format\": \"int64\"\n          },\n          \"f2\": {\n            \"type\": \"number\",\n            \"format\": \"double\"\n          },\n          \"f3\": {\n            \"type\": \"number\",\n            \"format\": \"float\"\n          }\n        },\n        \"required\": [\n          \"f1\"\n        ]\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

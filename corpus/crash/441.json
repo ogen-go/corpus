@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "invalid-ref-key-operation.json",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-ref-key-operation.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Hello World API\"\n  },\n  \"paths\": {\n    \"/a\": {\n      \"get\": {\n        \"$ref\": \"#/components/schemas/someUrl\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

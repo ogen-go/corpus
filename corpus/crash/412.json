@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alexa-labs/alexa-custom-task-definitions"
+		},
+		"file": {
+			"name": "PlaySoundMachine.json",
+			"path": "SoundMachine/tasks/PlaySoundMachine.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Task to play a sound in Sound Machine, such as an ambient rain sound\",\n    \"version\": \"1\"\n  },\n  \"tags\": [{\n    \"name\": \"play Sound Machine\"\n  }],\n  \"paths\": {\n    \"/SoundMachine\": {\n      \"summary\": \"play Sound Machine\",\n      \"description\": \"To play Sound Machine\",\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Input\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"When Sound Machine plays successfully\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/SuccessfulResponse\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"When the given parameters fail validations - e.g. sound does not exist\"\n          },\n          \"500\": {\n            \"description\": \"When Sound Machine fails\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Input\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"requesterSkillId\": {\n            \"type\": \"string\"\n          },\n          \"sound\": {\n            \"type\": \"string\"\n          },\n          \"duration\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"SuccessfulResponse\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"startedSoundMachine\": {\n            \"type\": \"boolean\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

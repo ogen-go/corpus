@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "circular.oas.json",
+			"path": "packages/api/__tests__/__fixtures__/circular.oas.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"API definition with a circular $ref\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/anything\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          },\n          \"404\": {\n            \"description\": \"Not found\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorMessage\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"ErrorMessage\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"properties\": {\n          \"statusCode\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"error\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          },\n          \"inner\": {\n            \"$ref\": \"#/components/schemas/ErrorMessage\"\n          },\n          \"canBeRetried\": {\n            \"type\": \"string\",\n            \"enum\": [\"Unknown\", \"Yes\", \"No\"]\n          },\n          \"detailedErrorCode\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

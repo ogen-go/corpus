@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "description-applied-to-operations-editing.json",
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/summary-description-in-path/description-applied-to-operations-editing.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/simple-case\": {\n      \"description\": \"some description\",\n      \"summary\": \"some summary\",\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"response description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"description\": \"some description\",\n        \"summary\": \"some summary\"\n      }\n    },\n    \"/only-in-operation\": {\n      \"get\": {\n        \"description\": \"in operation\",\n        \"summary\": \"in operation\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"response description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/overriding-path-values\": {\n      \"description\": \"defined in path\",\n      \"summary\": \"defined in path\",\n      \"get\": {\n        \"description\": \"overrided operation\",\n        \"summary\": \"overrided operation\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"response description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/path-with-no-operation\": {\n      \"description\": \"defined in path\",\n      \"summary\": \"defined in path\"\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

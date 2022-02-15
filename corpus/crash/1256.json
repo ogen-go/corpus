@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "resource.parameters.type-variable.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/resource.parameters.type-variable.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/variable-types\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Dto\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/variable-types/{id}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Dto\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Dto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

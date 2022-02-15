@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.generic-type-variables.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.generic-type-variables.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/integer-string/map\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"additionalProperties\": {\n                    \"format\": \"uuid\",\n                    \"pattern\": \"[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\",\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/integer-string/save\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"name\": \"g1\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"format\": \"int32\",\n                \"type\": \"integer\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"format\": \"int32\",\n                  \"type\": \"integer\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/integer-string/typevar\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"q1\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"format\": \"int32\",\n                  \"type\": \"integer\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

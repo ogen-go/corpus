@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Urigo/graphql-mesh"
+		},
+		"file": {
+			"name": "cloudfunction.json",
+			"path": "packages/handlers/openapi/test/fixtures/cloudfunction.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test-action-2\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/test-action-2\": {\n      \"post\": {\n        \"description\": \"Description of the action\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success response for test-action-2\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Response\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Error response for test-action-2\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"blocking\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"boolean\",\n              \"default\": true\n            }\n          },\n          {\n            \"name\": \"result\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"boolean\",\n              \"default\": true\n            }\n          }\n        ],\n        \"security\": [\n          {\n            \"basic_protocol\": []\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Payload\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://openwhisk.ng.bluemix.net/api/v1/namespaces/_/actions\"\n    }\n  ],\n  \"components\": {\n    \"schemas\": {\n      \"Response\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"payload\": {\n            \"type\": \"string\"\n          },\n          \"age\": {\n            \"type\": \"number\"\n          },\n          \"valid\": {\n            \"type\": \"boolean\"\n          }\n        },\n        \"required\": [\"payload\", \"age\", \"valid\"]\n      },\n      \"Error\": {},\n      \"Payload\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"age\": {\n            \"type\": \"number\"\n          }\n        },\n        \"required\": [\"age\"]\n      }\n    },\n    \"securitySchemes\": {\n      \"basic_protocol\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

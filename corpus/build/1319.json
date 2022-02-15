@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/readmeio/oas"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "pathitems-component.json",
-			"path": "__tests__/__datasets__/pathitems-component.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Single Path\",\n    \"description\": \"This is a slimmed down single path version of the Petstore definition that uses `pathItems` components.\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org/anything\"\n    }\n  ],\n  \"paths\": {\n    \"/pet/:id\": {\n      \"$ref\": \"#/components/pathItems/singlePet\"\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"apiKey\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      }\n    },\n    \"pathItems\": {\n      \"singlePet\": {\n        \"put\": {\n          \"tags\": [\"pet\"],\n          \"summary\": \"Update a pet\",\n          \"description\": \"This operation will update a pet in the database.\",\n          \"responses\": {\n            \"400\": {\n              \"description\": \"Invalid id value\"\n            }\n          },\n          \"security\": [\n            {\n              \"apiKey\": []\n            }\n          ]\n        },\n        \"get\": {\n          \"tags\": [\"pet\"],\n          \"summary\": \"Find a pet\",\n          \"description\": \"This operation will find a pet in the database.\",\n          \"responses\": {\n            \"400\": {\n              \"description\": \"Invalid status value\"\n            }\n          },\n          \"security\": []\n        }\n      }\n    }\n  }\n}\n"
+			"name": "pathDefault1.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_pathDefault/pathDefault1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /pet/:id: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "negative1.json",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_schema/test/negative1.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/MyObject\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "positive3.json",
+			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersions\",\n        \"summary\": \"List versions\",\n        \"servers\": [\n          {\n            \"description\": \"server URL\"\n          }\n        ],\n        \"security\": [\n          {\n            \"OAuth2\": [\n              \"write\",\n              \"read\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /: get: listVersions: responses: no responses"
 }

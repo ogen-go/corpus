@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/apioo/psx-api"
 		},
 		"file": {
-			"name": "schemas-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/schemas/schemas-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"test\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"schema\": {\n              \"$ref\": \"*\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
+			"name": "simple.json",
+			"path": "tests/Parser/openapi/simple.json",
+			"content": "{\n  \"$import\": {\n    \"my_schema\": \"file:///../schema/schema.json\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Test\",\n      \"description\": \"Test description\",\n      \"parameters\": [{\n        \"name\": \"fooId\",\n        \"in\": \"path\",\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      }],\n      \"get\": {\n        \"summary\": \"A long **Test** description\",\n        \"parameters\": [{\n          \"name\": \"foo\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"description\": \"Test\",\n            \"type\": \"string\"\n          }\n        }, {\n          \"name\": \"bar\",\n          \"in\": \"query\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }, {\n          \"name\": \"baz\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"string\",\n            \"enum\": [\"foo\", \"bar\"]\n          }\n        }, {\n          \"name\": \"boz\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"string\",\n            \"pattern\": \"[A-z]+\"\n          }\n        }, {\n          \"name\": \"integer\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"integer\"\n          }\n        }, {\n          \"name\": \"number\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"number\"\n          }\n        }, {\n          \"name\": \"date\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"string\",\n            \"format\": \"date\"\n          }\n        }, {\n          \"name\": \"boolean\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"boolean\"\n          }\n        }, {\n          \"name\": \"string\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }],\n        \"requestBody\": {\n          \"description\": \"Request body\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"my_schema:Song\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Response body\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"my_schema:Song\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: /foo: parameters: parse parameter \"fooId\": path parameters must be required"
 }

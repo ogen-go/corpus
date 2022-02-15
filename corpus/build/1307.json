@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/readmeio/api-explorer"
+			"name": "github.com/sgtest/megarepo"
 		},
 		"file": {
-			"name": "no-security-schemes.json",
-			"path": "packages/api-explorer/__tests__/__fixtures__/auth-types/no-security-schemes.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Multiple Securities\"\n  },\n  \"paths\": {\n    \"/oauth\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"oauth\": [\"write:things\"]\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "logs_openapi.json",
+			"path": "kubernetes/api/openapi-spec/v3/logs_openapi.json",
+			"content": "{\n  \"components\": {},\n  \"info\": {\n    \"title\": \"Kubernetes\",\n    \"version\": \"unversioned\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/logs/\": {\n      \"get\": {\n        \"operationId\": \"logFileListHandler\",\n        \"responses\": {},\n        \"tags\": [\n          \"logs\"\n        ]\n      }\n    },\n    \"/logs/{logpath}\": {\n      \"get\": {\n        \"operationId\": \"logFileHandler\",\n        \"responses\": {},\n        \"tags\": [\n          \"logs\"\n        ]\n      },\n      \"parameters\": [\n        {\n          \"description\": \"path to the log\",\n          \"in\": \"path\",\n          \"name\": \"logpath\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\",\n            \"uniqueItems\": true\n          }\n        }\n      ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /oauth: post: : responses: no responses"
+	"Error": "parse: paths: /logs/: get: logFileListHandler: responses: no responses"
 }

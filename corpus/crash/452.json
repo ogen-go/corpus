@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/asyncee/swagger_codegen"
+		},
+		"file": {
+			"name": "test_openapi.json",
+			"path": "tests/fixtures/test_openapi.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Swagger Petstore\",\n    \"description\": \"This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.\",\n    \"version\": \"1.0.0\"\n  },\n   \"components\": {\n     \"schemas\": {\n       \"ResponseA\": {\n         \"type\": \"object\",\n         \"properties\": {\n           \"field\": {\n             \"type\": \"string\",\n             \"description\": \"a string\"\n           }\n         }\n       },\n       \"ResponseB\": {\n         \"type\": \"object\",\n         \"properties\": {\n           \"field\": {\n             \"type\": \"string\",\n             \"description\": \"a string\"\n           }\n         }\n       }\n     }\n   },\n  \"paths\": {\n    \"/multiple-status-codes\": {\n      \"put\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Response A\",\n            \"content\": {\n               \"application/json\": {\n                 \"schema\": {\n                   \"$ref\": \"#/components/schemas/ResponseA\"\n                 }\n               }\n            }\n          },\n          \"400\": {\"description\": \"default\"},\n          \"422\": {\n            \"description\": \"Response B\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ResponseB\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

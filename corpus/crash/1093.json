@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-library/OpenAPIValidators"
+		},
+		"file": {
+			"name": "openapi3.json",
+			"path": "commonTestResources/exampleOpenApiFiles/valid/openapi3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Example API\",\n    \"description\": \"Example OpenApi 3 spec\",\n    \"version\": \"0.1.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"/local\",\n      \"description\": \"local\"\n    },\n    {\n      \"url\": \"/remote\",\n      \"description\": \"remote\"\n    }\n  ],\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Response body should be a string\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"204\": {\n            \"description\": \"No response body\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

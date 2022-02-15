@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/awslabs/smithy"
 		},
 		"file": {
-			"name": "output.json",
-			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/discriminator-object/output.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic links\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"discriminator\": {\n                    \"propertyName\": \"animalType\",\n                    \"mapping\": {\n                      \"cat\": \"#/components/schemas/Cat\",\n                      \"dog\": \"#/components/schemas/Dog\"\n                    }\n                  },\n                  \"oneOf\": [\n                    {\n                      \"$ref\": \"#/components/schemas/Cat\"\n                    },\n                    {\n                      \"$ref\": \"#/components/schemas/Dog\"\n                    }\n                  ],\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Cat\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"animalType\": {\n            \"type\": \"string\"\n          },\n          \"someProp\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Dog\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"animalType\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "greedy-labels-name-parameter-without-suffix.openapi.json",
+			"path": "smithy-openapi/src/test/resources/software/amazon/smithy/openapi/fromsmithy/protocols/greedy-labels-name-parameter-without-suffix.openapi.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Service\",\n    \"version\": \"2006-03-01\"\n  },\n  \"paths\": {\n    \"/{foo}/{baz+}\": {\n      \"post\": {\n        \"operationId\": \"Operation\",\n        \"parameters\": [\n          {\n            \"name\": \"foo\",\n            \"in\": \"path\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"required\": true\n          },\n          {\n            \"name\": \"baz\",\n            \"in\": \"path\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"required\": true\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Operation 200 response\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {}\n}\n"
 		}
 	},
-	"Error": "make ir: path \"/test\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map dog to #/components/schemas/Dog"
+	"Error": "parse: paths: /{foo}/{baz+}: post: Operation: parse path: path parameter not specified: \"baz+\""
 }

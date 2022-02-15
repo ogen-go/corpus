@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "oneOf-0.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/oneOf-0.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"OneOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/oneOf\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"pattern\": \"X*\",\n                            \"oneOf\": [\n                                {\n                                    \"minLength\": 2\n                                },\n                                {\n                                    \"maxLength\": 10\n                                }\n                            ]\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

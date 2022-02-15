@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/readmeio/oas"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "petstore-nondereferenced.json",
-			"path": "__tests__/__datasets__/petstore-nondereferenced.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"testing\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/anything\": {\n      \"post\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Pet\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Pet\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Pet\"\n            }\n          }\n        },\n        \"required\": true\n      }\n    },\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"string\"\n      }\n    }\n  }\n}\n"
+			"name": "pathDefault2.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_pathDefault/pathDefault2.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /anything: post: : responses: no responses"
+	"Error": "parse: paths: /foo: get: : responses: default: content: application/json: schema: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
 }

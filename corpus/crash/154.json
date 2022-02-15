@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "impliedObjects.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/impliedObjects.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Object\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/object\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"maxProperties\": 1\n                        }\n                    },\n                    {\n                        \"name\": \"param1\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"minProperties\": 1\n                        }\n                    },\n                    {\n                        \"name\": \"param2\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"required\": [ \"alpha\", \"bravo\" ]\n                        }\n                    },\n                    {\n                        \"name\": \"param3\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"properties\": {\n                                \"alpha\": {},\n                                \"bravo\": {}\n                            }                            \n                        }\n                    },\n                    {\n                        \"name\": \"param4\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"additionalProperties\": false\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "delete-operation.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-operation/openapi-3/delete-operation.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\"\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "delete-media-type-requestBody.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-media-type/openapi-3/delete-media-type-requestBody.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo/{fooId}: get: getFoo: parse path: path parameter not specified: \"fooId\""
+	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
 }

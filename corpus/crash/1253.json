@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "resource.parameters.simpleSchema.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/resource.parameters.simpleSchema.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/params/{taskId}/unnamed\": {\n      \"delete\": {\n        \"parameters\": [{\n          \"name\": \"taskId\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"The id of the task\",\n          \"schema\": {\n            \"type\": \"string\"\n          },\n          \"example\": \"e1cb23d0-6cbe-4a29\"\n        }, {\n          \"name\": \"nextTask\",\n          \"in\": \"query\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No content\"\n          }\n        }\n      }\n    },\n    \"/params/{taskId}/named\": {\n      \"delete\": {\n        \"parameters\": [{\n          \"name\": \"taskId\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"The id of the task, invalid name discarded when @Parameter and JAX-RS annotation have same target\",\n          \"schema\": {\n            \"type\": \"string\"\n          },\n          \"example\": \"e1cb23d0-6cbe-4a29\"\n        }],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No content\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

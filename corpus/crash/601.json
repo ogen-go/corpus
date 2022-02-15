@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/corona-warn-app/cwa-ppa-server"
+		},
+		"file": {
+			"name": "api_v1.json",
+			"path": "services/els-verify/api_v1.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"version\": \"v1\",\n    \"title\": \"CWA-Data Error-Log-Sharing (ELS) API\",\n    \"license\": {\n      \"name\": \"Apache 2.0\"\n    }\n  },\n  \"paths\": {\n    \"/version/{version}/els\": {\n      \"post\": {\n        \"summary\": \"Post error-log-sharing-token (els)\",\n        \"tags\": [\n          \"redeem els\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"version\",\n            \"in\": \"path\",\n            \"description\": \"API version\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Version\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/els\"\n              },\n              \"example\": {\n                \"els\": \"b3c0bcec-d6ab-41a7-b2f6-b005cfaa76cb\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ELS token was valid and is now marked as used - it's redeemed\"\n          },\n          \"400\": {\n            \"description\": \"ELS token could be expired or already redeemed\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"redeemed\": {\n                    \"value\": \"{\\n  \\\"els\\\": \\\"b3c0bcec-d6ab-41a7-b2f6-b005cfaa76cb\\\",\\n  \\\"state\\\": \\\"redeemed\\\"\\n}\"\n                  },\n                  \"expired\": {\n                    \"value\": \"{\\n  \\\"els\\\": \\\"b3c0bcec-d6ab-41a7-b2f6-b005cfaa76cb\\\",\\n  \\\"state\\\": \\\"expired\\\"\\n}\"\n                  }\n                }\n              }\n            }\n          },\n          \"404\": {\n            \"description\": \"ELS never existed and is not valid\"\n          },\n          \"500\": {\n            \"description\": \"server errros while processing the request\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Version\": {\n        \"type\": \"string\",\n        \"description\": \"A string of form 'v[\\\\d+]'\",\n        \"example\": \"v1\"\n      },\n      \"els\": {\n        \"type\": \"string\",\n        \"format\": \"json\",\n        \"description\": \"A single error-log-sharing token to upload log files from mobile\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

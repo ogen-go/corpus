@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "change-header-type-response.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/change-header-type/openapi-3/change-header-type-response.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"X-RateLimit-Remaining\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "add-security-requirement-op.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/add-security-requirement/openapi-3/add-security-requirement-op.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"List API versions\",\n        \"operationId\": \"listVersionsv2\"\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: no responses"
 }

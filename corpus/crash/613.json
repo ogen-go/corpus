@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/davidebianchi/gswagger"
+		},
+		"file": {
+			"name": "allof.json",
+			"path": "testdata/allof.json",
+			"content": "{\n  \"components\": {},\n  \"info\": {\n    \"title\": \"test swagger title\",\n    \"version\": \"test swagger version\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/all-of\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"allOf\": [\n                  {\n                    \"maximum\": 2,\n                    \"minimum\": 1,\n                    \"type\": \"number\"\n                  },\n                  {\n                    \"maximum\": 3,\n                    \"minimum\": 2,\n                    \"type\": \"number\"\n                  }\n                ]\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"allOf\": [\n                    {\n                      \"maximum\": 2,\n                      \"minimum\": 1,\n                      \"type\": \"number\"\n                    },\n                    {\n                      \"maximum\": 3,\n                      \"minimum\": 2,\n                      \"type\": \"number\"\n                    }\n                  ]\n                }\n              }\n            },\n            \"description\": \"\"\n          }\n        }\n      }\n    },\n    \"/nested-schema\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"properties\": {\n                    \"foo\": {\n                      \"type\": \"string\"\n                    },\n                    \"nested\": {\n                      \"allOf\": [\n                        {\n                          \"maximum\": 2,\n                          \"minimum\": 1,\n                          \"type\": \"number\"\n                        },\n                        {\n                          \"maximum\": 3,\n                          \"minimum\": 2,\n                          \"type\": \"number\"\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            },\n            \"description\": \"\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/carbon-mediation"
+		},
+		"file": {
+			"name": "SwaggerWithUrl.json",
+			"path": "components/mediation-admin/org.wso2.carbon.rest.api/src/test/resources/SwaggerWithUrl.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"secondApi\",\n    \"description\": \"API Definition of secondApi\",\n    \"version\": \"2.5\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:8290/second/2.5\"\n    }\n  ],\n  \"paths\": {\n    \"/addUser\": {\n      \"post\": {\n        \"requestBody\": {\n          \"description\": \"Sample Payload\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"payload\": {\n                    \"type\": \"object\"\n                  }\n                }\n              }\n            }\n          },\n          \"required\": false\n        },\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Default response\"\n          }\n        }\n      }\n    },\n    \"/getUser/{userId}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"userId\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Default response\"\n          }\n        }\n      }\n    },\n    \"/\": {\n      \"delete\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Default response\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

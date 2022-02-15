@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jlikens/tye-series"
+		},
+		"file": {
+			"name": "swagger-weather.json",
+			"path": "tye-talk-06-tye-plus-plus/swagger-weather.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"api.weather\",\n    \"version\": \"v1\"\n  },\n  \"paths\": {\n    \"/WeatherForecast\": {\n      \"get\": {\n        \"tags\": [\n          \"WeatherForecast\"\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\n                  }\n                }\n              },\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\n                  }\n                }\n              },\n              \"text/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"WeatherForecast\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"postalCode\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          },\n          \"date\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"temperatureC\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"temperatureF\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"readOnly\": true\n          },\n          \"summary\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          }\n        },\n        \"additionalProperties\": false\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

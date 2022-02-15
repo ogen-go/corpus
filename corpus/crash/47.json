@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive3.json",
+			"path": "assets/queries/openAPI/3.0/link_object_with_both_operation_id_and_operation_ref/test/positive3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the user being returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"uuid\": {\n                      \"type\": \"string\",\n                      \"format\": \"uuid\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/users/{userid}/address\": {\n      \"parameters\": [\n        {\n          \"name\": \"userid\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"the user identifier, as userId\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getUserAddress\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the user's address\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"$ref\": \"../models/pet.yaml\"\n      },\n      \"User\": {\n        \"$ref\": \"https://api.example.com/v2/openapi.yaml#/components/schemas/User\"\n      }\n    },\n    \"responses\": {\n      \"GenericError\": {\n        \"$ref\": \"../template-api.yaml#/components/responses/GenericError\"\n      }\n    },\n    \"links\": {\n      \"address\": {\n        \"operationId\": \"getUserAddress\",\n        \"operationRef\": \"/\",\n        \"parameters\": {\n          \"userId\": \"$request.path.id\"\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/readmeio/api-explorer"
 		},
 		"file": {
-			"name": "responses.kotlin-continuation-opaque.json",
-			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.kotlin-continuation-opaque.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/1\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/PairStringString\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    },\n    \"/2\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/PairStringString\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"PairStringString\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"first\": {\n            \"type\": \"string\"\n          },\n          \"second\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "file-upload-image.json",
+			"path": "example/swagger-files/file-upload-image.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"An example of how we handle file uploading\"\n  },\n  \"paths\": {\n    \"/anything\": {\n      \"post\": {\n        \"summary\": \"Upload an image\",\n        \"description\": \"https://swagger.io/docs/specification/describing-request-body/file-upload/\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"image/png\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"format\": \"binary\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"x-readme\": {\n    \"explorer-enabled\": true,\n    \"samples-enabled\": true,\n    \"samples-languages\": [\"curl\", \"node\", \"node-simple\", \"ruby\", \"javascript\", \"python\"]\n  }\n}\n"
 		}
 	},
-	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:8: 'P' exponent requires hexadecimal mantissa (and 4 more errors)"
+	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:8: expected 'IDENT', found 'struct'"
 }

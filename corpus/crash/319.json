@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/JustinFeng/fakeit"
+		},
+		"file": {
+			"name": "integer_schema.json",
+			"path": "spec/fixtures/integer_schema.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Integer\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/response\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"response\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"integer\": {\n            \"type\": \"integer\"\n          },\n          \"integer_int32\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"integer_int64\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"integer_unknown\": {\n            \"type\": \"integer\",\n            \"format\": \"unknown\"\n          },\n          \"integer_range\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"maximum\": 10\n          },\n          \"integer_range_exclusive\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"exclusiveMinimum\": true,\n            \"maximum\": 3,\n            \"exclusiveMaximum\": true\n          },\n          \"integer_enum\": {\n            \"type\": \"integer\",\n            \"enum\": [\n              1,\n              2\n            ]\n          },\n          \"integer_multiple\": {\n            \"type\": \"integer\",\n            \"multipleOf\": 2,\n            \"minimum\": 1,\n            \"maximum\": 5\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

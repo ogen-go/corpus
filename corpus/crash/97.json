@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "array-7.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/array-7.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Array\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/array\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n                        \"style\": \"pipeDelimited\",\n\n                        \"schema\": {\n                            \"type\": \"array\",\n                            \"maxItems\": 2,\n                            \"items\": {\n                                \"type\": \"string\"\n                            },\n                            \"nullable\": true\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"parameters\": {\n            \"id\": {\n                \"name\": \"id\",\n                \"in\": \"query\",\n                \"schema\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"requestBodies\": {\n            \"standard\": {\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

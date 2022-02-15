@@ -5,9 +5,9 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "paths-get-servers.json",
-			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-servers.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"servers\": [\n            {\n              \"url\": \"https://development.gigantic-server.com/v1\",\n              \"description\": \"Development server\"\n            },\n            {\n              \"url\": \"https://staging.gigantic-server.com/v1\",\n              \"description\": \"Staging server\"\n            },\n            {\n              \"url\": \"https://api.gigantic-server.com/v1\",\n              \"description\": \"Production server\"\n            }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "paths-get-security.json",
+			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-security.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"api_key\": []\n          },\n          {\n            \"petstore_auth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
 	"Error": "parse: paths: /foo: get: : responses: no responses"

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.matrix-params-on-resource-method-args.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.matrix-params-on-resource-method-args.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/matrix-params-on-resource-method-args/{id}/anotherpathsegment/reloaded{reloaded}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\",\n            \"maxLength\": 10,\n            \"nullable\": false\n          }\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"reloaded\",\n            \"in\": \"path\",\n            \"style\": \"matrix\",\n            \"explode\": true,\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"m1\": {\n                  \"type\": \"string\",\n                  \"default\": \"default-m1\"\n                },\n                \"m2\": {\n                  \"type\": \"string\",\n                  \"minLength\": 20\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Widget\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

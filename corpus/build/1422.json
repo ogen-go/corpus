@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "merged.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_pathEmpty/merged.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"pet_id\",\n            \"in\": \"query\",\n            \"description\": \"the ID of the pet to filter\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int64\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "issue-1352.json",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1352.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Responses\",\n    \"version\": \"0.0.0\"\n  },\n  \"paths\": {\n    \"/responses\": {\n      \"patch\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"It's a secret\",\n            \"headers\": {\n              \"x-my-secret-header\": {\n                \"required\": true,\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/secrets\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"maxProperties\": 1,\n                  \"additionalProperties\": {\n                    \"type\": \"number\"\n                  }\n                }\n              },\n              \"text/javascript\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"minProperties\": 1,\n                  \"additionalProperties\": {\n                    \"type\": \"boolean\"\n                  }\n                }\n              }\n            }\n          },\n          \"4XX\": {\n            \"$ref\": \"#/components/responses/failure\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"success\": {\n        \"description\": \"Success\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/successContent\"\n            }\n          }\n        }\n      },\n      \"failure\": {\n        \"description\": \"Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"secrets\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "make ir: path \"/responses\": patch: responses: parse response status code: strconv.Atoi: parsing \"4XX\": invalid syntax"
 }

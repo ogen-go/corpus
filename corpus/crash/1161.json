@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api-explorer"
+		},
+		"file": {
+			"name": "raw-body.json",
+			"path": "example/swagger-files/raw-body.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Special RAW_BODY parameter which gets sent as a raw JSON body\"\n  },\n  \"paths\": {\n    \"/post\": {\n      \"post\": {\n        \"summary\": \"Should get sent as a raw JSON body\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful\"\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"RAW_BODY\": {\n                    \"type\": \"string\",\n                    \"description\": \"This should get sent as a raw JSON string\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"x-readme\": {\n    \"explorer-enabled\": true,\n    \"samples-enabled\": true,\n    \"samples-languages\": [\"curl\", \"node\", \"ruby\", \"javascript\", \"python\"]\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

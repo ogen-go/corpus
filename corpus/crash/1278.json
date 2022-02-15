@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "responses.nested-parameterized-collection-types.json",
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.nested-parameterized-collection-types.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/map\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/MultivaluedMapStringMapStringCustomRequest\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MultivaluedMapStringMapStringCustomResponse\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MultivaluedMapStringMapStringCustomRequest\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"$ref\": \"#/components/schemas/CustomRequest\"\n            }\n          }\n        }\n      },\n      \"CustomRequest\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"requestName\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"MultivaluedMapStringMapStringCustomResponse\": {\n        \"type\": \"object\",\n        \"additionalProperties\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"$ref\": \"#/components/schemas/CustomResponse\"\n            }\n          }\n        }\n      },\n      \"CustomResponse\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"responseName\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kserve/kserve"
+		},
+		"file": {
+			"name": "TestRowFmtSingleTensor.golden.json",
+			"path": "tools/tf2openapi/generator/testdata/TestRowFmtSingleTensor.golden.json",
+			"content": "{\n  \"components\": {\n    \"requestBodies\": {\n      \"modelInput\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"additionalProperties\": false,\n              \"properties\": {\n                \"instances\": {\n                  \"items\": {\n                    \"items\": {\n                      \"type\": \"number\"\n                    },\n                    \"maxItems\": 4,\n                    \"minItems\": 4,\n                    \"type\": \"array\"\n                  },\n                  \"type\": \"array\"\n                }\n              },\n              \"required\": [\"instances\"],\n              \"type\": \"object\"\n            }\n          }\n        }\n      }\n    },\n    \"responses\": {\n      \"modelOutput\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"additionalProperties\": false,\n              \"properties\": {\n                \"predictions\": {\n                  \"items\": {\n                    \"items\": {\n                      \"type\": \"number\"\n                    },\n                    \"maxItems\": 2,\n                    \"minItems\": 2,\n                    \"type\": \"array\"\n                  },\n                  \"type\": \"array\"\n                }\n              },\n              \"required\": [\"predictions\"],\n              \"type\": \"object\"\n            }\n          }\n        },\n        \"description\": \"Model output\"\n      }\n    }\n  },\n  \"info\": {\n    \"title\": \"TFServing Predict Request API\",\n    \"version\": \"1.0\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/v1/models/model/versions/1:predict\": {\n      \"post\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/modelInput\"\n        },\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/modelOutput\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "panic: runtime error: index out of range [0] with length 0"
+}

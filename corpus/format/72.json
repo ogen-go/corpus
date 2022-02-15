@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_header.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_header.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"x-next\": {\n                \"$ref\": \"#/components/headers/Header\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"headers\": {\n      \"\u003ccaret\u003eHeader\": {}\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "schemas: failed to write file oas_schemas_gen.go: 76:8: expected 'IDENT', found 'struct'"
+}

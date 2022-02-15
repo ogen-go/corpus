@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "merged.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_opTags/merged.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\", \"tag3\", \"tag4\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "root.json",
+			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/unresolvable-path-item/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: /path1: referenced pathItem not supported"
 }
