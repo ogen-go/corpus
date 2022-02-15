@@ -5,10 +5,10 @@
 			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "external-response.yml",
-			"path": "packages/core/src/__tests__/naming/external-response.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
+			"name": "response-schema-naming.yml",
+			"path": "packages/core/src/__tests__/naming/response-schema-naming.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          description: My response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  value:\n                    type: string\n  /test2:\n    get:\n      responses:\n        200:\n          $ref: '#/paths/%2Ftest1/get/responses/200'\n"
 		}
 	},
-	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
+	"Error": "parse: paths: /test2: get: : responses: 200: resolve \"#/paths/%2Ftest1/get/responses/200\" reference: invalid response reference: \"#/paths/%2Ftest1/get/responses/200\""
 }

@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/firefly-iii/api-docs-generator"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "start.yaml.twig",
-			"path": "templates/start.yaml.twig",
-			"content": "openapi: 3.0.0\nservers:\n  - description: Firefly III demo site\n    url: {{ server }}\ninfo:\n  title: Firefly III API v{{ version }}\n  description: |\n    This is the documentation of the Firefly III API. You can find accompanying documentation on the website of Firefly III itself (see below). Please report any bugs or issues. You may use the \"Authorize\" button to try the API below. This file was last generated on {{ time }}\n  version: \"{{ version }}\"\n  contact:\n    name: James Cole\n    email: james@firefly-iii.org\n    url: https://firefly-iii.org\n  license:\n    name: AGPLv3\n    url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'\n{% if tags != '' %}\n{{ tags }}\n{% endif %}\n{% if paths|length \u003e 0 %}\npaths:\n{% for path in paths %}\n{{ path|raw }}\n{% endfor %}\n{% endif %}\ncomponents:\n{% if schemas|length \u003e 0 %}\n{% endif %}\n{% if schemas|length \u003e 0 %}\n  schemas:\n{% for schema in schemas %}\n{{ schema|raw }}\n{% endfor %}\n{% endif %}\n  securitySchemes:\n    firefly_iii_auth:\n      type: oauth2\n      description: Default OAuth2 flow\n      flows:\n        authorizationCode:\n          authorizationUrl: {{ server }}/oauth/authorize\n          tokenUrl: {{ server }}/oauth/token\n          refreshUrl: {{ server }}/oauth/token\n          scopes: {}\n    local_bearer_auth:\n      description: Optional Bearer token flow\n      type: http\n      scheme: bearer\nsecurity:\n  - firefly_iii_auth: []\n"
+			"name": "all-of-schema.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/schemas/discriminator/all-of-schema.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"Cat\": {\n        \"properties\": {\n          \"legs\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"pet-type\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Dog\": {\n        \"properties\": {\n          \"legs\": {\n            \"type\": \"integer\"\n          },\n          \"nickname\": {\n            \"type\": \"string\"\n          },\n          \"pet-type\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"test\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Cat\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Dog\"\n          }\n        ],\n        \"*\"\n      }\n    }\n  }\n}"
 		}
 	},
 	"Error": "invalid json"

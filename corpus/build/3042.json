@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/hpi-schul-cloud/schulcloud-server"
+			"name": "github.com/heldersepu/hs-scripts"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "src/services/docs/openapi.yaml",
-			"content": "info:\n  title: Schul-Cloud Legacy API\n  description: This is the API specification for the Schul-Cloud legacy API.\n\n  contact:\n    name: support\n    email: info@hpi-schul-cloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\nservers:\n  - url: /legacy/v1/\n\npaths:\n  /ldap-config:\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1'\n  '/ldap-config/{_id}':\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1{_id}'\n  /me:\n    $ref: '../me/docs/openapi.yaml#/paths/~1me'\n  /version:\n    $ref: '../versionService/docs/openapi.yaml#/paths/~1version'\n\nopenapi: 3.0.2\n"
+			"name": "4258_p1_swagger.yaml",
+			"path": "swagger/4258_p1_swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':\n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: './api2.yaml#/components/schemas/Api2Prop'"
 		}
 	},
-	"Error": "parse: /me: referenced pathItem not supported"
+	"Error": "parse: paths: /test-api-1: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/TestResponse\": parse schema: api2prop: parse schema: reference \"./api2.yaml#/components/schemas/Api2Prop\": resolve reference \"./api2.yaml#/components/schemas/Api2Prop\": invalid schema reference \"./api2.yaml#/components/schemas/Api2Prop\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "issue-304.json",
-			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"empty\": null\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BaseEntityDto\": {\n        \"$ref\": \"./issue-304_parent.json#/components/schemas/BaseEntity\"\n      },\n      \"InheritanceDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Inheritance\"\n      },\n      \"CompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Composition\"\n      },\n      \"InheritanceAndCompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/InheritanceAndComposition\"\n      },\n      \"ReferenceToTheSameFile\": {\n        \"$ref\": \"./issue-304.json#/components/schemas/InheritanceAndCompositionDto\"\n      }\n    }\n  }\n}"
+			"name": "root.json",
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/invalid-pointer/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: empty: unexpected nil schema"
+	"Error": "parse: /path1: referenced pathItem not supported"
 }

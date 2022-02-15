@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/baloise-incubator/spectral-ruleset"
+			"name": "github.com/bangpypers/23-05-2020-flask-workshop"
 		},
 		"file": {
-			"name": "example-openapi.yml",
-			"path": "example/example-openapi.yml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  x-audience: who-cares\n  version: 1.0.0\n  title: API Title\n  license:\n    name: GNU\npaths:\n  /pet:\n    patch:\n      description: update a pet\n      operationId: update-pet\n      tags: [foo]\n      responses:\n        '200':\n          description: ok\n          content: {}\n        '500':\n          description: server error\n          content:\n            application/problem+json:\n              schema:\n                $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'"
+			"name": "swagger.yml",
+			"path": "swagger.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: workshop\n  version: '1.0'\n  description: API for an app we build as part of the flask workshop.\nservers:\n  - url: 'http://localhost:5000'\npaths:\n  '/movies/{id}':\n    get:\n      summary: Your GET endpoint\n      tags: []\n      responses: {}\n      operationId: get-movies\n      description: Lists all movies\n    post:\n      summary: ''\n      operationId: post-movies\n      responses:\n        '200':\n          description: OK\n      description: Takes selected movie and maps it to the current user.\n    put:\n      summary: ''\n      operationId: put-movies\n      responses:\n        '200':\n          description: OK\n      description: Adds movie to database\n    delete:\n      summary: ''\n      operationId: delete-movies\n      responses:\n        '200':\n          description: OK\n      description: Removes movie from the database\n    parameters:\n      - schema:\n          type: string\n        name: id\n        in: path\n        required: true\n  '/users/{id}':\n    parameters:\n      - schema:\n          type: string\n        name: id\n        in: path\n        required: true\n    get:\n      summary: Your GET endpoint\n      tags: []\n      responses: {}\n      operationId: get-users-id\n      description: Get list of users\n    put:\n      summary: ''\n      operationId: put-users-id\n      responses:\n        '200':\n          description: OK\n      description: Adds a user\ncomponents:\n  schemas:\n    Movie:\n      title: Movie\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int32\n        title:\n          type: string\n          minLength: 1\n    User:\n      title: User\n      type: object\n      properties:\n        id:\n          type: integer\n        '':\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /pet: patch: update-pet: responses: 500: content: application/problem+json: schema: parse schema: reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": resolve reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": invalid schema reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\""
+	"Error": "parse: paths: /movies/{id}: get: get-movies: responses: no responses"
 }

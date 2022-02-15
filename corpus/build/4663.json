@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/yandex-cloud/ide-plugin-jetbrains"
 		},
 		"file": {
-			"name": "parameter_without_in_ref.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/parameter_without_in_ref.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: '\u003ccaret\u003e#/components/parameters/Parameter'\ncomponents:\n  parameters:\n    Parameter:\n      name: parameter_name\n      description: Description\n"
+			"name": "hello-world.yaml",
+			"path": "src/main/resources/templates/api-gateways/hello-world.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: dummy\n        content:\n          '*': \"Hello, World!\"\n        http_code: 200\n        http_headers:\n          Content-Type: \"text/plain\"\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e#/components/parameters/Parameter\" reference: invalid parameter reference: \"\u003ccaret\u003e#/components/parameters/Parameter\""
+	"Error": "parse: paths: /: get: : responses: no responses"
 }

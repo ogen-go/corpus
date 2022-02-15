@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/relative-references-example/openapi.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: x\n  description: desc\n  license:\n    name: public domain\n  contact:\n    name: API Support\n    url: http://www.example.com/support\n    email: support@example.com\npaths:\n  /authorize:\n    $ref: 'security/_resources/authorize.yaml'\n  /login:\n    $ref: 'security/_resources/login.yaml'\n"
+			"name": "index.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/oapi-reference-test2/index.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n  - url: http://test.com/test\npaths:\n  /:\n    get:\n      description: Test\n      summary: Test\n      operationId: getTest\n      responses:\n        200:\n          description: Response with schema containing reference\n          content:\n            application/json:\n              schema:\n                $ref: \"./components/schema-with-reference.yaml\"\n"
 		}
 	},
-	"Error": "parse: /authorize: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: getTest: responses: 200: content: application/json: schema: parse schema: reference \"./components/schema-with-reference.yaml\": resolve reference \"./components/schema-with-reference.yaml\": invalid schema reference \"./components/schema-with-reference.yaml\""
 }

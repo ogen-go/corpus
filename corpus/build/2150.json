@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aws/aws-sam-cli"
+			"name": "github.com/atc-net/atc-rest-api-generator"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/integration/testdata/validate/openapi_yaml/openapi.yaml",
-			"content": "---\nopenapi: 3.0.0\npaths:\n  /test:\n    get:\n      summary: Get test\n"
+			"name": "getSimpleInterface.yaml",
+			"path": "test/Atc.Rest.ApiGenerator.Tests/SyntaxGenerators/Api/XUnitTestData/ContractInterface/getSimpleInterface.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /users:\n    get:\n      summary: Get all users\n      description: Get all users\n      operationId: getUsers\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Users'\n        '409':\n          description: Conflict"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: no responses"
+	"Error": "parse: paths: /users: get: getUsers: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Users\": resolve reference \"#/components/schemas/Users\": schema not found"
 }

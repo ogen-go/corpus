@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/callbacks-issue/swagger.yaml",
-			"content": "openapi: 3.0.2\nservers:\n  - description:  Dev server\n    url: 'https://api.net'\ninfo:\n  title:  API\n  version: 1.0.0\n  description:\ntags:\n  - name: Webhook API\n    description: Endpoints related to the subscription and management of Webhooks\npaths:\n  '/webhook':\n    post:\n      tags:\n        - Webhook API\n      summary: Subscribe to events for a Market Participant\n      description: description\n      operationId: subscribe-webhook\n      callbacks:\n        WebhookVerificationEvent:\n          $ref: 'domain.yaml#/components/callbacks/WebhookVerificationEvent'"
+			"name": "sample-api-noquotes-sort.yaml",
+			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-noquotes-sort.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.9\nservers:\n  - url: https://petstore3.swagger.io/api/v3/pet\npaths:\n  /b:\n    post:\n      operationId: apost\n    get:\n      operationId: aget\n    delete:\n      operationId: adelete\n  /a:\n    post:\n      operationId: bpost\n  /2:\n    get:\n      operationId: 2get\n"
 		}
 	},
-	"Error": "parse: paths: /webhook: post: subscribe-webhook: responses: no responses"
+	"Error": "parse: paths: /b: get: aget: responses: no responses"
 }

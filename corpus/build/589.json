@@ -5,10 +5,10 @@
 			"name": "github.com/pubg/api-documentation-content"
 		},
 		"file": {
-			"name": "matches.yml",
-			"path": "swagger/en/matches.yml",
-			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n  description: Authorization is not required for the /matches endpoint because it is not rate-limited.\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"console\"\r\n        - \"kakao\"\r\n        - \"psn\"\r\n        - \"stadia\"\r\n        - \"steam\"\r\n        - \"tournament\"\r\n        - \"xbox\"\r\n        default: steam\r\npaths:\r\n  /matches/{id}:\r\n    $ref: './paths/index.yml#/match'\r\ncomponents:\r\n  schemas:\r\n    match:\r\n      $ref: 'schemas/index.yml#/match'\r\n    roster:\r\n      $ref: 'schemas/index.yml#/roster'\r\n    participant:\r\n      $ref: 'schemas/index.yml#/participant'\r\n    asset:\r\n      $ref: 'schemas/index.yml#/asset'\r\n"
+			"name": "players.yml",
+			"path": "swagger/en/players.yml",
+			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"kakao\"\r\n        - \"psn\"\r\n        - \"stadia\"\r\n        - \"steam\"\r\n        - \"xbox\"\r\n        default: steam\r\n\r\nsecurity:\r\n  - ApiKeyAuth: []\r\n\r\npaths:\r\n  /players:\r\n    $ref: './paths/index.yml#/players'\r\n\r\n  /players/{accountId}:\r\n    $ref: './paths/index.yml#/player'\r\n\r\ncomponents:\r\n  securitySchemes:\r\n    ApiKeyAuth:\r\n      type: http\r\n      description: \"Enter your API key here to be used with the interactive documentation!\"\r\n      scheme: bearer\r\n      bearerFormat: JWT\r\n\r\n  schemas:\r\n    player:\r\n      $ref: 'schemas/index.yml#/player'\r\n    matchList:\r\n      $ref: 'schemas/index.yml#/matchList'\r\n"
 		}
 	},
-	"Error": "parse: /matches/{id}: referenced pathItem not supported"
+	"Error": "parse: /players/{accountId}: referenced pathItem not supported"
 }

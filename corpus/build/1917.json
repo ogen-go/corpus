@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RepreZen/KaiZen-OpenApi-Parser"
 		},
 		"file": {
-			"name": "nested_recursive_reference_in_file.spec.yaml",
-			"path": "tests/specs/translating_parser/nested_recursive_reference_in_file.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: \u003e-\n            A local reference to a real-world like object with a recursive local reference deep in a structure in a\n            referenced file\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Response'\ncomponents:\n  schemas:\n    Response:\n      type: object\n      properties:\n        results:\n          type: array\n          items:\n            $ref: \"#/components/schemas/ResultsItem\"\n    ResultsItem:\n      type: object\n      properties:\n        contents:\n          $ref: \"#/components/schemas/ReferenceObject\"\n    ReferenceObject:\n      $ref: \"nested_recursive_reference_in_file_schemas.spec.yaml#/$defs/ComplexObject\"\n"
+			"name": "pathParamNotRequired.yaml",
+			"path": "kaizen-openapi-parser/src/test/resources/models/params/pathParamNotRequired.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: My API Spec\npaths:\n  /{id}:\n    get:\n      parameters:\n      - in: path\n        name: id\n      responses:\n        200:\n          description: Ok\n"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"#/components/schemas/Response\": parse schema: results: parse schema: item: parse schema: reference \"#/components/schemas/ResultsItem\": parse schema: contents: parse schema: reference \"#/components/schemas/ReferenceObject\": parse schema: reference \"nested_recursive_reference_in_file_schemas.spec.yaml#/$defs/ComplexObject\": resolve reference \"nested_recursive_reference_in_file_schemas.spec.yaml#/$defs/ComplexObject\": invalid schema reference \"nested_recursive_reference_in_file_schemas.spec.yaml#/$defs/ComplexObject\""
+	"Error": "parse: paths: /{id}: get: : parameters: parse parameter \"id\": path parameters must be required"
 }

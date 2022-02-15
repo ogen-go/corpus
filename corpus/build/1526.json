@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "duplicateParameter.yaml",
-			"path": "3.0/fail/duplicateParameter.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate parameter\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      parameters:\n      - name: test\n        in: query\n        schema:\n          type: string\n      - name: test\n        in: query\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: OK\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue76/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  '/{p4}':\n    get:\n      parameters:\n        - name: p1\n          in: query\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p2\n          in: query\n          explode: true\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p3\n          in: header\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p4\n          in: path\n          required: true\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p5\n          in: query\n          style: spaceDelimited\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p6\n          in: query\n          style: pipeDelimited\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        default:\n          description: OK\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: same: parameters: duplicate parameter: \"test\" in \"query\""
+	"Error": "parse: paths: /{p4}: get: : parameters: parse parameter \"p5\": style: unexpected style: spaceDelimited"
 }

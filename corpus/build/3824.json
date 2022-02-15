@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ovotech/laminar"
+			"name": "github.com/ota42y/openapi_parser"
 		},
 		"file": {
-			"name": "statements.yaml",
-			"path": "packages/laminar-cli/test/specs/statements.yaml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Boost statements\n  version: 1.0.0\nservers:\n  - url: http://localhost:8094\npaths:\n  '/accounts/{accountId}/meters':\n    get:\n      summary: Get Meters, associated with an account, and its service start and end dates (SSD...SED)\n      parameters:\n        - { $ref: '#/components/parameters/accountId' }\n      responses:\n        'default': { $ref: '#/components/responses/HttpErrorResponse' }\n        '200':\n          description: An list of meters for an account\n          content:\n            application/json:\n              schema:\n                type: array\n                items: { $ref: 'statements-files/account-meter.yaml#/AccountMeter' }\n\ncomponents:\n  responses:\n    HttpErrorResponse:\n      description: Error Response\n      content:\n        application/json:\n          schema: { $ref: '#/components/schemas/HttpError' }\n\n  parameters:\n    accountId:\n      name: accountId\n      in: path\n      schema:\n        $ref: '#/components/schemas/AccountId'\n      required: true\n\n  schemas:\n    AccountId:\n      type: string\n      pattern: '\\\\d+'\n    HttpError:\n      additionalProperties: false\n      properties:\n        message:\n          type: string\n"
+			"name": "path-item-ref.yaml",
+			"path": "spec/data/path-item-ref.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /sample/{sample_id}:\n    parameters:\n      - name: sample_id\n        in: path\n        required: true\n        schema:\n          type: string\n    post:\n      description: override here\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                test:\n                  type: string\n              required:\n                - test\n      responses:\n        '204':\n          description: empty\n  /ref-sample:\n    $ref: '#/paths/~1sample~1%7Bsample_id%7D'\n  /ref-sample/relative:\n    $ref: 'path-item-ref-relative.yaml#/paths/~1ref-sample~1relative'\n"
 		}
 	},
-	"Error": "parse: paths: /accounts/{accountId}/meters: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"statements-files/account-meter.yaml#/AccountMeter\": resolve reference \"statements-files/account-meter.yaml#/AccountMeter\": invalid schema reference \"statements-files/account-meter.yaml#/AccountMeter\""
+	"Error": "parse: /ref-sample: referenced pathItem not supported"
 }

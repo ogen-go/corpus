@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "packages/core/__tests__/fixtures/resolve/openapi.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pet:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                local:\n                  $ref: '#/components/schemas/Local'\n                localTransitive:\n                  $ref: '#/components/schemas/Local/properties/string'\n                externalWithPointer:\n                  $ref: ./External.yaml#/properties/string\n                external:\n                  $ref: ./External.yaml\ncomponents:\n  schemas:\n    Local:\n      properties:\n        number:\n          type: number\n        string:\n          type: string\n        localCircular:\n          $ref: '#/components/schemas/Local'"
+			"path": "__tests__/lint/info-description-rule/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0.0\n  description: test\n\npaths:\n  '/ping/{id}/{test}':\n    get:\n      operationId: getPingById\n      summary: example summary\n      parameters:\n        - in: path\n          name: test_id\n          description: User id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "parse: paths: /pet: put: : requestBody: content: application/json: parse schema: parse schema: external: parse schema: reference \"./External.yaml\": resolve reference \"./External.yaml\": invalid schema reference \"./External.yaml\""
+	"Error": "parse: paths: /ping/{id}/{test}: get: getPingById: parse path: path parameter not specified: \"id\""
 }

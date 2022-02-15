@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "api-with-request.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/annotations/api-with-request.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\npaths:\n  /path:\n    get:\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          'application/x-www-form-urlencoded':\n            schema:\n              properties:\n                name:\n                  type: string\n              required:\n                - status"
+			"name": "extract-example-oas3.yaml",
+			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-example-oas3.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            type: string\n            example: t[*]extplain"
 		}
 	},
-	"Error": "parse: paths: /path: get: : responses: no responses"
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

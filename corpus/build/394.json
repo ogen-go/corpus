@@ -5,10 +5,10 @@
 			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "issue235.spec0.yml",
-			"path": "openapi3/testdata/issue235.spec0.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec1.yml#/components/schemas/ObjectD'\n"
+			"name": "pathref.openapi.yml",
+			"path": "openapi3/testdata/pathref.openapi.yml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    $ref: 'circularref.openapi.yml#/paths/~1test'\ncomponents:\n  schemas:\n    TestSchema:\n      type: string\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"#/components/schemas/ObjectA\": parse schema: object_b: parse schema: reference \"issue235.spec1.yml#/components/schemas/ObjectD\": resolve reference \"issue235.spec1.yml#/components/schemas/ObjectD\": invalid schema reference \"issue235.spec1.yml#/components/schemas/ObjectD\""
+	"Error": "parse: /test: referenced pathItem not supported"
 }

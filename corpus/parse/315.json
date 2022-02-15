@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/CodingGardenCommunity/app-backend"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "MainSwag.yaml",
-			"path": "Swag/MainSwag.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  $ref: './Info.yaml#/Info'\nservers:\n  $ref: './Servers.yaml#/Servers'\ntags:\n  $ref: './Tags.yaml#/Tags'\npaths:\n  /contributors:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/AllContributors'\n\n  /contributors/{id}:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/SingleContributor'\n\n  /faqs:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/AllFAQs'\n    post:\n      $ref: './Paths/FAQs/FAQs.yaml#/AddFAQ'\n\n  /faqs/{id}:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/SingleFAQ'\n    delete:\n      $ref: './Paths/FAQs/FAQs.yaml#/DeleteFAQ'\n\n  /history:\n    get:\n      $ref: './Paths/History/History.yaml#/EntireHistory'\n\n  /history/{id}:\n    get:\n      $ref: './Paths/History/History.yaml#/SingleMilestone'\n\n  /videos:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/AllVideos'\n\n  /videos/{id}:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/SingleVideo'\n\n  /admin/seed:\n    post:\n      $ref: './Paths/Admin/Admin.yaml#/Seed'\n"
+			"name": "positive4.yaml",
+			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                allOf:\n                  - \"$ref\": \"#/components/schemas/ErrorModel\"\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n                additionalProperties:\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+	"Error": "unexpected type array"
 }

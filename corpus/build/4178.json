@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/solvedac/unofficial-documentation"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "level.yaml",
-			"path": "src/paths/problem/level.yaml",
-			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"수준별 문제 수 가져오기\"\n      description: \"문제 개수를 문제 수준별로 가져옵니다.\"\n      tags:\n        - problem\n      operationId: getProblemLevel\n\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"array\"\n                items:\n                  type: \"object\"\n                  properties:\n                    level:\n                      $ref: \"../../schemas/problem-level.yaml#/components/schemas/ProblemLevel\"\n                    count:\n                      type: \"integer\"\n                      format: \"int64\"\n                      minimum: 0\n                      description: \"이 문제 수준인 문제 수입니다.\"\n                      example: 10\n"
+			"name": "media-type.yaml",
+			"path": "openapi-checks/src/test/resources/checks/v3/media-type.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    get:\n      requestBody:\n        content:\n          'application': {}   # Noncompliant {{Declared media type range should conform to RFC7231.}}\n#         ^^^^^^^^^^^^^\n          'text/*': {}\n      responses:\n        '200':\n          description: some operation\n          content:\n            'application': {} # Noncompliant {{Declared media type range should conform to RFC7231.}}\n      parameters:\n        - name: someParam\n          in: query\n          content:\n            'application': {} # Noncompliant {{Declared mime type should conform to RFC6838.}}\n            'text/plain': {}  # invalid (only 1 content allowed by spec), but should not be caught by this rule\n        - name: otherParam\n          in: path\n    post:\n      responses:\n         '200':\n           description: some operation\n"
 		}
 	},
-	"Error": "parse: paths: Path: get: getProblemLevel: responses: 200: content: application/json: schema: parse schema: item: parse schema: level: parse schema: reference \"../../schemas/problem-level.yaml#/components/schemas/ProblemLevel\": resolve reference \"../../schemas/problem-level.yaml#/components/schemas/ProblemLevel\": invalid schema reference \"../../schemas/problem-level.yaml#/components/schemas/ProblemLevel\""
+	"Error": "parse: paths: /pets: get: : parameters: parse parameter \"otherParam\": path parameters must be required"
 }

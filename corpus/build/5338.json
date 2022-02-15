@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "variables-value.json.ignore",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/paths/path-object/operation/servers/variables/variables-value.json.ignore",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"servers\": [\n          {\n            \"variables\": {\n              \"name\": \"*\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/callbacks/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"callbacks\": {\n          \"callback\": {\n            \"http://notificationServer.com?transactionId={$request.body#/id}\u0026email={$request.body#/email}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"strin\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

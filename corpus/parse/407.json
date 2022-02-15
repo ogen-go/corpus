@@ -5,10 +5,10 @@
 			"name": "github.com/OAI/OpenAPI-Specification"
 		},
 		"file": {
-			"name": "valid_schema_types.yaml",
-			"path": "tests/v3.1/pass/valid_schema_types.yaml",
-			"content": "openapi: 3.1.1\n\n# this example shows that top-level schemaObjects MAY be booleans\n\ninfo:\n  title: API\n  version: 1.0.0\ncomponents:\n  schemas:\n    anything_boolean: true\n    nothing_boolean: false\n    anything_object: {}\n    nothing_object: { not: {} }\n\n"
+			"name": "servers.yaml",
+			"path": "tests/v3.1/fail/servers.yaml",
+			"content": "openapi: 3.1.0\n\n# this example should fail, as servers must be an array, not an object\n\ninfo:\n  title: API\n  version: 1.0.0\npaths: {}\nservers:\n  url: /v1\n  description: Run locally.\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Components.components.schemas of type ogen.Schema"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
 }

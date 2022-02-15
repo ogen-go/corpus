@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
+			"name": "github.com/RepreZen/GenFlow"
 		},
 		"file": {
-			"name": "validation_type.yaml",
-			"path": "com.reprezen.swagedit.openapi3.tests/resources/tests/validation_type.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Foo\n\npaths:\n  /foo:\n    get:\n      responses:\n        200:\n          description: \"OK\"\n          content:\n            default:\n              schema:\n                type: xxx"
+			"name": "beamup_path_history.yaml",
+			"path": "modules/genflow-tests/src/main/resources/models/openapiv3/examples/Multi-File Beamup/pathItems/beamup_path_history.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: \"1.0.0\"\n  title: BeamUp API\n\npaths:\n  /history:\n    get:\n      summary: User Activity\n      description: |\n        The User Activity endpoint returns data about a user's lifetime activity with \n        BeamUp. The response will include pickup locations and times, dropoff locations \n        and times, the distance of past requests, and information about which products \n        were requested.\u003cbr\u003e\u003cbr\u003eThe history array in the response will have a maximum \n        length based on the limit parameter. The response value count may exceed limit, \n        therefore subsequent API requests may be necessary.\n      parameters:\n        - $ref: \"../components/beamup_parameters.yaml#/components/parameters/offset\"\n        - $ref: \"../components/beamup_parameters.yaml#/components/parameters/limit\"\n      tags: \n        - User\n      responses:\n        200:\n          description: History information for the given user\n          content:\n            application/json:\n              schema:\n                # Reference to a Schema Object described in beamup_schemas.yaml\n                $ref: \"../components/beamup_schemas.yaml#/components/schemas/Activities\"\n        default:\n          # Defaults to an unexpected error response, defined in beamup_responses.yaml.\n          $ref: \"../components/beamup_responses.yaml#/components/responses/ErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: content: default: schema: parse schema: unexpected schema type: \"xxx\""
+	"Error": "parse: paths: /history: get: : parameters: parse parameter \"\": resolve \"../components/beamup_parameters.yaml#/components/parameters/offset\" reference: invalid parameter reference: \"../components/beamup_parameters.yaml#/components/parameters/offset\""
 }

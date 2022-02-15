@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "api.yaml",
-			"path": "Tests/Common/TestProject/reference_cycles/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n\npaths:\n  /auth:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/FirstModel\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/Category\"\n\n"
+			"path": "Tests/Common/ProjectA/command/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n\nsecurity:\n  - bearerAuth: [] \n\npaths:\n  /command:\n    get:\n      summary: Проверка доступности команд активации\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/CheckResult\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n    post:\n      summary: Повтор команд активации\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"../common/models.yaml#/components/schemas/InfoMessage\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /auth: post: : requestBody: content: application/json: parse schema: parse schema: reference \"models.yaml#/components/schemas/FirstModel\": resolve reference \"models.yaml#/components/schemas/FirstModel\": invalid schema reference \"models.yaml#/components/schemas/FirstModel\""
+	"Error": "parse: paths: /command: get: : responses: 200: content: application/json: schema: parse schema: reference \"models.yaml#/components/schemas/CheckResult\": resolve reference \"models.yaml#/components/schemas/CheckResult\": invalid schema reference \"models.yaml#/components/schemas/CheckResult\""
 }

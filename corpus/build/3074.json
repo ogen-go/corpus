@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/infobloxopen/infoblox-swagger-wapi"
+			"name": "github.com/imfht/flaskapps"
 		},
 		"file": {
-			"name": "deep-linking.openapi.yaml",
-			"path": "infoblox-swagger-ui/test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
+			"name": "openapi.yaml",
+			"path": "connexion-master/tests/fixtures/module_does_not_exist/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Not Exist API\n  version: '1.0'\npaths:\n  /module-not-implemented/{some_path}:\n    get:\n      summary: Operation function does not exist.\n      operationId: m.module_does_not_exist\n      parameters:\n      - in: path\n        name: some_path\n        schema:\n          type: string\n      responses:\n        '200':\n          description: OK\nservers:\n  - url: /na\n"
 		}
 	},
-	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
+	"Error": "parse: paths: /module-not-implemented/{some_path}: get: m.module_does_not_exist: parameters: parse parameter \"some_path\": path parameters must be required"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zaproxy/zap-extensions"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "Schema_with_nested_map_properties.yaml",
-			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_with_nested_map_properties.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Market Data Exporter API\npaths:\n  /v4/endpoint:\n    post:\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/TypeQuery'\n        required: true\n      responses:\n        '400':\n          description: The request was ill-formed\n\ncomponents:\n  schemas:\n    TypeQuery:\n      type: object\n      additionalProperties: true\n      properties:\n        type:\n          type: string\n        filtered_keys:\n          type: array\n          items:\n            $ref: '#/components/schemas/NaturalKey'\n        io:\n          type: object\n          items:\n            $ref: '#/components/schemas/IOType'\n    NaturalKey:\n      type: object\n      additionalProperties:\n        type: string\n    IOType:\n      type: object\n      additionalProperties: true\n      properties:\n        input:\n          $ref: '#/components/schemas/InType'\n        output:\n          type: object\n          additionalProperties: false\n          properties:\n            name:\n              type: string\n            desc:\n              type: string\n    InType:\n      type: object\n      additionalProperties: true\n      properties:\n        name:\n          type: string\n        desc:\n          type: string\n        subthing:\n          type: object\n          additionalProperties: true\n          properties:\n            thing1:\n              type: string\n            thing2:\n              type: string\n"
+			"name": "rename_component_parameter_after.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_parameter_after.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: \"#/components/parameters/NewParameter\"\ncomponents:\n  parameters:\n    \u003ccaret\u003eNewParameter:\n"
 		}
 	},
-	"Error": "parse: paths: /v4/endpoint: post: : requestBody: content: application/json: parse schema: parse schema: item: parse schema: reference \"#/components/schemas/TypeQuery\": parse schema: io: parse schema: object cannot contain 'items' field"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/NewParameter\" reference: component by reference \"#/components/parameters/NewParameter\" not found"
 }

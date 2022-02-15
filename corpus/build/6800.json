@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/wapache-org/wapadoc"
 		},
 		"file": {
-			"name": "schemas.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/schemas.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"components.json#/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "app85.json",
+			"path": "openapi-spring-webmvc-core/src/test/resources/results/app85.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/api/test/{id}\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"operationId\": \"testme\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/paramA\"\n          },\n          {\n            \"$ref\": \"#/components/parameters/paramB\"\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {}\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"components.json#/Pet\": resolve reference \"components.json#/Pet\": invalid schema reference \"components.json#/Pet\""
+	"Error": "parse: paths: /api/test/{id}: post: testme: parameters: parse parameter \"\": resolve \"#/components/parameters/paramA\" reference: component by reference \"#/components/parameters/paramA\" not found"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/18F/piipan"
 		},
 		"file": {
-			"name": "index.yaml",
-			"path": "match/docs/openapi/orchestrator/index.yaml",
-			"content": "# Orchestrator API base spec\nopenapi: 3.0.0\ninfo:\n  title: \"Active Matching API\"\n  version: 2.0.0\n  description: \"API for finding matching participant records across all participating states.\"\ntags:\n  - name: \"Match\"\nservers:\n  - url: \"/v2\"\npaths:\n  /find_matches:\n    $ref: './find.yaml'\nsecurity:\n  - BearerAuth: []\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n"
+			"name": "openapi.yaml",
+			"path": "etl/docs/openapi/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Bulk upload API\n  version: 2.0.0\n  description: API for uploading bulk participant data\ntags:\n  - name: \"Upload\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: ea\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload/{filename}':\n    $ref: './upload.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
 		}
 	},
-	"Error": "parse: /find_matches: referenced pathItem not supported"
+	"Error": "parse: /upload/{filename}: referenced pathItem not supported"
 }

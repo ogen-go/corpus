@@ -5,10 +5,10 @@
 			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "circularref.openapi.yml",
-			"path": "openapi3/testdata/circularref.openapi.yml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: 'pathref.openapi.yml#/components/schemas/TestSchema'\n"
+			"name": "issue235.spec0-typo.yml",
+			"path": "openapi3/testdata/issue235.spec0-typo.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec0-typo.yml#/components/schemas/ObjectD'\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"pathref.openapi.yml#/components/schemas/TestSchema\": resolve reference \"pathref.openapi.yml#/components/schemas/TestSchema\": invalid schema reference \"pathref.openapi.yml#/components/schemas/TestSchema\""
+	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"#/components/schemas/ObjectA\": parse schema: object_b: parse schema: reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": resolve reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": invalid schema reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\""
 }

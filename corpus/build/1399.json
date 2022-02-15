@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/EXXETA/openapi-cop"
+			"name": "github.com/Dorthu/openapi3"
 		},
 		"file": {
-			"name": "5-external-refs.yaml",
-			"path": "schemas/v3/5-external-refs.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Test API 5 - External references\n  version: 1.0.0\ncomponents:\n  schemas:\n    Error:\n      $ref: \"../refs/refs-schemas.yaml#/Error\"\n  responses:\n    error:\n      description: Default error response with error object\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\npaths:\n  /echo:\n    post:\n      description: Echo input back\n      operationId: echo\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                input:\n                  type: string\n              required:\n                - input\n      responses:\n        \"200\":\n          description: Echoed input\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  output:\n                    type: string\n        default:\n          $ref: \"#/components/responses/error\""
+			"name": "broken-ref.yaml",
+			"path": "tests/fixtures/broken-ref.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: This has a broken $ref in it\npaths:\n  /example:\n    get:\n      operationId: hasBrokenRef\n      responses:\n        '200':\n          $ref: '#/components/responses/Missing'\n"
 		}
 	},
-	"Error": "parse: paths: /echo: post: echo: responses: default: resolve \"#/components/responses/error\" reference: content: application/json: schema: parse schema: reference \"#/components/schemas/Error\": parse schema: reference \"../refs/refs-schemas.yaml#/Error\": resolve reference \"../refs/refs-schemas.yaml#/Error\": invalid schema reference \"../refs/refs-schemas.yaml#/Error\""
+	"Error": "parse: paths: /example: get: hasBrokenRef: responses: 200: resolve \"#/components/responses/Missing\" reference: component by reference \"#/components/responses/Missing\" not found"
 }

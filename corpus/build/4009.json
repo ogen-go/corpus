@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/podhmo/dictknife"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "examples/swaggerknife/migrate/dst/04/main.yaml",
-			"content": "components:\n  securitySchemes:\n    BasicAuth:\n      type: basic\ninfo:\n  description: API description in Markdown.\n  title: Sample API\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /users:\n    $ref: 'api_users.yaml#/paths/~1users'\n  /users/{userId}:\n    $ref: 'api_users.yaml#/paths/~1users~1{userId}'\n  /users2:\n    $ref: 'api_users2.yaml#/paths/~1users2'\n  /users2/{userId}:\n    $ref: 'api_users2.yaml#/paths/~1users2~1{userId}'\n  /users3:\n    $ref: 'api_users3.yaml#/paths/~1users3'\nsecurity:\n- BasicAuth: []\nservers:\n- description: ''\n  url: 'http://api.example.com/v1'\n"
+			"name": "RNAQuantifications_Search_POST.yaml",
+			"path": "Specification/GA4GH_BrAPI/RNAQuantifications/RNAQuantifications_Search_POST.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/rna_quantification_service.proto\n  version: version not set\npaths:\n  /rnaquantifications/search:\n    post:\n      summary: \u003e-\n        Gets a list of 'RnaQuantification' matching the search criteria.\n\n        'POST /rnaquantifications/search' must accept JSON version of\n\n        'SearchRnaQuantificationsRequest' as the post body and will return a\n        JSON\n\n        version of 'SearchRnaQuantificationResponse'.\n      operationId: SearchRnaQuantifications\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SearchRnaQuantificationsResponse'\n      tags:\n        - GA4GH\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SearchRnaQuantificationsRequest'\n        required: true"
 		}
 	},
-	"Error": "parse: /users3: referenced pathItem not supported"
+	"Error": "parse: paths: /rnaquantifications/search: post: SearchRnaQuantifications: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/SearchRnaQuantificationsRequest\": resolve reference \"#/components/schemas/SearchRnaQuantificationsRequest\": schema not found"
 }

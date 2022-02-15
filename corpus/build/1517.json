@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/s2o-test/issue51b/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: Demo API\npaths:\n  /health/all.json:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/health'\ncomponents:\n  schemas:\n    health:\n      type: object\n      properties:\n        default:\n          title: Check\n          type: object\n          properties:\n            message:\n              type: string\n              description: bla\n        database:\n          $ref: '#/components/schemas/health/properties/default'\n"
+			"name": "input.yaml",
+			"path": "test/resolver/issue152/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n"
 		}
 	},
-	"Error": "parse: paths: /health/all.json: get: : responses: 200: content: */*: schema: parse schema: reference \"#/components/schemas/health\": parse schema: database: parse schema: reference \"#/components/schemas/health/properties/default\": resolve reference \"#/components/schemas/health/properties/default\": schema not found"
+	"Error": "parse: paths: /bar: post: postBar: responses: 201: resolve \"responses.yaml#/components/responses/Post201\" reference: invalid response reference: \"responses.yaml#/components/responses/Post201\""
 }

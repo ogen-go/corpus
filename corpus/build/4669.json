@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "slashes.yaml",
-			"path": "src/test/resources/testing/reference/slashes.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Title\n  description: Description\n  version: 1.0.0\npaths:\n  '/foo':\n    $ref: '#/paths/~1bar\u003ccaret\u003e'\n  '/bar':\n"
+			"name": "in.yaml",
+			"path": "src/test/resources/testing/completion/value/openapi/in.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - in: \u003ccaret\u003e\n"
 		}
 	},
-	"Error": "parse: /bar: unexpected nil schema"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": unsupported parameter type \u003ccaret\u003e"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "ApiSpecification.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-913/BS/ApiSpecification.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n    title: Service Model\n    version: 2.4.0\npaths:\n    /networkAccessProfile:\n        get:\n            tags:\n            - AccessProfile\n            operationId: getList\n            parameters:\n            - name: id\n              in: query\n              schema:\n                  type: string\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                type: array\n                                items:\n                                    $ref: '#/components/schemas/accessProfileBO'\nservers:\n- url: 'https://api.com/{access}/accessProfileAPI'\n  variables:\n      access:\n          default: unknown\ncomponents:\n    parameters:\n        fields:\n            name: fields\n            in: query\n            schema:\n                type: string\n    schemas:\n        accessProfileBO:\n            $ref: ../BO/Resource/ApiSpecificationBO.json"
+			"name": "swagger.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1170/swagger.yaml",
+			"content": "openapi: \"3.0.2\"\ninfo:\n  version: 15.3.0\n  title: test\npaths:\n  /add-breeds:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'common.yaml#/components/schemas/BreedsList'\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /add-pets:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'common.yaml#/components/schemas/PetsList'\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            text/plain:\n              schema:\n                type: string\n\n"
 		}
 	},
-	"Error": "parse: paths: /networkAccessProfile: get: getList: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/accessProfileBO\": parse schema: reference \"../BO/Resource/ApiSpecificationBO.json\": resolve reference \"../BO/Resource/ApiSpecificationBO.json\": invalid schema reference \"../BO/Resource/ApiSpecificationBO.json\""
+	"Error": "parse: paths: /add-breeds: put: : requestBody: content: application/json: parse schema: parse schema: reference \"common.yaml#/components/schemas/BreedsList\": resolve reference \"common.yaml#/components/schemas/BreedsList\": invalid schema reference \"common.yaml#/components/schemas/BreedsList\""
 }

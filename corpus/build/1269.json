@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive3.yaml",
-			"path": "assets/queries/openAPI/3.0/invalid_content_type_for_multiple_files_upload/test/positive3.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: \"contact\"\n    email: \"user@gmail.com\"\npaths:\n  \"/\":\n    get:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                filename:\n                  type: array\n                  items:\n                    type: string\n                    format: binary\n"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/3.0/components_request_body_definition_unused/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/components_schema_definition_unused/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n    MyObject2:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/callback_object_incorrect_ref/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          $ref: \"#/components/schemas/Success\"\n      callbacks:\n        myEvent:\n          $ref: \"#/components/callbacks/inProgress\"\ncomponents:\n  callbacks:\n    inProgress:\n      \"{$request.body#/inProgressUrl}\":\n        post:\n          requestBody:\n            $ref: \"#/components/requestBodies/callbackMessage1\"\n          responses:\n            \"200\":\n              description: OK\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
 }

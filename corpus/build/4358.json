@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "a.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/ref-without-component/a.yaml",
-			"content": "openapi: 3.0.1\npaths:\n  \"/newPerson\":\n    post:\n      summary: Create new person\n      description: Create new person\n      responses:\n        '200':\n          description: ok\n          content:\n            \"*/*\":\n              schema:\n                \"$ref\": \"./ref-without-component/b.yaml#/components/schemas/CustomerType\"\n"
+			"name": "issue-316.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-316.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    $ref: './eventsWithPaging.yaml'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n\n"
 		}
 	},
-	"Error": "parse: paths: /newPerson: post: : responses: 200: content: */*: schema: parse schema: reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": resolve reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": invalid schema reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\""
+	"Error": "parse: /events: referenced pathItem not supported"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/surfstudio/SurfGen"
 		},
 		"file": {
-			"name": "sample-api.yaml",
-			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.9\nservers:\n  - url: https://petstore3.swagger.io/api/v3/pet\npaths:\n  \"/a\":\n    get:\n      operationId: aget\n    post:\n      operationId: apost\n  \"/b\":\n    post:\n      operationId: bpost\n  \"/2\":\n    get:\n      operationId: 2get\n"
+			"name": "api.yaml",
+			"path": "Tests/PipelinesTests/CommonTestSpecs/help/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\npaths:\n  /feedback/faq:\n    get:\n      summary: Вопросы и ответы\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: \"models.yaml#/components/schemas/FaqItem\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n"
 		}
 	},
-	"Error": "parse: paths: /2: get: 2get: responses: no responses"
+	"Error": "parse: paths: /feedback/faq: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"models.yaml#/components/schemas/FaqItem\": resolve reference \"models.yaml#/components/schemas/FaqItem\": invalid schema reference \"models.yaml#/components/schemas/FaqItem\""
 }

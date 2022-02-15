@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/openapi-filter"
 		},
 		"file": {
-			"name": "example2_from_._New_links.md.yaml",
-			"path": "3.0/fail/gluecon/example2_from_._New_links.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Employees and Managers\n  version: 1.0.1\npaths:\n  '/employees/{id}':\n    get:\n      operationId: getEmployeeById\n      parameters:\n      - name: id\n        in: path\n        schema:\n          type: string\n      responses:\n        '200': \n          description: A representation of an employee\n          content: \n            application/json: \n              schema:\n                type: object\n                properties:\n                  id: \n                    type: string\n                  username:\n                    type: string\n                  managerId:\n                    type: string\n          links:\n            userManager:\n              operationId: getEmployeeById\n              parameters:\n                id: $response.body#managerId\n"
+			"name": "input.yaml",
+			"path": "test/issue85/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /test:\n    post:\n      parameters:\n        - $ref: '#/components/parameters/InternalHeader'\n        - $ref: '#/components/parameters/SecondInternalHeader'\n        - $ref: '#/components/parameters/ExternalHeader'\n        - $ref: '#/components/parameters/ThirdInternalHeader'\n\ncomponents:\n  parameters:\n    InternalHeader:\n      x-internal: true\n      in: header\n      name: X-Internal-Header\n      schema:\n        type: string\n    SecondInternalHeader:\n      x-internal: true\n      in: header\n      name: X-Second-Internal-Header\n      schema:\n        type: string\n    ThirdInternalHeader:\n      x-internal: true\n      in: header\n      name: X-Third-Internal-Header\n      schema:\n        type: string\n    ExternalHeader:\n      in: header\n      name: X-External-Header\n      schema:\n        type: string\n"
 		}
 	},
-	"Error": "parse: paths: /employees/{id}: get: getEmployeeById: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /test: post: : responses: no responses"
 }

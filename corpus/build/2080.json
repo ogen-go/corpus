@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "complex_type.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/complex_type.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"Complex Object Api\"\n  version: 0.0.0\npaths:\n  /user:\n    get:\n      description: \"A description\"\n      responses:\n        '200':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n\ncomponents:\n  schemas:\n    Person:\n      type: object\n      properties:\n        DNI:\n          type: string\n    User:\n      type: object\n      properties:\n        name:\n          type: string\n          pattern: ([\\u30a0-\\u30ff]+)\n          example: キンギョ\n        age:\n          type: integer\n          format: int64\n          example: 1\n        ContactInfo:\n          $ref: '#/components/schemas/ContactInfo'\n    ContactInfo:\n      type: object\n      properties:\n        email:\n          type: string\n          format: email\n        phone:\n          type: string\n"
+			"name": "extract-schema-oas3-golden.yaml",
+			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-schema-oas3-golden.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\n\n    newschema:\n      type: string\n      example: textplain\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            $ref: \"#/components/schemas/newschema\""
 		}
 	},
-	"Error": "make ir: path \"/user\": get: responses: 200: contents: application/json: schema: field name: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

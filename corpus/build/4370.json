@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "skipMatches.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/skipMatches.yaml",
-			"content": "openapi: \"3.0.0\"\r\npaths:\r\n  /operationAlpha:\r\n    get:\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              type: \"object\"\r\n              title: \"operationAlphaRequest\"\r\n              properties:\r\n                in:\r\n                  type: \"object\"\r\n                  title: \"operationAlphaIn\"\r\n                  properties:\r\n                    asset:\r\n                      type: \"object\"\r\n                      title: \"operationAlphaInAsset\"\r\n                      properties:\r\n                        id1:\r\n                          type: \"integer\"\r\n                          format: \"int32\"\r\n                        id2:\r\n                          type: \"integer\"\r\n                          format: \"int32\"\r\n  /operationBeta:\r\n    get:\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              type: \"object\"\r\n              title: \"operationBetaRequest\"\r\n              properties:\r\n                in:\r\n                  type: \"object\"\r\n                  title: \"operationBetaIn\"\r\n                  properties:\r\n                    asset:\r\n                      type: \"object\"\r\n                      title: \"operationBetaInAsset\"\r\n                      properties:\r\n                        id1:\r\n                          type: \"integer\"\r\n                          format: \"int32\"\r\n                        id2:\r\n                          type: \"integer\"\r\n                          format: \"int32\""
+			"name": "a.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/ref-without-component/a.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  \"/newPerson\":\n    post:\n      summary: Create new person\n      description: Create new person\n      responses:\n        '200':\n          description: ok\n          content:\n            \"*/*\":\n              schema:\n                \"$ref\": \"./ref-without-component/b.yaml#/components/schemas/CustomerType\"\n"
 		}
 	},
-	"Error": "parse: paths: /operationBeta: get: : responses: no responses"
+	"Error": "parse: paths: /newPerson: post: : responses: 200: content: */*: schema: parse schema: reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": resolve reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": invalid schema reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\""
 }

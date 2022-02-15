@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/saasify-sh/saasify"
+			"name": "github.com/readmeio/oas-normalize"
 		},
 		"file": {
-			"name": "param-in-path.json",
-			"path": "packages/saasify-openapi-utils/fixtures/success/param-in-path.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Fast API\",\n    \"version\": \"0.1.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"Read Root\",\n        \"operationId\": \"read_root__get\",\n        \"parameters\": [\n          {\n            \"required\": false,\n            \"schema\": {\n              \"title\": \"Q\",\n              \"type\": \"string\"\n            },\n            \"name\": \"q\",\n            \"in\": \"path\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful Response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "definition.json",
+			"path": "__tests__/__fixtures__/bundle/definition.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v2\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\"\n  },\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"responses\": {\n          \"405\": {\n            \"description\": \"Invalid input\"\n          }\n        },\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Pet\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Pet\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"./__tests__/__fixtures__/bundle/pet.json\"\n            }\n          },\n          \"application/xml\": {\n            \"schema\": {\n              \"$ref\": \"./__tests__/__fixtures__/bundle/pet.json\"\n            }\n          }\n        },\n        \"description\": \"Pet object that needs to be added to the store\",\n        \"required\": true\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: read_root__get: parameters: parse parameter \"q\": path parameters must be required"
+	"Error": "parse: paths: /pet: post: : requestBody: resolve \"#/components/requestBodies/Pet\" reference: content: application/json: parse schema: parse schema: reference \"./__tests__/__fixtures__/bundle/pet.json\": resolve reference \"./__tests__/__fixtures__/bundle/pet.json\": invalid schema reference \"./__tests__/__fixtures__/bundle/pet.json\""
 }

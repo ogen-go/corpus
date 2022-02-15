@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue-822-b.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-822-b.yaml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: Path include test case child\n\npaths:\n  /foo:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n  /bar/wtf:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n  /bar/haha:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n  /wtf/{bar}:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n  /haha/{bar}:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n  /haha2/{bar}:\n    get:\n      responses:\n        200:\n          description: \"Request successful\"\n"
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1063/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: an API\n  description: An API for reproduce a *There are duplicate parameter values*.\n\npaths:\n  /anPath:\n    get:\n      parameters:\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_One'\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_Two'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string"
 		}
 	},
-	"Error": "parse: paths: /haha/{bar}: get: : parse path: path parameter not specified: \"bar\""
+	"Error": "parse: paths: /anPath: get: : parameters: parse parameter \"\": resolve \"./references.oas3.yaml#/components/parameters/ParamQ_One\" reference: invalid parameter reference: \"./references.oas3.yaml#/components/parameters/ParamQ_One\""
 }

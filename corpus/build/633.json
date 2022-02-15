@@ -5,10 +5,10 @@
 			"name": "github.com/taymyr/lagom-openapi"
 		},
 		"file": {
-			"name": "LinksService.yml",
-			"path": "core/src/test/resources/LinksService.yml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Test\n  description: Description\n  version: 1.0.0\npaths:\n  /test/{userId}:\n    get:\n      operationId: getUserWithAddress\n      parameters:\n        - name: userId\n          in: query\n          description: User identity\n          schema:\n            type: string\n      responses:\n        default:\n          description: test description\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            Link:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        firstName:\n          type: string\n        lastName:\n          type: string\n        status:\n          type: integer\n          description: User Status\n          format: int32\n          enum:\n            - 1\n            - 2\n            - 3\n      example:\n        id: 123\n        firstName: Ivan\n        secondName: Petrov\n        status: 1"
+			"name": "ArrayParameterService.yml",
+			"path": "core/src/test/resources/ArrayParameterService.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Test\n  description: Description\n  version: 1.0.0\nopenapi: 3.0.1\ninfo:\n  title: Test\n  description: Description\n  version: 1.0.0\npaths:\n  /test:\n    get:\n      description: array schema param test\n      operationId: test\n      parameters:\n        - name: params\n          in: query\n          required: true\n          schema:\n            maxItems: 10\n            minItems: 1\n            uniqueItems: true\n            type: array\n            items:\n              type: string\n      responses: {}\ncomponents: {}"
 		}
 	},
-	"Error": "parse: paths: /test/{userId}: get: getUserWithAddress: parse path: path parameter not specified: \"userId\""
+	"Error": "parse: paths: /test: get: test: responses: no responses"
 }

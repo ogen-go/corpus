@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "odin.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/odin.yaml",
-			"content": "#https://mermade.org.uk/openapi-converter\nopenapi: 3.0.0\nservers:\n  - url: 'http://localhost:8080'\ninfo:\n  version: '3.0'\n  title: Odin API\n  description: ODIN UI Services API\npaths:\n  /JTasker/startRun:\n    post:\n      tags:\n        - JTasker\n      summary: Start JTasker Run\n      operationId: JTasker_startRun\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: './resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json'\n        required: true\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n        '500':\n          description: Server Error\n"
+			"name": "issue-308.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-308.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                required:\n                  - paging\n                  - items\n                type: object\n                properties:\n                  paging:\n                    $ref: './paging.yaml#/Paging'\n                  items:\n                    $ref: '#/components/schemas/StatusResponse'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /JTasker/startRun: post: JTasker_startRun: requestBody: content: application/json: parse schema: parse schema: reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": resolve reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": invalid schema reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\""
+	"Error": "parse: paths: /events: get: getEvents: responses: 200: content: application/json; charset=utf-8: schema: parse schema: paging: parse schema: reference \"./paging.yaml#/Paging\": resolve reference \"./paging.yaml#/Paging\": invalid schema reference \"./paging.yaml#/Paging\""
 }

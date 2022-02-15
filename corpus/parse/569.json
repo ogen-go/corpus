@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anz-bank/sysl"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "min-max.yaml",
-			"path": "pkg/importer/tests/openapi3/min-max.yaml",
-			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\ncomponents:\n  schemas:\n    type:\n      properties:\n        a:\n          type: integer\n          maximum: 100\n          minimum: 10\n        b:\n          type: integer\n          minimum: 10\n        c:\n          type: integer\n          maximum: 100\n        d:\n          type: integer\n          exclusiveMaximum: 100\n          exclusiveMinimum: 10\n        e:\n          type: integer\n          exclusiveMinimum: 10\n        f:\n          type: integer\n          exclusiveMaximum: 100\n        g:\n          type: integer\n          exclusiveMaximum: 100\n          minimum: 10\n        h:\n          type: integer\n          maximum: 100\n          exclusiveMinimum: 10\n        i:\n          type: integer\n"
+			"name": "invalid-type-facet-as-map.yaml",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-type-facet-as-map.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Something\"\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    something:\n      type:\n        type:\n          string"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.exclusiveMaximum of type bool"
+	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.type of type string"
 }

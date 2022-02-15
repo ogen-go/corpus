@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/thephpleague/openapi-psr7-validator"
+			"name": "github.com/testdotai/opentestdata-api"
 		},
 		"file": {
-			"name": "serialized-params.yaml",
-			"path": "tests/stubs/serialized-params.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Products API\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/api/v1'\npaths:\n  /products:\n    get:\n      parameters:\n        - in: query\n          name: filter\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  color:\n                    type: string"
+			"name": "api.yaml",
+			"path": "api/openapi/api.yaml",
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: OpenTestData\n  license:\n    name: MIT\n\npaths:\n  /ping:\n    $ref: 'base.yaml#/paths/Ping'\n  /users:\n    $ref: 'users.yaml#/paths/SignUp'\n  /users/login:\n    $ref: 'users.yaml#/paths/Login'\n  /users/resend_confirmation_email:\n    $ref: 'users.yaml#/paths/EmailResend'\n  /users/confirm_email/{token}:\n    $ref: 'users.yaml#/paths/EmailConfirm'\n  /users/{id}:\n    $ref: 'users.yaml#/paths/GetOrUpdateUser'\n  /users/{id}/avatar:\n    $ref: 'users.yaml#/paths/GetOrUpdateAvatar'\n  /users/{id}/promote:\n    $ref: 'users.yaml#/paths/PromoteUser'\n  /data:\n    $ref: 'data.yaml#/paths/NewDatum'\n  /data/{id}:\n    $ref: 'data.yaml#/paths/GetOrUpdateDatum'\n  /tests:\n    $ref: 'tests.yaml#/paths/NewTest'\n  /tests/{id}:\n    $ref: 'tests.yaml#/paths/GetTest'\n  /search:\n    $ref: 'search.yaml#/paths/Search'\n\ncomponents:\n  securitySchemes:\n    jwt:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      x-bearerInfoFunc: api.handlers.auth.check_token\n"
 		}
 	},
-	"Error": "parse: paths: /products: get: : responses: no responses"
+	"Error": "parse: /users: referenced pathItem not supported"
 }

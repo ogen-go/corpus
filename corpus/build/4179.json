@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/solvedac/unofficial-documentation"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "lookup.yaml",
-			"path": "src/paths/problem/lookup.yaml",
-			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"ID 목록으로 문제 목록 가져오기\"\n      description: \"해당하는 ID의 문제 목록을 가져옵니다.\"\n      tags:\n        - problem\n      operationId: getProblemByIdArray\n      parameters:\n        - name: \"problemIds\"\n          description: \"쉼표로 구분한 문제 ID 목록\"\n          in: \"query\"\n          required: true\n          schema:\n            type: \"string\"\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"array\"\n                items:\n                  $ref: \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\"\n"
+			"name": "no-content-in-204.yaml",
+			"path": "openapi-checks/src/test/resources/checks/v3/no-content-in-204.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /other-pets/{petId}:\n    delete:\n      responses:\n        '204':       # Noncompliant: 204 No Content MUST NOT return anything.\n          description: delete pet\n          content:\n            'application/json':\n              schema:\n                type: object\n"
 		}
 	},
-	"Error": "parse: paths: Path: get: getProblemByIdArray: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\": resolve reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\": invalid schema reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\""
+	"Error": "parse: paths: /other-pets/{petId}: delete: : parse path: path parameter not specified: \"petId\""
 }

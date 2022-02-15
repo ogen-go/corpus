@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "2cb47027-e58c-498f-b35b-3f87b1cfbdcd.yaml",
-			"path": "3.0/fail/fuzz1/2cb47027-e58c-498f-b35b-3f87b1cfbdcd.yaml",
-			"content": "openapi: 3.0.5\ninfo:\n  title: consectetur magna quis aliqua\n  version: nostrud aute adipisicin\n  termsOfService: 75.84\npaths: {}\nx-testcase: 'nested object test: should not work with ''termsOfService'' of type ''number'''\n"
+			"name": "deprecated3.yaml",
+			"path": "3.0/fail/deprecated3.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: true\n      parameters:\n        - name: test\n          in: query\n          deprecated: true\n          schema:\n            type: string\n            deprecated: 'true'\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.termsOfService of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Schema.paths.get.parameters.schema.deprecated of type bool"
 }

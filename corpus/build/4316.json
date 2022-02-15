@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-1063/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: an API\n  description: An API for reproduce a *There are duplicate parameter values*.\n\npaths:\n  /anPath:\n    get:\n      parameters:\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_One'\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_Two'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string"
+			"path": "modules/swagger-parser-v3/src/test/resources/codegen-issue-9773/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Codegen test: requestBody with an external $ref'\n  version: 0.0.0\npaths:\n  /foo:\n    post:\n      requestBody:\n        $ref: './domain.yaml#/components/requestBodies/RequestBody1'\n      responses:\n        '200':\n          description: OK"
 		}
 	},
-	"Error": "parse: paths: /anPath: get: : parameters: parse parameter \"\": resolve \"./references.oas3.yaml#/components/parameters/ParamQ_One\" reference: invalid parameter reference: \"./references.oas3.yaml#/components/parameters/ParamQ_One\""
+	"Error": "parse: paths: /foo: post: : requestBody: resolve \"./domain.yaml#/components/requestBodies/RequestBody1\" reference: invalid requestBody reference: \"./domain.yaml#/components/requestBodies/RequestBody1\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "5164.yaml",
-			"path": "test/e2e-cypress/static/documents/bugs/5164.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                first:\n                  type: object\n                  example:\n                    one: abc\n                    two: 123\n                second:\n                  type: array\n                  items:\n                    type: string\n                  example:\n                  - \"hi\""
+			"name": "swagger.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative-upper-directory/swagger.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://paeshin-w7/SwaggerTest'\n  - url: 'https://paeshin-w7/SwaggerTest'\ninfo:\n  version: v1\n  title: SwaggerTest\n  description: Service for Swagger and JSON schema testing\npaths:\n  /api/Address:\n    $ref: \"Paths/Address.yaml\""
 		}
 	},
-	"Error": "parse: paths: /: post: : responses: no responses"
+	"Error": "parse: /api/Address: referenced pathItem not supported"
 }

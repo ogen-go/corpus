@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/armand-janssen/openapi-transformer"
 		},
 		"file": {
-			"name": "getWithStringQuery.yaml",
-			"path": "test/Atc.Rest.ApiGenerator.Tests/SyntaxGenerators/Api/XUnitTestData/ContractParameter/getWithStringQuery.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /users/email:\n    get:\n      tags:\n        - Users\n      summary: Get user by email\n      description: Get user by email\n      operationId: getUserByEmail\n      parameters:\n        - name: email\n          in: query\n          description: The email of the user to retrieve\n          required: true\n          schema:\n            type: string\n            format: email"
+			"name": "all-in-one-openapi.yaml",
+			"path": "example/all-in-one/all-in-one-openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: All-in-one schema\n  version: 0.1.0\n  description: This is a Dummy api, containing a schema with as much OpenAPI schema possibilities as defined in the spec.\n\ncomponents:\n  schemas:\n    allInOne:\n      $ref: 'all-in-one.yaml#/components/schemas/allInOne'\n    \n\n\n\npaths:\n  /dummy:\n    get:\n      responses:\n        200:\n          content:\n            \"application/json\":\n              schema:\n                $ref: \"#/components/schemas/allInOne\"\n"
 		}
 	},
-	"Error": "parse: paths: /users/email: get: getUserByEmail: responses: no responses"
+	"Error": "parse: paths: /dummy: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/allInOne\": parse schema: reference \"all-in-one.yaml#/components/schemas/allInOne\": resolve reference \"all-in-one.yaml#/components/schemas/allInOne\": invalid schema reference \"all-in-one.yaml#/components/schemas/allInOne\""
 }

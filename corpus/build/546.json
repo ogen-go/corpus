@@ -5,10 +5,10 @@
 			"name": "github.com/networknt/light-rest-4j"
 		},
 		"file": {
-			"name": "openapi-inject-test-neg.yml",
-			"path": "openapi-meta/src/test/resources/config/openapi-inject-test-neg.yml",
-			"content": "openapi: 3.0.0\npaths:\n  /pets/${badKey}:\n    get:\n      security:\n        - api-scope:\n            - admim\n\ncomponents:\n  securitySchemes:\n    api-scope:\n      flows:\n        clientCredentials:\n          scopes:\n            admin: orwritten"
+			"name": "openapi-inject-test-pos.yml",
+			"path": "openapi-meta/src/test/resources/config/openapi-inject-test-pos.yml",
+			"content": "openapi: 3.0.0\npaths:\n  /pets/${goodKey}:\n    get:\n      security:\n        - api-scope:\n            - admim\n\ncomponents:\n  securitySchemes:\n    api-scope:\n      flows:\n        clientCredentials:\n          scopes:\n            admin: orwritten"
 		}
 	},
-	"Error": "parse: paths: /pets/${badKey}: get: : parse path: path parameter not specified: \"badKey\""
+	"Error": "parse: paths: /pets/${goodKey}: get: : parse path: path parameter not specified: \"goodKey\""
 }

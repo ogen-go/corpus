@@ -5,10 +5,10 @@
 			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "primitiveDataTypeBodySpec.yaml",
-			"path": "test/data/validationData/primitiveDataTypeBodySpec.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0\n  title: Demo API\npaths:\n  /api:\n    post:\n      summary: 'Demo invalid type'\n      requestBody:\n        description: 'Cannot use type boolean'\n        content:\n          application/json:\n              schema:\n                type: boolean\n      responses:\n        '200':\n          content:\n            application/json:\n                schema:\n                  type: integer\n                  minimum: 5\n                  maximum: 10\n"
+			"name": "simpleSchemaWithExamplesNotMachingType.yaml",
+			"path": "test/data/valid_openapi31X/yaml/simpleSchemaWithExamplesNotMachingType.yaml",
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with examples\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type:\n        - object\n      properties:\n        id:\n          type:\n            - string\n            - integer\n          examples:\n            - 1234\n            - 12\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }

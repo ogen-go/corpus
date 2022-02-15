@@ -5,10 +5,10 @@
 			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "pathref.openapi.yml",
-			"path": "openapi3/testdata/pathref.openapi.yml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    $ref: 'circularref.openapi.yml#/paths/~1test'\ncomponents:\n  schemas:\n    TestSchema:\n      type: string\n"
+			"name": "openapi.yml",
+			"path": "openapi3/testdata/recursiveRef/openapi.yml",
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: Recursive refs example\n  version: \"1.0\"\npaths:\n  /foo:\n    $ref: ./paths/foo.yml\ncomponents:\n  schemas:\n    Foo:\n      $ref: ./components/Foo.yml\n    Foo2:\n      $ref: ./components/Foo/Foo2.yml\n    Bar:\n      $ref: ./components/Bar.yml\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: /foo: referenced pathItem not supported"
 }

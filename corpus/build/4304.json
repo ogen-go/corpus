@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/codegen-issue-9773/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Codegen test: requestBody with an external $ref'\n  version: 0.0.0\npaths:\n  /foo:\n    post:\n      requestBody:\n        $ref: './domain.yaml#/components/requestBodies/RequestBody1'\n      responses:\n        '200':\n          description: OK"
+			"name": "sample-api.yaml",
+			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.9\nservers:\n  - url: https://petstore3.swagger.io/api/v3/pet\npaths:\n  \"/a\":\n    get:\n      operationId: aget\n    post:\n      operationId: apost\n  \"/b\":\n    post:\n      operationId: bpost\n  \"/2\":\n    get:\n      operationId: 2get\n"
 		}
 	},
-	"Error": "parse: paths: /foo: post: : requestBody: resolve \"./domain.yaml#/components/requestBodies/RequestBody1\" reference: invalid requestBody reference: \"./domain.yaml#/components/requestBodies/RequestBody1\""
+	"Error": "parse: paths: /b: post: bpost: responses: no responses"
 }
