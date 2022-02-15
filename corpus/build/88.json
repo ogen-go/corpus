@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Normation/rudder"
 		},
 		"file": {
-			"name": "new-param-type.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-param/openapi-3/new-param-type.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"description\": \"username to fetch\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the object to fetch\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\"\n              }\n            },\n            \"style\": \"form\",\n            \"explode\": true\n          },\n          {\n            \"name\": \"freeForm\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"object\",\n              \"additionalProperties\": {\n                \"type\": \"integer\"\n              }\n            },\n            \"style\": \"form\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "openapi.src.yml",
+			"path": "relay/sources/api-doc/openapi.src.yml",
+			"content": "# SPDX-License-Identifier: CC-BY-SA-2.0\n# SPDX-FileCopyrightText: 2013-2020 Normation SAS\nopenapi: 3.0.3\ninfo:\n  title: Rudder relay API\n  version: \"1\"\n  description: introduction.yml\n  x-logo:\n    url: \"assets/rudder.svg\"\n  contact:\n    email: dev@rudder.io\n    name: Rudder developers\n    url: \"https://www.rudder.io\"\n  license:\n    name: \"CC-BY-SA 2.0\"\n    url: \"https://spdx.org/licenses/CC-BY-SA-2.0.html\"\nservers:\n  - url: \"http://localhost:3030\"\n    description: \"Local API\"\nexternalDocs:\n  description: Learn more about Rudder.\n  url: \"https://docs.rudder.io\"\ntags:\n  - name: System\n    description: Internal relay service management\n  - name: Policies\n    description: Policies distributed by the relay\n  - name: Shared folder\n    description: Distribute file from the shared folder\n  - name: Shared files\n    description: Share files between nodes\n  - name: Remote run\n    description: Trigger agents runs\npaths:\n  \"/rudder/relay-api/1/system/status\":\n    $ref: paths/system/status.yml\n  \"/rudder/relay-api/1/system/info\":\n    $ref: paths/system/info.yml\n  \"/rudder/relay-api/1/system/reload\":\n    $ref: paths/system/reload.yml\n  \"/rudder/relay-api/1/shared-folder/{path}\":\n    $ref: paths/shared-folder.yml\n  \"/rudder/relay-api/1/shared-files/{targetNodeId}/{sourceNodeId}/{fileId}\":\n    $ref: paths/shared-files.yml\n  \"/rudder/relay-api/1/policies/{nodeId}/rules/dsc/rudder.zip\":\n    $ref: paths/policies.yml\n  \"/rudder/relay-api/1/remote-run/nodes/{nodeId}\":\n    $ref: paths/remote-run/node.yml\n  \"/rudder/relay-api/1/remote-run/nodes\":\n    $ref: paths/remote-run/nodes.yml\n  \"/rudder/relay-api/1/remote-run/all\":\n    $ref: paths/remote-run/all.yml\n  \"/metrics\":\n    $ref: paths/metrics.yml\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: /rudder/relay-api/1/policies/{nodeId}/rules/dsc/rudder.zip: referenced pathItem not supported"
 }

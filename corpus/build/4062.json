@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rekabhq/fantom"
+		},
+		"file": {
+			"name": "simple_openapi.yaml",
+			"path": "test/openapi/model/openapi/simple_openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a sample Petstore server.  You can find\n    out more about Swagger at\n    [http://swagger.io](http://swagger.io) or on\n    [irc.freenode.net, #swagger](http://swagger.io/irc/).\n  version: \"1.0.0\"\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /pet:\n    post:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      operationId: addPet\n      responses:\n        '405':\n          description: Invalid input\n      requestBody:\n        $ref: '#/components/requestBodies/Pet'\n    put:\n      tags:\n        - pet\n      summary: Update an existing pet\n      operationId: updatePet\n      responses:\n        '400':\n          description: Invalid ID supplied\n        '404':\n          description: Pet not found\n        '405':\n          description: Validation exception\n      requestBody:\n        $ref: '#/components/requestBodies/Pet'\ncomponents:\n  schemas:\n    Order:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        petId:\n          type: integer\n          format: int64\n        quantity:\n          type: integer\n          format: int32\n        shipDate:\n          type: string\n          format: date-time\n        status:\n          type: string\n          description: Order Status\n          enum:\n            - placed\n            - approved\n            - delivered\n        complete:\n          type: boolean\n          default: false\n      xml:\n        name: Order\n"
+		}
+	},
+	"Error": "parse: paths: /pet: put: updatePet: requestBody: resolve \"#/components/requestBodies/Pet\" reference: component by reference \"#/components/requestBodies/Pet\" not found"
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/google/gnostic-grpc"
+		},
+		"file": {
+			"name": "cyclic_dependency_1.yaml",
+			"path": "generator/testfiles/errors/cyclic_dependency_1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test API for GSoC project\n  version: \"1.0.0\"\n  description: |\n    A cyclic dependency between cyclic_dependency_1.yaml \u003c--\u003e cyclic_dependency_2.yaml. jhumps's protoreflect can't\n    print cyclic dependency files. The method 'CreateFileDescriptorFromSet' inside renderer.go throws an error. As far\n    as I can tell gnostic-grpc is working correctly for cyclic dependencies.\npaths:\n  /testCyclicDependency:\n    get:\n      operationId: testCyclicDependency\n      responses:\n        200:\n          $ref: https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_2.yaml#/components/responses/Response\ncomponents:\n  schemas:\n    Person:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        age:\n          type: integer\n          format: int64"
+		}
+	},
+	"Error": "parse: paths: /testCyclicDependency: get: testCyclicDependency: responses: 200: resolve \"https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_2.yaml#/components/responses/Response\" reference: invalid response reference: \"https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_2.yaml#/components/responses/Response\""
+}

@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/coder7290/laravel-angular9"
+		},
+		"file": {
+			"name": "api-docs.yaml",
+			"path": "storage/app/public/api-docs/api-docs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Hardware Api'\n  contact:\n    email: jacek_slawinski@poczta.onet.pl\n  license:\n    name: 'Apache 2.0'\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n  version: 1.0.0\nservers:\n  - url: 'http://...'\n    description: 'Api'\npaths:\n    /hardware:\n      $ref: './hardware/paths.yaml#/hardware'\n    /hardware/{id}:\n      $ref: './hardware/paths.yaml#/hardwareid'\n    /system:\n      $ref: './system/paths.yaml#/system'\n    /system/{id}:\n      $ref: './system/paths.yaml#/systemid'\n    /transfer:\n      $ref: './transfer/paths.yaml#/transfer'\ncomponents:\n  parameters:\n    JWT_token:\n      name: Authorization\n      in: header\n      description: 'JWT access token'\n      required: true\n      schema:\n        type: string\ntags:\n  - name: Hardware\n    description: About Hardware\n  - name: System\n    description: About system"
+		}
+	},
+	"Error": "parse: /system/{id}: referenced pathItem not supported"
+}

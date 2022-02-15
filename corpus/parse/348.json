@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/callback-object/fixtures/components-callbacks/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"callbacks\": {\n        \"callback1\": {\n          \"{$method}\": {\n            \"description\": \"description of callback2\"\n          }\n        },\n        \"callback2\": {\n          \"{$method}\": {\n            \"description\": \"description of callback2\"\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "config.yaml",
+			"path": "examples/games/config.yaml",
+			"content": "ontologies:\n  - examples\\games\\vgo.owl\nname: Videogame\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the videogame ontology\n    title: Videogame\n    version: v0.0.1\n  externalDocs:\n    description: Videogame ontology\n    url: http://purl.org/net/VideoGameOntology#\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/\n  prefix: http://example.org/game\n  graph_base: http://localhost:3030/game/data/\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

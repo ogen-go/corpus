@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/NHS-digital-website/hippo"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "oasV3_withNoResponse.json",
-			"path": "site/components/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_withNoResponse.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"version\": \"v1.2.3-irrelevant\",\n        \"title\": \"Personal Demographics Service (FHIR) API\",\n        \"description\": \"\",\n        \"contact\": {\n            \"name\": \"Personal Demographics Service FHIR API Support\",\n            \"url\": \"https://tbc.api.nhs.net\",\n            \"email\": \"api.management@nhs.net\"\n        }\n    },\n    \"servers\": [],\n    \"tags\": [],\n    \"paths\": {\n        \"/Patient\": {\n            \"parameters\": [\n                {\n                    \"in\": \"header\",\n                    \"name\": \"Authorization\",\n                    \"description\": \"\",\n                    \"required\": false\n                }\n            ],\n            \"get\": {\n                \"summary\": \"Search for patient\",\n                \"operationId\": \"search-patient\",\n                \"externalDocs\": {\n                    \"description\": \"ODS codes and documentation.\",\n                    \"url\": \"https://fhir.nhs.uk/Id/ods-organization-code\"\n                },\n                \"description\": \"\",\n                \"tags\": [],\n                \"parameters\": []\n            }\n        }\n    },\n    \"components\": {}\n}\n"
+			"name": "problem-test.yml",
+			"path": "rules/tests/problem-test.yml",
+			"content": "openapi: 3.0.1\npaths:\n  /ok-default-use-problem:\n    get:\n      responses:\n        \"400\":\n          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'\n        default:\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/Problem'\n            application/problem+xml:\n              schema:\n                $ref: '#/components/schemas/Problem' \n  /ko-default-use-problem:\n    get:\n      responses:\n        default:\n          content:\n            application/json: {}\n  /ko-error-use-problem:\n    get:\n      responses:          \n        \"400\":\n          content:\n            not/problem: {}\n\n  /ko-bad-schema-use-problem:\n    get:\n      responses:\n        \"500\":\n          content:\n            application/problem+json:\n              schema:\n                type: object\n                required:\n                - foo\n                properties:\n                  foo:\n                    type: string\n  /ko-string-problem:\n    get:\n      responses:\n        \"400\":\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/ko_Problem'\n\ncomponents:\n  schemas:\n    Problem:\n      properties:\n        type:\n          type: string\n        title:\n          type: string\n        status:\n          type: integer\n          format: int32\n\n    ko_Problem:\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          format: int32"
 		}
 	},
-	"Error": "parse: paths: /Patient: get: search-patient: responses: no responses"
+	"Error": "parse: paths: /ok-default-use-problem: get: : responses: 400: resolve \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest\" reference: invalid response reference: \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest\""
 }

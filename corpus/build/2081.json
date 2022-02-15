@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "rename_component_response.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_response.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"404\": {\n            \"$ref\": \"#/components/responses/NotFound\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"\u003ccaret\u003eNotFound\": {}\n    }\n  }\n}\n"
+			"name": "facet-string-pattern-invalid.yaml",
+			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/facet-string-pattern-invalid.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: OpenAPI Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:9999/v2\npaths:\n  /ping:\n    post:\n      summary: test\n      description: test it\n      operationId: pingOp\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SomeObj'\n        required: true\n      responses:\n        '200':\n          description: OK\n          content: {}\ncomponents:\n  schemas:\n    SomeObj:\n      type: string\n      pattern: ^([\\u30a0-\\u30ff]+)\n      example: holaキンギョ"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"#/components/responses/NotFound\" reference: component by reference \"#/components/responses/NotFound\" not found"
+	"Error": "make ir: path \"/ping\": post: requestBody: contents: application/json: schema: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
 }

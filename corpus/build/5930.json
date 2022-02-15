@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "cyclic_response.json",
+			"path": "_testdata/negative/cyclic_response.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"operationId\": \"probeLiveness\",\n        \"description\": \"Liveness probe for kubernetes\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"$ref\": \"#/components/responses/Error\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Error\": {\n        \"description\": \"Represents error object\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"code\",\n          \"message\"\n        ]\n      }\n    },\n    \"responses\": {\n      \"Error\": {\n        \"$ref\": \"#/components/responses/Error\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: paths: /healthz: get: probeLiveness: responses: default: resolve \"#/components/responses/Error\" reference: resolve \"#/components/responses/Error\" reference: infinite recursion: \"#/components/responses/Error\""
+}

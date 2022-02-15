@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Himenon/openapi-typescript-code-generator"
 		},
 		"file": {
-			"name": "delete-path.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-path/openapi-3/delete-path.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "openapi.yml",
+			"path": "example/spec/openapi.yml",
+			"content": "openapi: 3.0.3\ninfo:\n  version: 1.0.0\n  title: DEMO\n  description: demo spec\n  license:\n    name: MIT\n\nservers:\n  - url: \"http://dev.api.test.domain/\"\n    description: Development Environment\n  - url: \"https://api.test.domain/\"\n    description: Production Environment\n\npaths:\n  /get/books:\n    get:\n      operationId: getBooks\n      responses:\n        200:\n          $ref: \"./components/responses/Books.yml\"\n  /search/books:\n    get:\n      operationId: searchBooks\n      parameters:\n        - in: query\n          name: filter\n          explode: true\n          style: deepObject\n          schema:\n            type: object\n            required:\n              - title\n              - author\n            properties:\n              title:\n                type: string\n              author:\n                type: string\n            additionalProperties:\n              type: string\n      responses:\n        200:\n          description: Get Books\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  books:\n                    type: array\n                    items:\n                      $ref: \"./components/schemas/Book.yml\"\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /get/books: get: getBooks: responses: 200: resolve \"./components/responses/Books.yml\" reference: invalid response reference: \"./components/responses/Books.yml\""
 }

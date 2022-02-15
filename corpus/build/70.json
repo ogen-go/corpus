@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/MapGIS/MapGIS-Pan-Spatial-Map"
 		},
 		"file": {
-			"name": "delete-server-operation.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-server/openapi-3/delete-server-operation.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        },\n        \"servers\": [\n          {\n            \"url\": \"https://development.gigantic-server.com/v1\",\n            \"description\": \"Development server\"\n          },\n          {\n            \"url\": \"https://staging.gigantic-server.com/v1\",\n            \"description\": \"Staging server\"\n          },\n          {\n            \"url\": \"https://production.gigantic-server.com/v1\",\n            \"description\": \"Production server\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "swagger.yml",
+			"path": "packages/pan-spatial-map-mock-server/mock/swagger.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: Mock API for MapGIS-Pan-Spatial-Map.\n  version: 1.0.0\n  title: MapGIS-Pan-Spatial-Map Mock API\n  contact:\n    email: admin@mapgis.com\n  license:\n    name: Apache-2.0\n    url: https://opensource.org/licenses/MIT\nservers:\n  - url: /\ntags:\n  - name: users\n    description: Users related api.\n  - name: configs\n    description: Configs related api.\npaths:\n  /UserArea/Login:\n    post:\n      tags:\n        - users\n      summary: Logs user into the system\n      description: Use username and password to login.\n      operationId: login\n      parameters:\n      responses:\n  /WebService/GetConfig:\n    get:\n      tags:\n        - configs\n      summary: Get config\n      description: Get config.\n      operationId: getConfigById\n      security:\n        - AccessTokenAuth: []\n      parameters:\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: paths: /UserArea/Login: post: login: responses: no responses"
 }

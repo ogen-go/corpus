@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "schema_ref_without_type.json",
-			"path": "src/test/resources/testing/documentation/openapi/json/schema_ref_without_type.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003e#/components/schemas/Example\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Example\": {\n      }\n    }\n  }\n}\n"
+			"name": "extract-schema-oas3.yaml",
+			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-schema-oas3.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            ty[*]pe: string\n            example: textplain"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

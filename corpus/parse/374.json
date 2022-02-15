@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/external-indirections/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"paths\": {\n      \"/path1\": {\n        \"summary\": \"path item summary\",\n        \"description\": \"path item description\",\n        \"get\": {}\n      }\n    }\n  }\n]\n"
+			"name": "deprecated.yaml",
+			"path": "3.0/fail/deprecated.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: 'true'\n      parameters:\n        - name: test\n          in: query\n          deprecated: true\n          schema:\n            type: string\n            deprecated: true\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal string into Go struct field Operation.paths.get.deprecated of type bool"
 }

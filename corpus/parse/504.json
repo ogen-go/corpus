@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-unused-components-warning/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      summary: Finds pets by Status\n      operationId: getPetsByStatus\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\ncomponents:\n  schemas:\n    Category:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n\n"
+		}
+	},
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

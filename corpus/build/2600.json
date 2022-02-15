@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "tag-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/tag/tag-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Tags\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/tags/_count:\n    post:\n      tags:\n        - Tag\n      summary: Count the Tags\n      operationId: tagCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+		}
+	},
+	"Error": "parse: paths: /{scopeId}/tags/_count: post: tagCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+}

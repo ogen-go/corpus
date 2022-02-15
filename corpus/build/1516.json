@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/invalid-pointer/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue102/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n    /ping:\n       $ref: \"endpoints/ping.yaml#/paths/~1ping\"\ncomponents:\n    schemas:\n        ping:\n            $ref: 'schemas/ping.json'\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: /ping: referenced pathItem not supported"
 }

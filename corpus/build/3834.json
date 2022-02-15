@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/p1c2u/openapi-spec-validator"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "tests/integration/data/v3.0/parent-reference/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - $ref: \"recursive.yaml#/parameters/RecursiveReference\"\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"spec/components.yaml#/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"common.yaml#/schemas/Error\"\n"
+		}
+	},
+	"Error": "parse: paths: /pets: get: listPets: parameters: parse parameter \"\": resolve \"recursive.yaml#/parameters/RecursiveReference\" reference: invalid parameter reference: \"recursive.yaml#/parameters/RecursiveReference\""
+}

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/example-object/fixtures/external-value-yaml/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"examples\": {\n        \"example1\": {\n          \"description\": \"example1 description\",\n          \"value\": {\n            \"prop1\": \"value1\",\n            \"prop2\": \"value2\"\n          },\n          \"externalValue\": \"./ex.yaml\"\n        }\n      }\n    }\n  }\n]\n"
+			"name": "config.yaml",
+			"path": "examples/saref4agri/config.yaml",
+			"content": "ontologies:\n  - https://w3id.org/def/saref4agri\n  #test using w3id\nname: saref4agri\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example with the Saref4agri ontology (generating a specifciation draft)\n    title: Saref4agri\n    version: v1.0.0\n  externalDocs:\n    description: Saref4agri ontology\n    url: https://w3id.org/def/saref4city\n    \nfirebase:\n  key: \n  \nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

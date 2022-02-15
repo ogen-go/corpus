@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "EBPDS-10283_object_datatypes_without_fields.yaml",
+			"path": "Util/openl-openapi-parser/test-resources/test.converter/spreadsheets/EBPDS-10283_object_datatypes_without_fields.yaml",
+			"content": "openapi: 3.0.1\r\ninfo:\r\n  title: mapSpr_mapSpr\r\n  version: 1.0.0\r\nservers:\r\n  - url: /webservice/REST/mapSpr/mapSpr\r\n    variables: {}\r\npaths:\r\n  /mySpr:\r\n    post:\r\n      summary: Double mySpr(AlenaDatatype)\r\n      description: \"Rules method: java.lang.Double mySpr(org.openl.generated.beans.AlenaDatatype\\\r\n        \\ bla)\"\r\n      operationId: mySpr\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              $ref: '#/components/schemas/AlenaDatatype'\r\n      responses:\r\n        \"200\":\r\n          description:\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                type: number\r\n                format: double\r\n  /mySpr2:\r\n    post:\r\n      summary: Double mySpr(AlenaDatatype)\r\n      description: \"Rules method: java.lang.Double mySpr(org.openl.generated.beans.AlenaDatatype\\\r\n        \\ bla)\"\r\n      operationId: mySpr\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              type: object\r\n      responses:\r\n        \"200\":\r\n          description:\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                type: object\r\ncomponents:\r\n  schemas:\r\n    AlenaDatatype:\r\n      type: object\r\n      properties:\r\n        objField:\r\n          type: object\r\n        mapField:\r\n          type: object\r\n          additionalProperties:\r\n            type: object\r\n        listField:\r\n          type: array\r\n          items:\r\n            type: object\r\n        doubleField:\r\n          type: number\r\n          format: double\r\n      xml:\r\n        name: AlenaDatatype\r\n        namespace: http://beans.generated.openl.org\r\n"
+		}
+	},
+	"Error": "parse: paths: /mySpr2: post: duplicate operationId: \"mySpr\""
+}

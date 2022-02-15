@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/OAI/OpenAPI-Specification"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$ref-urn-$anchor/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$anchor\": \"avatar\",\n              \"type\": \"string\"\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$id\": \"urn:uuid:ee564b8a-7a87-4125-8c96-e9f123d6766f\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"$anchor\": \"avatar\",\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "invalid_schema_types.yaml",
+			"path": "tests/v3.1/fail/invalid_schema_types.yaml",
+			"content": "openapi: 3.1.1\n\n# this example shows invalid types for the schemaObject\n\ninfo:\n  title: API\n  version: 1.0.0\ncomponents:\n  schemas:\n    invalid_null: null\n    invalid_number: 0\n    invalid_array: []\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal array into Go struct field Components.components.schemas of type ogen.Schema"
 }

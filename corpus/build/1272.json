@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "empty-local-servers.json",
-			"path": "test/data/valid_openapi/empty-local-servers.json",
-			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n      \"title\": \"Example\",\n      \"version\": \"2.0.0\"\n    },\n    \"servers\": [\n      {\n        \"url\": \"https://api.example.com\"\n      }\n    ],\n    \"paths\": {\n      \"/primary-domain/works\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should keep the same domain\"\n        }\n      },\n      \"/secondary-domain/fails\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should use the other domain\",\n          \"servers\": []\n        }\n      }\n    }\n  }\n"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_example/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              examples:\n                objectExample:\n                  \"$ref\": \"#/components/examples/wrongExample\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  examples:\n    objectExample:\n      value:\n        id: '1'\n        name: new object\n      summary: A sample object\n"
 		}
 	},
-	"Error": "parse: paths: /primary-domain/works: get: get_authorize: responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve: \"#/components/examples/wrongExample\": component by reference \"#/components/examples/wrongExample\" not found"
 }

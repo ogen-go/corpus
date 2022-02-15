@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "service.yaml",
+			"path": "openapi3/testdata/303bis/service.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'some service spec'\n  version: 1.2.3\n\npaths:\n  /service:\n    get:\n      tags:\n        - services/service\n      summary: List services\n      description: List services.\n      operationId: list-services\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/model_service\"\n\ncomponents:\n  schemas:\n    model_service:\n      allOf:\n        - $ref: \"common/properties.yaml#/timestamps\"\n"
+		}
+	},
+	"Error": "parse: paths: /service: get: list-services: responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/model_service\": parse schema: allOf: [0]: parse schema: reference \"common/properties.yaml#/timestamps\": resolve reference \"common/properties.yaml#/timestamps\": invalid schema reference \"common/properties.yaml#/timestamps\""
+}

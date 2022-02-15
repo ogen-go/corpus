@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aiidalab/aiidalab"
 		},
 		"file": {
-			"name": "examples.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/examples.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"components.json#/Pet\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "openapi-v1.yaml",
+			"path": "aiidalab/registry/static/api/openapi-v1.yaml",
+			"content": "---\nopenapi: 3.0.1\ninfo:\n    title: AiiDAlab apps registry API\n    description: API to query for registered AiiDAlab apps.\n    version: '1.1'\npaths:\n    /api/v1/apps_index.json:\n        get:\n            description: Complete index of all registered AiiDAlab apps.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/apps_index.schema.json#/definitions/AppsAndCategories\n    /api/v1/apps/{appId}.json:\n        parameters:\n            - name: appId\n              in: path\n              required: true\n              schema:\n                  type: string\n              example: hello-world\n        get:\n            description: Curated data and metadata for a single app entry.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"components.json#/Pet\": invalid parameter reference: \"components.json#/Pet\""
+	"Error": "parse: paths: /api/v1/apps/{appId}.json: get: : responses: 200: content: application/json: schema: parse schema: reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": resolve reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": invalid schema reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\""
 }

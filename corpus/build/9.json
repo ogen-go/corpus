@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/AndyWendt/laravel-dredd-openapi-v3"
 		},
 		"file": {
-			"name": "clone-path-item.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/add-path-item/openapi-3/clone-path-item.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    },\n    \"/clonedFoo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "openapi_v3.yml",
+			"path": "documentation/v1/openapi_v3.yml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Dredd Testing Demo\n  description: Laravel Dredd Testing Documentation\n  version: v2\nservers:\n  - url: test.dev\n    description: test Server\n\npaths:\n  \"/api/posts\":\n    $ref: \"./paths/posts.yml\"\n  \"/api/posts/{post_id}\":\n    $ref: \"./paths/posts-post-id.yml\"\n\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n  requestBodies:\n  responses:\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: /api/posts: referenced pathItem not supported"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cornutum/tcases"
+			"name": "github.com/Restfulness/Restfulness-core-api"
 		},
 		"file": {
-			"name": "anyOf-2.json",
-			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-2.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"AnyOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/anyOf\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"required\": true,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"maximum\": 100.0,\n                                \"anyOf\": [\n                                    {\n                                        \"type\": \"integer\",\n                                        \"enum\": [ -1, 0, 1]\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"minimum\": 0.0\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"nullable\": true\n                                    }\n                                ]\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "publicity_get.yml",
+			"path": "yml/publicity_get.yml",
+			"content": "Get publicity for owner of current token\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\ntags:\n  - name: User\nparameters:\n  - name: Authorization\n    in: header\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\nexample:\n  Authorization: \"Bearer eyJ0eXAiOi....\"\nresponses:\n  200:\n    description: \"Return publicity\"\n    schema:\n      type: object\n      properties:\n        publicity:\n          type: boolean \n          description: User's publicity\n      publicity:\n        msg: true\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number 100.0 into Go struct field Schema.paths.post.requestBody.content.schema.maximum of type int64"
+	"Error": "json: cannot unmarshal string into Go value of type ogen.Spec"
 }

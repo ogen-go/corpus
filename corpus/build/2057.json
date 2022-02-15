@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/akx/lepo"
 		},
 		"file": {
-			"name": "yaml_reference.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/yaml_reference.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"pet.yaml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "path-refs.yaml",
+			"path": "lepo_tests/tests/openapi3/path-refs.yaml",
+			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /a:\n    get:\n      operationId: foo\n      responses:\n        default:\n          description: Default response\n  /b:\n    $ref: '#/paths/~1a'\ninfo:\n  version: ''\n  title: ''\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"pet.yaml\": resolve reference \"pet.yaml\": invalid schema reference \"pet.yaml\""
+	"Error": "parse: /b: referenced pathItem not supported"
 }

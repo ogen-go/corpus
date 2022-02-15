@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swaggerql/swaggerql"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "openapi.yaml",
+			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: Demo\n  version: \"1.0.0\"\n\npaths:\n  /test:\n    get:\n      summary: 1 + n\n      description: |\n        Adds a number to one\n\n        ```sql\n        SELECT 1+:n\n        ```\n      parameters:\n      - name: n\n        in: query\n        description: Number\n        required: true\n        style: form\n        explode: true\n        schema:\n          type: integer\n      responses:\n        200:\n          description: OK\n"
+		}
+	},
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+}

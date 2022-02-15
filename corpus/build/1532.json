@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/max-depth/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "example3_from_._Different_parameters.md.yaml",
+			"path": "3.0/fail/gluecon/example3_from_._Different_parameters.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: A version and revision matrix parameter\n  version: 1.0.0\npaths:\n  /{version}{rev}/customers:      # https://api.example.org/v2;rev=2/customers\n    parameters:\n    - name: version\n      in: path\n      schema: \n        type: string\n    - name: rev\n      in: path\n      style: matrix\n      schema:\n        type: int\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: /{version}{rev}/customers: parameters: parse parameter \"version\": path parameters must be required"
 }

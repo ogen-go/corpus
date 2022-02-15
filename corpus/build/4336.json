@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-983.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: This is a simple API\n  version: \"1.0.0\"\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\npaths:\n  /inventory/{inventory-id}:\n    get:\n      operationId: getInventoryItem\n      description: Sample\n      parameters:\n        # path\n        - $ref: 'issue-983-domain.yaml/#/components/parameters/inventory-id'\n      responses:\n        '200':\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/InventoryItem'\n        '400':\n          description: bad input parameter\n\n\ncomponents:\n  schemas:\n    InventoryItem:\n      type: string"
+		}
+	},
+	"Error": "parse: paths: /inventory/{inventory-id}: get: getInventoryItem: parameters: parse parameter \"\": resolve \"issue-983-domain.yaml/#/components/parameters/inventory-id\" reference: invalid parameter reference: \"issue-983-domain.yaml/#/components/parameters/inventory-id\""
+}

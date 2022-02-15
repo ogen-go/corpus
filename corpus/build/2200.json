@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "byte_format_octet_stream_payload.yaml",
+			"path": "openapi-cli/src/test/resources/generators/client/swagger/byte_format_octet_stream_payload.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\npaths:\n  /pets:\n    post:\n      summary: Create a pet\n      operationId: createPet\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              format: byte\n              type: string\n      responses:\n        '201':\n          description: Null response\n"
+		}
+	},
+	"Error": "make ir: path \"/pets\": post: requestBody: contents: application/octet-stream: octet stream with schema not supported"
+}

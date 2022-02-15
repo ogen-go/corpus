@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/awslabs/smithy"
+			"name": "github.com/tfranzel/drf-spectacular"
 		},
 		"file": {
-			"name": "greedy-labels-for-rest.openapi.json",
-			"path": "smithy-aws-apigateway-openapi/src/test/resources/software/amazon/smithy/aws/apigateway/openapi/greedy-labels-for-rest.openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Service\",\n    \"version\": \"2006-03-01\"\n  },\n  \"paths\": {\n    \"/{baz+}\": {\n      \"post\": {\n        \"operationId\": \"Operation\",\n        \"parameters\": [\n          {\n            \"name\": \"baz\",\n            \"in\": \"path\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"required\": true\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Operation 200 response\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "test_postprocessing.yml",
+			"path": "tests/test_postprocessing.yml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: ''\n  version: 0.0.0\npaths:\n  /a/:\n    get:\n      operationId: a_list\n      tags:\n      - a\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/A'\n          description: ''\n  /a/selection/:\n    get:\n      operationId: a_selection_retrieve\n      tags:\n      - a\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/B'\n          description: ''\ncomponents:\n  schemas:\n    A:\n      type: object\n      properties:\n        language:\n          $ref: '#/components/schemas/LanguageEnum'\n        vote:\n          $ref: '#/components/schemas/VoteEnum'\n      required:\n      - language\n      - vote\n    B:\n      type: object\n      properties:\n        language:\n          nullable: true\n          oneOf:\n          - $ref: '#/components/schemas/LanguageEnum'\n          - $ref: '#/components/schemas/BlankEnum'\n          - $ref: '#/components/schemas/NullEnum'\n      required:\n      - language\n    BlankEnum:\n      enum:\n      - ''\n    LanguageEnum:\n      enum:\n      - en\n      - es\n      - ru\n      - cn\n      type: string\n    NullEnum:\n      enum:\n      - null\n    VoteEnum:\n      enum:\n      - 1\n      - 0\n      - -1\n      type: integer\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: sessionid\n"
 		}
 	},
-	"Error": "parse: paths: /{baz+}: post: Operation: parse path: path parameter not specified: \"baz+\""
+	"Error": "parse: paths: /a/selection/: get: a_selection_retrieve: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/B\": parse schema: language: parse schema: oneOf: [2]: parse schema: reference \"#/components/schemas/NullEnum\": parse schema: infer enum type: cannot infer type from \"null\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/callback-object/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"callbacks\": {\n        \"callback1\": {\n          \"{$method}\": {\n            \"description\": \"description of callback2\"\n          }\n        },\n        \"callback2\": {\n          \"{$method}\": {\n            \"description\": \"description of callback2\"\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "input.yaml",
+			"path": "test/resolver/issue196/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Resolve Test\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      parameters:\n        - $ref: \"./Parameters.yaml#/parameter_colour\"\n        - $ref: \"./Parameters.yaml#/parameter_size\"\n      responses:\n        '200':\n          description: OK\ncomponents:\n  parameters:\n    $ref: './Parameters.yaml'\n  schemas:\n    Cat:\n      $ref: './SchemaAnimal.yaml'\n    Dog:\n      $ref: './SchemaAnimal.yaml'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
 }

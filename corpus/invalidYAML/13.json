@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/gdoumenc/coworks"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"path": "coworks/cws/templates/openapi.yml",
+			"content": "info:\n  description: {{ app.__doc__ }}\n  title: {{ name }}\nopenapi: 3.0.0\npaths:\n{% for entry, (method, func) in app.entries.items() %}\n  {{ entry }}:\n    {{ method }}:\n      description: {{ func.__doc__ }}\n  {% endfor %}\nversion: {{ app.version }}\n"
+		}
+	},
+	"Error": "yaml: line 6: found character that cannot start any token"
+}

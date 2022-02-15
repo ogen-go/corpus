@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "positive1.json",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_callback/test/positive1.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/Success\"\n          }\n        },\n        \"callbacks\": {\n          \"myEvent\": {\n            \"$ref\": \"#/components/callbacks/inProgress\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"callbacks\": {\n      \"onProgress\": {\n        \"{$request.body#/onProgressUrl}\": {\n          \"delete\": {\n            \"responses\": {\n              \"204\": {\n                \"description\": \"Deleted\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "api.yml",
+			"path": "als-structure/shared/src/test/resources/OAS30/encoding/api.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      requestBody:\n        description: a request\n        content:\n          application/json:\n            encoding:\n              name:\n                contentType: application/json\n                headers:\n                  header:\n                    description: a header\n                style: plain\n                explode: false\n                allowReserved: false\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

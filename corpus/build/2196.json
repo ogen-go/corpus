@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "header_scenario12.yaml",
+			"path": "openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/header_scenario12.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: PayloadV\n  version: 0.0.0\nservers:\n  - url: \"{server}:{port}/payloadV\"\n    variables:\n      server:\n        default: http://localhost\n      port:\n        default: \"9090\"\npaths:\n  /ping:\n    get:\n      operationId: operation_get_/ping\n      parameters:\n        - name: x-client\n          in: header\n          schema:\n            type: array\n            items:\n              type: boolean\n            default: \"[true, false]\"\n      responses:\n        \"200\":\n          description: Ok\ncomponents: {}\n"
+		}
+	},
+	"Error": "parse: paths: /ping: get: operation_get_/ping: parameters: parse parameter \"x-client\": schema: parse default: expected type \"array\", got \"string\""
+}

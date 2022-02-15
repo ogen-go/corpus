@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
 		},
 		"file": {
-			"name": "delete-server-document.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-server/openapi-3/delete-server-document.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"query\",\n            \"description\": \"username to fetch\",\n            \"required\": true\n          }\n        ]\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://development.gigantic-server.com/v1\",\n      \"description\": \"Development server\"\n    },\n    {\n      \"url\": \"https://staging.gigantic-server.com/v1\",\n      \"description\": \"Staging server\"\n    }\n  ]\n}\n"
+			"name": "slash_ref.yml",
+			"path": "test/input/openapi_3/slash_ref.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nservers:\n  - url: 'https://api.example.com'\npaths:\n  /users~:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':\n          description: OK\n  /other_users:\n    $ref: '#/paths/~1users~0'\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: /other_users: referenced pathItem not supported"
 }

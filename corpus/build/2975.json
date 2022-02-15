@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+		},
+		"file": {
+			"name": "get_with_multiple_path_param.yaml",
+			"path": "core/src/test/resources/api/uri/get_with_multiple_path_param.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /person/{personId}/{personName}:\n    get:\n      summary: Find person by ID\n      description: Returns a single person\n      operationId: getPersonByIdAndName\n      parameters:\n        - name: personId\n          in: path\n          description: ID of person to return\n          required: true\n          schema:\n            type: integer\n        - name: personName\n          in: path\n          description: Name of person to return\n          required: false\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: successful operation"
+		}
+	},
+	"Error": "parse: paths: /person/{personId}/{personName}: get: getPersonByIdAndName: parameters: parse parameter \"personName\": path parameters must be required"
+}

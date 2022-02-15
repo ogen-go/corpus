@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/optimizely/agent"
+		},
+		"file": {
+			"name": "webhook.yaml",
+			"path": "api/openapi-spec/webhook.yaml",
+			"content": "openapi: 3.0.0\ninfo:  \n  title: Optimizely Server API\n  description: Optimizely.\n  termsOfService: http://optimizely.com/terms/\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: 0.1.0\nservers:\n  - url: https://api.optimizely.com\n    description: \"Hosted Optimizely Decision Service\"\npaths:\n  /webhooks/optimizely:\n    post:\n      summary: Incoming webhook message from Optimizely\n      operationId: handleWebhook\n      requestBody:\n        description: Webhook message received from Optimizely\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/WebhookRequest\"\n      responses:\n        '204':\n          description: No content. Webhook message received and processed.\n        '400':\n          description: Invalid webhook message received.\ncomponents:\n  schemas:\n    DatafileUpdateData:\n      properties:\n        revision:\n          type: integer\n        origin_url:\n          type: string\n        cdn_url:\n          type: string\n        environment:\n          type: string\n      required:\n        - revision\n        - cdn_url\n    WebhookRequest:\n      properties:\n        project_id:\n          type: number\n        timestamp:\n          type: number\n        event:\n          type: string\n          enum:\n            - project.datafile_updated\n        data:\n          $ref: '#/components/schemas/DatafileUpdateData    '\n      required:\n        - project_id\n        - timestamp\n        - event\n        - data\n"
+		}
+	},
+	"Error": "parse: paths: /webhooks/optimizely: post: handleWebhook: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/WebhookRequest\": parse schema: data: parse schema: reference \"#/components/schemas/DatafileUpdateData    \": resolve reference \"#/components/schemas/DatafileUpdateData    \": schema not found"
+}

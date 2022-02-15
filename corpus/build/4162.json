@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/snyk/vervet"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"path": "versionware/example/resources/things/2021-11-20/spec.yaml",
+			"content": "openapi: 3.0.3\nx-snyk-api-stability: experimental\ninfo:\n  title: api\n  version: 3.0.0\nservers:\n  - url: /api/api\n    description: Api API\npaths:\n  /things/{thingsId}:\n    delete:\n      description: Get an instance of things\n      operationId: getThings\n      parameters:\n        - { $ref: '../../common.yaml#/parameters/ThingsId' }\n      responses:\n        '204':\n          description: Returns an instance of things\n"
+		}
+	},
+	"Error": "parse: paths: /things/{thingsId}: delete: getThings: parameters: parse parameter \"\": resolve \"../../common.yaml#/parameters/ThingsId\" reference: invalid parameter reference: \"../../common.yaml#/parameters/ThingsId\""
+}

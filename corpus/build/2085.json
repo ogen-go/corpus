@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "rename_component_schema_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_schema_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/NewPet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"\u003ccaret\u003eNewPet\": {}\n    }\n  }\n}\n"
+			"name": "api.yaml",
+			"path": "documentation/validation_tutorial/examples/example3/api.yaml",
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Example API\n\npaths:\n  /test:\n    get:\n      summary: test path"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/NewPet\": resolve reference \"#/components/schemas/NewPet\": schema not found"
+	"Error": "parse: paths: /test: get: : responses: no responses"
 }

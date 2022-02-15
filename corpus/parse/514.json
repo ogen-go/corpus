@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-security-defined-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      summary: Finds pets by Status\n      operationId: getPetsByStatus\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\nsecurity:\n  - app_id: []\ncomponents:\n  securitySchemes:\n    app_id:\n      type: apiKey\n      description: API key to authorize requests. If you don't have an OpenWeatherMap API key, use `fd4698c940c6d1da602a70ac34f0b147`.\n      name: appid\n      in: query\n"
+		}
+	},
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

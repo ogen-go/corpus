@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/raml-org/webapi-parser"
+		},
+		"file": {
+			"name": "api-with-types-invalid.json",
+			"path": "examples/api-specs/oas30/api-with-types-invalid.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"API with Types\",\n    \"version\": \"\"\n  },\n  \"paths\": {\n    \"/users/{id}\": {\n      \"get\": {\n        \"operationId\": \"GET_users-id\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/User\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"something\"\n          }\n        }\n      ]\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"firstName\",\n          \"lastName\",\n          \"age\"\n        ],\n        \"properties\": {\n          \"firstName\": {\n            \"type\": \"string\"\n          },\n          \"lastName\": {\n            \"type\": \"string\"\n          },\n          \"age\": {\n            \"minimum\": 0,\n            \"maximum\": 99,\n            \"type\": \"integer\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: /users/{id}: parameters: parse parameter \"id\": schema: parse schema: unexpected schema type: \"something\""
+}

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/scionproto/scion"
 		},
 		"file": {
-			"name": "response-code-wildcards.json",
-			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/response-code-wildcards.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"operationId\": \"test\",\n        \"requestBody\": {\n          \"required\": false,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"specific code\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          },\n          \"2XX\": {\n            \"description\": \"wildcard for successful codes\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          },\n          \"6XX\": {\n            \"description\": \"This code is invalid\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          },\n          \"2X1\": {\n            \"description\": \"This code is invalid\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "spec.yml",
+			"path": "spec/router/spec.yml",
+			"content": "openapi: \"3.0.2\"\ninfo:\n  description: \"API for the SCION Router\"\n  title: Router Service API\n  version: \"0.0.1\"\nservers:\n  - url: http://{host}:{port}/api/v1\n    variables:\n      host:\n        default: \"localhost\"\n      port:\n        default: \"30442\"\ntags:\n  - name: interface\n    description: Everything related to SCION interfaces.\n  - name: common\n    description: Common API exposed by SCION services.\npaths:\n  /info:\n    $ref: \"../common/process.yml#/paths/~1info\"\n  /log/level:\n    $ref: \"../common/process.yml#/paths/~1log~1level\"\n  /config:\n    $ref: \"../common/process.yml#/paths/~1config\"\n  /interfaces:\n    $ref: \"./interfaces.yml#/paths/~1interfaces\"\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: test: responses: 6XX: parse status code: strconv.Atoi: parsing \"6XX\": invalid syntax"
+	"Error": "parse: /interfaces: referenced pathItem not supported"
 }

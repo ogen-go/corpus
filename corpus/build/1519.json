@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/unresolvable-path-item/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "openapi.yaml",
+			"path": "test/validator/escapedRef/openapi.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: API\n  version: 1.0.0\n  contact:\n    name: example.com\n    email: foo@bar.com\n    url: https://foobar.com\ntags:\n  - name: tag\n    description: A tag\npaths:\n  x-foo/bar:\n    get:\n      responses:\n        '200':\n          description: OK\n  /test:\n    $ref: '#/paths/x-foo~1bar'\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

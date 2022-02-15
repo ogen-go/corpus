@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/NHS-digital-website/hippo"
 		},
 		"file": {
-			"name": "callback-inside.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/paths/path-object/operation/callbacks/callback-inside.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"callbacks\": {\n          \"name\": {\n            \"{$request.query.callbackUrl}/data\": {\n              \"*\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "oasV3_withCustomExtension.json.template",
+			"path": "site/components/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_withCustomExtension.json.template",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    X-PROPERTY-PLACEHOLDER\n    \"paths\": {\n        \"/test\": {\n            \"parameters\": [\n                {\n                    \"in\": \"header\",\n                    \"name\": \"NHSD-Session-URID\",\n                    \"description\": \"A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.\\n\\nA URID belongs to a user (they are not generic) and a user may have more than one.\\n\\nFind out more about [User role ID](https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation)\\n\\nNote: This parameter is required unless interacting with the Sandbox.\\n\",\n                    \"required\": false,\n                    \"schema\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[0-9]+$\",\n                        \"example\": \"555021935107\"\n                    }\n                }\n            ],\n            \"post\": {\n                \"requestBody\": {\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"type\": \"object\",\n                                \"title\": \"Test Schema Title\"\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {}\n}\n"
 		}
 	},
 	"Error": "invalid json"

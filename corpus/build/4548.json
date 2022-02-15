@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "local_circular_refs.yaml",
+			"path": "vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local circular relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"refs/Circular.yaml\"\n      responses:\n        201:\n          description: Created\n"
+		}
+	},
+	"Error": "parse: paths: /simple: post: simple: requestBody: content: application/json: parse schema: parse schema: reference \"refs/Circular.yaml\": resolve reference \"refs/Circular.yaml\": invalid schema reference \"refs/Circular.yaml\""
+}

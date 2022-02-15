@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue_911.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue_911.yaml",
+			"content": "openapi: 3.0.0\nservers:\n- url: 'http://localhost:8000/v2/api'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server.  You can find out more about\n    Swagger at http://swagger.io or on\n    irc.freenode.net, #swagger.  For this sample, you can use the api key\n    \"special-key\" to test the authorization filters\n  version: 1.0.0\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    name: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\nexternalDocs:\n  description: Find more info here\n  url: 'https://swagger.io'\ntags:\n- name: pet\n  description: Pet Operations\n  externalDocs:\n    url: 'http://swagger.io'\n- name: user\n  description: All about the Users\npaths:\n  '/pet/{petId}/{pathParamNotDefined}':\n    get:\n      tags:\n      - pet\n      summary: Find pet by ID\n      description: \u003e-\n        Returns a pet when ID \u003c 10.  ID \u003e 10 or nonintegers will simulate API\n        error conditions\n      operationId: getPetById\n      responses:\n        200:\n          description: 200 ok\n      parameters:\n      - name: petId\n        in: path\n        description: ID of pet that needs to be fetched\n        required: true\n        schema:\n          type: integer\n          format: int64"
+		}
+	},
+	"Error": "parse: paths: /pet/{petId}/{pathParamNotDefined}: get: getPetById: parse path: path parameter not specified: \"pathParamNotDefined\""
+}

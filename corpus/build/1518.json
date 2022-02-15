@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/max-depth/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue76/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  '/{p4}':\n    get:\n      parameters:\n        - name: p1\n          in: query\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p2\n          in: query\n          explode: true\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p3\n          in: header\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p4\n          in: path\n          required: true\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p5\n          in: query\n          style: spaceDelimited\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p6\n          in: query\n          style: pipeDelimited\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        default:\n          description: OK\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /{p4}: get: : parameters: parse parameter \"p5\": style: unexpected style: spaceDelimited"
 }

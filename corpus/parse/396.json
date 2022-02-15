@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$anchor-internal/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$anchor\": \"user-profile\",\n              \"properties\": {\n                \"firstName\": {\n                  \"type\": \"string\"\n                },\n                \"lastName\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$anchor\": \"user-profile\",\n          \"properties\": {\n            \"firstName\": {\n              \"type\": \"string\"\n            },\n            \"lastName\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "example3_from_._New_callbacks.md.yaml",
+			"path": "3.0/fail/gluecon/example3_from_._New_callbacks.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example of links with callbacks\n  version: 0.9.0\npaths:\n  /longrunning-thing:\n    post: \n      parameters:\n        name: heartbeat-url\n        in: query\n        schema:\n          type: string\n          format: uri\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                failedUrl:\n                  type: string\n                successUrl:\n                  type: string\n      responses:\n        '200': \n          description: Long running thing initiated\n      callbacks:\n        heartbeat:\n          '$request.query.heartbeat-url':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/heartbeatMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n        failed:\n          '$response.body#/failedUrl':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/failedMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n        success:\n          '$response.body#/successUrl':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/successMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.post.parameters of type []*ogen.Parameter"
 }
