@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/surfstudio/SurfGen"
+			"name": "github.com/stoplightio/spectral"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "Tests/Common/TestProject/reference_cycles/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n\npaths:\n  /auth:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/FirstModel\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/Category\"\n\n"
+			"name": "spec.yaml",
+			"path": "packages/core/src/__tests__/__fixtures__/gh-474/spec.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n  contact:\n    $ref: 'common.yaml#/info/contact'\npaths:\n  '/':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: 'common.yaml#/components/schemas/ResponseType'\n"
 		}
 	},
-	"Error": "parse: paths: /auth: post: : requestBody: content: application/json: parse schema: parse schema: reference \"models.yaml#/components/schemas/FirstModel\": resolve reference \"models.yaml#/components/schemas/FirstModel\": invalid schema reference \"models.yaml#/components/schemas/FirstModel\""
+	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"common.yaml#/components/schemas/ResponseType\": resolve reference \"common.yaml#/components/schemas/ResponseType\": invalid schema reference \"common.yaml#/components/schemas/ResponseType\""
 }

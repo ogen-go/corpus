@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/MapGIS/MapGIS-Pan-Spatial-Map"
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
 		},
 		"file": {
-			"name": "swagger.yml",
-			"path": "packages/pan-spatial-map-mock-server/mock/swagger.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: Mock API for MapGIS-Pan-Spatial-Map.\n  version: 1.0.0\n  title: MapGIS-Pan-Spatial-Map Mock API\n  contact:\n    email: admin@mapgis.com\n  license:\n    name: Apache-2.0\n    url: https://opensource.org/licenses/MIT\nservers:\n  - url: /\ntags:\n  - name: users\n    description: Users related api.\n  - name: configs\n    description: Configs related api.\npaths:\n  /UserArea/Login:\n    post:\n      tags:\n        - users\n      summary: Logs user into the system\n      description: Use username and password to login.\n      operationId: login\n      parameters:\n      responses:\n  /WebService/GetConfig:\n    get:\n      tags:\n        - configs\n      summary: Get config\n      description: Get config.\n      operationId: getConfigById\n      security:\n        - AccessTokenAuth: []\n      parameters:\n"
+			"name": "slash_ref.yml",
+			"path": "test/input/openapi_3/slash_ref.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nservers:\n  - url: 'https://api.example.com'\npaths:\n  /users~:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':\n          description: OK\n  /other_users:\n    $ref: '#/paths/~1users~0'\n"
 		}
 	},
-	"Error": "parse: paths: /UserArea/Login: post: login: responses: no responses"
+	"Error": "parse: /other_users: referenced pathItem not supported"
 }

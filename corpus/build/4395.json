@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "api1.yaml",
-			"path": "test/e2e-selenium/static/test-specs/refs/api1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':        \n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: 'api2.yaml#/components/schemas/Api2Prop'"
+			"name": "issue-323.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-323.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    $ref: './eventsCase9.yaml'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n\n"
 		}
 	},
-	"Error": "parse: paths: /test-api-1: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/TestResponse\": parse schema: api2prop: parse schema: reference \"api2.yaml#/components/schemas/Api2Prop\": resolve reference \"api2.yaml#/components/schemas/Api2Prop\": invalid schema reference \"api2.yaml#/components/schemas/Api2Prop\""
+	"Error": "parse: /events: referenced pathItem not supported"
 }

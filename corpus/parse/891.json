@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stadlar/IST-FUT-FMTH"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "temp.yaml",
-			"path": "Vinnusvæði/Verkþáttur 3/Examples/temp.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  description:\n  version: \"1.0.0\"\n  title: Temp API\n  contact:\n    email: openbanking@stadlar.is\n  license:\n    name: Apache 2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\n\ntags:\n  - name: admins\n    description: Secured for admins\n  - name: developers\n    description: Secured for admins and developers\n\nservers:\n  - description: API Mocking\n    url: https://temp.openbankingapi.is/v1\n\npaths:\n  /exchangerate\n\n\n  /indices\n\n\ncomponents:\n  schemas:"
+			"name": "file-lines.yaml",
+			"path": "openapi-front-end/src/test/resources/metrics/file-lines.yaml",
+			"content": "openapi: \"3.0.1\"\nx-no-sonar: SomeId\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    # a comment line\n    x-sonar-disable: SomeId\n    get:\n      responses:\n        x-sonar-enable: SomeId\n        '200':\n          description: some response\n#\n# another comment line\n  /newpets:\n    $ref: '#/paths/~1pets'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.Paths"
+	"Error": "json: cannot unmarshal string into Go struct field Operation.paths.get.responses of type ogen.Response"
 }

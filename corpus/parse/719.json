@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kota65535/openapi-merger"
+			"name": "github.com/kawasima/darzana"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/resources/petstore_10/openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $include.pets: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
+			"name": "jsonplaceholder.yaml",
+			"path": "dev/resources/swagger/jsonplaceholder.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: JSONPlaceholder\n  license:\n    name: MIT\nservers:\n  - url: https://jsonplaceholder.typicode.com\npaths:\n  /posts:\n    get:\n      summary: List of all posts\n      operationId: getPosts\n      tags:\n        - posts\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Post'\n  /posts/{id}:\n    get:\n      summary: Get a post\n      operationId: getPost\n      tags:\n        - posts\n      parameters:\n        id:\n          type: integer\n          format: int64\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Post'\n\ncomponents:\n  schemas:\n    Post:\n      properties:\n        id:\n          type: integer\n          format: int64\n        userId:\n          type: integer\n          format: int64\n        title:\n          type: string\n        body:\n          type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.parameters of type []*ogen.Parameter"
 }

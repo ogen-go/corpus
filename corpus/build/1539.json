@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "example2_from_._New_links.md.yaml",
-			"path": "3.0/fail/gluecon/example2_from_._New_links.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Employees and Managers\n  version: 1.0.1\npaths:\n  '/employees/{id}':\n    get:\n      operationId: getEmployeeById\n      parameters:\n      - name: id\n        in: path\n        schema:\n          type: string\n      responses:\n        '200': \n          description: A representation of an employee\n          content: \n            application/json: \n              schema:\n                type: object\n                properties:\n                  id: \n                    type: string\n                  username:\n                    type: string\n                  managerId:\n                    type: string\n          links:\n            userManager:\n              operationId: getEmployeeById\n              parameters:\n                id: $response.body#managerId\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue76/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  '/{p4}':\n    get:\n      parameters:\n        - name: p1\n          in: query\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p2\n          in: query\n          explode: true\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p3\n          in: header\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p4\n          in: path\n          required: true\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p5\n          in: query\n          style: spaceDelimited\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p6\n          in: query\n          style: pipeDelimited\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        default:\n          description: OK\n"
 		}
 	},
-	"Error": "parse: paths: /employees/{id}: get: getEmployeeById: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /{p4}: get: : parameters: parse parameter \"p5\": style: unexpected style: spaceDelimited"
 }

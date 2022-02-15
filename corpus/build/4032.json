@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "swagger_without_query_desc.yaml",
-			"path": "test/data/valid_openapi/swagger_without_query_desc.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server.  You can find out more about\n    Swagger at http://swagger.io or on\n    irc.freenode.net, #swagger.  For this sample, you can use the api key\n    \"special-key\" to test the authorization filters\n  version: 1.0.0\n  title: Sample title\n  termsOfService: 'http://helloreverb.com/terms/'\n  contact:\n    email: apiteam@wordnik.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  # the params part will be converted to a path variable\n  # that will get added to the query.members of the SDK\n  # (but without a .descriptions property)\n  /pet/findByStatus?{params}:\n    get:\n      summary: Finds Pets by status\n      description: Multiple status values can be provided with comma seperated strings\n      operationId: findPetsByStatus\n      parameters:\n        - name: status\n          in: query"
+			"name": "Phenotypes_Search_POST.yaml",
+			"path": "Specification/GA4GH_BrAPI/GenotypePhenotypeService/Phenotypes_Search_POST.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/genotype_phenotype_service.proto\n  version: version not set\npaths:\n  /phenotypes/search:\n    post:\n      summary: \u003e-\n        Gets a list of phenotypes accessible through the API.\n\n        `POST /phenotypes/search` must accept a JSON version of\n\n        `SearchPhenotypesRequest` as the post body and will return a JSON\n        version\n\n        of `SearchPhenotypeAssociationSetsResponse`.\n      operationId: SearchPhenotype\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SearchPhenotypesResponse'\n      tags:\n        - GA4GH\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SearchPhenotypesRequest'\n        required: true"
 		}
 	},
-	"Error": "parse: paths: /pet/findByStatus?{params}: get: findPetsByStatus: parse path: path parameter not specified: \"params\""
+	"Error": "parse: paths: /phenotypes/search: post: SearchPhenotype: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/SearchPhenotypesRequest\": resolve reference \"#/components/schemas/SearchPhenotypesRequest\": schema not found"
 }

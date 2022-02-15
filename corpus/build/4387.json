@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue749-main.yaml",
-			"path": "modules/swagger-parser/src/test/resources/issue749-main.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: ping test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /some/ping:\n    get:\n      operationId: pingGet\n      parameters:\n        - name: i\n          in: query\n          description: Test\n          required: true\n          schema:\n            $ref: './issue749-reference.yaml#/SomeId'\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas: {}"
+			"name": "issue_286.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue_286.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: test data for nested list ext references\n  version: '0.0.0'\npaths:\n  /:\n    get:\n      responses:\n        \"200\":\n          content:\n            '*/*':\n              schema:\n                $ref: \"./issue_286_PetList.yaml\""
 		}
 	},
-	"Error": "parse: paths: /some/ping: get: pingGet: parameters: parse parameter \"i\": schema: parse schema: reference \"./issue749-reference.yaml#/SomeId\": resolve reference \"./issue749-reference.yaml#/SomeId\": invalid schema reference \"./issue749-reference.yaml#/SomeId\""
+	"Error": "parse: paths: /: get: : responses: 200: content: */*: schema: parse schema: reference \"./issue_286_PetList.yaml\": resolve reference \"./issue_286_PetList.yaml\": invalid schema reference \"./issue_286_PetList.yaml\""
 }

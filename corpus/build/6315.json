@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "duplicateOperationId.json",
-			"path": "modules/swagger-parser/src/test/resources/duplicateOperationId.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.9-abcd\",\n    \"title\": \"Duplicate operationID\"\n  },\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"parameters\" : [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      },\n      \"post\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "sample-api-upper.json",
+			"path": "packages/apidom-ls/test/fixtures/syntax/sample-api-upper.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"0.1.9\"\n  },\n  \"servers\" : [\n    {\"url\": \"https://petstore3.swagger.io/api/v3/pet\"}\n  ],\n  \"paths\" : {\n    \"/a\" : {\n      \"get\": {\n        \"operationId\": \"AGET\"\n      },\n      \"post\": {\n        \"operationId\": \"apost\"\n      }\n    },\n    \"/b\" : {\n      \"post\": {\n        \"operationId\": \"bpost\"\n      }\n    },\n    \"/2\" : {\n      \"get\": {\n        \"operationId\": \"2get\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /pets/{id}: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /a: get: AGET: responses: no responses"
 }

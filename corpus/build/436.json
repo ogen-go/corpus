@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/italia/api-oas-checker"
+			"name": "github.com/influxdata/openapi"
 		},
 		"file": {
-			"name": "casing-test.yml",
-			"path": "rules/tests/casing-test.yml",
-			"content": "openapi: 3.0.1\npaths:\n  /ok-kebab-case/{withParameter}: {}\n  /ok-header:\n    parameters:\n      - name: Pascal-Ok\n        in: header\n    get:\n      responses:\n        default:\n          headers:\n            Another-Pascal-Ok: {}\n  /header:\n    parameters:\n      - name: ko-header\n        in: header\n      - name: KO_REQUEST_HEADER\n        in: header\n    get:\n      responses:\n        \"200\":\n          headers:\n            KO_RESPONSE_HEADER:\n              description: not allowed\n\n          \n  /ok-kebab-case:\n    get:\n      parameters:\n      - name: snake_param\n        in: query\n        schema:\n          type: string\n      - name: camelParam\n        in: query\n        schema:\n          type: string\n  /KO_NON_KEBAB: {}\n  /koNonKebab:\n    get:\n      parameters:\n      - name: KOUPPERPARAM\n        in: query\n        schema:\n          type: string\n      - name: KO_PARAM\n        in: query\n        schema:\n          type: string\ncomponents:\n  schemas:\n    koNonCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    OkCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    Ko-CamelSchema:\n      type: string\n      pattern: '[a-z]+'\n"
+			"name": "svc-nifid.yml",
+			"path": "src/svc-nifid.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: nifid\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /broker/sub:\n    $ref: './svc/nifid/paths/broker_sub.yml'\n  /broker/sub/{id}:\n    $ref: './svc/nifid/paths/broker_sub_id.yml'\n  /broker/sub/{id}/status:\n    $ref: './svc/nifid/paths/broker_sub_id_status.yml'\ncomponents:\n  requestBodies:\n    SubscriptionParams:\n      $ref: './svc/nifid/requestBodies/SubscriptionParams.yml'\n    SubscriptionStatus:\n      $ref: \"./svc/nifid/requestBodies/SubscriptionStatus.yml\"\n  schemas:\n    JsonSpec:\n      $ref: './svc/nifid/schemas/JsonSpec.yml'\n    StringObjectParams:\n      $ref: './svc/nifid/schemas/StringObject.yml'\n    SubscriptionParams:\n      $ref: './svc/nifid/schemas/SubscriptionParams.yml'\n    Subscription:\n      $ref: './svc/nifid/schemas/Subscription.yml'\n    SubscriptionArray:\n      $ref: './svc/nifid/schemas/SubscriptionArray.yml'\n    Subscriptions:\n      $ref: './svc/nifid/schemas/Subscriptions.yml'\n    SubscriptionStatus:\n      $ref: './svc/nifid/schemas/SubscriptionStatus.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
 		}
 	},
-	"Error": "parse: paths: /koNonKebab: get: : responses: no responses"
+	"Error": "parse: /broker/sub/{id}/status: referenced pathItem not supported"
 }

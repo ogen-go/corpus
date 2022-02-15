@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "example.openapi.yaml",
-			"path": "modules/swagger-parser/src/test/resources/issue-1621/example.openapi.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Example OpenAPI spec\n  version: 0.0.1\npaths:\n  '/example':\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExamplePost'\n      responses:\n        204:\n          description: No content\ncomponents:\n  schemas:\n    # Renaming this key from `Example` to `ExampleGet` stops the issue from occurring\n    # Removing this key stops the issue from occurring\n    Example:\n      $ref: example.get.yaml\n    ExamplePost:\n      $ref: example.post.yaml"
+			"name": "issue1335.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue1335.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example references\n  version: 1.0.0\npaths:\n  /foo:\n    get:\n      responses:\n        '200':\n          $ref: './domain-issue-1335.yaml#/components/responses/200ok'"
 		}
 	},
-	"Error": "parse: paths: /example: post: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/ExamplePost\": parse schema: reference \"example.post.yaml\": resolve reference \"example.post.yaml\": invalid schema reference \"example.post.yaml\""
+	"Error": "parse: paths: /foo: get: : responses: 200: resolve \"./domain-issue-1335.yaml#/components/responses/200ok\" reference: invalid response reference: \"./domain-issue-1335.yaml#/components/responses/200ok\""
 }

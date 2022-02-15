@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/AKIRA-MIYAKE/serverless-import-swagger"
+			"name": "github.com/18F/piipan"
 		},
 		"file": {
-			"name": "openapi.admin.yaml",
-			"path": "__tests__/resources/openapi.admin.yaml",
-			"content": "openapi: 3.0.1\nx-sis-config:\n  options:\n    cors: true\n    authorizer: handler.authorizer\npaths:\n  /admin/users:\n    get:\n      operationId: adminUsers\n"
+			"name": "bulk-api.yaml",
+			"path": "docs/openapi/bulk-api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Bulk API\"\n  version: 2.0.0\n  description: \"The API for performing bulk uploads\"\ntags:\n  - name: \"Upload\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: none\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload/{filename}':\n    $ref: '../../etl/docs/openapi/upload.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
 		}
 	},
-	"Error": "parse: paths: /admin/users: get: adminUsers: responses: no responses"
+	"Error": "parse: /upload/{filename}: referenced pathItem not supported"
 }

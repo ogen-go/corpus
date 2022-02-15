@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-diff"
+			"name": "github.com/OpenAPITools/empoa"
 		},
 		"file": {
-			"name": "content_type_response_add_1.yaml",
-			"path": "core/src/test/resources/content_type_response_add_1.yaml",
-			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: \"Test title\"\n  description: \"This is a test metadata\"\n  termsOfService: \"http://test.com\"\n  contact:\n    name: \"Mark Snijder\"\n    url: \"marksnijder.nl\"\n    email: \"snijderd@gmail.com\"\n  license:\n    name: \"To be decided\"\n    url: \"http://test.com\"\n  version: \"version 1.0\"\npaths:\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: find pet by id\n      responses:\n        '200':\n          description: response\n          content:\n            application/json:\n              schema:\n                type: string\n"
+			"name": "hello.yaml",
+			"path": "empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/hello.yaml",
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: Hello Specification\n  description: This specification says Hello\n  termsOfService: http://example.com/terms/\n  contact:\n    name: Support\n    url: http://www.example.com/support/\n    email: support@example.com\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: \"1.0\"\nservers:\n- url: http://api.example.com/\n  description: Main server\n- url: http://api.example.io/\n  description: Secondary server\npaths:\n  /hello/{name}:\n    get:\n      summary: Retun an hello object\n      operationId: hello\n      parameters:\n      - name: name\n        in: path\n        required: true\n        schema:\n          type: string\n      - name: language\n        in: query\n        description: Language used to say hello\n        schema:\n          type: string\n          enum:\n          - english\n          - french\n          - german\n          - italian\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/text:\n              schema:\n                type: string\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Hello'\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/Hello'\n        \"4XX\":\n          description: Error\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Hello:\n      type: object\n      properties:\n        timestamp:\n          type: integer\n          format: int32\n          description: Unix timestamp (generation time)\n        message:\n          type: string\n    Error:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /pets/{id}: get: find pet by id: parse path: path parameter not specified: \"id\""
+	"Error": "make ir: path \"/hello/{name}\": get: responses: parse response status code: strconv.Atoi: parsing \"4XX\": invalid syntax"
 }

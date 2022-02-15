@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/taymyr/lagom-openapi"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "ParameterService.yml",
-			"path": "core/src/test/resources/ParameterService.yml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Test\n  description: Description\n  version: 1.0.0\npaths:\n  /test/{id}:\n    get:\n      operationId: test\n      parameters:\n        - name: id\n          in: path\n          description: parameter description\n          required: true\n          style: simple\n          allowReserved: true\n          schema:\n            type: string\n            description: the generated UUID\n            format: uuid\n            readOnly: true\n      responses: {}\ncomponents: {}"
+			"name": "petstore.yml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1292/petstore.yml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    $ref: \"./pets/pets.yml\"\n"
 		}
 	},
-	"Error": "parse: paths: /test/{id}: get: test: responses: no responses"
+	"Error": "parse: /pets: referenced pathItem not supported"
 }

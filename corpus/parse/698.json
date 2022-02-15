@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ioggstream/python-course"
+			"name": "github.com/hotmeteor/spectator"
 		},
 		"file": {
-			"name": "ex-01-info.yaml",
-			"path": "connexion-101/notebooks/oas3/ex-01-info.yaml",
-			"content": "# Complete this file with the required informations\n#  using your swagger-editor. You should\n# - fix all the eventual error\n# - add the missing parameters\n# so that the file become a valid OAS3 spec.\nopenapi: 3\ninfo:\n  version: 0.1\npaths: {}\ncomponents: {}\n"
+			"name": "Malformed.v1.yaml",
+			"path": "tests/Fixtures/Malformed.v1.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Test.v1\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\ntags:\n  - \"I don't\"\n  - \"know what\"\n  - \"I'm doing\"\npaths:\n  /:\n    get:\n      summary: Your GET endpoint\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n      operationId: get-api-testing\n      description: A testing endpoint\ncomponents:\n  schemas: null\n  responses: null\n  headers: null\n  parameters: null\n  links: null\n  examples: null\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.tags of type ogen.Tag"
 }

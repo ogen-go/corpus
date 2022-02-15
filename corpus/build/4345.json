@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/swagger-core"
 		},
 		"file": {
-			"name": "spec2.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-901/spec2.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: testswos55\n  description: testswos55\n  version: \"1.01\"\nservers:\n- url: ///test\npaths:\n  /test:\n    $ref: ref2.yaml/#/pathitems/path-test"
+			"name": "ArraySchemaResource.yaml",
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /arrayschema:\n    post:\n      description: subscribes a client to updates relevant to the requestor's account,\n        as identified by the input token.  The supplied url will be used as the delivery\n        address for response payloads\n      operationId: subscribe\n      parameters:\n      - name: arrayParameter\n        in: query\n        required: true\n        schema:\n          maxItems: 10\n          minItems: 1\n          uniqueItems: true\n          type: array\n          items:\n            $ref: '#/components/schemas/SubscriptionResponse'\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/SubscriptionResponse'\ncomponents:\n  schemas:\n    SubscriptionResponse:\n      type: object\n      properties:\n        subscriptionId:\n          type: string\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "make ir: path \"/arrayschema\": post: parameters: nested objects not allowed"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/relative-upper-directory/swagger.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://paeshin-w7/SwaggerTest'\n  - url: 'https://paeshin-w7/SwaggerTest'\ninfo:\n  version: v1\n  title: SwaggerTest\n  description: Service for Swagger and JSON schema testing\npaths:\n  /api/Address:\n    $ref: \"Paths/Address.yaml\""
+			"name": "index.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-834/index.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n- url: http://test.com/test\npaths:\n  /foo:\n    get:\n      description: foo\n      summary: foo\n      operationId: foo\n      responses:\n        200:\n          $ref: \"./components/response1.yaml\"\n        300:\n          $ref: \"./components/response2.yaml\"\n  /bar:\n    get:\n      description: bar\n      summary: bar\n      operationId: bar\n      responses:\n        200:\n          $ref: \"./components/response1.yaml\""
 		}
 	},
-	"Error": "parse: /api/Address: referenced pathItem not supported"
+	"Error": "parse: paths: /bar: get: bar: responses: 200: resolve \"./components/response1.yaml\" reference: invalid response reference: \"./components/response1.yaml\""
 }

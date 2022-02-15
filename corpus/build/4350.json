@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "issue251.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue251.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  version: \"1.0.0\"\n  title: parse-api\n  description: Test swagger-parser\npaths:\n  /parse:\n    get:\n      description: Parser test\n      operationId: getParse\n      parameters:\n        - in: query\n          name: parse\n          required: true\n          schema:\n            $ref: 'http://localhost:${dynamicPort}/domain#/components/schemas/Parse'\n      responses:\n        '200':\n          description: OK"
+			"name": "swagger.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/callbacks-issue/swagger.yaml",
+			"content": "openapi: 3.0.2\nservers:\n  - description:  Dev server\n    url: 'https://api.net'\ninfo:\n  title:  API\n  version: 1.0.0\n  description:\ntags:\n  - name: Webhook API\n    description: Endpoints related to the subscription and management of Webhooks\npaths:\n  '/webhook':\n    post:\n      tags:\n        - Webhook API\n      summary: Subscribe to events for a Market Participant\n      description: description\n      operationId: subscribe-webhook\n      callbacks:\n        WebhookVerificationEvent:\n          $ref: 'domain.yaml#/components/callbacks/WebhookVerificationEvent'"
 		}
 	},
-	"Error": "parse: paths: /parse: get: getParse: parameters: parse parameter \"parse\": schema: parse schema: reference \"http://localhost:${dynamicPort}/domain#/components/schemas/Parse\": resolve reference \"http://localhost:${dynamicPort}/domain#/components/schemas/Parse\": invalid schema reference \"http://localhost:${dynamicPort}/domain#/components/schemas/Parse\""
+	"Error": "parse: paths: /webhook: post: subscribe-webhook: responses: no responses"
 }

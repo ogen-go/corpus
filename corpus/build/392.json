@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/getkin/kin-openapi"
+			"name": "github.com/evilmint/aws-openapi-lint"
 		},
 		"file": {
-			"name": "issue235.spec0-typo.yml",
-			"path": "openapi3/testdata/issue235.spec0-typo.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec0-typo.yml#/components/schemas/ObjectD'\n"
+			"name": "options_no_cors_present.yml",
+			"path": "test_files/options_no_cors_present.yml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/{resourceId}/{otherId}:\n    get:\n      parameters:\n        - name: \"resourceId\"\n          in: \"path\"\n          required: true\n          description: \"Some path param\"\n          schema:\n            type: \"string\"\n        - name: \"otherId\"\n          in: \"path\"\n          required: true\n          description: \"Some path param\"\n          schema:\n            type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n        400:\n          description: \"400 response\"\n      security:\n        - Some-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.resourceId: \"method.request.header.resourceId\"\n          integration.request.header.otherId: \"method.request.header.otherId\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\"\n        responses:\n          200:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'*'\"\n    options:\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        passthroughBehavior: \"when_no_templates\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        responses:\n          default:\n            statusCode: \"200\""
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"#/components/schemas/ObjectA\": parse schema: object_b: parse schema: reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": resolve reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": invalid schema reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\""
+	"Error": "parse: paths: /test/resource/{resourceId}/{otherId}: options: : parse path: path parameter not specified: \"resourceId\""
 }

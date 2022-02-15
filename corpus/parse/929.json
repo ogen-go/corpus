@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/vert-x3/vertx-web"
+			"name": "github.com/typeable/compaREST"
 		},
 		"file": {
-			"name": "inner_refs.yaml",
-			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/inner_refs.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Simple spec with $refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      type: object\n      properties:\n        fileName:\n          type: 1\n          format: binary\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n"
+			"name": "a.yaml",
+			"path": "test/golden/common/tuple-items/homogeneous-length-mismatch/a.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test1:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\n  /test2:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\n  /test3:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\ncomponents:\n  schemas:\n    Test:\n      type: array\n      items:\n        - type: number\n        - type: number\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.type of type string"
+	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"
 }

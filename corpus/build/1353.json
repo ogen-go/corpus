@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                allOf:\n                  - \"$ref\": \"#/components/schemas/ErrorModel\"\n                  - type: object\n                    required:\n                      - rootCause\n                    properties:\n                      rootCause:\n                        type: string\n"
+			"name": "negative3.yaml",
+			"path": "assets/queries/openAPI/general/required_property_default_value/test/negative3.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      required:\n      - id\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n          default: guest\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "additional-items.json",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/additional-items.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"some title\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"invalid-tuple-array-additional-items-boolean\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": false,\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"invalid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"valid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"lala\",\n          \"other\"\n        ]\n      }\n    }\n  },\n  \"paths\": {\n  }\n}"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/root-level/server/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": 1\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://development.gigantic-server.com/v1\",\n      \"description\": \"Development server\"\n    },\n    {\n      \"url\": \"https://staging.gigantic-server.com/v1\",\n      \"description\": \"Staging server\"\n    },\n    {\n      \"url\": \"https://api.gigantic-server.com/v1\",\n      \"description\": \"Production server\"\n    }\n  ]\n}"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

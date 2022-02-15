@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "ref-encoding3.yaml",
-			"path": "3.0/pass/fiendish/ref-encoding3.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      responses:\n        default:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/container/properties/with%20space'\n            text/xml:\n              schema:\n                $ref: '#/components/schemas/container/properties/with+space'\ncomponents:\n  schemas:\n    container:\n      type: object\n      properties:\n        'with space':\n          type: string\n"
+			"name": "duplicateParameter.yaml",
+			"path": "3.0/fail/duplicateParameter.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate parameter\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      parameters:\n      - name: test\n        in: query\n        schema:\n          type: string\n      - name: test\n        in: query\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: default: content: application/json: schema: parse schema: reference \"#/components/schemas/container/properties/with%20space\": resolve reference \"#/components/schemas/container/properties/with%20space\": schema not found"
+	"Error": "parse: paths: /test: get: same: parameters: duplicate parameter: \"test\" in \"query\""
 }

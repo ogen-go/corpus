@@ -5,9 +5,9 @@
 			"name": "github.com/stoplightio/spectral"
 		},
 		"file": {
-			"name": "URIError.yaml",
-			"path": "packages/core/src/__tests__/__fixtures__/gh-658/URIError.yaml",
-			"content": "%YAML 1.2\n---\nopenapi: 3.0.0\n\ninfo:\n  title: Hey Mum! I'm on GitHub!\n  description: Resource definition.\n  version: 1.0.0\n\nservers:\n  - url: https://boom.com\n\npaths:\n  \"/test\":\n    get:\n      summary: Dummy endpoint.\n      description: Cf. summary\n      responses:\n        \"200\":\n          description: All is good.\n          content:\n            application/json:\n              schema:\n                type: string\n        \"400\":\n          description: Bad Request.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n        \"500\":\n          description: No Bueno.\n          content:\n            application/json:\n              schema:\n                $ref: \"./lib.yaml#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Error:\n      $ref: \"#/components/schemas/Baz\"\n    Baz:\n      $ref: ./lib.yaml#/components/schemas/Error\n    Foo:\n      type: string\n"
+			"name": "exceptions.remote.oas3.yaml",
+			"path": "packages/core/src/__tests__/__fixtures__/exceptions.remote.oas3.yaml",
+			"content": "%YAML 1.2\n---\nopenapi: 3.0.2\ninfo:\n  title: Random title\n  description: Random description\n  version: 0.0.1\n  contact:\n    email: random@random.com\npaths: {}\nservers:\n  - url: https://www.random.com\ncomponents:\n  schemas:\n    TheRemoteType:\n      description: A strongly typed string\n      type: string\n    integerOne:\n      type: integer\n"
 		}
 	},
 	"Error": "yaml: found incompatible YAML document"

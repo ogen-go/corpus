@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OAI/OpenAPI-Specification"
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
 		},
 		"file": {
-			"name": "non-oauth-scopes.json",
-			"path": "examples/v3.1/non-oauth-scopes.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Non-oAuth Scopes example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"bearerAuth\": [\n              \"read:users\",\n              \"public\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"jwt\",\n        \"description\": \"note: non-oauth scopes are not defined at the securityScheme level\"\n      }\n    }\n  }\n}"
+			"name": "has_external_ref.json",
+			"path": "test/input/openapi_3/has_external_ref.json",
+			"content": "{\n    \"info\": {\n        \"title\": \"Nodejs\",\n        \"version\": \"1.0.0\"\n    },\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/articles\": {\n            \"get\": {\n                \"operationId\": \"ArticleController.getAll\",\n                \"responses\": {\n                    \"200\": {\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"./external_ref.json\"\n                                }\n                            }\n                        },\n                        \"description\": \"Successful response\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"./external_ref_fragment.json#/responses/Error\"\n                    }\n                },\n                \"summary\": \"Get all\",\n                \"tags\": [\n                    \"Article\"\n                ]\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: no responses"
+	"Error": "parse: paths: /articles: get: ArticleController.getAll: responses: 200: content: application/json: schema: parse schema: reference \"./external_ref.json\": resolve reference \"./external_ref.json\": invalid schema reference \"./external_ref.json\""
 }

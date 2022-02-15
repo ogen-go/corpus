@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/golodnyj/practicum_serverless_url_shortener"
+			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "for-serverless-shortener.yml",
-			"path": "steps/3-use-api-gateway/for-serverless-shortener.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: for-serverless-shortener\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket:             \u003cbucket_name\u003e        # \u003c-- название бакета\n        object:             \u003chtml_file\u003e          # \u003c-- название html-файла\n        presigned_redirect: false\n        service_account:    \u003cservice_account_id\u003e # \u003c-- ID сервисного аккаунта\n      operationId: static\n"
+			"name": "issue235.spec0-typo.yml",
+			"path": "openapi3/testdata/issue235.spec0-typo.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec0-typo.yml#/components/schemas/ObjectD'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: static: responses: no responses"
+	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"#/components/schemas/ObjectA\": parse schema: object_b: parse schema: reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": resolve reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": invalid schema reference \"issue235.spec0-typo.yml#/components/schemas/ObjectD\""
 }

@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\n            additionalProperties: 'false'\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'true'\n"
+			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/positive4.yaml",
+			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API 222\n  aws_api_gateway:\n    swagger_text: |\n      openapi: 3.0.0\n      info:\n        title: Sample API\n        description: Optional multiline or single-line description\n        version: 0.1.9\n      components:\n        ssecuritySchemes:\n          request_authorizer_single_stagevar:\n            type: apiKey\n            name: Unused\n            in: header\n            x-amazon-apigateway-authtype: custom\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

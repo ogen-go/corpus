@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anz-bank/sysl"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "params-for-all.yaml",
-			"path": "pkg/importer/tests/openapi3/params-for-all.yaml",
-			"content": "openapi: \"3.0\"\ninfo:\n  title: Params For All Operations\npaths:\n  /param/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/name\"\n      - name: id\n        schema:\n          type: string\n        in: path\n    post:\n      description: Empty parameters\n      responses:\n        \"200\":\n          description: \"OK\"\n    get:\n      parameters:\n        - name: key\n          schema:\n            type: string\n          in: query\n      description: has existing parameters\n      responses:\n        \"200\":\n          description: \"OK\"\ncomponents:\n  parameters:\n    name:\n      name: name\n      schema:\n        type: string\n      required: false\n      in: query\n"
+			"name": "api.yaml",
+			"path": "amf-cli/shared/src/test/resources/resolution/external-schema-ref/api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: soap-xml-oas-design\ncomponents:\n  schemas:\n    payPlanschema:\n      type: object\n      properties:\n        Envelope:\n          type: object\n  examples:\n    payplanexample:\n      value:\n        Envelope: {}\npaths:\n  /payPlan:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/xml:\n            schema:\n              $ref: /request-schema.json#components/schemas/payPlanschema\n            examples:\n              PaymentPlanEx:\n                $ref: '#/components/examples/payplanexample'\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/xml:\n              schema:\n                type: object\n              examples:\n                resEx:\n                  value:\n                    output: 200 Response\n  /payPlan2:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/xml:\n            schema:\n              $ref: '#/components/schemas/payPlanschema'\n            examples:\n              PaymentPlanEx:\n                $ref: '#/components/examples/payplanexample'\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/xml:\n              schema:\n                type: object\n              examples:\n                resEx:\n                  value:\n                    output: 200 Response\n"
 		}
 	},
-	"Error": "parse: /param/{id}: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /payPlan: post: : requestBody: content: application/xml: parse schema: parse schema: reference \"/request-schema.json#components/schemas/payPlanschema\": resolve reference \"/request-schema.json#components/schemas/payPlanschema\": invalid schema reference \"/request-schema.json#components/schemas/payPlanschema\""
 }

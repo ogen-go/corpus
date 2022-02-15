@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersions\n      summary: List versions\n      servers:\n        - description: server URL\n      security:\n        - OAuth2:\n            - write\n            - read\n"
+			"name": "positive3.yaml",
+			"path": "assets/queries/openAPI/3.0/invalid_content_type_for_multiple_files_upload/test/positive3.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: \"contact\"\n    email: \"user@gmail.com\"\npaths:\n  \"/\":\n    get:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                filename:\n                  type: array\n                  items:\n                    type: string\n                    format: binary\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersions: responses: no responses"
+	"Error": "parse: paths: /: get: : responses: no responses"
 }

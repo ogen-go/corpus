@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive7.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/positive7.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default:\n                  - { \"message\": \"hello\", \"code\": 200 }\n"
+			"name": "negative4.yaml",
+			"path": "assets/queries/openAPI/3.0/schema_with_both_read_only_and_write_only/test/negative4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                properties:\n                  id:\n                    type: integer\n                    readOnly: true\n                  code:\n                    type: string\n                    format: int32\n                  message:\n                    type: string\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: unexpected type: \"object\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse schema: array cannot contain properties"
 }

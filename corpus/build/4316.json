@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/surfstudio/SurfGen"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/codegen-issue-9773/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Codegen test: requestBody with an external $ref'\n  version: 0.0.0\npaths:\n  /foo:\n    post:\n      requestBody:\n        $ref: './domain.yaml#/components/requestBodies/RequestBody1'\n      responses:\n        '200':\n          description: OK"
+			"name": "api.yaml",
+			"path": "Tests/Common/ProjectA/payment_card/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n     \npaths:\n  /billings/paymentCards:\n    get:\n      summary: Возвращает список привязанных карт пользователя \n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: \"models.yaml#/components/schemas/PaymentCards\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n    post:\n      summary: Добавление новой карты\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/AddCardRequest\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                  $ref: \"models.yaml#/components/schemas/3dSecResponse\"       \n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n  /billings/setAutopayment:\n    post:\n      summary: Включение и отключение автоплатежа\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/SetAutopaymentRequest\"\n      responses:\n        \"204\":\n          description: \"Успех\"        \n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n  /billings/paymentCards/{id}:\n    delete:\n      summary: Удаление карты\n      parameters:\n      - name: id\n        required: true\n        in: path\n        schema:\n          type: string     \n      responses:\n        \"204\":\n          description: \"Успех\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /foo: post: : requestBody: resolve \"./domain.yaml#/components/requestBodies/RequestBody1\" reference: invalid requestBody reference: \"./domain.yaml#/components/requestBodies/RequestBody1\""
+	"Error": "parse: paths: /billings/paymentCards: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"models.yaml#/components/schemas/PaymentCards\": resolve reference \"models.yaml#/components/schemas/PaymentCards\": invalid schema reference \"models.yaml#/components/schemas/PaymentCards\""
 }

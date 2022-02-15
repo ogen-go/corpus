@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/RepreZen/GenFlow"
 		},
 		"file": {
-			"name": "different_file_reference_from_file.spec.yaml",
-			"path": "tests/specs/translating_parser/different_file_reference_from_file.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a different file reference\n          content:\n            application/json:\n              schema:\n                $ref: 'different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject'\n"
+			"name": "beamup_path_user.yaml",
+			"path": "modules/genflow-tests/src/main/resources/models/openapiv3/examples/Multi-File Beamup/pathItems/beamup_path_user.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: \"1.0.0\"\n  title: BeamUp API\n\npaths:\n  /user:\n    get:\n      summary: User Profile\n      description: |\n        The User Profile endpoint returns information about the BeamUp user that has\n        authorized with the application.\n      tags: \n        - User\n      responses:\n        200:\n          description: Profile information for a user\n          content:\n            application/json:\n              schema:\n                # Reference to a Schema Object described in beamup_schemas.yaml\n                $ref: \"../components/beamup_schemas.yaml#/components/schemas/Profile\"\n        default:\n          # Defaults to an unexpected error response, defined in beamup_responses.yaml.\n          $ref: \"../components/beamup_responses.yaml#/components/responses/ErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\": resolve reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\": invalid schema reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\""
+	"Error": "parse: paths: /user: get: : responses: 200: content: application/json: schema: parse schema: reference \"../components/beamup_schemas.yaml#/components/schemas/Profile\": resolve reference \"../components/beamup_schemas.yaml#/components/schemas/Profile\": invalid schema reference \"../components/beamup_schemas.yaml#/components/schemas/Profile\""
 }

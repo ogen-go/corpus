@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/yandex-cloud/ide-plugin-jetbrains"
 		},
 		"file": {
-			"name": "rename_file_reference.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_file_reference.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \u003ccaret\u003epet.yaml\n"
+			"name": "hello-world.yaml",
+			"path": "src/main/resources/templates/api-gateways/hello-world.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: dummy\n        content:\n          '*': \"Hello, World!\"\n        http_code: 200\n        http_headers:\n          Content-Type: \"text/plain\"\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003epet.yaml\": resolve reference \"\u003ccaret\u003epet.yaml\": invalid schema reference \"\u003ccaret\u003epet.yaml\""
+	"Error": "parse: paths: /: get: : responses: no responses"
 }

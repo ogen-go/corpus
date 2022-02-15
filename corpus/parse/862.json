@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/punkerpunker/isochrone"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "containers/app/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Isochrone\n  description: https://github.com/punkerpunker/isochrone-api\n  version: 0.0.1\n\npaths:\n  /isochrone: \n    get: \n      operationId: app.isochrone\n      parameters: \n        - name: X \n          description: Longitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: Y\n          description: Latitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: sec\n          description: Seconds\n          in: query\n          schema:\n            type: integer\n          required: true\n      responses:\n        '200':\n          description: Isochrone WKT polygon\n          content: \n            application/json:\n              schema:\n                type: object\n                properties:\n                  polygon:\n                    type: string"
+			"name": "simpleSchemaWithExamplesNotMachingType.yaml",
+			"path": "test/data/valid_openapi31X/yaml/simpleSchemaWithExamplesNotMachingType.yaml",
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with examples\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type:\n        - object\n      properties:\n        id:\n          type:\n            - string\n            - integer\n          examples:\n            - 1234\n            - 12\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }

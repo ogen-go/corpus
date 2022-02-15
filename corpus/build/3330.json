@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kvikuz/sls-web-application"
+			"name": "github.com/jhthorsen/mojolicious-plugin-openapi"
 		},
 		"file": {
-			"name": "website.yaml",
-			"path": "openapi/website.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Movies Website\nx-yc-apigateway:\n  service_account_id: ${movies_api_sa_id}\n\npaths:\n  /:\n    get:\n      operationId: index\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: 'index.html'\n  /{file+}:\n    get:\n      operationId: website\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: '{file}'\n  /images/{file+}:\n    get:\n      operationId: posters\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_images_bucket}\n        object: '{file}'\n"
+			"name": "v3-valid_file_refs.yaml",
+			"path": "t/spec/v3-valid_file_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test file refs\n  version: \"1\"\nservers:\n  - url: /api\npaths:\n  /test:\n    get:\n      operationId: File\n      parameters:\n        - $ref: \"v3-valid_include.yaml#/components/parameters/PCVersion\"\n      responses:\n        \"200\":\n          description: thing\n          content:\n            \"*/*\":\n              schema:\n                type: string"
 		}
 	},
-	"Error": "parse: paths: /images/{file+}: get: posters: parameters: parse parameter \"file\": path parameters must be required"
+	"Error": "parse: paths: /test: get: File: parameters: parse parameter \"\": resolve \"v3-valid_include.yaml#/components/parameters/PCVersion\" reference: invalid parameter reference: \"v3-valid_include.yaml#/components/parameters/PCVersion\""
 }

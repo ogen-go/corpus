@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/springdoc/springdoc-openapi"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/unresolvable-path-item/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/invalid-pointer\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "app26.json",
+			"path": "springdoc-openapi-javadoc/src/test/resources/results/app26.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/persons\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"description\": \"Persons my model.\",\n        \"operationId\": \"persons\",\n        \"parameters\": [\n          {\n            \"name\": \"myModel\",\n            \"in\": \"query\",\n            \"description\": \"the my model\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyModel\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the my model\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MyModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyModel\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"thing\": {\n            \"type\": \"object\",\n            \"description\": \"Hello\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "make ir: path \"/persons\": post: parameters: field \"thing\": nested objects not allowed"
 }

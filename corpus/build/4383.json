@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "test.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/test.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: /\ninfo:\n  description: It works.\n  version: 1.0.0\n  title: My API\npaths:\n  /samplePath:\n    $ref: '/test2.yaml'"
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-975/contract/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Common Image Type\n  version: 5.0.0\npaths:\n  /foo:\n    get:\n      summary: Common JSON objects\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '../types/responses.yaml#/components/schemas/MyResponse'\n"
 		}
 	},
-	"Error": "parse: /samplePath: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"../types/responses.yaml#/components/schemas/MyResponse\": resolve reference \"../types/responses.yaml#/components/schemas/MyResponse\": invalid schema reference \"../types/responses.yaml#/components/schemas/MyResponse\""
 }

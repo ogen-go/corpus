@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/dzeyelid/decode20-azure-quiz-client"
 		},
 		"file": {
-			"name": "authentication-apikey.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/authentication/authentication-apikey.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Authentication\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /authentication/apikey:\n    post:\n      tags:\n        - Authentication\n      summary: Login - API Key\n      operationId: authenticationApiKey\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                apiKey:\n                  type: string\n                  format: base64\n                  example: 'z8PEVr4XdBS/KKEKbVG9tJzj6DNNpSVCDpW53CWm'\n              required:\n                - apiKey\n      responses:\n        200:\n          description: The new AccessToken\n          content:\n            application/json:\n              schema:\n                $ref: './authentication.yaml#/components/schemas/accessToken'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n      security: []\n"
+			"name": "to-web-client.yaml",
+			"path": "docs/openapi/to-web-client.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: de:code 2020 Tech Quiz - Control client\n  description: APIs to control web client that makes audience answer for de:code 2020 Tech Quiz\n  version: 1.0.0\n\nservers:\n  - url: 'http://localhost:{port}/api'\n    description: Local\n    variables:\n      port:\n        default: '8080'\n        description: port number\n  - url: 'https://{prefix}.{location}.azurestaticapps.net/api'\n    description: Static Web App\n    variables:\n      prefix:\n        default: \u003cInput here\u003e\n        description: Sub domain prefix\n      location:\n        default: eastasia\n        description: Location\n\npaths:\n  /messages:\n    post:\n      operationId: sendMessage\n      summary: Send a message to web client\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\"\n      responses:\n        '200':\n          description: Succeeded\n"
 		}
 	},
-	"Error": "parse: paths: /authentication/apikey: post: authenticationApiKey: responses: 200: content: application/json: schema: parse schema: reference \"./authentication.yaml#/components/schemas/accessToken\": resolve reference \"./authentication.yaml#/components/schemas/accessToken\": invalid schema reference \"./authentication.yaml#/components/schemas/accessToken\""
+	"Error": "parse: paths: /messages: post: sendMessage: requestBody: content: application/json: parse schema: parse schema: reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\": resolve reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\": invalid schema reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-diff"
+			"name": "github.com/OpenAPITools/empoa"
 		},
 		"file": {
-			"name": "content_type_response_add_2.yaml",
-			"path": "core/src/test/resources/content_type_response_add_2.yaml",
-			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: \"Test title\"\n  description: \"This is a test metadata\"\n  termsOfService: \"http://test.com\"\n  contact:\n    name: \"Mark Snijder\"\n    url: \"marksnijder.nl\"\n    email: \"snijderd@gmail.com\"\n  license:\n    name: \"To be decided\"\n    url: \"http://test.com\"\n  version: \"version 1.0\"\npaths:\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: find pet by id\n      responses:\n        '200':\n          description: response\n          content:\n            application/json:\n              schema:\n                type: string\n            application/xml:\n              schema:\n                type: string\n"
+			"name": "multiple-responses.yaml",
+			"path": "empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/multiple-responses.yaml",
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: A Specification\n  version: \"1.0\"\nservers:\n- url: http://localhost:8080/\npaths:\n  /ping:\n    get:\n      operationId: pingGet\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PingObject'\n        \"4XX\":\n          $ref: '#/components/responses/BusinessErrorResponse'\n        default:\n          description: Server Error\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Error'\n    post:\n      operationId: pingPost\n      responses:\n        \"405\":\n          description: POST is not allowed\ncomponents:\n  schemas:\n    PingObject:\n      type: object\n      title: Title\n      description: Some description\n      properties:\n        id:\n          type: integer\n          format: int32\n        name:\n          type: string\n    Error:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  responses:\n    BusinessErrorResponse:\n      description: Business Error\n      content:\n        '*/*':\n          schema:\n            $ref: '#/components/schemas/Error'\n"
 		}
 	},
-	"Error": "parse: paths: /pets/{id}: get: find pet by id: parse path: path parameter not specified: \"id\""
+	"Error": "make ir: path \"/ping\": get: responses: parse response status code: strconv.Atoi: parsing \"4XX\": invalid syntax"
 }

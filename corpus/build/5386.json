@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/apioo/psx-model"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "openapi_security.json",
-			"path": "tests/OpenAPI/resources/openapi_security.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"\\/pets\\/{petId}\": {\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"security\": [\n          {\n            \"oauth\": [\n              \"foo\",\n              \"bar\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"oauth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"http:\\/\\/api.phpsx.org\\/authorization\",\n            \"tokenUrl\": \"http:\\/\\/api.phpsx.org\\/token\",\n            \"refreshUrl\": \"http:\\/\\/api.phpsx.org\\/token\\/refresh\",\n            \"scopes\": {\n              \"foo\": \"Foo scope\",\n              \"bar\": \"Bar scope\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "headers-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /pets/{petId}: get: : parse path: path parameter not specified: \"petId\""
+	"Error": "parse: paths: /p: get: : responses: no responses"
 }

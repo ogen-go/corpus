@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/karlvr/openapi-generator-plus"
+			"name": "github.com/jdkandersson/OpenAlchemy"
 		},
 		"file": {
-			"name": "external.yml",
-			"path": "packages/core/src/__tests__/references/external.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
+			"name": "url-example-spec.yml",
+			"path": "examples/remote/url-example-spec.yml",
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate OpenAlchemy MVP.\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Employee:\n      \"$ref\": \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\"\n"
 		}
 	},
-	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
+	"Error": "parse: paths: /employee: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/Employee\": parse schema: reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\": resolve reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\": invalid schema reference \"https://raw.githubusercontent.com/jdkandersson/OpenAlchemy/master/examples/remote/remote-example-spec.yml#/Employee\""
 }

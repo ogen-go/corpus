@@ -5,10 +5,10 @@
 			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/general/invalid_format/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n    parameters:\n      - name: id\n        in: path\n        description: ID of pet to use\n        required: true\n        schema:\n          type: array\n          items:\n            type: object\n            properties:\n              myObject:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              length:\n                type: integer\n                format: float\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: double\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: int32\n        result:\n          type: number\n          format: double\n"
+			"name": "positive7.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive7.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default:\n                  - { \"message\": \"hello\", \"code\": 200 }\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: unexpected type: \"object\""
 }

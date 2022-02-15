@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/openshift-instruqt/instruqt"
+			"name": "github.com/opendatadiscovery/opendatadiscovery-specification"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "serverless/camel-k-serving/scripts/helper/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n    title: Camel K Object API\n    version: 1.0.0\n    description: A CRUD API for an object store\npaths:\n    /:\n        get:\n            responses:\n                '200':\n                    content:\n                        application/json:\n                            schema:\n                                type: array\n                                items:\n                                    type: string\n                    description: Object list\n            operationId: list\n            summary: List the objects\n    '/{name}':\n        get:\n            responses:\n                '200':\n                    content:\n                        application/octet-stream: {}\n                    description: The object content\n            operationId: get\n            summary: Get the content of an object\n        put:\n            requestBody:\n                description: The object content\n                content:\n                    application/octet-stream: {}\n                required: true\n            responses:\n                '200':\n                    description: The object has been created\n            operationId: create\n            summary: Save an object\n        delete:\n            responses:\n                '204':\n                    description: Object has been deleted\n            operationId: delete\n            summary: Delete an object\n        parameters:\n            -\n                name: name\n                description: Name of the object\n                schema:\n                    type: string\n                in: path\n                required: true\n    /list:\n        get:\n            responses:\n                '200':\n                    content:\n                        application/json:\n                            schema:\n                                type: array\n                                items:\n                                    type: string\n            operationId: list\n            summary: List the objects\n"
+			"name": "odd_adapter.yaml",
+			"path": "specification/odd_adapter.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: OpenDataDiscovery Adapter Contract\n  version: 0.0.1\n  description: OpenDataDiscovery Adapter Contract\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\npaths:\n  /entities:\n    get:\n      description: Provides list of available entities\n      operationId: getDataEntities\n      tags:\n        - OpenDataDiscoveryAdapter\n      parameters:\n        - in: query\n          name: changed_since\n          schema:\n            type: string\n            format: date-time\n          description: Get data enitites updated after changed_since date\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: './entities.yaml/#/components/schemas/DataEntityList'\n"
 		}
 	},
-	"Error": "parse: paths: /list: get: duplicate operationId: \"list\""
+	"Error": "parse: paths: /entities: get: getDataEntities: responses: 200: content: application/json: schema: parse schema: reference \"./entities.yaml/#/components/schemas/DataEntityList\": resolve reference \"./entities.yaml/#/components/schemas/DataEntityList\": invalid schema reference \"./entities.yaml/#/components/schemas/DataEntityList\""
 }

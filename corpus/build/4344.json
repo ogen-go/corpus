@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/swagger-api/swagger-core"
 		},
 		"file": {
-			"name": "spec.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-901/spec.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: testswos55\n  description: testswos55\n  version: \"1.01\"\nservers:\n- url: ///test\npaths:\n  /test:\n    $ref: ref.yaml/#/pathitems/path-test\n"
+			"name": "LinksResource.yaml",
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /links:\n    get:\n      operationId: getUserWithAddress\n      parameters:\n      - name: userId\n        in: query\n        schema:\n          type: string\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            address:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\n            user:\n              operationId: getUser\n              parameters:\n                userId: $request.query.userId\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /links: get: getUserWithAddress: responses: default: content: */*: schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
 }

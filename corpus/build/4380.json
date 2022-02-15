@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "same-refs-different-model.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/same-refs-different-model.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'"
+			"name": "main.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      requestBody:\n        content:\n          application/json:\n            schema:\n              required:\n                - test\n              type: object\n              properties:\n                test:\n                  type: string\n            examples:\n              plain:\n                summary: plain example\n                value:\n                  test: plain\n              local:\n                $ref: '#/components/examples/LocalRef'\n              external:\n                $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                required:\n                  - test\n                type: object\n                properties:\n                  test:\n                    type: string\n              examples:\n                plain:\n                  summary: plain example\n                  value:\n                    test: plain\n                local:\n                  $ref: '#/components/examples/LocalRef'\n                external:\n                  $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n  /guests:\n    $ref: './issue-837-853-1131/external-operation.yaml'\n\ncomponents:\n  examples:\n    LocalRef:\n      summary: A local reference\n      value:\n        test: local\n\n\n"
 		}
 	},
-	"Error": "parse: /bar: parameters: parse parameter \"\": resolve \"http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid\" reference: invalid parameter reference: \"http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid\""
+	"Error": "parse: paths: /events: get: getEvents: responses: 200: resolve: \"./issue-837-853-1131/components.yaml#/components/examples/ExternalRef\": invalid parameter reference: \"./issue-837-853-1131/components.yaml#/components/examples/ExternalRef\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/ebi-uniprot/openapi-spring-maven-plugin"
 		},
 		"file": {
-			"name": "authentication-info.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/authentication/authentication-info.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Authentication\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /authentication/info:\n    get:\n      description: Returns all the Authentication and Authorization informations about the current session\n      tags:\n        - Authentication\n      summary: Login Info\n      operationId: authenticationLoginInfo\n      responses:\n        200:\n          description: An object conatining all the Authentication and Authorization informations about the current session\n          content:\n            application/json:\n              schema:\n                $ref: './authentication.yaml#/components/schemas/loginInfo'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "link-annotation.yaml",
+			"path": "src/test/resources/expected-output/link-annotation.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: OpenAPI definition\n  version: v0\nservers:\n- url: localhost\n  description: ' Default server url'\npaths:\n  /links:\n    get:\n      operationId: getUser\n      parameters:\n      - name: userId\n        in: query\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            address:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\n            user:\n              operationId: getUser\n              parameters:\n                userId: $request.query.userId\ncomponents: {}\n"
 		}
 	},
-	"Error": "parse: paths: /authentication/info: get: authenticationLoginInfo: responses: 200: content: application/json: schema: parse schema: reference \"./authentication.yaml#/components/schemas/loginInfo\": resolve reference \"./authentication.yaml#/components/schemas/loginInfo\": invalid schema reference \"./authentication.yaml#/components/schemas/loginInfo\""
+	"Error": "parse: paths: /links: get: getUser: responses: default: content: */*: schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
 }

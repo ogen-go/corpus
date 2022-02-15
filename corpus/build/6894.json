@@ -1,0 +1,14 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_parameter.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_parameter.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"\u003ccaret\u003eParameter\": {}\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/Parameter\" reference: component by reference \"#/components/parameters/Parameter\" not found"
+}

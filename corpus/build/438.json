@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/italia/api-oas-checker"
+			"name": "github.com/influxdata/openapi"
 		},
 		"file": {
-			"name": "https-test.yml",
-			"path": "rules/tests/https-test.yml",
-			"content": "openapi: \"3.0.1\"\nservers:\n  - url: https://ko.nodescription\n  - url: https://ok.example\n    description: production\n  - url: http://ok.sandbox.examle\n    x-sandbox: true\n    description: ok\n  - url: http://ko.example\n    description: should be https\n  - url: http://ko.sandbox.examle\n    x-sandbox: false\n    description: should be https\npaths:\n  /foo-ko:\n    get:\n      servers:\n        - url: https://ko.nodesc.example\n        - url: https://ok.example\n          description: production\n        - url: http://ko.example\n          description: production\n        - url: http://ok.sandbox.examle\n          x-sandbox: true\n          description: ok\n"
+			"name": "svc-pinneditemsd.yml",
+			"path": "src/svc-pinneditemsd.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: pinneditemsd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /pinned:\n    $ref: './svc/pinneditemsd/paths/pinned.yml'\n  /pinned/{id}:\n    $ref: './svc/pinneditemsd/paths/pinned_id.yml'\ncomponents:\n  requestBodies:\n    PinnedItemParams:\n      $ref: './svc/pinneditemsd/requestBodies/PinnedItemParams.yml'\n  schemas:\n    PinnedItem:\n      $ref: './svc/pinneditemsd/schemas/pinnedItem.yml'\n    PinnedItemArray:\n      $ref: './svc/pinneditemsd/schemas/pinnedItemArray.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
 		}
 	},
-	"Error": "parse: paths: /foo-ko: get: : responses: no responses"
+	"Error": "parse: /pinned: referenced pathItem not supported"
 }

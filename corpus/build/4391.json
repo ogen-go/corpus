@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "deep-linking.openapi.yaml",
-			"path": "test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
+			"name": "issue-310.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                required:\n                  - paging\n                  - items\n                type: object\n                properties:\n                  paging:\n                    $ref: './common/paging.yaml#/Paging'\n                  items:\n                    $ref: '#/components/schemas/StatusResponse'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n"
 		}
 	},
-	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
+	"Error": "parse: paths: /events: get: getEvents: responses: 200: content: application/json; charset=utf-8: schema: parse schema: paging: parse schema: reference \"./common/paging.yaml#/Paging\": resolve reference \"./common/paging.yaml#/Paging\": invalid schema reference \"./common/paging.yaml#/Paging\""
 }
