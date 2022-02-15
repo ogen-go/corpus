@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "request-body-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/request-body/request-body-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"requestBodies\": {\n      \"test\": {\n        \"description\": \"a description\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"description\": \"a parameter\"\n          }\n        ],\n        \"requestBody\": {\n          \"$ref\": \"*\"\n        }\n      }\n    }\n  }\n}"
+			"name": "callbacks-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/callbacks/callbacks-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"callbacks\": {\n      \"test\": {\n        \"$request.body#/url\": {\n          \"description\": \"a callback\"\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/endpoint\": {\n      \"get\": {\n        \"callbacks\": {\n          \"reference\":{\n            \"$ref\": \"*\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /endpoint: get: : responses: no responses"
 }

@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/security-schemes-object/fixtures/components-security-schemes/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"securitySchemes\": {\n        \"api_key\": {\n          \"type\": \"apiKey\",\n          \"name\": \"api_key\",\n          \"in\": \"header\"\n        },\n        \"api_key2\": {\n          \"type\": \"apiKey\",\n          \"name\": \"api_key\",\n          \"in\": \"header\"\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/merging-keywords/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"profile\": {\n              \"type\": \"object\",\n              \"description\": \"user profile\",\n              \"properties\": {\n                \"firstName\": {\n                  \"type\": \"string\"\n                },\n                \"lastName\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"properties\": {\n            \"firstName\": {\n              \"type\": \"string\"\n            },\n            \"lastName\": {\n              \"type\": \"string\"\n            }\n          }\n        },\n        \"Order\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"orderId\": {\n              \"type\": \"number\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

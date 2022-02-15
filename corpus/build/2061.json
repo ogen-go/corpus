@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_parameter.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_parameter.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"\u003ccaret\u003eParameter\": {}\n    }\n  }\n}\n"
+			"name": "request_body_ref.json",
+			"path": "src/test/resources/testing/completion/value/openapi/request_body_ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"\u003ccaret\u003e\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Foo\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/Parameter\" reference: component by reference \"#/components/parameters/Parameter\" not found"
+	"Error": "parse: paths: /pathA: get: : requestBody: resolve \"\u003ccaret\u003e\" reference: invalid requestBody reference: \"\u003ccaret\u003e\""
 }

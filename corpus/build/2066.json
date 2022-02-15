@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_response_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_response_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"404\": {\n            \"$ref\": \"#/components/responses/NewNotFound\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"\u003ccaret\u003eNewNotFound\": {}\n    }\n  }\n}\n"
+			"name": "parameter_without_in_ref.json",
+			"path": "src/test/resources/testing/documentation/openapi/json/parameter_without_in_ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"\u003ccaret\u003e#/components/parameters/Parameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"Parameter\": {\n        \"name\": \"parameter_name\",\n        \"description\": \"Description\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"#/components/responses/NewNotFound\" reference: component by reference \"#/components/responses/NewNotFound\" not found"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e#/components/parameters/Parameter\" reference: invalid parameter reference: \"\u003ccaret\u003e#/components/parameters/Parameter\""
 }

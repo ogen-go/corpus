@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "overriding-param-output.json",
-			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/basic-parameters/overriding-param-output.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test/{itemId}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"someNumber\",\n            \"allowEmptyValue\": true,\n            \"allowReserved\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"in\": \"path\",\n            \"name\": \"itemId\",\n            \"deprecated\": false,\n            \"schema\": {\n              \"type\": \"string\",\n              \"example\": \"some example\"\n            },\n            \"style\": \"simple\"\n          },\n          {\n            \"in\": \"cookie\",\n            \"name\": \"aCookie\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"style\": \"form\"\n          }\n        ],\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "reference-external-example.json",
+			"path": "amf-cli/shared/src/test/resources/cycle/oas30/example/reference-external-example.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\"\n                },\n                \"examples\": {\n                  \"a\": {\n                    \"$ref\": \"external-example.json\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test/{itemId}: get: test: parameters: parse parameter \"itemId\": path parameters must be required"
+	"Error": "parse: paths: /test: get: test: responses: 200: resolve: \"external-example.json\": invalid parameter reference: \"external-example.json\""
 }

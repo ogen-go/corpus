@@ -5,10 +5,10 @@
 			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "new-media-type-response.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-media-type/openapi-3/new-media-type-response.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "new-operation.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/new-operation/openapi-3/new-operation.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"put\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
 }

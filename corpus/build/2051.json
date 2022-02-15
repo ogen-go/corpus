@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "response_ref.json",
-			"path": "src/test/resources/testing/documentation/openapi/json/response_ref.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"\u003ccaret\u003e#/components/responses/Response\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"Response\": {\n        \"description\": \"Description\"\n      }\n    }\n  }\n}\n"
+			"name": "request_bodies.json",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/request_bodies.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"components.json#/Pet\"\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 200: resolve \"\u003ccaret\u003e#/components/responses/Response\" reference: invalid response reference: \"\u003ccaret\u003e#/components/responses/Response\""
+	"Error": "parse: paths: /pathA: get: : requestBody: resolve \"components.json#/Pet\" reference: invalid requestBody reference: \"components.json#/Pet\""
 }
