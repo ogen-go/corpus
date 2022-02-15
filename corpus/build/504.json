@@ -5,10 +5,10 @@
 			"name": "github.com/RicoSuter/NSwag"
 		},
 		"file": {
-			"name": "path-reference.json",
-			"path": "src/NSwag.Core.Tests/TestFiles/path-reference.json",
-			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/reference/test\": {\n      \"$ref\": \"./common.json#/paths/foo\"\n    }\n  }\n}\n"
+			"name": "PathItemWithRef.json",
+			"path": "src/NSwag.Core.Tests/Serialization/PathItemTest/PathItemWithRef.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Path Item With Ref\",\n    \"description\": \"Testing external $ref on path items\"\n  },\n  \"paths\": {\n    \"/aValidPath\": {\n      \"$ref\": \"./refs/PathItem.json#/aValidPath\"\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /reference/test: referenced pathItem not supported"
+	"Error": "parse: /aValidPath: referenced pathItem not supported"
 }

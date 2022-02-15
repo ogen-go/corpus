@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "variables-value.json.ignore",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/paths/path-object/operation/servers/variables/variables-value.json.ignore",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"servers\": [\n          {\n            \"variables\": {\n              \"name\": \"*\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
+			"name": "request-body-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/request-body/request-body-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"requestBodies\": {\n      \"test\": {\n        \"description\": \"a description\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"description\": \"a parameter\"\n          }\n        ],\n        \"requestBody\": {\n          \"$ref\": \"*\"\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

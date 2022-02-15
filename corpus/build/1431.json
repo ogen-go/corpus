@@ -5,10 +5,10 @@
 			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "responses.generation-suppressed-by-api-responses-annotation.json",
-			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.generation-suppressed-by-api-responses-annotation.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/pets\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "paths-get-responses.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-responses.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: post: : responses: no responses"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_callback.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_callback.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"callbacks\": {\n          \"foo\": {\n            \"$ref\": \"#/components/callbacks/Callback\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"callbacks\": {\n      \"\u003ccaret\u003eCallback\": {}\n    }\n  }\n}\n"
+			"name": "schema.json",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/schema.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"pet.json\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : responses: no responses"
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"pet.json\": resolve reference \"pet.json\": invalid schema reference \"pet.json\""
 }
