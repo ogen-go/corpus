@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "schema_ref.yaml",
-			"path": "src/test/resources/testing/completion/value/openapi/schema_ref.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:    \n              schema:\n                $ref: \"\u003ccaret\u003e\"\ncomponents:\n  schemas:\n    Pet:\n"
+			"name": "request_body_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/request_body_ref.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      requestBody:\n        $ref: '\u003ccaret\u003e#/components/requestBodies/Foo'\ncomponents:\n  requestBodies:\n    Foo:\n      description: Description\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e\": resolve reference \"\u003ccaret\u003e\": invalid schema reference \"\u003ccaret\u003e\""
+	"Error": "parse: paths: /pathA: get: operation \"\": requestBody: resolve \"\u003ccaret\u003e#/components/requestBodies/Foo\" reference: invalid requestBody reference: \"\u003ccaret\u003e#/components/requestBodies/Foo\""
 }

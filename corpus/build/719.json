@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/spec-first/connexion"
+			"name": "github.com/aws/aws-sam-cli"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/fixtures/default_param_error/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n"
+			"name": "sample-definition.yaml",
+			"path": "tests/integration/testdata/start_api/cdk/sample-definition.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: API Gateway IP Filtering Example API\n  version: 1.0.0\n\npaths:\n  /anyandall:\n    any:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n  /proxypath/{proxy+}:\n    get:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n"
 		}
 	},
-	"Error": "parse: paths: /default-param-query-does-not-match-type: get: fakeapi.hello.test_default_missmatch_definition: parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
+	"Error": "parse: paths: /proxypath/{proxy+}: get: operation \"example\": parse path: path parameter not specified: \"proxy+\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "openapi3/testdata/relativeDocsUseDocumentPath/openapi/openapi.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"1.0\"\npaths:\n  /pets/{id}:\n    $ref: \"paths/nesteddir/CustomTestPath.yml\"\n  /pets/{id}/{city}:\n    $ref: \"paths/nesteddir/morenested/CustomTestPath.yml\"\ncomponents: {}\n"
+			"name": "pathref.openapi.yml",
+			"path": "openapi3/testdata/pathref.openapi.yml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    $ref: 'circularref.openapi.yml#/paths/~1test'\ncomponents:\n  schemas:\n    TestSchema:\n      type: string\n"
 		}
 	},
-	"Error": "parse: /pets/{id}: referenced pathItem not supported"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

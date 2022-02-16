@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/BioKIC/NEON-Biorepository"
 		},
 		"file": {
-			"name": "config-with-invalid-refs.yaml",
-			"path": "test/resources/multiple-config-files/config-with-invalid-refs.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './invalid/paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './invalid/paths/more-movies-actor.yaml'\n\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "5164.yaml",
+			"path": "api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/bugs/5164.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                first:\n                  type: object\n                  example:\n                    one: abc\n                    two: 123\n                second:\n                  type: array\n                  items:\n                    type: string\n                  example:\n                  - \"hi\""
 		}
 	},
-	"Error": "parse: /more_movies/{actor}: referenced pathItem not supported"
+	"Error": "parse: paths: /: post: operation \"\": responses: no responses"
 }

@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "test/s2o-test/issue102/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n    /ping:\n       $ref: \"endpoints/ping.yaml#/paths/~1ping\"\ncomponents:\n    schemas:\n        ping:\n            $ref: 'schemas/ping.json'\n"
+			"path": "test/validator/escapedRef/openapi.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: API\n  version: 1.0.0\n  contact:\n    name: example.com\n    email: foo@bar.com\n    url: https://foobar.com\ntags:\n  - name: tag\n    description: A tag\npaths:\n  x-foo/bar:\n    get:\n      responses:\n        '200':\n          description: OK\n  /test:\n    $ref: '#/paths/x-foo~1bar'\n"
 		}
 	},
-	"Error": "parse: /ping: referenced pathItem not supported"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

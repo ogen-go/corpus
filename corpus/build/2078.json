@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/cirrus-geo/cirrus-earth-search"
 		},
 		"file": {
-			"name": "Maps_MapDbId_GET.yaml",
-			"path": "Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /maps/{mapDbId}:\n    get:\n      summary: Get the details of a specific Genomic Map\n      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup\n      parameters:\n      - description: The internal db id of a selected map\n        in: path\n        name: mapDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: GenomeMapSingleResponse\n                type: object\n                required:\n                - metadata\n                - result\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/GenomeMap'\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Genome Maps\n"
+			"name": "api.yaml",
+			"path": "core/api/api.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Cirrus API\n  version: 0.1.0\n  license:\n    name: Apache License 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0'\n  description: \u003e-\n    This is an OpenAPI definition of the Cirrus API.\n  contact:\n    name: Cirrus\n    url: 'http://element84.com'\ntags:\n  - name: Capabilities\n    description: essential characteristics of this API\n  - name: Data\n    description: access to dat\n  - name: STAC\n    description: STAC metadata specification\npaths:\n  /:\n    get:\n      tags:\n        - Capabilities\n      summary: landing page\n      description: |-\n        Returns the root Cirrus API showing links and overall statistics for the Cirrus instance\n      operationId: getLandingPage\n      responses:\n        '200':\n          $ref: '#/components/responses/LandingPage'\n        '500':\n          $ref: '#/components/responses/ServerError'\n  /conformance:\n    get:\n      tags:\n        - Capabilities\n      summary: information about specifications that this API conforms to\n      description: |-\n        A list of all conformance classes specified in a standard that the\n        server conforms to.\n      operationId: getConformanceDeclaration\n      responses:\n        '200':\n          $ref: '#/components/responses/ConformanceDeclaration'\n        '500':\n          $ref: '#/components/responses/ServerError'\nservers:\n  - url: 'http://www.cool-sat.com'\n    description: Cirrus API\n"
 		}
 	},
-	"Error": "parse: paths: /maps/{mapDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+	"Error": "parse: paths: /: get: operation \"getLandingPage\": responses: 200: resolve \"#/components/responses/LandingPage\" reference: component by reference \"#/components/responses/LandingPage\" not found"
 }

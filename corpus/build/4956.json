@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/kubernetes/kubernetes"
 		},
 		"file": {
-			"name": "positive3.json",
-			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive3.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersions\",\n        \"summary\": \"List versions\",\n        \"servers\": [\n          {\n            \"description\": \"server URL\"\n          }\n        ],\n        \"security\": [\n          {\n            \"OAuth2\": [\n              \"write\",\n              \"read\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "logs_openapi.json",
+			"path": "api/openapi-spec/v3/logs_openapi.json",
+			"content": "{\n  \"components\": {},\n  \"info\": {\n    \"title\": \"Kubernetes\",\n    \"version\": \"unversioned\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/logs/\": {\n      \"get\": {\n        \"operationId\": \"logFileListHandler\",\n        \"responses\": {},\n        \"tags\": [\n          \"logs\"\n        ]\n      }\n    },\n    \"/logs/{logpath}\": {\n      \"get\": {\n        \"operationId\": \"logFileHandler\",\n        \"responses\": {},\n        \"tags\": [\n          \"logs\"\n        ]\n      },\n      \"parameters\": [\n        {\n          \"description\": \"path to the log\",\n          \"in\": \"path\",\n          \"name\": \"logpath\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\",\n            \"uniqueItems\": true\n          }\n        }\n      ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersions: responses: no responses"
+	"Error": "parse: paths: /logs/: get: operation \"logFileListHandler\": responses: no responses"
 }

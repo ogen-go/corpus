@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "example_ref.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/example_ref.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: '\u003ccaret\u003e#/components/examples/Example'\ncomponents:\n  examples:\n    Example:\n      summary: Summary\n      description: Description\n"
+			"name": "rename_component_schema_after.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_schema_after.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/NewPet\"\ncomponents:\n  schemas:\n    \u003ccaret\u003eNewPet:\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e#/components/examples/Example\": invalid parameter reference: \"\u003ccaret\u003e#/components/examples/Example\""
+	"Error": "parse: paths: /pets: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/NewPet\": resolve reference \"#/components/schemas/NewPet\": schema not found"
 }

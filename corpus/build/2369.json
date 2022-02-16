@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/sleddog/methods"
+			"name": "github.com/cirrus-geo/cirrus-geo"
 		},
 		"file": {
 			"name": "api.yaml",
-			"path": "projects/fizzbuzz-service/JonathanSorem/api.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: 'FizzBuzz'\n  description: 'Prints FizzBuzz based on input.'\n# Added by API Auto Mocking Plugin\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/JonathanSorem/FizzBuzz/1.0\n\n# Basic authentication\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\nsecurity:\n  - BasicAuth: []\n\npaths:\n  /map:\n    get: \n      description: Prints FizzBuzz\n      parameters:\n        - name: latitude\n          in: query\n          description: Input\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Successfully printed FizzBuzz\n          content:\n            application/json:\n              schema:\n                type: List\n                items:\n                  type: integer\n                  required:\n                    - input\n                  properties:\n                    fizzbuzz:\n                      type: integer\n        '400':\n          description: Invalid request\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:   \n                  message:\n                    type: string"
+			"path": "src/cirrus/builtins/functions/api/api.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Cirrus API\n  version: 0.1.0\n  license:\n    name: Apache License 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0'\n  description: \u003e-\n    This is an OpenAPI definition of the Cirrus API.\n  contact:\n    name: Cirrus\n    url: 'http://element84.com'\ntags:\n  - name: Capabilities\n    description: essential characteristics of this API\n  - name: Data\n    description: access to dat\n  - name: STAC\n    description: STAC metadata specification\npaths:\n  /:\n    get:\n      tags:\n        - Capabilities\n      summary: landing page\n      description: |-\n        Returns the root Cirrus API showing links and overall statistics for the Cirrus instance\n      operationId: getLandingPage\n      responses:\n        '200':\n          $ref: '#/components/responses/LandingPage'\n        '500':\n          $ref: '#/components/responses/ServerError'\n  /conformance:\n    get:\n      tags:\n        - Capabilities\n      summary: information about specifications that this API conforms to\n      description: |-\n        A list of all conformance classes specified in a standard that the\n        server conforms to.\n      operationId: getConformanceDeclaration\n      responses:\n        '200':\n          $ref: '#/components/responses/ConformanceDeclaration'\n        '500':\n          $ref: '#/components/responses/ServerError'\nservers:\n  - url: 'http://www.cool-sat.com'\n    description: Cirrus API\n"
 		}
 	},
-	"Error": "parse: paths: /map: get: : responses: 200: content: application/json: schema: parse schema: unexpected schema type: \"List\""
+	"Error": "parse: paths: /: get: operation \"getLandingPage\": responses: 200: resolve \"#/components/responses/LandingPage\" reference: component by reference \"#/components/responses/LandingPage\" not found"
 }

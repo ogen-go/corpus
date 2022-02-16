@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ota42y/openapi_parser"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "path-item-ref.yaml",
-			"path": "spec/data/path-item-ref.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /sample/{sample_id}:\n    parameters:\n      - name: sample_id\n        in: path\n        required: true\n        schema:\n          type: string\n    post:\n      description: override here\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                test:\n                  type: string\n              required:\n                - test\n      responses:\n        '204':\n          description: empty\n  /ref-sample:\n    $ref: '#/paths/~1sample~1%7Bsample_id%7D'\n  /ref-sample/relative:\n    $ref: 'path-item-ref-relative.yaml#/paths/~1ref-sample~1relative'\n"
+			"name": "dataChannel-scopeId-channelInfoId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/dataChannel/dataChannel-scopeId-channelInfoId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Channel\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/channels/{channelInfoId}:\n    get:\n      tags:\n        - Data Channel\n      summary: Get a single ChannelInfo\n      operationId: channelInfoGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './dataChannel.yaml#/components/parameters/channelInfoId'\n      responses:\n        200:\n          description: The desired ChannelInfo\n          content:\n            application/json:\n              schema:\n                $ref: './dataChannel.yaml#/components/schemas/channelInfo'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: /ref-sample: referenced pathItem not supported"
+	"Error": "parse: paths: /{scopeId}/data/channels/{channelInfoId}: get: operation \"channelInfoGet\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

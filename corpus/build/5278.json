@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/apioo/psx-model"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "openapi_security.json",
-			"path": "tests/OpenAPI/resources/openapi_security.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"\\/pets\\/{petId}\": {\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"security\": [\n          {\n            \"oauth\": [\n              \"foo\",\n              \"bar\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"oauth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"http:\\/\\/api.phpsx.org\\/authorization\",\n            \"tokenUrl\": \"http:\\/\\/api.phpsx.org\\/token\",\n            \"refreshUrl\": \"http:\\/\\/api.phpsx.org\\/token\\/refresh\",\n            \"scopes\": {\n              \"foo\": \"Foo scope\",\n              \"bar\": \"Bar scope\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "paths-with-extensions.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-with-extensions.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"x-not-a-path\" : \"extension-value\",\n      \"x-some-number\" : 42,\n      \"x-some-boolean\" : true,\n      \"x-some-object\" : {\n        \"foo\": \"bar\"\n      },\n      \"x-some-array\" : [ \"foo\", \"bar\" ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets/{petId}: get: : parse path: path parameter not specified: \"petId\""
+	"Error": "parse: paths: /foo: get: operation \"listPets\": responses: no responses"
 }

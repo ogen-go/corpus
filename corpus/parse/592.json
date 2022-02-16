@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/oleksandrvorob/openapi-typescript"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "null-in-enum.yaml",
-			"path": "tests/v3/specs/null-in-enum.yaml",
-			"content": "openapi: 3.0\npaths:\n  /test:\n    get:\n      tags:\n        - test\n      summary: \"Just a test path\"\n      responses:\n        200:\n          description: A list of types.\ncomponents:\n  schemas:\n    MyType:\n      description: Enum with null and nullable\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n          nullable: true\n    MyTypeNotNullable:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n    MyTypeNotNullableNotNull:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\"]\n    MyTypeMixed:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", 2, false, null]"
+			"name": "ref.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/swos-443/ref.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Acme Components\n  description: Common components for Acme REST APIs\n  version: '1'\npaths:\n  /refPet:\n    get:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      operationId: addPet\ncomponents:\n  links:\n    unsubscribe:\n      operationId: cancelHookCallback\n      parametersx:\n        id: $response.body#/hookId\n  headers:\n    X-Rate-Limit-Limit:\n      descriptasdd: The number of allowed requests in the current period\n      schema:\n        type: integer\n      example: \"This is a header example\"\n  securitySchemes:\n    api_key:\n      type: apiKey\n      namex: api_key\n      in: not\n  examples:\n    response-example:\n      summaryx: This is a text example\n      value:\n        id: 3\n        name: Tricia McMillan\n      externalValue: 'http://foo.bar/examples/address-example.txt'\n  requestBodies:\n    NewItem:\n      asdasd: asd\n      descasdasdription: A JSON object containing item data\n      required: true\n      content:\n        application/json:\n          schema:\n            type: asd\n  responses:\n    GeneralError:\n      descrsaiption: An error occurred\n      asdas: asdasd\n  schemas:\n    ErrorModel:\n      type: object\n      properties:\n    Examples:\n      description: The example model\n      nonExpected: arbitrary keyword\n      type: object\n      properties:\n        foo:\n  parameters:\n    skipParam:\n      name: skip\n      in: wrong\n      descriptionx: number of items to skip\n  callbacks:\n    failed:\n      wrongField: badCallback\n    webhookVerificationEvent:\n      'https://yourdomain.com/css/yourCallbackEndpoint':\n        postx:\n          parameters:\n            - $ref: '#/components/parameters/x-api-key'\n          requestBody:\n            required: true\n            description: description\n            content:\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/WebhookVerification'\n          responses:\n            '202':\n              description: Your server returns this code if it accepts the message it was sent\n\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
+	"Error": "start: unexpected byte 110 'n'"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/punkerpunker/isochrone"
 		},
 		"file": {
-			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_restrective/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            allOf:\n            - type: object\n              properties:\n                id:\n                  type: string\n                name:\n                  type: string\n              additionalProperties: 'false'\n            - type: string\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+			"name": "swagger.yaml",
+			"path": "containers/app/swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Isochrone\n  description: https://github.com/punkerpunker/isochrone-api\n  version: 0.0.1\n\npaths:\n  /isochrone: \n    get: \n      operationId: app.isochrone\n      parameters: \n        - name: X \n          description: Longitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: Y\n          description: Latitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: sec\n          description: Seconds\n          in: query\n          schema:\n            type: integer\n          required: true\n      responses:\n        '200':\n          description: Isochrone WKT polygon\n          content: \n            application/json:\n              schema:\n                type: object\n                properties:\n                  polygon:\n                    type: string"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
 }

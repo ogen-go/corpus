@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "example_ref.yaml",
-			"path": "src/test/resources/testing/completion/value/openapi/example_ref.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: \"\u003ccaret\u003e\"\ncomponents:\n  examples:\n    Example:\n"
+			"name": "response_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/response_ref.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /users:\n    get:\n      responses:\n        200:\n          $ref: '\u003ccaret\u003e#/components/responses/Response'\ncomponents:\n  responses:\n    Response:\n      description: Description\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e\": invalid parameter reference: \"\u003ccaret\u003e\""
+	"Error": "parse: paths: /users: get: operation \"\": responses: 200: resolve \"\u003ccaret\u003e#/components/responses/Response\" reference: invalid response reference: \"\u003ccaret\u003e#/components/responses/Response\""
 }

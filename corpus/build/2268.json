@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "example2_from_._Improved_examples.md.yaml",
-			"path": "3.0/fail/gluecon/example2_from_._Improved_examples.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Examples of the new example object using a $ref and a external link\n  version: 1.0.0\npaths:\n  '/pets':\n    get:\n      responses:\n        '200':\n          content:\n            application/json: \n              schema:\n                $ref: '#/components/schemas/Pet'\n              examples:\n                dog:\n                  summary: An example of a dog with a cat's name\n                  value:\n                    name: Puma\n                    petType: Dog\n                    color: Black\n                    gender: Female\n                    breed: Mixed\n                frog:\n                  $ref: '#/components/examples/frog-example'\n                cat:\n                  summary: An example of a cat\n                  externalValue: '/examples/cat.json'\n"
+			"name": "VariantAnnotationsSearch_POST.yaml",
+			"path": "Specification/GA4GH_BrAPI/VariantAnnotations/VariantAnnotationsSearch_POST.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/allele_annotation_service.proto\n  version: version not set\npaths:\n  /variantannotations/search:\n    post:\n      summary: \u003e-\n        Gets a list of `VariantAnnotation` messages matching the search\n        criteria.\n      description: \u003e-\n        This allows the mining of allele-specific annotations on a VariantSet by either a region or by a set of genomic features. Where a region is supplied annotation of all alleles vs all features in the region is returned. Where a set of features is supplied, only annotations against these features (matching on featuretype and id) are returned and other overlapping features are ignored.\n\n        `variantannotationsets/search` returns information on the input to the annotation. This will be a VariantSet and the reference data and software versions used in calculating the annotation. It is essential this information is exhaustive.\n\n        `POST /variantannotations/search` must accept a JSON version of `SearchVariantAnnotationsRequest` as the post body and will return a JSON version of `SearchVariantAnnotationsResponse`.\n      operationId: SearchVariantAnnotations\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SearchVariantAnnotationsResponse'\n      tags:\n        - GA4GH\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SearchVariantAnnotationsRequest'\n        required: true"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: paths: /variantannotations/search: post: operation \"SearchVariantAnnotations\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/SearchVariantAnnotationsRequest\": resolve reference \"#/components/schemas/SearchVariantAnnotationsRequest\": schema not found"
 }

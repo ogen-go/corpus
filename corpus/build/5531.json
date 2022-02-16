@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "callbacks-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/callbacks/callbacks-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"callbacks\": {\n      \"test\": {\n        \"$request.body#/url\": {\n          \"description\": \"a callback\"\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/endpoint\": {\n      \"get\": {\n        \"callbacks\": {\n          \"reference\":{\n            \"$ref\": \"*\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "new-param.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/new-param/openapi-3/new-param.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"description\": \"username to fetch\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the object to fetch\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\"\n              }\n            },\n            \"style\": \"form\",\n            \"explode\": true\n          },\n          {\n            \"name\": \"freeForm\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"object\",\n              \"additionalProperties\": {\n                \"type\": \"integer\"\n              }\n            },\n            \"style\": \"form\"\n          },\n          {\n            \"name\": \"newParameter\",\n            \"in\": \"query\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /endpoint: get: : responses: no responses"
+	"Error": "parse: paths: /foo: get: operation \"\": responses: no responses"
 }

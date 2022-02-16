@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/GDSC-University-of-Seoul/2021-spring-project"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "_openapi.yaml",
-			"path": "server/backend/swagger/_openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Kids Keeper API Docs\n  description: Kids Keeper API 문서\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - description: localhost\n    url: http://localhost:3000/api/\npaths:\n  $ref: \"./paths/index.yaml\"\ntags:\n  - name: district\n  - name: children care center\n  - name: cctv\n  - name: anomaly log\n  - name: auth\ncomponents:\n  securitySchemes:\n    bearerAuth: # arbitrary name for the security scheme\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\n"
+			"name": "positive4.yaml",
+			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\n            additionalProperties: 'false'\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'true'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "unexpected type string"
 }

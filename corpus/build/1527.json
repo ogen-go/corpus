@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/solvedac/unofficial-documentation"
+			"name": "github.com/infobloxopen/infoblox-swagger-wapi"
 		},
 		"file": {
-			"name": "class.yaml",
-			"path": "src/paths/ranking/class.yaml",
-			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"CLASS 순위 가져오기\"\n      description: \"사용자 CLASS에 따른 순위를 가져옵니다.\"\n      tags:\n        - ranking\n      operationId: getRankingByClass\n\n      parameters:\n        - name: \"page\"\n          in: \"query\"\n          description: \"페이지\"\n          schema:\n            type: \"number\"\n\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"object\"\n                properties:\n                  count:\n                    description: \"순위가 배정된 사용자의 수입니다.\"\n                    type: \"integer\"\n                    format: \"int64\"\n                    example: 40266\n                  items:\n                    description: \"CLASS 순위로 정렬된 사용자 목록입니다.\"\n                    type: \"array\"\n                    items:\n                      $ref: \"../../schemas/user.yaml#/components/schemas/User\"\n"
+			"name": "api1.yaml",
+			"path": "infoblox-swagger-ui/test/e2e-selenium/static/test-specs/refs/api1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':        \n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: 'api2.yaml#/components/schemas/Api2Prop'"
 		}
 	},
-	"Error": "parse: paths: Path: get: getRankingByClass: responses: 200: content: application/json: schema: parse schema: items: parse schema: item: parse schema: reference \"../../schemas/user.yaml#/components/schemas/User\": resolve reference \"../../schemas/user.yaml#/components/schemas/User\": invalid schema reference \"../../schemas/user.yaml#/components/schemas/User\""
+	"Error": "parse: paths: /test-api-1: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/TestResponse\": parse schema: api2prop: parse schema: reference \"api2.yaml#/components/schemas/Api2Prop\": resolve reference \"api2.yaml#/components/schemas/Api2Prop\": invalid schema reference \"api2.yaml#/components/schemas/Api2Prop\""
 }

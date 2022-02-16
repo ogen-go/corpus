@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/interagent/committee"
 		},
 		"file": {
-			"name": "deep-linking.openapi.yaml",
-			"path": "test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
+			"name": "invalid_reference.yaml",
+			"path": "test/data/openapi3/invalid_reference.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\n  description: A Sample file\npaths:\n  /characters:\n    get:\n      description: get characters\n      parameters:\n        - name: school_name\n          in: query\n          description: school name to filter by\n          required: false\n          style: form\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        '200':\n          # Does not exist, `ThisIsDefined` exists\n          $ref: '#/components/responses/ThisIsNotDefinedAnywhere'\n\ncomponents:\n  responses:\n    # Not used\n    ThisIsDefined:\n      type: object"
 		}
 	},
-	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
+	"Error": "parse: paths: /characters: get: operation \"\": responses: 200: resolve \"#/components/responses/ThisIsNotDefinedAnywhere\" reference: component by reference \"#/components/responses/ThisIsNotDefinedAnywhere\" not found"
 }

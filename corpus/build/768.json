@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_example_after.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_example_after.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: \"#/components/examples/NewExample\"\ncomponents:\n  examples:\n    \u003ccaret\u003eNewExample:\n"
+			"name": "rename_component_with_dot_in_key.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_with_dot_in_key.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/V1.Pets\"\ncomponents:\n  schemas:\n    \u003ccaret\u003eV1.Pets:\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/NewExample\": component by reference \"#/components/examples/NewExample\" not found"
+	"Error": "parse: paths: /pets: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/V1.Pets\": resolve reference \"#/components/schemas/V1.Pets\": schema not found"
 }

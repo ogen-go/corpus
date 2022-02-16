@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "Germplasm_GermplasmDbId_MCPD_GET.yaml",
-			"path": "Specification/BrAPI-Germplasm/Germplasm/Germplasm_GermplasmDbId_MCPD_GET.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /germplasm/{germplasmDbId}/mcpd:\n    get:\n      summary: Get the details of a specific Germplasm in MCPD format\n      description: |-\n        Get all MCPD details of a germplasm\n\n        \u003ca target=\"_blank\" href=\"https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf\"\u003e MCPD v2.1 spec can be found here \u003c/a\u003e\n\n        Implementation Notes\n\n        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon separated string.\n      parameters:\n      - description: the internal id of the germplasm\n        in: path\n        name: germplasmDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: GermplasmMCPDResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/GermplasmMCPD'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Germplasm\n"
+			"name": "internalPathItemRef.yaml",
+			"path": "3.0/fail/internalPathItemRef.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid internal $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '#/paths/test2'\n  /test2: {}\n"
 		}
 	},
-	"Error": "parse: paths: /germplasm/{germplasmDbId}/mcpd: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

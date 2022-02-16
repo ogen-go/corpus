@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ogen-go/ogen"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "empty_request_content.json",
-			"path": "_testdata/negative/empty_request_content.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"requestBody\": {\n          \"description\": \"description of the request\",\n          \"required\": false\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"discriminator\": {\n                  },\n                  \"properties\": {\n                    \"c\": {\n                      \"type\": \"number\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/operation/security/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"security\": [\n          \"one\",\n          \"two\"\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /test: get: test: requestBody: content must have at least on entry"
+	"Error": "parse: paths: /endpoint1: get: operation \"\": responses: no responses"
 }

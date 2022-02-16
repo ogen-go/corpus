@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-ui"
+			"name": "github.com/shellhub-io/shellhub"
 		},
 		"file": {
-			"name": "5188.yaml",
-			"path": "test/e2e-cypress/static/documents/bugs/5188.yaml",
-			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: sdf\n  version: \"1.0.0\"\n  title: Swagger Petstore\npaths:\n  /pet:\n    get:\n      tags:\n        - default\n      summary: \n        whatever: 123 \n      operationId: objectSummary\n      responses:\n        '405':\n          description: Invalid input\n    post:\n      tags:\n        - default\n      operationId: noSummary\n      responses:\n        '405':\n          description: Invalid input"
+			"name": "cloud-openapi.yaml",
+			"path": "openapi/cloud-openapi.yaml",
+			"content": "openapi: 3.0.2\n$ref: spec/shared/common-openapi.yaml\npaths:\n  $ref: community-openapi.yaml#/paths\n  /api/firewall/rules:\n    $ref: spec/resources/firewall/rules.yaml\n  '/api/firewall/rules/{id}':\n    $ref: spec/resources/firewall/rules_id.yaml\n  '/api/sessions/{uid}/play':\n    $ref: spec/resources/sessions/play.yaml\n  '/api/sessions/{uid}/record':\n    $ref: spec/resources/sessions/record_del.yaml\n  /api/register:\n    $ref: spec/resources/user/register.yaml\n  /api/user/resend_email:\n    $ref: spec/resources/user/resend_email.yaml\n  '/api/user/{uid}/update_password':\n    $ref: spec/resources/user/uid_update_password.yaml\n  /api/user/validation_account:\n    $ref: spec/resources/user/validation_account.yaml\n  /api/user/recover_password:\n    $ref: spec/resources/user/recover_password.yaml"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.summary of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

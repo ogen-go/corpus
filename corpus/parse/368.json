@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kube-HPC/hkube"
+			"name": "github.com/vert-x3/vertx-web"
 		},
 		"file": {
-			"name": "index.yaml",
-			"path": "core/openapi-spec/swagger/index.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  $ref: ./swagger/info/index.yaml\ntags:\n  $ref: ./swagger/tags/index.yaml\nexternalDocs:\n  description: Find out more about Hkube\n  url: \"http://hkube.io\"\nservers: []\npaths:\n  $ref: ./swagger/paths/index.yaml\ncomponents:\n  schemas:\n    $ref: ./swagger/definitions/index.yaml\n  parameters:\n    $ref: ./swagger/paths/datasource/parameters.yaml\n"
+			"name": "inner_refs.yaml",
+			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/inner_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Simple spec with $refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      type: object\n      properties:\n        fileName:\n          type: 1\n          format: binary\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.type of type string"
 }

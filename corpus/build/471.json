@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/influxdata/openapi"
+			"name": "github.com/WirVSVirus-Data-Collection/DataLake"
 		},
 		"file": {
-			"name": "svc-mapsd.yml",
-			"path": "src/svc-mapsd.yml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Maps service\n  version: 0.1.0\nservers:\n  - url: /api/v1\npaths:\n  /mapToken:\n    $ref: \"./svc/mapsd/paths/mapToken.yml\"\ncomponents:\n  schemas:\n    Token:\n      $ref: \"./svc/mapsd/schemas/Token.yml\"\n    Error:\n      $ref: \"./common/schemas/Error.yml\"\n  responses:\n    ServerError:\n      $ref: \"./common/responses/ServerError.yml\"\n"
+			"name": "openapi.yml",
+			"path": "openapi.yml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: COVID-19 Data Lake API\n  version: \"3.0.1\"\npaths:\n  /{kind}:\n    summary: returns the latest data for the specified kind of information\n    parameters:\n      - $ref: '#/components/parameters/kind'\n\n  /{kind}/timeseries:\n    summary: |\n      returns data for the specified interval (from \u003c= timestamp \u003c to) at a fixed resolution for the\n      specified kind of information\n    parameters:\n      - $ref: '#/components/parameters/kind'\n      - $ref: '#/components/parameters/from'\n      - $ref: '#/components/parameters/to'\n\n  /{kind}/by/{by}:\n    summary: returns the latest data for the specified kind of information grouped by the specified criteria\n    parameters:\n      - $ref: '#/components/parameters/kind'\n      - $ref: '#/components/parameters/by'\n\n  /{kind}/by/{by}/timeseries:\n    summary: |\n      returns data for the specified interval (from \u003c= timestamp \u003c to) at a fixed resolution for the\n      specified kind of information grouped by the specified criteria\n    parameters:\n      - $ref: '#/components/parameters/kind'\n      - $ref: '#/components/parameters/by'\n      - $ref: '#/components/parameters/from'\n      - $ref: '#/components/parameters/to'\n\ncomponents:\n  parameters:\n    kind:\n      name: kind\n      in: path\n      required: true\n      schema:\n        type: string\n    by:\n      name: kind\n      in: path\n      required: true\n      schema:\n        type: string\n    from:\n      name: from\n      in: query\n      required: false\n      schema:\n        type: string\n        description: an ISO 8601 formatted timestamp\n    to:\n      name: to\n      in: query\n      required: false\n      schema:\n        type: string\n        description: an ISO 8601 formatted timestamp\n"
 		}
 	},
-	"Error": "parse: /mapToken: referenced pathItem not supported"
+	"Error": "parse: /{kind}/by/{by}: parameters: duplicate parameter: \"kind\" in \"path\""
 }

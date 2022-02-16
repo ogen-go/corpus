@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/sleddog/methods"
 		},
 		"file": {
-			"name": "issue1644.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue1644.yaml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Operations\n  version: 0.0.0\npaths:\n  \"/operations\":\n    post:\n      parameters:\n        - name: param0\n          schema:\n            type: string\n      responses:\n        default:\n          description: None\n"
+			"name": "Calc.yaml",
+			"path": "projects/AustinJohnson_MicroService/Project5/Calc.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"LambdaCalc\"\n  version: \"2019-04-29T03:42:17Z\"\npaths:\n  /calc:\n    get:\n      parameters:\n      - name: \"operand2\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operator\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operand1\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Input\"\n        required: true\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n"
 		}
 	},
-	"Error": "parse: paths: /operations: post: : parameters: parse parameter \"param0\": unsupported parameter type "
+	"Error": "parse: paths: /calc: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Empty\": resolve reference \"#/components/schemas/Empty\": schema not found"
 }

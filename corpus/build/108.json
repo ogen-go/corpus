@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Himenon/openapi-typescript-code-generator"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "index.yml",
-			"path": "test/api.v2.domain/index.yml",
-			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: api.test.domain\n  description: Library test schema\n  license:\n    name: MIT\n\nservers:\n  - url: \"http://dev.api.test.domain/\"\n    description: Development Environment\n  - url: \"https://api.test.domain/\"\n    description: Production Environment\n\ntags:\n  - name: test\n\ncomponents:\n  schemas:\n    Message:\n      $ref: \"./components/schemas/Message.yml\"\n    QueryParams:\n      $ref: \"./components/schemas/QueryParams.yml\"\npaths:\n  /hello/world:\n    get:\n      operationId: getHelloWorld\n      parameters:\n        - in: query\n          name: word\n          description: query word\n          schema:\n            $ref: \"#/components/schemas/QueryParams\"\n          required: true\n      responses:\n        200:\n          description: 成功\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    $ref: \"#/components/schemas/Message\"\n"
+			"name": "bad_spec.yml",
+			"path": "tests/specs/issue_83/bad_spec.yml",
+			"content": "openapi: 3.0.3\n\ninfo:\n  title: OpenAPI spec to demonstrate stringify reference issue\n  description: |\n    This file is references one GET operation.\n    and should validate fine with prance using `strict=False` but currently breaks.\n  version: '1.0'\n\npaths:\n  /bad:\n    $ref: 'bad_get.yml'\n"
 		}
 	},
-	"Error": "parse: paths: /hello/world: get: getHelloWorld: parameters: parse parameter \"word\": schema: parse schema: reference \"#/components/schemas/QueryParams\": parse schema: reference \"./components/schemas/QueryParams.yml\": resolve reference \"./components/schemas/QueryParams.yml\": invalid schema reference \"./components/schemas/QueryParams.yml\""
+	"Error": "parse: /bad: referenced pathItem not supported"
 }

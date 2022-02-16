@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/armand-janssen/openapi-transformer"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/main.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://myhost.com/testpath'\ninfo:\n  title: Tests\n  description: Tests\n  version: beta\npaths:\n  pets:\n    get:\n      summary: null\n      description: null\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './Pet.yaml#/Pet'"
+			"name": "example-openapi.yaml",
+			"path": "example/example-openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Sample Vehicle API\n  description: This is an example API to showcase the translation from OpenAPI to PlantUML.\n  version: 0.0.1\n\n\npaths:\n  /vehicles/air:\n    description: Air vehicles\n    get:\n      summary: Returns a list of vehicles.\n      description: Returns a list of vehicles.\n      responses:\n        '200':\n          description: An JSON array of vehicles\n          content:\n            'application/json':\n              schema:\n                type: array\n                minItems: 0\n                items:\n                  $ref: 'vehicle.yaml#/components/schemas/airVehicle'\n"
 		}
 	},
-	"Error": "parse: paths: pets: get: list: responses: 200: content: */*: schema: parse schema: reference \"./Pet.yaml#/Pet\": resolve reference \"./Pet.yaml#/Pet\": invalid schema reference \"./Pet.yaml#/Pet\""
+	"Error": "parse: paths: /vehicles/air: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: reference \"vehicle.yaml#/components/schemas/airVehicle\": resolve reference \"vehicle.yaml#/components/schemas/airVehicle\": invalid schema reference \"vehicle.yaml#/components/schemas/airVehicle\""
 }

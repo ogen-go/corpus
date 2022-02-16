@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/open-traffic-generator/models"
+			"name": "github.com/kota65535/openapi-merger"
 		},
 		"file": {
-			"name": "port-pattern.yaml",
-			"path": "flow/port-pattern.yaml",
-			"content": "openapi: 3.1.0\n\ninfo:\n  title: Port pattern model\n  version: ^0.0.0\n\ncomponents:\n  schemas:\n    Flow.PortPattern:\n      description: \u003e-\n        A pattern that is applied to a test port.\n        The name of the pattern will be reflected in the port results.\n      type: object\n      required: [name]\n      properties:\n        name: '../common/common.yaml#/components/x-inline/UniqueName'\n        offset:\n          type: integer\n          description: \u003e-\n            The offset from the beginning of the packet\n        pattern:\n          type: string\n          description: \u003e-\n            The value of the pattern\n        mask:\n          type: string\n          description: \u003e-\n            The mask value to be applied against the pattern\n"
+			"name": "openapi.yaml",
+			"path": "test/resources/petstore_6/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "github.com/vert-x3/vertx-web"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n"
+			"name": "local_circular_refs.yaml",
+			"path": "vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local circular relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"refs/Circular.yaml\"\n      responses:\n        201:\n          description: Created\n"
 		}
 	},
-	"Error": "parse: paths: /circular_example: get: : responses: 200: content: application/json: schema: parse schema: reference \"./schema.yaml#/components/schemas/CircularSchema\": resolve reference \"./schema.yaml#/components/schemas/CircularSchema\": invalid schema reference \"./schema.yaml#/components/schemas/CircularSchema\""
+	"Error": "parse: paths: /simple: post: operation \"simple\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"refs/Circular.yaml\": resolve reference \"refs/Circular.yaml\": invalid schema reference \"refs/Circular.yaml\""
 }

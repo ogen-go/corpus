@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ota42y/openapi_parser"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "reference-broken.yaml",
-			"path": "spec/data/reference-broken.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /ref-sample/broken_reference:\n    post:\n      description: Broken Reference in YAML\n      requestBody:\n        $ref: '#/components/requestBodies/foobar'\n      responses:\n        \"204\":\n          description: empty\nrequestBodies:\n  hoge:\n    type: object\n    description: This object is defined, but `foobar` is not\n"
+			"name": "domain-scopeId-_query.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/domain/domain-scopeId-_query.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Domains\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/domains/_query:\n    post:\n      tags:\n        - Domain\n      summary: Query the Domains\n      operationId: domainQuery\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          description: The result of the query\n          content:\n            application/json:\n              schema:\n                $ref: './domain.yaml#/components/schemas/domainListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /ref-sample/broken_reference: post: : requestBody: resolve \"#/components/requestBodies/foobar\" reference: component by reference \"#/components/requestBodies/foobar\" not found"
+	"Error": "parse: paths: /{scopeId}/domains/_query: post: operation \"domainQuery\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

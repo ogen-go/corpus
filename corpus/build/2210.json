@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/gojek/turing"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "projects.yaml",
-			"path": "api/api/specs/projects.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: Endpoints and schemas of MLP projects\n  version: 0.0.1\n\n.tags: \u0026tags\n  - \"Project\"\n\npaths:\n  /projects:\n    get:\n      tags: *tags\n      summary: List existing projects\n      description: \"Projects can be filtered by optional `name` parameter\"\n      parameters:\n        - in: query\n          name: name\n          schema:\n            type: string\n          required: false\n      responses:\n        200:\n          description: \"OK\"\n          content:\n            application/json:\n              schema:\n                type: \"array\"\n                items:\n                  $ref: \"#/components/schemas/Project\"\n\ncomponents:\n  schemas:\n    Project:\n      type: \"object\"\n      required:\n        - name\n      properties:\n        id:\n          $ref: \"common.yaml#/components/schemas/Id\"\n        name:\n          type: \"string\"\n        mlflow_tracking_url:\n          type: \"string\"\n        administrators:\n          type: \"array\"\n          items:\n            type: \"string\"\n        readers:\n          type: \"array\"\n          items:\n            type: \"string\"\n        team:\n          type: \"string\"\n        stream:\n          type: \"string\"\n        labels:\n          type: \"array\"\n          items:\n            $ref: \"#/components/schemas/Label\"\n        created_at:\n          type: \"string\"\n          format: \"date-time\"\n        updated_at:\n          type: \"string\"\n          format: \"date-time\"\n\n    Label:\n      type: \"object\"\n      properties:\n        key:\n          type: \"string\"\n        value:\n          type: \"string\""
+			"name": "Peers_List_POST.yaml",
+			"path": "Specification/GA4GH_BrAPI/Peers/Peers_List_POST.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/peer_service.proto\n  version: version not set\npaths:\n  /peers/list:\n    post:\n      summary: |-\n        Gets a list of `Peer` messages that are being managed by the\n        service. If the peer list becomes very long it is spread\n        across multiple pages.\n      description: |-\n        `POST /peers/list` must accept a JSON version of\n        `ListPeersRequest` as the post body and will return a JSON\n        version of `ListPeersResponse`.\n      operationId: ListPeers\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ListPeersResponse'\n      tags:\n        - GA4GH\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ListPeersRequest'\n        required: true"
 		}
 	},
-	"Error": "parse: paths: /projects: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"#/components/schemas/Project\": parse schema: id: parse schema: reference \"common.yaml#/components/schemas/Id\": resolve reference \"common.yaml#/components/schemas/Id\": invalid schema reference \"common.yaml#/components/schemas/Id\""
+	"Error": "parse: paths: /peers/list: post: operation \"ListPeers\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/ListPeersRequest\": resolve reference \"#/components/schemas/ListPeersRequest\": schema not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/modelcatalog/config.yaml",
-			"content": "ontologies:\n  - examples/modelcatalog/sdm-reduced.ttl\n  - examples/modelcatalog/sd-reduced.ttl\nname: modelcatalog\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is an API example for the Software Description Ontology for models [https://w3id.org/okn/o/sdm](https://w3id.org/okn/o/sdm). The endpoint uses information of models from hydrology, climate, agriculture and economic domains.\n    title: Model Catalog\n    version: v1.5.0\n  externalDocs:\n    description: Model Catalog\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: https://api.models.mint.isi.edu/v1.5.0\n    - url: https://dev.api.models.mint.isi.edu/v1.5.0\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://endpoint.mint.isi.edu/modelCatalog-1.4.0\n  prefix: https://w3id.org/okn/i/masd\n  graph_base: http://endpoint.mint.isi.edu/modelCatalog-1.4.0/data/\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nauth:\n  provider: firebase\nfollow_references: true\n\n"
+			"name": "sample.yaml",
+			"path": "tests/server-sample/sample.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: sample\n  description: Multiply int and float sample.\n  version: \"1.0\"\nservers:\n  - url: http://localhost/cloudmesh\n    description: Optional server description, e.g. Main (production) server\npaths:\n  /tests/generator/:\n    get:\n      summary: Multiply int and float sample.\n      description: Optional extended description in CommonMark or HTML.\n      operationId: cloudmesh.sample.get\n      parameters:\n        - in: query\n          name: x\n          schema:\n            type: integer\n          description: not yet available, you can read it from docstring\n        - in: query\n          name: y\n          schema:\n            type: number\n          description: not yet available, you can read it from docstring\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: number\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
 }

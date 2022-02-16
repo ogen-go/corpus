@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_callback.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_callback.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      callbacks:\n        foo:\n          $ref: \"#/components/callbacks/Callback\"\ncomponents:\n  callbacks:\n    \u003ccaret\u003eCallback:\n"
+			"name": "slashes.yaml",
+			"path": "src/test/resources/testing/reference/slashes.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Title\n  description: Description\n  version: 1.0.0\npaths:\n  '/foo':\n    $ref: '#/paths/~1bar\u003ccaret\u003e'\n  '/bar':\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : responses: no responses"
+	"Error": "parse: /bar: unexpected nil schema"
 }

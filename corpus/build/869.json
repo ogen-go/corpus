@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ais-one/cookbook"
+			"name": "github.com/swagger-api/swagger-ui"
 		},
 		"file": {
-			"name": "example.yaml",
-			"path": "js-node/expressjs/apps/app-template/openapi/example.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Cookbook API\n  description: A sample API to demonstrate features in the OpenAPI specification\n  termsOfService: http://es-labs.org/terms/\n  contact:\n    name: ES-Labs API Team\n    email: eslabs.com@gmail.com\n    url: https://es-labs.org\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\ntags:\n  - name: Auth\n    description: authentication api\n  - name: Base\n    description: basic api\nservers:\n  - url: http://127.0.0.1:3000/api\n    description: local development server\n  - url: '{protocol}://{environment}.example.com/v2'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: https\n      environment:\n        default: api    # Production server\n        enum:\n          - api         # Production server\n          - api.dev     # Development server\n          - api.staging # Staging server\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      $ref: './securitySchema.yaml#/MySecurity/BasicAuth'\n    ApiKeyAuth:\n      $ref: './securitySchema.yaml#/MySecurity/ApiKeyAuth'\n  schemas:\n    Error:\n      $ref: './objects.yaml#/components/schemas/Error'\n# this one below implements auth for all paths\n# security:\n#   - BasicAuth: []\n#   - ApiKeyAuth: []\npaths:\n  /healthcheck:\n    $ref: './base.yaml#/healthcheck'\n  /health-auth:\n    $ref: './base.yaml#/health-auth'\n  /upload-disk:\n    $ref: './base.yaml#/upload-disk'\n  /auth/login:\n    $ref: './auth.yaml#/login'\n  /auth/otp:\n    $ref: './auth.yaml#/otp'\n  /app-template/categories:\n    $ref: './categories.yaml#/no-id'\n  /app-template/categories/{id}:\n    $ref: './categories.yaml#/with-id'\n"
+			"name": "api1.yaml",
+			"path": "test/e2e-selenium/static/test-specs/refs/api1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':        \n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: 'api2.yaml#/components/schemas/Api2Prop'"
 		}
 	},
-	"Error": "parse: /app-template/categories: referenced pathItem not supported"
+	"Error": "parse: paths: /test-api-1: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/TestResponse\": parse schema: api2prop: parse schema: reference \"api2.yaml#/components/schemas/Api2Prop\": resolve reference \"api2.yaml#/components/schemas/Api2Prop\": invalid schema reference \"api2.yaml#/components/schemas/Api2Prop\""
 }

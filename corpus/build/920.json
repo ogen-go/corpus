@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-diff"
+			"name": "github.com/zaproxy/zap-extensions"
 		},
 		"file": {
-			"name": "apiResponse_diff_1.yaml",
-			"path": "core/src/test/resources/backwardCompatibility/apiResponse_diff_1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Swagger Petstore\npaths:\n  /store/inventory:\n    get:\n      operationId: asdf"
+			"name": "Schema_invalid_property_type.yaml",
+			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Market Data Exporter API\npaths:\n  /v4/endpoint:\n    post:\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/TypeQuery'\n        required: true\n      responses:\n        '400':\n          description: The request was ill-formed\n\ncomponents:\n  schemas:\n    TypeQuery:\n      type: object\n      properties:\n        type:\n          type: mytype\n        tags:\n          type: array\n          items: {}\n        includes:\n          type: array\n        metadata:\n          type: object\n        extra:\n          type: object\n          properties: {}\n        filtered_keys:\n          type: array\n          items:\n            $ref: '#/components/schemas/NaturalKey'\n    NaturalKey:\n      type: object\n      additionalProperties:\n        type: string\n\n"
 		}
 	},
-	"Error": "parse: paths: /store/inventory: get: asdf: responses: no responses"
+	"Error": "parse: paths: /v4/endpoint: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: item: parse schema: reference \"#/components/schemas/TypeQuery\": parse schema: type: parse schema: unexpected schema type: \"mytype\""
 }

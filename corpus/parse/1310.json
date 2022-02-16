@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$schema-mixed/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$schema\": \"https://spec.openapis.org/oas/3.1/dialect/base\",\n              \"type\": \"object\",\n              \"properties\": {\n                \"avatar\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$schema\": \"https://spec.openapis.org/oas/3.1/dialect/base\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/link-object/fixtures/components-links/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"links\": {\n        \"link1\": {\n          \"operationId\": \"op1\",\n          \"operation\": {\n            \"operationId\": \"op1\"\n          }\n        },\n        \"link2\": {\n          \"operationId\": \"op1\",\n          \"operation\": {\n            \"operationId\": \"op1\"\n          }\n        }\n      },\n      \"pathItems\": {\n        \"pathItem1\": {\n          \"get\": {\n            \"operationId\": \"op1\"\n          }\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

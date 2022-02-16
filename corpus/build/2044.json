@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/opengeospatial/weather-on-the-web"
 		},
 		"file": {
-			"name": "Info_GET.yaml",
-			"path": "Specification/GA4GH_BrAPI/Peers/Info_GET.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/peer_service.proto\n  version: version not set\npaths:\n  /info:\n    get:\n      summary: |-\n        Provides peers with a way to identify the protocol version\n        of a peer. Other information describing the service can\n        be included in the `info` field of the `GetInfoResponse`.\n      description: |-\n        `GET /info` will return a JSON version of `GetInfoResponse`.\n        and does not require any parameters.\n      operationId: Info\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetInfoResponse'\n      tags:\n        - GA4GH"
+			"name": "get_polygon.yaml",
+			"path": "candidate-specification/openapi/get_polygon.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n    title: 'Point Web Service'\n    description: 'This in an implemention of a point query service, based on the OGC web api guidelines'\n    contact:\n        name: \"\"\n    version: 1.0.0\nservers:\n    -\n        url: 'http://data.example.org'\n        description: 'This server'\npaths:\n    /:\n        $ref: 'wotw_domain.yaml#/paths/~1'\n    /conformance:\n        $ref: 'wotw_domain.yaml#/paths/~1conformance'        \n    /groups:\n        $ref: 'wotw_domain.yaml#/paths/~1groups'\n    '/groups/{groupId}':\n        $ref: 'wotw_domain.yaml#/paths/~1groups~1%7BgroupId%7D'\n    /collections:\n        $ref: 'wotw_domain.yaml#/paths/~1collections'\n    '/collections/{collectionId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D'\n    '/collections/{collectionId}/{instanceId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D'\n    '/collections/{collectionId}/{instanceId}/point':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D~1polygon'"
 		}
 	},
-	"Error": "parse: paths: /info: get: Info: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/GetInfoResponse\": resolve reference \"#/components/schemas/GetInfoResponse\": schema not found"
+	"Error": "parse: /groups: referenced pathItem not supported"
 }

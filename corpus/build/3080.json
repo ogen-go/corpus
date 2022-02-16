@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/seriousme/openapi-schema-validator"
+			"name": "github.com/urykhy/stuff"
 		},
 		"file": {
-			"name": "main-spec.v3.yaml",
-			"path": "test/validation/main-spec.v3.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server. For this sample, you can use the api key\n    `special-key` to test the authorization filters.\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: Apache-2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /pet:\n    post:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      description: ''\n      operationId: addPet\n      responses:\n        '405':\n          description: Invalid input\n      requestBody:\n        $ref: 'http://www.example.com/subspec#/components/requestBodies/Pet'\n  /pet/findByStatus:\n    $ref: 'subspec2'"
+			"name": "jsonParam.v1.yaml",
+			"path": "swagger/jsonParam.v1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: jsonParam\n  version: '1.0'\n  contact:\n    name: urykhy\n    email: urykhy@gmail.com\nservers:\n  - url: 'http://localhost:3000/api/v1'\npaths:\n  /test1:\n    get:\n      summary: Test 1\n      tags:\n        - Test\n      responses:\n        '200':\n          description: OK\n          content:\n            application/octet-stream:\n              schema:\n                type: string\n                format: binary\n      operationId: get-test1\n      parameters:\n        - in: query\n          name: param\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: object\n              properties:\n                param_1:\n                  type: string\n                param_2:\n                  type: boolean\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: addPet: requestBody: resolve \"http://www.example.com/subspec#/components/requestBodies/Pet\" reference: invalid requestBody reference: \"http://www.example.com/subspec#/components/requestBodies/Pet\""
+	"Error": "make ir: path \"/test1\": get: parameters: nested objects not allowed"
 }

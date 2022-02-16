@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/payara/Payara-Examples"
 		},
 		"file": {
-			"name": "positive3.yaml",
-			"path": "assets/queries/openAPI/3.0/invalid_content_type_for_multiple_files_upload/test/positive3.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: \"contact\"\n    email: \"user@gmail.com\"\npaths:\n  \"/\":\n    get:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                filename:\n                  type: array\n                  items:\n                    type: string\n                    format: binary\n"
+			"name": "openapi.yaml",
+			"path": "microprofile/openapi-example/src/main/resources/META-INF/openapi.yaml",
+			"content": "# A static document to be applied to the base model\n# created from the ModelReader if one exists.\nopenapi: 3.0.0\ninfo:\n  title: A Test Application\n  version: 1.0-SNAPSHOT\npaths:\n  /api/fake/static:\n    get:\n      operationId: fake static resource"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /api/fake/static: get: operation \"fake static resource\": responses: no responses"
 }

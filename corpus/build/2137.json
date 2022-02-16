@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "CallSets_CallSetId_Calls_GET.yaml",
-			"path": "Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /callsets/{callSetDbId}/calls:\n    get:\n      summary: Gets a list of `Calls` associated with a `CallSet`.\n      description: |-\n        Gets a list of `Calls` associated with a `CallSet`.\n        \n        ** THIS ENDPOINT USES TOKEN BASED PAGING **\n      parameters:\n        - name: callSetDbId\n          description: The ID of the `CallSet` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: expandHomozygotes\n          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)\n          in: query\n          required: false\n          schema:\n            type: boolean\n        - name: unknownString\n          description: The string to use as a representation for missing data\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepPhased\n          description: The string to use as a separator for phased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepUnphased\n          description: The string to use as a separator for unphased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/CallsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Call Sets"
+			"name": "missingPathItemRef.yaml",
+			"path": "3.0/fail/missingPathItemRef.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid external $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: 'missing.yaml#/paths/someresource'\n"
 		}
 	},
-	"Error": "parse: paths: /callsets/{callSetDbId}/calls: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/pageToken\" reference: component by reference \"#/components/parameters/pageToken\" not found"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

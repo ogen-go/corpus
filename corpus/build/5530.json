@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "schemas-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/schemas/schemas-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"test\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"schema\": {\n              \"$ref\": \"*\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
+			"name": "paths-response-with-examples.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/paths/paths-response-with-examples.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A simple string response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/String\"\n                },\n                \"example\": {\n                  \"name\": \"Puma\",\n                  \"type\": \"Dog\",\n                  \"color\": \"Black\",\n                  \"gender\": \"Female\",\n                  \"breed\": \"Mixed\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /pets: get: operation \"listPets\": responses: default: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
 }

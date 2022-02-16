@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "overriding-parameters.json",
-			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/basic-parameters/overriding-parameters.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test/{itemId}\": {\n      \"parameters\": [\n        {\n          \"in\": \"path\",\n          \"name\": \"itemId\",\n          \"deprecated\": true,\n          \"description\": \"description of parameter that will be overridden\",\n          \"schema\": {\n            \"type\": \"object\"\n          }\n        },\n        {\n          \"in\": \"cookie\",\n          \"name\": \"aCookie\",\n          \"description\": \"description of cookie that will be overridden\",\n          \"required\": true,\n          \"deprecated\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        },\n        {\n          \"in\": \"query\",\n          \"name\": \"someNumber\",\n          \"allowEmptyValue\": true,\n          \"allowReserved\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"itemId\",\n            \"deprecated\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"style\": \"simple\",\n            \"example\": \"some example\"\n          },\n          {\n            \"in\": \"cookie\",\n            \"name\": \"aCookie\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"style\": \"form\"\n          }\n        ],\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n\n}"
+			"name": "paths-get-callbacks.json",
+			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /test/{itemId}: parameters: parse parameter \"itemId\": path parameters must be required"
+	"Error": "parse: paths: /foo: get: operation \"\": responses: no responses"
 }

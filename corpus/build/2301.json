@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/akx/lepo"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "path-refs.yaml",
-			"path": "lepo_tests/tests/openapi3/path-refs.yaml",
-			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /a:\n    get:\n      operationId: foo\n      responses:\n        default:\n          description: Default response\n  /b:\n    $ref: '#/paths/~1a'\ninfo:\n  version: ''\n  title: ''\n"
+			"name": "Attributes_AttributeDbId_GET_PUT.yaml",
+			"path": "Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_AttributeDbId_GET_PUT.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /attributes/{attributeDbId}:\n    get:\n      summary: Get the details for a specific Germplasm Attribute\n      description: Get the details for a specific Germplasm Attribute\n      parameters:\n      - name: attributeDbId\n        description: The unique id for an attribute\n        in: path\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/GermplasmAttributeSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attributes\n    put:\n      summary: Update an existing Germplasm Attribute\n      description: Update an existing Germplasm Attribute\n      parameters:\n      - name: attributeDbId\n        description: The unique id for an attribute\n        in: path\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/GermplasmAttributeNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/GermplasmAttributeSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attributes\ncomponents:\n  responses:\n    GermplasmAttributeSingleResponse:\n      content:\n        application/json:\n          schema:\n            title: GermplasmAttributeSingleResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/GermplasmAttribute'\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}\n    \n"
 		}
 	},
-	"Error": "parse: /b: referenced pathItem not supported"
+	"Error": "parse: paths: /attributes/{attributeDbId}: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

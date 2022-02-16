@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/spectral"
+			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "spec-2.yaml",
-			"path": "packages/core/src/__tests__/__fixtures__/gh-474/spec-2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n  contact:\n    $ref: './common.yaml#/info/contact'\npaths:\n  '/':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: './common.yaml#/components/schemas/ResponseType'\n"
+			"name": "service.yaml",
+			"path": "openapi3/testdata/303bis/service.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'some service spec'\n  version: 1.2.3\n\npaths:\n  /service:\n    get:\n      tags:\n        - services/service\n      summary: List services\n      description: List services.\n      operationId: list-services\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/model_service\"\n\ncomponents:\n  schemas:\n    model_service:\n      allOf:\n        - $ref: \"common/properties.yaml#/timestamps\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"./common.yaml#/components/schemas/ResponseType\": resolve reference \"./common.yaml#/components/schemas/ResponseType\": invalid schema reference \"./common.yaml#/components/schemas/ResponseType\""
+	"Error": "parse: paths: /service: get: operation \"list-services\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: reference \"#/components/schemas/model_service\": parse schema: allOf: [0]: parse schema: reference \"common/properties.yaml#/timestamps\": resolve reference \"common/properties.yaml#/timestamps\": invalid schema reference \"common/properties.yaml#/timestamps\""
 }

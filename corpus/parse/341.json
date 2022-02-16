@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/swagger-api/swagger-core"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/issue196/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Resolve Test\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      parameters:\n        - $ref: \"./Parameters.yaml#/parameter_colour\"\n        - $ref: \"./Parameters.yaml#/parameter_size\"\n      responses:\n        '200':\n          description: OK\ncomponents:\n  parameters:\n    $ref: './Parameters.yaml'\n  schemas:\n    Cat:\n      $ref: './SchemaAnimal.yaml'\n    Dog:\n      $ref: './SchemaAnimal.yaml'\n"
+			"name": "configurationFile.yaml",
+			"path": "modules/swagger-maven-plugin/src/test/resources/configurationFile.yaml",
+			"content": "resourcePackages:\n  - io.swagger.v3.plugin.maven.petstore.petstore\nprettyPrint: true\ncacheTTL: 0\nopenAPI:\n  openapi: 3.0.1\n  servers:\n    - url: http://foo\n      description: server 1\n      variables:\n        var1:\n          description: var 1\n          enum:\n            - \"1\"\n            - \"2\"\n          default: \"1\"\n        var2:\n          description: var 2\n          enum:\n            - \"1\"\n            - \"2\"\n          default: \"1\"\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

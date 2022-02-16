@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OAI/OpenAPI-Specification"
+			"name": "github.com/Azure/autorest"
 		},
 		"file": {
-			"name": "non-oauth-scopes.json",
-			"path": "examples/v3.1/non-oauth-scopes.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Non-oAuth Scopes example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"bearerAuth\": [\n              \"read:users\",\n              \"public\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"jwt\",\n        \"description\": \"note: non-oauth scopes are not defined at the securityScheme level\"\n      }\n    }\n  }\n}"
+			"name": "swagger.json",
+			"path": "packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-parameters-refs/swagger.json",
+			"content": "{\n  \"servers\": [],\n  \"$schema\": \"https://github.com/OAI/OpenAPI-Specification/blob/master/schemas/v2.0/schema.json\",\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"x-ms-metadata\": {\n      \"apiVersions\": [\n        \"test-0.1\"\n      ]\n    },\n    \"title\": \"Test\",\n    \"description\": \"test\",\n    \"version\": \"test-0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"operationId\": \"test\",\n        \"parameters\": [\n          {\n            \"$ref\": \"other.json#/components/parameters/QueryParm\"\n          },\n          {\n            \"$ref\": \"other.json#/components/parameters/HeaderParam\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK.\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: no responses"
+	"Error": "parse: paths: /test: get: operation \"test\": parameters: parse parameter \"\": resolve \"other.json#/components/parameters/QueryParm\" reference: invalid parameter reference: \"other.json#/components/parameters/QueryParm\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RedHatInsights/vulnerability-engine"
+			"name": "github.com/khilnani/textchart.com"
 		},
 		"file": {
-			"name": "manager.healthz.spec.yaml",
-			"path": "manager.healthz.spec.yaml",
-			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Vulnerability Engine Manager\n  version: {{ app_version }}\n\n\npaths:\n  /healthz:\n    get:\n      summary: Health status of application\n      description: Checks database availability and API response threshold time.\n      operationId: manager.api_status_handler.GetApiStatus.get\n      x-methodName: getApiStatus\n      responses:\n        200:\n          description: API is healthy\n        408:\n          description: API is down (time out)\n        503:\n          description: Database is unavaiable\n"
+			"name": "apigateway-proxy.yaml",
+			"path": "server/apigateway-proxy.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"textchart\"\n  version: \"1.0.0\"\nservers:\n- url: \"https://plantuml.textchart.com\"\npaths:\n  /img/{id}:\n    get:\n      operationId: \"get-png\"\n      parameters:\n      - name: \"id\"\n        in: \"path\"\n        required: true\n        schema:\n          type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          headers:\n            Access-Control-Allow-Origin:\n              schema:\n                type: \"string\"\n            Content-Type:\n              schema:\n                type: \"string\"\n          content: {}\n      x-amazon-apigateway-integration:\n        uri: \"http://IP/img/{id}\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Content-Type: \"integration.response.header.Content-Type\"\n              method.response.header.Access-Control-Allow-Origin: \"'*.textchart.com'\"\n            contentHandling: \"CONVERT_TO_BINARY\"\n        requestParameters:\n          integration.request.path.id: \"method.request.path.id\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\"\n        type: \"http\"\ncomponents: {}\nx-amazon-apigateway-binary-media-types:\n- \"image/png\"\n:\n"
 		}
 	},
-	"Error": "yaml: invalid map key: map[interface {}]interface {}{\"app_version\":interface {}(nil)}"
+	"Error": "yaml: line 44: did not find expected key"
 }

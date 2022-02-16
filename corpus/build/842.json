@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/prevalidate/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: './include.yaml#/components/schemas/xyz'\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/!issue79/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  '/v3/companies/{company_id}/seats/{uuid}':\n    parameters:\n      - name: company_id\n        in: path\n        description: Company UUID\n        example: 6bc8bb80-1e32-0136-eb32-0242ac11530c\n        schema:\n          type: string\n          format: UUID\n        required: true\n      - name: uuid\n        in: query\n        description: User UUID\n        example: '123456'\n        schema:\n          type: string\n          format: uuid\n        required: true\n    get:\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"./include.yaml#/components/schemas/xyz\": resolve reference \"./include.yaml#/components/schemas/xyz\": invalid schema reference \"./include.yaml#/components/schemas/xyz\""
+	"Error": "parse: paths: /v3/companies/{company_id}/seats/{uuid}: get: operation \"\": parse path: path parameter not specified: \"uuid\""
 }

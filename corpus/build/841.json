@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "input.yaml",
-			"path": "test/resolver/speccy249/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: include/xyz.json\n"
+			"path": "test/resolver/issue152/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: 'responses.yaml#/components/responses/Post201'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"include/xyz.json\": resolve reference \"include/xyz.json\": invalid schema reference \"include/xyz.json\""
+	"Error": "parse: paths: /bar: post: operation \"postBar\": responses: 201: resolve \"responses.yaml#/components/responses/Post201\" reference: invalid response reference: \"responses.yaml#/components/responses/Post201\""
 }

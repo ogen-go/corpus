@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/sleddog/methods"
 		},
 		"file": {
-			"name": "swagger-api.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-1105/swagger-api.yaml",
-			"content": "openapi: \"3.0.2\"\ninfo:\n  title: User and Session\n  description: Admin API endpoints.\n  version: \"0.1\"\npaths:\n  /users:\n    get:\n      responses:\n        \"401\":\n          $ref: \"./domain.yaml#/components/responses/401\"\ncomponents: {\n  schemas: {}\n}"
+			"name": "api.yaml",
+			"path": "projects/fizzbuzzonline/JoshS-L/api.yaml",
+			"content": "# modify for fizzbuzz++\n\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: FizzBuzz++\n  license:\n    name: MIT\nservers:\n  # TODO\n  - url: http://petstore.swagger.io/v1\npaths:\n  /game:\n    get:\n      summary: List of String integers or Fizz/Buzz/Bazz\n      operationId: listFizz\n      tags:\n        - fizz\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: List of String integers or Fizz/Buzz/Bazz\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/Game\"\n        # TODO\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\nGame:\n  required:\n    - n\n  properties:\n    n:\n      type: integer\n      format: int64"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 401: resolve \"./domain.yaml#/components/responses/401\" reference: invalid response reference: \"./domain.yaml#/components/responses/401\""
+	"Error": "parse: paths: /game: get: operation \"listFizz\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/Game\": resolve reference \"#/Game\": invalid schema reference \"#/Game\""
 }

@@ -5,9 +5,9 @@
 			"name": "github.com/Restfulness/Restfulness-core-api"
 		},
 		"file": {
-			"name": "links_update_category.yml",
-			"path": "yml/links_update_category.yml",
-			"content": "Update categories related to a specific link ID\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\nconsumes:\n  \"application/json\"\ntags:\n  - name: \"Links\"\nparameters:\n  - in: header\n    name: Authorization\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\n  - name: \"id\"\n    in: \"path\"\n    description: \"Link id to update its categories\"\n    required: true\n    type: \"integer\"\n  - name: body\n    in: body\n    required: true\n    schema:\n      properties:\n        new_categories:\n          type: array\n          items:\n            type: string\n          description: \"New categories that are going to be replaced with previous ones\"\n          example: [\"programming\", \"new_category\"]\n        \nresponses:\n  200:\n    description: \"Categories updated.\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Categories updated.\"\n      example:\n        msg: \"Categories updated.\"\n  404:\n    description: \"Link ID not found!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Link ID not found!\"\n      example:\n        msg: \"Link ID not found!\"\n"
+			"name": "publicity_get.yml",
+			"path": "yml/publicity_get.yml",
+			"content": "Get publicity for owner of current token\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\ntags:\n  - name: User\nparameters:\n  - name: Authorization\n    in: header\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\nexample:\n  Authorization: \"Bearer eyJ0eXAiOi....\"\nresponses:\n  200:\n    description: \"Return publicity\"\n    schema:\n      type: object\n      properties:\n        publicity:\n          type: boolean \n          description: User's publicity\n      publicity:\n        msg: true\n"
 		}
 	},
 	"Error": "json: cannot unmarshal string into Go value of type ogen.Spec"

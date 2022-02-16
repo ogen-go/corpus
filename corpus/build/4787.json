@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/up9inc/mizu"
+			"name": "github.com/janephp/janephp"
 		},
 		"file": {
-			"name": "catalogue.json",
-			"path": "agent/pkg/oas/test_artifacts/catalogue.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Preloaded\",\n    \"version\": \"0.1\",\n    \"description\": \"Test file for loading pre-existing OAS\"\n  },\n  \"paths\": {\n    \"/catalogue/{id}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"style\": \"simple\",\n          \"schema\": {\n            \"type\": \"string\"\n          },\n          \"example\": \"some-uuid-maybe\"\n        }\n      ],\n      \"get\": {\n        \"parameters\": [        {\n          \"name\": \"non-required-header\",\n          \"in\": \"header\",\n          \"required\": true,\n          \"style\": \"simple\",\n          \"schema\": {\n            \"type\": \"string\"\n          },\n          \"example\": \"some-uuid-maybe\"\n        }\n        ]\n      }\n    },\n    \"/catalogue/{id}/details\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"style\": \"simple\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          },\n          \"example\": \"some-uuid-maybe\"\n        }\n      ]\n    }\n  }\n}"
+			"name": "swagger.json",
+			"path": "src/Component/OpenApi3/Tests/fixtures/uppercase-parameter/swagger.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-uppercase-path-parameters/{TestParameter}\": {\n            \"get\": {\n                \"operationId\": \"testGetWithUppercasePathParameters\",\n                \"consumes\": [\n                    \"application/json\"\n                ],\n                \"tags\": [\n                    \"Test\"\n                ],\n                \"parameters\": [\n                    {\n                        \"name\": \"TestParameter\",\n                        \"in\": \"path\",\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"x-nullable\": false\n                    }\n                ]\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /catalogue/{id}: get: : responses: no responses"
+	"Error": "parse: paths: /test-uppercase-path-parameters/{TestParameter}: get: operation \"testGetWithUppercasePathParameters\": responses: no responses"
 }

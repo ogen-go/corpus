@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "externalPathItemRef.yaml",
-			"path": "3.0/pass/externalPathItemRef.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test valid external $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '../resources/include.yaml#/paths/~1test'\n  /test2:\n    $ref: '../resources/include.yaml#/paths/~1'\n"
+			"name": "Attributes_Categories_GET.yaml",
+			"path": "Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_Categories_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /attributes/categories:\n    get:\n      summary: Get the Categories of Germplasm Attributes\n      description: List all available attribute categories.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: GermplasmAttributeCategoryListResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        items:\n                          type: string\n                        type: array\n                        example:\n                        - Morphological\n                        - Agronomic\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attributes\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /attributes/categories: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/page\" reference: component by reference \"#/components/parameters/page\" not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/eosnetworkfoundation/mandel"
 		},
 		"file": {
-			"name": "VariantAnnotationSets_VariantAnnotationSetID_GET.yaml",
-			"path": "Specification/GA4GH_BrAPI/VariantAnnotations/VariantAnnotationSets_VariantAnnotationSetID_GET.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/allele_annotation_service.proto\n  version: version not set\npaths:\n  /variantannotationsets/{variant_annotation_set_id}: \n    get:\n      summary: Gets an `VariantAnnotationSet` by ID.\n      description: \u003e-\n        `GET /variantannotationsets/{variant_annotation_set_id}` will return a JSON version of `VariantAnnotationSet`.\n      operationId: GetVariantAnnotationSet\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/VariantAnnotationSet'\n      parameters:\n        - name: variant_annotation_set_id\n          description: The ID of the `VariantAnnotationSet` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n      tags:\n        - GA4GH"
+			"name": "trace_api.swagger.yaml",
+			"path": "plugins/trace_api_plugin/trace_api.swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Trace API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /trace_api/get_block:\n    post:\n      description: Returns a block trace object containing retired actions and related metadata.\n      operationId: get_block\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - block_num\n              properties:\n                block_num:\n                  type: integer\n                  description: Provide a `block number`\n      responses:\n        \"200\":\n          description: OK - valid response payload\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: \"https://eosio.github.io/schemata/v2.0/oas/BlockTraceV0.yaml\"\n                  - $ref: \"https://eosio.github.io/schemata/v2.0/oas/BlockTraceV1.yaml\"\n        \"400\":\n          description: Error - requested block number is invalid (not a number, larger than max int)\n        \"404\":\n          description: Error - requested data not present on node\n        \"500\":\n          description: Error - exceptional condition while processing get_block; e.g. corrupt files\n"
 		}
 	},
-	"Error": "parse: paths: /variantannotationsets/{variant_annotation_set_id}: get: GetVariantAnnotationSet: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/VariantAnnotationSet\": resolve reference \"#/components/schemas/VariantAnnotationSet\": schema not found"
+	"Error": "parse: paths: /trace_api/get_block: post: operation \"get_block\": responses: 200: content: \"application/json\": schema: parse schema: oneOf: [0]: parse schema: reference \"https://eosio.github.io/schemata/v2.0/oas/BlockTraceV0.yaml\": resolve reference \"https://eosio.github.io/schemata/v2.0/oas/BlockTraceV0.yaml\": invalid schema reference \"https://eosio.github.io/schemata/v2.0/oas/BlockTraceV0.yaml\""
 }

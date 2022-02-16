@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/mattpolzin/OpenAPIDiff"
+			"name": "github.com/pekepeke/dotfiles"
 		},
 		"file": {
-			"name": "v2.yml",
-			"path": "example/v2.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: OpenAPI Example API\n  description: '## Descriptive Text\n\n    Now with a _more descriptive_ description than before!'\n  version: 2.0\nservers:\n- url: http://localhost\n- url: https://remote.host.com\npaths:\n  /docs/openapi.yml:\n    get:\n      tags:\n      - Documentation\n      summary: Download API Documentation\n      description: Retrieve the OpenAPI documentation as a YAML file.\n      responses:\n        200:\n          description: OK\n          content:\n            application/x-yaml:\n              schema:\n                type: string\n  /docs:\n    get:\n      tags:\n      - Documentation\n      summary: View API Documentation\n      description: API Documentation is served using the Redoc web app.\n      responses:\n        200:\n          description: OK\n          content:\n            text/html:\n              schema:\n                type: string\n  /healthcheck:\n    get:\n      tags:\n      - Infra\n      summary: Check that the server is healthy\n      description: This endpoint guarantees a success return if the server is operational.\n      responses:\n        200:\n          description: Healthy\n  /hello:\n    get:\n      tags:\n      - Greetings\n      summary: View a greeting\n      description: Say hello in one of the supported languages!\n      security:\n      - hello_secure_2: []\n      parameters:\n      - name: language\n        in: query\n        schema:\n          type: string\n          enum:\n          - english\n          - spanish\n          - french\n          - german\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  language:\n                    type: string\n                    enum:\n                    - english\n                    - spanish\n                    - french\n                    - german\n                  greeting:\n                    type: string\n                required:\n                - greeting\n                - language\n        400:\n          description: Bad Request\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes:\n    hello_secure_2:\n        type: apiKey\n        description: A key!\n        in: header\n        name: key\n"
+			"name": "index.yml",
+			"path": ".tmpl/swagger-multi-openapi/index.yml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  $ref: ./info/index.yml\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/index.yml\ncomponents:\n  $ref: ./components/index.yml\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

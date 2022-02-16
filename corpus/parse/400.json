@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/no-servers-empty-enum-errror/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\nservers:\n  - url: https://example.com/user/{id}/place/{placeId}\n    variables:\n      id:\n        enum: []\n      placeId:\n          enum: [b]\n          default: a\n  - url: https://example.com/{var}\n    variables: {}\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
+			"path": "__tests__/lint/path-parameters-defined-error/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/user/{id}':\n    get:\n      parameters:\n        - in: path\n          name: test\n          description: User id\n          required: true\n          schema:\n            type: string\n      operationId: withPathParam\n      description: Get user by id\n      summary: Example summary\n      responses:\n        '200':\n          description: example description\n          content:\n            application/json:\n              schema:\n                type: object\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

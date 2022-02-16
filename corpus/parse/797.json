@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "collectionToStringCount.yaml",
-			"path": "test/Atc.Rest.ApiGenerator.Tests/SyntaxGenerators/Api/XUnitTestData/ContractModel/collectionToStringCount.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    TestComponent:\n      title: TestComponent\n      description: 'Test component description'\n      type: object\n      properties:\n        foos:\n          type: array\n          required: true\n          items:\n            type: string\n        nullableFoos:\n          type: array\n          nullable: true\n          items:\n            type: string"
+			"name": "schema.yaml",
+			"path": "als-actions/shared/src/test/resources/codeactions/extract-element/schema-from-oas/schema.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  responses:\n    test: x\n\npaths:\n  /p:\n    get:\n      parameters:\n        - schema:\n            type: string\n            example: textplain"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal bool into Go struct field Schema.required of type []string"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.responses of type ogen.Response"
 }

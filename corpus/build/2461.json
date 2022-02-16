@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/devexperts/swagger-codegen-ts"
 		},
 		"file": {
-			"name": "additionalPropertiesFlatten.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: test - OAS3\n  version: 1.0.0\npaths:\n  /responses:\n    get:\n      responses:\n        '200':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  oneOf:\n                    - \"$ref\": \"#/components/schemas/Macaw1\"\n                    - \"$ref\": \"#/components/schemas/Parakeet1\"\n        '404':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  type: array\n                  items:\n                    anyOf:\n                      - \"$ref\": \"#/components/schemas/Macaw2\"\n                      - \"$ref\": \"#/components/schemas/Parakeet2\"\n\n"
+			"name": "openapi-3.0.yaml",
+			"path": "test/specs/3.0/openapi-3.0.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\npaths:\n  /local:\n    get:\n      operationId: localReference\n      responses:\n        '200':\n          description: Local reference\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Local'\n  /local-file-reference:\n    get:\n      operationId: localFileReference\n      responses:\n        '200':\n          description: Local file reference\n          content:\n            application/json:\n              schema:\n                $ref: 'petstore.yaml#/components/schemas/Pet'\n  /remote-reference:\n    get:\n      operationId: remoteReference\n      responses:\n        '200':\n          description: Remote reference\n          content:\n            application/json:\n              schema:\n                $ref: 'https://petstore.swagger.io/v2/swagger.json#/definitions/Pet'\ncomponents:\n  schemas:\n    Local:\n      type: string\n"
 		}
 	},
-	"Error": "parse: paths: /responses: get: : responses: 200: content: application/json: schema: parse schema: additionalProperties: parse schema: oneOf: [0]: parse schema: reference \"#/components/schemas/Macaw1\": resolve reference \"#/components/schemas/Macaw1\": schema not found"
+	"Error": "parse: paths: /local-file-reference: get: operation \"localFileReference\": responses: 200: content: \"application/json\": schema: parse schema: reference \"petstore.yaml#/components/schemas/Pet\": resolve reference \"petstore.yaml#/components/schemas/Pet\": invalid schema reference \"petstore.yaml#/components/schemas/Pet\""
 }

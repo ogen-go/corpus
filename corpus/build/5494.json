@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "invalid-style-for-parameter.json",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-style-for-parameter.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"WebAPI 2 Service\",\n    \"version\": \"1.0\"\n  },\n  \"components\": {\n  },\n  \"paths\": {\n    \"/complex\": {\n      \"put\": {\n        \"operationId\": \"putComplex\",\n        \"parameters\": [\n          {\n            \"name\": \"strValue\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"style\": \"simple\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK response\"\n          }\n        }\n      }\n    }\n\n  }\n}"
+			"name": "delete-all-headers-response.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-all-headers/openapi-3/delete-all-headers-response.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"X-RateLimit-Limit\": {\n                \"description\": \"The rate limit\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              },\n              \"X-RateLimit-Remaining\": {\n                \"description\": \"The number of request\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /complex: put: putComplex: parameters: parse parameter \"strValue\": style: unexpected style: simple"
+	"Error": "parse: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

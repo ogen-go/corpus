@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/PureStorage-OpenConnect/swagger"
+			"name": "github.com/italolelis/watchops"
 		},
 		"file": {
-			"name": "Pure1-1.0.spec.yaml",
-			"path": "html/specs/Pure1-1.0.spec.yaml",
-			"content": "components:\n  schemas: {}\ninfo:\n  description: '## Pure Swagger UI for Pure1\n\n    Please visit [Pure1 Swagger](https://static.pure1.purestorage.com/api-swagger/index.html)\n    for the official available swagger.\n\n    For help try the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\n\n    ## Getting Started Blog\n\n    [https://blog.purestorage.com/introducing-the-pure1-rest-api/](https://blog.purestorage.com/introducing-the-pure1-rest-api/)\n\n    A walkthrough on getting started with the Pure1 API written'\n  title: Pure1 API\n  version: 1.0\nopenapi: 3.0.1\nservers:\n- description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls\n    are proxied to array.\n  url: /api\ntags: null\n"
+			"name": "swagger.yaml",
+			"path": "api/swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.2\n  title: Four Keys\n  description: The four keys project is responsible for aggregating information from our CI and ticketing systems to generate activity metrics. These metrics are used by us to improve our internal processes.\n  contact:\n    name: Italo Vietro\n    url: 'https://github.com/italolelis'\n    email: me@italovietro.com\nservers:\n  - url: 'https://{environment}/'\n    variables:\n      environment:\n        default: staging\npaths:\n  '/webhooks':\n    post:\n      summary: Received event data from a webhook from different sources (Github, Jira, and OpsGenie)\n      operationId: incoming-webhook\n      description: Receives event data from a webhook, checks if the source is authorized, checks if the signature is verified, and then sends the data to Kinesis.\n      security:\n        - GithubAPIKey: []\n        - OpsGenieAPIKey: []\n      responses:\n        '200':\n          description: The event data was queued successfully.\n        '401':\n          $ref: \"#/components/responses/UnauthorizedError\"\n        '500':\n          $ref: \"#/components/responses/InternalServerError\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties: {}\n            examples:\n              $ref: \"./api/examples/github.json\"\n        description: 'The JSON body is a dynamic body coming from the source (Github, Jira, and OpsGenie). These data are defined in the provider documentation and should be checked there. It should not be null, use {} instead'\n      tags:\n        - Webhooks\ncomponents:\n  responses:\n    UnauthorizedError:\n      description: API key is missing or invalid\n    InternalServerError:\n      description: Internal Server Error\n  securitySchemes:\n    GithubAPIKey:\n      type: apiKey\n      in: header\n      name: X-Hub-Signature\n    OpsGenieAPIKey:\n      type: apiKey\n      in: header\n      name: X-TOKEN\nsecurity:\n  - GithubAPIKey: []\n  - OpsGenieAPIKey: []\ntags:\n  - name: WatchOps\n    description: WatchOps endpoints.\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Media.paths.post.requestBody.content.examples of type ogen.Example"
 }

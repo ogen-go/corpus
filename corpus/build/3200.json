@@ -5,10 +5,10 @@
 			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "issue_1517.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Test Regex generation for parameter validation\n  version: 1.0.0\ncomponents:\n  headers:\n\n  responses:\n    OK_200:\n      description: OK\n\npaths:\n  /ping:\n    get:\n      summary: Get Payment Information\n      description: Returns the content of a payment object\n      parameters:\n        - name: pattern_no_forward_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern$'\n        - name: pattern_two_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern$/'\n        - name: pattern_dont_escape_backslash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\d{3}$'\n        - name: pattern_dont_escape_escaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\/\\d{3}$'\n        - name: pattern_escape_unescaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern/\\d{3}$'\n        - name: pattern_with_modifiers\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern\\d{3}$/i'\n        - name: pattern_with_backslash_after_bracket\n          in: header\n          schema:\n            type: string\n            pattern: '/^[\\pattern\\d{3}$/i'\n\n      responses:\n        '200':\n          $ref: \"#/components/responses/OK_200\""
+			"name": "arrayParameter.yaml",
+			"path": "modules/openapi-generator/src/test/resources/3_0/arrayParameter.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /examples:\n    get:\n      tags:\n        - Examples\n      summary: Get a list of transactions\n      operationId: getFilteredTransactions\n      parameters:\n        - $ref: '#/components/parameters/operationsQueryParam'\ncomponents:\n  parameters:\n    operationsQueryParam:\n      name: operations\n      description: Operations list\n      in: query\n      required: false\n      schema:\n        type: array\n        items:\n          type: string"
 		}
 	},
-	"Error": "make ir: path \"/ping\": get: parameters: \"pattern_with_backslash_after_bracket\": string validator: pattern: error parsing regexp: invalid character class range: `\\pa`"
+	"Error": "parse: paths: /examples: get: operation \"getFilteredTransactions\": responses: no responses"
 }

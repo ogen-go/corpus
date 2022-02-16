@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kean/CreateAPI"
+			"name": "github.com/lezhnev74/openapi-psr7-validator"
 		},
 		"file": {
-			"name": "discriminator.yaml",
-			"path": "Tests/CreateAPITests/Specs/discriminator.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Discriminator\n\npaths:\n  /container:\n    get:\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Container\"\ncomponents:\n  schemas:\n    A:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    B:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    C:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n\n    Container:\n      type: object\n      required:\n        - content\n      properties:\n        content:\n          oneOf:\n            - $ref: \"#/components/schemas/A\"\n            - $ref: \"#/components/schemas/B\"\n            - $ref: \"#/components/schemas/C\"\n          discriminator:\n            propertyName: kind\n            mapping:\n              a: \"#/components/schemas/A\"\n              b: \"#/components/schemas/B\"\n              c: \"#/components/schemas/C\"\n"
+			"name": "multipleMatches.yaml",
+			"path": "tests/stubs/multipleMatches.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Weather API\n  version: 0.0.1\n  contact:\n    name: Dmitry Lezhnev\n    url: https://github.com/lezhnev74/openapi-psr7-validator\n    email: lezhnev.work@gmail.com\n\npaths:\n\n  /users/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: string\n          pattern: ^\\w+$\n    get:\n      summary: Read data\n      operationId: read\n      responses:\n        200:\n          description: good read\n          content:\n            text/plain:\n              schema:\n                type: string\n\n\n  /users/{group}:\n    parameters:\n      - name: group\n        in: path\n        required: true\n        schema:\n          type: integer\n    get:\n      summary: Read data\n      operationId: read\n      responses:\n        200:\n          description: good read\n          content:\n            text/plain:\n              schema:\n                type: string\n"
 		}
 	},
-	"Error": "make ir: path \"/container\": get: responses: 200: contents: application/json: schema: field content: oneOf: discriminator: unable to map a to #/components/schemas/A"
+	"Error": "parse: paths: /users/{id}: get: duplicate operationId: \"read\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/hpi-schul-cloud/schulcloud-server"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "src/services/docs/openapi.yaml",
-			"content": "info:\n  title: Schul-Cloud Legacy API\n  description: This is the API specification for the Schul-Cloud legacy API.\n\n  contact:\n    name: support\n    email: info@hpi-schul-cloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\nservers:\n  - url: /legacy/v1/\n\npaths:\n  /ldap-config:\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1'\n  '/ldap-config/{_id}':\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1{_id}'\n  /me:\n    $ref: '../me/docs/openapi.yaml#/paths/~1me'\n  /version:\n    $ref: '../versionService/docs/openapi.yaml#/paths/~1version'\n\nopenapi: 3.0.2\n"
+			"name": "Vendor_Plates_SubmissionId_GET.yaml",
+			"path": "Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /vendor/plates/{submissionId}:\n    get:\n      summary: Get the data for a submitted set of plates\n      description: Get data for a submitted set of plates\n      parameters:\n      - description: The submission id returned by the vendor when a set of plates was successfully submitted. From response of \"POST /vendor/plates\"\n        in: path\n        name: submissionId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: VendorPlateSubmissionSingleResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/VendorPlateSubmission'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Vendor\n"
 		}
 	},
-	"Error": "parse: /ldap-config: referenced pathItem not supported"
+	"Error": "parse: paths: /vendor/plates/{submissionId}: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/nested-libraries/nested-requests/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/something\": {\n      \"post\": {\n        \"requestBody\": {\n          \"$ref\": \"./libraries/first-lib.json#/definitions/firstRequest\"\n        },\n        \"responses\": {\n          \"default\": {\n            \"description\": \"something\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "delete-parameter.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-parameter/openapi-3/delete-parameter.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"username\",\n            \"in\": \"path\",\n            \"description\": \"username to fetch\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the object to fetch\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\"\n              }\n            },\n            \"style\": \"form\",\n            \"explode\": true\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /something: post: : requestBody: resolve \"./libraries/first-lib.json#/definitions/firstRequest\" reference: invalid requestBody reference: \"./libraries/first-lib.json#/definitions/firstRequest\""
+	"Error": "parse: paths: /foo: get: operation \"\": responses: no responses"
 }

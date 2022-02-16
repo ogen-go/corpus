@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "example1_from_._Fixed_file.md.yaml",
-			"path": "3.0/fail/gluecon/example1_from_._Fixed_file.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: API to upload a file\n  version: 1.0.0\npaths:\n  /files/{filename}:\n    put:\n      parameters:\n        filename:\n          in: path\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
+			"name": "deprecated2.yaml",
+			"path": "3.0/fail/deprecated2.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: true\n      parameters:\n        - name: test\n          in: query\n          deprecated: 'true'\n          schema:\n            type: string\n            deprecated: true\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.put.parameters of type []*ogen.Parameter"
+	"Error": "json: cannot unmarshal string into Go struct field Parameter.paths.get.parameters.deprecated of type bool"
 }

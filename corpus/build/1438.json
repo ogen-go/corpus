@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "dataClient-scopeId.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/dataClient/dataClient-scopeId.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Client\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/clients:\n    get:\n      tags:\n        - Data Client\n      summary: Query the Data Clients\n      operationId: dataClientQuery\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - name: clientId\n          in: query\n          schema:\n            type: string\n          description: The ClientID to filter results\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The result of the query\n          content:\n            application/json:\n              schema:\n                $ref: './dataClient.yaml#/components/schemas/clientInfoListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "positive4.yaml",
+			"path": "assets/queries/openAPI/general/response_operations_body_schema_incorrect_defined/test/positive4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.com\npaths:\n  \"/\":\n    head:\n      operationId: headers\n      summary: headers\n      responses:\n        \"200\":\n          description: wrong example\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/ApiVersion\"\ncomponents:\n  schemas:\n    ApiVersion:\n      type: object\n      discriminator:\n        propertyName: ApiVersion\n      properties:\n        code:\n          type: integer\n          format: int32\n        version:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/data/clients: get: dataClientQuery: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: head: operation \"headers\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/ApiVersion\": resolve reference \"#/components/ApiVersion\": invalid schema reference \"#/components/ApiVersion\""
 }

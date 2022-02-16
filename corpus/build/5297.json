@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cornutum/tcases"
+			"name": "github.com/davidebianchi/gswagger"
 		},
 		"file": {
-			"name": "operations-12.json",
-			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/operations-12.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Operations\",\n        \"version\": \"0.0.0\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://www.cornutum.org/tcases/api\"\n        }\n    ],\n    \"paths\": {\n        \"/operations\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"content\": {\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"parameters\": {\n            \"id\": {\n                \"name\": \"id\",\n                \"in\": \"query\",\n                \"schema\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"requestBodies\": {\n            \"standard\": {\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "schema-no-content.json",
+			"path": "testdata/schema-no-content.json",
+			"content": "{\n  \"components\": {},\n  \"info\": {\n    \"title\": \"test swagger title\",\n    \"version\": \"test swagger version\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/{id}\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"id\",\n            \"required\": true,\n            \"schema\": {}\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"q\",\n            \"schema\": {}\n          },\n          {\n            \"in\": \"header\",\n            \"name\": \"key\",\n            \"schema\": {}\n          },\n          {\n            \"in\": \"cookie\",\n            \"name\": \"cookie1\",\n            \"schema\": {}\n          }\n        ],\n        \"requestBody\": {\n          \"description\": \"request body without schema\"\n        },\n        \"responses\": {\n          \"204\": {\n            \"description\": \"\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /operations: post: : requestBody: content must have at least on entry"
+	"Error": "parse: paths: /{id}: post: operation \"\": requestBody: content must have at least on entry"
 }

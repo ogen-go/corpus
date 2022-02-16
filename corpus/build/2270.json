@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "mega.yaml",
-			"path": "3.1/pass/mega.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n\n"
+			"name": "Search_Observations_SearchResultsDbId_GET.yaml",
+			"path": "Specification/BrAPI-Phenotyping/Observations/Search_Observations_SearchResultsDbId_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /search/observations/{searchResultsDbId}:\n    get:\n      summary: Get the results of a `Observations` search request\n      description: |-\n        Get the results of a `Observations` search request \u003cbr/\u003e\n        Clients should submit a search request using the corresponding `POST /search/observations` endpoint.\n        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \n        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. \n        Use this endpoint to retrieve the results of the search. \u003cbr/\u003e \n        Review the \u003ca target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\u003eSearch Services documentation\u003c/a\u003e for additional implementation details.\n      parameters:\n      - $ref: '#/components/parameters/acceptHeader'\n      - $ref: '#/components/parameters/authorizationHeader'\n      - $ref: '#/components/parameters/searchResultsDbId'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      responses:\n        '202': \n          $ref: '#/components/responses/202AcceptedSearchResponse' \n        '200':\n          $ref: '#/components/responses/ObservationListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Observations\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /search/observations/{searchResultsDbId}: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/acceptHeader\" reference: component by reference \"#/components/parameters/acceptHeader\" not found"
 }

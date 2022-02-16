@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bow-swift/bow-openapi"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "schema-json.json",
-			"path": "Tests/__Snapshots__/Schemas/schema-json.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \n    \"info\": {\n      \"version\": \"1.0.0\",\n      \"title\": \"Swagger Petstore\",\n      \"license\": {\n        \"name\": \"MIT\"\n      }\n    },\n    \n    \"paths\": {\n      \"/pets\": {\n        \"get\": {\n          \"summary\": \"List all pets\",\n          \"operationId\": \"testSchemaFormat\"\n        }\n      }\n    }\n}\n"
+			"name": "paths-path-with-params.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/paths/paths-path-with-params.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/path/{id}\": {\n      \"get\": {\n        \"summary\": \"Find pets by ID\",\n        \"description\": \"Returns pets based on ID\",\n        \"operationId\": \"getPetsById\"\n      },\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"description\": \"ID of pet to use\",\n          \"required\": true,\n          \"style\": \"simple\",\n          \"schema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      ]\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /pets: get: testSchemaFormat: responses: no responses"
+	"Error": "parse: paths: /path/{id}: get: operation \"getPetsById\": responses: no responses"
 }

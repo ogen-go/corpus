@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "devicePackage-scopeId-deviceId.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/devicePackage/devicePackage-scopeId-deviceId.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Package\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/devices/{deviceId}/packages:\n    get:\n      tags:\n        - Device Management - Package\n      summary: Get the Packages installed on a single Device\n      operationId: devicePackageList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../device/device.yaml#/components/parameters/deviceId'\n        - $ref: '../device/device.yaml#/components/parameters/timeout'\n      responses:\n        200:\n          description: The list of Packages installed on a single Device\n          content:\n            application/json:\n              schema:\n                $ref: './devicePackage.yaml#/components/schemas/devicePackages'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "negative7.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/negative7.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default: { \"message\": \"hello\", \"code\": 200 }\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/devices/{deviceId}/packages: get: devicePackageList: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: get: operation \"listVersionsv2\": responses: 200: content: \"application/json\": schema: parse default: unexpected type: \"object\""
 }

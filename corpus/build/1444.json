@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "role-scopeId-roleId-users.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Roles\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/roles/{roleId}/users:\n    get:\n      tags:\n        - Role\n      summary: Get all the Users for the given Role\n      operationId: roleListUsers\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './role.yaml#/components/parameters/roleId'\n        - $ref: '../openapi.yaml#/components/parameters/sortParam'\n        - $ref: '../openapi.yaml#/components/parameters/sortDir'\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Users assigned to the given Role\n          content:\n            application/json:\n              schema:\n                $ref: '../user/user.yaml#/components/schemas/userListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "positive7.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive7.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default:\n                  - { \"message\": \"hello\", \"code\": 200 }\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/roles/{roleId}/users: get: roleListUsers: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: get: operation \"listVersionsv2\": responses: 200: content: \"application/json\": schema: parse default: unexpected type: \"object\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/shinofara/modern-go-application-for-me-2021"
 		},
 		"file": {
-			"name": "negative6.yaml",
-			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersions\n      summary: List versions\n      servers:\n        - url: http://myapi.com/\n          description: server URL\n      security:\n        - OAuth2:\n            - write\n            - read\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n      requestBody:\n        description: A JSON object containing my object information\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n    MyObjectBody_2:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n"
+			"name": "openapi.yaml",
+			"path": "openapi/src/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example API\n  license:\n    name: Apache 2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\n  description: Example\n  contact:\n    name: Example\ntags:\n  - name: user\n    description: user\nservers:\n  - url: 'http://localhost:8080'\npaths:\n  /tasks:\n    $ref: ./paths/tasks.yml\n  /my_tasks:\n    $ref: ./paths/my_tasks.yml\n  /signin:\n    $ref: ./paths/signin.yml\n  /signup:\n    $ref: ./paths/signup.yml"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersions: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/MyObject\": resolve reference \"#/components/schemas/MyObject\": schema not found"
+	"Error": "parse: /my_tasks: referenced pathItem not supported"
 }

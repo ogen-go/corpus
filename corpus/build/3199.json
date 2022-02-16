@@ -5,10 +5,10 @@
 			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "issue_6762.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /girafes/{refStatus}:\n    get:\n      operationId: getGirafes\n      parameters:\n        - $ref: '#/components/parameters/refStatus'\n  /zebras/{status}:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: path\n          name: status\n          required: true\n          schema:\n            type: integer\n            enum: [0,1]\n            default: 0\n  /bears/{refCondition}:\n    get:\n      operationId: getBears\n      parameters:\n        - $ref: '#/components/parameters/refCondition'\n  /camels/{condition}:\n    get:\n      operationId: getCamels\n      parameters:\n        - in: path\n          name: condition\n          required: true\n          schema:\n            type: string\n            enum:\n              - sleeping\n              - awake\ncomponents:\n  parameters:\n    refStatus:\n      in: path\n      name: refStatus\n      required: true\n      schema:\n        type: integer\n        enum: [0,1]\n        default: 0\n    refCondition:\n      in: path\n      name: refCondition\n      schema:\n        type: string\n        enum:\n          - sleeping\n          - awake\n"
+			"name": "npe-test.yaml",
+			"path": "modules/openapi-generator-cli/src/test/resources/npe-test.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: test\n  version: test\n  title: test\npaths:\n  /test:\n    $ref: 'npe-test-spec-file.yaml#/test'"
 		}
 	},
-	"Error": "parse: paths: /girafes/{refStatus}: get: getGirafes: responses: no responses"
+	"Error": "parse: /test: referenced pathItem not supported"
 }
