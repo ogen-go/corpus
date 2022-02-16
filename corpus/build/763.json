@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/universal-ctags/ctags"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "Units/parser-openapi.r/openapi.d/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n    title: test\n    description: test\n    version: '1.0'\n\nservers:\n  - url: http://example.com\n    description: production\n\npaths:\n    /sample/path:\n        get:\n            summary: simple handler\n            responses: {}\n\n    /sample/other/path:\n        get:\n            responses: {}\n        post:\n            summary: xxx\n            responses: {}\n\ncomponents:\n    schemas:\n        NullableField:\n            type: object\n            properties: {}\n        NullableFieldStringEnum:\n            type: object\n            properties: {}\n\n    parameters:\n        CustomHeader:\n            in: header\n            name: X-Custom-Header\n            required: false\n            schema:\n                type: string\n\n    responses:\n        Response1:\n            description: Payment Required\n            content:\n                application/json:\n                    schema:\n                        type: object\n                        properties: {}\n        Response2:\n            description: smth 2\n            content:\n                application/json:\n                    schema:\n                        type: object\n                        properties: {}\n"
+			"name": "rename_component_with_dot_in_key.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_with_dot_in_key.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/V1.Pets\"\ncomponents:\n  schemas:\n    \u003ccaret\u003eV1.Pets:\n"
 		}
 	},
-	"Error": "parse: paths: /sample/other/path: get: : responses: no responses"
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/V1.Pets\": resolve reference \"#/components/schemas/V1.Pets\": schema not found"
 }

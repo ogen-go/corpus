@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/solvedac/unofficial-documentation"
 		},
 		"file": {
-			"name": "positive7.yaml",
-			"path": "assets/queries/openAPI/general/response_operations_body_schema_undefined/test/positive7.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.com\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/pdf: {}\n            application/json: {}\n    post:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/ApiVersion\"\n    delete:\n      operationId: deleteVersion\n      summary: Deletes API versions\n      responses:\n        \"204\":\n          description: no content\ncomponents:\n  schemas:\n    ApiVersion:\n      type: object\n      discriminator:\n        propertyName: ApiVersion\n      properties:\n        code:\n          type: integer\n          format: int32\n        version:\n          type: string\n"
+			"name": "class.yaml",
+			"path": "src/paths/ranking/class.yaml",
+			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"CLASS 순위 가져오기\"\n      description: \"사용자 CLASS에 따른 순위를 가져옵니다.\"\n      tags:\n        - ranking\n      operationId: getRankingByClass\n\n      parameters:\n        - name: \"page\"\n          in: \"query\"\n          description: \"페이지\"\n          schema:\n            type: \"number\"\n\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"object\"\n                properties:\n                  count:\n                    description: \"순위가 배정된 사용자의 수입니다.\"\n                    type: \"integer\"\n                    format: \"int64\"\n                    example: 40266\n                  items:\n                    description: \"CLASS 순위로 정렬된 사용자 목록입니다.\"\n                    type: \"array\"\n                    items:\n                      $ref: \"../../schemas/user.yaml#/components/schemas/User\"\n"
 		}
 	},
-	"Error": "parse: paths: /: post: duplicate operationId: \"listVersionsv2\""
+	"Error": "parse: paths: Path: get: getRankingByClass: responses: 200: content: application/json: schema: parse schema: items: parse schema: item: parse schema: reference \"../../schemas/user.yaml#/components/schemas/User\": resolve reference \"../../schemas/user.yaml#/components/schemas/User\": invalid schema reference \"../../schemas/user.yaml#/components/schemas/User\""
 }

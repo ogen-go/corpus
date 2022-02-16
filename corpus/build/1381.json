@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/surfstudio/SurfGen"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "Tests/PipelinesTests/CommonTestSpecs/push/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n\nsecurity:\n  - bearerAuth: []\n\npaths:\n  /user/fcmToken:\n    post:\n      summary: Установка связи токена с МП\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/PushTokenRequest\"\n      responses:\n          \"204\":\n            description: \"Успех\"\n          default:\n            $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n    delete:\n      summary: Разрыв связи токена с МП\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/PushDeleteTokenRequest\"\n      responses:\n          \"204\":\n            description: \"Успех\"\n          default:\n            $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n  /user/registerFcmToken:\n    post:\n      summary: Сохранение информации о факте запуска приложения через пуш\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/RegisterPushTokenRequest\"\n      responses:\n          \"204\":\n            description: \"Успех\"\n          default:\n            $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
+			"name": "dataMessage-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/dataMessage/dataMessage-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Message\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/messages/_count:\n    post:\n      tags:\n        - Data Message\n      summary: Count the MessageInfos\n      operationId: dataMessageCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /user/fcmToken: post: : requestBody: content: application/json: parse schema: parse schema: reference \"models.yaml#/components/schemas/PushTokenRequest\": resolve reference \"models.yaml#/components/schemas/PushTokenRequest\": invalid schema reference \"models.yaml#/components/schemas/PushTokenRequest\""
+	"Error": "parse: paths: /{scopeId}/data/messages/_count: post: dataMessageCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

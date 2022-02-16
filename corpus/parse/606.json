@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/TimesysGit/board-farm-rest-api"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/saref4agri/config.yaml",
-			"content": "ontologies:\n  - https://w3id.org/def/saref4agri\n  #test using w3id\nname: saref4agri\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example with the Saref4agri ontology (generating a specifciation draft)\n    title: Saref4agri\n    version: v1.0.0\n  externalDocs:\n    description: Saref4agri ontology\n    url: https://w3id.org/def/saref4city\n    \nfirebase:\n  key: \n  \nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
+			"name": "netboot_fmanager_list.yaml",
+			"path": "spec/netboot/netboot_fmanager_list.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/netboot/fmanager/*{path}/:\n    get:\n      tags:\n      - api\n      operationId: api_devices_netboot_netboot_fmanager_list\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      - name: path\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: \"\"\n          content: \n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: string\n                  message:\n                    type: string\n                  data:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        owner:\n                          type: string\n                        modified_date:\n                          type: string\n                        size:\n                          type: string\n                        symlink_target:\n                          type: string\n                        file_or_dir_name:\n                          type: string\n                        'type':\n                          type: string\n                  required: \n                    - result"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "callback: json: cannot unmarshal array into Go value of type ogen.Schema"
 }

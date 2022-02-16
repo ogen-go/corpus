@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "extract-example-oas3-golden.yaml",
-			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-example-oas3-golden.yaml",
-			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\n\n  examples:\n    newexample:\n      value: textplain\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            type: string\n            example: \n              $ref: \"#/components/examples/newexample\"\n"
+			"name": "BreedingMethods_GET.yaml",
+			"path": "Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /breedingmethods:\n    get:\n      summary: Get the Breeding Methods\n      description: Get the list of germplasm breeding methods available in a system.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: BreedingMethodListResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        items:\n                          $ref: '#/components/schemas/BreedingMethod'\n                        type: array\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm\n"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /breedingmethods: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/page\" reference: component by reference \"#/components/parameters/page\" not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "Search_ReferenceSets_POST.yaml",
-			"path": "Specification/BrAPI-Genotyping/ReferenceSets/Search_ReferenceSets_POST.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/reference_service.proto\n  version: version not set\npaths:\n  /search/referencesets:\n    post:\n      summary: Submit a search request for `ReferenceSets`\n      description: |-\n        Submit a search request for `ReferenceSets`\u003cbr/\u003e\n        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \n        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. \n        Use the corresponding `GET /search/referencesets/{searchResultsDbId}` to retrieve the results of the search. \u003cbr/\u003e \n        Review the \u003ca target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\u003eSearch Services documentation\u003c/a\u003e for additional implementation details.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ReferenceSetsSearchRequest'\n        required: true\n      responses:\n        '200':\n          $ref: '#/components/responses/ReferenceSetsListResponse'\n        '202':\n          $ref: '#/components/responses/202AcceptedSearchResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Reference Sets"
+			"name": "issue_6762.yaml",
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /girafes/{refStatus}:\n    get:\n      operationId: getGirafes\n      parameters:\n        - $ref: '#/components/parameters/refStatus'\n  /zebras/{status}:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: path\n          name: status\n          required: true\n          schema:\n            type: integer\n            enum: [0,1]\n            default: 0\n  /bears/{refCondition}:\n    get:\n      operationId: getBears\n      parameters:\n        - $ref: '#/components/parameters/refCondition'\n  /camels/{condition}:\n    get:\n      operationId: getCamels\n      parameters:\n        - in: path\n          name: condition\n          required: true\n          schema:\n            type: string\n            enum:\n              - sleeping\n              - awake\ncomponents:\n  parameters:\n    refStatus:\n      in: path\n      name: refStatus\n      required: true\n      schema:\n        type: integer\n        enum: [0,1]\n        default: 0\n    refCondition:\n      in: path\n      name: refCondition\n      schema:\n        type: string\n        enum:\n          - sleeping\n          - awake\n"
 		}
 	},
-	"Error": "parse: paths: /search/referencesets: post: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+	"Error": "parse: paths: /girafes/{refStatus}: get: getGirafes: responses: no responses"
 }

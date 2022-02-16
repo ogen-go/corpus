@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+			"name": "github.com/PayU/api-schema-builder"
 		},
 		"file": {
-			"name": "optional_file.yaml",
-			"path": "core/src/test/resources/api/request_body/binary/optional_file.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /pet/{petId}/uploadImage:\n    post:\n      tags:\n        - pet\n      summary: uploads an image\n      description: \"\"\n      operationId: uploadFile\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to update\n          required: true\n          schema:\n            type: integer\n            format: int64\n        - name: additionalMetadata\n          in: query\n          description: Additional Metadata\n          required: false\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
+			"name": "file-refs.yaml",
+			"path": "test/openapi3/general/external-ref/file-refs.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Users\npaths:\n  /users:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: \"./file-refs-user.yaml#/components/schemas/User\"\n                - $ref: \"./file-refs-permissions.json#/components/schemas/Permissions\"\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                allOf:\n                  - $ref: \"./file-refs-user.yaml#/components/schemas/User\"\n                  - $ref: \"./file-refs-permissions.json#/components/schemas/Permissions\"\n"
 		}
 	},
-	"Error": "parse: paths: /pet/{petId}/uploadImage: post: uploadFile: responses: no responses"
+	"Error": "parse: paths: /users: post: : requestBody: content: application/json: parse schema: parse schema: allOf: [0]: parse schema: reference \"./file-refs-user.yaml#/components/schemas/User\": resolve reference \"./file-refs-user.yaml#/components/schemas/User\": invalid schema reference \"./file-refs-user.yaml#/components/schemas/User\""
 }

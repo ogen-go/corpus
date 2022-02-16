@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/RepreZen/KaiZen-OpenApi-Parser"
 		},
 		"file": {
-			"name": "example_ref.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/example_ref.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: '\u003ccaret\u003e#/components/examples/Example'\ncomponents:\n  examples:\n    Example:\n      summary: Summary\n      description: Description\n"
+			"name": "pathParamNotRequired.yaml",
+			"path": "kaizen-openapi-parser/src/test/resources/models/params/pathParamNotRequired.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: My API Spec\npaths:\n  /{id}:\n    get:\n      parameters:\n      - in: path\n        name: id\n      responses:\n        200:\n          description: Ok\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e#/components/examples/Example\": invalid parameter reference: \"\u003ccaret\u003e#/components/examples/Example\""
+	"Error": "parse: paths: /{id}: get: : parameters: parse parameter \"id\": path parameters must be required"
 }

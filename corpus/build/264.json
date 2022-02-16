@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/golodnyj/practicum_serverless_url_shortener"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "for-serverless-shortener.yml",
-			"path": "steps/4-create-cloud-function/for-serverless-shortener.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: for-serverless-shortener\n  version: 1.0.0\nservers:\n- url: # не трогаем, оставляем, как было\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket:             \u003cbucket_name\u003e        # \u003c-- название бакета\n        object:             \u003chtml_file\u003e          # \u003c-- название html-файла\n        presigned_redirect: false\n        service_account:    \u003cservice_account_id\u003e # \u003c-- ID сервисного аккаунта\n      operationId: static\n  /shorten:\n    post:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id:  \u003cfunction_id\u003e               # \u003c-- ID функции\n      operationId: shorten\n  /r/{id}:\n    get:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id:  \u003cfunction_id\u003e               # \u003c-- ID функции\n      operationId: redirect\n      parameters:\n      - description: id of the url\n        explode: false\n        in: path\n        name: id\n        required: true\n        schema:\n          type: string\n        style: simple\n        \n"
+			"name": "patch-test.yml",
+			"path": "rules/tests/patch-test.yml",
+			"content": "openapi: 3.0.1\npaths:\n    /ko-patch-generic-mediatype:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json:\n              schema:\n                type: string\n    /ko-patch-mediatype-not-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: string\n    /ok-patch-mediatype-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: array\n    /ko-patch-without-body:\n      patch:\n        description: Patch without body\n    /ko-patch-empty-body:\n      patch:\n        description: Patch empty body\n        requestBody: {}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: static: responses: no responses"
+	"Error": "parse: paths: /ko-patch-generic-mediatype: patch: : responses: no responses"
 }

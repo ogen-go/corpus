@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/microcks/microcks"
+			"name": "github.com/stoplightio/spectral"
 		},
 		"file": {
-			"name": "openapi-3.0.yaml",
-			"path": "webapp/src/main/resources/templates/openapi-3.0.yaml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: {service}\n  description: This is a generic API definition for manipulation of {resource} resources. It contains basic CRUD operations for {resource} resources.\n  version: {version}\npaths:\n  /{resource}:\n    get:\n      summary: Retrieve {resource} resources.\n      description: Retrieve a bunch of {resource} resources. Specifiy example resource as body payload.\n      operationId:\n      responses:\n        200:\n          description: Get an array of {resource} resources.\n    post:\n      summary: Create new {resource} resource.\n      description: Create a new {resource} resource. Specify payload within request body.\n      operationId:\n      requestBody:\n        description: The payload of resource {resource} to create.\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schema/AnyType'\n      responses:\n        201:\n          description: Get the newly created {resource} resource.\n  /{resource}/{id}:\n    get:\n      summary: Retrieve a {resource} resource.\n      description: Retrieve an already existing {resource} resource having the specified id.\n      operationId:\n      responses:\n        200:\n          description: {resource} resource having specified id.\n          content:\n            application/json:\n              schema:\n                 $ref: '#/components/schema/AnyType'\n    put:\n      summary: Update a {resource} resource.\n      description: Update an already existing {resource} resource having the specified id.\n      operationId:\n      requestBody:\n        description: The payload of resource {resource} to update.\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schema/AnyType'\n      responses:\n        200:\n          description:\n          content:\n            application/json:\n              schema:\n    delete:\n      summary: Delete a {resource} resource.\n      description: Remove an existing {resource} resource having the specified id.\n      operationId:\n      responses:\n        204:\n          description: Resource {resource} with specified id has been removed.\n    parameters:\n      - name: id\n        in: path\n        description: Id of resource\n        required: true\n        schema:\n          type: string\ncomponents:\n  schemas:\n    AnyType:"
+			"name": "lib.yaml",
+			"path": "packages/core/src/__tests__/__fixtures__/gh-658/lib.yaml",
+			"content": "%YAML 1.2\n---\nopenapi: 3.0.0\n\ninfo:\n  title: Library\n  description: Collection of reusable standard definitions.\n  version: 2.0.0\npaths: {}\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        error:\n          type: string\n          maxLength: 1\n        error_description:\n          type: string\n          maxLength: 1\n        status_code:\n          type: string\n        test:\n          $ref: ./URIError.yaml#/components/schemas/Foo\n"
 		}
 	},
-	"Error": "yaml: line 35: did not find expected key"
+	"Error": "yaml: found incompatible YAML document"
 }

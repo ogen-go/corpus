@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.json",
-			"path": "assets/queries/openAPI/general/schema_enum_invalid/test/positive2.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"201\": {\n            \"description\": \"201 response\",\n            \"content\": {\n              \"text/html\": {\n                \"schema\": {\n                  \"type\": \"integer\",\n                  \"enum\": [\n                    \"black\"\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "parent.json",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
+			"content": "{\n\t\"openapi\": \"3.0.0\",\n\t\"servers\": [],\n\t\"paths\": {\n\t\t\"/health\": {\n\t\t\t\"$ref\": \"./paths/healthPath.json\"\n\t\t}\n\t},\n\t\"info\": {\n\t\t\"version\": \"\",\n\t\t\"title\": \"\"\n\t},\n\t\"components\": {\n\t\t\"schemas\": {\n\t\t\t\"refInDefinitions\": {\n\t\t\t\t\"$ref\": \"./models/example.json\"\n\t\t\t},\n\t\t\t\"arrayModel\": {\n\t\t\t\t\"type\": \"array\",\n\t\t\t\t\"items\": {\n\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"composedCat\": {\n\t\t\t\t\"allOf\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/pet.json\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/conflict.json#/foo\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"huntingSkill\": {\n\t\t\t\t\t\t\t\t\"type\": \"string\",\n\t\t\t\t\t\t\t\t\"description\": \"The measured skill for hunting\",\n\t\t\t\t\t\t\t\t\"default\": \"lazy\",\n\t\t\t\t\t\t\t\t\"enum\": [\n\t\t\t\t\t\t\t\t\t\"clueless\",\n\t\t\t\t\t\t\t\t\t\"lazy\",\n\t\t\t\t\t\t\t\t\t\"adventurous\",\n\t\t\t\t\t\t\t\t\t\"aggressive\"\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"prop2\": {\n\t\t\t\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexes\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexMap\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"additionalProperties\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"required\": [\n\t\t\t\t\t\t\t\"huntingSkill\"\n\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"externalArray\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localArray\"\n\t\t\t},\n\t\t\t\"externalObject\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localObject\"\n\t\t\t}\n\t\t}\n\t}\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 201: content: text/html: schema: parse enum values: parse value \"\\\"black\\\"\": expected type \"integer\", got \"string\""
+	"Error": "parse: /health: referenced pathItem not supported"
 }

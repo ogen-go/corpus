@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/juxt/apex"
 		},
 		"file": {
-			"name": "rename_component_example.yaml",
-			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_example.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: \"#/components/examples/Example\"\ncomponents:\n  examples:\n    \u003ccaret\u003eExample:\n"
+			"name": "tests.yaml",
+			"path": "test/juxt/apex/tests.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: apex test suite\nservers:\n  - url: https://example.org/api\npaths:\n  /test-1:\n    get:\n      description: Test that a missing required parameter causes a 400\n      operationId: test-1-get\n      parameters:\n        - name: foo\n          in: query\n          required: true\n          schema:\n            type: string\n            maxLength: 4\n      responses:\n        '400':\n          content:\n            text/plain:\n              schema:\n                type: text\n            text/html:\n              schema:\n                type: text\n        '406':\n          content:\n            text/html:\n              schema:\n                type: text\n\n        default:\n          content:\n            text/plain:\n              schema:\n                type: text\n            text/html:\n              schema:\n                type: text\n            application/json:\n              schema:\n                type: object\n\n# TODO: test for text/plain response\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/Example\": component by reference \"#/components/examples/Example\" not found"
+	"Error": "parse: paths: /test-1: get: test-1-get: responses: 400: content: text/html: schema: parse schema: unexpected schema type: \"text\""
 }

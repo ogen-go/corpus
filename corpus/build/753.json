@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "output.yaml",
-			"path": "test/resolver/issue282/output.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        \"200\":\n          description: An paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - id\n                  - name\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  name:\n                    type: string\n                  tag:\n                    type: string\n    post:\n      summary: Create pet\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        \"200\":\n          description: An paged array of pets\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - id\n                  - name\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  name:\n                    type: string\n                  tag:\n                    type: string\n        \"400\":\n          content:\n            application/json:\n              schema:\n                $ref: incorrect-ref.yaml\n"
+			"name": "rename_file_reference_after.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_file_reference_after.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \u003ccaret\u003eNewName.yaml\n"
 		}
 	},
-	"Error": "parse: paths: /pets: post: : responses: 400: content: application/json: schema: parse schema: reference \"incorrect-ref.yaml\": resolve reference \"incorrect-ref.yaml\": invalid schema reference \"incorrect-ref.yaml\""
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003eNewName.yaml\": resolve reference \"\u003ccaret\u003eNewName.yaml\": invalid schema reference \"\u003ccaret\u003eNewName.yaml\""
 }

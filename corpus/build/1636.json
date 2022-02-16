@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/mojaloop/contrib-pisp-demo-svc"
 		},
 		"file": {
-			"name": "authentication-apikey.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/authentication/authentication-apikey.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Authentication\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /authentication/apikey:\n    post:\n      tags:\n        - Authentication\n      summary: Login - API Key\n      operationId: authenticationApiKey\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                apiKey:\n                  type: string\n                  format: base64\n                  example: 'z8PEVr4XdBS/KKEKbVG9tJzj6DNNpSVCDpW53CWm'\n              required:\n                - apiKey\n      responses:\n        200:\n          description: The new AccessToken\n          content:\n            application/json:\n              schema:\n                $ref: './authentication.yaml#/components/schemas/accessToken'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n      security: []\n"
+			"name": "app-template.yaml",
+			"path": "src/interface/api_template/app-template.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: PISP Demo Server Open API\n  description: This is part of the PISP demo server that handles communication with a front end mobile app\n    it is _not_ a canonical Mojaloop API, but a custom API for this demo.\n  license:\n    name: Apache 2.0\n  version: \"1.1\"\nservers:\n  - url: /\npaths:\n  /health:\n     $ref: '../../../node_modules/@mojaloop/api-snippets/thirdparty/openapi3/paths/health.yaml'\n"
 		}
 	},
-	"Error": "parse: paths: /authentication/apikey: post: authenticationApiKey: responses: 200: content: application/json: schema: parse schema: reference \"./authentication.yaml#/components/schemas/accessToken\": resolve reference \"./authentication.yaml#/components/schemas/accessToken\": invalid schema reference \"./authentication.yaml#/components/schemas/accessToken\""
+	"Error": "parse: /health: referenced pathItem not supported"
 }

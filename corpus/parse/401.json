@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "8222f0be-4a01-4622-97eb-f42425f293ef.yaml",
-			"path": "3.0/fail/fuzz1/8222f0be-4a01-4622-97eb-f42425f293ef.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: labore ea in\n  version: non eiusmod anim\n  contact:\n    email: true\n    name: Duis in\n    url: Jt9T8xMr\npaths: {}\nx-testcase: 'nested object test: nested object test: should not work with ''email'' of type ''boolean'''\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-unused-components-warning/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      summary: Finds pets by Status\n      operationId: getPetsByStatus\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\ncomponents:\n  schemas:\n    Category:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Contact.info.contact.email of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

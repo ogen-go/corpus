@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/qaware/openapi-generator-for-spring"
+			"name": "github.com/ahmadnassri/node-oas-fastify"
 		},
 		"file": {
-			"name": "app3.json",
-			"path": "openapi-generator-for-spring-test/src/test/resources/openApiJson/app3.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"API for App3\",\n    \"version\": \"unknown\"\n  },\n  \"paths\": {\n    \"/v1/get-mapping\": {\n      \"get\": {\n        \"operationId\": \"getMappingReturnString0\",\n        \"responses\": {\n          \"default\": {\n            \"$ref\": \"#/components/responses/default\"\n          }\n        }\n      }\n    },\n    \"/v1/post-mapping\": {\n      \"post\": {\n        \"operationId\": \"postMapping0\",\n        \"responses\": {\n          \"default\": {\n            \"$ref\": \"#/components/responses/default\"\n          }\n        }\n      }\n    },\n    \"/v2/get-mapping\": {\n      \"get\": {\n        \"operationId\": \"getMappingReturnString1\",\n        \"responses\": {\n          \"default\": {\n            \"$ref\": \"#/components/responses/default\"\n          }\n        }\n      }\n    },\n    \"/v3/post-mapping\": {\n      \"get\": {\n        \"operationId\": \"postMapping1\",\n        \"responses\": {\n          \"default\": {\n            \"$ref\": \"#/components/responses/default\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"default\": {\n        \"description\": \"My own description\"\n      }\n    }\n  }\n}\n"
+			"name": "openapi-with-security.json",
+			"path": "test/fixtures/openapi-with-security.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Auth Example\"\n  },\n  \"paths\": {\n    \"/login-with-http\": {\n      \"get\": {\n        \"operationId\": \"login-with-http\",\n        \"security\": [\n          {\n            \"httpAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-header\": {\n      \"get\": {\n        \"operationId\": \"login-with-header\",\n        \"security\": [\n          {\n            \"headerAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-query\": {\n      \"get\": {\n        \"operationId\": \"login-with-query\",\n        \"security\": [\n          {\n            \"queryAuth\": []\n          }\n        ]\n      }\n    },\n    \"/login-with-cookie\": {\n      \"get\": {\n        \"operationId\": \"login-with-cookie\",\n        \"security\": [\n          {\n            \"cookieAuth\": []\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"httpAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"headerAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"X-API-Key\"\n      },\n      \"queryAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"query\",\n        \"name\": \"X-API-Key\"\n      },\n      \"cookieAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"cookie\",\n        \"name\": \"X-API-Key\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "make ir: reduce default: too complicated to reduce default error"
+	"Error": "parse: paths: /login-with-http: get: login-with-http: responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/sleddog/methods"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "projects/FizzBuzzAPI/mathmaster12/api.yaml",
-			"content": "openapi: \"3.0.0\"\r\ninfo:\r\n  version: 1.0.0\r\n  title: Fizzbuzz Project5 Application\r\n  description: fizzbuzzbazz microservice \r\n  version: 1.0.0\r\npaths:\r\n  /:\r\n    get:\r\n      summary: print the output of running fizzbuzzbazz \r\n      parameters:\r\n        - name: n\r\n          in: query\r\n          description: input number given to fizzbuzzbazz\r\n          required: true\r\n          schema:\r\n            type: integer\r\n      responses:\r\n        '200':\r\n          description: JSON output of fizzbuzzbazz\r\n          content:\r\n\t    application/json:\r\n              schema:\r\n                type: array\r\n                items:\r\n                  type: string\r\n              items:\r\n                type: string"
+			"name": "any-of-schema.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/discriminator/any-of-schema.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Cat:\n      properties:\n        legs:\n          type: integer\n        name:\n          type: string\n        pet-type:\n          type: string\n    Dog:\n      properties:\n        legs:\n          type: integer\n        nickname:\n          type: string\n        pet-type:\n          type: string\n    test:\n      anyOf:\n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Dog'\n      *"
 		}
 	},
-	"Error": "yaml: line 22: found character that cannot start any token"
+	"Error": "yaml: line 24: did not find expected alphabetic or numeric character"
 }

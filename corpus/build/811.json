@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/wework/speccy"
 		},
 		"file": {
-			"name": "bar.yaml",
-			"path": "__tests__/join/two-files-with-no-errors/bar.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example OpenAPI 3 definition.\n  description: Information about API\n  license:\n    name: MIT\n    url: 'https://opensource.org/licenses/MIT'\nservers:\n  - url: 'https://redocly.com/v1'\npaths:\n  '/pets/{petId}':\n    post:\n      summary: summary example\n      operationId: exampleBar\n      responses:\n        '201':\n          description: example description"
+			"name": "missing-ref.yaml",
+			"path": "test/fixtures/integration/missing-ref.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server.  You can find out more about\n    Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net,\n    #swagger](http://swagger.io/irc/).  For this sample, you can use the api key\n    `special-key` to test the authorization filters.\n  version: 1.0.0\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /pet:\n    post:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      description: ''\n      operationId: addPet\n      responses:\n        '405':\n          description: Invalid input\n      security:\n        - petstore_auth:\n            - 'write:pets'\n            - 'read:pets'\n      requestBody:\n        $ref: '#/components/requestBodies/Pet'\n"
 		}
 	},
-	"Error": "parse: paths: /pets/{petId}: post: exampleBar: parse path: path parameter not specified: \"petId\""
+	"Error": "parse: paths: /pet: post: addPet: requestBody: resolve \"#/components/requestBodies/Pet\" reference: component by reference \"#/components/requestBodies/Pet\" not found"
 }

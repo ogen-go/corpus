@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+			"name": "github.com/snapscale/snapscale"
 		},
 		"file": {
-			"name": "request_body_indirect.yaml",
-			"path": "core/src/test/resources/api/request_body/request_body_indirect.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetRequest:\n      required:\n        - id\n      type: object\n      properties:\n        id:\n          type: string\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/PetRequest\"\n"
+			"name": "trace_api.swagger.yaml",
+			"path": "plugins/trace_api_plugin/trace_api.swagger.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Trace API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /trace_api/get_block:\n    post:\n      description: Returns a block object containing retired actions and related metadata.\n      operationId: get_block\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - block_num\n              properties:\n                block_num:\n                  type: string\n                  description: Provide a `block number`\n      responses:\n        \"200\":\n          description: OK - valid response payload\n          content:\n            application/json:\n              schema:\n                $ref: \"https://eosio.github.io/schemata/v2.0/oas/Block.yaml\"\n        \"400\":\n          description: Error - requested block number is invalid (not a number, larger than max int)\n        \"404\":\n          description: Error - requested data not present on node\n        \"500\":\n          description: Error - exceptional condition while processing get_block; e.g. corrupt files\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: addPet: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
+	"Error": "parse: paths: /trace_api/get_block: post: get_block: responses: 200: content: application/json: schema: parse schema: reference \"https://eosio.github.io/schemata/v2.0/oas/Block.yaml\": resolve reference \"https://eosio.github.io/schemata/v2.0/oas/Block.yaml\": invalid schema reference \"https://eosio.github.io/schemata/v2.0/oas/Block.yaml\""
 }

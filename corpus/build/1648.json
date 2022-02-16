@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/kvikuz/sls-web-application"
 		},
 		"file": {
-			"name": "credential-scopeId-credentialId-unlock.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/credential/credential-scopeId-credentialId-unlock.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Credential\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/credentials/{credentialId}/unlock:\n    post:\n      tags:\n        - Credential\n      summary: Unlock a Credential\n      operationId: credentialUnlock\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './credential.yaml#/components/parameters/credentialId'\n      responses:\n        204:\n          description: The Credential has been unlocked\n          content:\n            application/json:\n              schema:\n                $ref: './credential.yaml#/components/schemas/credential'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "website.yaml",
+			"path": "openapi/website.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Movies Website\nx-yc-apigateway:\n  service_account_id: ${movies_api_sa_id}\n\npaths:\n  /:\n    get:\n      operationId: index\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: 'index.html'\n  /{file+}:\n    get:\n      operationId: website\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: '{file}'\n  /images/{file+}:\n    get:\n      operationId: posters\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_images_bucket}\n        object: '{file}'\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/credentials/{credentialId}/unlock: post: credentialUnlock: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: get: index: responses: no responses"
 }

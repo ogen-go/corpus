@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "ordersEndpoints.v1.yaml",
-			"path": "sample/Demo.ApiDesign/MultiFileVersion/orders/ordersEndpoints.v1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  $ref: ../common/components/endpoints.v1.yaml#/info\nservers:\n  $ref: ../common/components/endpoints.v1.yaml#/servers\n\npaths:\n  '/orders/{id}':\n    get:\n      tags:\n        - Orders\n      summary: Get order by id\n      description: Get order by id\n      operationId: getOrderById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the order to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          $ref: ../common/components/responses.v1.yaml#/400\n        '404':\n          $ref: ../common/components/responses.v1.yaml#/404\n        default:\n          $ref: ../common/components/responses.v1.yaml#/400\ncomponents:\n  schemas:\n    Order:\n      $ref: ./models/order.v1.yaml\n    Orders:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n      x-tags:\n        - Orders\n      title: Orders\n      description: A list of orders.\n"
+			"name": "oas3.yaml",
+			"path": "als-server/shared/src/test/resources/actions/hover/declarationKeys/oas3.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: asd\n  version: 2\ncomponents:\n  call[*]backs:\n    call:\n      endpoint:\n        description:\n          asd\n  e[*]xamples:\n    ex:\n      description: desc\n  heade[*]rs:\n    myHeader:\n  li[*]nks:\n    aLink:\n      description: desc\n  par[*]ameters:\n    param:\n      description: desc\n  requ[*]estBodies:\n  resp[*]onses:\n  sc[*]hemas:\n  secu[*]ritySchemes:\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

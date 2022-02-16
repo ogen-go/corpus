@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "reusableParametersWithExternalRef.json",
-			"path": "modules/swagger-parser/src/test/resources/reusableParametersWithExternalRef.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.9-abcd\",\n    \"title\": \"Swagger Sample API Reusable Parameters\"\n  },\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"get\": {\n        \"description\": \"Returns pets based on ID\",\n        \"summary\": \"Find pets by ID\",\n        \"operationId\": \"getPetsById\",\n        \"parameters\": [\n          { \"$ref\": \"http://docs.baikalplatform.com/common/v2.0/common.json#/parameters/x-correlator\" }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"pet response\"\n          },\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "rename_component_with_dot_in_key_after.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key_after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/NewName\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"\u003ccaret\u003eNewName\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets/{id}: get: getPetsById: parameters: parse parameter \"\": resolve \"http://docs.baikalplatform.com/common/v2.0/common.json#/parameters/x-correlator\" reference: invalid parameter reference: \"http://docs.baikalplatform.com/common/v2.0/common.json#/parameters/x-correlator\""
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/NewName\": resolve reference \"#/components/schemas/NewName\": schema not found"
 }

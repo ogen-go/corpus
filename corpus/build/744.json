@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/prevalidate/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/vnd.api+json:\n              schema:\n                $ref: './include.yaml#/components/schemas/xyz'\n"
+			"name": "rename_component_parameter_after.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_parameter_after.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: \"#/components/parameters/NewParameter\"\ncomponents:\n  parameters:\n    \u003ccaret\u003eNewParameter:\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/vnd.api+json: schema: parse schema: reference \"./include.yaml#/components/schemas/xyz\": resolve reference \"./include.yaml#/components/schemas/xyz\": invalid schema reference \"./include.yaml#/components/schemas/xyz\""
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/NewParameter\" reference: component by reference \"#/components/parameters/NewParameter\" not found"
 }

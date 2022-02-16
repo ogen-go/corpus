@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/api-federation/design"
 		},
 		"file": {
-			"name": "schema-name.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/schema-name.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    *"
+			"name": "003_Extending_OAS_Definition_to_add_response_cashing_for_an_API.yaml",
+			"path": "spec/examples/003_Extending_OAS_Definition_to_add_response_cashing_for_an_API.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: Weather app provides details about \n  version: 1.0.0\n  title: Weather\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: vimukthim@wso2.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: https://api.openweathermap.org/data/2.5\n  - url: http://api.openweathermap.org/data/2.5\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: appid\n      in: header\n    speDefaultSecurity:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://editor.swagger.io/\n          scopes: {}\ntags:\n  - name: weather\n    description: created  Weather\npaths:\n  /weather:\n    get:\n      responses:\n        \"200\":\n          description: weather of The Given City ID\n              parameters:\n        - name: id\n          in: query\n          required: false\n          description: ID of the City\n          schema:\n            type: number\nx-global-spec :\n  x-global-cache  :  300\n"
 		}
 	},
-	"Error": "yaml: line 4: did not find expected alphabetic or numeric character"
+	"Error": "yaml: line 36: mapping values are not allowed in this context"
 }

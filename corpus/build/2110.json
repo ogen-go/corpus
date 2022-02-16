@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/RonnyPfannschmidt/prance"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "recursive_reference_in_file.spec.yaml",
-			"path": "tests/specs/translating_parser/recursive_reference_in_file.spec.yaml",
-			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a local recursive reference\n          content:\n            application/json:\n              schema:\n                $ref: 'recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject'\n"
+			"name": "VariantSets_Extract_POST.yaml",
+			"path": "Specification/BrAPI-Genotyping/VariantSets/VariantSets_Extract_POST.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variantsets/extract:\n    post:\n      summary: Create new `VariantSet` based on search results\n      description: Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/VariantSetsExtractRequest'\n        description: Study Search request\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/VariantSet'\n                required:\n                - metadata\n                - result\n                title: variantSetResponse\n                type: object\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Variant Sets"
 		}
 	},
-	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\": resolve reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\": invalid schema reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\""
+	"Error": "parse: paths: /variantsets/extract: post: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

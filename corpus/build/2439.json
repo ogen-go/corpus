@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "config-referencing-paths.yaml",
-			"path": "example/config-referencing-paths.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: ./\n  views: views\n  pipe-modules: pipeModules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /music/{musician}:\n    $ref: './paths/music_musician.yaml'\n  /movies/{actor}:\n    $ref: './paths/movies_actor.yaml'\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "index.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/oapi-reference-test/index.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n  - url: http://test.com/test\npaths:\n  /:\n    get:\n      description: Test\n      summary: Test\n      operationId: getTest\n      responses:\n        200:\n          $ref: \"./components/response-with-reference.yaml\"\n"
 		}
 	},
-	"Error": "parse: /movies/{actor}: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: getTest: responses: 200: resolve \"./components/response-with-reference.yaml\" reference: invalid response reference: \"./components/response-with-reference.yaml\""
 }

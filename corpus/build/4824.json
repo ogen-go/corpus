@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "examples.json",
-			"path": "src/test/resources/testing/completion/field/openapi/partial/examples.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"components.json#/Pet\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "rename_component_request_body_after.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_request_body_after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/NewFoo\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"\u003ccaret\u003eNewFoo\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"components.json#/Pet\": invalid parameter reference: \"components.json#/Pet\""
+	"Error": "parse: paths: /pathA: get: : requestBody: resolve \"#/components/requestBodies/NewFoo\" reference: component by reference \"#/components/requestBodies/NewFoo\" not found"
 }

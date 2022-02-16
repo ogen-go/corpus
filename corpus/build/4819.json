@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "rename_component_file_reference.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_file_reference.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003ecomponents.json#/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "request_body_ref.json",
+			"path": "src/test/resources/testing/completion/value/openapi/request_body_ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"\u003ccaret\u003e\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Foo\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003ecomponents.json#/Pet\": resolve reference \"\u003ccaret\u003ecomponents.json#/Pet\": invalid schema reference \"\u003ccaret\u003ecomponents.json#/Pet\""
+	"Error": "parse: paths: /pathA: get: : requestBody: resolve \"\u003ccaret\u003e\" reference: invalid requestBody reference: \"\u003ccaret\u003e\""
 }

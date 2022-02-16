@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/surfstudio/SurfGen"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "Tests/PipelinesTests/CommonTestSpecs/help/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\npaths:\n  /feedback/faq:\n    get:\n      summary: Вопросы и ответы\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: \"models.yaml#/components/schemas/FaqItem\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n"
+			"name": "user-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/user/user-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Users\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/users/_count:\n    post:\n      tags:\n        - User\n      summary: Count the Users\n      operationId: userCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /feedback/faq: get: : responses: 200: content: application/json: schema: parse schema: item: parse schema: reference \"models.yaml#/components/schemas/FaqItem\": resolve reference \"models.yaml#/components/schemas/FaqItem\": invalid schema reference \"models.yaml#/components/schemas/FaqItem\""
+	"Error": "parse: paths: /{scopeId}/users/_count: post: userCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

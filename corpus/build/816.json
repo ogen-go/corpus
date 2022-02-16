@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/swagger-api/swagger-ui"
 		},
 		"file": {
-			"name": "externalref.yaml",
-			"path": "packages/core/__tests__/fixtures/refs/externalref.yaml",
-			"content": "openapi: 3.1.0\r\ninfo:\r\n  title: My API\r\n  description: It ain't so wonderful, but at least it's mine.\r\n  version: '1.0'\r\n  contact:\r\n    email: me@theintenet.com\r\n    name: me\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: 'test'\r\n      responses:\r\n        200:\r\n          description: test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: ./vendor.schema.yaml\r\ncomponents:\r\n  schemas:\r\n    vendor:\r\n      $ref: ./vendor.schema.yaml\r\n    myvendor:\r\n      $ref: ./vendor.schema.yaml\r\n    simple:\r\n      $ref: ./simple.yaml\r\n    A:\r\n      $ref: ./definitions.yaml#/$defs/A\r\n    test:\r\n      $ref: ./rename.yaml\r\n    rename:\r\n      type: string\r\n    rename-2:\r\n      $ref: ./rename.yaml"
+			"name": "deep-linking.openapi.yaml",
+			"path": "test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: content: application/json: schema: parse schema: reference \"./vendor.schema.yaml\": resolve reference \"./vendor.schema.yaml\": invalid schema reference \"./vendor.schema.yaml\""
+	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
 }

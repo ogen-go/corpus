@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "8dbbd8a8-26f0-4a9d-9da2-47874d047b67.yaml",
-			"path": "3.0/fail/fuzz1/8dbbd8a8-26f0-4a9d-9da2-47874d047b67.yaml",
-			"content": "openapi: 3.0.1-j!YZaqc2*\ninfo:\n  title: consequat exercitation id ullamco eu\n  version: officia\npaths: {}\nservers:\n  - url: Lorem minim reprehenderit a\n    description: 4394846223597568\nx-testcase: 'within array test: should not work with ''description'' of type ''integer'''\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/path-parameters-defined-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/user/{test}':\n    get:\n      parameters:\n        - in: path\n          name: test\n          description: User id\n          required: true\n          schema:\n            type: string\n      operationId: withPathParam\n      description: Get user by id\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n          content:\n            application/json:\n              schema:\n                type: object\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Server.servers.description of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

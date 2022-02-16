@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "paths-get-requestBody-content.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody-content.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              },\n              \"encoding\": {\n                \"historyMetadata\": {\n                  \"contentType\": \"application/xml; charset=utf-8\"\n                },\n                \"profileImage\": {\n                  \"contentType\": \"image/png, image/jpeg\",\n                  \"headers\": {\n                    \"X-Rate-Limit-Limit\": {\n                      \"description\": \"The number of allowed requests in the current period\",\n                      \"schema\": {\n                        \"type\": \"integer\"\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "callbacks-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/callbacks/callbacks-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"callbacks\": {\n      \"test\": {\n        \"$request.body#/url\": {\n          \"description\": \"a callback\"\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/endpoint\": {\n      \"get\": {\n        \"callbacks\": {\n          \"reference\":{\n            \"$ref\": \"*\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /endpoint: get: : responses: no responses"
 }

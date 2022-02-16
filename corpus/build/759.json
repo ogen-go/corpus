@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/spec-first/connexion"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/fixtures/bad_specs/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /welcome:\n    get:\n      operationId: fakeapi.foo_bar.search\n      parameters:\n        - name: foo\n          in: query\n          schema:\n            type: integer\n            default: somestring\n      responses:\n        '200':\n          description: search\n          content:\n            '*/*':\n              schema:\n                type: object\nservers:\n  - url: /v1.0\n"
+			"name": "parameter_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/parameter_ref.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: '\u003ccaret\u003e#/components/parameters/Parameter'\ncomponents:\n  parameters:\n    Parameter:\n      name: parameter_name\n      in: query\n      description: Description\n"
 		}
 	},
-	"Error": "parse: paths: /welcome: get: fakeapi.foo_bar.search: parameters: parse parameter \"foo\": schema: parse default: expected type \"integer\", got \"string\""
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e#/components/parameters/Parameter\" reference: invalid parameter reference: \"\u003ccaret\u003e#/components/parameters/Parameter\""
 }

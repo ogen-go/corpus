@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/whitlockjc/json-refs"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "circular-root.yaml",
-			"path": "test/browser/documents/circular-root.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 0.0.1\n  description: |\n    testing circular reference\n\ncomponents:\n  schemas:\n    A:\n      $ref: './circular-child.yaml#/definitions/A'\n    B:\n      $ref: './circular-child.yaml#/definitions/B'\n\npaths:\n  '/test':\n    get:\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  A:\n                    $ref: '#/components/schemas/A'\n"
+			"name": "documented-tag.yaml",
+			"path": "openapi-checks/src/test/resources/checks/v3/documented-tag.yaml",
+			"content": "openapi: \"3.0.1\"\ntags:\n- name: used-tag\n  description: a tag referenced in the operations\n- name: undescribed-tag # Noncompliant {{Add a short description to this tag.}}\n- name: used-tag        # Noncompliant [[secondary=-3]] {{Remove this duplicate tag.}}\n  description: another description\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    get:\n      tags:\n      - used-tag\n      - undescribed-tag\n      - unlisted-tag    # Noncompliant {{This tag should be declared in the tags section of the contract.}}\n      responses: {}\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: content: application/json: schema: parse schema: A: parse schema: reference \"#/components/schemas/A\": parse schema: reference \"./circular-child.yaml#/definitions/A\": resolve reference \"./circular-child.yaml#/definitions/A\": invalid schema reference \"./circular-child.yaml#/definitions/A\""
+	"Error": "parse: paths: /pets: get: : responses: no responses"
 }

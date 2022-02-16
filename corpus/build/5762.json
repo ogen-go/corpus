@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/ogen-go/ogen"
 		},
 		"file": {
-			"name": "replace-path-item.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/replace-path-item/openapi-3/replace-path-item.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "cyclic_parameter.json",
+			"path": "_testdata/negative/cyclic_parameter.json",
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"operationId\": \"probeLiveness\",\n        \"description\": \"Liveness probe for kubernetes\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"$ref\": \"#/components/responses/Error\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Error\": {\n        \"description\": \"Represents error object\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"code\",\n          \"message\"\n        ]\n      }\n    },\n    \"parameters\": {\n      \"Parameter\": {\n        \"$ref\": \"#/components/parameters/Parameter\"\n      }\n    },\n    \"responses\": {\n      \"Error\": {\n        \"description\": \"General Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /healthz: get: probeLiveness: parameters: parse parameter \"\": resolve \"#/components/parameters/Parameter\" reference: resolve \"#/components/parameters/Parameter\" reference: infinite recursion: \"#/components/parameters/Parameter\""
 }

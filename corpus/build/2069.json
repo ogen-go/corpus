@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/freight-trust/spec"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "protocol/src/PlatformConstants/openapi.yaml",
-			"content": "openapi: 3.0.0\ntags:\n  - name: Constants and Types\ninfo:\n  title: Platform Constants API\n  version: 1.80.0\npaths:\n  /api/v1/countryCodes:\n    $ref: paths/api@v1@countryCodes.yaml\n  /api/v1/eventTypes:\n    $ref: paths/api@v1@eventTypes.yaml\n  /api/v1/referenceTypes:\n    $ref: paths/api@v1@referenceTypes.yaml\n  /api/v1/unlocodes:\n    $ref: paths/api@v1@unlocodes.yaml\n  /api/v1/roles:\n    $ref: paths/api@v1@roles.yaml\n  /api/v1/documentTypes:\n    $ref: paths/api@v1@documentTypes.yaml\n  /api/v1/documentActions:\n    $ref: paths/api@v1@documentActions.yaml\ncomponents:\n  schemas:\n    roles:\n      type: object\n      properties:\n        roles:\n          type: array\n          items:\n            type: object\n            properties:\n              value:\n                $ref: ./components/schemas/TradePartyEnum.yaml\n              display:\n                type: string\n                description: Friendly description of the trade party role\n            required:\n              - code\n              - description\n    contact:\n      type: object\n      properties:\n        contactId:\n          type: string\n          example: UUID-123-234\n        contactType:\n          allOf:\n            - description: Contact type.\n            - $ref: ./components/schemas/ContactTypeEnum.yaml\n        contactInfo:\n          type: string\n          example: 'https://foo.bar'\n        nickname:\n          type: string\n          example: JohnDoe\n        verified:\n          type: boolean\n          example: false\n"
+			"name": "ReferenceSets_RefernceSetId_GET.yaml",
+			"path": "Specification/BrAPI-Genotyping/ReferenceSets/ReferenceSets_RefernceSetId_GET.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/reference_service.proto\n  version: version not set\npaths:\n  /referencesets/{referenceSetDbId}:\n    get:\n      summary: Gets a `ReferenceSet` by ID.\n      description: Gets a `ReferenceSet` by ID.\n      parameters:\n        - name: referenceSetDbId\n          description: The ID of the `ReferenceSet` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                title: ReferenceSetsSingleResponse\n                type: object\n                required:\n                - metadata\n                - result\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/ReferenceSet'\n      tags:\n        - Reference Sets"
 		}
 	},
-	"Error": "parse: /api/v1/documentActions: referenced pathItem not supported"
+	"Error": "parse: paths: /referencesets/{referenceSetDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

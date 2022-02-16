@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/OpenAPITools/openapi-generator"
 		},
 		"file": {
-			"name": "petstore.yml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-505/petstore.yml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    $ref: \"./pets/pets.yml\"\n\ncomponents:\n  schemas:\n    Date:\n      type: string\n      format: date\n    DateWithExample:\n      $ref: '#/components/schemas/Date'\n      description: Date schema extended with a `default` value... Or not?\n      default: 2000-01-01\n"
+			"name": "issue_5436.yml",
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_5436.yml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /zebras:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: query\n          name: limit\n          schema:\n            type: number\n        - $ref: '#/components/parameters/SearchParams'\ncomponents:\n  parameters:\n    SearchParams:\n      name: animalParams\n      description: Search animal grouped parameters\n      in: query\n      style: form\n      explode: true\n      schema:\n        $ref: '#/components/schemas/AnimalParams'\n  schemas:\n    AnimalParams:\n      type: object\n      properties:\n        born:\n          type: string\n          format: date\n          example: '2019-12-01'\n        lastSeen:\n          type: string\n          format: date-time\n          example: '2020-02-22T10:30:00.000'\n        status:\n          type: integer\n          enum: [0,1]\n          default: 0\n        name:\n          type: string\n          example: 'Marty'\n        age:\n          type: integer\n          example: 15"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /zebras: get: getZebras: responses: no responses"
 }

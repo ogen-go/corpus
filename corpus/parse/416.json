@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "schema.yaml",
-			"path": "3.1/pass/schema.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: API\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    model:\n      type: object\n      properties:\n        one:\n          description: type array\n          type:\n            - integer\n            - string\n        two:\n          description: type 'null'\n          type: \"null\"\n        three:\n          description: type array including 'null'\n          type:\n            - string\n            - \"null\"\n        four:\n          description: array with no items\n          type: array\n        five:\n          description: singular example\n          type: string\n          examples:\n            - exampleValue\n        six:\n          description: exclusiveMinimum true\n          exclusiveMinimum: 10\n        seven:\n          description: exclusiveMinimum false\n          minimum: 10\n        eight:\n          description: exclusiveMaximum true\n          exclusiveMaximum: 20\n        nine:\n          description: exclusiveMaximum false\n          maximum: 20\n        ten:\n          description: nullable string\n          type:\n            - string\n            - \"null\"\n        eleven:\n          description: x-nullable string\n          type:\n            - string\n            - \"null\"\n        twelve:\n          description: file/binary\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-tag-defined-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      operationId: getPetByStatus\n      summary: Example summary\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /pet:\n    post:\n      operationId: createPet\n      summary: Adds a new pet to the store\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /store/inventory:\n    get:\n      operationId: getPetInventories\n      summary: Returns pet inventories\n      tags:\n        - store\n      esponses:\n        '200':\n          description: example description\ntags:\n  - name: pets\n    description: Everything about your Pets\n    externalDocs:\n      url: http://docs.my-api.com/pet-operations.htm\n  - name: store\n    description: Access to Petstore orders\n    externalDocs:\n      url: http://docs.my-api.com/store-orders.htm\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.exclusiveMaximum of type bool"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

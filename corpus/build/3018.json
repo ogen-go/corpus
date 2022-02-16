@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bow-swift/bow-openapi"
+			"name": "github.com/snyk/vervet"
 		},
 		"file": {
-			"name": "schema-put.yaml",
-			"path": "Tests/__Snapshots__/Schemas/schema-put.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pet:\n    put:\n      operationId: putPet\n"
+			"name": "spec.yaml",
+			"path": "versionware/example/resources/things/2021-11-08/spec.yaml",
+			"content": "openapi: 3.0.3\nx-snyk-api-stability: experimental\ninfo:\n  title: api\n  version: 3.0.0\nservers:\n  - url: /api/api\n    description: Api API\npaths:\n  /things:\n    get:\n      description: List some things\n      operationId: listThings\n      responses:\n        '200':\n          description: Returns a list of things\n          content:\n            application/json:\n              schema: { $ref: '../../common.yaml#/schemas/ThingCollectionResponse' }\n"
 		}
 	},
-	"Error": "parse: paths: /pet: put: putPet: responses: no responses"
+	"Error": "parse: paths: /things: get: listThings: responses: 200: content: application/json: schema: parse schema: reference \"../../common.yaml#/schemas/ThingCollectionResponse\": resolve reference \"../../common.yaml#/schemas/ThingCollectionResponse\": invalid schema reference \"../../common.yaml#/schemas/ThingCollectionResponse\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\n            additionalProperties: 'true'\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+			"name": "config.yaml",
+			"path": "examples/pplan/config.yaml",
+			"content": "ontologies:\n  - http://purl.org/net/p-plan\nname: p-plan\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example of the P-Plan ontology\n    title: P-Plan\n    version: v1.0.0\n  externalDocs:\n    description: P-Plan\n    url: http://purl.org/net/p-plan\n\nfirebase:\n  key: \n\n#endpoint not used for this example.\nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

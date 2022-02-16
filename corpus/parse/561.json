@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "positive6.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive6.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+			"name": "config.yaml",
+			"path": "examples/le/config.yaml",
+			"content": "ontologies:\n  - http://linked.earth/ontology#\n  # Example with an ontology that aggregates several ontologies (big)\nname: LinkedEarth\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Linked Earth Ontology\n    title: LinkedEarth\n    version: v0.0.1\n  externalDocs:\n    description: Linked Earth Ontology\n    url: http://linked.earth/ontology#\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/\n  prefix: http://linked.earth/data\n  graph_base: http://localhost:3030/wings/data/\n\n"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

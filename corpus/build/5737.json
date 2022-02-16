@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/NHS-digital-website/hippo"
 		},
 		"file": {
-			"name": "delete-all-headers-response.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-all-headers/openapi-3/delete-all-headers-response.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "oasV3_operationOrderNotSupplied.json",
+			"path": "site/components/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_operationOrderNotSupplied.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/path-a\": {\n            \"get\": {\n                \"summary\": \"Get operation A\"\n            },\n            \"post\": {\n                \"summary\": \"Post operation A\"\n            }\n        },\n        \"/path-b\": {\n            \"get\": {\n                \"summary\": \"Get operation B\"\n            },\n            \"post\": {\n                \"summary\": \"Post operation B\"\n            }\n        }\n    },\n    \"components\": {}\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: paths: /path-a: get: : responses: no responses"
 }

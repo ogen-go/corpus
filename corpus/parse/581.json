@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "complex-test-compose-model.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/oas3/complex-test-compose-model.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    complexOneOfError:\n      description: second oneOf should be array\n      oneOf:\n        - oneOf:\n            $ref: '#/components/schemas/A'\n    complexAllOfError:\n      description: allOf should be array\n      oneOf:\n        - allOf:\n            type: string\n    complexAnyOfError:\n      description: anyOf should be array\n      oneOf:\n        - anyOf:\n            $ref: '#/components/schemas/A'\n"
+			"name": "config.yaml",
+			"path": "src/test/resources/complex_expr/config.yaml",
+			"content": "#Name of the project\nname: BusinessOntology-v0.6\n\n## OpenAPI Section\n### Name, version and URL of the OpenAPI\n### For more information about the section. Go to the official documentation\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Business Ontology\n    title: Business Ontology test\n    version: v1\n  externalDocs:\n    description: BusinessOntology\n    url:  https://www.semanticarts.com/gist/previous-versions/\n  servers:\n    - url: http://localhost:8080/v1\n      description: localhost server\n\n## Ontologies\n### List of ontologies\nontologies:\n  - src/test/resources/complex_expr/ontology.owl\n\n## SPARQL information\nendpoint:\n  url: http://localhost:7201/sparql\n  prefix: https://businessontology.com/resource\n\n## Filter the paths by methods\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\n## Select the classes to add in the API\nclasses:\n  - https://businessontology.com/ontology/Address\n  - https://businessontology.com/ontology/AddressType\n  - https://businessontology.com/ontology/BaseUnit\n  - https://businessontology.com/ontology/Category\n  - https://businessontology.com/ontology/Component\n  - https://businessontology.com/ontology/Contract\n  - https://businessontology.com/ontology/Duration\n  - https://businessontology.com/ontology/DurationUnit\n  - https://businessontology.com/ontology/Identifier\n  - https://businessontology.com/ontology/IntellectualProperty\n  - https://businessontology.com/ontology/LivingThing\n  - https://businessontology.com/ontology/Magnitude\n  - https://businessontology.com/ontology/Mass\n  - https://businessontology.com/ontology/MassUnit\n  - https://businessontology.com/ontology/Organization\n  - https://businessontology.com/ontology/Person\n  - https://businessontology.com/ontology/PhysicalSubstance\n  - https://businessontology.com/ontology/System\n  - https://businessontology.com/ontology/UnitOfMeasure\n  - https://businessontology.com/ontology/Volume\nfollow_references: true\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.oneOf.allOf of type []*ogen.Schema"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

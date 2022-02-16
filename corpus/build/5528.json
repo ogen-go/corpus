@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "paths-get-requestBody-example.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody-example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User Example\",\n                  \"description\": \"User example description.\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.json\"\n                }\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User example in XML\",\n                  \"description\": \"User example description (in XML).\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.xml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "api.json",
+			"path": "als-structure/shared/src/test/resources/OAS30/operation/security/api.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"security\": [\n          \"one\",\n          \"two\"\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

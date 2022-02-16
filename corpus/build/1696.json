@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/AKIRA-MIYAKE/serverless-import-swagger"
 		},
 		"file": {
-			"name": "rolePermission-scopeId-roleId-permissionId.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/role/rolePermission-scopeId-roleId-permissionId.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - RolePermissions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/roles/{roleId}/permissions/{permissionId}:\n    get:\n      tags:\n        - Role\n      summary: Get a single RolePermission\n      operationId: rolePermissionGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './role.yaml#/components/parameters/roleId'\n        - $ref: './role.yaml#/components/parameters/rolePermissionId'\n      responses:\n        200:\n          description: The details of the desired RolePermission\n          content:\n            application/json:\n              schema:\n                $ref: './role.yaml#/components/schemas/rolePermission'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n    delete:\n      tags:\n        - Role\n      summary: Delete a single RolePermission\n      operationId: rolePermissionDelete\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './role.yaml#/components/parameters/roleId'\n        - $ref: './role.yaml#/components/parameters/rolePermissionId'\n      responses:\n        204:\n          description: The RolePermission has been deleted\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "openapi.admin.yaml",
+			"path": "__tests__/resources/openapi.admin.yaml",
+			"content": "openapi: 3.0.1\nx-sis-config:\n  options:\n    cors: true\n    authorizer: handler.authorizer\npaths:\n  /admin/users:\n    get:\n      operationId: adminUsers\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/roles/{roleId}/permissions/{permissionId}: get: rolePermissionGet: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /admin/users: get: adminUsers: responses: no responses"
 }

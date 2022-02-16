@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/nasa/uam-apis"
 		},
 		"file": {
-			"name": "user-scopeId-_query.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/user/user-scopeId-_query.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Users\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/users/_query:\n    post:\n      tags:\n        - User\n      summary: Query the Users\n      operationId: userQuery\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          description: The result of the query\n          content:\n            application/json:\n              schema:\n                $ref: './user.yaml#/components/schemas/userListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "eventmarker.yaml",
+			"path": "datacollection/openapi/ati/eventmarker.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"v1.0\"\n  title: Event Marker Data\n  description: OpenAPI 3.0 compliant definitions for event marker data.\n\npaths:\n  '/event-marker':\n    post:\n      summary: Upload an array of event marker.\n      responses:\n        '200':\n          $ref: '#/components/responses/r200'\n        '400':\n          $ref: '#/components/responses/r400'\n        '401':\n          $ref: '#/components/responses/r400'\n        '403':\n          $ref: '#/components/responses/r403'\n        '409':\n          $ref: '#/components/responses/r409'\n        '429':\n          $ref: '#/components/responses/r429'\n        '500':\n          $ref: '#/components/responses/r500'\n\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/EventMarker'\n        description: top level event marker object, containing array of event marker models\n        required: true\n\ncomponents:\n  schemas:\n      EventMarker:\n        type: object\n        required:\n          - eventMarker\n          - startTime\n          - stopTime\n        properties:\n          eventMarker:\n            type: string\n            maxLength: 1000\n            description: event marker\n            example: hover-power-margin-ige\n          startTime:\n            type: string\n            format: date-time\n          stopTime:\n            type: string\n            format: date-time\n          icaoAddress:\n            type: string\n            pattern: '^[0-9a-fA-F]{6}$'\n            description: ICAO of the aircraft\n          comment:\n            type: string\n            maxLength: 1000\n            description: any comments regarding the event marker\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/users/_query: post: userQuery: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /event-marker: post: : responses: 200: resolve \"#/components/responses/r200\" reference: component by reference \"#/components/responses/r200\" not found"
 }

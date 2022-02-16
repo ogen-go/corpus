@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "request-body-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/request-body/request-body-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"requestBodies\": {\n      \"test\": {\n        \"description\": \"a description\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"description\": \"a parameter\"\n          }\n        ],\n        \"requestBody\": {\n          \"$ref\": \"*\"\n        }\n      }\n    }\n  }\n}"
+			"name": "add-security-requirement-op.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/add-security-requirement/openapi-3/add-security-requirement-op.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"List API versions\",\n        \"operationId\": \"listVersionsv2\",\n        \"security\": [\n          {\n            \"Auth1\": [],\n            \"Auth2\": [ \"s1\", \"s2\", \"s3\" ]\n          }\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /: get: listVersionsv2: responses: no responses"
 }

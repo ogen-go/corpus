@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/wikimedia/restbase"
+			"name": "github.com/sleddog/methods"
 		},
 		"file": {
-			"name": "key_value.yaml",
-			"path": "sys/key_value.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  version: '1.0.0'\n  title: RESTBase key-value module\n  description: \u003e\n    Blob storage with HTTP interface, backed by table storage.\n\n    All headers prepended with `x-store-` are saved on write and returned\n    with the content upon retrieval. All the not prepended headers not stored.\npaths:\n  /{bucket}:\n    put:\n      operationId: createBucket\n  /{bucket}/{key}:\n    get:\n      operationId: getRevision\n    put:\n      operationId: putRevision\n\n"
+			"name": "api.yaml",
+			"path": "projects/fizzbuzzonline/JoshS-L/api.yaml",
+			"content": "# modify for fizzbuzz++\n\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: FizzBuzz++\n  license:\n    name: MIT\nservers:\n  # TODO\n  - url: http://petstore.swagger.io/v1\npaths:\n  /game:\n    get:\n      summary: List of String integers or Fizz/Buzz/Bazz\n      operationId: listFizz\n      tags:\n        - fizz\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: List of String integers or Fizz/Buzz/Bazz\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/Game\"\n        # TODO\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\nGame:\n  required:\n    - n\n  properties:\n    n:\n      type: integer\n      format: int64"
 		}
 	},
-	"Error": "parse: paths: /{bucket}: put: createBucket: parse path: path parameter not specified: \"bucket\""
+	"Error": "parse: paths: /game: get: listFizz: responses: 200: content: application/json: schema: parse schema: reference \"#/Game\": resolve reference \"#/Game\": invalid schema reference \"#/Game\""
 }

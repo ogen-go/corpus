@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/PedroSato/startech-example"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "src/swagger.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n\n  \"info\": {\n    \"title\": \"API do projetinho massa\",\n    \"description\": \"essa é a api massa do projetinho massa\",\n    \"version\": \"0.0.1\"\n  },\n\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:5000\",\n      \"description\": \"ambiente de desenvolvimento\"\n    }\n  ],\n\n  \"paths\": {\n    \"/register\": {\n      \"post\": {\n        \"summary\": \"Cadastro de candidato\",\n        \"description\": \"Rota de cadastro de usuário, recebe: nome, genêro, email e cep\",\n        \"tags\": [\"candidato\"],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"properties\": {\n                  \"name\": {\n                    \"type\": \"string\"\n                  },\n                  \"gender\": {\n                    \"type\": \"string\"\n                  },\n                  \"cep\": {\n                    \"type\": \"string\"\n                  },\n                  \"email\": {\n                    \"type\": \"string\"\n                  }\n                }\n              },\n              \"examples\": {\n                \"eu mermo\": {\n                  \"value\": {\n                    \"name\": \"Pedro Sato\",\n                    \"gender\": \"Masculino Cis\",\n                    \"cep\": \"00000-000\",\n                    \"email\": \"pedro.hiro@gmail.com\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "request-body-and-discriminator-required-fields.json",
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/request-body-and-discriminator-required-fields.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"requestBody\": {\n          \"description\": \"description of the request\",\n          \"required\": false\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"discriminator\": {\n                  },\n                  \"properties\": {\n                    \"c\": {\n                      \"type\": \"number\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /register: post: : responses: no responses"
+	"Error": "parse: paths: /test: get: test: requestBody: content must have at least on entry"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "95b0c433-0fbb-41f4-9f69-601b10d0534f.yaml",
-			"path": "3.0/fail/fuzz1/95b0c433-0fbb-41f4-9f69-601b10d0534f.yaml",
-			"content": "openapi: 3.0.5-L6(1*\ninfo:\n  title: commodo fugiat\n  version: ex incididunt\n  description: qui velit Ut eu\n  termsOfService: vReOFC8ZVu\n  license:\n    name: false\n    url: LAl\npaths: {}\nx-testcase: 'nested object test: nested object test: should not work with ''name'' of type ''boolean'''\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-unresolved-refs-error/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      summary: Finds pets by Status\n      operationId: getPetsByStatus\n      tags:\n        - pets\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ApiResponse'\ncomponents:\n  schemas:\n    someSchema:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        type:\n          type: string\n        message:\n          type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field License.info.license.name of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

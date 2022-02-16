@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aws/aws-sam-cli"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "sample-definition.yaml",
-			"path": "tests/integration/testdata/start_api/cdk/sample-definition.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: API Gateway IP Filtering Example API\n  version: 1.0.0\n\npaths:\n  /anyandall:\n    any:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n  /proxypath/{proxy+}:\n    get:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n"
+			"name": "example_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/example_ref.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: '\u003ccaret\u003e#/components/examples/Example'\ncomponents:\n  examples:\n    Example:\n      summary: Summary\n      description: Description\n"
 		}
 	},
-	"Error": "parse: paths: /proxypath/{proxy+}: get: example: parse path: path parameter not specified: \"proxy+\""
+	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e#/components/examples/Example\": invalid parameter reference: \"\u003ccaret\u003e#/components/examples/Example\""
 }

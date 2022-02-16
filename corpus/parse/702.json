@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/kota65535/openapi-merger"
 		},
 		"file": {
-			"name": "issue_1347.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1347.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Name demo\n  version: 1.0\npaths:\n  /{country}/document:\n    get:\n      summary: Get a document\n      tags:\n      - document\n      operationId: getDocument\n      parameters:\n      - name: country\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        \"201\":\n          description: The document\n        \"500\":\n          description: Server error\ntags:\n- name: document\n  description: Document tag"
+			"name": "openapi.yaml",
+			"path": "test/resources/petstore_8/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

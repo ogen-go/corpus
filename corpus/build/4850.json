@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "issue-304.json",
-			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"empty\": null\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BaseEntityDto\": {\n        \"$ref\": \"./issue-304_parent.json#/components/schemas/BaseEntity\"\n      },\n      \"InheritanceDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Inheritance\"\n      },\n      \"CompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Composition\"\n      },\n      \"InheritanceAndCompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/InheritanceAndComposition\"\n      },\n      \"ReferenceToTheSameFile\": {\n        \"$ref\": \"./issue-304.json#/components/schemas/InheritanceAndCompositionDto\"\n      }\n    }\n  }\n}"
+			"name": "example_ref.json",
+			"path": "src/test/resources/testing/completion/value/openapi/example_ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"\u003ccaret\u003e\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"examples\": {\n      \"Example\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: empty: unexpected nil schema"
+	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e\": invalid parameter reference: \"\u003ccaret\u003e\""
 }

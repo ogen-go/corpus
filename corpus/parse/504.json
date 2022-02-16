@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bounswe/bounswe2020group8"
+			"name": "github.com/anz-bank/sysl"
 		},
 		"file": {
-			"name": "_index.yaml",
-			"path": "backend/documentation/_index.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Boun Group 8\n  description: Application API\n  license:\n    name: MIT\n    url: \"https://opensource.org/licenses/MIT\"\nhost: \"localhost:8080\"\nbasePath: /\ntags:\n  - name: Users\n    description: API for users in the system\nschemes:\n  - http\nconsumes:\n  - application/json\nproduces:\n  - application/json\npaths:\n  $ref: \"./paths/_index.yaml\"\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: string\n  responses:\n    $ref: \"./components/responses/_index.yaml\"\n  schemas:\n    $ref: \"./components/schemas/_index.yaml\"\n"
+			"name": "min-max.yaml",
+			"path": "pkg/importer/tests/openapi3/min-max.yaml",
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\ncomponents:\n  schemas:\n    type:\n      properties:\n        a:\n          type: integer\n          maximum: 100\n          minimum: 10\n        b:\n          type: integer\n          minimum: 10\n        c:\n          type: integer\n          maximum: 100\n        d:\n          type: integer\n          exclusiveMaximum: 100\n          exclusiveMinimum: 10\n        e:\n          type: integer\n          exclusiveMinimum: 10\n        f:\n          type: integer\n          exclusiveMaximum: 100\n        g:\n          type: integer\n          exclusiveMaximum: 100\n          minimum: 10\n        h:\n          type: integer\n          maximum: 100\n          exclusiveMinimum: 10\n        i:\n          type: integer\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.responses of type ogen.Response"
+	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.exclusiveMaximum of type bool"
 }

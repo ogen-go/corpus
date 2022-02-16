@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "positive1.yaml",
-			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/positive1.yaml",
-			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API definition\n  community.aws.aws_api_gateway:\n    swagger_dict:\n      {\n        \"openapi\": \"3.0.0\",\n        \"info\":\n          {\n            \"title\": \"Simple API Overview\",\n            \"version\": \"1.0.0\",\n            \"contact\": { \"name\": \"contact\", \"email\": \"user@gmail.com\" },\n          },\n        \"components\":\n          {\n            \"securitySchemes\":\n              {\n                \"request_authorizer_single_stagevar\":\n                  {\n                    \"type\": \"apiKey\",\n                    \"name\": \"Unused\",\n                    \"in\": \"header\",\n                    \"x-amazon-apigateway-authtype\": \"custom\",\n                  },\n              },\n          },\n      }\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
+			"name": "config.yaml",
+			"path": "examples/example with spaces/config.yaml",
+			"content": "ontologies:\n  - examples/example with spaces/sdm-reduced.ttl\n  - examples/example with spaces/sd-reduced.ttl\nname: modelcatalog\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is an API example for the Software Description Ontology for models [https://w3id.org/okn/o/sdm](https://w3id.org/okn/o/sdm). The endpoint uses information of models from hydrology, climate, agriculture and economic domains.\n    title: Model Catalog\n    version: v1.5.0\n  externalDocs:\n    description: Model Catalog\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: https://api.models.mint.isi.edu/v1.5.0\n    - url: https://dev.api.models.mint.isi.edu/v1.5.0\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://endpoint.mint.isi.edu/modelCatalog-1.4.0\n  prefix: https://w3id.org/okn/i/masd\n  graph_base: http://endpoint.mint.isi.edu/modelCatalog-1.4.0/data/\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nauth:\n  provider: firebase\nfollow_references: true\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

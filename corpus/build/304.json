@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/italia/api-oas-checker"
+			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "problem-test.yml",
-			"path": "rules/tests/problem-test.yml",
-			"content": "openapi: 3.0.1\npaths:\n  /ok-default-use-problem:\n    get:\n      responses:\n        \"400\":\n          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'\n        default:\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/Problem'\n            application/problem+xml:\n              schema:\n                $ref: '#/components/schemas/Problem' \n  /ko-default-use-problem:\n    get:\n      responses:\n        default:\n          content:\n            application/json: {}\n  /ko-error-use-problem:\n    get:\n      responses:          \n        \"400\":\n          content:\n            not/problem: {}\n\n  /ko-bad-schema-use-problem:\n    get:\n      responses:\n        \"500\":\n          content:\n            application/problem+json:\n              schema:\n                type: object\n                required:\n                - foo\n                properties:\n                  foo:\n                    type: string\n  /ko-string-problem:\n    get:\n      responses:\n        \"400\":\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/ko_Problem'\n\ncomponents:\n  schemas:\n    Problem:\n      properties:\n        type:\n          type: string\n        title:\n          type: string\n        status:\n          type: integer\n          format: int32\n\n    ko_Problem:\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          format: int32"
+			"name": "external-response.yml",
+			"path": "packages/core/src/__tests__/naming/external-response.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
 		}
 	},
-	"Error": "parse: paths: /ok-default-use-problem: get: : responses: 400: resolve \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest\" reference: invalid response reference: \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest\""
+	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
 }

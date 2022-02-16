@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "test-compose-model.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/oas3/test-compose-model.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    oneOfError:\n      description: should be array but instead just a ref\n      oneOf:\n        $ref: '#/components/schemas/A'\n    allOfError:\n      description: should be array but instead just a type\n      allOf:\n        type: string\n    anyOfError:\n      description: should be array but instead just a ref\n      anyOf:\n        $ref: '#/components/schemas/A'\n"
+			"name": "dbpedia.yaml",
+			"path": "src/test/config/dbpedia.yaml",
+			"content": "#Name of the project\nname: dbpedia_music\n\n## OpenAPI Section\n### Name, version and URL of the OpenAPI\n### For more information about the section. Go to the official documentation\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the DBpedia Ontology\n    title: DBpedia\n    version: v1.3.0\n  externalDocs:\n    description: DBpedia\n    url: https://w3id.org/okn/o/sdm\n  servers:\n    - url: https:///dbpedia.dbpedia.oba.isi.edu/v1.3.0\n    - url: http://localhost:8080/v1.3.0\n\n## Ontologies\n### List of ontologies\nontologies:\n  - https://gist.githubusercontent.com/mosoriob/cec147b24bd241295584dfcc21c21b93/raw/b6fa41ddf93212d967f35da20278f54d2ae2d40d/gistfile1.txt\n\n## SPARQL information\nendpoint:\n  url: http://endpoint.mint.isi.edu/modelCatalog-1.2.0\n  prefix: https://w3id.org/okn/i/mint\n  graph_base: http://ontosoft.isi.edu:3030/modelCatalog-1.2.0/data/\n\n## Filter the paths by methods\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\n## Select the classes to add in the API\nclasses:\n  - http://dbpedia.org/ontology/Genre\n  - http://dbpedia.org/ontology/Band\nfollow_references: false\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.allOf of type []*ogen.Schema"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

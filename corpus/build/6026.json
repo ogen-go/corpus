@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "headers-ref.json",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "delete-security-requirement-op.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-security-requirement/openapi-3/delete-security-requirement-op.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"List API versions\",\n        \"operationId\": \"listVersionsv2\",\n        \"security\": [\n          {\n            \"Auth1\": [],\n            \"Auth2\": [ \"s1\", \"s2\", \"s3\" ]\n          }\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /p: get: : responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: no responses"
 }

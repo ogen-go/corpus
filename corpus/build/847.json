@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/spectral"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "spec.yaml",
-			"path": "packages/core/src/__tests__/__fixtures__/gh-474/spec.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n  contact:\n    $ref: 'common.yaml#/info/contact'\npaths:\n  '/':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: 'common.yaml#/components/schemas/ResponseType'\n"
+			"name": "openapi.yaml",
+			"path": "test/s2o-test/issue51b/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: Demo API\npaths:\n  /health/all.json:\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/health'\ncomponents:\n  schemas:\n    health:\n      type: object\n      properties:\n        default:\n          title: Check\n          type: object\n          properties:\n            message:\n              type: string\n              description: bla\n        database:\n          $ref: '#/components/schemas/health/properties/default'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"common.yaml#/components/schemas/ResponseType\": resolve reference \"common.yaml#/components/schemas/ResponseType\": invalid schema reference \"common.yaml#/components/schemas/ResponseType\""
+	"Error": "parse: paths: /health/all.json: get: : responses: 200: content: */*: schema: parse schema: reference \"#/components/schemas/health\": parse schema: database: parse schema: reference \"#/components/schemas/health/properties/default\": resolve reference \"#/components/schemas/health/properties/default\": schema not found"
 }
