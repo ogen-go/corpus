@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "set-extension.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/set-extension/openapi-3/set-extension.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "positive1.json",
+			"path": "assets/queries/openAPI/general/response_operations_body_schema_incorrect_defined/test/positive1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\",\n    \"contact\": {\n      \"name\": \"contact\",\n      \"url\": \"https://www.google.com/\",\n      \"email\": \"user@gmail.com\"\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\"\n          }\n        }\n      },\n      \"delete\": {\n        \"operationId\": \"deleteVersion\",\n        \"summary\": \"Deletes API versions\",\n        \"responses\": {\n          \"204\": {\n            \"description\": \"has content\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/ApiVersion\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"ApiVersion\": {\n        \"type\": \"object\",\n        \"discriminator\": {\n          \"propertyName\": \"ApiVersion\"\n        },\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"version\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
+	"Error": "parse: paths: /: delete: deleteVersion: responses: 204: content: application/json: schema: parse schema: reference \"#/components/ApiVersion\": resolve reference \"#/components/ApiVersion\": invalid schema reference \"#/components/ApiVersion\""
 }

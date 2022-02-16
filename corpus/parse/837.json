@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/CodingGardenCommunity/app-backend"
 		},
 		"file": {
-			"name": "compositeSchemaSpec.yaml",
-			"path": "test/data/31CollectionTransactions/compositeSchemaSpec.yaml",
-			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets/anyOf:\n    post:\n      summary: composite schema with anyOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/anyOfExample\"\n      responses:\n        default:\n          description: ok\n  /pets/oneOf:\n    post:\n      summary: composite schema with oneOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/oneOfExample\"\n      responses:\n        default:\n          description: ok\n  /pets/allOf:\n    post:\n      summary: composite schema with allOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/allOfExample\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    anyOfExample:\n      anyOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema2\"\n    oneOfExample:\n      oneOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema3\"\n    allOfExample:\n      allOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema3\"\n    schema1:\n      type: \n        - object\n      required:\n        - objectType\n      properties:\n        objectType:\n          type: \n            - integer\n          example: 4321\n    schema2:\n      type: \n        - object\n      required:\n        - objectType\n      properties:\n        objectType:\n          type: \n            - string\n          example: prop named objectType\n    schema3:\n      type: \n        - object\n      required:\n        - objectType2\n      properties:\n        objectType2:\n          type: \n            - string\n          example: prop named objectType2\n"
+			"name": "MainSwag.yaml",
+			"path": "Swag/MainSwag.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  $ref: './Info.yaml#/Info'\nservers:\n  $ref: './Servers.yaml#/Servers'\ntags:\n  $ref: './Tags.yaml#/Tags'\npaths:\n  /contributors:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/AllContributors'\n\n  /contributors/{id}:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/SingleContributor'\n\n  /faqs:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/AllFAQs'\n    post:\n      $ref: './Paths/FAQs/FAQs.yaml#/AddFAQ'\n\n  /faqs/{id}:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/SingleFAQ'\n    delete:\n      $ref: './Paths/FAQs/FAQs.yaml#/DeleteFAQ'\n\n  /history:\n    get:\n      $ref: './Paths/History/History.yaml#/EntireHistory'\n\n  /history/{id}:\n    get:\n      $ref: './Paths/History/History.yaml#/SingleMilestone'\n\n  /videos:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/AllVideos'\n\n  /videos/{id}:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/SingleVideo'\n\n  /admin/seed:\n    post:\n      $ref: './Paths/Admin/Admin.yaml#/Seed'\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
 }

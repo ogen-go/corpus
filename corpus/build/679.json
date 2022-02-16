@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/vanilla/vanilla"
+			"name": "github.com/OAI/OpenAPI-Specification"
 		},
 		"file": {
-			"name": "rich.yml",
-			"path": "applications/dashboard/openapi/rich.yml",
-			"content": "openapi: 3.0.2\ninfo:\npaths:\n    /rich/quote:\n        post:\n            summary: Create a rich-compatible HTML representation of a string for quoting.\n            requestBody:\n                content:\n                    application/json:\n                        schema:\n                            properties:\n                                body:\n                                    description: Raw post text to render as a rich post quote.\n                                    minLength: 1\n                                    type: string\n                                format:\n                                    $ref: \"schemas.yml#/components/schemas/Format\"\n                            required:\n                                - body\n                                - format\n                            type: object\n                required: true\n            responses:\n                \"201\":\n                    content:\n                        \"application/json\":\n                            schema:\n                                type: object\n                                properties:\n                                    quote:\n                                        description: \"A quoted representation of the text, rendered as HTML.\"\n                                        minLength: 1\n                                        type: string\n                                required:\n                                    - quote\n                    description: Success\n            tags:\n                - Rich\ncomponents:\n    schemas:\n"
+			"name": "non-oauth-scopes.yaml",
+			"path": "examples/v3.1/non-oauth-scopes.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Non-oAuth Scopes example\n  version: 1.0.0\npaths:\n  /users:\n    get:\n      security:\n        - bearerAuth:\n            - 'read:users'\n            - 'public'\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: jwt\n      description: 'note: non-oauth scopes are not defined at the securityScheme level'\n\n"
 		}
 	},
-	"Error": "parse: paths: /rich/quote: post: : requestBody: content: application/json: parse schema: parse schema: format: parse schema: reference \"schemas.yml#/components/schemas/Format\": resolve reference \"schemas.yml#/components/schemas/Format\": invalid schema reference \"schemas.yml#/components/schemas/Format\""
+	"Error": "parse: paths: /users: get: : responses: no responses"
 }

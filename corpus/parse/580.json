@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/IBM/openapi-validator"
 		},
 		"file": {
-			"name": "ordersEndpoints.v1.yaml",
-			"path": "sample/Demo.ApiDesign/MultiFileVersion/orders/ordersEndpoints.v1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  $ref: ../common/components/endpoints.v1.yaml#/info\nservers:\n  $ref: ../common/components/endpoints.v1.yaml#/servers\n\npaths:\n  '/orders/{id}':\n    get:\n      tags:\n        - Orders\n      summary: Get order by id\n      description: Get order by id\n      operationId: getOrderById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the order to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          $ref: ../common/components/responses.v1.yaml#/400\n        '404':\n          $ref: ../common/components/responses.v1.yaml#/404\n        default:\n          $ref: ../common/components/responses.v1.yaml#/400\ncomponents:\n  schemas:\n    Order:\n      $ref: ./models/order.v1.yaml\n    Orders:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n      x-tags:\n        - Orders\n      title: Orders\n      description: A list of orders.\n"
+			"name": "test-compose-model.yaml",
+			"path": "packages/validator/test/cli-validator/mock-files/oas3/test-compose-model.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    oneOfError:\n      description: should be array but instead just a ref\n      oneOf:\n        $ref: '#/components/schemas/A'\n    allOfError:\n      description: should be array but instead just a type\n      allOf:\n        type: string\n    anyOfError:\n      description: should be array but instead just a ref\n      anyOf:\n        $ref: '#/components/schemas/A'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.allOf of type []*ogen.Schema"
 }

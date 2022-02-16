@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/atc-net/atc-rest-api-generator"
+			"name": "github.com/FINRAOS/herd"
 		},
 		"file": {
-			"name": "requestWithHeader.yaml",
-			"path": "test/Atc.Rest.ApiGenerator.Tests/SyntaxGenerators/Api/XUnitTestData/ContractParameter/RequestHeaders/requestWithHeader.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  '/':\n    get:\n      summary: Get\n      description: Get\n      operationId: get\n    parameters:\n      - name: fooBar\n        in: header\n        description: ''\n        required: false        \n        schema:\n          type: string"
+			"name": "deep-linking.openapi.yaml",
+			"path": "herd-build/herd-docs/herd-docs-swagger/src/swagger-ui-master/test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
 		}
 	},
-	"Error": "parse: paths: /: get: get: responses: no responses"
+	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
 }

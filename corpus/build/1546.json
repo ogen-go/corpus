@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "duplicateOperationId.yaml",
-			"path": "3.0/fail/duplicateOperationId.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate operationId\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      responses:\n        '200':\n          description: OK\n  '/test2':\n    post:\n      operationId: same\n      responses:\n        '200':\n          description: OK\n"
+			"name": "positive8.yaml",
+			"path": "assets/queries/openAPI/general/security_operations_empty_object_definition/test/positive8.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      security:\n      - OAuth2:\n        - admin\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\n  \"/apis\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      security: {}\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\nsecurity:\n- OAuth2:\n  - read\n"
 		}
 	},
-	"Error": "parse: paths: /test2: post: duplicate operationId: \"same\""
+	"Error": "parse: paths: /apis: get: duplicate operationId: \"listVersionsv2\""
 }

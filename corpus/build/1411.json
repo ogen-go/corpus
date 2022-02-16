@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Dorthu/openapi3"
+			"name": "github.com/OpenAPITools/openapi-diff"
 		},
 		"file": {
-			"name": "dupe-operation-ids.yaml",
-			"path": "tests/fixtures/dupe-operation-ids.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: This has a duplicate operationId\npaths:\n  /example:\n    get:\n      operationId: dupe\n      responses:\n        '200':\n          description: The response\n          content:\n            application/json:\n              schema:\n                type: object\n  /example2:\n    get:\n      operationId: dupe\n      responses:\n        '200':\n          description: The response\n          content:\n            application/json:\n              schema:\n                type: object\n"
+			"name": "operation_diff_1.yaml",
+			"path": "core/src/test/resources/operation_diff_1.yaml",
+			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: \"Test title\"\n  description: \"This is a test metadata\"\n  termsOfService: \"http://test.com\"\n  contact:\n    name: \"Mark Snijder\"\n    url: \"marksnijder.nl\"\n    email: \"snijderd@gmail.com\"\n  license:\n    name: \"To be decided\"\n    url: \"http://test.com\"\n  version: \"version 1.0\"\npaths:\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: operation\n      responses:\n        '200':\n          description: response\n          content:\n            application/json: {}\n"
 		}
 	},
-	"Error": "parse: paths: /example2: get: duplicate operationId: \"dupe\""
+	"Error": "parse: paths: /pets/{id}: get: operation: parse path: path parameter not specified: \"id\""
 }

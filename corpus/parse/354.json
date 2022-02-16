@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/le/config.yaml",
-			"content": "ontologies:\n  - http://linked.earth/ontology#\n  # Example with an ontology that aggregates several ontologies (big)\nname: LinkedEarth\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Linked Earth Ontology\n    title: LinkedEarth\n    version: v0.0.1\n  externalDocs:\n    description: Linked Earth Ontology\n    url: http://linked.earth/ontology#\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/\n  prefix: http://linked.earth/data\n  graph_base: http://localhost:3030/wings/data/\n\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-unused-components-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      summary: Finds pets by Status\n      operationId: getPetsByStatus\n      tags:\n        - pets\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ApiResponse'\ncomponents:\n  schemas:\n    ApiResponse:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        type:\n          type: string\n        message:\n          type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "encoding.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/parameters/content/media-type/encoding/encoding.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /path:\n    get:\n      parameters:\n        - content:\n            'application/json':\n                schema:\n                  type: object\n                  required:\n                    - name\n                  properties:\n                    name:\n                      type: string'\n                    age:\n                      type: int\n                encoding:\n                  *"
+			"name": "examples-ref.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/examples/examples-ref.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  examples:\n    test:\n      prop: a\n\npaths:\n  /p:\n    get:\n      parameters:\n        - examples:\n            name:\n              $ref: *"
 		}
 	},
-	"Error": "yaml: line 18: did not find expected alphabetic or numeric character"
+	"Error": "yaml: line 13: did not find expected alphabetic or numeric character"
 }

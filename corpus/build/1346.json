@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        schema:\n          type: integer\n"
+			"name": "issue-1319.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: issue2137\n  version: 1.0.1\n  title: issue2137\npaths:\n  '/users/{user_id}/description':\n    get:\n      operationId: description\n      parameters:\n        - $ref: '#/components/parameters/UserId'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/goraUrl'\n  '/gora/{gora_id}/test':\n    get:\n      operationId: test\n      parameters:\n        - name: gora_id\n          description: issue-2137\n          in: path\n          required: false\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/goraUrl'\ncomponents:\n  parameters:\n    UserId:\n      name: user_id\n      description: Unique identifier of a user\n      in: path\n      required: false\n      schema:\n        type: string\n  schemas:\n    gora:\n      type: object\n      description: Information about de product\n      properties:\n        text:\n          type: string\n    goraUrl:\n      allOf:\n        - type: object\n          required:\n            - url\n          properties:\n            url:\n              type: string\n              description: Url with information or picture of the product\n        - $ref: '#/components/schemas/gora'"
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /gora/{gora_id}/test: get: test: parameters: parse parameter \"gora_id\": path parameters must be required"
 }

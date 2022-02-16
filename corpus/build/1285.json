@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/aiidalab/aiidalab"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/3.0/header_object_without_schema/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"50\":\n          description: Server error response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n        \"6xx\":\n          description: \"[600-699] response\"\n          headers:\n            X-Rate-Limit-Limit:\n              description: The number of allowed requests in the current period\n              schema:\n                type: integer\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "openapi-v1.yaml",
+			"path": "aiidalab/registry/static/api/openapi-v1.yaml",
+			"content": "---\nopenapi: 3.0.1\ninfo:\n    title: AiiDAlab apps registry API\n    description: API to query for registered AiiDAlab apps.\n    version: '1.1'\npaths:\n    /api/v1/apps_index.json:\n        get:\n            description: Complete index of all registered AiiDAlab apps.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/apps_index.schema.json#/definitions/AppsAndCategories\n    /api/v1/apps/{appId}.json:\n        parameters:\n            - name: appId\n              in: path\n              required: true\n              schema:\n                  type: string\n              example: hello-world\n        get:\n            description: Curated data and metadata for a single app entry.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 50: unknown status code: 50"
+	"Error": "parse: paths: /api/v1/apps/{appId}.json: get: : responses: 200: content: application/json: schema: parse schema: reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": resolve reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": invalid schema reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\""
 }

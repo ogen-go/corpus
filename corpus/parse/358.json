@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/opmw/config.yaml",
-			"content": "ontologies:\n  - examples\\opmw\\opmw.owl\n  #- http://www.opmw.org/ontology/\n  #Example with a slash ontology\nname: opmw\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example of the opmw ontology\n    title: opmw\n    version: v1.0.0\n  externalDocs:\n    description: open provenance ontology for workflows\n    url: http://datos.opmw.es/def/\n\nfirebase:\n  key: \n\n#endpoint not used for this example.\nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/parameter-description-warning/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\ncomponents:\n  parameters:\n    offsetParam:\n      in: query\n      name: offset\n      required: false\n      schema:\n        type: integer\n        minimum: 0\n    limitParam:\n      in: query\n      name: limit\n      required: false\n      schema:\n        type: integer\n        minimum: 1\n        maximum: 50\n        default: 20\n\npaths:\n  '/ping':\n    parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        required: true\n    get:\n      operationId: getPing\n      summary: Example summary\n      parameters:\n        - in: path\n          name: userId\n          schema:\n            type: integer\n          required: true\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

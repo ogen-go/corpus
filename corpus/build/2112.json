@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  version: undefined\npaths:\n  /resource1:\n    get:\n      responses:\n        '200':\n          description: 'Resource 1'\n          content:\n            application/json:\n              example:\n                name: a Name\n                length: 2999\n              schema:\n                $ref: 'complexType.json'\n      operationId: GET_resource1\n  /resource2:\n    get:\n      responses:\n        '200':\n          description: 'Resource 2'\n          content:\n            application/json:\n              example:\n                id: an id\n                field1:\n                  id: an id\n                  name: a Name\n              schema:\n                $ref: 'complexType.yaml'\n      operationId: GET_resource2\n  /resource3:\n    get:\n      responses:\n        '200':\n          description: 'Resource 3'\n          content:\n            application/json:\n              example:\n                id: an id\n                name: a Name\n              schema:\n                $ref: 'baseType.yaml'\n      operationId: GET_resource3"
+			"name": "root_file_reference_from_root.spec.yaml",
+			"path": "tests/specs/translating_parser/root_file_reference_from_root.spec.yaml",
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to the root file\n          content:\n            application/json:\n              schema:\n                $ref: 'root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject'\ncomponents:\n  schemas:\n    PlainObject:\n      type: object\n"
 		}
 	},
-	"Error": "parse: paths: /resource1: get: GET_resource1: responses: 200: content: application/json: schema: parse schema: reference \"complexType.json\": resolve reference \"complexType.json\": invalid schema reference \"complexType.json\""
+	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": resolve reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": invalid schema reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\""
 }

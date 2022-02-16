@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "config-with-refs.yaml",
-			"path": "test/resources/multiple-config-files/config-with-refs.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './paths/more-movies-actor.yaml'\n  /artist/{artist}:\n    $ref: './paths/artist-artist.yaml'\n  /music/{musician}/sorted:\n    $ref: './paths/music-musician-sorted.yaml'\n  /music/{musician}/no_duplicates:\n    $ref: './paths/music-musician-no-duplicates.yaml'\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/general/invalid_format/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n    parameters:\n      - name: id\n        in: path\n        description: ID of pet to use\n        required: true\n        schema:\n          type: array\n          items:\n            type: object\n            properties:\n              myObject:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              length:\n                type: integer\n                format: float\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: double\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: int32\n        result:\n          type: number\n          format: double\n"
 		}
 	},
-	"Error": "parse: /artist/{artist}: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/apioo/psx-api"
+			"name": "github.com/Cornutum/tcases"
 		},
 		"file": {
-			"name": "test.json",
-			"path": "tests/Parser/openapi/test.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Test API\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/foo/{fooId}\": {\n      \"parameters\": [{\n        \"name\": \"fooId\",\n        \"in\": \"path\",\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      }]\n    }\n  }\n}\n"
+			"name": "examples-26.json",
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/examples-26.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"examples\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/examples\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"type\": \"boolean\",\n                            \"nullable\": true,\n                            \"example\": false\n                        }\n                    },\n                    {\n                        \"name\": \"param1\",\n                        \"in\": \"query\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"enum\": [ true, true, null ]\n                        }\n                    }\n                ],\n                \"requestBody\": {\n                    \"required\": false,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"type\": \"boolean\",\n                                \"example\": false\n                            },\n                            \"examples\": {\n                                \"yes\": { \"value\": true },\n                                \"ok\": { \"value\": true },\n                                \"maybe\": { \"value\": null }\n                            }\n                        }\n                    }  \n                },\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: /foo/{fooId}: parameters: parse parameter \"fooId\": path parameters must be required"
+	"Error": "parse: paths: /examples: post: : parameters: parse parameter \"param1\": schema: parse schema: type: unexpected type: \"bool\""
 }

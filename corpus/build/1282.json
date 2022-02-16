@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/typeable/compaREST"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/components_schema_definition_unused/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n    MyObject2:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
+			"name": "a.yaml",
+			"path": "test/golden/common/unguarded-recursive/basic/a.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      anyOf:\n        - $ref: \"#/components/schemas/Bad\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /api/foo: get: : responses: 200: content: application/json;charset=utf-8: schema: parse schema: reference \"#/components/schemas/Bad\": parse schema: anyOf: [0]: parse schema: reference \"#/components/schemas/Bad\": infinite recursion: \"#/components/schemas/Bad\""
 }

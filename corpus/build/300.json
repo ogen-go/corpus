@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bump-sh/github-action"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "gitlab.yml",
-			"path": "examples/gitlab.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    An OpenAPI definition for the GitLab REST API.\n  version: v4\n  title: GitLab API\n\npaths:\n  # ...\n\n\n  # ACCESS REQUESTS (PROJECTS)\n  /v4/projects/{id}/access_requests:\n    $ref: 'v4/access_requests.yaml#/accessRequestsProjects'\n\n  # ...\n"
+			"name": "patch-test.yml",
+			"path": "rules/tests/patch-test.yml",
+			"content": "openapi: 3.0.1\npaths:\n    /ko-patch-generic-mediatype:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json:\n              schema:\n                type: string\n    /ko-patch-mediatype-not-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: string\n    /ok-patch-mediatype-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: array\n    /ko-patch-without-body:\n      patch:\n        description: Patch without body\n    /ko-patch-empty-body:\n      patch:\n        description: Patch empty body\n        requestBody: {}\n"
 		}
 	},
-	"Error": "parse: /v4/projects/{id}/access_requests: referenced pathItem not supported"
+	"Error": "parse: paths: /ko-patch-without-body: patch: : responses: no responses"
 }

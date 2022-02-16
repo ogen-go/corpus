@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/getkin/kin-openapi"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "circularref.openapi.yml",
-			"path": "openapi3/testdata/circularref.openapi.yml",
-			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: 'pathref.openapi.yml#/components/schemas/TestSchema'\n"
+			"name": "api.yml",
+			"path": "als-structure/shared/src/test/resources/OAS30/encoding/api.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      requestBody:\n        description: a request\n        content:\n          application/json:\n            encoding:\n              name:\n                contentType: application/json\n                headers:\n                  header:\n                    description: a header\n                style: plain\n                explode: false\n                allowReserved: false\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: : responses: 200: resolve \"#/components/responses/GetTestOK\" reference: content: application/json: schema: parse schema: reference \"pathref.openapi.yml#/components/schemas/TestSchema\": resolve reference \"pathref.openapi.yml#/components/schemas/TestSchema\": invalid schema reference \"pathref.openapi.yml#/components/schemas/TestSchema\""
+	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
 }

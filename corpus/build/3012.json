@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+			"name": "github.com/fybrik/fybrik"
 		},
 		"file": {
-			"name": "request_body_direct.yaml",
-			"path": "core/src/test/resources/api/request_body/request_body_direct.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            required:\n              - id\n            type: object\n            properties:\n              id:\n                type: string\n"
+			"name": "datacatalog.spec.yaml",
+			"path": "connectors/api/datacatalog.spec.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Data Catalog Service - Asset Details\n  license:\n    name: Apache 2.0\nservers:\n  - url: https://localhost:8080\npaths:\n  /getAssetInfo:\n      post:\n        summary: This REST API gets data asset information from the data catalog configured in fybrik for the data sets indicated in FybrikApplication yaml\n        operationId: getAssetInfo\n        parameters:\n          - in: header\n            name: X-Request-Datacatalog-Cred\n            schema:\n              type: string\n            required: true\n        requestBody:\n          description: Data Catalog Request Object.\n          required: true\n          content:\n            application/json:\n              schema:\n                $ref: \"../../charts/fybrik/files/taxonomy/datacatalog.json#/definitions/GetAssetRequest\"\n        responses:\n          '200':\n            description: successful operation\n            content:\n              application/json:\n                schema:\n                  $ref: \"../../charts/fybrik/files/taxonomy/datacatalog.json#/definitions/GetAssetResponse\"\n          '400':\n            description: Bad request - server cannot process the request due to client error"
 		}
 	},
-	"Error": "parse: paths: /pet: post: addPet: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
+	"Error": "parse: paths: /getAssetInfo: post: getAssetInfo: requestBody: content: application/json: parse schema: parse schema: reference \"../../charts/fybrik/files/taxonomy/datacatalog.json#/definitions/GetAssetRequest\": resolve reference \"../../charts/fybrik/files/taxonomy/datacatalog.json#/definitions/GetAssetRequest\": invalid schema reference \"../../charts/fybrik/files/taxonomy/datacatalog.json#/definitions/GetAssetRequest\""
 }

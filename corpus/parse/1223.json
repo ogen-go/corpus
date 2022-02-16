@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/dhis2/dhis2-api-specification"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "service_base_openapi.json",
-			"path": "docs/spec/src/service_base_openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"$ref\": \"./info_openapi.json#/info\"\n  },\n  \"components\": {\n    \"$ref\": \"./components_openapi.json#/components\"\n  },\n  \"externalDocs\": {\n    \"description\": \"\",\n    \"url\": \"https://docs.dhis2.org/master/en/developer/html/dhis2_developer_manual_full.html\",\n    \"x-status-dhis2\": \"draft\"\n  },\n  \"paths\": {\n      \"$ref\":\"./paths_openapi.json#/paths\"\n    },\n  \"security\": [\n    {\n      \"basicAuth\": []\n    },\n    {\n      \"oAuth\": []\n    }\n  ],\n  \"servers\": [\n    {\n      \"description\": \"localhost\",\n      \"url\": \"http://localhost:8080/api\"\n    },\n    {\n      \"description\": \"DHIS2 demo server\",\n      \"url\": \"https://play.dhis2.org/2.31/api\"\n    }\n  ],\n  \"tags\": {\n    \"$ref\": \"./tags_openapi.json#/tags\"\n  },\n  \"x-draft-tagGroups\": {\n    \"$ref\": \"./tagGroups_openapi.json#/x-tagGroups\"\n  }\n}\n"
+			"name": "additional-items.json",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/additional-items.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"some title\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"invalid-tuple-array-additional-items-boolean\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": false,\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"invalid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"valid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"lala\",\n          \"other\"\n        ]\n      }\n    }\n  },\n  \"paths\": {\n  }\n}"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"
 }

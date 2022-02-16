@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OAI/OpenAPI-Specification"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "mega.yaml",
-			"path": "tests/v3.1/pass/mega.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n"
+			"name": "account-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/account/account-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Accounts\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/accounts/_count:\n    post:\n      tags:\n        - Account\n      summary: Count the Accounts\n      operationId: accountCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n      description: Returns the count of how many Accounts are present in the given Scope\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /{scopeId}/accounts/_count: post: accountCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

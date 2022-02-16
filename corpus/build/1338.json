@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/general/invalid_format/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n    parameters:\n      - name: id\n        in: path\n        description: ID of pet to use\n        required: true\n        schema:\n          type: array\n          items:\n            type: object\n            properties:\n              myObject:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              length:\n                type: integer\n                format: float\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: double\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: int32\n        result:\n          type: number\n          format: double\n"
+			"name": "issue-983.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: This is a simple API\n  version: \"1.0.0\"\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\npaths:\n  /inventory/{inventory-id}:\n    get:\n      operationId: getInventoryItem\n      description: Sample\n      parameters:\n        # path\n        - $ref: 'issue-983-domain.yaml/#/components/parameters/inventory-id'\n      responses:\n        '200':\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/InventoryItem'\n        '400':\n          description: bad input parameter\n\n\ncomponents:\n  schemas:\n    InventoryItem:\n      type: string"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /inventory/{inventory-id}: get: getInventoryItem: parameters: parse parameter \"\": resolve \"issue-983-domain.yaml/#/components/parameters/inventory-id\" reference: invalid parameter reference: \"issue-983-domain.yaml/#/components/parameters/inventory-id\""
 }

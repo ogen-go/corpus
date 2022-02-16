@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "complex_type.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/complex_type.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"Complex Object Api\"\n  version: 0.0.0\npaths:\n  /user:\n    get:\n      description: \"A description\"\n      responses:\n        '200':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n\ncomponents:\n  schemas:\n    Person:\n      type: object\n      properties:\n        DNI:\n          type: string\n    User:\n      type: object\n      properties:\n        name:\n          type: string\n          pattern: ([\\u30a0-\\u30ff]+)\n          example: キンギョ\n        age:\n          type: integer\n          format: int64\n          example: 1\n        ContactInfo:\n          $ref: '#/components/schemas/ContactInfo'\n    ContactInfo:\n      type: object\n      properties:\n        email:\n          type: string\n          format: email\n        phone:\n          type: string\n"
+			"name": "local_reference_from_file.spec.yaml",
+			"path": "tests/specs/translating_parser/local_reference_from_file.spec.yaml",
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a local reference\n          content:\n            application/json:\n              schema:\n                $ref: 'local_reference_from_file_schemas.spec.yaml#/$defs/RefObject'\n"
 		}
 	},
-	"Error": "make ir: path \"/user\": get: responses: 200: contents: application/json: schema: field name: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
+	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": resolve reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": invalid schema reference \"local_reference_from_file_schemas.spec.yaml#/$defs/RefObject\""
 }

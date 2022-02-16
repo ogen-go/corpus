@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ballerina-platform/openapi-tools"
+			"name": "github.com/imfht/flaskapps"
 		},
 		"file": {
-			"name": "query_07.yaml",
-			"path": "openapi-cli/src/test/resources/generators/service/swagger/query/query_07.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstoe\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\npaths:\n  /pets:\n    get:\n      operationId: listPets\n      parameters:\n        - name: offset\n          in: query\n          schema:\n            type: array\n            items:\n              type: array\n              items:\n                type: integer\n      responses:\n        '200':\n          description: An paged array of pets\n"
+			"name": "openapi.yaml",
+			"path": "repos/connexion-master/tests/fixtures/default_param_error/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n"
 		}
 	},
-	"Error": "make ir: path \"/pets\": get: parameters: nested arrays not allowed"
+	"Error": "parse: paths: /default-param-query-does-not-match-type: get: fakeapi.hello.test_default_missmatch_definition: parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
 }

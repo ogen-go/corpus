@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/EMResearch/EvoMaster"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "openapi-enum.yml",
-			"path": "e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-enum.yml",
-			"content": "openapi: 3.0.0\nhost: localhost:8080\npaths:\n  /api/enum:\n    get:\n      parameters:\n        - in: query\n          name: x\n          schema:\n            type: string\n            enum: [foo, bar]\n        - in: query\n          name: y\n          schema:\n            type: integer\n            enum: [42, 1234567]\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EnumDto'\ncomponents:\n  schemas:\n    EnumDto:\n      type: Object\n      properties:\n        values:\n          type: array\n          items:\n            type: string\n            enum: [foo, bar]"
+			"name": "issue#193.yml",
+			"path": "test/data/valid_openapi/issue#193.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0\n  title: Demo API dodo\npaths:\n  /api:\n    get:\n      summary: 'Demo invalid type'\n      responses:\n        '200':\n          description: 'Cannot use type boolean'\n          content:\n            application/json:\n                schema:\n                  type: object\n                  properties:\n                    nominmax:\n                      type: array\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomin:\n                      type: array\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomax:\n                      type: array\n                      minItems: 4\n                      items:\n                        type: string\n                      exmaple: hello\n                    minmax:\n                      type: array\n                      minItems: 3\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    max:\n                      type: array\n                      minItems: 30\n                      maxItems: 40\n                      items:\n                        type: string\n                      exmaple: hello\n                    min:\n                      type: array\n                      minItems: 1\n                      items:\n                        type: string\n                      exmaple: hello"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

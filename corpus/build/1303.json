@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/parameter_object_schema_content/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        required: true\n        schema:\n          type: integer\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n  /users/{id}:\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n          content:\n            application/json:\n              schema:\n                type: integer\n"
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/codegen-issue-9773/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Codegen test: requestBody with an external $ref'\n  version: 0.0.0\npaths:\n  /foo:\n    post:\n      requestBody:\n        $ref: './domain.yaml#/components/requestBodies/RequestBody1'\n      responses:\n        '200':\n          description: OK"
 		}
 	},
-	"Error": "parse: paths: /users/{id}: get: : responses: no responses"
+	"Error": "parse: paths: /foo: post: : requestBody: resolve \"./domain.yaml#/components/requestBodies/RequestBody1\" reference: invalid requestBody reference: \"./domain.yaml#/components/requestBodies/RequestBody1\""
 }

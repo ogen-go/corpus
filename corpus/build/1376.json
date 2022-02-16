@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ConsenSys/web3signer"
+			"name": "github.com/surfstudio/SurfGen"
 		},
 		"file": {
-			"name": "web3signer.yaml",
-			"path": "core/src/main/resources/openapi-specs/eth2/web3signer.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: 'Web3Signer ETH2 Api'\n  description: 'Sign Eth2 Artifacts'\n  version: '@VERSION@'\n  license:\n    name: 'Apache 2.0'\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\nservers:\n  - url: /\n  - url: http://localhost:9000/\n\npaths:\n  /api/v1/eth2/sign/{identifier}:\n    $ref: './signing/paths/sign.yaml'\n  /api/v1/eth2/publicKeys:\n    $ref: './signing/paths/public_keys.yaml'\n  /reload:\n    $ref: './signing/paths/reload.yaml'\n  /upcheck:\n    $ref: './signing/paths/upcheck.yaml'\n  /eth/v1/keystores:\n    $ref: './keymanager/paths/keystores.yaml'\n\nexternalDocs:\n  description: 'Web3Signer User Documentation'\n  url: 'https://docs.web3signer.consensys.net/'\n"
+			"name": "api.yaml",
+			"path": "Tests/Common/ProjectA/command/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n\nsecurity:\n  - bearerAuth: [] \n\npaths:\n  /command:\n    get:\n      summary: Проверка доступности команд активации\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/CheckResult\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n    post:\n      summary: Повтор команд активации\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"../common/models.yaml#/components/schemas/InfoMessage\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: /eth/v1/keystores: referenced pathItem not supported"
+	"Error": "parse: paths: /command: get: : responses: 200: content: application/json: schema: parse schema: reference \"models.yaml#/components/schemas/CheckResult\": resolve reference \"models.yaml#/components/schemas/CheckResult\": invalid schema reference \"models.yaml#/components/schemas/CheckResult\""
 }

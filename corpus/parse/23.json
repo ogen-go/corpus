@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Restfulness/Restfulness-core-api"
+			"name": "github.com/jdkandersson/OpenAlchemy"
 		},
 		"file": {
-			"name": "reset_password.yml",
-			"path": "yml/forget_password/reset_password.yml",
-			"content": "Step 3) Reset user's password\n---\nopenapi: 3.0.0\nconsumes:\n  \"application/json\"\ntags:\n  - name: \"Forget Password\"\nparameters:\n  - name: body\n    in: body\n    required: true\n    schema:\n      required:\n        - reset_password_token\n        - new_password\n      properties:\n        reset_password_token:\n          type: string\n          description: \"Token for resetting password that is obtained from prevoius call to /verify_code\"\n          example: \"eyJhb...\"\n        new_password:\n          type: string\n          description: \"User's new password\"\n          example: \"new_test_Pass00rd\"\nresponses:\n  200:\n    description: \"Password reseted successfully.\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Password reseted successfully.\"\n      example:\n        msg: \"Password reseted successfully.\"\n  401:\n    description: \"Token expired!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Token expired!\"\n      example:\n        msg: \"Token expired!\"\n  401:\n    description: \"Token invalid!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Token invalid!\"\n      example:\n        msg: \"Token invalid!\"\n  500:\n    description: \"Failed due to server error\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Failed due to server error\"\n      example:\n        msg: \"Failed due to server error\""
+			"name": "example-spec.yml",
+			"path": "examples/nullable/openapi-3-1/example-spec.yml",
+			"content": "openapi: \"3.1.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate nullable.\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Employee:\n      description: Person that works for a company.\n      type: object\n      x-tablename: employee\n      properties:\n        id:\n          type: integer\n          description: Unique identifier for the employee.\n          example: 0\n          x-primary-key: true\n          x-autoincrement: true\n        name:\n          type: [string, \"null\"]\n          description: The name of the employee.\n          example: David Andersson\n          x-index: true\n        division:\n          type: string\n          description: The part of the company the employee works in.\n          example: Engineering\n          x-index: true\n        salary:\n          type: number\n          description: The amount of money the employee is paid.\n          example: 1000000.00\n      required:\n        - name\n        - division\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go value of type ogen.Spec"
+	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }

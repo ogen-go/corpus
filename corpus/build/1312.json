@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/property_allow_reserved_improperly_defined/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        required: true\n        allowReserved: true\n        schema:\n          type: integer\n  /users/{id}:\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          allowReserved: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n"
+			"name": "main.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/main.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://myhost.com/testpath'\ninfo:\n  title: Tests\n  description: Tests\n  version: beta\npaths:\n  pets:\n    get:\n      summary: null\n      description: null\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './Pet.yaml#/Pet'"
 		}
 	},
-	"Error": "parse: paths: /users/{id}: get: : responses: no responses"
+	"Error": "parse: paths: pets: get: list: responses: 200: content: */*: schema: parse schema: reference \"./Pet.yaml#/Pet\": resolve reference \"./Pet.yaml#/Pet\": invalid schema reference \"./Pet.yaml#/Pet\""
 }

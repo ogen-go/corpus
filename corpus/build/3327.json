@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/jhthorsen/json-validator"
+			"name": "github.com/opengeospatial/ogcapi-coverages"
 		},
 		"file": {
-			"name": "v3-default-response-extra.yaml",
-			"path": "t/spec/v3-default-response-extra.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: v3-default-response-extra\n  version: 0.0.1\ncomponents:\n  schemas:\n    base:\n      type: object\n      required: [status, reason]\n      properties:\n        status:\n          type: integer\n        reason:\n          type: string\n    not_found:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/base'\n    exception:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/base'\n  responses:\n    '404':\n      description: Custom 404\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/not_found'\npaths:\n  /item/{id}:\n    get:\n      summary: get a single item\n      description: get a single item from the database\n      x-mojo-name: item\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/base'\n        '404':\n          $ref: '#/components/responses/404'\n        '500':\n          description: Custom 500\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/exception'\n"
+			"name": "ogcapi-coverages-1.yaml",
+			"path": "standard/openapi/ogcapi-coverages-1.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: 'A sample API conforming to the OGC API - Coverages - Part 1: Core standard'\n  description: 'This is a sample OpenAPI definition that conforms to the OGC API - Coverages - Part 1: Core Service specification (conformance classes: \"GeoData-Coverage\", \"Coverage Subset\", \"CIS JSON\", \"HTML\" and \"OpenAPI 3.0\").'\n  contact:\n    name: Open Geospatial Consortium\n    url: https://ogc.org\n    email: info@ogc.org\n  license:\n    name: CC-BY 4.0 license\n    url: https://creativecommons.org/licenses/by/4.0/\n  version: 2.0.0\nservers:\n  - url: https://dev.example.org\n    description: Development server\n  - url: https://data.example.org\n    description: Production server\ntags:\n  - name: Capabilities\n    description: Essential characteristics of this API including information about the data.\n  - name: Coverage\n    description: Access to data (coverage).\npaths:\n  # OGC API - Coverages - Part 1: Core\n  /:\n    $ref: 'paths/common-core/landingPage.yaml'\n  /conformance:\n    $ref: 'paths/common-core/conformance.yaml'\n  /api:\n    $ref: 'paths/common-core/api.yaml'\n  /collections:\n    $ref: 'paths/common-geodata/collections.yaml'\n  /collections/{collectionId}:\n    $ref: 'paths/common-geodata/collection.yaml'\n  /collections/{collectionId}/coverage:\n    $ref: 'paths/coverages-core/coverage.yaml'\n  /collections/{collectionId}/coverage/domainset:\n    $ref: 'paths/coverages-core/domainset.yaml'\n  /collections/{collectionId}/coverage/rangetype:\n    $ref: 'paths/coverages-core/rangetype.yaml'\n  /collections/{collectionId}/coverage/rangeset:\n    $ref: 'paths/coverages-core/rangeset.yaml'\n  /collections/{collectionId}/coverage/metadata:\n    $ref: 'paths/coverages-core/metadata.yaml'\n"
 		}
 	},
-	"Error": "parse: paths: /item/{id}: get: : parse path: path parameter not specified: \"id\""
+	"Error": "parse: /collections/{collectionId}: referenced pathItem not supported"
 }

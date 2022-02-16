@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Dorthu/openapi3"
+			"name": "github.com/OpenAPITools/openapi-diff"
 		},
 		"file": {
-			"name": "broken-ref.yaml",
-			"path": "tests/fixtures/broken-ref.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: This has a broken $ref in it\npaths:\n  /example:\n    get:\n      operationId: hasBrokenRef\n      responses:\n        '200':\n          $ref: '#/components/responses/Missing'\n"
+			"name": "operation_diff_2.yaml",
+			"path": "core/src/test/resources/operation_diff_2.yaml",
+			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: \"Test title\"\n  description: \"This is a test metadata\"\n  termsOfService: \"http://test.com\"\n  contact:\n    name: \"Mark Snijder\"\n    url: \"marksnijder.nl\"\n    email: \"snijderd@gmail.com\"\n  license:\n    name: \"To be decided\"\n    url: \"http://test.com\"\n  version: \"version 1.0\"\npaths:\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: changed\n      responses:\n        '200':\n          description: response\n          content:\n            application/json: {}\n"
 		}
 	},
-	"Error": "parse: paths: /example: get: hasBrokenRef: responses: 200: resolve \"#/components/responses/Missing\" reference: component by reference \"#/components/responses/Missing\" not found"
+	"Error": "parse: paths: /pets/{id}: get: changed: parse path: path parameter not specified: \"id\""
 }

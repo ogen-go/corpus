@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/response_object_incorrect_ref/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  Success:\n    description: 200 response\n    content:\n      application/json:\n        examples:\n          foo:\n            value:\n              versions:\n                - status: CURRENT\n                  updated: \"2011-01-21T11:33:21Z\"\n                  id: v2.0\n                  links:\n                    - href: http://127.0.0.1:8774/v2/\n                      rel: self\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          $ref: \"#/components/schemas/Success\"\n"
+			"name": "swagger.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1177/swagger.yaml",
+			"content": "openapi: \"3.0.2\"\ninfo:\n  version: 15.3.0\n  title: test\npaths:\n  /update-pets:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'common/common-types.yaml#/components/schemas/PetsList'\n      responses:\n        '200':\n          $ref: 'common/responses/common-responses.yaml#/components/responses/PetsListResponse'\n\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
+	"Error": "parse: paths: /update-pets: post: : requestBody: content: application/json: parse schema: parse schema: reference \"common/common-types.yaml#/components/schemas/PetsList\": resolve reference \"common/common-types.yaml#/components/schemas/PetsList\": invalid schema reference \"common/common-types.yaml#/components/schemas/PetsList\""
 }

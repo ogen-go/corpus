@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cebe/php-openapi"
+			"name": "github.com/wikimedia/restbase"
 		},
 		"file": {
-			"name": "subdir.yaml",
-			"path": "tests/spec/data/reference/subdir.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\ncomponents:\n  schemas:\n    Pet:\n      $ref: 'subdir/Pet.yaml'\n    Dog:\n      $ref: 'subdir/Dog.yaml'\n  parameters:\n    \"Parameter.PetId\":\n      \"$ref\": \"./subdir/Parameter.PetId.json\"\npaths:\n  '/pet':\n    get:\n      responses:\n        200:\n          description: return a pet\n  '/pets':\n    \"$ref\": \"paths/pets.json\"\n"
+			"name": "post_data.yaml",
+			"path": "sys/post_data.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: '1.0.0'\n  title: RESTBase post data storage module\n  description: Revisioned post data storage with HTTP interface, backed by table storage\npaths:\n  /{bucket}:\n    put:\n      operationId: createBucket\n\n  /{bucket}/:\n    put:\n      operationId: putRevision\n\n  /{bucket}/{key}: \u0026bucket_key\n    get:\n      operationId: getRevision\n  /{bucket}/{key}/{tid}:\n    \u003c\u003c: *bucket_key\n\n  /{bucket}/hash:\n    post:\n      operationId: calculateHash\n"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /{bucket}/hash: post: calculateHash: parse path: path parameter not specified: \"bucket\""
 }

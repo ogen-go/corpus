@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/hashicorp-demoapp/product-api-go"
+			"name": "github.com/podhmo/dictknife"
 		},
 		"file": {
-			"name": "open_api.yaml",
-			"path": "open_api.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Products API\n  description: Products API allows access to HashiCoffee Coffees and Ingredients\n  version: 0.1.9\npaths:\n\n  /coffees:\n    get:\n      summary: Returns a list of Coffee\n      responses:\n        '200':    # status code\n          description: A JSON array of coffee\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    id:\n                      type: integer\n                      format: int64\n                      example: 1\n                    name:\n                      type: string\n                      example: \"Latte\"\n                    price:\n                      type: float\n                      format: float64\n                      example: 2.34\n                    created_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z\n                    updated_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z\n                    deleted_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z\n                    ingredients:\n                      type: array\n                      items:\n                        type: integer\n\n  /coffees/{id}/ingredients:\n    get:\n      summary: Returns a list of ingredients for a coffee\n      responses:\n        '200':    # status code\n          description: A JSON array of ingredients\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    id:\n                      type: integer\n                      format: int64\n                      example: 1\n                    name:\n                      type: string\n                      example: \"Milk\"\n                    quantity:\n                      type: string\n                      example: 500ml\n                    created_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z\n                    updated_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z\n                    deleted_at:\n                      type: datetime\n                      example: 2020-01-10T00:00:00Z"
+			"name": "main.yaml",
+			"path": "examples/swaggerknife/migrate/dst/04/main.yaml",
+			"content": "components:\n  securitySchemes:\n    BasicAuth:\n      type: basic\ninfo:\n  description: API description in Markdown.\n  title: Sample API\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /users:\n    $ref: 'api_users.yaml#/paths/~1users'\n  /users/{userId}:\n    $ref: 'api_users.yaml#/paths/~1users~1{userId}'\n  /users2:\n    $ref: 'api_users2.yaml#/paths/~1users2'\n  /users2/{userId}:\n    $ref: 'api_users2.yaml#/paths/~1users2~1{userId}'\n  /users3:\n    $ref: 'api_users3.yaml#/paths/~1users3'\nsecurity:\n- BasicAuth: []\nservers:\n- description: ''\n  url: 'http://api.example.com/v1'\n"
 		}
 	},
-	"Error": "parse: paths: /coffees/{id}/ingredients: get: : parse path: path parameter not specified: \"id\""
+	"Error": "parse: /users: referenced pathItem not supported"
 }

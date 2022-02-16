@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/koxudaxi/datamodel-code-generator"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "x_enum_varnames.yaml",
-			"path": "tests/data/openapi/x_enum_varnames.yaml",
-			"content": "openapi: 3.0\ncomponents:\n  schemas:\n    string:\n      type: string\n      enum:\n        - 'dog'\n        - 'cat'\n        - 'snake'\n    unknown_type_string:\n      enum:\n        - 'dog'\n        - 'cat'\n        - 'snake'\n    named_string:\n      type: string\n      description: Operator to filter data by.\n      enum:\n        - '='\n        - '!='\n        - '\u003e'\n        - '\u003c'\n        - '\u003e='\n        - '\u003c='\n      x-enum-varnames:\n        - EQ\n        - NE\n        - GT\n        - LT\n        - GE\n        - LE\n      example: '\u003e='\n      xml:\n        attribute: true\n    named_number:\n      type: number\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      x-enum-varnames:\n        - one\n        - two\n        - three\n      example: 1\n    number:\n      type: number\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      example: 1\n    unknown_type_number:\n      description: Operator to filter data by.\n      enum:\n        - 1\n        - 2\n        - 3\n      example: 1"
+			"name": "primitiveDataTypeBodySpec.yaml",
+			"path": "test/data/validationData/primitiveDataTypeBodySpec.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0\n  title: Demo API\npaths:\n  /api:\n    post:\n      summary: 'Demo invalid type'\n      requestBody:\n        description: 'Cannot use type boolean'\n        content:\n          application/json:\n              schema:\n                type: boolean\n      responses:\n        '200':\n          content:\n            application/json:\n                schema:\n                  type: integer\n                  minimum: 5\n                  maximum: 10\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

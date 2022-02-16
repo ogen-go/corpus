@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "schema.yaml",
-			"path": "als-actions/shared/src/test/resources/codeactions/extract-element/schema-from-oas/schema.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  responses:\n    test: x\n\npaths:\n  /p:\n    get:\n      parameters:\n        - schema:\n            type: string\n            example: textplain"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths: {}\ncomponents:\n  schemas:\n    ErrorModel:\n      type: object\n      required:\n        - message\n        - code\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          minimum: 100\n          maximum: 600\n      allOf:\n        - \"$ref\": \"#/components/schemas/ErrorModel\"\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: integer\n              minimum: 100\n              maximum: 600\n      additionalProperties:\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.responses of type ogen.Response"
+	"Error": "unexpected type array"
 }

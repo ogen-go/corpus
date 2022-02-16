@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/janephp/janephp"
 		},
 		"file": {
-			"name": "positive1.json",
-			"path": "assets/queries/openAPI/3.0/callback_object_incorrect_ref/test/positive1.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/Success\"\n          }\n        },\n        \"callbacks\": {\n          \"myEvent\": {\n            \"$ref\": \"#/components/callbaccgcks/inProgress\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"callbacks\": {\n      \"inProgress\": {\n        \"{$request.body#/inProgressUrl}\": {\n          \"post\": {\n            \"requestBody\": {\n              \"$ref\": \"#/components/requestBodies/callbackMessage1\"\n            },\n            \"responses\": {\n              \"200\": {\n                \"description\": \"OK\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "swagger.json",
+			"path": "src/Component/OpenApi3/Tests/fixtures/exceptions/swagger.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-exception\": {\n            \"get\": {\n                \"operationId\": \"Test No Tag\",\n                \"responses\": {\n                    \"400\": {\n                        \"description\": \"Bad request on test exception\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    },\n                    \"404\": {\n                        \"description\": \"Not found get\"\n                    },\n                    \"500\": {\n                        \"description\": \"Internal server error on test exception\"\n                    },\n                    \"600\": {\n                        \"description\": \"New update available\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"servers\": [\n        {\n            \"url\": \"/\"\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Message\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"message\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
+	"Error": "parse: paths: /test-exception: get: Test No Tag: responses: 600: unknown status code: 600"
 }

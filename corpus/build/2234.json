@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ballerina-platform/openapi-tools"
+			"name": "github.com/imfht/flaskapps"
 		},
 		"file": {
-			"name": "path_parameter_invalid02.yaml",
-			"path": "openapi-cli/src/test/resources/generators/client/swagger/path_parameter_invalid02.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: ' payloadV'\n  version: 1.0.0\nservers:\n  - url: localhost:9090/payloadV\npaths:\n  /:\n    get:\n      operationId: operationId01\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n    post:\n      operationId: operationId02\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /v1/{id}:\n    get:\n      operationId: \"op2\"\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: int\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents: {}\n"
+			"name": "openapi.yaml",
+			"path": "connexion-master/tests/fixtures/default_param_error/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n"
 		}
 	},
-	"Error": "parse: paths: /v1/{id}: get: op2: parameters: parse parameter \"id\": schema: parse schema: unexpected schema type: \"int\""
+	"Error": "parse: paths: /default-param-query-does-not-match-type: get: fakeapi.hello.test_default_missmatch_definition: parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
 }

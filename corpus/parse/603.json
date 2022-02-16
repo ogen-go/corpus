@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/boostcampwm-2021/web28-NaBaaang"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "root.yaml",
-			"path": "backend/swagger/root/root.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Nabaaang API\n  description: Nabaaang API 문서입니다\nservers:\n  - url: \"http://localhost:4000\"\ncomponents:\n  schemas: \n    Channel:\n      $ref: ../channel/components.yaml#/Channel\n    Message:\n      $ref: ../message/components.yaml#/Message\n\npaths:\n  $ref: ../channel/paths.yaml\n\n"
+			"name": "config.yaml",
+			"path": "examples/le/config.yaml",
+			"content": "ontologies:\n  - http://linked.earth/ontology#\n  # Example with an ontology that aggregates several ontologies (big)\nname: LinkedEarth\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Linked Earth Ontology\n    title: LinkedEarth\n    version: v0.0.1\n  externalDocs:\n    description: Linked Earth Ontology\n    url: http://linked.earth/ontology#\n  servers:\n    - url: http://localhost:8080/v0.0.1\n\n\nendpoint:\n  url: http://localhost:3030/\n  prefix: http://linked.earth/data\n  graph_base: http://localhost:3030/wings/data/\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

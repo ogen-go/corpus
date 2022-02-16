@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/Mokkapps/openapi-angular-spring-demo"
 		},
 		"file": {
-			"name": "example_ref.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/example_ref.yaml",
-			"content": "openapi: \"3.0.0\"\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  $ref: '\u003ccaret\u003e#/components/examples/Example'\ncomponents:\n  examples:\n    Example:\n      summary: Summary\n      description: Description\n"
+			"name": "schema.yaml",
+			"path": "openapi/schema.yaml",
+			"content": "openapi: \"3.0.0\"\nservers:\n  - url: http://localhost:8080/api\ninfo:\n  version: 1.0.0\n  title: Gaming News API\npaths:\n  /news:\n    summary: Get list of latest gaming news\n    get:\n      tags:\n        - News\n      summary: Get list of latest gaming news\n      operationId: getNews\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ArticleList\"\n\ncomponents:\n  schemas:\n    ArticleList:\n      type: array\n      items:\n        $ref: \"#/components/schema/Article\"\n    Article:\n      required:\n        - id\n        - title\n        - date\n        - description\n        - imageUrl\n      properties:\n        id:\n          type: string\n          format: uuid\n        title:\n          type: string\n        date:\n          type: string\n          format: date\n        description:\n          type: string\n        imageUrl:\n          type: string"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"\u003ccaret\u003e#/components/examples/Example\": invalid parameter reference: \"\u003ccaret\u003e#/components/examples/Example\""
+	"Error": "parse: paths: /news: get: getNews: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/ArticleList\": parse schema: item: parse schema: reference \"#/components/schema/Article\": resolve reference \"#/components/schema/Article\": invalid schema reference \"#/components/schema/Article\""
 }

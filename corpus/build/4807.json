@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "add-security-requirement-op.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/add-security-requirement/openapi-3/add-security-requirement-op.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"List API versions\",\n        \"operationId\": \"listVersionsv2\"\n      }\n    }\n  }\n}"
+			"name": "rename_component_response.json",
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_response.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"404\": {\n            \"$ref\": \"#/components/responses/NotFound\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"\u003ccaret\u003eNotFound\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: no responses"
+	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"#/components/responses/NotFound\" reference: component by reference \"#/components/responses/NotFound\" not found"
 }

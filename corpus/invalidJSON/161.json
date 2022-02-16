@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "media_type_example.json",
-			"path": "src/test/resources/testing/completion/field/openapi/media_type_example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"examples\": {\n                \"foo\": {\n                  \u003ccaret\u003e\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "discriminator-mapping.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/schemas/discriminator/discriminator-mapping.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"Cat\": {\n        \"properties\": {\n          \"legs\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"pet-type\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Dog\": {\n        \"properties\": {\n          \"legs\": {\n            \"type\": \"integer\"\n          },\n          \"nickname\": {\n            \"type\": \"string\"\n          },\n          \"pet-type\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"test\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Cat\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Dog\"\n          }\n        ],\n        \"discriminator\": {\n          \"propertyName\": \"pet-type\",\n          \"mapping\": {\n            \"*\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
 	"Error": "invalid json"

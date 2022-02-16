@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "main.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n"
+			"name": "positive1.yaml",
+			"path": "assets/queries/openAPI/general/path_ambiguous/test/positive1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/users/{id}\":\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n      responses:\n        \"200\":\n          description: 200 response\n  \"/users/{ids}\":\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n      responses:\n        \"200\":\n          description: 200 response\n"
 		}
 	},
-	"Error": "parse: paths: /circular_example: get: : responses: 200: content: application/json: schema: parse schema: reference \"./schema.yaml#/components/schemas/CircularSchema\": resolve reference \"./schema.yaml#/components/schemas/CircularSchema\": invalid schema reference \"./schema.yaml#/components/schemas/CircularSchema\""
+	"Error": "parse: paths: /users/{ids}: get: : parse path: path parameter not specified: \"ids\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/armand-janssen/openapi-transformer"
+			"name": "github.com/ota42y/openapi_parser"
 		},
 		"file": {
-			"name": "all-in-one-openapi.yaml",
-			"path": "example/all-in-one/all-in-one-openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: All-in-one schema\n  version: 0.1.0\n  description: This is a Dummy api, containing a schema with as much OpenAPI schema possibilities as defined in the spec.\n\ncomponents:\n  schemas:\n    allInOne:\n      $ref: 'all-in-one.yaml#/components/schemas/allInOne'\n    \n\n\n\npaths:\n  /dummy:\n    get:\n      responses:\n        200:\n          content:\n            \"application/json\":\n              schema:\n                $ref: \"#/components/schemas/allInOne\"\n"
+			"name": "remote-http-ref.yaml",
+			"path": "spec/data/remote-http-ref.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /http_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: https://raw.githubusercontent.com/ota42y/openapi_parser/091b20838cf0bfbc7bed2c9968b10bb0b9e8a789/spec/data/normal.yml#/components/schemas/all_of_base\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\n"
 		}
 	},
-	"Error": "parse: paths: /dummy: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/allInOne\": parse schema: reference \"all-in-one.yaml#/components/schemas/allInOne\": resolve reference \"all-in-one.yaml#/components/schemas/allInOne\": invalid schema reference \"all-in-one.yaml#/components/schemas/allInOne\""
+	"Error": "parse: paths: /http_reference: post: : requestBody: content: application/json: parse schema: parse schema: reference \"https://raw.githubusercontent.com/ota42y/openapi_parser/091b20838cf0bfbc7bed2c9968b10bb0b9e8a789/spec/data/normal.yml#/components/schemas/all_of_base\": resolve reference \"https://raw.githubusercontent.com/ota42y/openapi_parser/091b20838cf0bfbc7bed2c9968b10bb0b9e8a789/spec/data/normal.yml#/components/schemas/all_of_base\": invalid schema reference \"https://raw.githubusercontent.com/ota42y/openapi_parser/091b20838cf0bfbc7bed2c9968b10bb0b9e8a789/spec/data/normal.yml#/components/schemas/all_of_base\""
 }

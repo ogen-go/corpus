@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/request_body_incorrect_ref/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\ncomponents:\n  requestBodies:\n    List:\n      description: id of api version\n      required: true\n      content:\n        text/plain:\n          schema:\n            type: array\n            items:\n              type: integer\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      requestBody:\n        $ref: \"#/components/schemas/List\"\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "additionalProperties.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative/additionalProperties.yaml",
+			"content": "---\nopenapi: 3.0.0\nservers:\n- url: http://swagger.io/show-bug\ninfo:\n  title: Test API\n  version: 1.0.0\npaths:\n  \"/tests\":\n    get:\n      operationId: listTests\n      responses:\n        '200':\n          description: Returns results.\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"./globals.yaml#/components/schemas/result\""
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: requestBody: resolve \"#/components/schemas/List\" reference: invalid requestBody reference: \"#/components/schemas/List\""
+	"Error": "parse: paths: /tests: get: listTests: responses: 200: content: application/json: schema: parse schema: reference \"./globals.yaml#/components/schemas/result\": resolve reference \"./globals.yaml#/components/schemas/result\": invalid schema reference \"./globals.yaml#/components/schemas/result\""
 }

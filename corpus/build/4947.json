@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "paths-with-extensions.json",
-			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-with-extensions.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      },\n      \"x-not-a-path\" : \"extension-value\",\n      \"x-some-number\" : 42,\n      \"x-some-boolean\" : true,\n      \"x-some-object\" : {\n        \"foo\": \"bar\"\n      },\n      \"x-some-array\" : [ \"foo\", \"bar\" ]\n    }\n  }\n}\n"
+			"name": "negative1.json",
+			"path": "assets/queries/openAPI/general/array_items_has_no_type/test/negative1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/MyObject\"\n          },\n          \"201\": {\n            \"description\": \"201 response\",\n            \"content\": {\n              \"application/x-www-form-urlencoded\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"oneOf\": [\n                      {\n                        \"$ref\": \"#/components/schemas/MyObject\"\n                      },\n                      {\n                        \"type\": \"integer\"\n                      }\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"quantity\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"percentage\": {\n            \"type\": \"number\",\n            \"format\": \"float\"\n          },\n          \"result\": {\n            \"type\": \"number\",\n            \"format\": \"double\"\n          }\n        }\n      },\n      \"MyIntArray\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

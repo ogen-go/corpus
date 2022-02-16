@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "invalid-type-facet-as-map.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-type-facet-as-map.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"Something\"\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    something:\n      type:\n        type:\n          string"
+			"name": "positive4.yaml",
+			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                allOf:\n                  - \"$ref\": \"#/components/schemas/ErrorModel\"\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n                additionalProperties:\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.type of type string"
+	"Error": "unexpected type array"
 }

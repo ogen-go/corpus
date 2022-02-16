@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/bounswe/bounswe2020group8"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/no-servers-empty-enum-errror/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\nservers:\n  - url: https://example.com/user/{id}/place/{placeId}\n    variables:\n      id:\n        enum: []\n      placeId:\n          enum: [b]\n          default: a\n  - url: https://example.com/{var}\n    variables: {}\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
+			"name": "_index.yaml",
+			"path": "backend/documentation/_index.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Boun Group 8\n  description: Application API\n  license:\n    name: MIT\n    url: \"https://opensource.org/licenses/MIT\"\nhost: \"localhost:8080\"\nbasePath: /\ntags:\n  - name: Users\n    description: API for users in the system\nschemes:\n  - http\nconsumes:\n  - application/json\nproduces:\n  - application/json\npaths:\n  $ref: \"./paths/_index.yaml\"\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: string\n  responses:\n    $ref: \"./components/responses/_index.yaml\"\n  schemas:\n    $ref: \"./components/schemas/_index.yaml\"\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.responses of type ogen.Response"
 }

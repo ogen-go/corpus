@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/CodingGardenCommunity/app-backend"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "MainSwag.yaml",
-			"path": "Swag/MainSwag.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  $ref: './Info.yaml#/Info'\nservers:\n  $ref: './Servers.yaml#/Servers'\ntags:\n  $ref: './Tags.yaml#/Tags'\npaths:\n  /contributors:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/AllContributors'\n\n  /contributors/{id}:\n    get:\n      $ref: './Paths/Contributors/Contributors.yaml#/SingleContributor'\n\n  /faqs:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/AllFAQs'\n    post:\n      $ref: './Paths/FAQs/FAQs.yaml#/AddFAQ'\n\n  /faqs/{id}:\n    get:\n      $ref: './Paths/FAQs/FAQs.yaml#/SingleFAQ'\n    delete:\n      $ref: './Paths/FAQs/FAQs.yaml#/DeleteFAQ'\n\n  /history:\n    get:\n      $ref: './Paths/History/History.yaml#/EntireHistory'\n\n  /history/{id}:\n    get:\n      $ref: './Paths/History/History.yaml#/SingleMilestone'\n\n  /videos:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/AllVideos'\n\n  /videos/{id}:\n    get:\n      $ref: './Paths/Videos/Videos.yaml#/SingleVideo'\n\n  /admin/seed:\n    post:\n      $ref: './Paths/Admin/Admin.yaml#/Seed'\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-2xx-response-rule/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: gitPing\n      summary: example text\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

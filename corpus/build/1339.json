@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/general/items_undefined/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                properties:\n                  code:\n                    type: string\n                    format: int32\n                  message:\n                    type: string\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "issue-454.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: /v1\ninfo:\n  description: This is a simple API\n  version: 1.0.0\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: admins\n    description: Secured Admin-only calls\n  - name: developers\n    description: Operations available to regular developers\npaths:\n  /inventory:\n    get:\n      summary: searches inventory test\n      operationId: searchInventory\n      responses:\n        '200':\n          description: search results matching criteria\n        default:\n          $ref: 'https://remote-components.com/issue-454-components#/components/responses/GeneralError'\ncomponents:\n  schemas:\n    ModelWithNestedProperties:\n      properties:\n        remoteProperty:\n          $ref: 'https://remote-components.com/issue-454-components#/components/schemas/RemoteComponent'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse schema: array cannot contain properties"
+	"Error": "parse: paths: /inventory: get: searchInventory: responses: default: resolve \"https://remote-components.com/issue-454-components#/components/responses/GeneralError\" reference: invalid response reference: \"https://remote-components.com/issue-454-components#/components/responses/GeneralError\""
 }

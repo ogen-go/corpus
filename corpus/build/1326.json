@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive6.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/positive6.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: number\n                minimum: 0\n                exclusiveMinimum: true\n                maximum: 50\n                default: \"a\"\n"
+			"name": "example.openapi.yaml",
+			"path": "modules/swagger-parser/src/test/resources/issue-1621/example.openapi.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Example OpenAPI spec\n  version: 0.0.1\npaths:\n  '/example':\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExamplePost'\n      responses:\n        204:\n          description: No content\ncomponents:\n  schemas:\n    # Renaming this key from `Example` to `ExampleGet` stops the issue from occurring\n    # Removing this key stops the issue from occurring\n    Example:\n      $ref: example.get.yaml\n    ExamplePost:\n      $ref: example.post.yaml"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"number\", got \"string\""
+	"Error": "parse: paths: /example: post: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/ExamplePost\": parse schema: reference \"example.post.yaml\": resolve reference \"example.post.yaml\": invalid schema reference \"example.post.yaml\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/business/config.yaml",
-			"content": "#Name of the project\nname: BusinessOntology\n\n## OpenAPI Section\n### Name, version and URL of the OpenAPI\n### For more information about the section. Go to the official documentation\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API of the Business Ontology\n    title: Business Ontology test\n    version: v1\n  externalDocs:\n    description: busont\n    url:  https://www.semanticarts.com/gist/previous-versions/\n  servers:\n    - url: http://localhost:8080/v1\n      description: localhost server\n\n## Ontologies\n### List of ontologies\nontologies:\n  - examples/business/ontology.xml\n\n## SPARQL information\nendpoint:\n  url: http://localhost:7201/sparql\n  prefix: https://businessontology.com/resource\n\n## Filter the paths by methods\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\n\nfollow_references: true\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/path-parameters-defined-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/user/{test}':\n    get:\n      parameters:\n        - in: path\n          name: test\n          description: User id\n          required: true\n          schema:\n            type: string\n      operationId: withPathParam\n      description: Get user by id\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n          content:\n            application/json:\n              schema:\n                type: object\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

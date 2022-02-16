@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/codecentric/hikaku"
+			"name": "github.com/Manuel83/craftbeerpi4"
 		},
 		"file": {
-			"name": "syntax_error.yaml",
-			"path": "openapi/src/test/resources/invalid_input/syntax_error.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Todo List\npaths:\n  todos\n    get\n      summary: Add a new todo\n      description: 'Creates a new todo.'\n      responses:\n        '200':\n          description: OK"
+			"name": "openapi.yaml",
+			"path": "venv3/lib/python3.7/site-packages/aiohttp_swagger/templates/openapi.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: {{ title }}\n  description: {{ description }}\n  version: \"{{ version }}\"\n  {% if contact %}\n  contact:\n    name: {{ contact }}\n  {% endif %}\nservers:\n  - url: {{ base_path }}\ncomponents:\n  {% if definitions %}\n  schemas:\n{{ definitions|nesteddict2yaml }}\n  {% endif %}\n  {% if security_definitions %}\n  securitySchemes:\n{{ security_definitions|nesteddict2yaml }}\n  {% endif %}\npaths:\n\n"
 		}
 	},
-	"Error": "yaml: line 7: mapping values are not allowed in this context"
+	"Error": "yaml: line 6: found character that cannot start any token"
 }

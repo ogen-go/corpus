@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "delete-media-type-requestBody.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-media-type/openapi-3/delete-media-type-requestBody.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "duplicateOperationId.json",
+			"path": "modules/swagger-parser/src/test/resources/duplicateOperationId.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.9-abcd\",\n    \"title\": \"Duplicate operationID\"\n  },\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"parameters\" : [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      },\n      \"post\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
+	"Error": "parse: /pets/{id}: parameters: parse parameter \"id\": path parameters must be required"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Restfulness/Restfulness-core-api"
+			"name": "github.com/symbol/symbol-openapi"
 		},
 		"file": {
-			"name": "links_get_search.yml",
-			"path": "yml/links_get_search.yml",
-			"content": "Get bookmarks for owner of current token that contain special key word\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\ntags:\n  - name: \"Links\"\nparameters:\n  - name: Authorization\n    in: header\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\n  - name: \"pattern\"\n    in: \"path\"\n    description: \"Word to contain\"\n    required: true\n    type: string\n  - name: \"page\"\n    in: \"query\"\n    description: \"Which page do want to get\"\n    required: false\n    type: \"integer\"\n  - name: \"page_size\"\n    in: \"query\"\n    description: \"the number of links in each page\"\n    required: false\n    type: \"integer\"\nexample:\n  Authorization: \"Bearer eyJ0eXAiOi....\"\nresponses:\n  200:\n    description: \"Return bookmarks that contain special key word in their URL\"\n    schema:\n      type: object\n      properties:\n        search:\n          type: object\n          properties:\n            pattern:\n              type: string\n            links:\n              type: array\n              items:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                  url:\n                    type: string\n      example:\n        search:\n          pattern: vim\n          links: [\n            {id: 4, url: \"https://this-has-vim.com\"},\n            {id: 7, url: \"http://vim.org\"},\n            {id: 11, url: \"https://vim-love-vim.com\"}\n          ]\n  400:\n    description: \"Requested page size is larger than our max limit!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Requested page size is larger than our max limit!\"\n      example:\n        msg: \"Requested page size is larger than our max limit!\"  \n  404:\n    description: \"Pattern not found\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: Pattern not found!\n      example:\n        msg: Pattern not found!"
+			"name": "openapi.yml",
+			"path": "spec/openapi.yml",
+			"content": "openapi: 3.0.2\ninfo:\n  \"$ref\": \"./info.yml\"\ntags:\n  \"$ref\": \"./tags.yml\"\npaths:\n  \"$ref\": \"./routes.yml\"\nexternalDocs:\n  description: Symbol Technical Documentation\n  url: https://docs.symbolplatform.com/\nservers:\n  - url: http://localhost:3000\n    description: Local development\ncomponents:\n  parameters:\n    \"$ref\": \"./parameters/_index.yml\"\n  requestBodies:\n    \"$ref\": \"./request_bodies/_index.yml\"\n  schemas:\n    $ref: \"./schemas/_index.yml\"\n  responses:\n    $ref: \"./responses/_index.yml\"\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
 }

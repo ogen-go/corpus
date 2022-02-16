@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+			"name": "github.com/fybrik/fybrik"
 		},
 		"file": {
-			"name": "optional_file.yaml",
-			"path": "core/src/test/resources/api/request_body/binary/optional_file.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /pet/{petId}/uploadImage:\n    post:\n      tags:\n        - pet\n      summary: uploads an image\n      description: \"\"\n      operationId: uploadFile\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to update\n          required: true\n          schema:\n            type: integer\n            format: int64\n        - name: additionalMetadata\n          in: query\n          description: Additional Metadata\n          required: false\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
+			"name": "policymanager.spec.yaml",
+			"path": "connectors/api/policymanager.spec.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Policy Manager Service\n  license:\n    name: Apache 2.0\nservers:\n  - url: https://localhost:8080\npaths:\n  /getPoliciesDecisions:\n    post:\n      summary: This REST API gets data governance decisions for the data sets indicated in FybrikApplication yaml based on the context indicated\n      operationId: getPoliciesDecisions\n      parameters:\n        - in: header\n          name: X-Request-Cred\n          schema:\n            type: string\n          required: true\n      requestBody:\n        description: Policy Manager Request Object.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsResponse\"\n        '400':\n          description: Invalid status value"
 		}
 	},
-	"Error": "parse: paths: /pet/{petId}/uploadImage: post: uploadFile: responses: no responses"
+	"Error": "parse: paths: /getPoliciesDecisions: post: getPoliciesDecisions: requestBody: content: application/json: parse schema: parse schema: reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": resolve reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": invalid schema reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\""
 }

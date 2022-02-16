@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "api-with-request.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/annotations/api-with-request.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\npaths:\n  /path:\n    get:\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          'application/x-www-form-urlencoded':\n            schema:\n              properties:\n                name:\n                  type: string\n              required:\n                - status"
+			"name": "file_reference_from_root.spec.yaml",
+			"path": "tests/specs/translating_parser/file_reference_from_root.spec.yaml",
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A simple local reference\n          content:\n            application/json:\n              schema:\n                $ref: 'file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject'\n"
 		}
 	},
-	"Error": "parse: paths: /path: get: : responses: no responses"
+	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\": resolve reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\": invalid schema reference \"file_reference_from_root_schemas.spec.yaml#/$defs/PlainObject\""
 }

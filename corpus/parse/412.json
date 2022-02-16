@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OAI/OpenAPI-Specification"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "valid_schema_types.yaml",
-			"path": "tests/v3.1/pass/valid_schema_types.yaml",
-			"content": "openapi: 3.1.1\n\n# this example shows that top-level schemaObjects MAY be booleans\n\ninfo:\n  title: API\n  version: 1.0.0\ncomponents:\n  schemas:\n    anything_boolean: true\n    nothing_boolean: false\n    anything_object: {}\n    nothing_object: { not: {} }\n\n"
+			"name": "deprecated3.yaml",
+			"path": "3.0/fail/deprecated3.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: true\n      parameters:\n        - name: test\n          in: query\n          deprecated: true\n          schema:\n            type: string\n            deprecated: 'true'\n      responses:\n        '200':\n          description: OK\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Components.components.schemas of type ogen.Schema"
+	"Error": "json: cannot unmarshal string into Go struct field Schema.paths.get.parameters.schema.deprecated of type bool"
 }

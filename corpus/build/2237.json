@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ballerina-platform/openapi-tools"
+			"name": "github.com/shinofara/modern-go-application-for-me-2021"
 		},
 		"file": {
-			"name": "invalid.yaml",
-			"path": "openapi-cli/src/test/resources/generators/schema/swagger/invalid.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Uber API\n  description: Move your app forward with the Uber API\n  version: 1.0.0\nservers:\n  - url: https://api.uber.com/v1\npaths:\n  /xmlarrayproducts:\n    get:\n      summary: Product Types\n      description: The Products endpoint returns information about the Uber products\n        offered at a given location. The response includes the display name and\n        other details about each product, and lists the products in the proper\n        display order.\n      tags:\n        - Products\n      responses:\ncomponents:\n  schemas:\n    User:\n      properties:\n        first_name:\n          type: string\n          description: First name of the Uber user.\n        last_name:\n          type: string\n          description: Last name of the Uber user.\n    Activity:\n      properties:\n        uuid:\n          type: string\n          description: Unique identifier for the activity\n    Activities:\n      properties:\n        offset:\n          type: integer\n          format: int32\n          description: Position in pagination.\n        history:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Activity\"\n    AnyOF:\n      anyOf:\n        - $ref: '#/components/schemas/User'\n        - $ref: '#/components/schemas/Activity'"
+			"name": "openapi.yaml",
+			"path": "openapi/src/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example API\n  license:\n    name: Apache 2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\n  description: Example\n  contact:\n    name: Example\ntags:\n  - name: user\n    description: user\nservers:\n  - url: 'http://localhost:8080'\npaths:\n  /tasks:\n    $ref: ./paths/tasks.yml\n  /my_tasks:\n    $ref: ./paths/my_tasks.yml\n  /signin:\n    $ref: ./paths/signin.yml\n  /signup:\n    $ref: ./paths/signup.yml"
 		}
 	},
-	"Error": "parse: paths: /xmlarrayproducts: get: : responses: no responses"
+	"Error": "parse: /my_tasks: referenced pathItem not supported"
 }

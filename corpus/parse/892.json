@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/societe-generale/sonar-openapi"
+			"name": "github.com/kota65535/openapi-merger"
 		},
 		"file": {
-			"name": "multiline-lines.yaml",
-			"path": "openapi-front-end/src/test/resources/metrics/multiline-lines.yaml",
-			"content": "openapi: \"3.0.1\"\nx-no-sonar: SomeId\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    # a comment line\n    x-sonar-disable: SomeId\n    get:\n      responses:\n        x-sonar-enable: SomeId\n        '200':\n          description: |\n            some multiline\n            description\n  #\n  # another comment line\n  /newpets:\n    $ref: '#/paths/~1pets'\n"
+			"name": "openapi.yaml",
+			"path": "test/resources/petstore_3/openapi.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Operation.paths.get.responses of type ogen.Response"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

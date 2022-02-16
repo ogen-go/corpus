@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive5.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/positive5.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: integer\n                format: int32\n                description: the size of the pack the dog is from\n                default: \"a\"\n                minimum: 0\n"
+			"name": "openapi.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1063/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: an API\n  description: An API for reproduce a *There are duplicate parameter values*.\n\npaths:\n  /anPath:\n    get:\n      parameters:\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_One'\n        - $ref: './references.oas3.yaml#/components/parameters/ParamQ_Two'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"integer\", got \"string\""
+	"Error": "parse: paths: /anPath: get: : parameters: parse parameter \"\": resolve \"./references.oas3.yaml#/components/parameters/ParamQ_One\" reference: invalid parameter reference: \"./references.oas3.yaml#/components/parameters/ParamQ_One\""
 }

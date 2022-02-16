@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/box/box-openapi"
+			"name": "github.com/edi3/edi3.github.io"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "content/openapi.yml",
-			"content": "---\nopenapi: \"3.0.2\"\n\ninfo:\n  \"$ref\": \"./common/info.yml\"\n\nservers:\n  - url: https://api.box.com/2.0\n    description: Box Platform API server\n\npaths:\n  \"$ref\": \"./paths.yml\"\n\ncomponents:\n  securitySchemes:\n    \"$ref\": \"./common/securitySchemes.yml\"\n  schemas:\n    \"$ref\": \"./schemas.yml\"\n\nsecurity:\n  - OAuth2Security: []\n\ntags:\n  \"$ref\": \"./common/tags.yml\"\n\nexternalDocs:\n  description: Box Developer Documentation\n  url: https://developer.box.com\n"
+			"name": "swagger.yml",
+			"path": "specs/edi3-finance/develop/swagger.yml",
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: This is edi3 Finance Domain API\n  version: 1.0\n  title: edi3 Finance Domain API\n  contact:\n    email: info@edi3.org\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: info\n    description: Information\npaths:\n  /info:\n    get:\n      tags:\n        - info\n      summary: provides base information\n      operationId: getInfo\n      description: |\n        Get some base information about edi3 Finance Domain API\n      parameters:\n        - in: query\n          name: searchString\n          description: pass an optional search string for looking up information\n          required: false\n          schema:\n            type: string\n      responses:\n        '200':\n          description: base information matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Information'\n        '400':\n          description: bad input parameter\n    patch:\n      tags:\n        - info\n      summary: updates base information\n      operationId: updateInfo\n      description: |\n        Update base information about edi3 Finance Domain API\n      responses:\n        '200':\n          description: information updated\n        '400':\n          description: 'invalid input, object invalid'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Information'\n        description: Base information\ncomponents:\n  schemas:\n    Information:\n      type: object\n      required:\n        - alias\n        - title\n        - version\n        - releaseDate\n      properties:\n        alias:\n          type: string\n          example: edi3-finance\n        title:\n          type: string\n          example: edi3 Finance Domain\n        version:\n          type: string\n          example: 1.0\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.schemas of type ogen.Schema"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

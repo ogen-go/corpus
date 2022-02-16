@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/s2o-test/issue102/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\npaths:\n    /ping:\n       $ref: \"endpoints/ping.yaml#/paths/~1ping\"\ncomponents:\n    schemas:\n        ping:\n            $ref: 'schemas/ping.json'\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/general/responses_wrong_http_status_code/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n        \"310\":\n          description: \"[300-399] response\"\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
 		}
 	},
-	"Error": "parse: /ping: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 310: unknown status code: 310"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/general/header_response_name_is_invalid/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"50\":\n          description: Server error response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n        \"6xx\":\n          description: \"[600-699] response\"\n          headers:\n            Pet:\n              application/json:\n                schema:\n                  $ref: \"#/components/schemas/Pet\"\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "odin.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/odin.yaml",
+			"content": "#https://mermade.org.uk/openapi-converter\nopenapi: 3.0.0\nservers:\n  - url: 'http://localhost:8080'\ninfo:\n  version: '3.0'\n  title: Odin API\n  description: ODIN UI Services API\npaths:\n  /JTasker/startRun:\n    post:\n      tags:\n        - JTasker\n      summary: Start JTasker Run\n      operationId: JTasker_startRun\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: './resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json'\n        required: true\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n        '500':\n          description: Server Error\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 50: unknown status code: 50"
+	"Error": "parse: paths: /JTasker/startRun: post: JTasker_startRun: requestBody: content: application/json: parse schema: parse schema: reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": resolve reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": invalid schema reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\""
 }

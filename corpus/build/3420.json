@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/lyra/openapi-dev-tool"
+			"name": "github.com/BioKIC/NEON-Biorepository"
 		},
 		"file": {
-			"name": "spec.yaml",
-			"path": "tests/assets/spec-split/spec.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: one-spec-to-rule-them-all\n  description: Multiple files for 1 spec\n  license:\n    name: MIT\n  x-tags:\n    - toto\n    - tata\n\npaths:\n  /test:\n    get:\n      tags:\n        - my-tag\n      operationId: getTest\n      summary: Get Test summary\n      description: Get Test description\n      parameters:\n        - $ref: '#/components/parameters/Param1'\n      responses:\n        '200':\n          description: Model 1 response description\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Model1'\n\ncomponents:\n  schemas:\n    Model1:\n      $ref: 'models/Model1.yaml#/Model1'\n\n  parameters:\n    Param1:\n      $ref: 'models/Param1.yaml#/Param1'\n\n"
+			"name": "5164.yaml",
+			"path": "api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/bugs/5164.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                first:\n                  type: object\n                  example:\n                    one: abc\n                    two: 123\n                second:\n                  type: array\n                  items:\n                    type: string\n                  example:\n                  - \"hi\""
 		}
 	},
-	"Error": "parse: paths: /test: get: getTest: parameters: parse parameter \"\": resolve \"#/components/parameters/Param1\" reference: resolve \"models/Param1.yaml#/Param1\" reference: invalid parameter reference: \"models/Param1.yaml#/Param1\""
+	"Error": "parse: paths: /: post: : responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "json-schema-include.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/json-schema-include.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.0\n  title: Links example\npaths:\n  /users:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                    description: ID of the created user.\ncomponents:\n  schemas:\n    User:\n      $ref: ../スキーマ/人.json"
+			"name": "different_file_reference_from_file.spec.yaml",
+			"path": "tests/specs/translating_parser/different_file_reference_from_file.spec.yaml",
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a different file reference\n          content:\n            application/json:\n              schema:\n                $ref: 'different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject'\n"
 		}
 	},
-	"Error": "parse: paths: /users: post: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": parse schema: reference \"../スキーマ/人.json\": resolve reference \"../スキーマ/人.json\": invalid schema reference \"../スキーマ/人.json\""
+	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\": resolve reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\": invalid schema reference \"different_file_reference_from_file_schemas1.spec.yaml#/$defs/RefObject\""
 }

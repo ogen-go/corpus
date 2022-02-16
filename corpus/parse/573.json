@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "content-media-type-filter.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/responses/content/content-media-type-filter.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OAS3 Test\npaths:\n  /color:\n    post:\n      operationId: Id\n      description: Desc\n      responses:\n        201:\n          description: my description\n          content:\n            a*"
+			"name": "negative3.yaml",
+			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/negative3.yaml",
+			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API 222\n  aws_api_gateway:\n    swagger_text: |\n      openapi: 3.0.0\n      info:\n        title: Sample API\n        description: Optional multiline or single-line description\n        version: 0.1.9\n      components:\n        securitySchemes:\n          request_authorizer_single_stagevar:\n            type: apiKey\n            name: Unused\n            in: header\n            x-amazon-apigateway-authtype: custom\n            x-amazon-apigateway-authorizer:\n              type: request\n              identitySource: stageVariables.stage\n              authorizerCredentials: arn:aws:iam::123456789012:role/AWSepIntegTest-CS-LambdaRole\n              authorizerUri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:123456789012:function:APIGateway-Request-Authorizer:vtwo/invocations\n              authorizerResultTtlInSeconds: 300\n          stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Response.paths.post.responses.content of type map[string]ogen.Media"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

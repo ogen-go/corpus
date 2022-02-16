@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "new-operation.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-operation/openapi-3/new-operation.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "example_in_schema.json",
+			"path": "test/data/valid_openapi/example_in_schema.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"name\": \"limit\",\n            \"in\": \"header\",\n            \"description\": \"How many items to return at one time (max 100)\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\",\n              \"example\": 123\n            }\n          },\n          {\n            \"name\": \"variable2\",\n            \"in\": \"query\",\n            \"description\": \"another random variable\",\n            \"style\": \"spaceDelimited\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"example\": 123\n              }\n            }\n          },\n          {\n            \"name\": \"variable3\",\n            \"in\": \"query\",\n            \"description\": \"another random variable\",\n            \"style\": \"spaceDelimited\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"example\": 456\n              }\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"a\": {\n                    \"type\": \"string\",\n                    \"example\": \"example-a\"\n                  },\n                  \"b\": {\n                    \"type\": \"string\",\n                    \"example\": \"example-b\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"subscription successfully created\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /pet: post: : parameters: parse parameter \"variable2\": style: unexpected style: spaceDelimited"
 }

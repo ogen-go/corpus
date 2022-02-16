@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Fyb3roptik/swaggomnia"
+			"name": "github.com/api-federation/design"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "tmpl/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: \"{{ .Config.Description }}\"\n  version: \"{{ .Config.Version }}\"\n  title: \"{{ .Config.Title }}\"\nservers:\n  - url: \"{{ .Config.BasePath }}\"\ntags:\n{{ range $key, $value := .Entities }}\n- name: \"{{ $key | GetGroupName }}\"\n  description: \"\"\n{{ end }}\npaths:\n{{- range $key, $paths := .Entities }}\n{{- range $path, $resources := $paths }}\n  {{ $path | RemovePathPrefix}}:\n    {{- range $kk, $resource := $resources }}\n    {{ $resource.Method | ToLower }}:\n      tags:\n      - \"{{ $key | GetGroupName }}\"\n      summary: \"{{ $resource.Name }}\"\n      {{- if or $resource.Parameters $resource.Body.Params $resource.Headers }}\n      {{- if $resource.Body.MimeType }}\n      description: \"{{ $resource.Description }}\"\n      {{- end }}\n      parameters:\n      {{- range $p, $param := $resource.Parameters}}\n      - name: \"{{ $param.Name }}\"\n        in: \"query\"\n        schema:\n          type: \"string\"\n        description: \"\"\n        required: true\n      {{- end }}\n      {{- range $p, $param := $resource.Headers}}\n      - name: \"{{ $param.Name }}\"\n        in: \"header\"\n        schema:\n          type: \"string\"\n        description: \"\"\n        required: true\n      {{- end }}\n      {{- end }}\n      responses:\n        200:\n          description: \"successful operation\"\n    {{- end }}\n{{- end }}\n{{- end }}\n"
+			"name": "003_Extending_OAS_Definition_to_add_response_cashing_for_an_API.yaml",
+			"path": "spec/examples/003_Extending_OAS_Definition_to_add_response_cashing_for_an_API.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  description: Weather app provides details about \n  version: 1.0.0\n  title: Weather\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: vimukthim@wso2.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: https://api.openweathermap.org/data/2.5\n  - url: http://api.openweathermap.org/data/2.5\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: appid\n      in: header\n    speDefaultSecurity:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://editor.swagger.io/\n          scopes: {}\ntags:\n  - name: weather\n    description: created  Weather\npaths:\n  /weather:\n    get:\n      responses:\n        \"200\":\n          description: weather of The Given City ID\n              parameters:\n        - name: id\n          in: query\n          required: false\n          description: ID of the City\n          schema:\n            type: number\nx-global-spec :\n  x-global-cache  :  300\n"
 		}
 	},
-	"Error": "yaml: line 10: could not find expected ':'"
+	"Error": "yaml: line 36: mapping values are not allowed in this context"
 }

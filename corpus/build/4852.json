@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "delete-operation.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/delete-operation/openapi-3/delete-operation.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "parent.json",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
+			"content": "{\n\t\"openapi\": \"3.0.0\",\n\t\"servers\": [],\n\t\"paths\": {\n\t\t\"/health\": {\n\t\t\t\"$ref\": \"./paths/healthPath.json\"\n\t\t}\n\t},\n\t\"info\": {\n\t\t\"version\": \"\",\n\t\t\"title\": \"\"\n\t},\n\t\"components\": {\n\t\t\"schemas\": {\n\t\t\t\"refInDefinitions\": {\n\t\t\t\t\"$ref\": \"./models/example.json\"\n\t\t\t},\n\t\t\t\"arrayModel\": {\n\t\t\t\t\"type\": \"array\",\n\t\t\t\t\"items\": {\n\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"composedCat\": {\n\t\t\t\t\"allOf\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/pet.json\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/conflict.json#/foo\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"huntingSkill\": {\n\t\t\t\t\t\t\t\t\"type\": \"string\",\n\t\t\t\t\t\t\t\t\"description\": \"The measured skill for hunting\",\n\t\t\t\t\t\t\t\t\"default\": \"lazy\",\n\t\t\t\t\t\t\t\t\"enum\": [\n\t\t\t\t\t\t\t\t\t\"clueless\",\n\t\t\t\t\t\t\t\t\t\"lazy\",\n\t\t\t\t\t\t\t\t\t\"adventurous\",\n\t\t\t\t\t\t\t\t\t\"aggressive\"\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"prop2\": {\n\t\t\t\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexes\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexMap\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"additionalProperties\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"required\": [\n\t\t\t\t\t\t\t\"huntingSkill\"\n\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"externalArray\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localArray\"\n\t\t\t},\n\t\t\t\"externalObject\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localObject\"\n\t\t\t}\n\t\t}\n\t}\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: /health: referenced pathItem not supported"
 }
