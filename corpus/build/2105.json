@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "amf-cli/shared/src/test/resources/resolution/external-schema-ref/api.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: soap-xml-oas-design\ncomponents:\n  schemas:\n    payPlanschema:\n      type: object\n      properties:\n        Envelope:\n          type: object\n  examples:\n    payplanexample:\n      value:\n        Envelope: {}\npaths:\n  /payPlan:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/xml:\n            schema:\n              $ref: /request-schema.json#components/schemas/payPlanschema\n            examples:\n              PaymentPlanEx:\n                $ref: '#/components/examples/payplanexample'\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/xml:\n              schema:\n                type: object\n              examples:\n                resEx:\n                  value:\n                    output: 200 Response\n  /payPlan2:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/xml:\n            schema:\n              $ref: '#/components/schemas/payPlanschema'\n            examples:\n              PaymentPlanEx:\n                $ref: '#/components/examples/payplanexample'\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/xml:\n              schema:\n                type: object\n              examples:\n                resEx:\n                  value:\n                    output: 200 Response\n"
+			"name": "issue_38_a.yaml",
+			"path": "tests/specs/issue_38_a.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Minimal test for refs in sequences\n  version: 0.0.1\nservers:\n  - url: https://localhost/\npaths:\n  /api/v2/vms:\n    $ref: ./issue_38_b.yaml#/paths/~1api~1v2~1vms\n"
 		}
 	},
-	"Error": "parse: paths: /payPlan: post: : requestBody: content: application/xml: parse schema: parse schema: reference \"/request-schema.json#components/schemas/payPlanschema\": resolve reference \"/request-schema.json#components/schemas/payPlanschema\": invalid schema reference \"/request-schema.json#components/schemas/payPlanschema\""
+	"Error": "parse: /api/v2/vms: referenced pathItem not supported"
 }

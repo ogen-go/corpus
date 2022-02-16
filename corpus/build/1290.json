@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_callback/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/Success\"\n      callbacks:\n        myEvent:\n          \"$ref\": \"#/components/callbacks/inProgress\"\ncomponents:\n  callbacks:\n    onProgress:\n      \"{$request.body#/onProgressUrl}\":\n        delete:\n          responses:\n            '204':\n              description: Deleted\n"
+			"name": "test.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/test.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: /\ninfo:\n  description: It works.\n  version: 1.0.0\n  title: My API\npaths:\n  /samplePath:\n    $ref: '/test2.yaml'"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
+	"Error": "parse: /samplePath: referenced pathItem not supported"
 }

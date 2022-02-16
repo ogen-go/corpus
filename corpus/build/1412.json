@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Dzoukr/OpenAPIParser"
+			"name": "github.com/OpenAPITools/openapi-diff"
 		},
 		"file": {
-			"name": "Document-Petstore-External.yaml",
-			"path": "tests/OpenAPIParser.Tests/Samples/Document-Petstore-External.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: foo@example.com\n    url: http://madskristensen.net\n  license:\n    name: MIT\n    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    $ref: 'SubFolder/PetsPath.yaml'\ncomponents:\n  responses:  \n    Error:\n      description: Unexpected error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n  \n  schemas:\n    Error:\n      $ref: 'Document-Petstore.yaml#/components/schemas/Error'\n    JustLikeError:\n      $ref: '#/components/schemas/Error'\n    Basic:\n      $ref: 'Schema-Object.yaml#/Basic'\n    Standalone:\n      $ref: 'Schema-Object-Standalone.yaml'\n    "
+			"name": "content_type_response_add_1.yaml",
+			"path": "core/src/test/resources/content_type_response_add_1.yaml",
+			"content": "---\nopenapi: \"3.0.1\"\ninfo:\n  title: \"Test title\"\n  description: \"This is a test metadata\"\n  termsOfService: \"http://test.com\"\n  contact:\n    name: \"Mark Snijder\"\n    url: \"marksnijder.nl\"\n    email: \"snijderd@gmail.com\"\n  license:\n    name: \"To be decided\"\n    url: \"http://test.com\"\n  version: \"version 1.0\"\npaths:\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: find pet by id\n      responses:\n        '200':\n          description: response\n          content:\n            application/json:\n              schema:\n                type: string\n"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /pets/{id}: get: find pet by id: parse path: path parameter not specified: \"id\""
 }

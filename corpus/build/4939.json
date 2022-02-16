@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "paths-get-requestBody-example.json",
-			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-requestBody-example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User Example\",\n                  \"description\": \"User example description.\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.json\"\n                }\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              },\n              \"examples\": {\n                \"user\" : {\n                  \"summary\": \"User example in XML\",\n                  \"description\": \"User example description (in XML).\",\n                  \"externalValue\": \"http://foo.bar/examples/user-example.xml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "negative1.json",
+			"path": "assets/queries/openAPI/3.0/parameter_object_incorrect_ref/test/negative1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"components\": {\n    \"parameters\": {\n      \"idParam\": {\n        \"name\": \"id\",\n        \"in\": \"path\",\n        \"description\": \"ID of the API the version\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"int\"\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\",\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ]\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"$ref\": \"#/components/parameters/idParam\"\n        }\n      ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#/components/parameters/idParam\" reference: schema: parse schema: unexpected schema type: \"int\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/TimesysGit/board-farm-rest-api"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "netboot_fmanager_list.yaml",
-			"path": "spec/netboot/netboot_fmanager_list.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/netboot/fmanager/*{path}/:\n    get:\n      tags:\n      - api\n      operationId: api_devices_netboot_netboot_fmanager_list\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      - name: path\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: \"\"\n          content: \n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: string\n                  message:\n                    type: string\n                  data:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        owner:\n                          type: string\n                        modified_date:\n                          type: string\n                        size:\n                          type: string\n                        symlink_target:\n                          type: string\n                        file_or_dir_name:\n                          type: string\n                        'type':\n                          type: string\n                  required: \n                    - result"
+			"name": "positive4.yaml",
+			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/positive4.yaml",
+			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API 222\n  aws_api_gateway:\n    swagger_text: |\n      openapi: 3.0.0\n      info:\n        title: Sample API\n        description: Optional multiline or single-line description\n        version: 0.1.9\n      components:\n        ssecuritySchemes:\n          request_authorizer_single_stagevar:\n            type: apiKey\n            name: Unused\n            in: header\n            x-amazon-apigateway-authtype: custom\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go value of type ogen.Schema"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

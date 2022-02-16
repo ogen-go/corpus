@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "mega.yaml",
-			"path": "3.1/pass/mega.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n\n"
+			"name": "discriminator_with_mapping.yaml",
+			"path": "core/src/test/resources/api/coproduct/one_of/discriminator_with_mapping.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: \"1.0\"\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Entity\"\ncomponents:\n  schemas:\n    Entity:\n      oneOf:\n        - $ref: \"#/components/schemas/Person\"\n        - $ref: \"#/components/schemas/Organization\"\n      discriminator:\n        propertyName: name\n        mapping:\n          john: \"#/components/schemas/Person\"\n          sml: \"#/components/schemas/Organization\"\n    Person:\n      required:\n        - name\n        - age\n      type: object\n      properties:\n        name:\n          type: string\n        age:\n          type: integer\n    Organization:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "make ir: path \"/\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map sml to #/components/schemas/Organization"
 }

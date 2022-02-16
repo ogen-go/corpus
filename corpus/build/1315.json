@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/3.0/schema_object_incorrect_ref/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemads/GeneralError\"\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\ncomponents:\n  schemas:\n    GeneralError:\n      type: object\n      discriminator:\n        propertyName: petType\n      properties:\n        code:\n          type: string\n          format: int32\n        message:\n          type: string\n      required:\n        - petType\n"
+			"name": "index.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/oapi-reference-test/index.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n  - url: http://test.com/test\npaths:\n  /:\n    get:\n      description: Test\n      summary: Test\n      operationId: getTest\n      responses:\n        200:\n          $ref: \"./components/response-with-reference.yaml\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemads/GeneralError\": resolve reference \"#/components/schemads/GeneralError\": invalid schema reference \"#/components/schemads/GeneralError\""
+	"Error": "parse: paths: /: get: getTest: responses: 200: resolve \"./components/response-with-reference.yaml\" reference: invalid response reference: \"./components/response-with-reference.yaml\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive6.yaml",
-			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive6.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: false\n      schema:\n        type: integer\n    nameParam:\n      name: nameAPI\n      in: path\n      description: Name of the API version\n      schema:\n        type: integer\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - $ref: \"#components/parameters/idParam\"\n"
+			"name": "a.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
+			"content": "openapi: 3.0.1\nservers: []\ninfo:\n  version: 1.0.0\n  title: Person\n  description: Maintain Person data\npaths:\n  /newPerson:\n    post:\n      summary: Create new person\n      description: Create new person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/PersonObj'\n  /oldPerson:\n    post:\n      summary: Create old person\n      description: Create old person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/b.yaml#/components/schemas/PersonObj'\n  /yetAnotherPerson:\n    post:\n      summary: Create yet another person\n      description: Create yet another person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/b.yaml#/components/schemas/PersonObj'\n  /thisAintAnotherPerson:\n    post:\n      summary: Create no more persons\n      description: Create no more persons\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/c.yaml#/components/schemas/PersonObj'\ncomponents:\n  schemas:\n    PersonObj:\n      properties:\n        location:\n          type: string\n          example: local"
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#components/parameters/idParam\" reference: invalid parameter reference: \"#components/parameters/idParam\""
+	"Error": "parse: paths: /oldPerson: post: : responses: 200: content: */*: schema: parse schema: reference \"./refs-name-conflict/b.yaml#/components/schemas/PersonObj\": resolve reference \"./refs-name-conflict/b.yaml#/components/schemas/PersonObj\": invalid schema reference \"./refs-name-conflict/b.yaml#/components/schemas/PersonObj\""
 }

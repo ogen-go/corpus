@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ITISFoundation/osparc-simcore"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "petstore-tags.yaml",
-			"path": "packages/service-library/tests/data/oas3-parts/petstore-tags.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\npaths:\n  /tags:\n    get:\n      summary: List all tags\n      operationId: listTags\n      tags:\n        - tags\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"./petstore.yaml#/components/schemas/TagList\"\n              example:\n                - dogs\n                - cats\n        default:\n          $ref: \"./petstore.yaml#/components/responses/ErrorResponse\"\n    post:\n      summary: Create new tag\n      operationId: createTag\n      tags:\n        - tags\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: './petstore.yaml#/components/schemas/TagCreate'\n      responses:\n        '200':\n          description: Null response\n        default:\n          $ref: \"./petstore.yaml#/components/responses/ErrorResponse\"\n"
+			"name": "positive7.yaml",
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive7.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default:\n                  - { \"message\": \"hello\", \"code\": 200 }\n"
 		}
 	},
-	"Error": "parse: paths: /tags: get: listTags: responses: 200: content: application/json: schema: parse schema: reference \"./petstore.yaml#/components/schemas/TagList\": resolve reference \"./petstore.yaml#/components/schemas/TagList\": invalid schema reference \"./petstore.yaml#/components/schemas/TagList\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: unexpected type: \"object\""
 }

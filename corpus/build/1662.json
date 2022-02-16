@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "issue_6762.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /girafes/{refStatus}:\n    get:\n      operationId: getGirafes\n      parameters:\n        - $ref: '#/components/parameters/refStatus'\n  /zebras/{status}:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: path\n          name: status\n          required: true\n          schema:\n            type: integer\n            enum: [0,1]\n            default: 0\n  /bears/{refCondition}:\n    get:\n      operationId: getBears\n      parameters:\n        - $ref: '#/components/parameters/refCondition'\n  /camels/{condition}:\n    get:\n      operationId: getCamels\n      parameters:\n        - in: path\n          name: condition\n          required: true\n          schema:\n            type: string\n            enum:\n              - sleeping\n              - awake\ncomponents:\n  parameters:\n    refStatus:\n      in: path\n      name: refStatus\n      required: true\n      schema:\n        type: integer\n        enum: [0,1]\n        default: 0\n    refCondition:\n      in: path\n      name: refCondition\n      schema:\n        type: string\n        enum:\n          - sleeping\n          - awake\n"
+			"name": "domain-scopeId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/domain/domain-scopeId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Domains\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/domains:\n    get:\n      tags:\n        - Domain\n      summary: Get all the Domains\n      operationId: domainList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - name: name\n          in: query\n          description: The domain name to filter results\n          schema:\n            type: string\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Domains available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './domain.yaml#/components/schemas/domainListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /camels/{condition}: get: getCamels: responses: no responses"
+	"Error": "parse: paths: /{scopeId}/domains: get: domainList: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

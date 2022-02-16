@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/general/invalid_format/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n    parameters:\n      - name: id\n        in: path\n        description: ID of pet to use\n        required: true\n        schema:\n          type: array\n          items:\n            type: object\n            properties:\n              myObject:\n                \"$ref\": \"#/components/schemas/MyObject\"\n              length:\n                type: integer\n                format: int32\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: float\n        result:\n          type: number\n          format: double\n"
+			"name": "additionalPropertiesFlatten.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: test - OAS3\n  version: 1.0.0\npaths:\n  /responses:\n    get:\n      responses:\n        '200':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  oneOf:\n                    - \"$ref\": \"#/components/schemas/Macaw1\"\n                    - \"$ref\": \"#/components/schemas/Parakeet1\"\n        '404':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  type: array\n                  items:\n                    anyOf:\n                      - \"$ref\": \"#/components/schemas/Macaw2\"\n                      - \"$ref\": \"#/components/schemas/Parakeet2\"\n\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /responses: get: : responses: 200: content: application/json: schema: parse schema: additionalProperties: parse schema: oneOf: [0]: parse schema: reference \"#/components/schemas/Macaw1\": resolve reference \"#/components/schemas/Macaw1\": schema not found"
 }

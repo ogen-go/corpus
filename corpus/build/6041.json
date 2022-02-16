@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/opticdev/optic"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "with-body-ref.json",
-			"path": "projects/openapi-diff-experiment/src/services/patch/reconcilers/tests/example/with-body-ref.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/example\": {\n      \"parameters\": [],\n      \"get\": {\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\"$ref\":  \"./definitions.json#/components/ExampleBody\"}\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"info\": {\n    \"version\": \"0.0.0\",\n    \"title\": \"Empty\"\n  }\n}\n"
+			"name": "root.json",
+			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/external-indirections/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /example: get: : responses: 200: content: application/json: schema: parse schema: reference \"./definitions.json#/components/ExampleBody\": resolve reference \"./definitions.json#/components/ExampleBody\": invalid schema reference \"./definitions.json#/components/ExampleBody\""
+	"Error": "parse: /path1: referenced pathItem not supported"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "fromParameter.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/fromParameter.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /set_style:\n    get:\n      operationId: setStyle\n      parameters:\n        - in: query\n          name: setStyleQuery\n          style: form\n          schema:\n            type: object\n            properties:\n              setStyleQueryParam:\n                type: string\n  /set_should_explode:\n    get:\n      operationId: setShouldExplode\n      parameters:\n        - in: query\n          name: setShouldExplodeQuery\n          style: form\n          explode: true\n          schema:\n            type: object\n            properties:\n              setShouldExplodeQueryParam:\n                type: string\n"
+			"name": "deviceBundle-scopeId-deviceId-_stop.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/deviceBundle/deviceBundle-scopeId-deviceId-_stop.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Bundle\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/devices/{deviceId}/bundles/_stop:\n    post:\n      tags:\n        - Device Management - Bundle\n      summary: Stop the desired Bundle on a single Device\n      operationId: deviceBundleStop\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../device/device.yaml#/components/parameters/deviceId'\n        - $ref: './deviceBundle.yaml#/components/parameters/bundleId'\n        - $ref: '../device/device.yaml#/components/parameters/timeout'\n      responses:\n        204:\n          description: The Bundle has been successfully stopped\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /set_should_explode: get: setShouldExplode: responses: no responses"
+	"Error": "parse: paths: /{scopeId}/devices/{deviceId}/bundles/_stop: post: deviceBundleStop: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "missingPathItemRef.yaml",
-			"path": "3.0/fail/missingPathItemRef.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid external $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: 'missing.yaml#/paths/someresource'\n"
+			"name": "simple_put_no_response.yaml",
+			"path": "core/src/test/resources/api/simple/simple_put_no_response.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /person:\n    put:\n      summary: Update an existing person\n      description: Update an existing person by Id\n      operationId: updatePerson\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /person: put: updatePerson: responses: no responses"
 }

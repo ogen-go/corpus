@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "consumer.yaml",
-			"path": "amf-cli/shared/src/test/resources/compiler/apikit-apisync/jar-protocol/consumer.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: consumer\n\npaths:\n  /pets:\n    get:\n      responses:\n        '500':\n          $ref: 'utility.yaml#/components/responses/500'"
+			"name": "openapi-main.yaml",
+			"path": "tests/specs/issue_51/openapi-main.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: title\n  version: '1.0'\npaths:\n  /something/:\n    $ref: 'openapi-part.yaml'\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: : responses: 500: resolve \"utility.yaml#/components/responses/500\" reference: invalid response reference: \"utility.yaml#/components/responses/500\""
+	"Error": "parse: /something/: referenced pathItem not supported"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "externalPathItemRef.yaml",
-			"path": "3.0/pass/externalPathItemRef.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test valid external $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '../resources/include.yaml#/paths/~1test'\n  /test2:\n    $ref: '../resources/include.yaml#/paths/~1'\n"
+			"name": "optional_file.yaml",
+			"path": "core/src/test/resources/api/request_body/binary/optional_file.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /pet/{petId}/uploadImage:\n    post:\n      tags:\n        - pet\n      summary: uploads an image\n      description: \"\"\n      operationId: uploadFile\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to update\n          required: true\n          schema:\n            type: integer\n            format: int64\n        - name: additionalMetadata\n          in: query\n          description: Additional Metadata\n          required: false\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /pet/{petId}/uploadImage: post: uploadFile: responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/dhis2/dhis2-api-specification"
+			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "assertible_base_openapi.json",
-			"path": "docs/spec/src/assertible_base_openapi.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"$ref\": \"./info_openapi.json#/info\"\n  },\n  \"components\": {\n    \"$ref\": \"./components_openapi.json#/components\"\n  },\n  \"externalDocs\": {\n    \"description\": \"\",\n    \"url\": \"https://docs.dhis2.org/master/en/developer/html/dhis2_developer_manual_full.html\",\n    \"x-status-dhis2\": \"draft\"\n  },\n  \"paths\": {\n      \"$ref\":\"./assertible_paths_openapi.json#/paths\"\n    },\n  \"security\": [\n    {\n      \"basicAuth\": []\n    },\n    {\n      \"oAuth\": []\n    }\n  ],\n  \"servers\": [\n    {\n      \"description\": \"DHIS2 demo server\",\n      \"url\": \"https://verify.dhis2.org/dev/api\"\n    }\n  ],\n  \"tags\": {\n    \"$ref\": \"./metadata_tags_openapi.json#/tags\"\n  },\n  \"x-draft-tagGroups\": {\n    \"$ref\": \"./metadata_tagGroups_openapi.json#/x-tagGroups\"\n  }\n}\n"
+			"name": "schema-definitions.json",
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/schema-definitions.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"some title\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"valid-array-type\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"invalid-array-type\": {\n        \"type\": \"array\"\n      },\n      \"union-type\": {\n        \"type\": [\"string\", \"null\"]\n      }\n    }\n  },\n  \"paths\": {\n  }\n}"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.type of type string"
 }

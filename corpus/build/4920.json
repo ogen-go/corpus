@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "replace-path-item.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/replace-path-item/openapi-3/replace-path-item.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "positive2.json",
+			"path": "assets/queries/openAPI/general/path_ambiguous/test/positive2.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/users/{id}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"id\",\n            \"required\": true,\n            \"description\": \"The user ID\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\"\n          }\n        }\n      }\n    },\n    \"/users/{ids}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"id\",\n            \"required\": true,\n            \"description\": \"The user ID\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: listPets: responses: no responses"
+	"Error": "parse: paths: /users/{ids}: get: : parse path: path parameter not specified: \"ids\""
 }

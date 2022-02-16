@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/3.0/parameter_object_incorrect_ref/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: true\n      schema:\n        type: int\n    nameParam:\n      in: path\n      description: Name of the API version\n      required: true\n      schema:\n        type: string\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - $ref: \"#path/parameters/idParam\"\n      - $ref: \"#components/schemas/idParam\"\n  /user/id:\n    get:\n      parameters:\n        - $ref: \"#path/parameters/idParam\"\n"
+			"name": "swagger.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/relative-upper-directory/swagger.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://paeshin-w7/SwaggerTest'\n  - url: 'https://paeshin-w7/SwaggerTest'\ninfo:\n  version: v1\n  title: SwaggerTest\n  description: Service for Swagger and JSON schema testing\npaths:\n  /api/Address:\n    $ref: \"Paths/Address.yaml\""
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#path/parameters/idParam\" reference: invalid parameter reference: \"#path/parameters/idParam\""
+	"Error": "parse: /api/Address: referenced pathItem not supported"
 }

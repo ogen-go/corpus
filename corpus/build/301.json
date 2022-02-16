@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/byu-oit/openapi-enforcer"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "test-resources/issue-70/openapi.yml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: A pet\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Dog'\n                  - $ref: '#/components/schemas/Cat'\n                discriminator:\n                  propertyName: petType\n                  mapping:\n                    dog: \"#/components/schemas/Dog\"\n                    cat: \"#/components/schemas/Cat\"\n              examples:\n                cat:\n                  #$ref: \"nina-kitty.yml\"\n                  summary: A dog example\n                  value: {\"id\": 0, \"name\": \"nina\", \"petType\": \"dog\"}\n                dog:\n                  #    $ref: \"bullet-bull-dog.yml\"\n                  summary: A dog example\n                  value: {\"id\": 0, \"name\": \"nina\", \"petType\": \"dog\"}\n\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      required:\n        - id\n        - name\n        - petType\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        petType:\n          type: string\n    Cat:\n      type: object\n      required:\n        - id\n        - name\n        - petType\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        petType:\n          type: string\n"
+			"name": "array-test.yml",
+			"path": "security/tests/array-test.yml",
+			"content": "components:\n  schemas:\n    Number:\n      type: number\n      minimum: 1\n      maximum: 5\n    Array:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      maxItems: 5\n      minItems: 1\n    ko_Array:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n    ko_Array_minItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      maxItems: 10\n    ko_Array_maxItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      minItems: 10\nopenapi: 3.0.1\ninfo:\n  version: \"1.2.3\"\n  title: \"array-test\"\npaths:\n  /array-ko-params:\n    post:\n      responses: {}\n      parameters:\n        - name: q1\n          in: query\n          schema:\n            type: object\n            properties:\n              a1:\n                $ref: '#/components/schemas/ko_Array'\n              a2:\n                $ref: '#/components/schemas/ko_Array_minItems'\n              a3:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Number'\n                minItems: 10\n"
 		}
 	},
-	"Error": "make ir: path \"/pets/{petId}\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map cat to #/components/schemas/Cat"
+	"Error": "parse: paths: /array-ko-params: post: : responses: no responses"
 }

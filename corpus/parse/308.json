@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/aws-samples/aws-serverless-ecommerce-platform"
 		},
 		"file": {
-			"name": "positive6.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive6.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+			"name": "openapi.yaml",
+			"path": "orders/resources/openapi.yaml",
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title:\n    Fn::Sub: \"${AWS::StackName}-api\"\n  version: 1.0.0\n  description: Orders service API definition\n  license:\n    name: MIT-0\n    url: https://github.com/aws/mit-0\n\npaths:\n  /backend/{orderId}:\n    get:\n      description: |\n        Retrieve a single order.\n\n        This is a backend operation that requires IAM credentials.\n      operationId: backendGetOrder\n      parameters:\n        - name: orderId\n          in: path\n          description: Order ID in UUID format\n          required: true\n          schema:\n            type: string\n            format: uuid\n      responses:\n        200:\n          description: Order item\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  order:\n                    $ref: \"../../shared/resources/schemas.yaml#/Order\"\n        default:\n          description: Something went wrong\n          content:\n            application/json:\n              schema:\n                $ref: \"../../shared/resources/schemas.yaml#/Message\"\n      security:\n        - AWS_IAM: []\n      x-amazon-apigateway-integration:\n        httpMethod: \"POST\"\n        type: aws_proxy\n        uri:\n          Fn::Sub: \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetOrderFunction.Arn}/invocations\"\n\n\ncomponents:\n  schemas:\n    OrderRequest:\n      type: object\n      description: Information necessary for creating an order.\n      properties:\n        products:\n          type: array\n          items:\n            $ref: \"../../shared/resources/schemas.yaml#/Product\"\n        address:\n          $ref: \"../../shared/resources/schemas.yaml#/Address\"\n        deliveryPrice:\n          type: integer\n          minimum: 0\n        total:\n          type: integer\n          minimum: 0\n  securitySchemes:\n    AWS_IAM:\n      type: apiKey\n      name: Authorization\n      in: header\n      x-amazon-apigateway-authtype: awsSigv4"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal object into Go struct field Info.info.title of type string"
 }

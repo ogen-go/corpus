@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/open-api"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "swagger2.json",
-			"path": "Tests/fixtures/multi-specs/swagger2.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-query\": {\n            \"get\": {\n                \"operationId\": \"Test Reference Response\",\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"test\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"swagger1.json#/components/schemas/body\"\n                                }\n                            }\n                        }\n                    }\n                },\n                \"tags\": [\n                    \"Test\"\n                ]\n            }\n        }\n    },\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    }\n}\n"
+			"name": "response-reference.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/references/response-reference.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/Common200\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /test-query: get: Test Reference Response: responses: 200: content: application/json: schema: parse schema: reference \"swagger1.json#/components/schemas/body\": resolve reference \"swagger1.json#/components/schemas/body\": invalid schema reference \"swagger1.json#/components/schemas/body\""
+	"Error": "parse: paths: /pets: get: listPets: responses: 200: resolve \"#/components/responses/Common200\" reference: component by reference \"#/components/responses/Common200\" not found"
 }

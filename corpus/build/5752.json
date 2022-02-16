@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/open-api-3"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "Tests/fixtures/uppercase-parameter/swagger.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-uppercase-path-parameters/{TestParameter}\": {\n            \"get\": {\n                \"operationId\": \"testGetWithUppercasePathParameters\",\n                \"consumes\": [\n                    \"application/json\"\n                ],\n                \"tags\": [\n                    \"Test\"\n                ],\n                \"parameters\": [\n                    {\n                        \"name\": \"TestParameter\",\n                        \"in\": \"path\",\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"x-nullable\": false\n                    }\n                ]\n            }\n        }\n    }\n}\n"
+			"name": "delete-operation.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-operation/openapi-3/delete-operation.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\"\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test-uppercase-path-parameters/{TestParameter}: get: testGetWithUppercasePathParameters: responses: no responses"
+	"Error": "parse: paths: /foo/{fooId}: get: getFoo: parse path: path parameter not specified: \"fooId\""
 }

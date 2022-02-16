@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/typeable/compaREST"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/3.0/header_object_with_incorrect_ref/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"50\":\n          description: Server error response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n        \"6xx\":\n          description: \"[600-699] response\"\n          headers:\n            X-Rate-Limit-Limit:\n              $ref: \"#/components/headers/\"\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "b.yaml",
+			"path": "test/golden/common/unguarded-recursive/basic/b.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      allOf:\n        - $ref: \"#/components/schemas/Bad\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 50: unknown status code: 50"
+	"Error": "parse: paths: /api/foo: get: : responses: 200: content: application/json;charset=utf-8: schema: parse schema: reference \"#/components/schemas/Bad\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Bad\": infinite recursion: \"#/components/schemas/Bad\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "example1_from_._New_links.md.yaml",
-			"path": "3.0/fail/gluecon/example1_from_._New_links.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simplest Link\n  version: 1.0.1\npaths:\n  '/users/{username}':\n    get: \n      parameters:\n        name: username\n        in: path\n        schema:\n          type: string\n      responses:\n        '200': \n          description: A representation of a user\n          content: \n            application/json: \n              schema:\n                type: object\n                properties:\n                  id: \n                    type: integer\n                  firstname:\n                    type: string\n                  lastname:\n                    type: string\n              example:\n                id: 243\n                firstname: Reginald\n                lastname: McDougall\n          links:\n            userPhotoLink:\n              operationId: getPhoto\n              parameters:\n                userid: $response.body#/id\n  '/users/{userid}/photo':\n    get: \n      operationId: getPhoto\n      parameters:\n        name: userid\n        in: path\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: A photo image\n          content:\n            image/jpeg: {}\n\n"
+			"name": "a481c95c-1b53-4486-b9da-4373b5f6f547.yaml",
+			"path": "3.0/fail/fuzz1/a481c95c-1b53-4486-b9da-4373b5f6f547.yaml",
+			"content": "openapi: 3.0.5\ninfo:\n  title: consectetur magna quis aliqua\n  version: nostrud aute adipisicin\n  termsOfService: 75.84\npaths: {}\nx-testcase: 'nested object test: should not work with ''termsOfService'' of type ''number'''\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.parameters of type []*ogen.Parameter"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.termsOfService of type string"
 }

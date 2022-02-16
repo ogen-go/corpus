@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/DILA-edu/cbeta-api"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "public/openapi/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: CBETA API\n  description: API to access CBETA Chinese Buddhist Texts Resources.\n  version: 1.2.19\n\nservers:\n  - url: http://cbdata.dila.edu.tw/v1.2\n    description: Main server\n  - url: http://api.cbetaonline.cn/\n    description: Mirror server\n\npaths:\n  /catalog_entry:\n    get:\n      summary: Returns a catalog entry information, including its children.\n      parameters:\n        $ref: 'catalog-entry-parameters.yaml'\n      responses:\n        '200':\n          description: A Catalog Entry Object\n          content:\n            application/json:\n              schema: \n                type: object\n                properties:\n                  $ref: 'catalog-entry-response.yaml'"
+			"path": "__tests__/lint/operation-4xx-response-rule/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: gitPing\n      summary: example text\n      responses:\n        '400':\n          description: example description\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

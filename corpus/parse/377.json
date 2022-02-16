@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/microsoft/OpenAPI.NET"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/issue196/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Resolve Test\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      parameters:\n        - $ref: \"./Parameters.yaml#/parameter_colour\"\n        - $ref: \"./Parameters.yaml#/parameter_size\"\n      responses:\n        '200':\n          description: OK\ncomponents:\n  parameters:\n    $ref: './Parameters.yaml'\n  schemas:\n    Cat:\n      $ref: './SchemaAnimal.yaml'\n    Dog:\n      $ref: './SchemaAnimal.yaml'\n"
+			"name": "TodoComponents.yaml",
+			"path": "test/Microsoft.OpenApi.Readers.Tests/V3Tests/Samples/OpenApiWorkspace/TodoComponents.yaml",
+			"content": "﻿openapi: 3.0.0\ninfo:\n  title: Components for the todo app\n  version: 1.0.0\npaths: {}\ncomponents:\n  parameters:\n    filter:\n      name: filter\n      in: query\n      schema:\n        type: string\n  schemas:\n    todo:\n      type: object\n      allof: \n        $ref: \"#/components/schemas/entity\"\n      properties:\n        subject:\n          type: string\n    entity:\n      type: object\n      properties:\n        id:\n          type:string"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "parameters.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/parameters/parameters.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /:\n    parameters:\n      - *"
+			"name": "yaml-seq-indicator-begin.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/yaml/yaml-seq-indicator-begin.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: asd\n  version: 2\npaths:\n  /get:\n    get:\n      responses:\n        \"200\":\n          description: asd\n          content:\n            application/json:\n              schema:\n                description: asd\n                anyOf:\n                  [* $ref: \"#/components/schemas/anotherSchema\",\n                    $ref: \"#/components/schemas/mySchema\"]\n\ncomponents:\n  schemas:\n    mySchema:\n      type: number\n    anotherSchema:\n      type: boolean\n    yetAnotherSchema:\n      type: integer"
 		}
 	},
-	"Error": "yaml: line 5: did not find expected alphabetic or numeric character"
+	"Error": "yaml: line 16: did not find expected alphabetic or numeric character"
 }

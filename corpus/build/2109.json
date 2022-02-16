@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/RonnyPfannschmidt/prance"
 		},
 		"file": {
-			"name": "facet-string-pattern-invalid.yaml",
-			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/facet-string-pattern-invalid.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: OpenAPI Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:9999/v2\npaths:\n  /ping:\n    post:\n      summary: test\n      description: test it\n      operationId: pingOp\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SomeObj'\n        required: true\n      responses:\n        '200':\n          description: OK\n          content: {}\ncomponents:\n  schemas:\n    SomeObj:\n      type: string\n      pattern: ^([\\u30a0-\\u30ff]+)\n      example: holaキンギョ"
+			"name": "same_file_reference_from_file.spec.yaml",
+			"path": "tests/specs/translating_parser/same_file_reference_from_file.spec.yaml",
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a same file reference\n          content:\n            application/json:\n              schema:\n                $ref: 'same_file_reference_from_file_schemas.spec.yaml#/$defs/RefObject'\n"
 		}
 	},
-	"Error": "make ir: path \"/ping\": post: requestBody: contents: application/json: schema: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
+	"Error": "parse: paths: /hosts: get: : responses: default: content: application/json: schema: parse schema: reference \"same_file_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": resolve reference \"same_file_reference_from_file_schemas.spec.yaml#/$defs/RefObject\": invalid schema reference \"same_file_reference_from_file_schemas.spec.yaml#/$defs/RefObject\""
 }

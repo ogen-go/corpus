@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Nexmo/oas_parser"
+			"name": "github.com/tyrchen/quenya"
 		},
 		"file": {
-			"name": "petstore-self-referential.yml",
-			"path": "spec/fixtures/petstore-self-referential.yml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: foo@example.com\n    url: http://madskristensen.net\n  license:\n    name: MIT\n    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pet:\n    get:\n      description: Get pet\n      operationId: findPets\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      properties:\n        name:\n          type: string\n        children:\n          type: array\n          items:\n            - $ref: '#/components/schemas/Pet'\n"
+			"name": "main.yml",
+			"path": "examples/todo/priv/spec/main.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Todo API\n  description: |\n    Hello world! This is a __Sample API__ for todo API\n  version: 0.1.0\nservers:\n  - url: http://localhost:4000/api/v1\n    description: Local dev server\n  - url: https://api.todo.mvc/v1\n    description: Production server\ntags:\n  - name: todos\n  - name: todo\n\ncomponents:\n  parameters:\n    $ref: \"./params.yml\"\n  schemas:\n    $ref: \"./schemas.yml\"\n  responses:\n    $ref: \"./responses.yml\"\n  securitySchemes:\n    token:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\npaths:\n  /todo/{todoId}:\n    $ref: \"./services/todo.yml\"\n  /todos:\n    $ref: \"./services/todos.yml\"\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.items of type ogen.Schema"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
 }

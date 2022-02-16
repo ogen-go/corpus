@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "config-referencing-paths.yaml",
-			"path": "example/config-referencing-paths.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: ./\n  views: views\n  pipe-modules: pipeModules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /music/{musician}:\n    $ref: './paths/music_musician.yaml'\n  /movies/{actor}:\n    $ref: './paths/movies_actor.yaml'\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "positive6.yaml",
+			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive6.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: false\n      schema:\n        type: integer\n    nameParam:\n      name: nameAPI\n      in: path\n      description: Name of the API version\n      schema:\n        type: integer\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - $ref: \"#components/parameters/idParam\"\n"
 		}
 	},
-	"Error": "parse: /movies/{actor}: referenced pathItem not supported"
+	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#components/parameters/idParam\" reference: invalid parameter reference: \"#components/parameters/idParam\""
 }

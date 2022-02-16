@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "new-media-type-requestBody.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-media-type/openapi-3/new-media-type-requestBody.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"required\": true\n        }\n      }\n    }\n  }\n}\n"
+			"name": "non-oauth.json",
+			"path": "test/data/valid_openapi31X/json/non-oauth.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Non-oAuth Scopes example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"bearerAuth\": [\n              \"read:users\",\n              \"public\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"jwt\",\n        \"description\": \"note: non-oauth scopes are not defined at the securityScheme level\"\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /users: get: : responses: no responses"
 }

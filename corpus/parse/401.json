@@ -5,10 +5,10 @@
 			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "example3_from_._New_callbacks.md.yaml",
-			"path": "3.0/fail/gluecon/example3_from_._New_callbacks.md.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Example of links with callbacks\n  version: 0.9.0\npaths:\n  /longrunning-thing:\n    post: \n      parameters:\n        name: heartbeat-url\n        in: query\n        schema:\n          type: string\n          format: uri\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                failedUrl:\n                  type: string\n                successUrl:\n                  type: string\n      responses:\n        '200': \n          description: Long running thing initiated\n      callbacks:\n        heartbeat:\n          '$request.query.heartbeat-url':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/heartbeatMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n        failed:\n          '$response.body#/failedUrl':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/failedMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n        success:\n          '$response.body#/successUrl':\n            post:\n              requestBody:\n                $ref: '#/components/requestBodies/successMessage'\n              responses:\n                '200':\n                  description: Consumer acknowledged the callback   \n"
+			"name": "8222f0be-4a01-4622-97eb-f42425f293ef.yaml",
+			"path": "3.0/fail/fuzz1/8222f0be-4a01-4622-97eb-f42425f293ef.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: labore ea in\n  version: non eiusmod anim\n  contact:\n    email: true\n    name: Duis in\n    url: Jt9T8xMr\npaths: {}\nx-testcase: 'nested object test: nested object test: should not work with ''email'' of type ''boolean'''\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.post.parameters of type []*ogen.Parameter"
+	"Error": "json: cannot unmarshal bool into Go struct field Contact.info.contact.email of type string"
 }

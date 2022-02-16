@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/getkin/kin-openapi"
+			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "openapi3/testdata/recursiveRef/openapi.yml",
-			"content": "openapi: \"3.0.3\"\ninfo:\n  title: Recursive refs example\n  version: \"1.0\"\npaths:\n  /foo:\n    $ref: ./paths/foo.yml\ncomponents:\n  schemas:\n    Foo:\n      $ref: ./components/Foo.yml\n    Foo2:\n      $ref: ./components/Foo/Foo2.yml\n    Bar:\n      $ref: ./components/Bar.yml\n"
+			"name": "external.yml",
+			"path": "packages/core/src/__tests__/references/external.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
 		}
 	},
-	"Error": "parse: /foo: referenced pathItem not supported"
+	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
 }

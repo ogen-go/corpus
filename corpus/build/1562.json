@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "path_no_response.yaml",
-			"path": "3.1/pass/path_no_response.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get: {}\n"
+			"name": "request_body_direct.yaml",
+			"path": "core/src/test/resources/api/request_body/request_body_direct.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            required:\n              - id\n            type: object\n            properties:\n              id:\n                type: string\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: no responses"
+	"Error": "parse: paths: /pet: post: addPet: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
 }

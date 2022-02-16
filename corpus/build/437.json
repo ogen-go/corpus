@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/influxdata/openapi"
+			"name": "github.com/antshater/web-practice"
 		},
 		"file": {
-			"name": "svc-notebooksd.yml",
-			"path": "src/svc-notebooksd.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: notebooksd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /notebooks:\n    $ref: './svc/notebooksd/paths/notebooks.yml'\n  /notebooks/{notebookID}/versions/{id}:\n    $ref: './svc/notebooksd/paths/notebooks_id_versions_id.yml'\n  /notebooks/{id}/versions:\n    $ref: './svc/notebooksd/paths/notebooks_id_versions.yml'\n  /notebooks/{id}:\n    $ref: './svc/notebooksd/paths/notebooks_id.yml'\n  /notebooks/share:\n    $ref: './svc/notebooksd/paths/notebooks_share.yml'\n  '/notebooks/share/{id}':\n    $ref: './svc/notebooksd/paths/notebooks_share_id.yml'\n  '/api/share/{id}/query/{pipeID}':\n    $ref: './svc/notebooksd/paths/api_share_id_query_pipeid.yml'\n  '/api/share/{id}':\n    $ref: './svc/notebooksd/paths/api_share_id.yml'\ncomponents:\n  requestBodies:\n    NotebookParams:\n      $ref: './svc/notebooksd/requestBodies/NotebookParams.yml'\n    ShareParams:\n      $ref: './svc/notebooksd/requestBodies/ShareParams.yml'\n  schemas:\n    NotebookParams:\n      $ref: './svc/notebooksd/schemas/NotebookParams.yml'\n    Notebook:\n      $ref: './svc/notebooksd/schemas/Notebook.yml'\n    NotebookArray:\n      $ref: './svc/notebooksd/schemas/NotebookArray.yml'\n    Notebooks:\n      $ref: './svc/notebooksd/schemas/Notebooks.yml'\n    ShareParams:\n      $ref: './svc/notebooksd/schemas/ShareParams.yml'\n    Share:\n      $ref: './svc/notebooksd/schemas/Share.yml'\n    Shares:\n      $ref: './svc/notebooksd/schemas/Shares.yml'\n    VersionHistory:\n      $ref: './svc/notebooksd/schemas/VersionHistory.yml'\n    VersionHistories:\n      $ref: './svc/notebooksd/schemas/VersionHistories.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
+			"name": "api.yml",
+			"path": "front/docs/openapi/api.yml",
+			"content": "openapi: 3.0.1\n\ninfo:\n  version: 1.0.0\n  title: 'Web practice API'\n\nservers:\n  - url: http://web-practice.local:8080/api\n    description: 'Локальный сервер'\n\npaths:\n  /auth/sign-in:\n    $ref: './paths/auth/sign-in.yml#/paths/auth~1sign-in'\n  /auth/sign-up:\n    $ref: './paths/auth/sign-up.yml#/paths/auth~1sign-up'\n  /auth/verify-email/{user}:\n    $ref: './paths/auth/verify-email.yml#/paths/auth~1verify-email~1{user}'\n  /auth/user:\n    $ref: './paths/auth/user.yml#/paths/auth~1user'\n  /profile/videos:\n    $ref: './paths/profile/videos.yml#/paths/profile~1videos'\n  /profile/videos/{video}:\n    $ref: './paths/profile/videos.yml#/paths/profile~1videos~1{video}'\n  /video-files:\n    $ref: './paths/video-files.yml#/paths/video-files'\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\n  headers:\n    Api-Token:\n      description: 'JWT токен'\n      schema:\n        type: string\n\nsecurity:\n  - bearerAuth: []\n"
 		}
 	},
-	"Error": "parse: /notebooks/{notebookID}/versions/{id}: referenced pathItem not supported"
+	"Error": "parse: /auth/user: referenced pathItem not supported"
 }

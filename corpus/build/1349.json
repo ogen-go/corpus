@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive1.yaml",
-			"path": "assets/queries/openAPI/general/path_parameter_with_no_corresponding_template_path/test/positive1.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  /users/:\n    get:\n      parameters:\n        - in: header\n          name: test-id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n  \"/yada/foo\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n"
+			"name": "main.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      requestBody:\n        content:\n          application/json:\n            schema:\n              required:\n                - test\n              type: object\n              properties:\n                test:\n                  type: string\n            examples:\n              plain:\n                summary: plain example\n                value:\n                  test: plain\n              local:\n                $ref: '#/components/examples/LocalRef'\n              external:\n                $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                required:\n                  - test\n                type: object\n                properties:\n                  test:\n                    type: string\n              examples:\n                plain:\n                  summary: plain example\n                  value:\n                    test: plain\n                local:\n                  $ref: '#/components/examples/LocalRef'\n                external:\n                  $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n  /guests:\n    $ref: './issue-837-853-1131/external-operation.yaml'\n\ncomponents:\n  examples:\n    LocalRef:\n      summary: A local reference\n      value:\n        test: local\n\n\n"
 		}
 	},
-	"Error": "parse: paths: /users/: get: : responses: no responses"
+	"Error": "parse: paths: /events: get: getEvents: responses: 200: resolve: \"./issue-837-853-1131/components.yaml#/components/examples/ExternalRef\": invalid parameter reference: \"./issue-837-853-1131/components.yaml#/components/examples/ExternalRef\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/janephp"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "src/Component/OpenApi3/Tests/fixtures/authentication-multiple-security-layers/swagger.json",
-			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"paths\": {\n        \"/foo\": {\n            \"get\": {\n                \"operationId\": \"getFoo\",\n                \"security\": [\n                    {\n                        \"bearer\": []\n                    }\n                ]\n            }\n        },\n        \"/bar\": {\n            \"get\": {\n                \"operationId\": \"getBar\",\n                \"security\": [\n                    {\n                        \"x-header\": []\n                    }\n                ]\n            }\n        },\n        \"/baz\": {\n            \"get\": {\n                \"operationId\": \"getBaz\",\n                \"security\": [\n                    {\n                        \"bearer\": [],\n                        \"x-header\": []\n                    }\n                ]\n            }\n        }\n    },\n    \"security\": [\n        {\n            \"apikey\": []\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://127.0.0.1:8000/\"\n        }\n    ],\n    \"components\": {\n        \"securitySchemes\": {\n            \"x-header\": {\n                \"type\": \"apiKey\",\n                \"in\": \"header\",\n                \"name\": \"X-API-KEY\"\n            },\n            \"bearer\": {\n                \"type\": \"http\",\n                \"scheme\": \"bearer\"\n            },\n            \"apikey\": {\n                \"type\": \"apiKey\",\n                \"in\": \"query\",\n                \"name\": \"api_key\"\n            }\n        }\n    }\n}\n"
+			"name": "new-header-response.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/new-header.openapi-3/new-header-response.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: getFoo: responses: no responses"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

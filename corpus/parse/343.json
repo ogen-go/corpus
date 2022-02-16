@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "compose-model-items.yaml",
-			"path": "packages/validator/test/cli-validator/mock-files/oas3/compose-model-items.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    one_of_array:\n      type: array\n      description: a oneOf array schema\n      items:\n        oneOf:\n          type: string\n    all_of_array:\n      type: array\n      description: an allOf array schema\n      items:\n        allOf:\n          type: string\n    any_of_array:\n      type: array\n      description: an anyOf array schema\n      items:\n        anyOf:\n          type: string\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-servers-empty-enum-errror/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\nservers:\n  - url: https://example.com/user/{id}/place/{placeId}\n    variables:\n      id:\n        enum: []\n      placeId:\n          enum: [b]\n          default: a\n  - url: https://example.com/{var}\n    variables: {}\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.items.allOf of type []*ogen.Schema"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

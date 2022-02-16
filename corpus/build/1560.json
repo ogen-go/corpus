@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "ref-encoding3.yaml",
-			"path": "3.0/pass/fiendish/ref-encoding3.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      responses:\n        default:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/container/properties/with%20space'\n            text/xml:\n              schema:\n                $ref: '#/components/schemas/container/properties/with+space'\ncomponents:\n  schemas:\n    container:\n      type: object\n      properties:\n        'with space':\n          type: string\n"
+			"name": "optional_discriminator.yaml",
+			"path": "core/src/test/resources/api/coproduct/one_of/optional_discriminator.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: \"1.0\"\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Entity\"\ncomponents:\n  schemas:\n    Entity:\n      oneOf:\n        - $ref: \"#/components/schemas/Person\"\n        - $ref: \"#/components/schemas/Organization\"\n      discriminator:\n        propertyName: name\n        mapping:\n          john: \"#/components/schemas/Person\"\n          sml: \"#/components/schemas/Organization\"\n    Person:\n      required:\n        - age\n      type: object\n      properties:\n        name:\n          type: string\n        age:\n          type: integer\n    Organization:\n      type: object\n      properties:\n        name:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: default: content: text/xml: schema: parse schema: reference \"#/components/schemas/container/properties/with+space\": resolve reference \"#/components/schemas/container/properties/with+space\": schema not found"
+	"Error": "make ir: path \"/\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map john to #/components/schemas/Person"
 }

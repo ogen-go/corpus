@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bump-sh/cli"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "__gitlab-é__.yml",
-			"path": "examples/valid/__gitlab-é__.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    An OpenAPI definition for the GitLab REST API.\n  version: v4\n  title: GitLab API\n\npaths:\n  # ...\n\n\n  # ACCESS REQUESTS (PROJECTS)\n  /v4/projects/{id}/access_requests:\n    $ref: 'v4/access_requests.yaml#/accessRequestsProjects'\n\n  # ...\n"
+			"name": "https-test.yml",
+			"path": "rules/tests/https-test.yml",
+			"content": "openapi: \"3.0.1\"\nservers:\n  - url: https://ko.nodescription\n  - url: https://ok.example\n    description: production\n  - url: http://ok.sandbox.examle\n    x-sandbox: true\n    description: ok\n  - url: http://ko.example\n    description: should be https\n  - url: http://ko.sandbox.examle\n    x-sandbox: false\n    description: should be https\npaths:\n  /foo-ko:\n    get:\n      servers:\n        - url: https://ko.nodesc.example\n        - url: https://ok.example\n          description: production\n        - url: http://ko.example\n          description: production\n        - url: http://ok.sandbox.examle\n          x-sandbox: true\n          description: ok\n"
 		}
 	},
-	"Error": "parse: /v4/projects/{id}/access_requests: referenced pathItem not supported"
+	"Error": "parse: paths: /foo-ko: get: : responses: no responses"
 }

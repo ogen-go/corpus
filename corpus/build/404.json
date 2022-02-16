@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/getkin/kin-openapi"
+			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "openapi3/testdata/relativeDocsUseDocumentPath/openapi/openapi.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"1.0\"\npaths:\n  /pets/{id}:\n    $ref: \"paths/nesteddir/CustomTestPath.yml\"\n  /pets/{id}/{city}:\n    $ref: \"paths/nesteddir/morenested/CustomTestPath.yml\"\ncomponents: {}\n"
+			"name": "external-response.yml",
+			"path": "packages/core/src/__tests__/naming/external-response.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
 		}
 	},
-	"Error": "parse: /pets/{id}: referenced pathItem not supported"
+	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
 }

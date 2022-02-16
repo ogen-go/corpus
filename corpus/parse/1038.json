@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cornutum/tcases"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "anyOf-2.json",
-			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-2.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"AnyOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/anyOf\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"required\": true,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"maximum\": 100.0,\n                                \"anyOf\": [\n                                    {\n                                        \"type\": \"integer\",\n                                        \"enum\": [ -1, 0, 1]\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"minimum\": 0.0\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"nullable\": true\n                                    }\n                                ]\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "positive5.json",
+			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/positive5.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"id\": {\n                  \"type\": \"string\"\n                },\n                \"name\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"oneOf\": [\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"string\"\n              },\n              \"name\": {\n                \"type\": \"string\"\n              }\n            },\n            \"additionalProperties\": \"true\"\n          },\n          {\n            \"type\": \"string\",\n            \"additionalProperties\": \"false\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number 100.0 into Go struct field Schema.paths.post.requestBody.content.schema.maximum of type int64"
+	"Error": "unexpected type string"
 }

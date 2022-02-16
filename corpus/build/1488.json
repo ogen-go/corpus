@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/ICRAR/daliuge"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "node_manager.yaml",
-			"path": "OpenAPI/node_manager.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: DALiuGE Node Manager\n  version: '1.0'\n  description: Node Manager specific entry points\n  contact: {}\ntags: []\nservers: []\npaths:\n  /api:\n    get:\n      summary: Your GET endpoint\n      tags: []\n      responses:\n        '200':\n          description: The status of the Node Manager\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  sessions:\n                    $ref: './manager_common.yaml#/components/schemas/node_session_information'\n      operationId: getNMStatus\n      description: Return the status of the Node Manager\n  /api/stop:\n    $ref: './manager_common.yaml#/paths/~1api~1stop'\n  /api/sessions:\n    $ref: './manager_common.yaml#/paths/~1api~1sessions'\n  '/api/sessions/{sessionId}':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}'\n  '/api/sessions/{sessionId}/status':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1status'\n  '/api/sessions/{sessionId}/deploy':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1deploy'\n  '/api/sessions/{sessionId}/cancel':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1cancel'\n  '/api/sessions/{sessionId}/graph':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1graph'\n  '/api/sessions/{sessionId}/graph/size':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1graph~1size'\n  '/api/sessions/{sessionId}/graph/status':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1graph~1status'\n  '/api/sessions/{sessionId}/graph/append':\n    $ref: './manager_common.yaml#/paths/~1api~1sessions~1{sessionId}~1graph~1append'\ncomponents:\n  schemas: {}\n\n"
+			"name": "negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\n      requestBody:\n        \"$ref\": \"#/components/requestBodies/MyObjectBody\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n"
 		}
 	},
-	"Error": "parse: /api/sessions/{sessionId}/graph/size: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/boostcampwm-2021/web28-NaBaaang"
 		},
 		"file": {
-			"name": "typesAsArraySpec.yaml",
-			"path": "test/data/31CollectionTransactions/typesAsArraySpec.yaml",
-			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with types as array\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type: \n        - object\n      properties:\n        objectType:\n          type: \n            - integer\n            - string\n"
+			"name": "root.yaml",
+			"path": "backend/swagger/root/root.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Nabaaang API\n  description: Nabaaang API 문서입니다\nservers:\n  - url: \"http://localhost:4000\"\ncomponents:\n  schemas: \n    Channel:\n      $ref: ../channel/components.yaml#/Channel\n    Message:\n      $ref: ../message/components.yaml#/Message\n\npaths:\n  $ref: ../channel/paths.yaml\n\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
 }

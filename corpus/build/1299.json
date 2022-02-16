@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive4.yaml",
-			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersions\n      summary: List versions\n      servers:\n        - description: server URL\n      security:\n        - OAuth2:\n            - write\n            - read\n"
+			"name": "issue-323.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-323.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    $ref: './eventsCase9.yaml'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersions: responses: no responses"
+	"Error": "parse: /events: referenced pathItem not supported"
 }

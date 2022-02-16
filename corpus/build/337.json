@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cebe/php-openapi"
+			"name": "github.com/sokusekiya/sokuseki"
 		},
 		"file": {
-			"name": "ReferencedCommonParamsInReferencedPath.yml",
-			"path": "tests/spec/data/reference/ReferencedCommonParamsInReferencedPath.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Nested reference with common path params\n  version: 1.0.0\npaths:\n  /example:\n    $ref: 'paths/ReferencesCommonParams.yml'\n  /something:\n    parameters:\n      - $ref: './parameters/TestParameter.yml'\n    x-something: something\n    get:\n      responses:\n        200:\n          description: OK if common params can be references\n"
+			"name": "openapi.yml",
+			"path": "api_schema/openapi.yml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Sokuseki API\n  version: 0.0.1\nservers:\n  - url: http://localhost:3000\n    description: development\npaths:\n  /people:\n    $ref: \"./paths/people.yml\"\ncomponents:\n  schemas:\n    PeopleProperties:\n      $ref: \"./components/schemas/peopleProperties.yml\"\n"
 		}
 	},
-	"Error": "parse: /example: referenced pathItem not supported"
+	"Error": "parse: /people: referenced pathItem not supported"
 }

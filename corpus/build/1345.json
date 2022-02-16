@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive2.yaml",
-			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - name: id\n        in: path\n        description: ID of the API version\n        required: false\n        schema:\n          type: integer\n"
+			"name": "parent.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/allOf-relative-file-references/parent.yaml",
+			"content": "openapi: 3.0.0\nservers:\n  - url: /v3\ninfo:\n  description: \u003e-\n    Issue #616. This is a modified Petstore server where we have two pet\n    definitions  1. pet and 2. fancy_pet which inherits pet using allOf.\n  title: ''\n  version: ''\npaths:\n  /pet:\n    get:\n      operationId: getPetById\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: \"./models/pet.json\"\n  /fancy-pet:\n    get:\n      operationId: getFancyPetById\n      parameters:\n        - name: fancyPetId\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: \"./models/fancy_pet.json\"\ncomponents:\n  schemas:\n    DomesticPet:\n      allOf:\n        - $ref: \"./models/pet.json\"\n        - properties:\n            description:\n              type: string\n              example: friendly\n    DancingPet:\n      allOf:\n        - $ref: \"./models/fancy_pet.json\"\n        - properties:\n            style:\n              type: string\n              example: salsa"
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /fancy-pet: get: getFancyPetById: responses: 200: content: */*: schema: parse schema: reference \"./models/fancy_pet.json\": resolve reference \"./models/fancy_pet.json\": invalid schema reference \"./models/fancy_pet.json\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: true\n      schema:\n        type: integer\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - $ref: \"#components/parameters/idParam\"\n"
+			"name": "composedSchemaRef.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/composedSchemaRef.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.0\n  title: oneOf and anyOf\n\npaths:\n  /oneOf:\n    get:\n      responses:\n        '200':\n          description: One of Cat or Dog\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: './refComponents.yaml#/components/schemas/Cat'\n                  - $ref: './refComponents.yaml#/components/schemas/Dog'\n                  - $ref: './refComponents.yaml#/components/schemas/Lion'\n  /anyOf:\n    get:\n      responses:\n        '200':\n          description: Any of Cat or Dog\n          content:\n            application/json:\n              schema:\n                anyOf:\n                  - $ref: './refComponents.yaml#/components/schemas/Cat'\n                  - $ref: './refComponents.yaml#/components/schemas/Dog'\n                  - $ref: './refComponents.yaml#/components/schemas/Bear'\n  /path:\n      get:\n        responses:\n          '200':\n            description: Any of Cat or Dog\n            content:\n              application/json:\n                schema:\n                  oneOf:\n                    - $ref: './refComponents.yaml#/components/schemas/Cat'\n                    - $ref: './refComponents.yaml#/components/schemas/Dog'\n                  allOf:\n                    - $ref: './refComponents.yaml#/components/schemas/Lion'\n"
 		}
 	},
-	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#components/parameters/idParam\" reference: invalid parameter reference: \"#components/parameters/idParam\""
+	"Error": "parse: paths: /anyOf: get: : responses: 200: content: application/json: schema: parse schema: anyOf: [0]: parse schema: reference \"./refComponents.yaml#/components/schemas/Cat\": resolve reference \"./refComponents.yaml#/components/schemas/Cat\": invalid schema reference \"./refComponents.yaml#/components/schemas/Cat\""
 }

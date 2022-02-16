@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "config.yaml",
-			"path": "examples/pplan/config.yaml",
-			"content": "ontologies:\n  - http://purl.org/net/p-plan\nname: p-plan\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example of the P-Plan ontology\n    title: P-Plan\n    version: v1.0.0\n  externalDocs:\n    description: P-Plan\n    url: http://purl.org/net/p-plan\n\nfirebase:\n  key: \n\n#endpoint not used for this example.\nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-tag-defined-rule/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      operationId: getPetByStatus\n      summary: Example summary\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /pet:\n    post:\n      operationId: createPet\n      summary: Adds a new pet to the store\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /store/inventory:\n    get:\n      operationId: getPetInventories\n      summary: Returns pet inventories\n      tags:\n        - store\n      esponses:\n        '200':\n          description: example description\ntags:\n  - name: pets\n    description: Everything about your Pets\n    externalDocs:\n      url: http://docs.my-api.com/pet-operations.htm\n  - name: store\n    description: Access to Petstore orders\n    externalDocs:\n      url: http://docs.my-api.com/store-orders.htm\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

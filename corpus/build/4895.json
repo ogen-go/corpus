@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "new-response.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-response/openapi-3/new-response.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "positive3.json",
+			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersions\",\n        \"summary\": \"List versions\",\n        \"servers\": [\n          {\n            \"description\": \"server URL\"\n          }\n        ],\n        \"security\": [\n          {\n            \"OAuth2\": [\n              \"write\",\n              \"read\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: default: content: application/json: schema: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
+	"Error": "parse: paths: /: get: listVersions: responses: no responses"
 }

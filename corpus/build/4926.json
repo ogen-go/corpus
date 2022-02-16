@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "replace-extension.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/set-extension/openapi-3/replace-extension.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"$/components/schemas/Foo\"\n              },\n              \"example\": {\n                \"property1\": \"foo\",\n                \"property2\": \"bar\",\n                \"property3\": 17,\n                \"property4\": true,\n                \"property5\": {\n                  \"sub1\": \"hello\",\n                  \"sub2\": \"world\"\n                }\n              }\n            },\n            \"multipart/mixed\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"format\": \"uuid\"\n                  },\n                  \"address\": {\n                    \"type\": \"object\"\n                  },\n                  \"historyMetadata\": {\n                    \"description\": \"metadata in XML format\",\n                    \"type\": \"object\"\n                  },\n                  \"profileImage\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"x-existing-extension\": {\n          \"foo\": \"bar\",\n          \"hello\": [ \"world\" ]\n        }\n      }\n    }\n  }\n}\n"
+			"name": "positive1.json",
+			"path": "assets/queries/openAPI/3.0/response_object_incorrect_ref/test/positive1.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"components\": {\n    \"responses\": {\n      \"Success\": {\n        \"description\": \"200 response\",\n        \"content\": {\n          \"application/json\": {\n            \"examples\": {\n              \"foo\": {\n                \"value\": {\n                  \"versions\": [\n                    {\n                      \"status\": \"CURRENT\",\n                      \"updated\": \"2011-01-21T11:33:21Z\",\n                      \"id\": \"v2.0\",\n                      \"links\": [\n                        {\n                          \"href\": \"http://127.0.0.1:8774/v2/\",\n                          \"rel\": \"self\"\n                        }\n                      ]\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/Success\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : requestBody: content: application/json: parse schema: parse schema: reference \"$/components/schemas/Foo\": resolve reference \"$/components/schemas/Foo\": invalid schema reference \"$/components/schemas/Foo\""
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/Success\" reference: invalid response reference: \"#/components/schemas/Success\""
 }

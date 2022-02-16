@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive8.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/positive8.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                default: { \"a\": \"b\" }\n"
+			"name": "main.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/internal-references-in-external-files/main.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.1\n  title: API\npaths:\n  /:\n    post:\n      summary: Create\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/create'\n      responses:\n        '200':\n          description: Successful response\ncomponents:\n  schemas:\n    create:\n      type: object\n      properties:\n        attribute:\n          type: string\n        direct:\n          $ref: \"./external.yaml#/common\"\n        referenced:\n          type: array\n          items:\n            $ref: \"./external.yaml#/common\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: expected type \"array\", got \"object\""
+	"Error": "parse: paths: /: post: : requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/create\": parse schema: direct: parse schema: reference \"./external.yaml#/common\": resolve reference \"./external.yaml#/common\": invalid schema reference \"./external.yaml#/common\""
 }

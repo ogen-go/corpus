@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-diff"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "oneOf_discriminator-changed_1.yaml",
-			"path": "core/src/test/resources/oneOf_discriminator-changed_1.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: oneOf test for issue 29\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /state:\n    post:\n      operationId: update\n      requestBody:\n        content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/A'\n                  - $ref: '#/components/schemas/B'\n                discriminator:\n                  propertyName: realtype\n                  mapping:\n                    a-type: '#/components/schemas/A'\n                    b-type: '#/components/schemas/B'\n        required: true\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas:\n    A:\n      type: object\n      properties:\n        realtype:\n          type: string\n        othertype:\n          type: string\n        message:\n          type: string\n    B:\n      type: object\n      properties:\n        realtype:\n          type: string\n        othertype:\n          type: string\n        description:\n          type: string\n        code:\n          type: integer\n          format: int32"
+			"name": "deviceConnection-scopeId-_query.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/deviceConnection/deviceConnection-scopeId-_query.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Connection\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/deviceconnections/_query:\n    post:\n      tags:\n        - Device Connection\n      summary: Query the Connections\n      operationId: connectionQuery\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          description: The result of the query\n          content:\n            application/json:\n              schema:\n                $ref: './deviceConnection.yaml#/components/schemas/connectionListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "make ir: path \"/state\": post: requestBody: contents: application/json: schema: oneOf: discriminator: unable to map a-type to #/components/schemas/A"
+	"Error": "parse: paths: /{scopeId}/deviceconnections/_query: post: connectionQuery: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

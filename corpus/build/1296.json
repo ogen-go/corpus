@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_schema/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
+			"name": "swagger-api.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1105/swagger-api.yaml",
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: User and Session\n  description: Admin API endpoints.\n  version: \"0.1\"\npaths:\n  /users:\n    get:\n      responses:\n        \"401\":\n          $ref: \"./domain.yaml#/components/responses/401\"\ncomponents: {\n  schemas: {}\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /users: get: : responses: 401: resolve \"./domain.yaml#/components/responses/401\" reference: invalid response reference: \"./domain.yaml#/components/responses/401\""
 }

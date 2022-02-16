@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kota65535/openapi-merger"
+			"name": "github.com/DILA-edu/cbeta-api"
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "test/resources/petstore_2/openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n\n"
+			"path": "public/openapi/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: CBETA API\n  description: API to access CBETA Chinese Buddhist Texts Resources.\n  version: 1.2.19\n\nservers:\n  - url: http://cbdata.dila.edu.tw/v1.2\n    description: Main server\n  - url: http://api.cbetaonline.cn/\n    description: Mirror server\n\npaths:\n  /catalog_entry:\n    get:\n      summary: Returns a catalog entry information, including its children.\n      parameters:\n        $ref: 'catalog-entry-parameters.yaml'\n      responses:\n        '200':\n          description: A Catalog Entry Object\n          content:\n            application/json:\n              schema: \n                type: object\n                properties:\n                  $ref: 'catalog-entry-response.yaml'"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }

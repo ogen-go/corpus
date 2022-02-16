@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/covid-be-app/cwa-server"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "api_v1.json",
-			"path": "services/callback/api_v1.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"CWA-Server Callback API\",\n    \"version\": \"v1\",\n    \"license\": {\n      \"name\": \"Apache 2.0\"\n    }\n  },\n  \"paths\": {\n    \"/version/{version}/callback\": {\n      \"get\": {\n        \"summary\": \"API to receive the BatchTag for the latest batch from Federation Gateway.\",\n        \"description\": \"API to allow the Federation Gateway to send the tags/date combinations of batches that are ready to be downloaded. A response with an empty body will be returned.\",\n        \"tags\": [\n          \"callback-controller\",\n          \"federation batch\"\n        ],\n        \"operationId\": \"handleCallback\",\n        \"parameters\": [\n          {\n            \"name\": \"batchTag\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/BatchTag\"\n            }\n          },\n          {\n            \"name\": \"date\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Date\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Response with empty body.\"\n          },\n          \"400\": {\n            \"description\": \"Response with empty body. Occurs, e.g., when provided date is invalid.\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"BatchTag\": {\n      \"type\": \"string\",\n      \"description\": \"Identifier for a Diagnosis Key Batch\",\n      \"example\": \"507f191e810c19729de860ea\"\n    },\n    \"Date\": {\n      \"type\": \"string\",\n      \"description\": \"An ISO-8601 date descriptor. Server time zone is UTC.\",\n      \"example\": \"2020-05-01\"\n    }\n  }\n}\n"
+			"name": "merged.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/api/util/_pathDefault/merged.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /version/{version}/callback: get: handleCallback: parameters: parse parameter \"batchTag\": schema: parse schema: reference \"#/components/schemas/BatchTag\": resolve reference \"#/components/schemas/BatchTag\": schema not found"
+	"Error": "parse: paths: /foo: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

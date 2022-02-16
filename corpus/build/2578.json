@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/aws-samples/amazon-api-gateway-canary-deployment"
 		},
 		"file": {
-			"name": "domain-scopeId.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/domain/domain-scopeId.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Domains\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/domains:\n    get:\n      tags:\n        - Domain\n      summary: Get all the Domains\n      operationId: domainList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - name: name\n          in: query\n          description: The domain name to filter results\n          schema:\n            type: string\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Domains available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './domain.yaml#/components/schemas/domainListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "api.yaml",
+			"path": "canary-stack/api.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Canary Deployment\"\n  version: \"1.0.0\"\n\nx-amazon-apigateway-request-validators:\n  all:\n    validateRequestBody: true\n    validateRequestParameters: true\n  params:\n    validateRequestBody: false\n    validateRequestParameters: true\n  body:\n    validateRequestBody: true\n    validateRequestParameters: false\n\npaths:\n  /{year}:\n    get:\n      x-amazon-apigateway-request-validator: params\n      responses:\n        \"200\":\n          description: \"200 redirect\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PostBody\"\n\n      ## API Gateway Integration\n      x-amazon-apigateway-integration:\n        credentials:\n          Fn::GetAtt: [DDBReadRole, Arn]\n        uri:\n          {\n            \"Fn::Sub\": \"arn:aws:apigateway:${AWS::Region}:dynamodb:action/GetItem\",\n          }\n        httpMethod: \"POST\"\n        requestTemplates:\n          application/json:\n            {\n              \"Fn::Sub\": '{\"Key\": {\"year\": {\"S\": \"$input.params(\"year\")\"}}, \"TableName\": \"${DataTable}\"}',\n            }\n        passthroughBehavior: \"when_no_templates\"\n        type: \"aws\"\n        responses:\n          \"\":\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: '{\n                \"year\": \"$input.path(''$.Item.year.S'')\",\n                \"country\": \"$input.path(''$.Item.country.S'')\",\n                \"winner\": \"$input.path(''$.Item.winner.S'')\",\n                \"runner-up\": \"$input.path(''$.Item.runner-up.S'')\"\n                }'\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/domains: get: domainList: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /{year}: get: : parse path: path parameter not specified: \"year\""
 }

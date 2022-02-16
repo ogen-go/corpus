@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "parameter.json",
-			"path": "src/test/resources/testing/completion/field/openapi/parameter.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \u003ccaret\u003e\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "root.json",
+			"path": "packages/apidom-ls/test/fixtures/deref/root.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"deref\",\n    \"version\": \"1.0.0\",\n    \"description\": \"deref\"\n  },\n  \"servers\": [\n    \"local\": {\n      \"description\": \"local\",\n      \"url\": \"http://localhost:8082/\"\n    }\n  ],\n  \"components\": {\n    \"parameters\": {\n      \"userId\": {\n        \"$ref\": \"#/components/parameters/indirection1\",\n        \"description\": \"override\"\n      },\n      \"indirection1\": {\n        \"$ref\": \"#/components/parameters/indirection2\",\n        \"summary\": \"indirect summary\"\n      },\n      \"indirection2\": {\n        \"$ref\": \"#/components/parameters/userIdRef\",\n        \"summary\": \"indirect summary\"\n      },\n      \"userIdRef\": {\n        \"name\": \"userId\",\n        \"in\": \"query\",\n        \"description\": \"ID of the user\",\n        \"required\": true\n      },\n      \"externalRef\": {\n        \"$ref\": \"./ex.json#/externalParameter\",\n        \"description\": \"another ref\"\n      }\n    }\n  }\n}\n"
 		}
 	},
 	"Error": "invalid json"

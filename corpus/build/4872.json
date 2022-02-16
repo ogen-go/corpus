@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "new-media-type-requestBody.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/new-media-type/openapi-3/new-media-type-requestBody.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {}\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "empty-local-servers.json",
+			"path": "test/data/valid_openapi/empty-local-servers.json",
+			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n      \"title\": \"Example\",\n      \"version\": \"2.0.0\"\n    },\n    \"servers\": [\n      {\n        \"url\": \"https://api.example.com\"\n      }\n    ],\n    \"paths\": {\n      \"/primary-domain/works\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should keep the same domain\"\n        }\n      },\n      \"/secondary-domain/fails\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should use the other domain\",\n          \"servers\": []\n        }\n      }\n    }\n  }\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /primary-domain/works: get: get_authorize: responses: no responses"
 }

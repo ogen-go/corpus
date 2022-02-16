@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "change-server-pathItem.before.json",
-			"path": "src/test/resources/fixtures/cmd/commands/change-server/openapi-3/change-server-pathItem.before.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"required\": true\n        }\n      },\n      \"servers\": [\n        {\n          \"url\": \"https://development.gigantic-server.com/v1\",\n          \"description\": \"Development server\"\n        },\n        {\n          \"url\": \"https://staging.gigantic-server.com/v1\",\n          \"description\": \"Staging server\"\n        },\n        {\n          \"url\": \"https://production.gigantic-server.com/v1\",\n          \"description\": \"Production server\"\n        }\n      ]\n    }\n  }\n}\n"
+			"name": "schema_ref.json",
+			"path": "src/test/resources/testing/completion/value/openapi/schema_ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003e\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {}\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e\": resolve reference \"\u003ccaret\u003e\": invalid schema reference \"\u003ccaret\u003e\""
 }

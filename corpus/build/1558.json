@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
 		},
 		"file": {
-			"name": "missingPathParam2.yaml",
-			"path": "3.0/fail/missingPathParam2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid missing path parameter 2\n  version: 1.0.0\n\npaths:\n  '/test/{test}/{test2}':\n    get:\n      parameters:\n      - name: test\n        in: path\n        required: true\n        schema:\n          type: string\n      operationId: same\n      responses:\n        '200':\n          description: OK\n"
+			"name": "get_with_multiple_path_param_2.yaml",
+			"path": "core/src/test/resources/api/uri/get_with_multiple_path_param_2.yaml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /person/asd/{personId}/{personName}:\n    get:\n      summary: Find person by ID\n      description: Returns a single person\n      operationId: getPersonByIdAndName\n      parameters:\n        - name: personId\n          in: path\n          description: ID of person to return\n          required: true\n          schema:\n            type: integer\n        - name: personName\n          in: path\n          description: Name of person to return\n          required: false\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: successful operation\n\n"
 		}
 	},
-	"Error": "parse: paths: /test/{test}/{test2}: get: same: parse path: path parameter not specified: \"test2\""
+	"Error": "parse: paths: /person/asd/{personId}/{personName}: get: getPersonByIdAndName: parameters: parse parameter \"personName\": path parameters must be required"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "issue7325-use-delegate-reactive-tags-kotlin.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: test\n  version: \"1.0\"\n\npaths:\n\n  /api/v1/test/{id}:\n    get:\n      tags: [Test v1]\n      operationId: test1\n      parameters:\n        - name: id\n          in: path\n          schema:\n            type: string\n      responses:\n        200:\n          description: OK\n\n  /api/v2/test:\n    get:\n      tags: [Test v2]\n      operationId: test2\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n\n\n"
+			"name": "job-scopeId-jobId-executions-executionId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/jobExecution/job-scopeId-jobId-executions-executionId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs - Executions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/jobs/{jobId}/executions/{executionId}:\n    get:\n      tags:\n        - Job - Execution\n      summary: Get a single Job Execution\n      operationId: jobExecutionGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../job/job.yaml#/components/parameters/jobId'\n        - $ref: './jobExecution.yaml#/components/parameters/executionId'\n      responses:\n        200:\n          description: The details of the desired Job Execution\n          content:\n            application/json:\n              schema:\n                $ref: './jobExecution.yaml#/components/schemas/jobExecution'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /api/v1/test/{id}: get: test1: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /{scopeId}/jobs/{jobId}/executions/{executionId}: get: jobExecutionGet: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

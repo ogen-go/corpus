@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/markdouthwaite/minimal-flask-api"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "docs/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Minimal Flask API Example\n  description: This file is for demonstration purposes only, you should fill in your own details.\n  version: 0.0.0\nservers:\n  - url: http://localhost:5000\n    description: This is a dummy value describing the base URL for the API.\npaths:\n  /:\n    get:\n      summary: Returns the default response from the API.\n      description: Optional extended description in CommonMark or HTML.\n      responses:\n        '200':    # status code\n          description: The default response.\n          content:\n            text/plain:\n              \"Hello, world\"\n  /health:\n    get:\n      summary: Used to check the API is responsive.\n      description: Optional extended description in CommonMark or HTML.\n      responses:\n        '200':    # status code\n          description: The default response.\n          content:\n            text/plain:\n              \"OK\""
+			"name": "strictRequestMatchingSpec.yaml",
+			"path": "test/data/31CollectionTransactions/validateOptions/strictRequestMatchingSpec.yaml",
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Validation Option tests\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /users/admin/{userId}:\n    get:\n      description: /users/admin/{userId}\n      parameters:\n        - name: userId\n          in: path\n          required: true\n          schema:\n            type: \n              - string\n      responses:\n        '200':\n          description: /users/admin/{userId}\n          content:\n            application/json:\n              schema:\n                type: \n                  - object\n                properties:\n                  id:\n                    type: \n                      - integer\n                    format: int64\n                  name:\n                    type: \n                      - string\n  /users/admin/profile:\n    get:\n      description: /users/admin/{userId}\n      responses:\n        '200':\n          description: /users/admin/profile\n          content:\n            application/json:\n              schema:\n                type: \n                  - object\n                properties:\n                  id:\n                    type: \n                      - integer\n                    format: int64\n                  name:\n                    type: \n                      - string\n  /admin/{adminId}:\n    get:\n      description: /admin/{adminId}\n      parameters:\n        - name: adminId\n          in: path\n          required: true\n          schema:\n            type: \n              - string\n      responses:\n        '200':\n          description: /admin/{adminId}\n          content:\n            application/json:\n              schema:\n                type: \n                  - object\n                properties:\n                  id:\n                    type: \n                      - integer\n                    format: int64\n                  name:\n                    type: \n                      - string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Response.paths.get.responses.content of type ogen.Media"
+	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }
