@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/infobloxopen/infoblox-swagger-wapi"
+			"name": "github.com/bow-swift/bow-openapi"
 		},
 		"file": {
-			"name": "5164.yaml",
-			"path": "infoblox-swagger-ui/test/e2e-cypress/static/documents/bugs/5164.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                first:\n                  type: object\n                  example:\n                    one: abc\n                    two: 123\n                second:\n                  type: array\n                  items:\n                    type: string\n                  example:\n                  - \"hi\""
+			"name": "schema-path-param.yaml",
+			"path": "Tests/__Snapshots__/Schemas/schema-path-param.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets/{petId}:\n    get:\n      operationId: getPet\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          schema:\n            type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /: post: : responses: no responses"
+	"Error": "parse: paths: /pets/{petId}: get: getPet: responses: no responses"
 }

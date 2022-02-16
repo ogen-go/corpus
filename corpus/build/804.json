@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/lunasec-io/lunasec"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/turn-off-rules/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0.0\n\npaths:\n  '/ping/{id}/{test}':\n    get:\n      parameters:\n        - in: path\n          name: test_id\n          description: User id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: example description\n"
+			"name": "simple-tokenizer.yaml",
+			"path": "api-spec/schema/simple-tokenizer.yaml",
+			"content": "# Copyright 2021 by LunaSec (owned by Refinery Labs, Inc)\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nopenapi: 3.0.3\ninfo:\n  title: Simple Tokenizer API\n  description: The Tokenizer API used for tokenizing and detokenizing data using the express plugin backend\n  version: 0.0.0\npaths:\n  /.lunasec/tokenize:\n    $ref: 'routes/tokenize-routes.yaml#/tokenize'\n  /.lunasec/detokenize:\n    $ref: 'routes/tokenize-routes.yaml#/detokenize'"
 		}
 	},
-	"Error": "parse: paths: /ping/{id}/{test}: get: : parse path: path parameter not specified: \"id\""
+	"Error": "parse: /.lunasec/detokenize: referenced pathItem not supported"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/radiantearth/stac-api-spec"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "swagger-config.yaml",
-			"path": "build/swagger-config.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: STAC API - Complete\n  version: 1.0.0-beta.5\napis:\n  - url: 'build/core/openapi.yaml'\n    paths:\n      exclude:\n        - \"^\\/$\"\n  - url: 'build/item-search/openapi.yaml'\n  - url: 'build/ogcapi-features/openapi.yaml'\n  - url: 'build/ogcapi-features/extensions/version/openapi.yaml'\n  - url: 'build/ogcapi-features/extensions/transaction/openapi.yaml'\n"
+			"name": "yaml-seq-indicator-end.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/yaml/yaml-seq-indicator-end.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: asd\n  version: 2\npaths:\n  /get:\n    get:\n      responses:\n        \"200\":\n          description: asd\n          content:\n            application/json:\n              schema:\n                description: asd\n                anyOf:\n                  [ $ref: \"#/components/schemas/anotherSchema\",\n                    $ref: \"#/components/schemas/mySchema\"  *]\n\ncomponents:\n  schemas:\n    mySchema:\n      type: number\n    anotherSchema:\n      type: boolean\n    yetAnotherSchema:\n      type: integer"
 		}
 	},
-	"Error": "yaml: line 9: found unknown escape character"
+	"Error": "yaml: line 17: did not find expected alphabetic or numeric character"
 }

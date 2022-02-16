@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
 		},
 		"file": {
-			"name": "ref.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/swos-443/ref.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Acme Components\n  description: Common components for Acme REST APIs\n  version: '1'\npaths:\n  /refPet:\n    get:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      operationId: addPet\ncomponents:\n  links:\n    unsubscribe:\n      operationId: cancelHookCallback\n      parametersx:\n        id: $response.body#/hookId\n  headers:\n    X-Rate-Limit-Limit:\n      descriptasdd: The number of allowed requests in the current period\n      schema:\n        type: integer\n      example: \"This is a header example\"\n  securitySchemes:\n    api_key:\n      type: apiKey\n      namex: api_key\n      in: not\n  examples:\n    response-example:\n      summaryx: This is a text example\n      value:\n        id: 3\n        name: Tricia McMillan\n      externalValue: 'http://foo.bar/examples/address-example.txt'\n  requestBodies:\n    NewItem:\n      asdasd: asd\n      descasdasdription: A JSON object containing item data\n      required: true\n      content:\n        application/json:\n          schema:\n            type: asd\n  responses:\n    GeneralError:\n      descrsaiption: An error occurred\n      asdas: asdasd\n  schemas:\n    ErrorModel:\n      type: object\n      properties:\n    Examples:\n      description: The example model\n      nonExpected: arbitrary keyword\n      type: object\n      properties:\n        foo:\n  parameters:\n    skipParam:\n      name: skip\n      in: wrong\n      descriptionx: number of items to skip\n  callbacks:\n    failed:\n      wrongField: badCallback\n    webhookVerificationEvent:\n      'https://yourdomain.com/css/yourCallbackEndpoint':\n        postx:\n          parameters:\n            - $ref: '#/components/parameters/x-api-key'\n          requestBody:\n            required: true\n            description: description\n            content:\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/WebhookVerification'\n          responses:\n            '202':\n              description: Your server returns this code if it accepts the message it was sent\n\n\n"
+			"name": "sampleFunction_ORIG.yaml",
+			"path": "tests/server-sampleFunction/sampleFunction_ORIG.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: sampleFunction\n  description: Multiply int and float sample.\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: Optional server description, e.g. Main (production) server\npaths:\n  /tests/generator/:\n    get:\n      summary: Multiply int and float sample.\n      description: Optional extended description in CommonMark or HTML.\n      operationId: sample_function_gen.sampleFunction\n      parameters:\n        - in: query\n          name: x\n          schema:\n            type: integer\n          description: not yet available, you can read it from docstring\n        - in: query\n          name: y\n          schema:\n            type: number\n          description: not yet available, you can read it from docstring\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: number\n"
 		}
 	},
-	"Error": "start: unexpected byte 110 'n'"
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
 }

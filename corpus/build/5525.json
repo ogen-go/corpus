@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "paths-get-callbacks.json",
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "schema2.json",
+			"path": "als-actions/shared/src/test/resources/codeactions/extract-element/schema-from-oas/schema2.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"schema\": {\n              \"type\": \"string\",\n              \"example\": \"textplain\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /foo: get: : responses: no responses"
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

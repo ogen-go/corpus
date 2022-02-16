@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/vert-x3/vertx-web"
 		},
 		"file": {
-			"name": "operation.yaml",
-			"path": "src/test/resources/testing/completion/field/openapi/operation.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      \u003ccaret\u003e\n"
+			"name": "inner_refs.yaml",
+			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/inner_refs.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Simple spec with $refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      type: object\n      properties:\n        fileName:\n          type: 1\n          format: binary\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field PathItem.paths.get of type ogen.Operation"
+	"Error": "callback: json: cannot unmarshal number into Go struct field Schema.type of type string"
 }

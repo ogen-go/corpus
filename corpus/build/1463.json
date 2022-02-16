@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_schema/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
+			"name": "accessInfo-scopeId-accessInfoId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/accessInfo/accessInfo-scopeId-accessInfoId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Access Info\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/accessinfos/{accessInfoId}:\n    get:\n      tags:\n        - Access Info\n      summary: Get a single AccessInfo\n      operationId: accessInfoGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './accessInfo.yaml#/components/parameters/accessInfoId'\n      responses:\n        200:\n          description: The details of the desired AccessInfo\n          content:\n            application/json:\n              schema:\n                $ref: './accessInfo.yaml#/components/schemas/accessInfo'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n    delete:\n      tags:\n        - Access Info\n      summary: Delete a single AccessInfo\n      operationId: accessInfoDelete\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './accessInfo.yaml#/components/parameters/accessInfoId'\n      responses:\n        204:\n          description: The AccessInfo has been deleted\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: paths: /{scopeId}/accessinfos/{accessInfoId}: get: accessInfoGet: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

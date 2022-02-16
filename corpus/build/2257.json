@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "example_generator_test.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/example_generator_test.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: Apache-2.0\npaths:\n  /generate_from_response_schema_with_no_example:\n    get:\n      operationId: generateFromResponseSchemaWithNoExample\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: string\n  /generate_from_response_schema_with_primitive_type:\n    get:\n      operationId: generateFromResponseSchemaWithNoExample\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: string\n                example: primitive type example value\n  /generate_from_response_schema_with_array_of_model:\n    get:\n      operationId: generateFromResponseSchemaWithArrayOfModel\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/StringSchema'\n  /generate_from_response_schema_with_array_of_primitive_types:\n    get:\n      operationId: generateFromResponseSchemaWithArrayOfPrimitiveTypes\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                  example: primitive types example value\n  /generate_from_response_schema_with_model:\n    get:\n      operationId: generateFromResponseSchemaWithArrayOfPrimitiveTypes\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ExampleSchema'\ncomponents:\n  schemas:\n    StringSchema:\n      type: string\n      example: string schema example value\n    ExampleSchema:\n      type: object\n      properties:\n        example_schema_property:\n          type: string\n          example: example schema property value\n"
+			"name": "externalPathItemRef.yaml",
+			"path": "3.0/pass/externalPathItemRef.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test valid external $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '../resources/include.yaml#/paths/~1test'\n  /test2:\n    $ref: '../resources/include.yaml#/paths/~1'\n"
 		}
 	},
-	"Error": "parse: paths: /generate_from_response_schema_with_primitive_type: get: duplicate operationId: \"generateFromResponseSchemaWithNoExample\""
+	"Error": "parse: /test: referenced pathItem not supported"
 }

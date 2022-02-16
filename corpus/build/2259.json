@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "issue_3248.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_3248.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /monkeys:\n    get:\n      operationId: getMonkeys\n      parameters:\n        - $ref: '#/components/parameters/refDate'\n  /elephants:\n    get:\n      operationId: getElephants\n      parameters:\n        - in: query\n          name: someDate\n          required: true\n          schema:\n            type: string\n            format: date\n  /girafes:\n    get:\n      operationId: getGirafes\n      parameters:\n        - $ref: '#/components/parameters/refStatus'\n  /zebras:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: query\n          name: status\n          required: true\n          schema:\n            type: integer\n            enum: [0,1]\n            default: 0\n  /bears:\n    get:\n      operationId: getBears\n      parameters:\n        - $ref: '#/components/parameters/refCondition'\n  /camels:\n    get:\n      operationId: getCamels\n      parameters:\n        - in: query\n          name: condition\n          required: true\n          schema:\n            type: string\n            enum:\n              - sleeping\n              - awake\n  /pandas:\n    get:\n      operationId: getPandas\n      parameters:\n        - $ref: '#/components/parameters/refName'\n  /crocodiles:\n    get:\n      operationId: getCrocodiles\n      parameters:\n        - in: query\n          name: name\n          required: true\n          schema:\n            type: string\n  /polarBears:\n    get:\n      operationId: getPolarBears\n      parameters:\n        - $ref: '#/components/parameters/refAge'\n  /birds:\n    get:\n      operationId: getBirds\n      parameters:\n        - in: query\n          name: age\n          required: true\n          schema:\n            type: integer\ncomponents:\n  parameters:\n    refDate:\n      in: query\n      name: refDate\n      required: true\n      schema:\n        type: string\n        format: date\n    refStatus:\n      in: query\n      name: refStatus\n      required: true\n      schema:\n        type: integer\n        enum: [0,1]\n        default: 0\n    refCondition:\n      in: query\n      name: refCondition\n      schema:\n        type: string\n        enum:\n          - sleeping\n          - awake\n    refName:\n      in: query\n      name: refName\n      schema:\n        type: string\n    refAge:\n      in: query\n      name: refAge\n      schema:\n        type: integer\n"
+			"name": "example1_from_._Different_parameters.md.yaml",
+			"path": "3.0/fail/gluecon/example1_from_._Different_parameters.md.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: The simplest parameter example\n  version: 1.0.0\npaths:\n  /customer/{id}:    # https://api.example.org/customer/72\n    parameters:\n    - name: id\n      in: path\n      schema:\n        type: int\n        title: A unique identifier for the customer\n"
 		}
 	},
-	"Error": "parse: paths: /monkeys: get: getMonkeys: responses: no responses"
+	"Error": "parse: /customer/{id}: parameters: parse parameter \"id\": path parameters must be required"
 }

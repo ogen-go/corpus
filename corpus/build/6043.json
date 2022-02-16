@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/resolve/strategies/openapi-3-1/path-item-object/fixtures/indirect-external-circular/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "response-reference.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/references/response-reference.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/Common200\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /pets: get: listPets: responses: 200: resolve \"#/components/responses/Common200\" reference: component by reference \"#/components/responses/Common200\" not found"
 }

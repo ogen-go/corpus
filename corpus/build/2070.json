@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kean/CreateAPI"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "discriminator.yaml",
-			"path": "Tests/CreateAPITests/Specs/discriminator.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Discriminator\n\npaths:\n  /container:\n    get:\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Container\"\ncomponents:\n  schemas:\n    A:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    B:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    C:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n\n    Container:\n      type: object\n      required:\n        - content\n      properties:\n        content:\n          oneOf:\n            - $ref: \"#/components/schemas/A\"\n            - $ref: \"#/components/schemas/B\"\n            - $ref: \"#/components/schemas/C\"\n          discriminator:\n            propertyName: kind\n            mapping:\n              a: \"#/components/schemas/A\"\n              b: \"#/components/schemas/B\"\n              c: \"#/components/schemas/C\"\n"
+			"name": "Variants_GET.yaml",
+			"path": "Specification/BrAPI-Genotyping/Variants/Variants_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variants:\n    get:\n      summary: Gets a filtered list of `Variants`.\n      description: |-\n        Gets a filtered list of `Variants`.\n        \n        ** THIS ENDPOINT USES TOKEN BASED PAGING **\n      parameters:\n        - name: variantDbId\n          description: The ID of the `Variant` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: variantSetDbId\n          description: The ID of the `VariantSet` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/VariantsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Variants"
 		}
 	},
-	"Error": "make ir: path \"/container\": get: responses: 200: contents: application/json: schema: field content: oneOf: discriminator: unable to map c to #/components/schemas/C"
+	"Error": "parse: paths: /variants: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/pageToken\" reference: component by reference \"#/components/parameters/pageToken\" not found"
 }

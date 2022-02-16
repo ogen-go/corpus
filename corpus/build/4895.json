@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "positive3.json",
-			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/positive3.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersions\",\n        \"summary\": \"List versions\",\n        \"servers\": [\n          {\n            \"description\": \"server URL\"\n          }\n        ],\n        \"security\": [\n          {\n            \"OAuth2\": [\n              \"write\",\n              \"read\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}\n"
+			"name": "issue-304.json",
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"empty\": null\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BaseEntityDto\": {\n        \"$ref\": \"./issue-304_parent.json#/components/schemas/BaseEntity\"\n      },\n      \"InheritanceDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Inheritance\"\n      },\n      \"CompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Composition\"\n      },\n      \"InheritanceAndCompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/InheritanceAndComposition\"\n      },\n      \"ReferenceToTheSameFile\": {\n        \"$ref\": \"./issue-304.json#/components/schemas/InheritanceAndCompositionDto\"\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersions: responses: no responses"
+	"Error": "parse: empty: unexpected nil schema"
 }

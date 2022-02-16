@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/18F/piipan"
 		},
 		"file": {
-			"name": "swagger_without_query_desc.yaml",
-			"path": "test/data/valid_openapi/swagger_without_query_desc.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server.  You can find out more about\n    Swagger at http://swagger.io or on\n    irc.freenode.net, #swagger.  For this sample, you can use the api key\n    \"special-key\" to test the authorization filters\n  version: 1.0.0\n  title: Sample title\n  termsOfService: 'http://helloreverb.com/terms/'\n  contact:\n    email: apiteam@wordnik.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  # the params part will be converted to a path variable\n  # that will get added to the query.members of the SDK\n  # (but without a .descriptions property)\n  /pet/findByStatus?{params}:\n    get:\n      summary: Finds Pets by status\n      description: Multiple status values can be provided with comma seperated strings\n      operationId: findPetsByStatus\n      parameters:\n        - name: status\n          in: query"
+			"name": "bulk-api.yaml",
+			"path": "docs/openapi/bulk-api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Bulk API\"\n  version: 2.0.0\n  description: \"The API for performing bulk uploads\"\ntags:\n  - name: \"Upload\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: none\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload/{filename}':\n    $ref: '../../etl/docs/openapi/upload.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
 		}
 	},
-	"Error": "parse: paths: /pet/findByStatus?{params}: get: findPetsByStatus: parse path: path parameter not specified: \"params\""
+	"Error": "parse: /upload/{filename}: referenced pathItem not supported"
 }

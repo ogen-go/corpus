@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bgoonz/stared-repos"
+			"name": "github.com/SoliDry/laravel-api"
 		},
 		"file": {
-			"name": "5188.yaml",
-			"path": "swagger-ui/test/e2e-cypress/static/documents/bugs/5188.yaml",
-			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: sdf\n  version: \"1.0.0\"\n  title: Swagger Petstore\npaths:\n  /pet:\n    get:\n      tags:\n        - default\n      summary: \n        whatever: 123 \n      operationId: objectSummary\n      responses:\n        '405':\n          description: Invalid input\n    post:\n      tags:\n        - default\n      operationId: noSummary\n      responses:\n        '405':\n          description: Invalid input"
+			"name": "topic.yaml",
+			"path": "oas/topic.yaml",
+			"content": "openapi: 3.0.1\ninfo: This api provides access to articles\nservers:\n- url: https://{environment}.example.com:{port}/{basePath}\n  description: Production server\n  variables:\n    environment:\n      default: api\n      description: An api for devices at Google dot com\n    port:\n      enum:\n        - 80\n        - 443\n      defualt: 80\n    basePath:\n      default: v3\ncomponents:\n  schemas:\n    ID:\n      type: integer\n      required: true\n    Type:\n      type: string\n      required: true\n      minLength: 1\n      maxLength: 255\n    DataObject:\n      type: object\n      required: true\n    DataArray:\n      type: array\n      required: true\n    RelationshipsDataItem:\n      type: object\n      properties:\n        id: ID\n        type: Type\n    ArticleRelationships:\n      type: object\n      properties:\n        data:\n          type: DataArray\n          items:\n            type: RelationshipsDataItem\n    TopicAttributes:\n      type: object\n      properties:\n        title:\n          required: true\n          type: string\n          minLength: 16\n          maxLength: 256\n    Topic:\n      type: object\n      properties:\n        type: Type\n        id: ID\n        attributes: TopicAttributes\n        relationships:\n          type: ArticleRelationships[]"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.summary of type string"
+	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }

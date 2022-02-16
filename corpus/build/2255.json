@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "issue_1517.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Test Regex generation for parameter validation\n  version: 1.0.0\ncomponents:\n  headers:\n\n  responses:\n    OK_200:\n      description: OK\n\npaths:\n  /ping:\n    get:\n      summary: Get Payment Information\n      description: Returns the content of a payment object\n      parameters:\n        - name: pattern_no_forward_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern$'\n        - name: pattern_two_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern$/'\n        - name: pattern_dont_escape_backslash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\d{3}$'\n        - name: pattern_dont_escape_escaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\/\\d{3}$'\n        - name: pattern_escape_unescaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern/\\d{3}$'\n        - name: pattern_with_modifiers\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern\\d{3}$/i'\n        - name: pattern_with_backslash_after_bracket\n          in: header\n          schema:\n            type: string\n            pattern: '/^[\\pattern\\d{3}$/i'\n\n      responses:\n        '200':\n          $ref: \"#/components/responses/OK_200\""
+			"name": "internalPathItemRef.yaml",
+			"path": "3.0/fail/internalPathItemRef.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid internal $ref of PathItem\n  version: 1.0.0\n\nservers:\n- url: https://acme.com/api/v1\n\npaths:\n  /test:\n    $ref: '#/paths/test2'\n  /test2: {}\n"
 		}
 	},
-	"Error": "make ir: path \"/ping\": get: parameters: \"pattern_with_backslash_after_bracket\": string validator: pattern: error parsing regexp: invalid character class range: `\\pa`"
+	"Error": "parse: /test: referenced pathItem not supported"
 }

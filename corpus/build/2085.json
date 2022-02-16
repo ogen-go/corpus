@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "extract-example-oas3.yaml",
-			"path": "als-server/shared/src/test/resources/actions/codeactions/refactorextract/extract-example-oas3.yaml",
-			"content": "openapi: 3.0.0\n\ninfo:\n  title: test\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    a:\n      type: string\n\npaths:\n  /p:\n    get:\n      responses:\n        \"200\":\n          description: desc\n      parameters:\n        - schema:\n            type: string\n            example: t[*]extplain"
+			"name": "BreedingMethods_BreedingMethodDbId_GET.yaml",
+			"path": "Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /breedingmethods/{breedingMethodDbId}:\n    get:\n      summary: Get the details of a specific Breeding Method\n      description: Get the details of a specific Breeding Method used to produce Germplasm\n      parameters:\n      - description: Internal database identifier for a breeding method\n        in: path\n        name: breedingMethodDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: BreedingMethodSingleResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/BreedingMethod'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Germplasm\n"
 		}
 	},
-	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
+	"Error": "parse: paths: /breedingmethods/{breedingMethodDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/encoding/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"requestBody\": {\n          \"description\": \"a request\",\n          \"content\": {\n            \"application/json\": {\n              \"encoding\": {\n                \"name\": {\n                  \"contentType\": \"application/json\",\n                  \"headers\": {\n                    \"header\": {\n                      \"description\": \"a header\"\n                    }\n                  },\n                  \"style\": \"plain\",\n                  \"explode\": false,\n                  \"allowReserved\": false\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "replace-operation.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/replace-operation/openapi-3/replace-operation.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"summary\": \"Do A Thing\",\n        \"description\": \"Totally does a thing\",\n        \"operationId\": \"doAThing\",\n        \"deprecated\": true\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
+	"Error": "parse: paths: /foo: get: doAThing: responses: no responses"
 }

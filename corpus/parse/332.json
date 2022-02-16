@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/drwpow/openapi-typescript"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/no-empty-servers-rule/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\nservers:\n  - url: https://development.com/v1\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
+			"name": "consts-enums.yaml",
+			"path": "test/v3/specs/consts-enums.yaml",
+			"content": "openapi: 3.0\npaths:\n  /test:\n    get:\n      tags:\n        - test\n      summary: \"Just a test path\"\n      responses:\n        200:\n          description: A list of types.\ncomponents:\n  schemas:\n    MyType:\n      description: Enum with null and nullable\n      type: object\n      properties:\n        myEnumTestFieldNullable:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n          nullable: true\n        myEnumTestField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n          nullable: true\n        myConstTestField:\n          type: string\n          const: \"constant-value\"\n        myConstTestFieldNullable:\n          type: number\n          const: 4\n          nullable: true"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
 }

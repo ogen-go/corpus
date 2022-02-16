@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/coder7290/laravel-angular9"
+			"name": "github.com/Mermade/openapi3-examples"
 		},
 		"file": {
-			"name": "api-docs.yaml",
-			"path": "storage/app/public/api-docs/api-docs.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: 'Hardware Api'\n  contact:\n    email: jacek_slawinski@poczta.onet.pl\n  license:\n    name: 'Apache 2.0'\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n  version: 1.0.0\nservers:\n  - url: 'http://...'\n    description: 'Api'\npaths:\n    /hardware:\n      $ref: './hardware/paths.yaml#/hardware'\n    /hardware/{id}:\n      $ref: './hardware/paths.yaml#/hardwareid'\n    /system:\n      $ref: './system/paths.yaml#/system'\n    /system/{id}:\n      $ref: './system/paths.yaml#/systemid'\n    /transfer:\n      $ref: './transfer/paths.yaml#/transfer'\ncomponents:\n  parameters:\n    JWT_token:\n      name: Authorization\n      in: header\n      description: 'JWT access token'\n      required: true\n      schema:\n        type: string\ntags:\n  - name: Hardware\n    description: About Hardware\n  - name: System\n    description: About system"
+			"name": "mega.yaml",
+			"path": "3.1/pass/mega.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n\n"
 		}
 	},
-	"Error": "parse: /hardware: referenced pathItem not supported"
+	"Error": "parse: paths: /: get: : responses: no responses"
 }

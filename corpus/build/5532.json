@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "params.char-sequence-arrays.json",
-			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.char-sequence-arrays.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/char/sequence\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"val\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/EchoResult\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"EchoResult\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"resultWithSchema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"resultNoSchema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "examples-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/examples/examples-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"examples\": {\n      \"test\": {\n        \"prop\": \"a\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"examples\": {\n              \"name\": {\n                \"$ref\": \"*\"\n              }\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "make ir: path \"/char/sequence\": get: parameters: nested arrays not allowed"
+	"Error": "parse: paths: /p: get: : parameters: parse parameter \"\": unsupported parameter type "
 }

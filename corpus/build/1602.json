@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/anz-bank/sysl"
 		},
 		"file": {
-			"name": "domain-scopeId-_count.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/domain/domain-scopeId-_count.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Domains\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/domains/_count:\n    post:\n      tags:\n        - Domain\n      summary: Count the Domains\n      operationId: domainCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "params-for-all.yaml",
+			"path": "pkg/importer/tests/openapi3/params-for-all.yaml",
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Params For All Operations\npaths:\n  /param/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/name\"\n      - name: id\n        schema:\n          type: string\n        in: path\n    post:\n      description: Empty parameters\n      responses:\n        \"200\":\n          description: \"OK\"\n    get:\n      parameters:\n        - name: key\n          schema:\n            type: string\n          in: query\n      description: has existing parameters\n      responses:\n        \"200\":\n          description: \"OK\"\ncomponents:\n  parameters:\n    name:\n      name: name\n      schema:\n        type: string\n      required: false\n      in: query\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/domains/_count: post: domainCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: /param/{id}: parameters: parse parameter \"id\": path parameters must be required"
 }

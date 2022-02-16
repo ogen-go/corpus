@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/s2o-test/issue76/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  '/{p4}':\n    get:\n      parameters:\n        - name: p1\n          in: query\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p2\n          in: query\n          explode: true\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p3\n          in: header\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p4\n          in: path\n          required: true\n          style: simple\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p5\n          in: query\n          style: spaceDelimited\n          schema:\n            type: array\n            items:\n              type: string\n        - name: p6\n          in: query\n          style: pipeDelimited\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        default:\n          description: OK\n"
+			"name": "rename_file_reference.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_file_reference.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \u003ccaret\u003epet.yaml\n"
 		}
 	},
-	"Error": "parse: paths: /{p4}: get: : parameters: parse parameter \"p5\": style: unexpected style: spaceDelimited"
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003epet.yaml\": resolve reference \"\u003ccaret\u003epet.yaml\": invalid schema reference \"\u003ccaret\u003epet.yaml\""
 }

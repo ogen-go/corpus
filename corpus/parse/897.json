@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kota65535/openapi-merger"
+			"name": "github.com/thim81/openapi-format"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/resources/petstore_8/openapi.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  $ref: ./paths/_index.yaml\ncomponents:\n  securitySchemes:\n    oAuth2:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: 'https://api.example.com/auth/token'\n"
+			"name": "output.yaml",
+			"path": "test/yaml-default-bug-big-numbers/output.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Test\n  version: 0.0.1\npaths:\n  /pet:\n    get:\n      operationId: getPet\n      responses:\n        '200':\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      properties:\n        properties:\n          type: string\n          example: 123e4567-e89b-12d3-a456-426614174000\n        id:\n          type: integer\n          format: int64\n          example: 10\n        name:\n          type: string\n          example: 123456789012345678901234567890\n        NumberLimitsSchema:\n          type: number\n          maximum: 9999999999999.99999\n          minimum: 0\n          multipleOf: 0.0000000001\n      required:\n        - name\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "callback: json: cannot unmarshal number 1e-10 into Go struct field Schema.multipleOf of type int"
 }

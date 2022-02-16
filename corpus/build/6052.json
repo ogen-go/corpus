@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/internal-only/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"#/paths/~1path2\"\n    },\n    \"/path2\": {\n      \"summary\": \"path item summary\",\n      \"description\": \"path item description\",\n      \"get\": {}\n    }\n  }\n}\n"
+			"name": "delete-server-pathItem.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-server/openapi-3/delete-server-pathItem.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"required\": true\n        }\n      },\n      \"servers\": [\n        {\n          \"url\": \"https://development.gigantic-server.com/v1\",\n          \"description\": \"Development server\"\n        },\n        {\n          \"url\": \"https://staging.gigantic-server.com/v1\",\n          \"description\": \"Staging server\"\n        }\n      ]\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: get: : requestBody: content must have at least on entry"
 }

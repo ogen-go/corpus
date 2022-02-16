@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "duplicateOperationId.json",
-			"path": "modules/swagger-parser/src/test/resources/duplicateOperationId.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.9-abcd\",\n    \"title\": \"Duplicate operationID\"\n  },\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"parameters\" : [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      },\n      \"post\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "schema_ref_without_type.json",
+			"path": "src/test/resources/testing/documentation/openapi/json/schema_ref_without_type.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003e#/components/schemas/Example\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Example\": {\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /pets/{id}: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
 }

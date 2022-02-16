@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/shellhub-io/shellhub"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "cloud-openapi.yaml",
-			"path": "openapi/cloud-openapi.yaml",
-			"content": "openapi: 3.0.2\n$ref: spec/shared/common-openapi.yaml\npaths:\n  $ref: community-openapi.yaml#/paths\n  /api/firewall/rules:\n    $ref: spec/resources/firewall/rules.yaml\n  '/api/firewall/rules/{id}':\n    $ref: spec/resources/firewall/rules_id.yaml\n  '/api/sessions/{uid}/play':\n    $ref: spec/resources/sessions/play.yaml\n  '/api/sessions/{uid}/record':\n    $ref: spec/resources/sessions/record_del.yaml\n  /api/register:\n    $ref: spec/resources/user/register.yaml\n  /api/user/resend_email:\n    $ref: spec/resources/user/resend_email.yaml\n  '/api/user/{uid}/update_password':\n    $ref: spec/resources/user/uid_update_password.yaml\n  /api/user/validation_account:\n    $ref: spec/resources/user/validation_account.yaml\n  /api/user/recover_password:\n    $ref: spec/resources/user/recover_password.yaml"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-4xx-response-rule/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: gitPing\n      summary: example text\n      responses:\n        '400':\n          description: example description\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

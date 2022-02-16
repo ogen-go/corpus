@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/elixir-oasis/oasis"
+			"name": "github.com/bgoonz/stared-repos"
 		},
 		"file": {
-			"name": "basic.yaml",
-			"path": "test/spec/file/basic.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Test API\n  version: 1.0.0\nservers:\n  - url: \"https://dev.fake-domain.com\"\n    description: Development server\n  - url: \"https://staging.fake-domain.com\"\n    description: Staging server\n  - url: \"https://api.fake-domain.com\"\n    description: Prod server\n\npaths:\n  /users/{id}:\n    get:\n      operationId: getUserById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n      externalDocs:\n        description: Learn more about user operations provided by this API.\n        url: http://api.example.com/docs/user-operations/\n\n  /refresh_token:\n    post:\n      requestBody:\n        $ref: '#/components/requestBodies/RefreshTokenForm'\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n      required:\n        - id\n        - name\n\n    uuid:\n      type: string\n\n    RefreshTokenForm:\n      type: object\n      properties:\n        refresh_token:\n          $ref: '#/components/schemas/uuid'\n      required:\n        - refresh_token\n\n  requestBodies:\n    RefreshTokenForm:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/RefreshTokenForm'\n      required: true\n"
+			"name": "deep-linking.openapi.yaml",
+			"path": "swagger-ui/test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
+			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
 		}
 	},
-	"Error": "parse: paths: /refresh_token: post: : responses: no responses"
+	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
 }

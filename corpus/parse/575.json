@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/negative2.yaml",
-			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API definition22222\n  community.aws.aws_api_gateway:\n    swagger_dict:\n      {\n        \"openapi\": \"3.0.0\",\n        \"info\":\n          {\n            \"title\": \"Simple API Overview\",\n            \"version\": \"1.0.0\",\n            \"contact\": { \"name\": \"contact\", \"email\": \"user@gmail.com\" },\n          },\n        \"components\":\n          {\n            \"securitySchemes\":\n              {\n                \"request_authorizer_single_stagevar\":\n                  {\n                    \"type\": \"apiKey\",\n                    \"name\": \"Unused\",\n                    \"in\": \"header\",\n                    \"x-amazon-apigateway-authtype\": \"custom\",\n                    \"x-amazon-apigateway-authorizer\":\n                      {\n                        \"type\": \"request\",\n                        \"identitySource\": \"stageVariables.stage\",\n                        \"authorizerCredentials\": \"arn:aws:iam::123456789012:role/AWSepIntegTest-CS-LambdaRole\",\n                        \"authorizerUri\": \"arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:123456789012:function:APIGateway-Request-Authorizer:vtwo/invocations\",\n                        \"authorizerResultTtlInSeconds\": 300,\n                      },\n                  },\n              },\n          },\n      }\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
+			"name": "config.yaml",
+			"path": "examples/testConfig/config.yaml",
+			"content": "ontologies:\n  - examples/testConfig/ontology.ttl\nname: test\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is a test.\n    title: Test\n    version: v1.5.0\n  externalDocs:\n    description: Test\n    url: https://w3id.org/okn/o/sd\n  servers:\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://endpoint.mint.isi.edu/modelCatalog-1.5.0\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/modelCatalog-1.5.0/data/\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nauth:\n  provider: firebase\n  \nfollow_references: true\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

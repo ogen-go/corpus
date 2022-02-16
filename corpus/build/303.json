@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/italia/api-oas-checker"
+			"name": "github.com/karlvr/openapi-generator-plus"
 		},
 		"file": {
-			"name": "numbers-test.yml",
-			"path": "rules/tests/numbers-test.yml",
-			"content": "components:\n  schemas:\n    ko_Integer_bad1:\n        type: integer\n        format: bad\n    ko_Number_bad1:\n        type: number\n        format: bad\n    ko_Number:\n        type: number\n    Number:\n        type: number\n        format: int32\n    ko_Integer:\n        type: integer\n    Integer:\n        type: integer\n        format: int32\nopenapi: 3.0.1\npaths:\n  /number-ok:\n    put:\n      requestBody:\n        content:\n          application/json-patch+json:\n            schema:\n              type: number\n              format: int32\n  /integer-ok:\n    put:\n      requestBody:\n        content:\n          application/json-patch+json:\n            schema:\n              $ref: '#/components/schemas/Integer'\n\n  /number-ko:\n     put:\n      requestBody:\n       content:\n         application/json-patch+json:\n           schema:\n             type: number\n  /integer-ko:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ko_Integer'\n  /integer-ko-bad:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                ibad1:\n                  $ref: '#/components/schemas/ko_Integer_bad1'\n                nbad1:\n                  $ref: '#/components/schemas/ko_Number_bad1'\ninfo:\n  version: 1.0.1\n  title: test\nservers: []\ntags: []\n"
+			"name": "external.yml",
+			"path": "packages/core/src/__tests__/references/external.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
 		}
 	},
-	"Error": "parse: paths: /integer-ko: put: : responses: no responses"
+	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
 }

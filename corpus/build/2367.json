@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/wikimedia/restbase"
+			"name": "github.com/sleddog/methods"
 		},
 		"file": {
-			"name": "post_data.yaml",
-			"path": "sys/post_data.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  version: '1.0.0'\n  title: RESTBase post data storage module\n  description: Revisioned post data storage with HTTP interface, backed by table storage\npaths:\n  /{bucket}:\n    put:\n      operationId: createBucket\n\n  /{bucket}/:\n    put:\n      operationId: putRevision\n\n  /{bucket}/{key}: \u0026bucket_key\n    get:\n      operationId: getRevision\n  /{bucket}/{key}/{tid}:\n    \u003c\u003c: *bucket_key\n\n  /{bucket}/hash:\n    post:\n      operationId: calculateHash\n"
+			"name": "Calc.yaml",
+			"path": "projects/AustinJohnson_MicroService/Project5/Calc.yaml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"LambdaCalc\"\n  version: \"2019-04-29T03:42:17Z\"\npaths:\n  /calc:\n    get:\n      parameters:\n      - name: \"operand2\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operator\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operand1\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Input\"\n        required: true\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n"
 		}
 	},
-	"Error": "parse: paths: /{bucket}/hash: post: calculateHash: parse path: path parameter not specified: \"bucket\""
+	"Error": "parse: paths: /calc: get: : responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Empty\": resolve reference \"#/components/schemas/Empty\": schema not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cebe/php-openapi"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/spec/data/paths/openapi.yaml",
-			"content": "# https://github.com/OAI/OpenAPI-Specification/issues/1961#issuecomment-506026142\nopenapi: 3.0.2\ninfo:\n  title: My API\n  version: 1.0.0\nx-extension-1: Extension1\nx-extension-2: Extension2\nX-EXTENSION: Invalid because of Uppercase X-\nxyz-extension: invalid extension\npaths:\n  /foo:\n    $ref: 'path-items.yaml#/~1foo'\n  /bar:\n    $ref: 'path-items.yaml#/~1bar'\ncomponents:\n  responses:\n    Bar:\n      description: A bar\n      content:\n        application/json:\n          schema: { type: object }\n"
+			"name": "positive6.yaml",
+			"path": "assets/queries/openAPI/general/path_parameter_not_required/test/positive6.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: false\n      schema:\n        type: integer\n    nameParam:\n      name: nameAPI\n      in: path\n      description: Name of the API version\n      schema:\n        type: integer\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n    parameters:\n      - $ref: \"#components/parameters/idParam\"\n"
 		}
 	},
-	"Error": "parse: /foo: referenced pathItem not supported"
+	"Error": "parse: /: parameters: parse parameter \"\": resolve \"#components/parameters/idParam\" reference: invalid parameter reference: \"#components/parameters/idParam\""
 }

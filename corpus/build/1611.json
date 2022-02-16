@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/dbsystel/Bahn-API"
 		},
 		"file": {
-			"name": "jobStepDefinition-scopeId-_count.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/jobStepDefinition/jobStepDefinition-scopeId-_count.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs Step Definitions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/jobStepDefinitions/_count:\n    post:\n      tags:\n        - Job - Step Definition\n      summary: Count the Jobs Step Definitions\n      operationId: jobStepDefinitionCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "malfunctions.v1.yaml",
+			"path": "specs/malfunctions.v1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: malfunctions\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /malfunctions:\n    get:\n      summary: get malfunctions on route\n      tags: []\n      responses:\n        '200':\n          description: OK\n          headers: {}\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: ../models/vehicle.v1.yaml\n        '':\n          description: ''\n      parameters:\n        - name: vehicle\n          in: query\n          description: ''\n          schema:\n            type: array\n            items:\n              $ref: ../models/vehicle.v1.yaml\n    parameters: []\ncomponents:\n  schemas: {}\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/jobStepDefinitions/_count: post: jobStepDefinitionCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /malfunctions: get: : parameters: parse parameter \"vehicle\": schema: parse schema: item: parse schema: reference \"../models/vehicle.v1.yaml\": resolve reference \"../models/vehicle.v1.yaml\": invalid schema reference \"../models/vehicle.v1.yaml\""
 }

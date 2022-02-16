@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/zatsepinvl/whatsclub"
 		},
 		"file": {
-			"name": "dataChannel-scopeId-_count.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/dataChannel/dataChannel-scopeId-_count.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Channel\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/channels/_count:\n    post:\n      tags:\n        - Data Channel\n      summary: Count the ChannelInfos\n      operationId: dataChannelCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "openapi.yaml",
+			"path": "whatsclub-backend-api/openapi.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: WhatsClubb OpenAPI\n  version: 1.0.0\nservers:\n  - url: 'http://localhost:3001'\n\npaths:\n  /users/me:\n    get:\n      tags:\n        - Users\n      summary: \"Get current authenticated user\"\n      responses: { }\n\n  /login/password:\n    post:\n      tags:\n        - Login\n      summary: \"Login with email and password\"\n      responses: { }\n\n  /login/mfa/phone-otp:\n    post:\n      tags:\n        - Login\n      summary: \"MFA login with OTP\"\n      responses: { }\n\n  /login/qr/sessions:\n    post:\n      tags:\n        - QR Login\n      summary: \"Create QR login session\"\n      responses: { }\n\n  /login/qr/sessions/{sessionId}:\n    put:\n      tags:\n        - QR Login\n      summary: \"Accept or reject QR login\"\n      responses: { }\n\n  /login/qr/sessions/{sessionId}/events:\n    get:\n      tags:\n        - QR Login\n      summary: \"Subscribe on session events\"\n      responses: { }"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/data/channels/_count: post: dataChannelCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /login/qr/sessions/{sessionId}/events: get: : parse path: path parameter not specified: \"sessionId\""
 }

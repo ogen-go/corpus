@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/example-object/fixtures/media-type-object/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"paths\": {\n      \"/path\": {\n        \"get\": {\n          \"responses\": {\n            \"201\": {\n              \"content\": {\n                \"application/json\": {\n                  \"examples\": {\n                    \"example1\": {\n                      \"description\": \"example 2 description\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"components\": {\n      \"examples\": {\n        \"example2\": {\n          \"description\": \"example 2 description\"\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$schema-unrecognized/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$schema\": \"https://www.google.com/\",\n              \"type\": \"object\",\n              \"properties\": {\n                \"avatar\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

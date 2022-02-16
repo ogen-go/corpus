@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/RepreZen/KaiZen-OpenApi-Parser"
 		},
 		"file": {
-			"name": "schema_ref_with_description.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/schema_ref_with_description.yaml",
-			"content": "openapi: 3.0.1\npaths:\n  /users:\n    get:\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: '\u003ccaret\u003e#/components/schemas/Example'\ncomponents:\n  schemas:\n    Example:\n      type: object\n      description: some description\n"
+			"name": "invalidParam.yaml",
+			"path": "kaizen-openapi-parser/src/test/resources/models/params/invalidParam.yaml",
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: My API Spec\npaths:\n  /{id:\n    get:\n      parameters:\n      - in: path\n        name: id\n        required: true\n      responses:\n        200:\n          description: Ok\n"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
+	"Error": "parse: paths: /{id: get: : parse path: invalid path: /{id"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "deprecated3.yaml",
-			"path": "3.0/fail/deprecated3.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: true\n      parameters:\n        - name: test\n          in: query\n          deprecated: true\n          schema:\n            type: string\n            deprecated: 'true'\n      responses:\n        '200':\n          description: OK\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/no-enum-type-mismatch-error/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  /ping:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type:\n                  - integer\n                  - array\n                enum:\n                  - 1\n                  - [ 1, 2, 3, string]\n                  - 3\n                  - string\n  /pong:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: integer\n                enum:\n                  - 1\n                  - string\n                  - 13\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Schema.paths.get.parameters.schema.deprecated of type bool"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

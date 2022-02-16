@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/opticdev/optic"
 		},
 		"file": {
-			"name": "Trials_TrialDbId_GET_PUT.yaml",
-			"path": "Specification/BrAPI-Core/Trials/Trials_TrialDbId_GET_PUT.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /trials/{trialDbId}:\n    get:\n      summary: Get the details of a specific Trial\n      description: Get the details of a specific Trial\n      parameters:\n      - description: The internal trialDbId\n        in: path\n        name: trialDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/TrialSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Trials\n    put:\n      summary: Update the details of an existing Trial\n      description: Update the details of an existing Trial\n      parameters:\n      - description: The internal trialDbId\n        in: path\n        name: trialDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/TrialNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/TrialSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Trials\ncomponents:\n  responses:\n    TrialSingleResponse:\n      content:\n        application/json:\n          schema:\n            title: TrialSingleResponse\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/Trial'\n            required:\n            - metadata\n            - result\n            type: object\n      description: OK\n      headers: {}\n"
+			"name": "next.yaml",
+			"path": "projects/api-checks/end-end-tests/simple-scenario/next.yaml",
+			"content": "openapi: 3.0.1\npaths:\n  /example:\n    get:\n      operationId: findExamples\n      responses: {}\ninfo:\n  version: 0.0.0\n  title: Empty\n"
 		}
 	},
-	"Error": "parse: paths: /trials/{trialDbId}: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+	"Error": "parse: paths: /example: get: findExamples: responses: no responses"
 }

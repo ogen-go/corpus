@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/openapi3-examples"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "2cb47027-e58c-498f-b35b-3f87b1cfbdcd.yaml",
-			"path": "3.0/fail/fuzz1/2cb47027-e58c-498f-b35b-3f87b1cfbdcd.yaml",
-			"content": "openapi: 3.0.5\ninfo:\n  title: consectetur magna quis aliqua\n  version: nostrud aute adipisicin\n  termsOfService: 75.84\npaths: {}\nx-testcase: 'nested object test: should not work with ''termsOfService'' of type ''number'''\n"
+			"name": "openapi.yaml",
+			"path": "__tests__/lint/operation-operationId-unique-error/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: getUserById\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n  '/pong':\n    get:\n      operationId: getUserById\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.termsOfService of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

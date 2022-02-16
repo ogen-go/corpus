@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/postmanlabs/openapi-to-postman"
+			"name": "github.com/softwaremill/tapir"
 		},
 		"file": {
-			"name": "issue#193.yml",
-			"path": "test/data/31CollectionTransactions/issues/issue#193.yml",
-			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0\n  title: Demo API dodo\npaths:\n  /api:\n    get:\n      summary: 'Demo invalid type'\n      responses:\n        '200':\n          description: 'Cannot use type boolean'\n          content:\n            application/json:\n                schema:\n                  type: \n                    - object\n                  properties:\n                    nominmax:\n                      type: \n                        - array\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello\n                    nomin:\n                      type: \n                        - array\n                      maxItems: 5\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello\n                    nomax:\n                      type: \n                        - array\n                      minItems: 4\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello\n                    minmax:\n                      type: \n                        - array\n                      minItems: 3\n                      maxItems: 5\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello\n                    max:\n                      type: \n                        - array\n                      minItems: 30\n                      maxItems: 40\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello\n                    min:\n                      type: \n                        - array\n                      minItems: 1\n                      items:\n                        type: \n                          - string\n                      exmaples: \n                        - hello"
+			"name": "expected_nullable_option_field.yml",
+			"path": "docs/openapi-docs/src/test/resources/expected_nullable_option_field.yml",
+			"content": "openapi: 3.0.3\ninfo:\n  title: ClassWithOptionField\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ClassWithOptionField'\n              required: true\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    ClassWithOptionField:\n      required:\n      - requiredStringField\n      type: object\n      properties:\n        optionalIntField:\n          type: integer\n          nullable: true\n        requiredStringField:\n          type: string\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal array into Go struct field Schema.items.type of type string"
+	"Error": "json: cannot unmarshal bool into Go struct field Schema.paths.get.requestBody.content.schema.required of type []string"
 }

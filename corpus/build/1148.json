@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/apache/servicecomb-toolkit"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "petstore-parameter-style-a.yaml",
-			"path": "oas-validator/oas-validator-compatibility/src/test/resources/org/apache/servicecomb/toolkit/oasv/compatibility/validators/parameter/petstore-parameter-style-a.yaml",
-			"content": "## ---------------------------------------------------------------------------\n## Licensed to the Apache Software Foundation (ASF) under one or more\n## contributor license agreements.  See the NOTICE file distributed with\n## this work for additional information regarding copyright ownership.\n## The ASF licenses this file to You under the Apache License, Version 2.0\n## (the \"License\"); you may not use this file except in compliance with\n## the License.  You may obtain a copy of the License at\n##\n##      http://www.apache.org/licenses/LICENSE-2.0\n##\n## Unless required by applicable law or agreed to in writing, software\n## distributed under the License is distributed on an \"AS IS\" BASIS,\n## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n## See the License for the specific language governing permissions and\n## limitations under the License.\n## ---------------------------------------------------------------------------\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listpets\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          style: simple\n        - name: limit2\n          in: query\n          style: form\n      responses:\n        '200':\n          description: A paged array of pets\n"
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_schema/test/positive2.yaml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyWrongObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
 		}
 	},
-	"Error": "parse: paths: /pets: get: listpets: parameters: parse parameter \"limit\": style: unexpected style: simple"
+	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: resolve \"#/components/schemas/MyWrongObject\" reference: invalid response reference: \"#/components/schemas/MyWrongObject\""
 }

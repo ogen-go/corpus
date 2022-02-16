@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/RedHatInsights/vulnerability-engine"
 		},
 		"file": {
-			"name": "fromParameter.yaml",
-			"path": "modules/openapi-generator/src/test/resources/3_0/fromParameter.yaml",
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /set_style:\n    get:\n      operationId: setStyle\n      parameters:\n        - in: query\n          name: setStyleQuery\n          style: form\n          schema:\n            type: object\n            properties:\n              setStyleQueryParam:\n                type: string\n  /set_should_explode:\n    get:\n      operationId: setShouldExplode\n      parameters:\n        - in: query\n          name: setShouldExplodeQuery\n          style: form\n          explode: true\n          schema:\n            type: object\n            properties:\n              setShouldExplodeQueryParam:\n                type: string\n"
+			"name": "connexion_deep_object_filters.yaml",
+			"path": "examples/connexion_deep_object_filters.yaml",
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Deep object filtering\n  version: '1.0'\n\npaths:\n  /data:\n    get:\n      summary: Get data.\n      description: Return data (with applied filters)\n      operationId: connexion_deep_object_filters.getData\n      responses:\n        200:\n          description: Data\n          content:\n            application/vnd.api+json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    id:\n                      type: integer\n                      example: 1\n                    details:\n                      type: object\n                      properties:\n                        sap:\n                          type: boolean\n                          example: true\n                        text:\n                          type: string\n                          example: xxee\n                      required:\n                        - sap\n                        - text\n                  required:\n                    - details\n                    - id\n      parameters:\n        - in: query\n          name: filter\n          description: Filter by deep object\n          schema:\n            type: object\n            properties:\n              id:\n                type: integer\n                example: 1\n              details:\n                type: object\n                properties:\n                  sap:\n                    type: boolean\n                    example: true\n                  text:\n                    type: string\n                    example: xxee\n          style: deepObject\n          explode: true\n"
 		}
 	},
-	"Error": "parse: paths: /set_should_explode: get: setShouldExplode: responses: no responses"
+	"Error": "make ir: path \"/data\": get: parameters: field \"details\": nested objects not allowed"
 }

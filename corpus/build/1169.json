@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/thephpleague/openapi-psr7-validator"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "serialized-params.yaml",
-			"path": "tests/stubs/serialized-params.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Products API\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/api/v1'\npaths:\n  /products:\n    get:\n      parameters:\n        - in: query\n          name: filter\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  color:\n                    type: string"
+			"name": "positive1.yaml",
+			"path": "assets/queries/openAPI/general/path_ambiguous/test/positive1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/users/{id}\":\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n      responses:\n        \"200\":\n          description: 200 response\n  \"/users/{ids}\":\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          description: The user ID\n          schema:\n            type: integer\n            minimum: 1\n      responses:\n        \"200\":\n          description: 200 response\n"
 		}
 	},
-	"Error": "parse: paths: /products: get: : responses: no responses"
+	"Error": "parse: paths: /users/{ids}: get: : parse path: path parameter not specified: \"ids\""
 }

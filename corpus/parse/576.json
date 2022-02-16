@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-starter"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "openapi/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: Example.com\n  termsOfService: 'https://example.com/terms/'\n  contact:\n    email: contact@example.com\n    url: 'http://example.com/contact'\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n  x-logo:\n    url: 'https://redocly.github.io/openapi-template/logo.png'\n  description:\n    $ref: ./info-description.md\ntags:\n  - name: Echo\n    description: Example echo operations.\n  - name: User\n    description: Operations about users.\n  - name: Tag\n    description: This is a tag description.\nservers:\n  - url: 'http://example.com/api/v1'\n  - url: 'https://example.com/api/v1'\npaths:\n  '/users/{username}':\n    $ref: 'paths/users@{username}.yaml'\n  /echo:\n    $ref: paths/echo.yaml\n  /pathItem:\n    $ref: paths/path-item.yaml\n  /pathItemWithExamples:\n    $ref: paths/path-item-with-examples.yaml\ncomponents:\n  securitySchemes:\n    main_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: 'http://example.com/api/oauth/dialog'\n          scopes:\n            'read:users': read users info\n            'write:users': modify or remove users\n    api_key:\n      type: apiKey\n      in: header\n      name: api_key\n    basic_auth:\n      type: http\n      scheme: basic\n"
+			"name": "config.yaml",
+			"path": "src/test/resources/only_classes/config.yaml",
+			"content": "ontologies:\n  - src/test/resources/only_classes/o.ttl\nname: only-classes\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API for the restrictions example ontology\n    version: v1.5.0\n    title: Only 2 classes example ontology\n  externalDocs:\n    description: Only 2 classes\n    url: https://w3id.org/example\n  servers:\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://localhost:8080/example-1.5.0\n  prefix: https://w3id.org/example\n  graph_base: http://localhost:8080/example-1.5.0/data/\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nauth:\n  provider: firebase\nfollow_references: true\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Info.info.description of type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

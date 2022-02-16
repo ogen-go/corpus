@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "config-two-path-parameters.yaml",
-			"path": "test/resources/config-two-path-parameters.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /season/{team}/{year}:\n    get:\n      parameters:\n        - in: path\n          name: team\n          required: true\n          schema:\n            type: string\n          description: The target team\n        - in: path\n          name: year\n          required: true\n          schema:\n            type: string\n          description: The target year\n      x-walder-query:\n        graphql-query: \u003e\n          {\n            id @single\n            type(_:Season)\n            team(_: $team)\n            year(_: $year)\n            abstract @single\n          }\n        json-ld-context: \u003e\n          {\n            \"Season\": \"http://dbpedia.org/ontology/NCAATeamSeason\",\n            \"type\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#type\",\n            \"team\": {\"@id\": \"http://dbpedia.org/property/team\", \"@language\": \"en\"},\n            \"year\": {\"@id\": \"http://dbpedia.org/ontology/year\", \"@type\": \"http://www.w3.org/2001/XMLSchema#gYear\"},\n            \"abstract\": \"http://dbpedia.org/ontology/abstract\"\n          }\n\n  /season-2/{year}:\n    get:\n      parameters:\n        - in: path\n          name: year\n          required: true\n          schema:\n            type: integer\n            minimum: 1869\n            maximum: 1870\n          description: The target year\n      x-walder-query:\n        graphql-query: \u003e\n          {\n            id @single\n            type(_:Season)\n            year(_: $year)\n            abstract @single\n          }\n        json-ld-context: \u003e\n          {\n            \"Season\": \"http://dbpedia.org/ontology/NCAATeamSeason\",\n            \"type\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#type\",\n            \"team\": {\"@id\": \"http://dbpedia.org/property/team\", \"@language\": \"en\"},\n            \"year\": {\"@id\": \"http://dbpedia.org/ontology/year\", \"@type\": \"http://www.w3.org/2001/XMLSchema#gYear\"},\n            \"abstract\": \"http://dbpedia.org/ontology/abstract\"\n          }\n\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "issue749-main.yaml",
+			"path": "modules/swagger-parser/src/test/resources/issue749-main.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: ping test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /some/ping:\n    get:\n      operationId: pingGet\n      parameters:\n        - name: i\n          in: query\n          description: Test\n          required: true\n          schema:\n            $ref: './issue749-reference.yaml#/SomeId'\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas: {}"
 		}
 	},
-	"Error": "parse: paths: /season-2/{year}: get: : responses: no responses"
+	"Error": "parse: paths: /some/ping: get: pingGet: parameters: parse parameter \"i\": schema: parse schema: reference \"./issue749-reference.yaml#/SomeId\": resolve reference \"./issue749-reference.yaml#/SomeId\": invalid schema reference \"./issue749-reference.yaml#/SomeId\""
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "input.yaml",
-			"path": "test/resolver/issue196/input.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Resolve Test\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      parameters:\n        - $ref: \"./Parameters.yaml#/parameter_colour\"\n        - $ref: \"./Parameters.yaml#/parameter_size\"\n      responses:\n        '200':\n          description: OK\ncomponents:\n  parameters:\n    $ref: './Parameters.yaml'\n  schemas:\n    Cat:\n      $ref: './SchemaAnimal.yaml'\n    Dog:\n      $ref: './SchemaAnimal.yaml'\n"
+			"name": "component_schema.yaml",
+			"path": "src/test/resources/testing/completion/field/openapi/component_schema.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    User:\n      \u003ccaret\u003e\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.schemas of type ogen.Schema"
 }

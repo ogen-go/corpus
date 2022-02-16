@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/SoliDry/api-generator"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/operation-tag-defined-rule/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  /pet/findByStatus:\n    get:\n      operationId: getPetByStatus\n      summary: Example summary\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /pet:\n    post:\n      operationId: createPet\n      summary: Adds a new pet to the store\n      tags:\n        - pets\n      responses:\n        '200':\n          description: example description\n  /store/inventory:\n    get:\n      operationId: getPetInventories\n      summary: Returns pet inventories\n      tags:\n        - store\n      esponses:\n        '200':\n          description: example description\ntags:\n  - name: pets\n    description: Everything about your Pets\n    externalDocs:\n      url: http://docs.my-api.com/pet-operations.htm\n  - name: store\n    description: Access to Petstore orders\n    externalDocs:\n      url: http://docs.my-api.com/store-orders.htm\n"
+			"name": "topic.yaml",
+			"path": "tests/functional/oas/topic.yaml",
+			"content": "openapi: 3.0.1\ninfo: This api provides access to articles\nservers:\n- url: https://{environment}.example.com:{port}/{basePath}\n  description: Production server\n  variables:\n    environment:\n      default: api\n      description: An api for devices at Google dot com\n    port:\n      enum:\n        - 80\n        - 443\n      defualt: 80\n    basePath:\n      default: v3\ncomponents:\n  schemas:\n    ID:\n      type: integer\n      required: true\n    Type:\n      type: string\n      required: true\n      minLength: 1\n      maxLength: 255\n    DataObject:\n      type: object\n      required: true\n    DataArray:\n      type: array\n      required: true\n    RelationshipsDataItem:\n      type: object\n      properties:\n        id: ID\n        type: Type\n    ArticleRelationships:\n      type: object\n      properties:\n        data:\n          type: DataArray\n          items:\n            type: RelationshipsDataItem\n    TopicAttributes:\n      type: object\n      properties:\n        title:\n          required: true\n          type: string\n          minLength: 16\n          maxLength: 256\n    Topic:\n      type: object\n      properties:\n        type: Type\n        id: ID\n        attributes: TopicAttributes\n        relationships:\n          type: ArticleRelationships[]"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }

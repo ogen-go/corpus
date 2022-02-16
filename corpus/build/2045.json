@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/NENA911/i3"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "i3-bad-actor.yaml",
-			"path": "schema/i3-bad-actor.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Bad Actor Service\n  version: \"1.0\"\nservers:\n  - url: http://localhost/BadActor/v1\npaths:\n  /BadActors:\n    post:\n      tags:\n        - BadActorRequest\n      summary: Identifies a source as a \"Bad Actor\"\n      operationId: BadActorRequest\n      requestBody:\n        description: Bad actor source Id\n        content:\n          application/json:\n            schema:\n              type: string\n        required: true\n      responses:\n        '201':\n          description: Bad Actor successfully added \n        '401': \n          description: Unauthorized\n        '432': \n          description: Already reported\n        '433': \n          description: No such sourceId\n        '454':\n          description: Unspecified Error\n  /Versions:\n    servers:\n      - url: https://api.example.com/BadActor\n        description: Override base path for Versions query\n    get:\n      tags:\n        - RetrieveVersions\n      summary: Retrieves all supported versions, vendor parameter is optional.\n      operationId: RetrieveVersions\n      responses:\n        '200':\n          description: Versions found\n          content:\n            application/json:\n              schema:\n                $ref: 'i3-common.yaml#/components/schemas/VersionsArray'"
+			"name": "DataSets_DataSetId_GET.yaml",
+			"path": "Specification/GA4GH_BrAPI/DataSets/DataSets_DataSetId_GET.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/metadata_service.proto\n  version: version not set\npaths:\n  /datasets/{dataset_id}:\n    get:\n      summary: Gets a `Dataset` by ID.\n      description: |-\n        `GET /datasets/{dataset_id}` will return a JSON version of\n        `Dataset`.\n      operationId: GetDataset\n      responses:\n        '200':\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Dataset'\n      parameters:\n        - name: dataset_id\n          description: The ID of the `Dataset` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n      tags:\n        - GA4GH"
 		}
 	},
-	"Error": "parse: paths: /Versions: get: RetrieveVersions: responses: 200: content: application/json: schema: parse schema: reference \"i3-common.yaml#/components/schemas/VersionsArray\": resolve reference \"i3-common.yaml#/components/schemas/VersionsArray\": invalid schema reference \"i3-common.yaml#/components/schemas/VersionsArray\""
+	"Error": "parse: paths: /datasets/{dataset_id}: get: GetDataset: responses: 200: content: application/json: schema: parse schema: reference \"#/components/schemas/Dataset\": resolve reference \"#/components/schemas/Dataset\": schema not found"
 }

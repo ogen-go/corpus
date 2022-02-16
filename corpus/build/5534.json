@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "params.matrix-params-on-method-and-field-args.json",
-			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.matrix-params-on-method-and-field-args.json",
-			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/matrix-params-on-method-and-field-args/{id}{idMatrix}/seg1/seg2/resourceA{resourceA}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\",\n            \"maxLength\": 10\n          }\n        },\n        {\n          \"name\": \"idMatrix\",\n          \"in\": \"path\",\n          \"style\": \"matrix\",\n          \"explode\": true,\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"c1\": {\n                \"type\": \"string\"\n              },\n              \"c2\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"resourceA\",\n            \"in\": \"path\",\n            \"style\": \"matrix\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"m1\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int32\",\n                  \"default\": \"default-m1\"\n                },\n                \"m2\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int32\",\n                  \"maximum\": 200,\n                  \"default\": 100\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Widget\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "headers-ref.json",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/open-api-document/components/headers/headers-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"headers\": {\n      \"test\": {\n        \"description\": \"a header\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"requestBody\": {\n          \"content\":  {\n            \"name\": {\n              \"encoding\": {\n                \"name\": {\n                  \"headers\": {\n                    \"name\": {\n                      \"$ref\": \"*\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /matrix-params-on-method-and-field-args/{id}{idMatrix}/seg1/seg2/resourceA{resourceA}: get: : parameters: parse parameter \"resourceA\": schema: parse schema: m1: parse default: expected type \"integer\", got \"string\""
+	"Error": "parse: paths: /p: get: : responses: no responses"
 }

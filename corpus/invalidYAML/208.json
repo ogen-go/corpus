@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cluas/tornado-rest-swagger"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "tornado_swagger/templates/swagger.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  {% if description %}\n  description: |\n    {{ description }}\n  {% endif %}\n  version: \"{{ version }}\"\n  {% if team %}\n  termsOfService: {{ team }}\n  {% endif %}\n  {% if license %}\n  license:\n    name: {{ license.name }}\n    url: {{ license.url }}\n  {% endif %}\n  title: {{ title }}\n  {% if contact %}\n  contact:\n    name: {{ contact.name }}\n    email: {{ contact.email }}\n    url: {{contact.url}}\n  {% endif %}\n  {% if external_docs %}\n  externalDocs:\n    description: {{external_docs.description}}\n    url: {{external_docs.url}}\n  {% endif %}\ncomponents:\n  securitySchemes:\n  schemas:\npaths:\nsecurity:\nservers:\n"
+			"name": "parameters.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/responses/links/parameters/parameters.yaml",
+			"content": "openapi: 3.0.0\n\npaths:\n  /users:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                userId:\n                  type: string\n      responses:\n        '201':\n          links:\n            GetUserByUserId:\n              parameters:\n                userId: *"
 		}
 	},
-	"Error": "yaml: line 3: found character that cannot start any token"
+	"Error": "yaml: line 19: did not find expected alphabetic or numeric character"
 }

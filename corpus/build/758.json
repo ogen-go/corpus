@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/spec-first/connexion"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "tests/fixtures/module_does_not_exist/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Not Exist API\n  version: '1.0'\npaths:\n  /module-not-implemented/{some_path}:\n    get:\n      summary: Operation function does not exist.\n      operationId: m.module_does_not_exist\n      parameters:\n      - in: path\n        name: some_path\n        schema:\n          type: string\n      responses:\n        '200':\n          description: OK\nservers:\n  - url: /na\n"
+			"name": "parameter_without_in_ref.yaml",
+			"path": "src/test/resources/testing/documentation/openapi/yaml/parameter_without_in_ref.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: '\u003ccaret\u003e#/components/parameters/Parameter'\ncomponents:\n  parameters:\n    Parameter:\n      name: parameter_name\n      description: Description\n"
 		}
 	},
-	"Error": "parse: paths: /module-not-implemented/{some_path}: get: m.module_does_not_exist: parameters: parse parameter \"some_path\": path parameters must be required"
+	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e#/components/parameters/Parameter\" reference: invalid parameter reference: \"\u003ccaret\u003e#/components/parameters/Parameter\""
 }

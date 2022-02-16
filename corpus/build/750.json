@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "output.yaml",
-			"path": "test/resolver/issue152/output.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          description: Success post\n          content:\n            application/json:\n              schema:\n                title: XYZ\n                description: this is xyz\n                type: object\n                properties:\n                  id:\n                    description: the local identifier (not necessarily globally unique)\n                    type: string\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: '#/paths/~1foo/post/responses/201'\n"
+			"name": "json_reference.yaml",
+			"path": "src/test/resources/testing/completion/field/openapi/partial/json_reference.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  \"/pets\":\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                \"$ref\": pet.json\n"
 		}
 	},
-	"Error": "parse: paths: /bar: post: postBar: responses: 201: resolve \"#/paths/~1foo/post/responses/201\" reference: invalid response reference: \"#/paths/~1foo/post/responses/201\""
+	"Error": "parse: paths: /pets: get: : responses: 200: content: application/json: schema: parse schema: reference \"pet.json\": resolve reference \"pet.json\": invalid schema reference \"pet.json\""
 }

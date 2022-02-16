@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Mermade/oas-kit"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "test/validator/escapedRef/openapi.yaml",
-			"content": "openapi: 3.0.3\ninfo:\n  title: API\n  version: 1.0.0\n  contact:\n    name: example.com\n    email: foo@bar.com\n    url: https://foobar.com\ntags:\n  - name: tag\n    description: A tag\npaths:\n  x-foo/bar:\n    get:\n      responses:\n        '200':\n          description: OK\n  /test:\n    $ref: '#/paths/x-foo~1bar'\n"
+			"name": "media_type_encoding.yaml",
+			"path": "src/test/resources/testing/completion/field/openapi/media_type_encoding.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      requestBody:\n        content:\n          application/json:\n            encoding:\n              foo:\n                \u003ccaret\u003e\n"
 		}
 	},
-	"Error": "parse: /test: referenced pathItem not supported"
+	"Error": "parse: paths: /pathA: get: : responses: no responses"
 }

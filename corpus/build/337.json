@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/sokusekiya/sokuseki"
+			"name": "github.com/baloise-incubator/spectral-ruleset"
 		},
 		"file": {
-			"name": "openapi.yml",
-			"path": "api_schema/openapi.yml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Sokuseki API\n  version: 0.0.1\nservers:\n  - url: http://localhost:3000\n    description: development\npaths:\n  /people:\n    $ref: \"./paths/people.yml\"\ncomponents:\n  schemas:\n    PeopleProperties:\n      $ref: \"./components/schemas/peopleProperties.yml\"\n"
+			"name": "example-openapi.yml",
+			"path": "example/example-openapi.yml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  x-audience: who-cares\n  version: 1.0.0\n  title: API Title\n  license:\n    name: GNU\npaths:\n  /pet:\n    patch:\n      description: update a pet\n      operationId: update-pet\n      tags: [foo]\n      responses:\n        '200':\n          description: ok\n          content: {}\n        '500':\n          description: server error\n          content:\n            application/problem+json:\n              schema:\n                $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'"
 		}
 	},
-	"Error": "parse: /people: referenced pathItem not supported"
+	"Error": "parse: paths: /pet: patch: update-pet: responses: 500: content: application/problem+json: schema: parse schema: reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": resolve reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\": invalid schema reference \"https://opensource.zalando.com/problem/schema.yaml#/Problem\""
 }

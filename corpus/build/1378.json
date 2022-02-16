@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/surfstudio/SurfGen"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "api.yaml",
-			"path": "Tests/Common/NodeExcluding/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Кравченков Александр\n    email: kravchenkov@surfstudio.ru\n\npaths:\n\n  /api/v1.1/auth:\n    post:\n      summary: Метод для отправки логина и пароля на сервер. Первый фактор авторизации.\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: \"models.yaml#/components/schemas/AuthRequest\"\n                - $ref: \"models.yaml#/components/schemas/SilentAuthRequest\"\n      responses:\n        \"200\":\n          description: \"Успех\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/AuthResponse\"\n\n  /api/v1.1/superAuth:\n    get:\n      responses:\n        '200':\n          description: todo\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/AuthResponse\"\n    delete:\n      responses:\n        '204':\n          description: todo\n    put:\n      responses:\n        '201':\n          description: todo\n        \n"
+			"name": "dataClient-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/dataClient/dataClient-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Client\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/clients/_count:\n    post:\n      tags:\n        - Data Client\n      summary: Count the ClientInfos\n      operationId: dataClientCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /api/v1.1/auth: post: : requestBody: content: application/json: parse schema: parse schema: oneOf: [0]: parse schema: reference \"models.yaml#/components/schemas/AuthRequest\": resolve reference \"models.yaml#/components/schemas/AuthRequest\": invalid schema reference \"models.yaml#/components/schemas/AuthRequest\""
+	"Error": "parse: paths: /{scopeId}/data/clients/_count: post: dataClientCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

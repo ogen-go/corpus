@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cdimascio/express-openapi-validator"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "serialized.objects.defaults.yaml",
-			"path": "test/resources/serialized.objects.defaults.yaml",
-			"content": "components:\n  schemas:\n    PageSort:\n      allOf:\n        - $ref: \"#/components/schemas/Paging\"\n        - $ref: \"#/components/schemas/Sorting\"\n    Paging:\n      properties:\n        page:\n          default: 1\n          minimum: 1\n          type: integer\n        perPage:\n          default: 25\n          type: integer\n      type: object\n      default: {}\n    Sorting:\n      properties:\n        field:\n          default: id\n          enum:\n            - id\n            - name\n          type: string\n        order:\n          default: ASC\n          enum:\n            - ASC\n            - DESC\n          type: string\n      type: object\n      default: {}\ninfo:\n  description: API\n  title: API\n  version: 1.0.0\nopenapi: 3.0.0\nservers:\n  - url: /v1/\npaths:\n  /deep_object:\n    get:\n      operationId: getDeepObject\n      parameters:\n        - explode: true\n          in: query\n          name: pagesort\n          schema:\n            $ref: \"#/components/schemas/PageSort\"\n          style: deepObject\n      responses:\n        \"200\":\n          description: description\n          content:\n            application/json:\n              schema:\n                items:\n                  type: number\n                type: array\n"
+			"name": "response_ref.yaml",
+			"path": "src/test/resources/testing/completion/value/openapi/response_ref.yaml",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '404':\n          $ref: \"\u003ccaret\u003e\"\ncomponents:\n  responses:\n    NotFound:\n"
 		}
 	},
-	"Error": "parse: paths: /deep_object: get: getDeepObject: parameters: parse parameter \"pagesort\": schema: parse schema: reference \"#/components/schemas/PageSort\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/Paging\": parse default: unexpected type: \"object\""
+	"Error": "parse: paths: /pets: get: : responses: 404: resolve \"\u003ccaret\u003e\" reference: invalid response reference: \"\u003ccaret\u003e\""
 }

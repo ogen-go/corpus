@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/NHS-digital-website/hippo"
 		},
 		"file": {
-			"name": "replace-path-item.after.json",
-			"path": "src/test/resources/fixtures/cmd/commands/replace-path-item/openapi-3/replace-path-item.after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"The Foo Resource\",\n      \"description\": \"Operations for Foos.\",\n      \"put\": {\n        \"tags\": [ \"tag1\", \"tag3\" ],\n        \"summary\": \"Update Pet\",\n        \"description\": \"Updates a pet.\",\n        \"operationId\": \"updatePet\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
+			"name": "schemaObject-requiredField.json",
+			"path": "site/components/src/test/resources/test-data/api-specifications/SchemaHelperTest/schemaObject-requiredField.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"content\": {\n                        \"application/json\": {\n\n                            \"schema\": {\n                                \"type\": \"object\",\n                                \"title\": \"parent-object\",\n\n                                \"required\": [\n                                    \"first-object\",\n                                    \"third-object\"\n                                ],\n\n                                \"properties\": {\n                                    \"first-object\": {\n                                        \"title\": \"first object - required\"\n                                    },\n                                    \"second-object\": {\n                                        \"title\": \"second object - NOT required\"\n                                    },\n                                    \"third-object\": {\n                                        \"title\": \"third object - required\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /foo: put: updatePet: responses: no responses"
+	"Error": "parse: paths: /test: post: : responses: no responses"
 }

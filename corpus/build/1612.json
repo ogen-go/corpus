@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/dbsystel/Bahn-API"
 		},
 		"file": {
-			"name": "deviceConnection-scopeId-_count.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/deviceConnection/deviceConnection-scopeId-_count.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Connection\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/deviceconnections/_count:\n    post:\n      tags:\n        - Device Connection\n      summary: Count the Connections\n      operationId: connectionCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "passenger-info.v1.yaml",
+			"path": "specs/passenger-info.v1.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: passenger-info\n  version: '1.0'\n  description: This API gives information about load on trains and possible disturbances around operation.\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /routes:\n    get:\n      summary: calculateRoutes\n      tags:\n       - 'routes'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties: {}\n      description: Calculate routes based on start and end point\n      parameters:\n        - name: locations\n          in: query\n          description: ''\n          schema:\n            type: array\n            items:\n              $ref: models/location.v1.yaml\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/deviceconnections/_count: post: connectionCount: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /routes: get: : parameters: parse parameter \"locations\": schema: parse schema: item: parse schema: reference \"models/location.v1.yaml\": resolve reference \"models/location.v1.yaml\": invalid schema reference \"models/location.v1.yaml\""
 }

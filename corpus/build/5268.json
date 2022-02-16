@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/open-api"
+			"name": "github.com/marcelthole/openapi-merge"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "Tests/fixtures/uppercase-parameter/swagger.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-uppercase-path-parameters/{TestParameter}\": {\n            \"get\": {\n                \"operationId\": \"testGetWithUppercasePathParameters\",\n                \"consumes\": [\n                    \"application/json\"\n                ],\n                \"tags\": [\n                    \"Test\"\n                ],\n                \"parameters\": [\n                    {\n                        \"name\": \"TestParameter\",\n                        \"in\": \"path\",\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"x-nullable\": false\n                    }\n                ]\n            }\n        }\n    }\n}\n"
+			"name": "openapi-normalized.json",
+			"path": "tests/Merge/Fixtures/expected/openapi-normalized.json",
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {},\n    \"paths\": {\n        \"\\/dummy\": {},\n        \"\\/reference\": {\n            \"get\": {\n                \"responses\": {\n                    \"100\": {\n                        \"$ref\": \"#\\/components\\/responses\\/reference-100\"\n                    },\n                    \"200\": {\n                        \"description\": \"OK\",\n                        \"content\": {\n                            \"text\\/html\": {\n                                \"schema\": {}\n                            },\n                            \"text\\/csv\": {\n                                \"schema\": {},\n                                \"examples\": {\n                                    \"csv-1\": {\n                                        \"value\": \"foo,bar\"\n                                    }\n                                }\n                            },\n                            \"application\\/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#\\/components\\/schemas\\/referenceModel\"\n                                },\n                                \"examples\": {\n                                    \"example-1\": {\n                                        \"$ref\": \"#\\/components\\/examples\\/referenceModelExample\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
 		}
 	},
-	"Error": "parse: paths: /test-uppercase-path-parameters/{TestParameter}: get: testGetWithUppercasePathParameters: responses: no responses"
+	"Error": "parse: paths: /reference: get: : responses: 100: resolve \"#/components/responses/reference-100\" reference: component by reference \"#/components/responses/reference-100\" not found"
 }

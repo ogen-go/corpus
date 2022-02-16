@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/golodnyj/practicum_serverless_url_shortener"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "for-serverless-shortener.yml",
-			"path": "steps/3-use-api-gateway/for-serverless-shortener.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: for-serverless-shortener\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket:             \u003cbucket_name\u003e        # \u003c-- название бакета\n        object:             \u003chtml_file\u003e          # \u003c-- название html-файла\n        presigned_redirect: false\n        service_account:    \u003cservice_account_id\u003e # \u003c-- ID сервисного аккаунта\n      operationId: static\n"
+			"name": "https-test.yml",
+			"path": "rules/tests/https-test.yml",
+			"content": "openapi: \"3.0.1\"\nservers:\n  - url: https://ko.nodescription\n  - url: https://ok.example\n    description: production\n  - url: http://ok.sandbox.examle\n    x-sandbox: true\n    description: ok\n  - url: http://ko.example\n    description: should be https\n  - url: http://ko.sandbox.examle\n    x-sandbox: false\n    description: should be https\npaths:\n  /foo-ko:\n    get:\n      servers:\n        - url: https://ko.nodesc.example\n        - url: https://ok.example\n          description: production\n        - url: http://ko.example\n          description: production\n        - url: http://ok.sandbox.examle\n          x-sandbox: true\n          description: ok\n"
 		}
 	},
-	"Error": "parse: paths: /: get: static: responses: no responses"
+	"Error": "parse: paths: /foo-ko: get: : responses: no responses"
 }

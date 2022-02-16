@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "rename_component_parameter.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_parameter.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"\u003ccaret\u003eParameter\": {}\n    }\n  }\n}\n"
+			"name": "my-openapi.json",
+			"path": "openapi3/testdata/my-openapi.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"My API\",\n    \"version\": \"0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"my-other-openapi.json#/components/responses/DefaultResponse\"\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/Parameter\" reference: component by reference \"#/components/parameters/Parameter\" not found"
+	"Error": "parse: paths: /foo: get: : responses: 200: resolve \"my-other-openapi.json#/components/responses/DefaultResponse\" reference: invalid response reference: \"my-other-openapi.json#/components/responses/DefaultResponse\""
 }

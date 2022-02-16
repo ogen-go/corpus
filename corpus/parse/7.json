@@ -5,10 +5,10 @@
 			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "issue#173.yml",
-			"path": "test/data/31CollectionTransactions/issues/issue#173.yml",
-			"content": "openapi: \"3.1.0\"\n\ninfo:\n  version: \"1.0.0\"\n  title: \"Sample API\"\n\npaths:\n  /path1:\n    post:\n      parameters:\n        - in: header\n          name: access_token\n          description: Access token\n          schema:\n            type: \n              - string\n            examples: \n              - X-access-token\n\n      responses:\n        200:\n          description: 200 Success\n        400:\n          description: 400 Bad Request\n        401:\n          description: 401 Unauthorized\n        403:\n         description: 403 Forbidden\n        404:\n          description: 404 Not Found\n        500:\n          description: 500 Internal Server Error\n"
+			"name": "issue#193.yml",
+			"path": "test/data/valid_openapi/issue#193.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0\n  title: Demo API dodo\npaths:\n  /api:\n    get:\n      summary: 'Demo invalid type'\n      responses:\n        '200':\n          description: 'Cannot use type boolean'\n          content:\n            application/json:\n                schema:\n                  type: object\n                  properties:\n                    nominmax:\n                      type: array\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomin:\n                      type: array\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    nomax:\n                      type: array\n                      minItems: 4\n                      items:\n                        type: string\n                      exmaple: hello\n                    minmax:\n                      type: array\n                      minItems: 3\n                      maxItems: 5\n                      items:\n                        type: string\n                      exmaple: hello\n                    max:\n                      type: array\n                      minItems: 30\n                      maxItems: 40\n                      items:\n                        type: string\n                      exmaple: hello\n                    min:\n                      type: array\n                      minItems: 1\n                      items:\n                        type: string\n                      exmaple: hello"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go struct field Schema.paths.post.parameters.schema.type of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

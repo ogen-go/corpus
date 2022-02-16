@@ -5,10 +5,10 @@
 			"name": "github.com/influxdata/openapi"
 		},
 		"file": {
-			"name": "svc-nifid.yml",
-			"path": "src/svc-nifid.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: nifid\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /broker/sub:\n    $ref: './svc/nifid/paths/broker_sub.yml'\n  /broker/sub/{id}:\n    $ref: './svc/nifid/paths/broker_sub_id.yml'\n  /broker/sub/{id}/status:\n    $ref: './svc/nifid/paths/broker_sub_id_status.yml'\ncomponents:\n  requestBodies:\n    SubscriptionParams:\n      $ref: './svc/nifid/requestBodies/SubscriptionParams.yml'\n    SubscriptionStatus:\n      $ref: \"./svc/nifid/requestBodies/SubscriptionStatus.yml\"\n  schemas:\n    JsonSpec:\n      $ref: './svc/nifid/schemas/JsonSpec.yml'\n    StringObjectParams:\n      $ref: './svc/nifid/schemas/StringObject.yml'\n    SubscriptionParams:\n      $ref: './svc/nifid/schemas/SubscriptionParams.yml'\n    Subscription:\n      $ref: './svc/nifid/schemas/Subscription.yml'\n    SubscriptionArray:\n      $ref: './svc/nifid/schemas/SubscriptionArray.yml'\n    Subscriptions:\n      $ref: './svc/nifid/schemas/Subscriptions.yml'\n    SubscriptionStatus:\n      $ref: './svc/nifid/schemas/SubscriptionStatus.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
+			"name": "svc-pinneditemsd.yml",
+			"path": "src/svc-pinneditemsd.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: pinneditemsd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /pinned:\n    $ref: './svc/pinneditemsd/paths/pinned.yml'\n  /pinned/{id}:\n    $ref: './svc/pinneditemsd/paths/pinned_id.yml'\ncomponents:\n  requestBodies:\n    PinnedItemParams:\n      $ref: './svc/pinneditemsd/requestBodies/PinnedItemParams.yml'\n  schemas:\n    PinnedItem:\n      $ref: './svc/pinneditemsd/schemas/pinnedItem.yml'\n    PinnedItemArray:\n      $ref: './svc/pinneditemsd/schemas/pinnedItemArray.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
 		}
 	},
-	"Error": "parse: /broker/sub: referenced pathItem not supported"
+	"Error": "parse: /pinned: referenced pathItem not supported"
 }

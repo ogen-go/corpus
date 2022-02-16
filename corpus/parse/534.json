@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/typeable/compaREST"
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
 		},
 		"file": {
-			"name": "a.yaml",
-			"path": "test/golden/common/tuple-items/homogeneous-vector/a.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\ncomponents:\n  schemas:\n    Test:\n      type: array\n      items:\n        - type: number\n        - type: number\n"
+			"name": "add.yaml",
+			"path": "tests/add-json/add.yaml",
+			"content": "\nopenapi: 3.0.0\ninfo:\n  title: add\n  description: \"adding float and float.\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"adding float and float.\"\npaths:\n  /add:\n     get:\n      summary: \"adding float and float.\"\n      description: Optional extended description in CommonMark or HTML.\n      operationId: add.add\n      parameters:\n        - in: query\n          name: x\n          description: \"x value\"\n          schema:\n            type: number\n        - in: query\n          name: y\n          description: \"y value\"\n          schema:\n            type: number\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"
+	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
 }

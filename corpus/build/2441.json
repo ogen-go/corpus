@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/KNowledgeOnWebScale/walder"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "config-with-invalid-refs.yaml",
-			"path": "test/resources/multiple-config-files/config-with-invalid-refs.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './invalid/paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './invalid/paths/more-movies-actor.yaml'\n\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
+			"name": "issue1147.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1147/issue1147.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Swagger Parser Issue\npaths:\n  /:\n    post:\n      requestBody:\n        $ref: '#/components/requestBodies/RefRequestBody'\n      responses:\n        default:\n          description: \"Error\"\ncomponents:\n  requestBodies:\n    RefRequestBody:\n      content:\n        'application/json':\n          schema:\n            $ref: 'common.yaml#/components/schemas/StringObject'"
 		}
 	},
-	"Error": "parse: /more_movies/{actor}: referenced pathItem not supported"
+	"Error": "parse: paths: /: post: : requestBody: resolve \"#/components/requestBodies/RefRequestBody\" reference: content: application/json: parse schema: parse schema: reference \"common.yaml#/components/schemas/StringObject\": resolve reference \"common.yaml#/components/schemas/StringObject\": invalid schema reference \"common.yaml#/components/schemas/StringObject\""
 }

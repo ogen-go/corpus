@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/PureStorage-OpenConnect/swagger"
+			"name": "github.com/oleksandrvorob/openapi-typescript"
 		},
 		"file": {
-			"name": "Pure1-1.0.spec.yaml",
-			"path": "html/specs/Pure1-1.0.spec.yaml",
-			"content": "components:\n  schemas: {}\ninfo:\n  description: '## Pure Swagger UI for Pure1\n\n    Please visit [Pure1 Swagger](https://static.pure1.purestorage.com/api-swagger/index.html)\n    for the official available swagger.\n\n    For help try the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\n\n    ## Getting Started Blog\n\n    [https://blog.purestorage.com/introducing-the-pure1-rest-api/](https://blog.purestorage.com/introducing-the-pure1-rest-api/)\n\n    A walkthrough on getting started with the Pure1 API written'\n  title: Pure1 API\n  version: 1.0\nopenapi: 3.0.1\nservers:\n- description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls\n    are proxied to array.\n  url: /api\ntags: null\n"
+			"name": "null-in-enum.yaml",
+			"path": "tests/v3/specs/null-in-enum.yaml",
+			"content": "openapi: 3.0\npaths:\n  /test:\n    get:\n      tags:\n        - test\n      summary: \"Just a test path\"\n      responses:\n        200:\n          description: A list of types.\ncomponents:\n  schemas:\n    MyType:\n      description: Enum with null and nullable\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n          nullable: true\n    MyTypeNotNullable:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\", null]\n    MyTypeNotNullableNotNull:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", \"bar\"]\n    MyTypeMixed:\n      description: Enum with null\n      type: object\n      properties:\n        myField:\n          type: string\n          enum: [\"foo\", 2, false, null]"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
 }

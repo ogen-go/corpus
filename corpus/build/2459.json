@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/heitortsergent/openapi3-ref-example"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "petstore.yaml",
-			"path": "petstore.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    $ref: \"endpoints/pet.yaml#/paths/~1pets\"\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string"
+			"name": "odin.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/odin.yaml",
+			"content": "#https://mermade.org.uk/openapi-converter\nopenapi: 3.0.0\nservers:\n  - url: 'http://localhost:8080'\ninfo:\n  version: '3.0'\n  title: Odin API\n  description: ODIN UI Services API\npaths:\n  /JTasker/startRun:\n    post:\n      tags:\n        - JTasker\n      summary: Start JTasker Run\n      operationId: JTasker_startRun\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: './resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json'\n        required: true\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n        '500':\n          description: Server Error\n"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /JTasker/startRun: post: JTasker_startRun: requestBody: content: application/json: parse schema: parse schema: reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": resolve reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\": invalid schema reference \"./resources/urn_jsonschema_com_issinc_odin_display_CreatePlan.json\""
 }

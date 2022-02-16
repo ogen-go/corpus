@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/IBM/openapi-validator"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/path-segment-plural/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\nservers:\n  - url: https://development.com/v1\n\npaths:\n  '/pet/last':\n    get:\n      summary: example pet\n      operationId: petId\n      responses:\n        '200':\n          description: pet example\n  /v1/pets/{id}:\n    parameters:\n      - name: Accept-Language\n        in: header\n        description: \"The language you prefer for messages\"\n        example: en-US\n        required: false\n        schema:\n          type: string\n          default: en-AU\n  /men/{mId}:\n    get:\n      operationId: list id\n      summary: get men lists\n  /statuses:\n    get:\n      operationId: status id\n      summary: get first status\n"
+			"name": "complex-test-compose-model.yaml",
+			"path": "packages/validator/test/cli-validator/mock-files/oas3/complex-test-compose-model.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    complexOneOfError:\n      description: second oneOf should be array\n      oneOf:\n        - oneOf:\n            $ref: '#/components/schemas/A'\n    complexAllOfError:\n      description: allOf should be array\n      oneOf:\n        - allOf:\n            type: string\n    complexAnyOfError:\n      description: anyOf should be array\n      oneOf:\n        - anyOf:\n            $ref: '#/components/schemas/A'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal object into Go struct field Schema.components.schemas.oneOf.allOf of type []*ogen.Schema"
 }

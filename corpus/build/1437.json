@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Dorthu/openapi3"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "broken-ref.yaml",
-			"path": "tests/fixtures/broken-ref.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: This has a broken $ref in it\npaths:\n  /example:\n    get:\n      operationId: hasBrokenRef\n      responses:\n        '200':\n          $ref: '#/components/responses/Missing'\n"
+			"name": "triggerDefinition-scopeId-triggerDefinitionId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/triggerDefinition/triggerDefinition-scopeId-triggerDefinitionId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs - Trigger Definitions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/triggerDefinitions/{triggerDefinitionId}:\n    get:\n      tags:\n        - Job - Trigger Definition\n      summary: Get a single Trigger Definition\n      operationId: triggerDefinitionGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './triggerDefinition.yaml#/components/parameters/triggerDefinitionId'\n      responses:\n        200:\n          description: The details of the desired Trigger Definition\n          content:\n            application/json:\n              schema:\n                $ref: './triggerDefinition.yaml#/components/schemas/triggerDefinition'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /example: get: hasBrokenRef: responses: 200: resolve \"#/components/responses/Missing\" reference: component by reference \"#/components/responses/Missing\" not found"
+	"Error": "parse: paths: /{scopeId}/triggerDefinitions/{triggerDefinitionId}: get: triggerDefinitionGet: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

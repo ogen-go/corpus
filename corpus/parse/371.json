@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/kawasima/darzana"
+			"name": "github.com/swagger-api/swagger-core"
 		},
 		"file": {
-			"name": "jsonplaceholder.yaml",
-			"path": "dev/resources/swagger/jsonplaceholder.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: JSONPlaceholder\n  license:\n    name: MIT\nservers:\n  - url: https://jsonplaceholder.typicode.com\npaths:\n  /posts:\n    get:\n      summary: List of all posts\n      operationId: getPosts\n      tags:\n        - posts\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Post'\n  /posts/{id}:\n    get:\n      summary: Get a post\n      operationId: getPost\n      tags:\n        - posts\n      parameters:\n        id:\n          type: integer\n          format: int64\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Post'\n\ncomponents:\n  schemas:\n    Post:\n      properties:\n        id:\n          type: integer\n          format: int64\n        userId:\n          type: integer\n          format: int64\n        title:\n          type: string\n        body:\n          type: string\n"
+			"name": "configurationFile.yaml",
+			"path": "modules/swagger-maven-plugin/src/test/resources/configurationFile.yaml",
+			"content": "resourcePackages:\n  - io.swagger.v3.plugin.maven.petstore.petstore\nprettyPrint: true\ncacheTTL: 0\nopenAPI:\n  openapi: 3.0.1\n  servers:\n    - url: http://foo\n      description: server 1\n      variables:\n        var1:\n          description: var 1\n          enum:\n            - \"1\"\n            - \"2\"\n          default: \"1\"\n        var2:\n          description: var 2\n          enum:\n            - \"1\"\n            - \"2\"\n          default: \"1\"\n"
 		}
 	},
-	"Error": "json: cannot unmarshal object into Go struct field Operation.paths.get.parameters of type []*ogen.Parameter"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

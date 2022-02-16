@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "__tests__/lint/operation-operationId-unique-error/openapi.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: getUserById\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n  '/pong':\n    get:\n      operationId: getUserById\n      summary: example summary\n      responses:\n        '200':\n          description: example description\n"
+			"name": "input.yaml",
+			"path": "test/resolver/issue196/input.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Resolve Test\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      parameters:\n        - $ref: \"./Parameters.yaml#/parameter_colour\"\n        - $ref: \"./Parameters.yaml#/parameter_size\"\n      responses:\n        '200':\n          description: OK\ncomponents:\n  parameters:\n    $ref: './Parameters.yaml'\n  schemas:\n    Cat:\n      $ref: './SchemaAnimal.yaml'\n    Dog:\n      $ref: './SchemaAnimal.yaml'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
 }

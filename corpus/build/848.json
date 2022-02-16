@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/spectral"
+			"name": "github.com/Mermade/oas-kit"
 		},
 		"file": {
-			"name": "spec-2.yaml",
-			"path": "packages/core/src/__tests__/__fixtures__/gh-474/spec-2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n  contact:\n    $ref: './common.yaml#/info/contact'\npaths:\n  '/':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: './common.yaml#/components/schemas/ResponseType'\n"
+			"name": "output.yaml",
+			"path": "test/resolver/issue152/output.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: API\ntags:\n  - name: test\n    description: a test tag\npaths:\n  /foo:\n    post:\n      operationId: postFoo\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          description: Success post\n          content:\n            application/json:\n              schema:\n                title: XYZ\n                description: this is xyz\n                type: object\n                properties:\n                  id:\n                    description: the local identifier (not necessarily globally unique)\n                    type: string\n  /bar:\n    post:\n      operationId: postBar\n      summary: Super post op\n      tags:\n        - test\n      responses:\n        '201':\n          $ref: '#/paths/~1foo/post/responses/201'\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"./common.yaml#/components/schemas/ResponseType\": resolve reference \"./common.yaml#/components/schemas/ResponseType\": invalid schema reference \"./common.yaml#/components/schemas/ResponseType\""
+	"Error": "parse: paths: /bar: post: postBar: responses: 201: resolve \"#/paths/~1foo/post/responses/201\" reference: invalid response reference: \"#/paths/~1foo/post/responses/201\""
 }

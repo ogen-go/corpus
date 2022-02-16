@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/nordic-institute/X-Road"
+			"name": "github.com/societe-generale/sonar-openapi"
 		},
 		"file": {
-			"name": "duplicateendpoint.yaml",
-			"path": "src/proxy-ui-api/src/test/resources/openapiparser/duplicateendpoint.yaml",
-			"content": "---\nopenapi: 3.0.2\nservers:\n  - description: test\n    url: https://example.org/api\ninfo:\n  title: Test\n  version: 1.0\npaths:\n  /test:\n    get:\n      summary: get\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n    post:\n      summary: post\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n      responses:\n        '200':\n          description: OK\n    get:\n      summary: get\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string"
+			"name": "embedded-newlines-lines.yaml",
+			"path": "openapi-front-end/src/test/resources/metrics/embedded-newlines-lines.yaml",
+			"content": "openapi: \"3.0.1\"\nx-no-sonar: SomeId\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    # a comment line\n    x-sonar-disable: SomeId\n    get:\n      responses:\n        x-sonar-enable: SomeId\n        '200':\n          description: \"some response\\nwith newlines\"\n  #\n  # another comment line\n  /newpets:\n    $ref: '#/paths/~1pets'\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Operation.paths.get.responses of type ogen.Response"
 }

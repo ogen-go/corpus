@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "root.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/path-item-object/fixtures/max-depth/root.json",
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"paths\": {\n    \"/path1\": {\n      \"$ref\": \"./ex1.json\"\n    }\n  }\n}\n"
+			"name": "replace-path-item.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/replace-path-item/openapi-3/replace-path-item.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"The Foo Resource\",\n      \"description\": \"Operations for Foos.\",\n      \"put\": {\n        \"tags\": [ \"tag1\", \"tag3\" ],\n        \"summary\": \"Update Pet\",\n        \"description\": \"Updates a pet.\",\n        \"operationId\": \"updatePet\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: /path1: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: put: updatePet: responses: no responses"
 }

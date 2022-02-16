@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "negative2.yaml",
-			"path": "assets/queries/openAPI/3.0/additional_properties_too_permissive/test/negative2.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            type: object\n            properties:\n              id:\n                type: string\n              name:\n                type: string\n            additionalProperties: 'false'\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+			"name": "config.yaml",
+			"path": "examples/saref4agri/config.yaml",
+			"content": "ontologies:\n  - https://w3id.org/def/saref4agri\n  #test using w3id\nname: saref4agri\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: Example with the Saref4agri ontology (generating a specifciation draft)\n    title: Saref4agri\n    version: v1.0.0\n  externalDocs:\n    description: Saref4agri ontology\n    url: https://w3id.org/def/saref4city\n    \nfirebase:\n  key: \n  \nendpoint:\n  url: http://endpoint.mint.isi.edu/example\n  prefix: https://w3id.org/okn/i/example\n  graph_base: http://endpoint.mint.isi.edu/example\n\n\nenable_get_paths: true\nenable_post_paths: false\nenable_delete_paths: false\nenable_put_paths: false\n\nfollow_references: true\n\n"
 		}
 	},
-	"Error": "unexpected type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

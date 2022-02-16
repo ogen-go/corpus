@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Fyb3roptik/swaggomnia"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "tmpl/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  description: \"{{ .Config.Description }}\"\n  version: \"{{ .Config.Version }}\"\n  title: \"{{ .Config.Title }}\"\nservers:\n  - url: \"{{ .Config.BasePath }}\"\ntags:\n{{ range $key, $value := .Entities }}\n- name: \"{{ $key | GetGroupName }}\"\n  description: \"\"\n{{ end }}\npaths:\n{{- range $key, $paths := .Entities }}\n{{- range $path, $resources := $paths }}\n  {{ $path | RemovePathPrefix}}:\n    {{- range $kk, $resource := $resources }}\n    {{ $resource.Method | ToLower }}:\n      tags:\n      - \"{{ $key | GetGroupName }}\"\n      summary: \"{{ $resource.Name }}\"\n      {{- if or $resource.Parameters $resource.Body.Params $resource.Headers }}\n      {{- if $resource.Body.MimeType }}\n      description: \"{{ $resource.Description }}\"\n      {{- end }}\n      parameters:\n      {{- range $p, $param := $resource.Parameters}}\n      - name: \"{{ $param.Name }}\"\n        in: \"query\"\n        schema:\n          type: \"string\"\n        description: \"\"\n        required: true\n      {{- end }}\n      {{- range $p, $param := $resource.Headers}}\n      - name: \"{{ $param.Name }}\"\n        in: \"header\"\n        schema:\n          type: \"string\"\n        description: \"\"\n        required: true\n      {{- end }}\n      {{- end }}\n      responses:\n        200:\n          description: \"successful operation\"\n    {{- end }}\n{{- end }}\n{{- end }}\n"
+			"name": "schema.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/parameters/content/media-type/schema/schema.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /path:\n    get:\n      parameters:\n        - content:\n            'application/json':\n              schema:\n                *"
 		}
 	},
-	"Error": "yaml: line 10: could not find expected ':'"
+	"Error": "yaml: line 9: did not find expected alphabetic or numeric character"
 }
