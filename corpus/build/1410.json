@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "dataMessage-scopeId-datastoreMessageId.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/dataMessage/dataMessage-scopeId-datastoreMessageId.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Message\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/messages/{datastoreMessageId}:\n    get:\n      tags:\n        - Data Message\n      summary: Get a single DataMessage\n      operationId: dataMessageGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './dataMessage.yaml#/components/parameters/datastoreMessageId'\n      responses:\n        200:\n          description: The desired DataMessage\n          content:\n            application/json:\n              schema:\n                $ref: './dataMessage.yaml#/components/schemas/dataMessageListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "positive3.yaml",
+			"path": "assets/queries/openAPI/general/responses_object_is_empty/test/positive3.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/data/messages/{datastoreMessageId}: get: dataMessageGet: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: get: operation \"listVersionsv2\": responses: no responses"
 }

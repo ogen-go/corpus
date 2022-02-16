@@ -6,9 +6,9 @@
 		},
 		"file": {
 			"name": "api.yaml",
-			"path": "Tests/PipelinesTests/CommonTestSpecs/help/api.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\npaths:\n  /feedback/faq:\n    get:\n      summary: Вопросы и ответы\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: \"models.yaml#/components/schemas/FaqItem\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n\n"
+			"path": "Tests/PipelinesTests/CommonTestSpecs/history_of_payment/api.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  contact:\n    name: Starkina Maria\n    email: starkina@surfstudio.ru\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n\nsecurity:\n  - bearerAuth: []\n\npaths:\n  /billings/history:\n    get:\n      summary: История операций\n      parameters:\n        - $ref: \"../common/resources/models.yaml#/components/parameters/limit\"\n        - $ref: \"../common/resources/models.yaml#/components/parameters/offset\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/HistoryResponse\"\n        default:\n          $ref: \"../common/errors.yaml#/components/responses/ApiErrorResponse\"\n"
 		}
 	},
-	"Error": "parse: paths: /feedback/faq: get: : responses: default: resolve \"../common/errors.yaml#/components/responses/ApiErrorResponse\" reference: invalid response reference: \"../common/errors.yaml#/components/responses/ApiErrorResponse\""
+	"Error": "parse: paths: /billings/history: get: operation \"\": parameters: parse parameter \"\": resolve \"../common/resources/models.yaml#/components/parameters/limit\" reference: invalid parameter reference: \"../common/resources/models.yaml#/components/parameters/limit\""
 }

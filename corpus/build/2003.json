@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/opengeospatial/weather-on-the-web"
+			"name": "github.com/wikimedia/restbase"
 		},
 		"file": {
-			"name": "get_trajectory.yaml",
-			"path": "candidate-specification/openapi/get_trajectory.yaml",
-			"content": "openapi: 3.0.2\ninfo:\n    title: 'Point Web Service'\n    description: 'This in an implemention of a point query service, based on the OGC web api guidelines'\n    contact:\n        name: \"\"\n    version: 1.0.0\nservers:\n    -\n        url: 'http://data.example.org'\n        description: 'This server'\npaths:\n    /:\n        $ref: 'wotw_domain.yaml#/paths/~1'\n    /conformance:\n        $ref: 'wotw_domain.yaml#/paths/~1conformance'        \n    /groups:\n        $ref: 'wotw_domain.yaml#/paths/~1groups'\n    '/groups/{groupId}':\n        $ref: 'wotw_domain.yaml#/paths/~1groups~1%7BgroupId%7D'\n    /collections:\n        $ref: 'wotw_domain.yaml#/paths/~1collections'\n    '/collections/{collectionId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D'\n    '/collections/{collectionId}/{instanceId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D'\n    '/collections/{collectionId}/{instanceId}/point':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D~1trajectory'"
+			"name": "test_module.yaml",
+			"path": "test/test_module.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0-beta\n  title: Wikimedia testing APIs\n  x-is-api-root: true\npaths:\n  /post_data/:\n    post:\n      x-route-filters:\n        - type: 'default'\n          name: 'header_match'\n          options:\n            whitelist:\n              x-client-ip:\n                - /^(?:::ffff:)?(?:10|127)\\./\n      x-request-handler:\n        - put_to_storage:\n            request:\n              method: put\n              uri: /{domain}/sys/post_data/post.test/\n              headers: '{{request.headers}}'\n              body: '{{request.body}}'\n      x-monitor: false\n\n  /post_data/{hash}:\n    get:\n      x-setup-handler:\n        - init_storage:\n            uri: /{domain}/sys/post_data/post.test\n      x-request-handler:\n        - get_from_storage:\n            request:\n              uri: /{domain}/sys/post_data/post.test/{hash}\n      x-monitor: false\n\n  /events_no_config:\n    x-modules:\n      - path: sys/events.js\n  /events:\n    x-modules:\n      - path: sys/events.js\n        options: '{{options.events}}'\n\n  /http/{uri}:\n    get:\n      x-request-handler:\n        - request_url:\n            request:\n              uri: '{{uri}}'\n"
 		}
 	},
-	"Error": "parse: /collections/{collectionId}: referenced pathItem not supported"
+	"Error": "parse: paths: /http/{uri}: get: operation \"\": parse path: path parameter not specified: \"uri\""
 }

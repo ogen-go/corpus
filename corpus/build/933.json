@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-diff"
+			"name": "github.com/Redocly/openapi-cli"
 		},
 		"file": {
-			"name": "add-prop-1.yaml",
-			"path": "core/src/test/resources/add-prop-1.yaml",
-			"content": "openapi: 3.0.0\n# Added by API Auto Mocking Plugin\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/anshul10s/pet-store/1.0.0\ninfo:\n  description: |\n    This is a sample Petstore server.  You can find\n    out more about Swagger at\n    [http://swagger.io](http://swagger.io) or on\n    [irc.freenode.net, #swagger](http://swagger.io/irc/).\n  version: \"1.0.0\"\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: pet\n    description: Everything about your Pets\n    externalDocs:\n      description: Find out more\n      url: 'http://swagger.io'\n  - name: store\n    description: Access to Petstore orders\n  - name: user\n    description: Operations about user\n    externalDocs:\n      description: Find out more about our store\n      url: 'http://swagger.io'\npaths:\n  /store/inventory:\n    get:\n      tags:\n        - store\n      summary: Returns pet inventories by status\n      description: Returns a map of status codes to quantities. Available, reserved, sold is must in respone. Other keys can still be there.\n      operationId: getInventory\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties:\n                  $ref: '#/components/schemas/Inventory'\n                  x-key-property :\n                    $ref: '#/components/schemas/InvStatus'\nexternalDocs:\n  description: Find out more about Swagger\n  url: 'http://swagger.io'\ncomponents:\n  schemas:\n    InvStatus:\n      type: string\n      enum:\n        - available\n        - reserved\n        - sold\n    Inventory:\n      type: object\n      properties:\n        id:\n          type: string\n        details:\n          type: count\n        extra_info:\n          type: string"
+			"name": "bar.yaml",
+			"path": "__tests__/join/reference-in-description/bar.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example OpenAPI 3 definition.\n  description: Information about API\n  license:\n    name: MIT\n    url: 'https://opensource.org/licenses/MIT'\nservers:\n  - url: 'https://redocly.com/v1'\npaths:\n  '/pets/{petId}':\n    post:\n      summary: summary example\n      operationId: exampleBar\n      responses:\n        '201':\n          description: example description"
 		}
 	},
-	"Error": "parse: paths: /store/inventory: get: getInventory: responses: 200: content: application/json: schema: parse schema: additionalProperties: parse schema: reference \"#/components/schemas/Inventory\": parse schema: details: parse schema: unexpected schema type: \"count\""
+	"Error": "parse: paths: /pets/{petId}: post: operation \"exampleBar\": parse path: path parameter not specified: \"petId\""
 }

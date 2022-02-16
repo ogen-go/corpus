@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/iainporter/sms-service"
+			"name": "github.com/plantbreeding/BrAPI"
 		},
 		"file": {
-			"name": "sms-openapi.yaml",
-			"path": "sms-openapi/spec/sms-openapi.yaml",
-			"content": "openapi: \"3.0.2\"\ninfo:\n    version: 1.0.0\n    title: SMS Service OpenAPI Specification\n    description: |\n        ## SMS Service API\nsecurity:\n    - none:\n          type: http\n          scheme: not_required\npaths:\n    /v1/sms:\n        $ref: ./paths/v1/sms/messages.yaml\n    /v1/sms/{id}:\n        $ref: ./paths/v1/sms/{id}.yaml\n"
+			"name": "VariantSets_VariantSetId_Variants_GET.yaml",
+			"path": "Specification/BrAPI-Genotyping/VariantSets/VariantSets_VariantSetId_Variants_GET.yaml",
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variantsets/{variantSetDbId}/variants:\n    get:\n      summary: Gets a `Variants` for a given `VariantSet`.\n      description: |-\n        This call will return an array of `Variants`.\n        \n        ** THIS ENDPOINT USES TOKEN BASED PAGING **\n      parameters:\n        - name: variantDbId\n          description: The ID of the `Variant` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: variantSetDbId\n          description: The ID of the `VariantSet` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/VariantsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Variant Sets"
 		}
 	},
-	"Error": "parse: /v1/sms/{id}: referenced pathItem not supported"
+	"Error": "parse: paths: /variantsets/{variantSetDbId}/variants: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/pageToken\" reference: component by reference \"#/components/parameters/pageToken\" not found"
 }

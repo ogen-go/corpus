@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "required-properties-name-existing.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/required-properties-name-existing.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Pet:\n      properties:\n        name:\n          type: string\n        tag:\n          type: string\n        anotherPro:\n          type: string\n      required: [ tag, * ]\n"
+			"name": "links-ref.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/links/links-ref.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  links:\n    test:\n      description: a link\n\npaths:\n  /p:\n    get:\n      responses:\n        200:\n          links:\n            name:\n              $ref: *"
 		}
 	},
-	"Error": "yaml: line 12: did not find expected alphabetic or numeric character"
+	"Error": "yaml: line 14: did not find expected alphabetic or numeric character"
 }

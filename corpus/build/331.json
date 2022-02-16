@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cuaklabs/fibonacho-api"
+			"name": "github.com/italia/api-oas-checker"
 		},
 		"file": {
-			"name": "openapi-v1.yml",
-			"path": "api-docs/openapi/openapi-v1.yml",
-			"content": "\nopenapi: 3.0.3\n\ninfo:\n  title: Fibonacho API\n  description: Spec for Fibonacho API v1 endpoints\n  version: 'v1'\n\nsecurity: []\n\ntags:\n  - name: Info\n\npaths:\n  /v1.draft/:\n    $ref: './v1/paths/index.draft.yml'\n\ncomponents:\n\n  schemas:\n\n    ServerInfo.draft:\n      $ref: './v1/components/schemas/ServerInfo.draft.yml#/ServerInfo'\n\n  parameters: {}\n\n  responses: {}\n\n  securitySchemes: {}\n"
+			"name": "patch-test.yml",
+			"path": "rules/tests/patch-test.yml",
+			"content": "openapi: 3.0.1\npaths:\n    /ko-patch-generic-mediatype:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json:\n              schema:\n                type: string\n    /ko-patch-mediatype-not-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: string\n    /ok-patch-mediatype-array:\n      patch:\n        requestBody:\n          required: true\n          content:\n            application/json-patch+json:\n              schema:\n                type: array\n    /ko-patch-without-body:\n      patch:\n        description: Patch without body\n    /ko-patch-empty-body:\n      patch:\n        description: Patch empty body\n        requestBody: {}\n"
 		}
 	},
-	"Error": "parse: /v1.draft/: referenced pathItem not supported"
+	"Error": "parse: paths: /ko-patch-generic-mediatype: patch: operation \"\": responses: no responses"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aca/go-restapi-boilerplate"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "path.yaml",
-			"path": "spec/path.yaml",
-			"content": "info:\n  license:\n    name: MIT\n  title: user\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /api/v1/user:\n    post:\n      operationId: createUser\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/v1.User'\n        required: true\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: OK\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: Error\n      summary: create user\n      tags:\n      - User\n  /api/v1/user/{userID}:\n    patch:\n      operationId: patchUser\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/v1.User'\n        required: true\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: OK\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: Error\n      summary: patch user\n      tags:\n      - User\n    delete:\n      operationId: deleteUser\n      responses:\n        \"200\":\n          description: OK\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: Error\n      summary: delete user\n      tags:\n      - User\n    get:\n      operationId: readUser\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/v1.User'\n          description: OK\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrResponse'\n          description: Error\n      summary: get user\n      tags:\n      - User\n    parameters:\n    - in: path\n      name: userID\n      required: true\n      schema:\n        type: string\n"
+			"name": "issue1644.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue1644.yaml",
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Operations\n  version: 0.0.0\npaths:\n  \"/operations\":\n    post:\n      parameters:\n        - name: param0\n          schema:\n            type: string\n      responses:\n        default:\n          description: None\n"
 		}
 	},
-	"Error": "parse: paths: /api/v1/user: post: createUser: requestBody: content: application/json: parse schema: parse schema: reference \"#/components/schemas/v1.User\": resolve reference \"#/components/schemas/v1.User\": schema not found"
+	"Error": "parse: paths: /operations: post: operation \"\": parameters: parse parameter \"param0\": unsupported parameter type \"\""
 }

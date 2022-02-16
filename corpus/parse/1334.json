@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Azure/autorest.modeler"
+			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "vendor-extension-in-path.json",
-			"path": "test/Resource/Swagger/vendor-extension-in-path.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://dsw12.net:999/sandbox/8c88389038102937482abf83f8f/services/5b737fefc19b3047ab4f3234cd34642df2\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"2.0\",\n    \"title\": \"My web service\",\n    \"description\": \"No description provided.\",\n    \"x-endpoint-name\": \"default\"\n  },\n  \"paths\": {\n    \"/swagger.json\": {\n      \"get\": {\n        \"summary\": \"Get swagger API document for the web service\",\n        \"operationId\": \"getSwaggerDocument\",\n        \"parameters\": [\n          {\n            \"name\": \"api-version\",\n            \"in\": \"query\",\n            \"description\": \"API version\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"2.0\"\n              ],\n              \"default\": \"2.0\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Swagger API document for this service\"\n          }\n        }\n      }\n    },\n    \"x-vendor-testy\": \"asd\"\n  }\n}"
+			"name": "dereferenced.json",
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$schema-unrecognized/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$schema\": \"https://www.google.com/\",\n              \"type\": \"object\",\n              \"properties\": {\n                \"avatar\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"$schema\": \"https://www.google.com/\",\n          \"type\": \"object\",\n          \"properties\": {\n            \"avatar\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Spec.paths of type ogen.PathItem"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

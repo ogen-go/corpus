@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/marcelthole/openapi-merge"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "openapi-normalized.json",
-			"path": "tests/Merge/Fixtures/expected/openapi-normalized.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {},\n    \"paths\": {\n        \"\\/dummy\": {},\n        \"\\/reference\": {\n            \"get\": {\n                \"responses\": {\n                    \"100\": {\n                        \"$ref\": \"#\\/components\\/responses\\/reference-100\"\n                    },\n                    \"200\": {\n                        \"description\": \"OK\",\n                        \"content\": {\n                            \"text\\/html\": {\n                                \"schema\": {}\n                            },\n                            \"text\\/csv\": {\n                                \"schema\": {},\n                                \"examples\": {\n                                    \"csv-1\": {\n                                        \"value\": \"foo,bar\"\n                                    }\n                                }\n                            },\n                            \"application\\/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#\\/components\\/schemas\\/referenceModel\"\n                                },\n                                \"examples\": {\n                                    \"example-1\": {\n                                        \"$ref\": \"#\\/components\\/examples\\/referenceModelExample\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
+			"name": "paths-get.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /reference: get: : responses: 100: resolve \"#/components/responses/reference-100\" reference: component by reference \"#/components/responses/reference-100\" not found"
+	"Error": "parse: paths: /foo: get: operation \"listPets\": responses: no responses"
 }

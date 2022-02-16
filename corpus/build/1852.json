@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/clearflask/clearflask"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "api-connect.yaml",
-			"path": "clearflask-api/src/main/openapi/api-connect.yaml",
-			"content": "## SPDX-FileCopyrightText: 2019-2021 Matus Faro \u003cmatus@smotana.com\u003e\n## SPDX-License-Identifier: AGPL-3.0-only\nopenapi: 3.0.0\ninfo:\n  title: ClearFlask Connect API\n  description: ClearFlask API documentation.\n  version: 1.0.0\n\nservers:\n- url: https://clearflask.com/api/v1\n\npaths:\n  /connect/account/keypair:\n    $ref: 'api-sni.yaml#/~1connect~1account~1keypair'\n  /connect/cert/keypair:\n    $ref: 'api-sni.yaml#/~1connect~1cert~1keypair'\n  /connect/cert/challenge/http:\n    $ref: 'api-sni.yaml#/~1connect~1cert~1challenge~1http'\n  /connect/cert/challenge/dns:\n    $ref: 'api-sni.yaml#/~1connect~1cert~1challenge~1dns'\n  /connect/cert:\n    $ref: 'api-sni.yaml#/~1connect~1cert'\n  /connect/robots/slug/{slug}:\n    $ref: 'api-robots.yaml#/~1connect~1robots~1slug~1{slug}'\n"
+			"name": "deviceOperation-scopeId-deviceId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/deviceOperation/deviceOperation-scopeId-deviceId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Device Management - Operations\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/devices/{deviceId}/operations/_count:\n    post:\n      tags:\n        - Device Management - Operation\n      summary: Count the Registry Operations\n      operationId: deviceRegistryOperationCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../device/device.yaml#/components/parameters/deviceId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: /connect/cert/challenge/http: referenced pathItem not supported"
+	"Error": "parse: paths: /{scopeId}/devices/{deviceId}/operations/_count: post: operation \"deviceRegistryOperationCount\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

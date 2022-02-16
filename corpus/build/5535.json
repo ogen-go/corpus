@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/inner-security/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"petstore_auth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"securityDefinitions\": {\n    \"petstore_auth\": {\n      \"type\": \"oauth2\",\n      \"authorizationUrl\": \"http://petstore.swagger.io/oauth/dialog\",\n      \"flow\": \"implicit\",\n      \"scopes\": {\n        \"write:pets\": \"modify pets in your account\",\n        \"read:pets\": \"read your pets\"\n      }\n    }\n  }\n}"
+			"name": "duplicate-path-param.json",
+			"path": "src/test/resources/fixtures/validation/openapi/3.0/duplicate-path-param.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\"\n  },\n  \"paths\": {\n    \"/dupesWithinPathItemInlineAndRefCombo\": {\n      \"get\": {\n        \"description\": \"Duplicate parameters (name \u0026 in combination) one defined inline within operation and other referenced - invalid\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"...\"\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"name\": \"status\",\n          \"in\": \"query\",\n          \"description\": \"Status param in query\",\n          \"required\": false,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        },\n        {\n          \"$ref\": \"#/components/parameters/statusParam\"\n        }\n      ]\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"statusParam\": {\n        \"name\": \"status\",\n        \"in\": \"query\",\n        \"description\": \"Status param in query\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      },\n      \"indirectRef\": {\n        \"$ref\": \"#/components/parameters/statusParam\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /pet: post: : responses: no responses"
+	"Error": "parse: /dupesWithinPathItemInlineAndRefCombo: parameters: duplicate parameter: \"status\" in \"query\""
 }

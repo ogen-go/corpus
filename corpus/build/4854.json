@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/opticdev/optic"
 		},
 		"file": {
-			"name": "schema_ref_with_description.json",
-			"path": "src/test/resources/testing/documentation/openapi/json/schema_ref_with_description.json",
-			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"\u003ccaret\u003e#/components/schemas/Example\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Example\": {\n        \"type\": \"object\",\n        \"description\": \"some description\"\n      }\n    }\n  }\n}\n"
+			"name": "v1.json",
+			"path": "projects/api-checks/src/ci-cli/commands/compare/test/inputs/v1.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/example\": {\n      \"get\": {\n        \"operationId\": \"my-op\",\n        \"responses\": {}\n      },\n      \"post\": {\n        \"operationId\": \"postOriginalaa\",\n        \"responses\": {}\n      },\n      \"put\": {\n        \"operationId\": \"putOriginalaa\",\n        \"responses\": {}\n      },\n      \"patch\": {\n        \"operationId\": \"putOriginaaal\",\n        \"responses\": {}\n      }\n    }\n  },\n  \"info\": {\n    \"version\": \"0.0.0\",\n    \"title\": \"Empty\"\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /users: get: : responses: 200: content: application/json: schema: parse schema: reference \"\u003ccaret\u003e#/components/schemas/Example\": resolve reference \"\u003ccaret\u003e#/components/schemas/Example\": invalid schema reference \"\u003ccaret\u003e#/components/schemas/Example\""
+	"Error": "parse: paths: /example: get: operation \"my-op\": responses: no responses"
 }

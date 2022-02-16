@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cebe/php-openapi"
+			"name": "github.com/guardrail-dev/guardrail"
 		},
 		"file": {
-			"name": "subdir.yaml",
-			"path": "tests/spec/data/reference/subdir.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\ncomponents:\n  schemas:\n    Pet:\n      $ref: 'subdir/Pet.yaml'\n    Dog:\n      $ref: 'subdir/Dog.yaml'\n  parameters:\n    \"Parameter.PetId\":\n      \"$ref\": \"./subdir/Parameter.PetId.json\"\npaths:\n  '/pet':\n    get:\n      responses:\n        200:\n          description: return a pet\n  '/pets':\n    \"$ref\": \"paths/pets.json\"\n"
+			"name": "issue264.yaml",
+			"path": "modules/sample/src/main/resources/issues/issue264.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: \"Dashed-case enum names with numeric components don't get converted properly\"\n  version: 1.0.0\npaths:\n  /foo:\n    get:\n      operationId: getFoo\n      parameters:\n        - in: query\n          name: FooEnum\n          $ref: \"#/components/schemas/FooEnum\"\n          required: true\n      responses:\n        204:\n          description: OK\ncomponents:\n  schemas:\n    FooEnum:\n      type: string\n      enum:\n        - foo-bar-1\n        - baz-quux-2-flurb\n#        - 3-moo-cow\n"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /foo: get: operation \"getFoo\": parameters: parse parameter \"FooEnum\": resolve \"#/components/schemas/FooEnum\" reference: invalid parameter reference: \"#/components/schemas/FooEnum\""
 }

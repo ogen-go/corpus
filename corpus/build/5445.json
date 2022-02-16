@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/davidebianchi/gswagger"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "schema-no-content.json",
-			"path": "testdata/schema-no-content.json",
-			"content": "{\n  \"components\": {},\n  \"info\": {\n    \"title\": \"test swagger title\",\n    \"version\": \"test swagger version\"\n  },\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/{id}\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"id\",\n            \"required\": true,\n            \"schema\": {}\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"q\",\n            \"schema\": {}\n          },\n          {\n            \"in\": \"header\",\n            \"name\": \"key\",\n            \"schema\": {}\n          },\n          {\n            \"in\": \"cookie\",\n            \"name\": \"cookie1\",\n            \"schema\": {}\n          }\n        ],\n        \"requestBody\": {\n          \"description\": \"request body without schema\"\n        },\n        \"responses\": {\n          \"204\": {\n            \"description\": \"\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "delete-response.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-response/openapi-3/delete-response.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /{id}: post: : requestBody: content must have at least on entry"
+	"Error": "parse: paths: /foo: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
 }

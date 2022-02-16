@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/BioKIC/NEON-Biorepository"
+			"name": "github.com/opticdev/optic"
 		},
 		"file": {
-			"name": "deep-linking.openapi.yaml",
-			"path": "api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/features/deep-linking.openapi.yaml",
-			"content": "openapi: \"3.0.0\"\n\npaths:\n  /:\n    get:\n      operationId: \"myOperation\"\n      tags: [\"myTag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /withSpaces:\n    post:\n      operationId: \"my Operation\"\n      tags: [\"my Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /utf16fragments:\n    head:\n      operationId: \"пошел\"\n      tags: [\"шеллы\"]\n      summary: an operation\n      responses:\n        \"200\":\n          description: ok\n  /withUnderscores:\n    patch:\n      operationId: \"underscore_Operation\"\n      tags: [\"underscore_Tag\"]\n      summary: an operation\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object\n  /noOperationId:\n    put:\n      tags: [\"tagTwo\"]\n      summary: some operations are anonymous...\n      responses:\n        '200':\n          description: a pet to be returned\n          content: \n            application/json:\n              schema:\n                type: object"
+			"name": "with-body-ref.yaml",
+			"path": "projects/openapi-diff-experiment/src/services/patch/reconcilers/tests/example/with-body-ref.yaml",
+			"content": "info:\n  version: 0.0.0\n  title: Empty\nopenapi: 3.0.1\npaths:\n  \"/example\":\n    parameters: []\n    get:\n      parameters: []\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"./definitions.json#/components/ExampleBody\"\n"
 		}
 	},
-	"Error": "make ir: anonymous type name conflict: \"MyOperationOK\""
+	"Error": "parse: paths: /example: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"./definitions.json#/components/ExampleBody\": resolve reference \"./definitions.json#/components/ExampleBody\": invalid schema reference \"./definitions.json#/components/ExampleBody\""
 }

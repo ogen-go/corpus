@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "multiple-servers-in-webapi.json",
-			"path": "amf-cli/shared/src/test/resources/compatibility/oas30/multiple-servers-in-webapi.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://vb.letsta.lk/api/v1\"\n    },\n    {\n      \"url\": \"https://aa.staging.letsta.lk/api/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/reports/custom\": {\n      \"get\": {\n        \"responses\": {\n        }\n      }\n    }\n  }\n}"
+			"name": "paths-get-with-schemes.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/paths/paths-get-with-schemes.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v2\"\n    }\n  ],\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\",\n        \"deprecated\": false,\n        \"servers\": [\n          {\n            \"url\": \"{scheme}://petstore.swagger.io/v2\",\n            \"variables\": {\n              \"scheme\": {\n                \"enum\": [ \"ws\", \"wss\" ],\n                \"default\": \"ws\",\n                \"description\": \"The supported protocol schemes.\"\n              }\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /reports/custom: get: : responses: no responses"
+	"Error": "parse: paths: /pets: get: operation \"listPets\": responses: no responses"
 }

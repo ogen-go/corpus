@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/AKIRA-MIYAKE/serverless-import-swagger"
+			"name": "github.com/swagger-api/swagger-parser"
 		},
 		"file": {
-			"name": "openapi.admin.yaml",
-			"path": "__tests__/resources/openapi.admin.yaml",
-			"content": "openapi: 3.0.1\nx-sis-config:\n  options:\n    cors: true\n    authorizer: handler.authorizer\npaths:\n  /admin/users:\n    get:\n      operationId: adminUsers\n"
+			"name": "issue_286.yaml",
+			"path": "modules/swagger-parser-v3/src/test/resources/issue_286.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: test data for nested list ext references\n  version: '0.0.0'\npaths:\n  /:\n    get:\n      responses:\n        \"200\":\n          content:\n            '*/*':\n              schema:\n                $ref: \"./issue_286_PetList.yaml\""
 		}
 	},
-	"Error": "parse: paths: /admin/users: get: adminUsers: responses: no responses"
+	"Error": "parse: paths: /: get: operation \"\": responses: 200: content: \"*/*\": schema: parse schema: reference \"./issue_286_PetList.yaml\": resolve reference \"./issue_286_PetList.yaml\": invalid schema reference \"./issue_286_PetList.yaml\""
 }

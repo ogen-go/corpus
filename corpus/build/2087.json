@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/hpi-schul-cloud/schulcloud-server"
 		},
 		"file": {
-			"name": "BreedingMethods_GET.yaml",
-			"path": "Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_GET.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /breedingmethods:\n    get:\n      summary: Get the Breeding Methods\n      description: Get the list of germplasm breeding methods available in a system.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: BreedingMethodListResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        items:\n                          $ref: '#/components/schemas/BreedingMethod'\n                        type: array\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm\n"
+			"name": "openapi.yaml",
+			"path": "src/services/docs/openapi.yaml",
+			"content": "info:\n  title: Schul-Cloud Legacy API\n  description: This is the API specification for the Schul-Cloud legacy API.\n\n  contact:\n    name: support\n    email: info@hpi-schul-cloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\nservers:\n  - url: /legacy/v1/\n\npaths:\n  /ldap-config:\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1'\n  '/ldap-config/{_id}':\n    $ref: '../ldap-config/docs/openapi.yaml#/paths/~1{_id}'\n  /me:\n    $ref: '../me/docs/openapi.yaml#/paths/~1me'\n  /version:\n    $ref: '../versionService/docs/openapi.yaml#/paths/~1version'\n\nopenapi: 3.0.2\n"
 		}
 	},
-	"Error": "parse: paths: /breedingmethods: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/page\" reference: component by reference \"#/components/parameters/page\" not found"
+	"Error": "parse: /me: referenced pathItem not supported"
 }

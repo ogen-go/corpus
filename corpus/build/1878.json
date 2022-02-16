@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Dzoukr/OpenAPIParser"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "Document-Petstore-External.yaml",
-			"path": "tests/OpenAPIParser.Tests/Samples/Document-Petstore-External.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: foo@example.com\n    url: http://madskristensen.net\n  license:\n    name: MIT\n    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    $ref: 'SubFolder/PetsPath.yaml'\ncomponents:\n  responses:  \n    Error:\n      description: Unexpected error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n  \n  schemas:\n    Error:\n      $ref: 'Document-Petstore.yaml#/components/schemas/Error'\n    JustLikeError:\n      $ref: '#/components/schemas/Error'\n    Basic:\n      $ref: 'Schema-Object.yaml#/Basic'\n    Standalone:\n      $ref: 'Schema-Object-Standalone.yaml'\n    "
+			"name": "triggerDefinition-scopeId-triggerDefinitionId.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/triggerDefinition/triggerDefinition-scopeId-triggerDefinitionId.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs - Trigger Definitions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/triggerDefinitions/{triggerDefinitionId}:\n    get:\n      tags:\n        - Job - Trigger Definition\n      summary: Get a single Trigger Definition\n      operationId: triggerDefinitionGet\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './triggerDefinition.yaml#/components/parameters/triggerDefinitionId'\n      responses:\n        200:\n          description: The details of the desired Trigger Definition\n          content:\n            application/json:\n              schema:\n                $ref: './triggerDefinition.yaml#/components/schemas/triggerDefinition'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: /pets: referenced pathItem not supported"
+	"Error": "parse: paths: /{scopeId}/triggerDefinitions/{triggerDefinitionId}: get: operation \"triggerDefinitionGet\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

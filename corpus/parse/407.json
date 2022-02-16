@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/no-enum-type-mismatch/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  /some:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type:\n                  - integer\n                  - array\n                enum:\n                  - 1\n                  - [ 1, 2, 3, string]\n                  - 3\n          userId:\n            application/json:\n              schema:\n              type:\n                - integer\n              enum:\n                - 1\n                - 2\n                - 13\n"
+			"path": "__tests__/lint/no-enum-type-mismatch-error/openapi.yaml",
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\npaths:\n  /ping:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type:\n                  - integer\n                  - array\n                enum:\n                  - 1\n                  - [ 1, 2, 3, string]\n                  - 3\n                  - string\n  /pong:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: integer\n                enum:\n                  - 1\n                  - string\n                  - 13\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/operation/security/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"security\": [\n          \"one\",\n          \"two\"\n        ]\n      }\n    }\n  }\n}"
+			"name": "paths-all-operations.expected.json",
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/paths/paths-all-operations.expected.json",
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"Pets GET\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"operationId\": \"listPets\"\n      },\n      \"put\": {\n        \"summary\": \"Update Pet\",\n        \"description\": \"Updates a pet\",\n        \"operationId\": \"updatePets\"\n      },\n      \"post\": {\n        \"summary\": \"New Pet\",\n        \"description\": \"Create a new pet\",\n        \"operationId\": \"newPet\"\n      },\n      \"delete\": {\n        \"summary\": \"Delete a Pet\",\n        \"description\": \"Deletes a pet\",\n        \"operationId\": \"deletePet\"\n      },\n      \"options\": {\n        \"summary\": \"Pet Options\",\n        \"description\": \"Gets pet options\",\n        \"operationId\": \"petOptions\"\n      },\n      \"head\": {\n        \"summary\": \"Pet Head\",\n        \"description\": \"Pet head\",\n        \"operationId\": \"headPets\"\n      },\n      \"patch\": {\n        \"summary\": \"Pet Patch\",\n        \"description\": \"Patches a pet\",\n        \"operationId\": \"patchPets\"\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
+	"Error": "parse: paths: /pets: get: operation \"listPets\": responses: no responses"
 }

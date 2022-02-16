@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/nicolastakashi/todoapp-openapidocuments"
 		},
 		"file": {
-			"name": "negative7.yaml",
-			"path": "assets/queries/openAPI/general/default_invalid/test/negative7.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - message\n                  - code\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                default: { \"message\": \"hello\", \"code\": 200 }\n"
+			"name": "api.yaml",
+			"path": "specs/api.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Todo App API\n  description: API used as sample during the Blog Posts series talking about API Design.\n  version: \"1.0\"\n  contact:\n    email: 'nicolas.tcs@hotmail.com'\n    name: 'Nicolas Takashi'\n    url: 'https://nicolastakashi.medium.com'\n  x-logo:\n    url: \"https://img.icons8.com/nolan/452/todo-list.png\"\n    backgroundColor: \"#FFFFFF\"\n    altText: \"Petstore logo\"\n  license:\n    name: MIT\n    url: https://raw.githubusercontent.com/nicolastakashi/todoapp-openapidocuments/master/LICENSE\nservers:\n  - url: http://127.0.0.1:4010\n    description: Mock Server\ntags:\n  - name: Tasks\npaths:\n  '/tasks':\n    $ref: './components/paths/tasks/task.yaml'\n  '/tasks/{id}':\n    $ref: './components/paths/tasks/task-by-id.yaml'\ncomponents:\n  schemas:\n    Task:\n      $ref: 'components/schemas/task.yaml#/components/schemas/Task'\n    PagedTask:\n      $ref: 'components/schemas/pagedTask.yaml#/components/schemas/PagedTask'\n    ProblemDetails:\n      $ref: 'components/schemas/problemDetails.yaml#/components/schemas/ProblemDetails'"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse default: unexpected type: \"object\""
+	"Error": "parse: /tasks: referenced pathItem not supported"
 }

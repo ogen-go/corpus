@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/callback-object/fixtures/operation-object/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"paths\": {\n      \"/path\": {\n        \"get\": {\n          \"callbacks\": {\n            \"callback\": {\n              \"{$method}\": {\n                \"description\": \"description of callback2\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"components\": {\n      \"callbacks\": {\n        \"callback\": {\n          \"{$method}\": {\n            \"description\": \"description of callback2\"\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/external-circular-dependency/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"schema1\": {\n          \"type\": \"object\"\n        },\n        \"schema2\": {\n          \"type\": \"object\"\n        },\n        \"schema3\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

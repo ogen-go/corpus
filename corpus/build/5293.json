@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Cornutum/tcases"
+			"name": "github.com/readmeio/oas-normalize"
 		},
 		"file": {
-			"name": "errors-0.json",
-			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/errors-0.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"String\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/string\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n                        \"schema\": {\n                            \"type\": \"decimal\"\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "definition.json",
+			"path": "__tests__/__fixtures__/bundle/definition.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v2\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\"\n  },\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"responses\": {\n          \"405\": {\n            \"description\": \"Invalid input\"\n          }\n        },\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Pet\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Pet\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"./__tests__/__fixtures__/bundle/pet.json\"\n            }\n          },\n          \"application/xml\": {\n            \"schema\": {\n              \"$ref\": \"./__tests__/__fixtures__/bundle/pet.json\"\n            }\n          }\n        },\n        \"description\": \"Pet object that needs to be added to the store\",\n        \"required\": true\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /string: post: : parameters: parse parameter \"param0\": schema: parse schema: unexpected schema type: \"decimal\""
+	"Error": "parse: paths: /pet: post: operation \"\": requestBody: resolve \"#/components/requestBodies/Pet\" reference: content: \"application/json\": parse schema: parse schema: reference \"./__tests__/__fixtures__/bundle/pet.json\": resolve reference \"./__tests__/__fixtures__/bundle/pet.json\": invalid schema reference \"./__tests__/__fixtures__/bundle/pet.json\""
 }

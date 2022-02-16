@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/GetDKAN/dkan2"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "dkan_api_openapi_spec.yml",
-			"path": "modules/dkan_api/tests/src/Unit/Controller/docs/dkan_api_openapi_spec.yml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: API Documentation\n  version: Alpha\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\npaths:\n  /api/1/metastore/schemas/dataset/items/{identifier}:\n    get:\n      summary: Get this dataset\n      # description:\n      tags:\n        - Dataset\n      parameters:\n        - name: \"identifier\"\n          in: \"path\"\n          description: \"Dataset uuid\"\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: Ok\n    delete:\n      summary: This operation should not be present in dataset-specific docs.\n      security:\n        - basicAuth: []\n      responses:\n        200:\n          description: Ok\n    # Though an empty verb invalidates the spec, test its removal by dataset-specific docs.\n    post:\n  /api/1/some/other/path:\n    patch:\n      summary: This path and operation should not be present in dataset-specific docs.\n      security:\n        - basicAuth: []\n      responses:\n        200:\n          description: Ok\n"
+			"name": "api.yml",
+			"path": "als-structure/shared/src/test/resources/OAS30/encoding/api.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  version: 1.0.1\n\npaths:\n  /endpoint1:\n    summary: aa\n    description: an endpoint\n    get:\n      requestBody:\n        description: a request\n        content:\n          application/json:\n            encoding:\n              name:\n                contentType: application/json\n                headers:\n                  header:\n                    description: a header\n                style: plain\n                explode: false\n                allowReserved: false\n"
 		}
 	},
-	"Error": "parse: paths: /api/1/metastore/schemas/dataset/items/{identifier}: delete: : parse path: path parameter not specified: \"identifier\""
+	"Error": "parse: paths: /endpoint1: get: operation \"\": responses: no responses"
 }

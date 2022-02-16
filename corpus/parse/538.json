@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/cloudmesh/cloudmesh-openapi"
+			"name": "github.com/KnowledgeCaptureAndDiscovery/OBA"
 		},
 		"file": {
-			"name": "calculator-subtraction.yaml",
-			"path": "tests/generator-calculator/calculator-subtraction.yaml",
-			"content": "\nopenapi: 3.0.0\ninfo:\n  title: subtraction\n  description: subtraction int and float sample.\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: subtraction int and float sample.\npaths:\n  /subtraction:\n     get:\n      summary: subtraction int and float sample.\n      description: Optional extended description in CommonMark or HTML.\n      operationId: calculator.subtraction\n      parameters:\n        - in: query\n          name: x\n          description: x value\n          schema:\n            type: number\n        - in: query\n          name: y\n          description: y value\n          schema:\n            type: number\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: number\n\n"
+			"name": "config.yaml",
+			"path": "src/test/resources/missing_import/config.yaml",
+			"content": "ontologies:\n  - src/test/resources/missing_import/missing_import.ttl\nname: missing-import-example\noutput_dir: outputs\n\nopenapi:\n  openapi: 3.0.1\n  info:\n    description: This is the API for the restrictions example ontology\n    version: v1.5.0\n    title: Missing import example ontology\n  externalDocs:\n    description: Missing import example ontology\n    url: https://w3id.org/example\n  servers:\n    - url: http://localhost:8080/v1.5.0\n\nfirebase:\n  key: \"test\"\n\nendpoint:\n  url: http://localhost:8080/example-1.5.0\n  prefix: https://w3id.org/example\n  graph_base: http://localhost:8080/example-1.5.0/data/\n\nenable_get_paths: true\nenable_post_paths: true\nenable_delete_paths: true\nenable_put_paths: true\n\nauth:\n  provider: firebase\nfollow_references: true\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+	"Error": "json: cannot unmarshal object into Go struct field Spec.openapi of type string"
 }

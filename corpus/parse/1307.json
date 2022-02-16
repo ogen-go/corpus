@@ -5,10 +5,10 @@
 			"name": "github.com/swagger-api/apidom"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/internal-external/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"profile\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"firstName\": {\n                  \"type\": \"string\"\n                },\n                \"lastName\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"UserProfile\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"firstName\": {\n              \"type\": \"string\"\n            },\n            \"lastName\": {\n              \"type\": \"string\"\n            }\n          }\n        },\n        \"Order\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"orderId\": {\n              \"type\": \"number\"\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "sample-api-schema-error.json",
+			"path": "packages/apidom-ls/test/fixtures/sample-api-schema-error.json",
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Sample API\",\n    \"version\": \"0.1.9\"\n  },\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"operationId\": \"getUserList\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A JSON array of user names\"\n          }\n        }\n      },\n      \"parameters\": {\n        \"name\": \"userId\",\n        \"in\": \"query\",\n        \"description\": \"ID of the user\",\n        \"required\": true\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal object into Go struct field PathItem.paths.parameters of type []*ogen.Parameter"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/eclipse/kapua"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "job-scopeId-jobId-triggers-triggerId-fired.yaml",
-			"path": "rest-api/resources/src/main/resources/openapi/jobTriggerFired/job-scopeId-jobId-triggers-triggerId-fired.yaml",
-			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs - Trigger Fired\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/jobs/{jobId}/triggers/{triggerId}/fired:\n    get:\n      tags:\n        - Job - Trigger Fired\n      summary: Get all the Jobs Trigger Fired\n      operationId: jobTriggerFiredList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../job/job.yaml#/components/parameters/jobId'\n        - $ref: './jobTriggerFired.yaml#/components/parameters/triggerId'\n        - name: status\n          in: query\n          description: |\n            The optional status of the Fired Trigger\n\n            Allowed values:\n            - FIRED\n            - FAILED\n          schema:\n            $ref: './jobTriggerFired.yaml#/components/schemas/firedTriggerStatus'\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Job Trigger Fired available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './jobTriggerFired.yaml#/components/schemas/firedTriggerListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+			"name": "positive6.yaml",
+			"path": "assets/queries/openAPI/general/array_items_has_no_type/test/positive6.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/schemas/MyObject\"\n        \"201\":\n          description: 201 response\n          content:\n            \"application/x-www-form-urlencoded\":\n              schema:\n                type: array\n                items:\n                  oneOf:\n                    - type: integer\n                    - format: int32\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        quantity:\n          type: integer\n          format: int32\n        percentage:\n          type: number\n          format: float\n        result:\n          type: number\n          format: double\n    MyIntArray:\n      type: array\n      items:\n        type: integer\n"
 		}
 	},
-	"Error": "parse: paths: /{scopeId}/jobs/{jobId}/triggers/{triggerId}/fired: get: jobTriggerFiredList: parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+	"Error": "parse: paths: /: get: operation \"listVersionsv2\": responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

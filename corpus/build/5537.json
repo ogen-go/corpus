@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "api.json",
-			"path": "als-structure/shared/src/test/resources/OAS30/media-type/api.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample Pet Store App\",\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/endpoint1\": {\n      \"summary\": \"aa\",\n      \"description\": \"an endpoint\",\n      \"get\": {\n        \"requestBody\": {\n          \"description\": \"a request\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"string\"\n              },\n              \"examples\": {\n                \"exampleName\": {\n                  \"value\": \"a\"\n                }\n              },\n              \"encoding\": {\n                \"name\": null\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+			"name": "delete-contact-na.after.json",
+			"path": "src/test/resources/fixtures/cmd/commands/delete-contact/openapi-3/delete-contact-na.after.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\" : {\n    \"title\": \"Sample Pet Store App\",\n    \"description\": \"This is a sample server for a pet store.\",\n    \"termsOfService\": \"http://example.com/terms/\",\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"1.0.1\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"summary\": \"Foo Resources\",\n      \"description\": \"CRUD for Foos.\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"List Pets\",\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"externalDocs\": {\n          \"description\": \"Find more info here\",\n          \"url\": \"https://example.com\"\n        },\n        \"operationId\": \"listPets\",\n        \"deprecated\": false\n      }\n    },\n    \"/foo/{fooId}\": {\n      \"summary\": \"Foo Resource\",\n      \"description\": \"Foo details\",\n      \"get\": {\n        \"tags\": [ \"tag1\", \"tag2\" ],\n        \"summary\": \"Get Foo\",\n        \"description\": \"Returns a single foo.\",\n        \"operationId\": \"getFoo\",\n        \"deprecated\": false\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /endpoint1: get: : responses: no responses"
+	"Error": "parse: paths: /foo: get: operation \"listPets\": responses: no responses"
 }

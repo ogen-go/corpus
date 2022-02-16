@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-parser"
+			"name": "github.com/armand-janssen/openapi-transformer"
 		},
 		"file": {
-			"name": "remote-parameter-swagger.yaml",
-			"path": "modules/swagger-parser-v3/src/test/resources/issue-1103/remote-parameter-swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  version: \"1\"\n  title: Admin Web App Services\n  description: 'Services'\npaths:\n  '/Translation/{lang}':\n    put:\n      tags:\n        - Translation_Settings\n      summary: Set value of this parameter\n      description: Provide the lookup table for localized strings\n      parameters:\n        - $ref: 'domain.yaml#/components/parameters/param_lang'"
+			"name": "all-in-one-openapi.yaml",
+			"path": "example/all-in-one/all-in-one-openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: All-in-one schema\n  version: 0.1.0\n  description: This is a Dummy api, containing a schema with as much OpenAPI schema possibilities as defined in the spec.\n\ncomponents:\n  schemas:\n    allInOne:\n      $ref: 'all-in-one.yaml#/components/schemas/allInOne'\n    \n\n\n\npaths:\n  /dummy:\n    get:\n      responses:\n        200:\n          content:\n            \"application/json\":\n              schema:\n                $ref: \"#/components/schemas/allInOne\"\n"
 		}
 	},
-	"Error": "parse: paths: /Translation/{lang}: put: : parameters: parse parameter \"\": resolve \"domain.yaml#/components/parameters/param_lang\" reference: invalid parameter reference: \"domain.yaml#/components/parameters/param_lang\""
+	"Error": "parse: paths: /dummy: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/allInOne\": parse schema: reference \"all-in-one.yaml#/components/schemas/allInOne\": resolve reference \"all-in-one.yaml#/components/schemas/allInOne\": invalid schema reference \"all-in-one.yaml#/components/schemas/allInOne\""
 }

@@ -5,10 +5,10 @@
 			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "parameter_ref.yaml",
-			"path": "src/test/resources/testing/documentation/openapi/yaml/parameter_ref.yaml",
-			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      parameters:\n        - $ref: '\u003ccaret\u003e#/components/parameters/Parameter'\ncomponents:\n  parameters:\n    Parameter:\n      name: parameter_name\n      in: query\n      description: Description\n"
+			"name": "rename_component_file_reference.yaml",
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_file_reference.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '\u003ccaret\u003ecomponents.yaml#/Pet'\n"
 		}
 	},
-	"Error": "parse: paths: /pathA: get: : parameters: parse parameter \"\": resolve \"\u003ccaret\u003e#/components/parameters/Parameter\" reference: invalid parameter reference: \"\u003ccaret\u003e#/components/parameters/Parameter\""
+	"Error": "parse: paths: /pets: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"\u003ccaret\u003ecomponents.yaml#/Pet\": resolve reference \"\u003ccaret\u003ecomponents.yaml#/Pet\": invalid schema reference \"\u003ccaret\u003ecomponents.yaml#/Pet\""
 }

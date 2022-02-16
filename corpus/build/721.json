@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/stoplightio/spectral"
+			"name": "github.com/getkin/kin-openapi"
 		},
 		"file": {
-			"name": "spec.yaml",
-			"path": "packages/core/src/__tests__/__fixtures__/gh-474/spec.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n  contact:\n    $ref: 'common.yaml#/info/contact'\npaths:\n  '/':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: 'common.yaml#/components/schemas/ResponseType'\n"
+			"name": "main.yaml",
+			"path": "openapi3/testdata/main.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: \"test file\"\n  version: \"n/a\"\npaths:\n  /testpath:\n    $ref: \"testpath.yaml#/paths/~1testpath\"\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: content: application/json: schema: parse schema: reference \"common.yaml#/components/schemas/ResponseType\": resolve reference \"common.yaml#/components/schemas/ResponseType\": invalid schema reference \"common.yaml#/components/schemas/ResponseType\""
+	"Error": "parse: /testpath: referenced pathItem not supported"
 }

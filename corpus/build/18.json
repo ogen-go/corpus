@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenLineage/OpenLineage"
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
 		},
 		"file": {
-			"name": "OpenLineage.yml",
-			"path": "spec/OpenLineage.yml",
-			"content": "openapi: 3.0.2\ninfo:\n  title: OpenLineage\n  version: 0.0.1\n  description: OpenLineage is an open source **lineage and metadata collection API** for the data ecosystem.\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\npaths:\n  /lineage:\n    post:\n      summary: Send an event related to the state of a run\n      description: Updates a run state for a job.\n      operationId: postRunEvent\n      tags:\n        - OpenLineage\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'OpenLineage.json#/$defs/RunEvent'\n      responses:\n        '200':\n          description: OK\n\n"
+			"name": "slash_ref.yml",
+			"path": "test/input/openapi_3/slash_ref.yml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nservers:\n  - url: 'https://api.example.com'\npaths:\n  /users~:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':\n          description: OK\n  /other_users:\n    $ref: '#/paths/~1users~0'\n"
 		}
 	},
-	"Error": "parse: paths: /lineage: post: postRunEvent: requestBody: content: application/json: parse schema: parse schema: reference \"OpenLineage.json#/$defs/RunEvent\": resolve reference \"OpenLineage.json#/$defs/RunEvent\": invalid schema reference \"OpenLineage.json#/$defs/RunEvent\""
+	"Error": "parse: /other_users: referenced pathItem not supported"
 }

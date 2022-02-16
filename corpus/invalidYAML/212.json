@@ -5,10 +5,10 @@
 			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "all-of-schema.yaml",
-			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/discriminator/all-of-schema.yaml",
-			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Cat:\n      properties:\n        legs:\n          type: integer\n        name:\n          type: string\n        pet-type:\n          type: string\n    Dog:\n      properties:\n        legs:\n          type: integer\n        nickname:\n          type: string\n        pet-type:\n          type: string\n    test:\n      allOf:\n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Dog'\n      *"
+			"name": "parameters.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/paths/path-object/operation/responses/links/parameters/parameters.yaml",
+			"content": "openapi: 3.0.0\n\npaths:\n  /users:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                userId:\n                  type: string\n      responses:\n        '201':\n          links:\n            GetUserByUserId:\n              parameters:\n                userId: *"
 		}
 	},
-	"Error": "yaml: line 24: did not find expected alphabetic or numeric character"
+	"Error": "yaml: line 19: did not find expected alphabetic or numeric character"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/janephp"
+			"name": "github.com/readmeio/api-explorer"
 		},
 		"file": {
-			"name": "swagger.json",
-			"path": "src/Component/OpenApi3/Tests/fixtures/exceptions/swagger.json",
-			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-exception\": {\n            \"get\": {\n                \"operationId\": \"Test No Tag\",\n                \"responses\": {\n                    \"400\": {\n                        \"description\": \"Bad request on test exception\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    },\n                    \"404\": {\n                        \"description\": \"Not found get\"\n                    },\n                    \"500\": {\n                        \"description\": \"Internal server error on test exception\"\n                    },\n                    \"600\": {\n                        \"description\": \"New update available\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Message\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"servers\": [\n        {\n            \"url\": \"/\"\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Message\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"message\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
+			"name": "no-security-schemes.json",
+			"path": "packages/api-explorer/__tests__/__fixtures__/auth-types/no-security-schemes.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Multiple Securities\"\n  },\n  \"paths\": {\n    \"/oauth\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"oauth\": [\"write:things\"]\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test-exception: get: Test No Tag: responses: 600: unknown status code: 600"
+	"Error": "parse: paths: /oauth: post: operation \"\": responses: no responses"
 }

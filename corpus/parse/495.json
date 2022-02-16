@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/punkerpunker/isochrone"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "containers/app/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Isochrone\n  description: https://github.com/punkerpunker/isochrone-api\n  version: 0.0.1\n\npaths:\n  /isochrone: \n    get: \n      operationId: app.isochrone\n      parameters: \n        - name: X \n          description: Longitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: Y\n          description: Latitude\n          in: query\n          schema:\n            type: number\n          required: true\n        - name: sec\n          description: Seconds\n          in: query\n          schema:\n            type: integer\n          required: true\n      responses:\n        '200':\n          description: Isochrone WKT polygon\n          content: \n            application/json:\n              schema:\n                type: object\n                properties:\n                  polygon:\n                    type: string"
+			"name": "positive4.yaml",
+			"path": "assets/queries/ansible/aws/api_gateway_without_configured_authorizer/test/positive4.yaml",
+			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API 222\n  aws_api_gateway:\n    swagger_text: |\n      openapi: 3.0.0\n      info:\n        title: Sample API\n        description: Optional multiline or single-line description\n        version: 0.1.9\n      components:\n        ssecuritySchemes:\n          request_authorizer_single_stagevar:\n            type: apiKey\n            name: Unused\n            in: header\n            x-amazon-apigateway-authtype: custom\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
 		}
 	},
-	"Error": "json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
 }

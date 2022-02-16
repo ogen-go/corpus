@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/link-object/fixtures/operation-ref-external/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"links\": {\n        \"link1\": {\n          \"operationRef\": \"./ex.json#/operation\",\n          \"operation\": {\n            \"description\": \"description of operation\"\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"name": "schema3.json",
+			"path": "als-actions/shared/src/test/resources/codeactions/extract-element/schema-from-oas/schema3.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"responses\": {\n      \"test\": \"x\"\n    },\n    \"schemas\": {\n      \"test\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/p\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"schema\": {\n              \"type\": \"string\",\n              \"example\": \"textplain\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"
+	"Error": "json: cannot unmarshal string into Go struct field Components.components.responses of type ogen.Response"
 }

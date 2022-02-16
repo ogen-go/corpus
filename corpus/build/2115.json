@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/plantbreeding/BrAPI"
+			"name": "github.com/higherkindness/compendium"
 		},
 		"file": {
-			"name": "StudyTypes_GET.yaml",
-			"path": "Specification/BrAPI-Core/Studies/StudyTypes_GET.yaml",
-			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /studytypes:\n    get:\n      summary: Get the Study Types\n      description: Call to retrieve the list of study types.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        description: the list of all study types available in this server.\n                        items:\n                          type: string\n                        type: array\n                        example:\n                          - Crossing Nursery\n                          - Yield study\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n                title: studyTypesResponse\n                type: object\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Studies\n"
+			"name": "wrongYamlOpenAPI.yaml",
+			"path": "src/test/resources/wrongYamlOpenAPI.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: AnotherPetstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: getPets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time\n          required: false\n          schema:\n            type: integer\n            format: int32\n        - name: name\n          in: query\n          description: Items that contains in name the provided string\n          required: false\n          schema:\n            type: string\n      # MISSING RESPONSES\n    post:\n      summary: Create a pet\n      operationId: createPet\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              #MISSING REFERENCE IN THE DOCUMENT\n              $ref: \"#/components/schemas/NewPet\"\n      responses:\n        '201':\n          description: Null response\n        '400':\n          description: Duplicated response\n          content:\n            application/json:\n              schema:\n                type: string\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                #MISSING REFERENCE IN THE DOCUMENT\n                $ref: \"#/components/schemas/PetError\"\n"
 		}
 	},
-	"Error": "parse: paths: /studytypes: get: : parameters: parse parameter \"\": resolve \"#/components/parameters/page\" reference: component by reference \"#/components/parameters/page\" not found"
+	"Error": "parse: paths: /pets: get: operation \"getPets\": responses: no responses"
 }

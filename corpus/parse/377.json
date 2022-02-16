@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "openapi.yaml",
-			"path": "__tests__/lint/operation-2xx-response-rule/openapi.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition.\n  version: 1.0\n\npaths:\n  '/ping':\n    get:\n      operationId: gitPing\n      summary: example text\n      responses:\n        '200':\n          description: example description\n"
+			"path": "__tests__/lint/no-empty-servers-warning/openapi.yaml",
+			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\nservers:\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
 	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"

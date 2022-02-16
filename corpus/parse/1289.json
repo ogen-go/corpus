@@ -6,8 +6,8 @@
 		},
 		"file": {
 			"name": "dereferenced.json",
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/$anchor-external/dereferenced.json",
-			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"schemas\": {\n        \"User\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"login\": {\n              \"type\": \"string\"\n            },\n            \"password\": {\n              \"type\": \"string\"\n            },\n            \"profile\": {\n              \"$anchor\": \"user-profile\",\n              \"properties\": {\n                \"firstName\": {\n                  \"type\": \"string\"\n                },\n                \"lastName\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n]\n"
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/example-object/fixtures/external-value-pointer/dereferenced.json",
+			"content": "[\n  {\n    \"openapi\": \"3.1.0\",\n    \"components\": {\n      \"examples\": {\n        \"example1\": {\n          \"description\": \"example1 description\",\n          \"value\": {\n            \"prop1\": \"value1\",\n            \"prop2\": \"value2\"\n          },\n          \"externalValue\": \"./ex.json#/json/pointer\"\n        }\n      }\n    }\n  }\n]\n"
 		}
 	},
 	"Error": "json: cannot unmarshal array into Go value of type ogen.Spec"

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/apidom"
+			"name": "github.com/aml-org/als"
 		},
 		"file": {
-			"name": "sample-api-error-simple.yaml",
-			"path": "packages/apidom-ls/test/fixtures/sample-api-error-simple.yaml",
-			"content": "openapi: 3.1.0\ninfo:\n  title: Sample API\n  summary: example summary\n  version::: 0.1.9\n  license:\n    name: Apache License 2.0\n    identifier::: Apache License 2.0\n      url: https://www.apache.org/licenses/LICENSE-2.0\n  contact:\n    name: Vladimir Gorej\n"
+			"name": "discriminator-mapping-value.yaml",
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/yaml/open-api-document/components/schemas/discriminator/discriminator-mapping-value.yaml",
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Cat:\n      properties:\n        legs:\n          type: integer\n        name:\n          type: string\n        pet-type:\n          type: string\n    Dog:\n      properties:\n        legs:\n          type: integer\n        nickname:\n          type: string\n        pet-type:\n          type: string\n    test:\n      oneOf:\n        - $ref: '#/components/schemas/Cat'\n        - $ref: '#/components/schemas/Dog'\n      discriminator:\n        propertyName: pet-type\n        mapping:\n          dog: *"
 		}
 	},
-	"Error": "yaml: line 9: mapping values are not allowed in this context"
+	"Error": "yaml: line 27: did not find expected alphabetic or numeric character"
 }

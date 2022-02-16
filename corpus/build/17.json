@@ -5,10 +5,10 @@
 			"name": "github.com/LucyBot-Inc/api-spec-converter"
 		},
 		"file": {
-			"name": "slash_ref.yml",
-			"path": "test/input/openapi_3/slash_ref.yml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nservers:\n  - url: 'https://api.example.com'\npaths:\n  /users~:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':\n          description: OK\n  /other_users:\n    $ref: '#/paths/~1users~0'\n"
+			"name": "yaml_with_ref.yml",
+			"path": "test/input/openapi_3/yaml_with_ref.yml",
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.1\n  title: testsickle\npaths:\n  '/api/v2/user/{id}':\n    get:\n      tags:\n        - User\n      summary: Get user\n      operationId: user.get\n      parameters:\n        - name: id\n          in: path\n          schema:\n            $ref: 'yaml_ref.yml'\n"
 		}
 	},
-	"Error": "parse: /other_users: referenced pathItem not supported"
+	"Error": "parse: paths: /api/v2/user/{id}: get: operation \"user.get\": parameters: parse parameter \"id\": path parameters must be required"
 }

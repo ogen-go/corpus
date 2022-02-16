@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/amf"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "reference-external-example.json",
-			"path": "amf-cli/shared/src/test/resources/cycle/oas30/example/reference-external-example.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\"\n                },\n                \"examples\": {\n                  \"a\": {\n                    \"$ref\": \"external-example.json\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"name": "change-server-operation.before.json",
+			"path": "src/test/resources/fixtures/cmd/commands/change-server/openapi-3/change-server-operation.before.json",
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        },\n        \"servers\": [\n          {\n            \"url\": \"https://development.gigantic-server.com/v1\",\n            \"description\": \"Development server\"\n          },\n          {\n            \"url\": \"https://staging.gigantic-server.com/v1\",\n            \"description\": \"Staging server\"\n          },\n          {\n            \"url\": \"https://production.gigantic-server.com/v1\",\n            \"description\": \"Production server\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /test: get: test: responses: 200: resolve: \"external-example.json\": invalid parameter reference: \"external-example.json\""
+	"Error": "parse: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/arx-8/swagger-viewer"
+			"name": "github.com/italia/lg-modellointeroperabilita-docs"
 		},
 		"file": {
-			"name": "swagger_3_0_broken.yaml",
-			"path": "swagger-viewer/app-src/shared/__test__/fixtures/swagger_3_0_broken.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Callback Example\n  version: 1.0.0\npaths:\n  /streams\n    post:\n      description: subscribes a client to receive out-of-band data\n      parameters:\n        - name: callbackUrl\n          in: query\n          required: true\n          description: |\n            the location where data will be sent.  Must be network accessible\n            by the source server\n          schema:\n            type: string\n            format: uri\n            example: https://tonys-server.com\n      responses:\n        \"201\":\n          description: subscription successfully created\n          content:\n            application/json:\n              schema:\n                description: subscription information\n                required:\n                  - subscriptionId\n                properties:\n                  subscriptionId:\n                    description: this unique identifier allows management of the subscription\n                    type: string\n                    example: 2531329f-fb09-4ef7-887e-84e648214436\n      callbacks:\n        # the name `onData` is a convenience locator\n        onData:\n          # when data is sent, it will be sent to the `callbackUrl` provided\n          # when making the subscription PLUS the suffix `/data`\n          \"{$request.query.callbackUrl}/data\":\n            post:\n              requestBody:\n                description: subscription payload\n                content:\n                  application/json:\n                    schema:\n                      properties:\n                        timestamp:\n                          type: string\n                          format: date-time\n                        userData:\n                          type: string\n              responses:\n                \"202\":\n                  description: |\n                    Your server implementation should return this HTTP status code\n                    if the data was received successfully\n                \"204\":\n                  description: |\n                    Your server should return this HTTP status code if no longer interested\n                    in further updates\n"
+			"name": "file-470c9c7d9f2d0c6947f8fe7dd6e4410f6fd1c951043908bf504dd15c7d8a2868.yaml",
+			"path": "doc/04_Raccomandazioni di implementazione/05_raccomandazioni-tecniche-per-rest/file-470c9c7d9f2d0c6947f8fe7dd6e4410f6fd1c951043908bf504dd15c7d8a2868.yaml",
+			"content": "   openapi: 3.0.2\n   \n   ...\n   \n   paths:\n   \n   ...\n   \n   /status:\n   \n   get:\n   \n   summary: Ritorna lo stato dell'applicazione.\n   \n   tags:\n   \n   - public\n   \n   description: \\|\n   \n   Ritorna lo stato dell'applicazione in formato problem+json\n   \n   responses:\n   \n   '200':\n   \n   content:\n   \n   application/problem+json:\n   \n   schema:\n   \n   $ref: '#/components/schemas/Problem'\n   \n   description: \\|\n   \n   Il servizio funziona correttamente.\n   \n   default:\n   \n   content:\n   \n   application/problem+json:\n   \n   schema:\n   \n   $ref: '#/components/schemas/Problem'\n   \n   description: \\|\n   \n   Il server ha riscontrato un problema.\n"
 		}
 	},
-	"Error": "yaml: line 7: mapping values are not allowed in this context"
+	"Error": "yaml: line 5: could not find expected ':'"
 }

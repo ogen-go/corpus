@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/karlvr/openapi-generator-plus"
+			"name": "github.com/evilmint/aws-openapi-lint"
 		},
 		"file": {
-			"name": "external-response.yml",
-			"path": "packages/core/src/__tests__/naming/external-response.yml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          $ref: './external-part.yml#/components/responses/MyResponse'\n"
+			"name": "options_cors_incosistent_headers.yml",
+			"path": "test_files/options_cors_incosistent_headers.yml",
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource:\n    get:\n      parameters:\n        - name: \"resourceId\"\n          in: \"header\"\n          required: true\n          description: \"Some path param\"\n          schema:\n            type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n        400:\n          description: \"400 response\"\n      security:\n        - Some-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.accept: \"method.request.header.resourceId\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\"\n        responses:\n          200:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'*'\"\n    options:\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        passthroughBehavior: \"when_no_templates\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Methods: \"'GET,OPTIONS'\"\n              method.response.header.Access-Control-Allow-Headers: \"''\"\n              method.response.header.Access-Control-Allow-Origin: \"'*'\""
 		}
 	},
-	"Error": "parse: paths: /test1: get: : responses: 200: resolve \"./external-part.yml#/components/responses/MyResponse\" reference: invalid response reference: \"./external-part.yml#/components/responses/MyResponse\""
+	"Error": "parse: paths: /test/resource: options: operation \"\": responses: no responses"
 }

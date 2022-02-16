@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/DILA-edu/cbeta-api"
+			"name": "github.com/postmanlabs/openapi-to-postman"
 		},
 		"file": {
-			"name": "openapi.yaml",
-			"path": "public/openapi/openapi.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: CBETA API\n  description: API to access CBETA Chinese Buddhist Texts Resources.\n  version: 1.2.19\n\nservers:\n  - url: http://cbdata.dila.edu.tw/v1.2\n    description: Main server\n  - url: http://api.cbetaonline.cn/\n    description: Mirror server\n\npaths:\n  /catalog_entry:\n    get:\n      summary: Returns a catalog entry information, including its children.\n      parameters:\n        $ref: 'catalog-entry-parameters.yaml'\n      responses:\n        '200':\n          description: A Catalog Entry Object\n          content:\n            application/json:\n              schema: \n                type: object\n                properties:\n                  $ref: 'catalog-entry-response.yaml'"
+			"name": "queryParamDeepObjectSpec.yaml",
+			"path": "test/data/31CollectionTransactions/validate30Scenarios/queryParamDeepObjectSpec.yaml",
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      tags:\n      - pet\n      summary: Updates a pet in the store with form data\n      operationId: updatePetWithForm\n      parameters:\n      - name: user\n        in: query\n        description: info about user\n        required: true\n        style: deepObject\n        schema:\n          type: \n            - object\n          properties:\n            id:\n              type: \n                - integer\n              examples: \n                - 123\n            name:\n              type: \n                - string\n              examples: \n                - John Johanson\n            address:\n              type: \n                - object\n              properties:\n                city:\n                  type: \n                    - string\n                  examples: \n                    - Delhi\n                country:\n                  type: \n                    - string\n                  examples: \n                    - India\n      - name: propArrayComplex\n        in: query\n        description: deepObject with complex array structure\n        required: true\n        style: deepObject\n        schema:\n          type: \n            - array\n          items:\n            type: \n              - object\n            properties:\n              prop1ArrayComp:\n                type: \n                  - integer\n              prop2ArrayComp:\n                type: \n                  - string\n      responses:\n        '200':\n          description: Pet updated.\n"
 		}
 	},
-	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
+	"Error": "callback: callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }

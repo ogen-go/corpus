@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/zalando/intellij-swagger"
+			"name": "github.com/opticdev/optic"
 		},
 		"file": {
-			"name": "rename_component_example_after.json",
-			"path": "src/test/resources/testing/rename/openapi/json/rename_component_example_after.json",
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"$ref\": \"#/components/examples/NewExample\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"examples\": {\n      \"\u003ccaret\u003eNewExample\": {}\n    }\n  }\n}\n"
+			"name": "with-body-ref.json",
+			"path": "projects/openapi-diff-experiment/src/services/patch/reconcilers/tests/example/with-body-ref.json",
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/example\": {\n      \"parameters\": [],\n      \"get\": {\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\"$ref\":  \"./definitions.json#/components/ExampleBody\"}\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"info\": {\n    \"version\": \"0.0.0\",\n    \"title\": \"Empty\"\n  }\n}\n"
 		}
 	},
-	"Error": "parse: paths: /: get: : responses: 200: resolve: \"#/components/examples/NewExample\": component by reference \"#/components/examples/NewExample\" not found"
+	"Error": "parse: paths: /example: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"./definitions.json#/components/ExampleBody\": resolve reference \"./definitions.json#/components/ExampleBody\": invalid schema reference \"./definitions.json#/components/ExampleBody\""
 }

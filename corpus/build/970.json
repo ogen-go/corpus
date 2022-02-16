@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/swagger-api/swagger-core"
+			"name": "github.com/OpenAPITools/openapi-diff"
 		},
 		"file": {
-			"name": "LinksResource.yaml",
-			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
-			"content": "openapi: 3.0.1\npaths:\n  /links:\n    get:\n      operationId: getUserWithAddress\n      parameters:\n      - name: userId\n        in: query\n        schema:\n          type: string\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            address:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\n            user:\n              operationId: getUser\n              parameters:\n                userId: $request.query.userId\n"
+			"name": "oneOf_discriminator-changed_2.yaml",
+			"path": "core/src/test/resources/oneOf_discriminator-changed_2.yaml",
+			"content": "openapi: 3.0.1\ninfo:\n  title: oneOf test for issue 29\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /state:\n    post:\n      operationId: update\n      requestBody:\n        content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/A'\n                  - $ref: '#/components/schemas/B'\n                discriminator:\n                  propertyName: othertype\n                  mapping:\n                    a-type: '#/components/schemas/A'\n                    b-type: '#/components/schemas/B'\n        required: true\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas:\n    A:\n      type: object\n      properties:\n        realtype:\n          type: string\n        othertype:\n          type: string\n        message:\n          type: string\n    B:\n      type: object\n      properties:\n        realtype:\n          type: string\n        othertype:\n          type: string\n        description:\n          type: string\n        code:\n          type: integer\n          format: int32"
 		}
 	},
-	"Error": "parse: paths: /links: get: getUserWithAddress: responses: default: content: */*: schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+	"Error": "make ir: path \"/state\": post: requestBody: contents: application/json: schema: oneOf: discriminator: unable to map a-type to #/components/schemas/A"
 }

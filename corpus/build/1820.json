@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/NENA911/i3"
+			"name": "github.com/eclipse/kapua"
 		},
 		"file": {
-			"name": "i3-adr.yaml",
-			"path": "schema/i3-adr.yaml",
-			"content": "openapi: 3.0.1\ninfo:\n  title: IS-ADR Service\n  version: \"1.0\"\nservers:\n  - url: http://localhost/Adr/v1\npaths:\n  /AdditionalData:\n    get:\n      tags:\n        - RetrieveCallerAdditionalData\n      summary: Retrieves Additional Data of the caller in XML format or a reference to the Additional Data. Provides ADR search capability by identity (Identity-Searchable).\n      operationId: RetrieveCallerAdditionalData\n      parameters:\n        - name: callerUri\n          in: query\n          description: Caller URI (taken from From or PAI)\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Additional Data found\n          content:\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/AdditionalDataValue'\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AdditionalDataReference'\n        '307':\n          description: Temporary Redirect\n          headers:\n            Location:\n              description: Referral URI of ADR\n              schema:\n                type: string\n                format: uri\n        '404':\n          description: Not found\n        '454':\n          description: Unspecified Error\n  /Versions:\n    servers:\n      - url: https://api.example.com/Adr\n        description: Override base path for Versions query\n    get:\n      tags:\n        - RetrieveVersions\n      summary: Retrieves all supported versions, vendor parameter is optional.\n      operationId: RetrieveVersions\n      responses:\n        '200':\n          description: Versions found\n          content:\n            application/json:\n              schema:\n                $ref: 'i3-common.yaml#/components/schemas/VersionsArray'\ncomponents:\n  schemas:\n    AdditionalDataValue:\n      type: string\n    AdditionalDataReference:\n      type: string"
+			"name": "dataMetric-scopeId-_count.yaml",
+			"path": "rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId-_count.yaml",
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Metric\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/metrics/_count:\n    post:\n      tags:\n        - Data Metric\n      summary: Count the MetricInfos\n      operationId: dataMetricCount\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        $ref: '../openapi.yaml#/components/requestBodies/kapuaQuery'\n      responses:\n        200:\n          $ref: '../openapi.yaml#/components/responses/countResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
 		}
 	},
-	"Error": "parse: paths: /AdditionalData: get: RetrieveCallerAdditionalData: responses: 454: unknown status code: 454"
+	"Error": "parse: paths: /{scopeId}/data/metrics/_count: post: operation \"dataMetricCount\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
 }

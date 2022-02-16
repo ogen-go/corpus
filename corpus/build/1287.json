@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/dzeyelid/decode20-azure-quiz-client"
+			"name": "github.com/heitortsergent/openapi3-ref-example"
 		},
 		"file": {
-			"name": "to-web-client.yaml",
-			"path": "docs/openapi/to-web-client.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: de:code 2020 Tech Quiz - Control client\n  description: APIs to control web client that makes audience answer for de:code 2020 Tech Quiz\n  version: 1.0.0\n\nservers:\n  - url: 'http://localhost:{port}/api'\n    description: Local\n    variables:\n      port:\n        default: '8080'\n        description: port number\n  - url: 'https://{prefix}.{location}.azurestaticapps.net/api'\n    description: Static Web App\n    variables:\n      prefix:\n        default: \u003cInput here\u003e\n        description: Sub domain prefix\n      location:\n        default: eastasia\n        description: Location\n\npaths:\n  /messages:\n    post:\n      operationId: sendMessage\n      summary: Send a message to web client\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\"\n      responses:\n        '200':\n          description: Succeeded\n"
+			"name": "petstore.yaml",
+			"path": "petstore.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    $ref: \"endpoints/pet.yaml#/paths/~1pets\"\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string"
 		}
 	},
-	"Error": "parse: paths: /messages: post: sendMessage: requestBody: content: application/json: parse schema: parse schema: reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\": resolve reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\": invalid schema reference \"./shared-components.yaml#/components/schemas/SendMessagesRequestBody\""
+	"Error": "parse: /pets: referenced pathItem not supported"
 }

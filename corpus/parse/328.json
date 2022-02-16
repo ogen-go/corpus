@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/microsoft/OpenAPI.NET"
+			"name": "github.com/zalando/intellij-swagger"
 		},
 		"file": {
-			"name": "definitions.v3.yaml",
-			"path": "test/Microsoft.OpenApi.Readers.Tests/V2Tests/Samples/definitions.v3.yaml",
-			"content": "﻿openapi: 3.0\ninfo: \n  title: This is a simple example\n  version: 1.0.0\npaths:\n  '/':\n    get:\n      200: \n        description: Ok\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/simple'\ncomponents:\n  schemas:\n    simple:\n      type: string\n        \n"
+			"name": "media_type_example.yaml",
+			"path": "src/test/resources/testing/completion/field/openapi/media_type_example.yaml",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      requestBody:\n        content:\n          application/json:\n            examples:\n              foo:\n                \u003ccaret\u003e\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Spec.openapi of type string"
+	"Error": "json: cannot unmarshal string into Go struct field Media.paths.get.requestBody.content.examples of type ogen.Example"
 }

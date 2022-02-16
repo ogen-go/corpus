@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Checkmarx/kics"
+			"name": "github.com/s950329/swagger-doc-template"
 		},
 		"file": {
-			"name": "negative4.yaml",
-			"path": "assets/queries/openAPI/general/non_array_schema_with_items/test/negative4.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                properties:\n                  code:\n                    type: string\n                    format: int32\n                  message:\n                    type: string\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+			"name": "images.yaml",
+			"path": "images.yaml",
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Hourmasters Service\n  license:\n    name: MIT\nservers:\n  - url: http://laravel.test/api/v1\n  - url: https://stage.hourmasters.com/api/v1\n  - url: https://www.hourmasters.com/api/v1\npaths:\n  /images:\n    post:\n      summary: 新增圖片\n      operationId: createImage\n      tags:\n        - images\n      parameters:\n        - \n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Image\"\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ImageResponse\"\ncomponents:\n  schemas:\n    Image:\n      required:\n        - type\n        - image\n      properties:\n        type:\n          type: string\n        image:\n          type: string\n          format: binary\n    ImageResponse:\n      properties:\n        id:\n          type: integer\n        user_id:\n          type: integer\n        type:\n          type: string\n        path:\n          type: string\n        created_at:\n          type: string\n          format: date-time\n        updated_at:\n          type: string\n          format: date-time\n"
 		}
 	},
-	"Error": "parse: paths: /: get: listVersionsv2: responses: 200: content: application/json: schema: parse schema: array cannot contain properties"
+	"Error": "parse: paths: /images: post: operation \"createImage\": parameters: parameter 0 is empty or null"
 }

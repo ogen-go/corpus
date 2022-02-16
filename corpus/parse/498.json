@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/markdouthwaite/minimal-flask-api"
+			"name": "github.com/Checkmarx/kics"
 		},
 		"file": {
-			"name": "swagger.yaml",
-			"path": "docs/swagger.yaml",
-			"content": "openapi: 3.0.0\ninfo:\n  title: Minimal Flask API Example\n  description: This file is for demonstration purposes only, you should fill in your own details.\n  version: 0.0.0\nservers:\n  - url: http://localhost:5000\n    description: This is a dummy value describing the base URL for the API.\npaths:\n  /:\n    get:\n      summary: Returns the default response from the API.\n      description: Optional extended description in CommonMark or HTML.\n      responses:\n        '200':    # status code\n          description: The default response.\n          content:\n            text/plain:\n              \"Hello, world\"\n  /health:\n    get:\n      summary: Used to check the API is responsive.\n      description: Optional extended description in CommonMark or HTML.\n      responses:\n        '200':    # status code\n          description: The default response.\n          content:\n            text/plain:\n              \"OK\""
+			"name": "positive2.yaml",
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_response/test/positive2.yaml",
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '404':\n          \"$ref\": \"#/components/responses/NotRight\"\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        code:\n          type: string\n        message:\n          type: string\n        required:\n        - code\n        - message\n  responses:\n    NotFound:\n      description: Resource not found\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/Error\"\n"
 		}
 	},
-	"Error": "json: cannot unmarshal string into Go struct field Response.paths.get.responses.content of type ogen.Media"
+	"Error": "callback: json: cannot unmarshal array into Go value of type ogen.Schema"
 }

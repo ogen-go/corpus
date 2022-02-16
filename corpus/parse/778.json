@@ -2,13 +2,13 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/aml-org/als"
+			"name": "github.com/open-traffic-generator/models"
 		},
 		"file": {
-			"name": "simple1.yaml",
-			"path": "als-structure/shared/src/test/resources/semantic/oas3/simple1.yaml",
-			"content": "openapi: \"3.0.0\"\ninfo:\n  title: semantic test\n  version: 1\nx-maintainer:\n  email:\n    inner: true"
+			"name": "port-pattern.yaml",
+			"path": "flow/port-pattern.yaml",
+			"content": "openapi: 3.1.0\n\ninfo:\n  title: Port pattern model\n  version: ^0.0.0\n\ncomponents:\n  schemas:\n    Flow.PortPattern:\n      description: \u003e-\n        A pattern that is applied to a test port.\n        The name of the pattern will be reflected in the port results.\n      type: object\n      required: [name]\n      properties:\n        name: '../common/common.yaml#/components/x-inline/UniqueName'\n        offset:\n          type: integer\n          description: \u003e-\n            The offset from the beginning of the packet\n        pattern:\n          type: string\n          description: \u003e-\n            The value of the pattern\n        mask:\n          type: string\n          description: \u003e-\n            The mask value to be applied against the pattern\n"
 		}
 	},
-	"Error": "json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }
