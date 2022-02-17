@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1561/swagger.yaml",
+			"byteSize": 1949,
+			"content": "openapi: 3.0.0\ninfo:\n  description: The Trazabilidad API offers the functionalities of the new trace regardless of the channel in which it is in invoked.\n  version: 1.0.2\n  title: ApiTrazabilidad\n\ntags:\n  - name: Trazabilidad\n    description: Trazabilidad API\npaths:\n  '/operationalServices/tracks/scopes/{scopeId}/processes/{processId}/petitions':\n    post:\n      tags:\n        - createPetition\n      summary: Creates a new instance in the traceability operation.\n      operationId: createPetition\n      description: Creates a new instance in the traceability operation.\n      parameters:\n        - in: path\n          name: processId\n          description: instance process ID\n          required: true\n          schema:\n            type: integer\n      requestBody:\n        $ref: '#/components/requestBodies/TrazabilidadBodyRequest'\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BodyOutResponse'\n        '400':\n          $ref: \u003e-\n            exceptions.yml#/components/responses/400\n        '404':\n          $ref: \u003e-\n            exceptions.yml#/components/responses/404\n        '500':\n          $ref: \u003e-\n            exceptions.yml#/components/responses/500\n\ncomponents:\n  requestBodies:\n    TrazabilidadBodyRequest:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/TrazabilidadBodyRequest'\n      description: body request\n      required: true\n  schemas:\n    BodyOutResponse:\n      type: object\n      properties:\n        petitionId:\n          type: string\n          description: The ID of the request that has been created\n          example: \"971205125921\"\n    TrazabilidadBodyRequest:\n      type: object\n      properties:\n        action:\n          type: string\n          description: Action to be performed. values -- alta , mod , fin , baja\n          example: \"alta\""
+		}
+	},
+	"Error": "parse: parse spec: paths: /operationalServices/tracks/scopes/{scopeId}/processes/{processId}/petitions: post: operation \"createPetition\": parse path: path parameter not specified: \"scopeId\""
+}

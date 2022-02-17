@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1040/api.yaml",
+			"byteSize": 314,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\n\npaths:\n  /value:\n    get:\n      operationId: getValues\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: 'lib/lib.yaml#/components/schemas/Value'"
+		}
+	},
+	"Error": "parse: parse spec: paths: /value: get: operation \"getValues\": responses: 200: content: \"application/json\": schema: parse schema: reference \"lib/lib.yaml#/components/schemas/Value\": resolve reference \"lib/lib.yaml#/components/schemas/Value\": invalid schema reference \"lib/lib.yaml#/components/schemas/Value\""
+}

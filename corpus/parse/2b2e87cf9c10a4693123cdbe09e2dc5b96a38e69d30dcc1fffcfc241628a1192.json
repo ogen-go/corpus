@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/LucyBot-Inc/api-spec-converter"
+		},
+		"file": {
+			"name": "slash_ref.yml",
+			"size": 0,
+			"path": "test/input/openapi_3/slash_ref.yml",
+			"byteSize": 379,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nservers:\n  - url: 'https://api.example.com'\npaths:\n  /users~:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':\n          description: OK\n  /other_users:\n    $ref: '#/paths/~1users~0'\n"
+		}
+	},
+	"Error": "parse: parse spec: /other_users: referenced pathItem not supported"
+}

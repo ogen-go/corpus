@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apioo/psx-model"
+		},
+		"file": {
+			"name": "openapi_security.json",
+			"size": 0,
+			"path": "tests/OpenAPI/resources/openapi_security.json",
+			"byteSize": 758,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"\\/pets\\/{petId}\": {\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"security\": [\n          {\n            \"oauth\": [\n              \"foo\",\n              \"bar\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"oauth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"http:\\/\\/api.phpsx.org\\/authorization\",\n            \"tokenUrl\": \"http:\\/\\/api.phpsx.org\\/token\",\n            \"refreshUrl\": \"http:\\/\\/api.phpsx.org\\/token\\/refresh\",\n            \"scopes\": {\n              \"foo\": \"Foo scope\",\n              \"bar\": \"Bar scope\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pets/{petId}: get: operation \"\": parse path: path parameter not specified: \"petId\""
+}

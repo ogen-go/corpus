@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "deviceSnapshot-scopeId-deviceId.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/deviceSnapshot/deviceSnapshot-scopeId-deviceId.yaml",
+			"byteSize": 1306,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Device Management - Snapshot\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/devices/{deviceId}/snapshots:\n    get:\n      tags:\n        - Device Management - Snapshot\n      summary: Get all Snapshots\n      operationId: deviceSnapshotList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../device/device.yaml#/components/parameters/deviceId'\n        - $ref: '../device/device.yaml#/components/parameters/timeout'\n      responses:\n        200:\n          description: The list of Snapshots available on a single Device\n          content:\n            application/json:\n              schema:\n                $ref: './deviceSnapshot.yaml#/components/schemas/snapshots'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /{scopeId}/devices/{deviceId}/snapshots: get: operation \"deviceSnapshotList\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+}

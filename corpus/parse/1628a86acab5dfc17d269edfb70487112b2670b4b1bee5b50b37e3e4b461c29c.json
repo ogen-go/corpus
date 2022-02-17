@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "authentication-jwt.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/authentication/authentication-jwt.yaml",
+			"byteSize": 1034,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Authentication\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /authentication/jwt:\n    post:\n      tags:\n        - Authentication\n      summary: Login - JWT\n      operationId: authenticationJwt\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                jwt:\n                  $ref: './authentication.yaml#/components/schemas/jwt'\n              required:\n                - jwt\n      responses:\n        200:\n          description: The new AccessToken\n          content:\n            application/json:\n              schema:\n                $ref: './authentication.yaml#/components/schemas/accessToken'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n      security: []\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /authentication/jwt: post: operation \"authenticationJwt\": requestBody: content: \"application/json\": parse schema: parse schema: jwt: parse schema: reference \"./authentication.yaml#/components/schemas/jwt\": resolve reference \"./authentication.yaml#/components/schemas/jwt\": invalid schema reference \"./authentication.yaml#/components/schemas/jwt\""
+}

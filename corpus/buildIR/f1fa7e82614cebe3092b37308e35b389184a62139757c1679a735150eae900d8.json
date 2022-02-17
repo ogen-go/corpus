@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_coproduct_discriminator_with_enum_circe.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_coproduct_discriminator_with_enum_circe.yml",
+			"byteSize": 732,
+			"content": "openapi: 3.0.3\ninfo:\n  title: My Bookshop\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Shape'\ncomponents:\n  schemas:\n    Shape:\n      oneOf:\n        - $ref: '#/components/schemas/Square'\n      discriminator:\n        propertyName: shapeType\n        mapping:\n          Square: '#/components/schemas/Square'\n    Square:\n      required:\n        - color\n        - shapeType\n      type: object\n      properties:\n        color:\n          type: string\n          enum:\n            - blue\n            - red\n        shapeType:\n          type: string\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map Square to #/components/schemas/Square"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/opengeospatial/ogcapi-coverages"
+		},
+		"file": {
+			"name": "ogcapi-coverages-1.yaml",
+			"size": 0,
+			"path": "standard/openapi/ogcapi-coverages-1.yaml",
+			"byteSize": 1706,
+			"content": "openapi: 3.0.3\ninfo:\n  title: 'A sample API conforming to the OGC API - Coverages - Part 1: Core standard'\n  description: 'This is a sample OpenAPI definition that conforms to the OGC API - Coverages - Part 1: Core Service specification (conformance classes: \"GeoData-Coverage\", \"Coverage Subset\", \"CIS JSON\", \"HTML\" and \"OpenAPI 3.0\").'\n  contact:\n    name: Open Geospatial Consortium\n    url: https://ogc.org\n    email: info@ogc.org\n  license:\n    name: CC-BY 4.0 license\n    url: https://creativecommons.org/licenses/by/4.0/\n  version: 2.0.0\nservers:\n  - url: https://dev.example.org\n    description: Development server\n  - url: https://data.example.org\n    description: Production server\ntags:\n  - name: Capabilities\n    description: Essential characteristics of this API including information about the data.\n  - name: Coverage\n    description: Access to data (coverage).\npaths:\n  # OGC API - Coverages - Part 1: Core\n  /:\n    $ref: 'paths/common-core/landingPage.yaml'\n  /conformance:\n    $ref: 'paths/common-core/conformance.yaml'\n  /api:\n    $ref: 'paths/common-core/api.yaml'\n  /collections:\n    $ref: 'paths/common-geodata/collections.yaml'\n  /collections/{collectionId}:\n    $ref: 'paths/common-geodata/collection.yaml'\n  /collections/{collectionId}/coverage:\n    $ref: 'paths/coverages-core/coverage.yaml'\n  /collections/{collectionId}/coverage/domainset:\n    $ref: 'paths/coverages-core/domainset.yaml'\n  /collections/{collectionId}/coverage/rangetype:\n    $ref: 'paths/coverages-core/rangetype.yaml'\n  /collections/{collectionId}/coverage/rangeset:\n    $ref: 'paths/coverages-core/rangeset.yaml'\n  /collections/{collectionId}/coverage/metadata:\n    $ref: 'paths/coverages-core/metadata.yaml'\n"
+		}
+	},
+	"Error": "parse: parse spec: /: referenced pathItem not supported"
+}

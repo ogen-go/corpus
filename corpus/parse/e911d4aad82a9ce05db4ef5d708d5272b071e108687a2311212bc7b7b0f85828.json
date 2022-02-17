@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/backbase-openapi-tools"
+		},
+		"file": {
+			"name": "boat-maven-plugin-api.yaml",
+			"size": 0,
+			"path": "boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
+			"byteSize": 1240,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Boat Bay Upload Server\n  description: Endpoints for uploading Specs to boat bay\n  license:\n    name: Backbase\n  version: 1.0.0\nservers:\n- url: http://localhost:8080/\ntags:\n- name: boat-maven-plugin\n  description: Endpoints used by the Boat Maven Plugin\npaths:\n  /api/boat/portals/{portalKey}/boat-maven-plugin/{sourceKey}/upload:\n    post:\n      tags:\n      - boat-maven-plugin\n      summary: upload and lint specs\n      operationId: uploadSpec\n      parameters:\n      - $ref: 'schemas/definitions.yaml#/components/parameters/PortalKey'\n      - name: sourceKey\n        in: path\n        description: source identifier\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'schemas/definitions.yaml#/components/schemas/UploadRequestBody'\n        required: true\n      responses:\n        \"200\":\n          description: list of lint reports for specs\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: 'schemas/definitions.yaml#/components/schemas/BoatLintReport'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/boat/portals/{portalKey}/boat-maven-plugin/{sourceKey}/upload: post: operation \"uploadSpec\": parameters: parse parameter \"\": resolve \"schemas/definitions.yaml#/components/parameters/PortalKey\" reference: invalid parameter reference: \"schemas/definitions.yaml#/components/parameters/PortalKey\""
+}

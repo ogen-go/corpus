@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "__tests__/lint/no-servers-empty-enum/openapi.yaml",
+			"byteSize": 462,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\nservers:\n  - url: https://example.com/user/{id}/place/{placeId}\n    variables:\n      id:\n        enum: [c]\n      placeId:\n          enum: [b, a]\n          default: a\n  - url: https://example.com/{var}\n    variables: {}\n\npaths:\n  '/ping':\n    get:\n      summary: example summary\n      operationId: getPing\n      responses:\n        '200':\n          description: example description\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

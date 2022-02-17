@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-323.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-323.yaml",
+			"byteSize": 256,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    $ref: './eventsCase9.yaml'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n\n"
+		}
+	},
+	"Error": "parse: parse spec: /events: referenced pathItem not supported"
+}

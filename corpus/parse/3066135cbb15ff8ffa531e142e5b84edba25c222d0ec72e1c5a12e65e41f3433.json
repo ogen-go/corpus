@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cebe/php-openapi"
+		},
+		"file": {
+			"name": "subdir.yaml",
+			"size": 0,
+			"path": "tests/spec/data/reference/subdir.yaml",
+			"byteSize": 377,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\ncomponents:\n  schemas:\n    Pet:\n      $ref: 'subdir/Pet.yaml'\n    Dog:\n      $ref: 'subdir/Dog.yaml'\n  parameters:\n    \"Parameter.PetId\":\n      \"$ref\": \"./subdir/Parameter.PetId.json\"\npaths:\n  '/pet':\n    get:\n      responses:\n        200:\n          description: return a pet\n  '/pets':\n    \"$ref\": \"paths/pets.json\"\n"
+		}
+	},
+	"Error": "parse: parse spec: /pets: referenced pathItem not supported"
+}

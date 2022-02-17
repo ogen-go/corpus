@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/maaizelahi/integration"
+		},
+		"file": {
+			"name": "sample-int.json",
+			"size": 0,
+			"path": "sample-int.json",
+			"byteSize": 2206,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0\",\n    \"title\": \"Sampl-Json\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/user\": {\n      \"get\": {\n        \"summary\": \"Details about a user\",\n        \"operationId\": \"listUser\",\n        \"tags\": [\n          \"user\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the user\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Details about a user\",\n            \"headers\": {\n              \"x-next\": {\n                \"description\": \"A link to the next page of responses\",\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#comp\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"id\",\n          \"name\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"tag\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Error\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: parse spec: paths: /user: get: operation \"listUser\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#comp\": resolve reference \"#comp\": invalid schema reference \"#comp\""
+}

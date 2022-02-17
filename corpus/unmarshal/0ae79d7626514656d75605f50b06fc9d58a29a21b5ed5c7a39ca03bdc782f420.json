@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OAI/OpenAPI-Specification"
+		},
+		"file": {
+			"name": "servers.yaml",
+			"size": 0,
+			"path": "tests/v3.1/fail/servers.yaml",
+			"byteSize": 182,
+			"content": "openapi: 3.1.0\n\n# this example should fail, as servers must be an array, not an object\n\ninfo:\n  title: API\n  version: 1.0.0\npaths: {}\nservers:\n  url: /v1\n  description: Run locally.\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+}

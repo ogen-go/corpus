@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ga4gh/gh-openapi-docs"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/test-spec/split/openapi.yaml",
+			"byteSize": 2048,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example.com\n  termsOfService: 'https://example.com/terms/'\n  contact:\n    email: contact@example.com\n    url: 'http://example.com/contact'\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n  x-logo:\n    url: 'https://www.openapis.org/wp-content/uploads/sites/3/2018/02/OpenAPI_Logo_Pantone-1.png'\n  description: \u003e\n    This is an **example** API to demonstrate features of OpenAPI specification\nexternalDocs:\n  description: Find out how to create Github repo for your OpenAPI spec.\n  url: 'https://github.com/Rebilly/generator-openapi-repo'\nservers:\n  - url: 'http://example.com/api/v1'\n  - url: 'https://example.com/api/v1'\ntags:\n  - name: Echo\n    description: Example echo operations\n  - name: User\n    description: Operations about user\n  - name: Introduction\n    description:\n      $ref: ./tags/introduction.md\n  - name: OpenAPI Specification\n    description:\n      $ref: ./tags/openapi_spec.md\n  - name: Path Files\n    description:\n      $ref: ./paths/README.md\n  - name: Component Files\n    description:\n      $ref: ./components/README.md\n  - name: Tag Files\n    description:\n      $ref: ./tags/README.md\nx-tagGroups:\n  - name: Overview\n    tags:\n      - Introduction\n      - OpenAPI Specification\n  - name: Operations\n    tags:\n      - Echo\n      - User\n  - name: Appendix\n    tags:\n      - Path Files\n      - Component Files\n      - Tag Files\npaths:\n  '/users/{username}':\n    $ref: ./paths/users@{username}.yaml\n  /echo:\n    $ref: ./paths/echo.yaml\ncomponents:\n  headers:\n    ExpiresAfter:\n      $ref: ./components/headers/ExpiresAfter.yaml\n    Overview:\n      $ref: ./components/headers/Overview.yaml\n  schemas:\n    Email:\n      $ref: ./components/schemas/Email.yaml\n    User:\n      $ref: ./components/schemas/User.yaml\n  securitySchemes:\n    main_auth:\n      $ref: ./components/securitySchemes/main_auth.yaml\n    api_key:\n      $ref: ./components/securitySchemes/api_key.yaml\n    basic_auth:\n      $ref: ./components/securitySchemes/basic_auth.yaml\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Tag.tags.description of type string"
+}

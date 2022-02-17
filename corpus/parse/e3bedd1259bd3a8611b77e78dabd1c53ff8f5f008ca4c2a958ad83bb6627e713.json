@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aiidalab/aiidalab"
+		},
+		"file": {
+			"name": "openapi-v1.yaml",
+			"size": 0,
+			"path": "aiidalab/registry/static/api/openapi-v1.yaml",
+			"byteSize": 1222,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n    title: AiiDAlab apps registry API\n    description: API to query for registered AiiDAlab apps.\n    version: '1.1'\npaths:\n    /api/v1/apps_index.json:\n        get:\n            description: Complete index of all registered AiiDAlab apps.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/apps_index.schema.json#/definitions/AppsAndCategories\n    /api/v1/apps/{appId}.json:\n        parameters:\n            - name: appId\n              in: path\n              required: true\n              schema:\n                  type: string\n              example: hello-world\n        get:\n            description: Curated data and metadata for a single app entry.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/v1/apps/{appId}.json: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": resolve reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": invalid schema reference \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\""
+}

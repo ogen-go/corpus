@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "jobStepDefinition-scopeId.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/jobStepDefinition/jobStepDefinition-scopeId.yaml",
+			"byteSize": 1364,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Jobs Step Definitions\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/jobStepDefinitions:\n    get:\n      tags:\n        - Job - Step Definition\n      summary: Get all the Jobs Step Definitions\n      operationId: jobStepDefinitionList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: '../openapi.yaml#/components/parameters/sortParam'\n        - $ref: '../openapi.yaml#/components/parameters/sortDir'\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Jobs Step Definitions available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './jobStepDefinition.yaml#/components/schemas/jobStepDefinitionListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /{scopeId}/jobStepDefinitions: get: operation \"jobStepDefinitionList\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+}

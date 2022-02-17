@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "bad_http_code.json",
+			"size": 0,
+			"path": "_testdata/negative/bad_http_code.json",
+			"byteSize": 524,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"operationId\": \"probeLiveness\",\n        \"description\": \"Liveness probe for kubernetes\",\n        \"responses\": {\n          \"20\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /healthz: get: operation \"probeLiveness\": responses: 20: unknown status code: 20"
+}

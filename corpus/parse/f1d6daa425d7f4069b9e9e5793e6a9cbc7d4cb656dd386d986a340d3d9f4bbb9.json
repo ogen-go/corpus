@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/influxdata/openapi"
+		},
+		"file": {
+			"name": "svc-fluxdocsd.yml",
+			"size": 0,
+			"path": "src/svc-fluxdocsd.yml",
+			"byteSize": 753,
+			"content": "openapi: 3.0.0\ninfo:\n  title: fluxdocsd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /fluxdocs:\n    $ref: './svc/fluxdocsd/paths/fluxdocs.yml'\n  /fluxdocs/{id}:\n    $ref: './svc/fluxdocsd/paths/fluxdocs_id.yml'\ncomponents:\n  requestBodies:\n    FluxdocsParams:\n      $ref: './svc/fluxdocsd/requestBodies/FluxdocsParams.yml'\n  schemas:\n    Fluxdocs:\n      $ref: './svc/fluxdocsd/schemas/fluxdocs.yml'\n    FluxdocsArray:\n      $ref: './svc/fluxdocsd/schemas/fluxdocsArray.yml'\n    FluxdocsParameters:\n      $ref: './svc/fluxdocsd/schemas/fluxdocsParameters.yml'\n    Error:\n      $ref: './common/schemas/Error.yml'\n  responses:\n    NoContent:\n      $ref: './common/responses/NoContent.yml'\n    ServerError:\n      $ref: './common/responses/ServerError.yml'\n"
+		}
+	},
+	"Error": "parse: parse spec: /fluxdocs: referenced pathItem not supported"
+}

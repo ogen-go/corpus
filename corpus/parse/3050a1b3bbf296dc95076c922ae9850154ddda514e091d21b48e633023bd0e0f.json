@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenLiberty/open-liberty"
+		},
+		"file": {
+			"name": "component-clash-2.yaml",
+			"size": 0,
+			"path": "dev/io.openliberty.microprofile.openapi.2.0.internal/test/io/openliberty/microprofile/openapi20/test/merge/component-clash-2.yaml",
+			"byteSize": 1795,
+			"content": "openapi: 3.0.3\ninfo:\n  title: test2\n  version: \"1.0\"\npaths:\n  \"/testfoo\":\n    post:\n      parameters: \n        - $ref: \"#/components/parameters/fooParameter\"\n      requestBody:\n        $ref: \"#/components/requestBodies/fooRequestBody\"\n      responses:\n        200:\n          $ref: \"#/components/responses/fooResponse\"\n        202:\n          description: \"success\"\n      security:\n        - fooSecurityScheme: []\n      callbacks:\n        test2:\n          $ref: \"#/components/callbacks/fooCallback\"\ncomponents:\n  schemas:\n    fooSchema:\n      type: string\n      description: test2\n  responses:\n    fooResponse:\n      description: test2\n      content:\n        text/plain:\n          schema:\n            $ref: \"#/components/schemas/fooSchema\"\n          examples: \n            foo:\n              $ref: \"#/components/examples/fooExample\"\n      headers:\n        foo: \n          $ref: \"#/components/headers/fooHeader\"\n      links:\n        foo:\n          $ref: \"#/components/links/fooLink\"\n  parameters:\n    fooParameter:\n      name: foo\n      description: test2\n      in: query\n      required: true\n      schema:\n        type: string\n  examples:\n    fooExample:\n      value: test2\n  requestBodies:\n    fooRequestBody:\n      description: test2\n      content: {}\n  headers:\n    fooHeader:\n      description: test2\n      schema:\n        type: string\n  securitySchemes:\n    fooSecurityScheme:\n      name: test2\n      type: apiKey\n      in: query\n  links:\n    fooLink: \n      description: test2\n  callbacks:\n    fooCallback:\n      \"$request.body#/callbackURL\":\n        post:\n          requestBody:\n            description: test2\n            content:\n              'application/json':\n                schema:\n                  type: object\n          responses:\n            202:\n              description: test2"
+		}
+	},
+	"Error": "parse: parse spec: paths: /testfoo: post: operation \"\": requestBody: resolve \"#/components/requestBodies/fooRequestBody\" reference: content must have at least on entry"
+}

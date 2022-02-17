@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "role-scopeId.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/role/role-scopeId.yaml",
+			"byteSize": 2257,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Roles\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/roles:\n    get:\n      tags:\n        - Role\n      summary: Get all the roles\n      operationId: roleList\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - name: name\n          in: query\n          description: The role name to filter results\n          schema:\n            type: string\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Roles available in the Scope\n          content:\n            application/json:\n              schema:\n                $ref: './role.yaml#/components/schemas/roleListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n    post:\n      tags:\n        - Role\n      summary: Create a new Role\n      operationId: roleCreate\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        description: An object containing the properties for the new Role to be created\n        content:\n          application/json:\n            schema:\n              $ref: './role.yaml#/components/schemas/roleCreator'\n        required: true\n      responses:\n        201:\n          description: The Role that has just been created\n          content:\n            application/json:\n              schema:\n                $ref: './role.yaml#/components/schemas/role'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /{scopeId}/roles: get: operation \"roleList\": parameters: parse parameter \"\": resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: invalid parameter reference: \"../openapi.yaml#/components/parameters/scopeId\""
+}

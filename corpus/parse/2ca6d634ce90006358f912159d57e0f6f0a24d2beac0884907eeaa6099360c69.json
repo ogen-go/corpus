@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "operations-4.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/operations-4.json",
+			"byteSize": 2418,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Operations\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/operations\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"cookie\",\n                        \"required\": false,\n                        \"style\": \"matrix\",\n                        \"schema\": {\n                            \"type\": \"boolean\"\n                        }\n                    },\n                    {\n                        \"name\": \"param1\",\n                        \"in\": \"cookie\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"type\": \"boolean\"\n                        }\n                    }\n                ],\n                \"requestBody\": {\n                    \"$ref\": \"#/components/requestBodies/standard\"\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"parameters\": {\n            \"id\": {\n                \"name\": \"id\",\n                \"in\": \"query\",\n                \"schema\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"requestBodies\": {\n            \"standard\": {\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /operations: post: operation \"\": parameters: parse parameter \"param0\": style: unexpected style: \"matrix\""
+}

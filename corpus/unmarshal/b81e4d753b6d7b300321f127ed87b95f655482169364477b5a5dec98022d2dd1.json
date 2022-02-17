@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Restfulness/Restfulness-core-api"
+		},
+		"file": {
+			"name": "links_by_user_id.yml",
+			"size": 0,
+			"path": "yml/links_by_user_id.yml",
+			"byteSize": 2820,
+			"content": "Return public user links (You can provide specific date to get all links created after that date)\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\nconsumes:\n  \"application/json\"\ntags:\n  - name: \"Links\"\nparameters:\n  - in: header\n    name: Authorization\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\n  - name: \"id\"\n    in: \"path\"\n    description: \"User id to get\"\n    required: true\n    type: \"integer\"\n  - name: \"page\"\n    in: \"query\"\n    description: \"Which page do want to get\"\n    required: false\n    type: \"integer\"\n  - name: \"page_size\"\n    in: \"query\"\n    description: \"the number of links in each page\"\n    required: false\n    type: \"integer\"\n  - name: body\n    in: body\n    required: true\n    schema:\n      properties:\n        date_from:\n          type: string\n          description: \"Starting date with this format: YYYY-MM-DD hh:mm `Not Required`\"\n          example: \"2020-12-05 19:12\"\n\nresponses:\n  200:\n    description: \"Return bookmarks\"\n    schema:\n      type: object\n      properties:\n        categories:\n          type: array\n          items:\n            type: object\n            properties:\n              id:\n                type: integer\n              name:\n                type: string\n          description: \"Link related categories\"\n        url:\n          type: string\n          description: \"Link url\"\n        id:\n          type: int\n          description: \"Id of link\"\n        added_date:\n          type: string\n          description: \"Date that link is added in format `YYYY-MM-DD hh:mm`\"\n      example:\n        categories: [\n          {\"id\": 1, \"name\": \"programming\"},\n          {\"id\": 5, \"name\": \"searching\"},\n          {\"id\": 11, \"name\": \"Q and A\"}\n        ]\n        url: https://stackoverflow.com\n        id: 2\n        added_date: \"2020-12-07 12:28\"\n  400:\n    description: \"Input date does not match format 'YYYY-MM-DD hh:mm' OR Requested page size is larger than our max limit!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Input date does not match format 'YYYY-MM-DD hh:mm' OR Requested page size is larger than our max limit!\"\n      example:\n        msg: \"Input date does not match format 'YYYY-MM-DD hh:mm'\"\n  403:\n    description: User is not public!\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: User is not public!\n      example:\n        msg: User is not public!\n  404:\n    description: User not found! OR Link not found!\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: User not found! OR Link not found!\n      example:\n        msg: User not found!\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go value of type ogen.Spec"
+}

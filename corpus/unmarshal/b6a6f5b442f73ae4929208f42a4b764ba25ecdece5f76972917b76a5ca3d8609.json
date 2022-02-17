@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "add.yaml",
+			"size": 0,
+			"path": "tests/add-float/add.yaml",
+			"byteSize": 753,
+			"content": "\nopenapi: 3.0.0\ninfo:\n  title: add\n  description: \"adding float and float.\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"adding float and float.\"\npaths:\n  /add:\n     get:\n      summary: \"adding float and float.\"\n      description: Optional extended description in CommonMark or HTML.\n      operationId: add.add\n      parameters:\n        - in: query\n          name: x\n          description: \"x value\"\n          schema:\n            type: number\n        - in: query\n          name: y\n          description: \"y value\"\n          schema:\n            type: number\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: number\n\n\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+}

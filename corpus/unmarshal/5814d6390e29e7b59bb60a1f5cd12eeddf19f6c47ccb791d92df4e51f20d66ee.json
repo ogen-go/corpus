@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "a.yaml",
+			"size": 0,
+			"path": "test/golden/common/tuple-items/homogeneous-vector/a.yaml",
+			"byteSize": 539,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test\"\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test\"\ncomponents:\n  schemas:\n    Test:\n      type: array\n      items:\n        - type: number\n        - type: number\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal array into Go struct field Schema.components.schemas.items of type ogen.Schema"
+}

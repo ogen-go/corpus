@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "a.yaml",
+			"size": 0,
+			"path": "test/golden/common/unguarded-recursive/basic/a.yaml",
+			"byteSize": 373,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      anyOf:\n        - $ref: \"#/components/schemas/Bad\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/foo: get: operation \"\": responses: 200: content: \"application/json;charset=utf-8\": schema: parse schema: reference \"#/components/schemas/Bad\": parse schema: anyOf: [0]: parse schema: reference \"#/components/schemas/Bad\": infinite recursion: \"#/components/schemas/Bad\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "foo.yaml",
+			"size": 0,
+			"path": "__tests__/join/reference-in-description/foo.yaml",
+			"byteSize": 613,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example OpenAPI 3 definition.\n  description:\n    $ref: description.md\n  license:\n    name: MIT\n    url: 'https://opensource.org/licenses/MIT'\nservers:\n  - url: 'https://redocly.com/v1'\npaths:\n  /pets:\n    get:\n      summary: Test summary\n      operationId: exampleFoo\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int\n      responses:\n        '200':\n          description: example description"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Info.info.description of type string"
+}

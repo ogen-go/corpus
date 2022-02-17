@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "complex_type.yaml",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/japanese/oas/complex_type.yaml",
+			"byteSize": 883,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Complex Object Api\"\n  version: 0.0.0\npaths:\n  /user:\n    get:\n      description: \"A description\"\n      responses:\n        '200':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n\ncomponents:\n  schemas:\n    Person:\n      type: object\n      properties:\n        DNI:\n          type: string\n    User:\n      type: object\n      properties:\n        name:\n          type: string\n          pattern: ([\\u30a0-\\u30ff]+)\n          example: キンギョ\n        age:\n          type: integer\n          format: int64\n          example: 1\n        ContactInfo:\n          $ref: '#/components/schemas/ContactInfo'\n    ContactInfo:\n      type: object\n      properties:\n        email:\n          type: string\n          format: email\n        phone:\n          type: string\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/user\": get: responses: 200: contents: application/json: schema: field name: string validator: pattern: error parsing regexp: invalid escape sequence: `\\u`"
+}

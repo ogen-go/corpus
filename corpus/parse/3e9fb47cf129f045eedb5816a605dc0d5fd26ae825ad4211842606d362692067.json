@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/influxdata/openapi"
+		},
+		"file": {
+			"name": "svc-datasourcesd.yml",
+			"size": 0,
+			"path": "src/svc-datasourcesd.yml",
+			"byteSize": 565,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Cloud Data Sources Service\n  version: '1.0'\nservers:\n  - url: /\npaths:\n  /datasources:\n    $ref: ./svc/datasourcesd/paths/datasources.yml\n  '/datasources/{datasourceID}':\n    $ref: ./svc/datasourcesd/paths/datasources-id.yml\n  '/webhooks/{token}':\n    $ref: ./svc/datasourcesd/paths/webhooks.yml\ncomponents:\n  schemas:\n    Datasource:\n      $ref: ./svc/datasourcesd/schemas/Datasource.yml\n    ListenerEndpoint:\n      $ref: ./svc/datasourcesd/schemas/ListenerEndpoint.yml\n    Service:\n      $ref: ./svc/datasourcesd/schemas/Service.yml\n"
+		}
+	},
+	"Error": "parse: parse spec: /datasources: referenced pathItem not supported"
+}

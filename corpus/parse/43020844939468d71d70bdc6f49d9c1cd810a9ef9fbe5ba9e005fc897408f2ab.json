@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/karlvr/openapi-generator-plus"
+		},
+		"file": {
+			"name": "external-object-schema.yml",
+			"size": 0,
+			"path": "packages/core/src/__tests__/naming/external-object-schema.yml",
+			"byteSize": 293,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          description: Test\n          content:\n            application/json:\n              schema:\n                $ref: './external-part.yml#/components/schemas/MyExternalSchema'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /test1: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"./external-part.yml#/components/schemas/MyExternalSchema\": resolve reference \"./external-part.yml#/components/schemas/MyExternalSchema\": invalid schema reference \"./external-part.yml#/components/schemas/MyExternalSchema\""
+}

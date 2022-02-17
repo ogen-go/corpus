@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "openapi3/testdata/refInRef/openapi.json",
+			"byteSize": 701,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Reference in reference example\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/api/test/ref/in/ref\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"messages/request.json\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"messages/response.json\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/test/ref/in/ref: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"messages/request.json\": resolve reference \"messages/request.json\": invalid schema reference \"messages/request.json\""
+}

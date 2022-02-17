@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive6.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive6.yaml",
+			"byteSize": 448,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: number\n                minimum: 0\n                exclusiveMinimum: true\n                maximum: 50\n                default: \"a\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": responses: 200: content: \"application/json\": schema: parse default: expected type \"number\", got \"string\""
+}

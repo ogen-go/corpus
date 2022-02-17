@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/atc-net/atc-rest-api-generator"
+		},
+		"file": {
+			"name": "ordersEndpoints.v1.yaml",
+			"size": 0,
+			"path": "sample/Demo.ApiDesign/MultiFileVersion/orders/ordersEndpoints.v1.yaml",
+			"byteSize": 1164,
+			"content": "openapi: 3.0.0\ninfo:\n  $ref: ../common/components/endpoints.v1.yaml#/info\nservers:\n  $ref: ../common/components/endpoints.v1.yaml#/servers\n\npaths:\n  '/orders/{id}':\n    get:\n      tags:\n        - Orders\n      summary: Get order by id\n      description: Get order by id\n      operationId: getOrderById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the order to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          $ref: ../common/components/responses.v1.yaml#/400\n        '404':\n          $ref: ../common/components/responses.v1.yaml#/404\n        default:\n          $ref: ../common/components/responses.v1.yaml#/400\ncomponents:\n  schemas:\n    Order:\n      $ref: ./models/order.v1.yaml\n    Orders:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n      x-tags:\n        - Orders\n      title: Orders\n      description: A list of orders.\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Spec.servers of type []ogen.Server"
+}

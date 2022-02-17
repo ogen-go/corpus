@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OAI/OpenAPI-Specification"
+		},
+		"file": {
+			"name": "non-oauth-scopes.yaml",
+			"size": 0,
+			"path": "examples/v3.1/non-oauth-scopes.yaml",
+			"byteSize": 384,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Non-oAuth Scopes example\n  version: 1.0.0\npaths:\n  /users:\n    get:\n      security:\n        - bearerAuth:\n            - 'read:users'\n            - 'public'\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: jwt\n      description: 'note: non-oauth scopes are not defined at the securityScheme level'\n\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /users: get: operation \"\": responses: no responses"
+}

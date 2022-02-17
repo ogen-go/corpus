@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "wrong-body.yaml",
+			"size": 0,
+			"path": "test/data/valid_openapi/wrong-body.yaml",
+			"byteSize": 523,
+			"content": "openapi: 3.0.0\ninfo:\n    description:\n        Test Service\n    version: 0.1\n    title: Test Service Name\nservers:\n    -   url: https://test.com\n        description: Test API\npaths:\n    /entity:\n        put:\n            summary: Update entity\n            operationId: updateEntity\n            requestBody:\n                schema: object # This is wrong,\n                # but the converter should just ignore the formHeaders if not present\n            responses:\n                200:\n                    description: 200 OK\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

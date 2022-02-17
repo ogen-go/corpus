@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/drwpow/openapi-typescript"
+		},
+		"file": {
+			"name": "reference-to-properties.yaml",
+			"size": 0,
+			"path": "test/v3/specs/reference-to-properties.yaml",
+			"byteSize": 804,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Spec with reference to proeprties\n  description: ''\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\npaths:\n  /pet:\n    put:\n      summary: ''\n      operationId: updatePet\n      requestBody:\n        description: ''\n        content:\n          application/json:\n            schema:\n              properties:\n                name:\n                  $ref: '#/components/schemas/Pet/properties/name'\n        required: true\n      responses:\n        200:\n          description: ''\n          content: {}\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pet: put: operation \"updatePet\": requestBody: content: \"application/json\": parse schema: parse schema: name: parse schema: reference \"#/components/schemas/Pet/properties/name\": resolve reference \"#/components/schemas/Pet/properties/name\": schema not found"
+}

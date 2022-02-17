@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "exclusiveMaximumSpec.yaml",
+			"size": 0,
+			"path": "test/data/31CollectionTransactions/exclusiveMaximumSpec.yaml",
+			"byteSize": 721,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with exclusiveMinimum\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/schema1\"\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type: \n        - object\n      properties:\n        objectType:\n          type: \n            - integer\n          exclusiveMaximum: 1000\n"
+		}
+	},
+	"Error": "unmarshal: callback: json: cannot unmarshal number into Go struct field Schema.exclusiveMaximum of type bool"
+}

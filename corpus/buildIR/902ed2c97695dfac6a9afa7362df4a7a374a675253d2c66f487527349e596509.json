@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "query_03.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/query/query_03.yaml",
+			"byteSize": 562,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstoe\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\npaths:\n  /pets:\n    get:\n      operationId: listPets\n      parameters:\n        - name: offset\n          in: query\n          required: true\n          schema:\n            type: array\n            items:\n              type: array\n              items:\n                type: integer\n      responses:\n        '200':\n          description: An paged array of pets\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/pets\": get: parameters: nested arrays not allowed"
+}

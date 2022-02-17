@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/societe-generale/sonar-openapi"
+		},
+		"file": {
+			"name": "embedded-newlines-lines.yaml",
+			"size": 0,
+			"path": "openapi-front-end/src/test/resources/metrics/embedded-newlines-lines.yaml",
+			"byteSize": 344,
+			"content": "openapi: \"3.0.1\"\nx-no-sonar: SomeId\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    # a comment line\n    x-sonar-disable: SomeId\n    get:\n      responses:\n        x-sonar-enable: SomeId\n        '200':\n          description: \"some response\\nwith newlines\"\n  #\n  # another comment line\n  /newpets:\n    $ref: '#/paths/~1pets'\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go struct field Operation.paths.get.responses of type ogen.Response"
+}

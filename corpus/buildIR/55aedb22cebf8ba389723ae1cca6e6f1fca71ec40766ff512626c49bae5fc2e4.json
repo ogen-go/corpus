@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "composed-oneof.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/composed-oneof.yaml",
+			"byteSize": 2144,
+			"content": "openapi: 3.0.1\ninfo:\n  title: oneOf test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /state:\n    get:\n      operationId: getState\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/ObjA'\n                  - $ref: '#/components/schemas/ObjB'\n                discriminator:\n                  propertyName: realtype\n                  mapping:\n                    a-type: '#/components/schemas/ObjA'\n                    b-type: '#/components/schemas/ObjB'\n    post:\n      operationId: createState\n      requestBody:\n        content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/ObjA'\n                  - $ref: '#/components/schemas/ObjB'\n                discriminator:\n                  propertyName: realtype\n                  mapping:\n                    a-type: '#/components/schemas/ObjA'\n                    b-type: '#/components/schemas/ObjB'\n        required: true\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas:\n    CustomOneOfSchema:\n      oneOf:\n        - $ref: '#/components/schemas/ObjA'\n        - $ref: '#/components/schemas/ObjB'\n      discriminator:\n        propertyName: realtype\n        mapping:\n          a-type: '#/components/schemas/ObjA'\n          b-type: '#/components/schemas/ObjB'\n    CustomOneOfArraySchema:\n      type: array\n      items:\n        oneOf:\n          - $ref: '#/components/schemas/ObjA'\n          - $ref: '#/components/schemas/ObjB'\n        discriminator:\n          propertyName: realtype\n          mapping:\n            a-type: '#/components/schemas/ObjA'\n            b-type: '#/components/schemas/ObjB'\n    ObjA:\n      type: object\n      properties:\n        realtype:\n          type: string\n        message:\n          type: string\n    ObjB:\n      type: object\n      properties:\n        realtype:\n          type: string\n        description:\n          type: string\n        code:\n          type: integer\n          format: int32"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/state\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map a-type to #/components/schemas/ObjA"
+}

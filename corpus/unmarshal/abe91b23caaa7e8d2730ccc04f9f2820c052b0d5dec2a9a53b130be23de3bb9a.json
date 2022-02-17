@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/openapi3-examples"
+		},
+		"file": {
+			"name": "example2_from_._New_callbacks.md.yaml",
+			"size": 0,
+			"path": "3.0/fail/gluecon/example2_from_._New_callbacks.md.yaml",
+			"byteSize": 1335,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example of links with callbacks\n  version: 0.9.0\npaths:\n  /hooks:\n    post:\n      requestBody:    \n        description: body provided by consumer with callback URL\n        required: true\n        content:\n          application/json:\n            example:\n              callback-url: https://consumer.com/hookcallback\n      responses:      \n        '201':\n          description: Successfully subscribed\n          content:\n            application/json:\n              example:\n                hookId: 23432-32432-45454-97980\n          links:\n            unsubscribe:\n              operationId: cancelHookCallback\n              parameters: \n                id: $response.body#/hookId\n      callbacks:\n        hookEvent:\n          '$request.body#/callback-url':\n            post:\n              requestBody:\n                content:\n                  application/json:\n                    example:\n                      message: Here is the event\n              responses:\n                '200':\n                  description: Expected responses from callback consumer\n  /hooks/{id}:\n    delete:\n      operationId: cancelHookCallback\n      parameters:\n        name: id\n        in: path\n        schema: \n          type: string\n      responses:\n        '200':\n          description: Successfully cancelled callback\n\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Operation.paths.delete.parameters of type []*ogen.Parameter"
+}

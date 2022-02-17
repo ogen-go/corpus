@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/benjamin-allion/json-node-normalizer"
+		},
+		"file": {
+			"name": "oas3_ref_error.json",
+			"size": 0,
+			"path": "tests/unit/mock-sample/oas3_ref_error.json",
+			"byteSize": 1826,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"my-api\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pets/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"List\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Pet\"\n                  },\n                  \"discriminator\": {\n                    \"propertyName\": \"pet_type\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/pets/:id\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"1 pet\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"anyOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Dog\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"integer\"\n              },\n              \"name\": {\n                \"type\": \"string\"\n              },\n              \"isKnown\": {\n                \"type\": \"boolean\"\n              }\n            },\n            \"required\": [\n              \"id\"\n            ]\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"id\": {\n                \"type\": \"integer\"\n              },\n              \"isKnown\": {\n                \"type\": \"boolean\"\n              }\n            },\n            \"required\": [\n              \"id\"\n            ]\n          }\n        ]\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pets/: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: reference \"#/components/schemas/Pet\": parse schema: anyOf: [0]: parse schema: reference \"#/components/schemas/Dog\": resolve reference \"#/components/schemas/Dog\": schema not found"
+}

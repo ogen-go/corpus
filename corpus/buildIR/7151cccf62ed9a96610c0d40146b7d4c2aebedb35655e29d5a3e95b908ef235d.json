@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+		},
+		"file": {
+			"name": "optional_discriminator.yaml",
+			"size": 0,
+			"path": "core/src/test/resources/api/coproduct/one_of/optional_discriminator.yaml",
+			"byteSize": 836,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: \"1.0\"\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Entity\"\ncomponents:\n  schemas:\n    Entity:\n      oneOf:\n        - $ref: \"#/components/schemas/Person\"\n        - $ref: \"#/components/schemas/Organization\"\n      discriminator:\n        propertyName: name\n        mapping:\n          john: \"#/components/schemas/Person\"\n          sml: \"#/components/schemas/Organization\"\n    Person:\n      required:\n        - age\n      type: object\n      properties:\n        name:\n          type: string\n        age:\n          type: integer\n    Organization:\n      type: object\n      properties:\n        name:\n          type: string\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map john to #/components/schemas/Person"
+}

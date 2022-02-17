@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/openapi3-examples"
+		},
+		"file": {
+			"name": "deprecated2.yaml",
+			"size": 0,
+			"path": "3.0/fail/deprecated2.yaml",
+			"byteSize": 313,
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      deprecated: true\n      parameters:\n        - name: test\n          in: query\n          deprecated: 'true'\n          schema:\n            type: string\n            deprecated: true\n      responses:\n        '200':\n          description: OK\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go struct field Parameter.paths.get.parameters.deprecated of type bool"
+}

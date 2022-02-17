@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-rest-4j"
+		},
+		"file": {
+			"name": "openapi-inject-test-dup-method.yml",
+			"size": 0,
+			"path": "openapi-meta/src/test/resources/config/openapi-inject-test-dup-method.yml",
+			"byteSize": 238,
+			"content": "openapi: 3.0.0\npaths:\n  /pets/{petId}:\n    get:\n      security:\n        - api-scope:\n            - admim\n\ncomponents:\n  securitySchemes:\n    api-scope:\n      flows:\n        clientCredentials:\n          scopes:\n            admin: orwritten"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pets/{petId}: get: operation \"\": parse path: path parameter not specified: \"petId\""
+}

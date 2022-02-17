@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/18F/piipan"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "etl/docs/openapi/openapi.yaml",
+			"byteSize": 508,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Bulk upload API\n  version: 2.0.0\n  description: API for uploading bulk participant data\ntags:\n  - name: \"Upload\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: ea\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload/{filename}':\n    $ref: './upload.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
+		}
+	},
+	"Error": "parse: parse spec: /upload/{filename}: referenced pathItem not supported"
+}

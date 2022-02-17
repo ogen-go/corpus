@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/open-ag-tech/api-spec"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "versions/master/examples/openapi.yaml",
+			"byteSize": 2925,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 0.0.2\n  title:\n  description: A sample openapi.yaml document. Note that each host must have its own version of this document. It describes what the host can do\n  termsOfService: http://url.to.terms/ofservice\n  contact:\n    name: open-ag-tech\n    email: shouldwegetadomain@probably.com\n    url: http://probably.com\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: http://cloud.url.com/api #if a cloud based response - where do you send requests?\n  - url: http://192.168.1.1/api #if a local network based response\npaths:\n  /path:\n    get:\n      description: |\n        Change /path to /sensors or some other group name. A query to this path will execute the below operationId.\n        Parameters may contain details, like Zone. We could insist on path based restrictions, but ?zone=Room1 also\n        works. Perhaps we should leave this up to the implementer, so long as this field is accurate?\n      operationId: Operationame\n      parameters:\n        - name: requiredParameter\n          in: query\n          description:\n          required: true\n          style: form\n          schema:\n            type: string\n       - name: tags\n          in: query\n          description: tags to filter by\n          required: false\n          style: form\n          schema:\n            type: array\n            items:\n              type: string\n        - name: limit\n          in: query\n          description: maximum number of results to return\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Sensor list response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Path'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /path/{id}:\n    get:\n      description: Single item response\n      operationId:\n      parameters:\n        - name: id\n          in: path\n          description:\n          required:\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: pet response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Path'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Path:\n      required:\n        - id\n        - otherAttribute\n      properties:\n        id:\n          type: integer\n          format: int64\n        otherAttribute:\n          type: string\n        optionalAttribute:\n          type: string"
+		}
+	},
+	"Error": "invalidYAML: yaml: line 32: did not find expected key"
+}

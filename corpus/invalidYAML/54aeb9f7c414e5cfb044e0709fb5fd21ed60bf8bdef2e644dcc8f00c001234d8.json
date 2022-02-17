@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PrivacyEngineering/tira"
+		},
+		"file": {
+			"name": "example_spec.yml",
+			"size": 0,
+			"path": "example_spec.yml",
+			"byteSize": 2752,
+			"content": "openapi: \"3.0.0\"\nx-tira: \n  utilizer:\n    - name: \"AWS\"\n      non_eu_country: true\n      country: \"UK\"\ninfo:\n  version: \"1.0.2\"\n  description: \"This service can share health data with other health data services and insurances\"\n  title: \"Health Data Sharing Service\"\nservers: \n  - url: \"https://health.domain.tld\"\npaths:\n  /{user_id}/toothbrush/share:\n  parameters:\n    - name: user_id\n      in: \"path\"\n      required: true\n      description: \"User ID of a Health Data Hub User\" \n    get: \n      description: Get an array of Toothbrush Events for a given time interval.\n      parameters:\n      - name: startday\n        in: \"query\"\n        required: true\n        description: \"Start date of requested interval.\"\n      - name: endday\n        in: \"query\"\n        required: true\n        description: \"End date of requested interval.\"\n      responses:\n        200:\n          description: \"Request successful.\"\n          content: \n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToothbrushEvent'\ncomponents:\n  schemas:\n    ToothbrushEvent:\n      type: \"object\"\n      required:\n        - user_id\n      properties:\n        seconds:\n          type: \"integer\"\n        datetime:\n          type: \"string\"\n        user_id:\n          type: \"integer\"\n      x-tira: \n        retention-time:\n          volatile: true\n        special_category:\n          category: \"Health Data\"\n        purposes:\n          yappl:\n            '{\n               \"id\":123,\n               \"preference\":[\n                  {\n                     \"rule\":{\n                        \"purpose\":{\n                           \"permitted\": [ \"FitnessData Sharing\", \"Health Insurance Bonus Program\" ],\n                           \"excluded\": [ ... ]\n                        },\n                        \"utilizer\":{\n                           \"permitted\": [ ... ],\n                           \"excluded\": [ ... ]\n                        },\n                        \"transformation\": [ ... ],\n                        \"valid_from\":\"2021-06-09T00:00:00.000Z\",\n                        \"exp_date\":\"0000-01-01T00:00:00.000Z\"\n                     }\n                  }\n               ]\n            }'\n        profiling:\n          reason: \"Health profile based on series of health related behaviour.\"\n        utilizer:\n          - name: \"MyFitnessPal\"\n            non_eu_country: false\n          - name: \"Strava\"\n            non_eu_country: true\n            country: \"USA\"\n        utilizer_category:\n          - name: \"Health Insurance Company\"\n            country: \"Germany\"\n            non_eu_country: false\n            type: \"Insurance Company\"\n            sector: \"Insurance\"\n            sub_sector: \n              - \"Health Insurance\"\n              - \"Health Tax\""
+		}
+	},
+	"Error": "invalidYAML: yaml: line 19: did not find expected '-' indicator"
+}

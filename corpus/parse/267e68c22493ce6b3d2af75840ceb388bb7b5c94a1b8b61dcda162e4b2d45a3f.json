@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/touchifyapp/spec2ts"
+		},
+		"file": {
+			"name": "nested-api.yml",
+			"size": 0,
+			"path": "packages/openapi/tests/assets/nested-api.yml",
+			"byteSize": 1224,
+			"content": "openapi: 3.0.3\n\ninfo:\n  title: chicken\n  version: 0.0.0\n\npaths:\n  /get:\n    post:\n      operationId: getOneThing\n      requestBody:\n        $ref: \"#/components/requestBodies/GetOneThingRequest\"\n      responses:\n        200:\n          $ref: \"#/components/responses/GetOneThingResponse\"\n        201:\n          $ref: \"#/components/responses/GetThingDataResponse\"\n        202:\n          description: thing nested\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ThingNested\"\n\ncomponents:\n  requestBodies:\n    GetOneThingRequest:\n      content:\n        application/json:\n          schema:\n            $ref: \"nested/nested-schemas-1.yml#/components/schemas/ThingKey\"\n\n  responses:\n    GetOneThingResponse:\n      description: one thing\n      content:\n        application/json:\n          schema:\n            $ref: \"nested/nested-schemas-1.yml#/components/schemas/Thing\"\n    GetThingDataResponse:\n      description: thing data\n      content:\n        application/json:\n          schema:\n            $ref: \"nested/nested-schemas-2.yml#/components/schemas/ThingData\"\n\n  schemas:\n    ThingNested:\n      $ref: \"nested/nested-schemas-2.yml#/components/schemas/ThingNested\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /get: post: operation \"getOneThing\": requestBody: resolve \"#/components/requestBodies/GetOneThingRequest\" reference: content: \"application/json\": parse schema: parse schema: reference \"nested/nested-schemas-1.yml#/components/schemas/ThingKey\": resolve reference \"nested/nested-schemas-1.yml#/components/schemas/ThingKey\": invalid schema reference \"nested/nested-schemas-1.yml#/components/schemas/ThingKey\""
+}

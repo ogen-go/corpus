@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Vendor_Specifications_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VendorSamples/Vendor_Specifications_GET.yaml",
+			"byteSize": 927,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /vendor/specifications:\n    get:\n      summary: Get the Vendor Specifications\n      description: Defines the plate format specification for the vendor.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: VendorSpecificationSingleResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/VendorSpecification'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n      tags:\n      - Vendor\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /vendor/specifications: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+}

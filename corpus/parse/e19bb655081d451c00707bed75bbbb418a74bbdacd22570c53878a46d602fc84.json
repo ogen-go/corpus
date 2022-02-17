@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "a.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/ref-without-component/a.yaml",
+			"byteSize": 326,
+			"content": "openapi: 3.0.1\npaths:\n  \"/newPerson\":\n    post:\n      summary: Create new person\n      description: Create new person\n      responses:\n        '200':\n          description: ok\n          content:\n            \"*/*\":\n              schema:\n                \"$ref\": \"./ref-without-component/b.yaml#/components/schemas/CustomerType\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /newPerson: post: operation \"\": responses: 200: content: \"*/*\": schema: parse schema: reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": resolve reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\": invalid schema reference \"./ref-without-component/b.yaml#/components/schemas/CustomerType\""
+}

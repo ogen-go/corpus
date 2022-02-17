@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+		},
+		"file": {
+			"name": "component_req_body_unnest_expected.yaml",
+			"size": 0,
+			"path": "core/src/test/resources/openapi/enum_flattener/component_req_body_unnest_expected.yaml",
+			"byteSize": 1010,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Swagger Petstore - OpenAPI 3.0\nservers:\n  - url: /\npaths:\n  /pet:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Create a new pet in the store\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/requestBodies/PetRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetResponse\"\ncomponents:\n  schemas:\n    PetResponse:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n    Id:\n      type: string\n      enum:\n        - a\n        - b\n  requestBodies:\n    PetRequest:\n      content:\n        application/json:\n          schema:\n            required:\n              - id\n            type: object\n            properties:\n              id:\n                $ref: \"#/components/schemas/Id\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pet: post: operation \"addPet\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/requestBodies/PetRequest\": resolve reference \"#/components/requestBodies/PetRequest\": invalid schema reference \"#/components/requestBodies/PetRequest\""
+}
