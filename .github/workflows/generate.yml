@@ -36,7 +36,11 @@ jobs:
           GOPROXY: direct
         run: |
           make generate
-          echo "::set-output name=stats::$(cat stats.txt)"
+          STATS="$(cat stats.txt)"
+          STATS="${STATS//'%'/'%25'}"
+          STATS="${STATS//$'\n'/'%0A'}"
+          STATS="${STATS//$'\r'/'%0D'}"
+          echo "::set-output name=stats::$STATS"
 
       - name: Create PR
         id: cpr
@@ -53,6 +57,6 @@ jobs:
           title: Re-generate corpus
           body: |
             Re-generate corpus.
-            ```
+            ```diff
             ${{ steps.generate.outputs.stats }}
             ```
