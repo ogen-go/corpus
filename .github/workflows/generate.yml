@@ -31,9 +31,12 @@ jobs:
             update-corpus-${{ runner.os }}-go-
 
       - name: Generate files
+        id: generate
         env:
           GOPROXY: direct
-        run: make generate
+        run: |
+          make generate
+          echo "::set-output name=stats::$(cat stats.txt)"
 
       - name: Create PR
         id: cpr
@@ -45,7 +48,11 @@ jobs:
           branch: chore/regenerate-corpus
           delete-branch: true
           add-paths:
+            ./stats.txt
             ./corpus
           title: Re-generate corpus
           body: |
             Re-generate corpus.
+            ```
+            ${{ steps.generate.outputs.stats }}
+            ```
