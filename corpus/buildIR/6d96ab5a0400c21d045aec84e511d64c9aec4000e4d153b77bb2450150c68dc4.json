@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/technocreatives/openapi-eller"
+		},
+		"file": {
+			"name": "discriminator-field-apispec.yml",
+			"size": 0,
+			"path": "tests/discriminator-field-apispec.yml",
+			"byteSize": 766,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Example discriminator field API spec\n  version: 0.0.1\nservers:\n  - url: \"http://example.com\"\npaths:\n  /tagged:\n    get:\n      operationId: get_tagged\n      description: Endpoint to retrieve a single tagged interface.\n      responses:\n        \"200\":\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Tagged\"\ncomponents:\n  schemas:\n    Tagged:\n      oneOf:\n        - $ref: \"#/components/schemas/TaggedFoo\"\n      discriminator:\n        propertyName: type\n        mapping:\n          foo: \"#/components/schemas/TaggedFoo\"\n    TaggedFoo:\n      type: object\n      required:\n        - type\n      properties:\n        type:\n          type: string"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/tagged\": get: responses: 200: contents: application/json: schema: oneOf: discriminator: unable to map foo to #/components/schemas/TaggedFoo"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_1347.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1347.yaml",
+			"byteSize": 472,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Name demo\n  version: 1.0\npaths:\n  /{country}/document:\n    get:\n      summary: Get a document\n      tags:\n      - document\n      operationId: getDocument\n      parameters:\n      - name: country\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        \"201\":\n          description: The document\n        \"500\":\n          description: Server error\ntags:\n- name: document\n  description: Document tag"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

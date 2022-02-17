@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/behave-restful/behave-restful"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "data/openapi/openapi.yaml",
+			"byteSize": 1354,
+			"content": "openapi: 3.0.1\n\ninfo:\n  title: YAML Test Service Documentation\n  description:  YAML file to test schema initialization through OpenAPI documents.\n  version: \"1.0\"\n  contact:\n    name: Abantos\n\nservers:\n  - url: http://localhost:8080\n    description: Local server\n\ntags:\n  - name: songs\n    description: Song management endpoints.\n  \n\npaths:\n  /songs:\n    get:\n      tags:\n        - songs\n      summary: Get songs collections.\n      description: Get the collection of songs stored in the service.\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SongCollection'\n\ncomponents:\n  schemas:\n    NewSong:\n      type: object\n      properties:\n        title:\n          type: string\n          example: Telegraph Road\n        artist:\n          $ref: 'models/artists.yaml#/components/schemas/Artist'\n          \n      required:\n        - title\n    Song:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/NewSong'\n      properties:\n        id:\n          type: string\n          example:  \"123456\"\n      required:\n        - id\n        - title\n        - artist\n    SongCollection:\n      type: object\n      properties:\n        items:\n          type: array\n          items:\n            $ref: '#/components/schemas/Song'\n        \n\n\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /songs: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/SongCollection\": parse schema: items: parse schema: item: parse schema: reference \"#/components/schemas/Song\": parse schema: allOf: [0]: parse schema: reference \"#/components/schemas/NewSong\": parse schema: artist: parse schema: reference \"models/artists.yaml#/components/schemas/Artist\": resolve reference \"models/artists.yaml#/components/schemas/Artist\": invalid schema reference \"models/artists.yaml#/components/schemas/Artist\""
+}

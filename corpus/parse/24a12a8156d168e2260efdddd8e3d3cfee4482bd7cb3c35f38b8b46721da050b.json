@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/growingio/progate"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "examples/grpc-example/src/main/resources/restful/openapi.yaml",
+			"byteSize": 1290,
+			"content": "openapi: 3.0.3\ninfo:\n  title: DEMO\n  description: OpenAPI Demo\n  version: v1\npaths:\n  /jobs:\n    summary: Jobs\n    get:\n      summary: List all jobs\n      x-grpc-endpoint: growing.graphql.example.JobService/List\n      responses:\n        default:\n          description: \"success\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  properties:\n                    name:\n                      type: string\n                    description:\n                      type: string\n  /jobs/{id}:\n    summary: Get Job\n    parameters:\n      - name: id\n        in: path\n    get:\n      summary: Get job by id\n      x-grpc-endpoint: growing.graphql.example.JobService/Get\n      responses:\n        default:\n          description: \"success\"\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  name:\n                    type: string\n                  description:\n                    type: string\n    delete:\n      summary: Delete job by id\n      x-grpc-endpoint: growing.graphql.example.JobService/Delete\n      parameters:\n        - name: id\n          in: path\n      responses:\n        204:\n          description: No content\n"
+		}
+	},
+	"Error": "parse: parse spec: /jobs/{id}: parameters: parse parameter \"id\": path parameters must be required"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-rest-4j"
+		},
+		"file": {
+			"name": "openapi-inject-test-pos.yml",
+			"size": 0,
+			"path": "openapi-meta/src/test/resources/config/openapi-inject-test-pos.yml",
+			"byteSize": 241,
+			"content": "openapi: 3.0.0\npaths:\n  /pets/${goodKey}:\n    get:\n      security:\n        - api-scope:\n            - admim\n\ncomponents:\n  securitySchemes:\n    api-scope:\n      flows:\n        clientCredentials:\n          scopes:\n            admin: orwritten"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pets/${goodKey}: get: operation \"\": parse path: path parameter not specified: \"goodKey\""
+}

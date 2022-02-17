@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kean/CreateAPI"
+		},
+		"file": {
+			"name": "discriminator.yaml",
+			"size": 0,
+			"path": "Tests/CreateAPITests/Specs/discriminator.yaml",
+			"byteSize": 1096,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Discriminator\n\npaths:\n  /container:\n    get:\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Container\"\ncomponents:\n  schemas:\n    A:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    B:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n    C:\n      type: object\n      required:\n        - kind\n      properties:\n        kind:\n          type: string\n\n    Container:\n      type: object\n      required:\n        - content\n      properties:\n        content:\n          oneOf:\n            - $ref: \"#/components/schemas/A\"\n            - $ref: \"#/components/schemas/B\"\n            - $ref: \"#/components/schemas/C\"\n          discriminator:\n            propertyName: kind\n            mapping:\n              a: \"#/components/schemas/A\"\n              b: \"#/components/schemas/B\"\n              c: \"#/components/schemas/C\"\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/container\": get: responses: 200: contents: application/json: schema: field content: oneOf: discriminator: unable to map a to #/components/schemas/A"
+}

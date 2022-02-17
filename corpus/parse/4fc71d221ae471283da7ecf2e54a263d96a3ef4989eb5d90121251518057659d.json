@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/openapi3-examples"
+		},
+		"file": {
+			"name": "duplicateParameter.yaml",
+			"size": 0,
+			"path": "3.0/fail/duplicateParameter.yaml",
+			"byteSize": 361,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test invalid duplicate parameter\n  version: 1.0.0\n\npaths:\n  '/test':\n    get:\n      operationId: same\n      parameters:\n      - name: test\n        in: query\n        schema:\n          type: string\n      - name: test\n        in: query\n        schema:\n          type: integer\n      responses:\n        '200':\n          description: OK\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /test: get: operation \"same\": parameters: duplicate parameter: \"test\" in \"query\""
+}

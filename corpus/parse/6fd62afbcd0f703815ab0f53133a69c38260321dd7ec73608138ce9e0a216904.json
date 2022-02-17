@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "LinksResource.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
+			"byteSize": 632,
+			"content": "openapi: 3.0.1\npaths:\n  /links:\n    get:\n      operationId: getUserWithAddress\n      parameters:\n      - name: userId\n        in: query\n        schema:\n          type: string\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            address:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\n            user:\n              operationId: getUser\n              parameters:\n                userId: $request.query.userId\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /links: get: operation \"getUserWithAddress\": responses: default: content: \"*/*\": schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": schema not found"
+}

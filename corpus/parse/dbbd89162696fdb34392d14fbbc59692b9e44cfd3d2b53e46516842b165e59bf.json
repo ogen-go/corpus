@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NickHeap2/newman-reporter-openapi"
+		},
+		"file": {
+			"name": "invalid-schema.yaml",
+			"size": 0,
+			"path": "tests/invalid-schema.yaml",
+			"byteSize": 229,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: \"Refpath spec\"\n  description: \"Refpath spec\"\n  version: 0.0.1\n  contact:\n    email: \"me@mail.com\"\nservers:\n- url: \"/api\"\ntags:\n- name: refpath\npaths:\n  /refpath:\n    $ref: \"missing-refpath.yaml\"\n"
+		}
+	},
+	"Error": "parse: parse spec: /refpath: referenced pathItem not supported"
+}

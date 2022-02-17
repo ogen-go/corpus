@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openfoodfoundation/openfoodnetwork"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger/v0/swagger.yaml",
+			"byteSize": 1737,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: API V0\n  version: v0\npaths:\n  \"/api/v0/orders\":\n    get:\n      summary: list orders\n      tags:\n      - Orders\n      parameters:\n      - name: X-Spree-Token\n        in: header\n        schema:\n          type: string\n      - name: q[distributor_id_eq]\n        in: query\n        required: false\n        description: Query orders for a specific distributor id.\n        schema:\n          type: string\n      - name: q[completed_at_gt]\n        in: query\n        required: false\n        description: Query orders completed after a date.\n        schema:\n          type: string\n      - name: q[completed_at_lt]\n        in: query\n        required: false\n        description: Query orders completed before a date.\n        schema:\n          type: string\n      - name: q[state_eq]\n        in: query\n        required: false\n        description: Query orders by order state, eg 'cart', 'complete'.\n        schema:\n          type: string\n      - name: q[payment_state_eq]\n        in: query\n        required: false\n        description: Query orders by order payment_state, eg 'balance_due', 'paid',\n          'failed'.\n        schema:\n          type: string\n      - name: q[email_cont]\n        in: query\n        required: false\n        description: Query orders where the order email contains a string.\n        schema:\n          type: string\n      - name: q[order_cycle_id_eq]\n        in: query\n        required: false\n        description: Query orders for a specific order_cycle id.\n        schema:\n          type: string\n      responses:\n        '200':\n          description: get orders\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Order_Concise\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/v0/orders: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Order_Concise\": resolve reference \"#/components/schemas/Order_Concise\": schema not found"
+}

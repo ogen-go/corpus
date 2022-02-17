@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "hosted.yaml",
+			"size": 0,
+			"path": "packages/core/__tests__/fixtures/refs/hosted.yaml",
+			"byteSize": 750,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: bugtest\n  version: \"1.0\"\n  description: Demo\n  license:\n    name: DEMO\n    url: https://demo.com\nservers:\n  - url: http://demo.com/api\npaths:\n  /customer:\n    summary: \"Customer scope\"\n    get:\n      summary: \"Get demo no refs\"\n      operationId: GetCustomer\n      description: \"Returns Demo No Refs\"\n      responses:\n        200:\n          description: Demo No Refs\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"  \ncomponents:\n  schemas: \n    Customer:\n      type: object\n      properties:\n        customerName:\n          type: string\n        accounts:\n          type: array\n          items:\n            $ref: \"https://someexternal.schema\""
+		}
+	},
+	"Error": "parse: parse spec: paths: /customer: get: operation \"GetCustomer\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Customer\": parse schema: accounts: parse schema: item: parse schema: reference \"https://someexternal.schema\": resolve reference \"https://someexternal.schema\": invalid schema reference \"https://someexternal.schema\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/reduxjs/redux-toolkit"
+		},
+		"file": {
+			"name": "fhir.yaml",
+			"size": 0,
+			"path": "packages/rtk-query-codegen-openapi/test/fixtures/fhir.yaml",
+			"byteSize": 1761,
+			"content": "openapi: 3.0.1\ninfo:\n  title: FHIR Server\n  contact: {}\n  version: 5.4.0-PRE10-SNAPSHOT/5db01f3139/2021-05-03\ntags:\n  - name: StructureDefinition\n    description: The StructureDefinition FHIR resource type\npaths:\n  /StructureDefinition:\n    get:\n      tags:\n        - StructureDefinition\n      summary: Some summary\n      description: This is a search type\n      parameters:\n        - name: foo\n          in: query\n          description: Some description\n          style: simple\n        - name: _foo\n          in: query\n          description: Some description\n          style: simple\n        - name: -bar-bar\n          in: query\n          description: Some description\n          style: simple\n        - name: _bar_bar\n          in: query\n          description: Some description\n          style: simple\n        - name: foo:bar-foo.bar/foo\n          in: query\n          description: Some description\n          style: simple\n        - name: foo_bar\n          in: query\n          description: Some description\n          style: simple\n        - name: namingConflict\n          in: query\n          description: Some description\n          style: simple\n        - name: naming_conflict\n          in: query\n          description: Some description\n          style: simple\n      responses:\n        '200':\n          description: Success\n          content:\n            application/fhir+json:\n              schema:\n                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'\n            application/fhir+xml:\n              schema:\n                $ref: '#/components/schemas/FHIR-XML-RESOURCE'\ncomponents:\n  schemas:\n    FHIR-JSON-RESOURCE:\n      type: object\n      description: A FHIR resource\n    FHIR-XML-RESOURCE:\n      type: object\n      description: A FHIR resource\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /StructureDefinition: get: operation \"\": parameters: parse parameter \"foo\": style: unexpected style: \"simple\""
+}

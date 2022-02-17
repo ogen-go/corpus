@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive2.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_schema/test/positive2.yaml",
+			"byteSize": 394,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyWrongObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": responses: 200: resolve \"#/components/schemas/MyWrongObject\" reference: invalid response reference: \"#/components/schemas/MyWrongObject\""
+}

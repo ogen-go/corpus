@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/fybrik/fybrik"
+		},
+		"file": {
+			"name": "policymanager.spec.yaml",
+			"size": 0,
+			"path": "connectors/api/policymanager.spec.yaml",
+			"byteSize": 1105,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Policy Manager Service\n  license:\n    name: Apache 2.0\nservers:\n  - url: https://localhost:8080\npaths:\n  /getPoliciesDecisions:\n    post:\n      summary: This REST API gets data governance decisions for the data sets indicated in FybrikApplication yaml based on the context indicated\n      operationId: getPoliciesDecisions\n      parameters:\n        - in: header\n          name: X-Request-Cred\n          schema:\n            type: string\n          required: true\n      requestBody:\n        description: Policy Manager Request Object.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsResponse\"\n        '400':\n          description: Invalid status value"
+		}
+	},
+	"Error": "parse: parse spec: paths: /getPoliciesDecisions: post: operation \"getPoliciesDecisions\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": resolve reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": invalid schema reference \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\""
+}

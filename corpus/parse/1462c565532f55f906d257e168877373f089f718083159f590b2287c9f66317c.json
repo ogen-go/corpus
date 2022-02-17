@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/BioKIC/NEON-Biorepository"
+		},
+		"file": {
+			"name": "using-refs.yaml",
+			"size": 0,
+			"path": "api/vendor/zircote/swagger-php/Examples/using-refs/using-refs.yaml",
+			"byteSize": 2312,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Example of using references in swagger-php'\n  version: 1.0.0\npaths:\n  '/products/{product_id}':\n    get:\n      tags:\n        - Products\n      operationId: 133f11c148f628647767a323bf78c68d\n      responses:\n        default:\n          $ref: '#/components/responses/product'\n    patch:\n      tags:\n        - Products\n      operationId: 7f26f01759fb7245bf4f7138a3717e0f\n      requestBody:\n        $ref: '#/components/requestBodies/product_in_body'\n      responses:\n        default:\n          $ref: '#/components/responses/product'\n    parameters:\n      -\n        $ref: '#/components/parameters/product_id_in_path_required'\n  '/products/{product_id}/do-stuff':\n    get:\n      tags:\n        - Products\n      operationId: 9aed2c6f96bff805003c993b97822c06\n      parameters:\n        -\n          $ref: '#/components/schemas/Product/allOf/0/properties/id'\n      responses:\n        default:\n          $ref: '#/components/responses/product'\ncomponents:\n  schemas:\n    Model:\n      description: 'A model'\n    Product:\n      title: 'Product model'\n      description: 'Product model'\n      type: object\n      allOf:\n        -\n          properties:\n            id:\n              description: 'The unique identifier of a product in our catalog.'\n              type: integer\n              format: int64\n              example: 1\n            status:\n              $ref: '#/components/schemas/product_status'\n        -\n          $ref: '#/components/schemas/Model'\n    product_status:\n      description: 'The status of a product'\n      type: string\n      default: available\n      enum:\n        - available\n        - discontinued\n  responses:\n    product:\n      description: 'All information about a product'\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Product'\n    todo:\n      description: 'This API call has no documentated response (yet)'\n  parameters:\n    product_id_in_path_required:\n      name: product_id\n      in: path\n      description: 'The ID of the product'\n      required: true\n      schema:\n        type: integer\n        format: int64\n  requestBodies:\n    product_in_body:\n      description: product_request\n      required: true\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Product'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /products/{product_id}/do-stuff: get: operation \"9aed2c6f96bff805003c993b97822c06\": parameters: parse parameter \"\": resolve \"#/components/schemas/Product/allOf/0/properties/id\" reference: invalid parameter reference: \"#/components/schemas/Product/allOf/0/properties/id\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative3.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/required_property_default_value/test/negative3.yaml",
+			"byteSize": 437,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      required:\n      - id\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n          default: guest\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+}

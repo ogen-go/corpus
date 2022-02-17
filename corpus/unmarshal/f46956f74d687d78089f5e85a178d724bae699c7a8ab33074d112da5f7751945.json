@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tyrchen/quenya"
+		},
+		"file": {
+			"name": "main.yml",
+			"size": 0,
+			"path": "parser/test/fixture/todo/main.yml",
+			"byteSize": 637,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Todo API\n  description: |\n    Hello world! This is a __Sample API__ for todo API\n  version: 0.1.0\nservers:\n  - url: http://localhost:4000/api/v1\n    description: Local dev server\n  - url: https://api.todo.mvc/v1\n    description: Production server\ntags:\n  - name: todos\n  - name: todo\n\ncomponents:\n  parameters:\n    $ref: \"./params.yml\"\n  schemas:\n    $ref: \"./schemas.yml\"\n  responses:\n    $ref: \"./responses.yml\"\n  securitySchemes:\n    token:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\npaths:\n  /todo/{todoId}:\n    $ref: \"./services/todo.yml\"\n  /todos:\n    $ref: \"./services/todos.yml\"\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go struct field Components.components.parameters of type ogen.Parameter"
+}

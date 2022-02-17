@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cebe/php-openapi"
+		},
+		"file": {
+			"name": "ReferencedCommonParamsInReferencedPath.yml",
+			"size": 0,
+			"path": "tests/spec/data/reference/ReferencedCommonParamsInReferencedPath.yml",
+			"byteSize": 356,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Nested reference with common path params\n  version: 1.0.0\npaths:\n  /example:\n    $ref: 'paths/ReferencesCommonParams.yml'\n  /something:\n    parameters:\n      - $ref: './parameters/TestParameter.yml'\n    x-something: something\n    get:\n      responses:\n        200:\n          description: OK if common params can be references\n"
+		}
+	},
+	"Error": "parse: parse spec: /example: referenced pathItem not supported"
+}

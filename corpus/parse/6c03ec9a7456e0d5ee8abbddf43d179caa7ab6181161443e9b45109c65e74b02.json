@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/openapi-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "__tests__/bundle/bundle-remove-unused-components/oas3/openapi.yaml",
+			"byteSize": 1763,
+			"content": "openapi: 3.1.0\npaths:\n  /pet:\n    x-internal: true\n    get:\n      parameters:\n        - $ref: '#/components/parameters/x'\n      requestBody:\n        $ref: '#/components/requestBodies/UserArray'\n  /store/subscribe:\n    post:\n      x-internal: true\n      description: Add subscription for a store events\n      parameters:\n        - $ref: '#/components/schemas/ApiResponse'\n      requestBody:\n        $ref: '#/components/responses/Unauthorized'\n  /store/order:\n    post:\n      operationId: storeOrder\n      responses:\n        '200':\n          description: successful operation\n          x-internal: true\n          headers:\n            Rate-Limit-Limit:\n              $ref: '#/components/headers/Rate-Limit-Limit'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Order'\n        '400':\n          content:\n            application/json:\n              schema:\n                $ref: 'ref.yaml'\ncomponents:\n  parameters:\n    x:\n      name: x\n  examples:\n    Order:\n      value:\n        quantity: 1\n        shipDate: '2018-10-19T16:46:45Z'\n        status: placed\n        complete: false\n  schemas:\n    ApiResponse:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n  requestBodies:\n    UserArray:\n      content:\n        application/json:\n          schema:\n            type: array\n      description: List of user object\n      required: true\n  responses:\n    Unauthorized:\n      description: 'Unauthorized access, invalid credentials was used'\n      headers:\n        Location:\n          schema:\n            type: string\n  headers:\n    Rate-Limit-Limit:\n      description: The number of allowed requests in the current period\n      schema:\n        type: integer\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pet: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/x\" reference: unsupported parameter type \"\""
+}

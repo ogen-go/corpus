@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHatInsights/vulnerability-engine"
+		},
+		"file": {
+			"name": "manager.healthz.spec.yaml",
+			"size": 0,
+			"path": "manager.healthz.spec.yaml",
+			"byteSize": 528,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Vulnerability Engine Manager\n  version: {{ app_version }}\n\n\npaths:\n  /healthz:\n    get:\n      summary: Health status of application\n      description: Checks database availability and API response threshold time.\n      operationId: manager.api_status_handler.GetApiStatus.get\n      x-methodName: getApiStatus\n      responses:\n        200:\n          description: API is healthy\n        408:\n          description: API is down (time out)\n        503:\n          description: Database is unavaiable\n"
+		}
+	},
+	"Error": "invalidYAML: yaml: invalid map key: map[interface {}]interface {}{\"app_version\":interface {}(nil)}"
+}

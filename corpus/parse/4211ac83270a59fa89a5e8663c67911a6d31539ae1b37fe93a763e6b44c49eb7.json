@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "AttributeValues_AttributeValueDbId_GET_PUT.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/Germplasm_Attribute_Values/AttributeValues_AttributeValueDbId_GET_PUT.yaml",
+			"byteSize": 2363,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /attributevalues/{attributeValueDbId}:\n    get:\n      summary: Get the details for a specific Germplasm Attribute\n      description: Get the details for a specific Germplasm Attribute\n      parameters:\n      - name: attributeValueDbId\n        description: The unique id for an attribute value\n        in: path\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/GermplasmAttributeValueSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attribute Values\n    put:\n      summary: Update an existing Germplasm Attribute Value\n      description: Update an existing Germplasm Attribute Value\n      parameters:\n      - name: attributeValueDbId\n        description: The unique id for an attribute value\n        in: path\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/GermplasmAttributeValueNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/GermplasmAttributeValueSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attribute Values\ncomponents:\n  responses:\n    GermplasmAttributeValueSingleResponse:\n      description: OK\n      headers: {}\n      content:\n        application/json:\n          schema:\n            title: GermplasmAttributeValueSingleResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/GermplasmAttributeValue'\n            required:\n            - metadata\n            - result\n    \n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /attributevalues/{attributeValueDbId}: get: operation \"\": parameters: parse parameter \"\": resolve \"#/components/parameters/authorizationHeader\" reference: component by reference \"#/components/parameters/authorizationHeader\" not found"
+}

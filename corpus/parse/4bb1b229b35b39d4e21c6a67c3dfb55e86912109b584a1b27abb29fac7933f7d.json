@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wikimedia/restbase"
+		},
+		"file": {
+			"name": "i18n.yaml",
+			"size": 0,
+			"path": "v1/i18n.yaml",
+			"byteSize": 2085,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0-beta\n  title: Internationalization\n  description: API for retrieving internationalization information\n  termsOfService: https://www.mediawiki.org/wiki/REST_API#Terms_and_conditions\n  contact:\n    name: Reading Infrastructure\n    url: https://www.mediawiki.org/wiki/Wikimedia_Reading_Infrastructure_team\n  license:\n    name: Apache licence, v2\n    url: https://www.apache.org/licenses/LICENSE-2.0\npaths:\n  /i18n/{type}:\n    x-route-filters:\n      - path: lib/security_response_header_filter.js\n    get:\n      tags:\n        - Mobile\n      summary: Get internationalization info\n      description: |\n        Gets internationalization information for the given site. Currently the only\n        supported type is pcs for the Page Content Service.\n\n        Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n      parameters:\n        - name: type\n          in: path\n          description: The desired internationalization bundle\n          schema:\n            type: string\n            enum:\n              - pcs\n          required: true\n      responses:\n        200:\n          description: Success\n          headers:\n            ETag:\n              description: Different values indicate that the content has changed\n              schema:\n                type: string\n          content:\n            application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/i18n/0.0.1\":\n              schema:\n                type: object\n        default:\n          description: Error\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-request-handler:\n        - get_from_pcs:\n            request:\n              method: get\n              uri: '{{options.host}}/{domain}/v1/data/i18n/{type}'\n            return:\n              status: 200\n              headers: '{{ merge({\"cache-control\": options.response_cache_control},\n              get_from_pcs.headers) }}'\n              body: '{{get_from_pcs.body}}'\n      x-monitor: false\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /i18n/{type}: get: operation \"\": responses: default: content: \"application/problem+json\": schema: parse schema: reference \"#/components/schemas/problem\": resolve reference \"#/components/schemas/problem\": schema not found"
+}

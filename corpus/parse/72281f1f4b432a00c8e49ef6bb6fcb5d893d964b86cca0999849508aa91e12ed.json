@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/solvedac/unofficial-documentation"
+		},
+		"file": {
+			"name": "show.yaml",
+			"size": 0,
+			"path": "src/paths/problem/show.yaml",
+			"byteSize": 829,
+			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"ID로 문제 가져오기\"\n      description: \"해당하는 ID의 문제를 가져옵니다.\"\n      tags:\n        - problem\n      operationId: getProblemById\n      parameters:\n        - name: \"problemId\"\n          description: \"문제 ID\"\n          in: \"query\"\n          required: true\n          schema:\n            type: \"integer\"\n            format: \"int64\"\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                $ref: \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: Path: get: operation \"getProblemById\": responses: 200: content: \"application/json\": schema: parse schema: reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\": resolve reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\": invalid schema reference \"../../schemas/tagged-problem.yaml#/components/schemas/TaggedProblem\""
+}

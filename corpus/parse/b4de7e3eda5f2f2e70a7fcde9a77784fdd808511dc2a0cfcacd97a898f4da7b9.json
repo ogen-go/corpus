@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pubg/api-documentation-content"
+		},
+		"file": {
+			"name": "samples.yml",
+			"size": 0,
+			"path": "swagger/en/samples.yml",
+			"byteSize": 737,
+			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n  description: \"Note: Sample rates are independent for each platform and not uniform across any time interval.\"\r\n\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"steam\"\r\n        - \"console\"\r\n        - \"kakao\"\r\n        default: steam\r\n\r\nsecurity:\r\n  - ApiKeyAuth: []\r\n\r\npaths:\r\n  /samples:\r\n    $ref: './paths/index.yml#/samples'\r\n\r\ncomponents:\r\n  securitySchemes:\r\n    ApiKeyAuth:\r\n      type: http\r\n      description: \"Enter your API key here to be used with the interactive documentation!\"\r\n      scheme: bearer\r\n      bearerFormat: JWT\r\n\r\n  schemas:\r\n    sample:\r\n      $ref: 'schemas/index.yml#/sample'\r\n"
+		}
+	},
+	"Error": "parse: parse spec: /samples: referenced pathItem not supported"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/solvedac/unofficial-documentation"
+		},
+		"file": {
+			"name": "suggestion.yaml",
+			"size": 0,
+			"path": "src/paths/search/suggestion.yaml",
+			"byteSize": 2674,
+			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"검색 자동완성 구하기\"\n      description: \"주어진 쿼리에 따라 검색해보고, 자동 완성에 적합하도록 가공한 정보를 돌려줍니다.\"\n      tags:\n        - search\n      operationId: getSearchAutoCompletion\n\n      parameters:\n        - name: \"query\"\n          in: \"query\"\n          description: \"쿼리 문자열\"\n          required: true\n          schema:\n            type: \"string\"\n\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"object\"\n                properties:\n                  autocomplete:\n                    type: \"array\"\n                    items:\n                      type: \"object\"\n                      properties:\n                        caption:\n                          description: \"자동완성 제목입니다. 해당 값으로 자동완성됩니다.\"\n                          type: \"string\"\n                        description:\n                          description: \"자동완성 요소에 대한 설명입니다.\"\n                          type: \"string\"\n                  problems:\n                    description: \"찾은 문제 목록입니다.\"\n                    type: \"array\"\n                    items:\n                      $ref: \"../../schemas/problem.yaml#/components/schemas/Problem\"\n                  problemCount:\n                    description: \"찾은 문제 수입니다.\"\n                    type: \"integer\"\n                    format: \"int64\"\n                    example: 1\n                  users:\n                    description: \"찾은 사용자 목록입니다.\"\n                    type: \"array\"\n                    items:\n                      $ref: \"../../schemas/user.yaml#/components/schemas/User\"\n                  userCount:\n                    description: \"찾은 사용자 수입니다.\"\n                    type: \"integer\"\n                    format: \"int64\"\n                    example: 1\n                  tags:\n                    description: \"찾은 태그 목록입니다.\"\n                    type: \"array\"\n                    items:\n                      $ref: \"../../schemas/problem-tag.yaml#/components/schemas/ProblemTag\"\n                  tagCount:\n                    description: \"찾은 태그 수입니다.\"\n                    type: \"integer\"\n                    format: \"int64\"\n                    example: 1\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: Path: get: operation \"getSearchAutoCompletion\": responses: 200: content: \"application/json\": schema: parse schema: problems: parse schema: item: parse schema: reference \"../../schemas/problem.yaml#/components/schemas/Problem\": resolve reference \"../../schemas/problem.yaml#/components/schemas/Problem\": invalid schema reference \"../../schemas/problem.yaml#/components/schemas/Problem\""
+}

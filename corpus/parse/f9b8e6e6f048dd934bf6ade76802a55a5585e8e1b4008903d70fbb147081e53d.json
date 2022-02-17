@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "https-test.yml",
+			"size": 0,
+			"path": "rules/tests/https-test.yml",
+			"byteSize": 648,
+			"content": "openapi: \"3.0.1\"\nservers:\n  - url: https://ko.nodescription\n  - url: https://ok.example\n    description: production\n  - url: http://ok.sandbox.examle\n    x-sandbox: true\n    description: ok\n  - url: http://ko.example\n    description: should be https\n  - url: http://ko.sandbox.examle\n    x-sandbox: false\n    description: should be https\npaths:\n  /foo-ko:\n    get:\n      servers:\n        - url: https://ko.nodesc.example\n        - url: https://ok.example\n          description: production\n        - url: http://ko.example\n          description: production\n        - url: http://ok.sandbox.examle\n          x-sandbox: true\n          description: ok\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /foo-ko: get: operation \"\": responses: no responses"
+}

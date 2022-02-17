@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue892-main.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser/src/test/resources/issue892-main.yaml",
+			"byteSize": 420,
+			"content": "openapi: 3.0.1\ninfo:\n  title: ping test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  some/ping:\n    get:\n      operationId: pingGet\n      parameters:\n        - name: i\n          in: query\n          description: Test\n          required: true\n          schema:\n            $ref: './issue749-reference.yaml#/SomeId'\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas: {}"
+		}
+	},
+	"Error": "parse: parse spec: paths: some/ping: get: operation \"pingGet\": parameters: parse parameter \"i\": schema: parse schema: reference \"./issue749-reference.yaml#/SomeId\": resolve reference \"./issue749-reference.yaml#/SomeId\": invalid schema reference \"./issue749-reference.yaml#/SomeId\""
+}

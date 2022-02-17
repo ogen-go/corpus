@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RonnyPfannschmidt/prance"
+		},
+		"file": {
+			"name": "recursive_reference_in_file.spec.yaml",
+			"size": 0,
+			"path": "tests/specs/translating_parser/recursive_reference_in_file.spec.yaml",
+			"byteSize": 392,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to a local recursive reference\n          content:\n            application/json:\n              schema:\n                $ref: 'recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /hosts: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\": resolve reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\": invalid schema reference \"recursive_reference_in_file_schemas.spec.yaml#/$defs/RecursiveObject\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Himenon/openapi-typescript-code-generator"
+		},
+		"file": {
+			"name": "index.yml",
+			"size": 0,
+			"path": "test/api.v2.domain/index.yml",
+			"byteSize": 989,
+			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: api.test.domain\n  description: Library test schema\n  license:\n    name: MIT\n\nservers:\n  - url: \"http://dev.api.test.domain/\"\n    description: Development Environment\n  - url: \"https://api.test.domain/\"\n    description: Production Environment\n\ntags:\n  - name: test\n\ncomponents:\n  schemas:\n    Message:\n      $ref: \"./components/schemas/Message.yml\"\n    QueryParams:\n      $ref: \"./components/schemas/QueryParams.yml\"\npaths:\n  /hello/world:\n    get:\n      operationId: getHelloWorld\n      parameters:\n        - in: query\n          name: word\n          description: query word\n          schema:\n            $ref: \"#/components/schemas/QueryParams\"\n          required: true\n      responses:\n        200:\n          description: 成功\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    $ref: \"#/components/schemas/Message\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /hello/world: get: operation \"getHelloWorld\": parameters: parse parameter \"word\": schema: parse schema: reference \"#/components/schemas/QueryParams\": parse schema: reference \"./components/schemas/QueryParams.yml\": resolve reference \"./components/schemas/QueryParams.yml\": invalid schema reference \"./components/schemas/QueryParams.yml\""
+}

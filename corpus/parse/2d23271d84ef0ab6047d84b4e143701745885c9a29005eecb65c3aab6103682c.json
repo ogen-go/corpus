@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/snyk/vervet"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "versionware/example/resources/things/2021-11-08/spec.yaml",
+			"byteSize": 445,
+			"content": "openapi: 3.0.3\nx-snyk-api-stability: experimental\ninfo:\n  title: api\n  version: 3.0.0\nservers:\n  - url: /api/api\n    description: Api API\npaths:\n  /things:\n    get:\n      description: List some things\n      operationId: listThings\n      responses:\n        '200':\n          description: Returns a list of things\n          content:\n            application/json:\n              schema: { $ref: '../../common.yaml#/schemas/ThingCollectionResponse' }\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /things: get: operation \"listThings\": responses: 200: content: \"application/json\": schema: parse schema: reference \"../../common.yaml#/schemas/ThingCollectionResponse\": resolve reference \"../../common.yaml#/schemas/ThingCollectionResponse\": invalid schema reference \"../../common.yaml#/schemas/ThingCollectionResponse\""
+}

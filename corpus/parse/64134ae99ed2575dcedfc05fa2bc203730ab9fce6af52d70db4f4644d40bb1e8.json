@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/realotz/whole"
+		},
+		"file": {
+			"name": "file_openapi.yaml",
+			"size": 0,
+			"path": "api/systems/v1/file_openapi.yaml",
+			"byteSize": 1438,
+			"content": "components:\n  schemas:\n    SystemsV1File:\n      type: object\n    SystemsV1FileCreateOption:\n      properties:\n        data:\n          type: string\n        name:\n          type: string\n        size:\n          format: int64\n          type: integer\n      type: object\n    SystemsV1FileDeleteOption:\n      properties:\n        id:\n          type: string\n      type: object\n    SystemsV1FileList:\n      properties:\n        message:\n          type: string\n      type: object\n    SystemsV1FileUpdateOption:\n      properties:\n        name:\n          type: string\n      type: object\ninfo:\n  description: systems.v1\n  title: systems.v1\n  version: \"1\"\nopenapi: 3.0.0\npaths:\n  /systems/file:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SystemsV1FileUpdateOption'\n        required: true\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SystemsV1File'\n          description: ok\n      tags:\n      - systems.v1.FileService\n    summary: Update\n  /systems/file/{id}:\n    delete:\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SystemsV1File'\n          description: ok\n      tags:\n      - systems.v1.FileService\n    summary: Delete\ntags:\n- name: systems.v1.FileService\n\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /systems/file/{id}: delete: operation \"\": parse path: path parameter not specified: \"id\""
+}

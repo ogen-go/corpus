@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/IBM/openapi-validator"
+		},
+		"file": {
+			"name": "main.yaml",
+			"size": 0,
+			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+			"byteSize": 563,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /circular_example: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"./schema.yaml#/components/schemas/CircularSchema\": resolve reference \"./schema.yaml#/components/schemas/CircularSchema\": invalid schema reference \"./schema.yaml#/components/schemas/CircularSchema\""
+}

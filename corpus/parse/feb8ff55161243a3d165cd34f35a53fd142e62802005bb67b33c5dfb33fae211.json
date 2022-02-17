@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/surfstudio/SurfGen"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "Tests/Common/TestProject/reference_cycles/api.yaml",
+			"byteSize": 461,
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n\npaths:\n  /auth:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json: \n            schema:\n              $ref: \"models.yaml#/components/schemas/FirstModel\"\n      responses:\n        \"200\":\n          description: \"Все ок\"\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/Category\"\n\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /auth: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"models.yaml#/components/schemas/FirstModel\": resolve reference \"models.yaml#/components/schemas/FirstModel\": invalid schema reference \"models.yaml#/components/schemas/FirstModel\""
+}

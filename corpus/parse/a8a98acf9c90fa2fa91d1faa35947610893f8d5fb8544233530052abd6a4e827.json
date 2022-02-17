@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/openapi3-examples"
+		},
+		"file": {
+			"name": "example1_from_._Improved_serverseverywhere.md.yaml",
+			"size": 0,
+			"path": "3.0/fail/gluecon/example1_from_._Improved_serverseverywhere.md.yaml",
+			"byteSize": 818,
+			"content": "openapi: 3.0.0\ninfo:\n  title:\n  version: 1.0.0\nservers:\n- url: https://api.example.com\npaths:\n  '/passports/{id}':\n    get:\n      responses:\n        '200': \n          description: Ok\n    post:\n      servers:                    # Write operation on a different server\n      - url: https://supersecure-api.example.com\n      requestBody:\n        content:\n          application/json: {}\n      responses:\n        '200': \n          description: Ok\n  '/images/{filename}':\n    summary: Pictures of people\n    servers:                      # Static resources on a different server\n    - url: https://static.example.com\n    get: \n      responses:\n        '200':\n          description: Ok\n    put:\n      responses:\n        '200':\n          description: Ok\n    delete:  \n      responses:\n        '200':\n          description: Ok\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /images/{filename}: get: operation \"\": parse path: path parameter not specified: \"filename\""
+}

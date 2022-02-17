@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "array-test.yml",
+			"size": 0,
+			"path": "security/tests/array-test.yml",
+			"byteSize": 1081,
+			"content": "components:\n  schemas:\n    Number:\n      type: number\n      minimum: 1\n      maximum: 5\n    Array:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      maxItems: 5\n      minItems: 1\n    ko_Array:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n    ko_Array_minItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      maxItems: 10\n    ko_Array_maxItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/Number'\n      minItems: 10\nopenapi: 3.0.1\ninfo:\n  version: \"1.2.3\"\n  title: \"array-test\"\npaths:\n  /array-ko-params:\n    post:\n      responses: {}\n      parameters:\n        - name: q1\n          in: query\n          schema:\n            type: object\n            properties:\n              a1:\n                $ref: '#/components/schemas/ko_Array'\n              a2:\n                $ref: '#/components/schemas/ko_Array_minItems'\n              a3:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Number'\n                minItems: 10\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /array-ko-params: post: operation \"\": responses: no responses"
+}

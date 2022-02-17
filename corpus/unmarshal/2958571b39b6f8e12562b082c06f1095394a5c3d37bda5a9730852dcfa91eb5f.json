@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "not-4.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/not-4.json",
+			"byteSize": 2097,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Not\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/not\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"type\": \"number\",\n                            \"allOf\": [\n                                {\n                                    \"multipleOf\": 0.1\n                                },\n                                {\n                                    \"minimum\": 0.0\n                                },\n                                {\n                                    \"nullable\": true\n                                }\n                            ],\n                            \"not\": {\n                                \"multipleOf\": 2.0,\n                                \"oneOf\": [\n                                    {\n                                        \"enum\": [ 1.0, 10.0 ]\n                                    },\n                                    {\n                                        \"enum\": [ 1.1, 11.0 ]\n                                    },\n                                    {\n                                        \"minimum\": 100.0,\n                                        \"multipleOf\": 7.5\n                                    }\n                                ]\n                            }\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number 0.1 into Go struct field Schema.paths.post.parameters.schema.allOf.multipleOf of type int"
+}

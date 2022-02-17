@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive8.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/default_invalid/test/positive8.yaml",
+			"byteSize": 416,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n                default: { \"a\": \"b\" }\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": responses: 200: content: \"application/json\": schema: parse default: expected type \"array\", got \"object\""
+}

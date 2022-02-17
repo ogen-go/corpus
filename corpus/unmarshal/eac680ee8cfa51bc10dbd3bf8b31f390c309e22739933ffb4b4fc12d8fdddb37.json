@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive4.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/additional_properties_too_restrective/test/positive4.yaml",
+			"byteSize": 721,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            allOf:\n            - type: object\n              properties:\n                id:\n                  type: string\n                name:\n                  type: string\n              additionalProperties: 'false'\n            - type: string\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n"
+		}
+	},
+	"Error": "unmarshal: unexpected type string"
+}

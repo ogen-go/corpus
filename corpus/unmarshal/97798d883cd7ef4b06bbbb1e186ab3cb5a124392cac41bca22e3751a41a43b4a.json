@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "differentContentTypesSpec.yaml",
+			"size": 0,
+			"path": "test/data/31CollectionTransactions/validate30Scenarios/differentContentTypesSpec.yaml",
+			"byteSize": 1255,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    post:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      requestBody:\n        content:\n          application/vnd.github+json:\n            schema:\n              $ref: \"#/components/schemas/Pet\"\n      responses:\n        '200':\n          description: content with optional params media type\n          content:\n            'application/json; charset=utf-8':\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n    put:\n      summary: Update all pets\n      requestBody:\n        content:\n          application/*:\n            schema:\n              $ref: \"#/components/schemas/Pet\"\n      responses:\n        '200':\n          description: content with all allowed types\n          content:\n            '*/*':\n              schema:\n                $ref: \"#/components/schemas/Pet\"\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type:\n            - integer\n          format: int64\n        name:\n          type:\n            - string\n        tag:\n          type:\n            - string\n"
+		}
+	},
+	"Error": "unmarshal: callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/scionproto/scion"
+		},
+		"file": {
+			"name": "spec.yml",
+			"size": 0,
+			"path": "spec/gateway/spec.yml",
+			"byteSize": 528,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: Posix Gateway API\n  description: Service API for the Posix Gateway\n  version: \"0.0.1\"\nservers:\n  - url: http://{host}:{port}/api/v1\n    variables:\n      host:\n        default: \"localhost\"\n      port:\n        default: \"30456\"\ntags:\n  - name: common\n    description: Common API exposed by SCION services.\npaths:\n  /info:\n    $ref: \"../common/process.yml#/paths/~1info\"\n  /log/level:\n    $ref: \"../common/process.yml#/paths/~1log~1level\"\n  /config:\n    $ref: \"../common/process.yml#/paths/~1config\"\n"
+		}
+	},
+	"Error": "parse: parse spec: /config: referenced pathItem not supported"
+}
