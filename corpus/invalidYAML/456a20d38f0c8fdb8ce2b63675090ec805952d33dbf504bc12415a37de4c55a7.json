@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "Printer.yaml",
+			"size": 0,
+			"path": "tests/generator-printerclass/Printer.yaml",
+			"byteSize": 1727,
+			"content": "\nopenapi: 3.0.0\ninfo:\n  title: Printer\n  description: TBD\n  version: \"1.0\"\nservers:\n  - url: http://localhost/cloudmesh\n    description: TODO THIS MUST BE CHANGEABLE\npaths:\n  /Printer/print_list:\n     get:\n      summary: prints a list\n      description: Optional extended description in CommonMark or HTML.\n      operationId: print_list\n      parameters:\n        - in: query\n          name: l\n          description: not yet available, you can read it from docstring\n          schema:\n            type: array\n                  items: {}\n        - in: query\n          name: output\n          description: not yet available, you can read it from docstring\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /Printer/row_table:\n     get:\n      summary: prints a pretty table from data in the dict.\n      description: Optional extended description in CommonMark or HTML.\n      operationId: row_table\n      parameters:\n        - in: query\n          name: d\n          description: not yet available, you can read it from docstring\n          schema:\n            type: object\n                 additionalProperties: true\n        - in: query\n          name: order\n          description: not yet available, you can read it from docstring\n          schema:\n            type: string\n        - in: query\n          name: labels\n          description: not yet available, you can read it from docstring\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n\n"
+		}
+	},
+	"Error": "invalidYAML: yaml: line 22: mapping values are not allowed in this context"
+}

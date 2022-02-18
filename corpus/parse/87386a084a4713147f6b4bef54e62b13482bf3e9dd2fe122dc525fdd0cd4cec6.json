@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /foo: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/ErrorModel\": resolve reference \"#/components/schemas/ErrorModel\": schema not found"
+	"Error": "parse: parse spec: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
 }

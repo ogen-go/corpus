@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "calculator-subtraction.yaml",
+			"size": 0,
+			"path": "tests/generator-calculator/calculator-subtraction.yaml",
+			"byteSize": 801,
+			"content": "\nopenapi: 3.0.0\ninfo:\n  title: subtraction\n  description: subtraction int and float sample.\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: subtraction int and float sample.\npaths:\n  /subtraction:\n     get:\n      summary: subtraction int and float sample.\n      description: Optional extended description in CommonMark or HTML.\n      operationId: calculator.subtraction\n      parameters:\n        - in: query\n          name: x\n          description: x value\n          schema:\n            type: number\n        - in: query\n          name: y\n          description: y value\n          schema:\n            type: number\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: number\n\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal bool into Go struct field Parameter.paths.get.parameters.name of type string"
+}
