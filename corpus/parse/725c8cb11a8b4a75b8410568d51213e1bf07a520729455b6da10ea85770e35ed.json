@@ -12,5 +12,5 @@
 			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n      \"title\": \"Example\",\n      \"version\": \"2.0.0\"\n    },\n    \"servers\": [\n      {\n        \"url\": \"https://api.example.com\"\n      }\n    ],\n    \"paths\": {\n      \"/primary-domain/works\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should keep the same domain\"\n        }\n      },\n      \"/secondary-domain/fails\": {\n        \"get\": {\n          \"operationId\": \"get_authorize\",\n          \"summary\": \"Should use the other domain\",\n          \"servers\": [\n            {\n              \"url\": \"http://petstore.swagger.io:{port}/{basePath}\",\n             \"variables\": {\n                \"port\": {\n                  \"enum\": [\n                    \"8443\",\n                    \"443\"\n                  ],\n                  \"default\": \"8443\"\n                },\n                \"basePath\": {\n                  \"default\": \"v2\"\n                }\n             }\n            }\n          ]\n        }\n      }\n    }\n  }"
 		}
 	},
-	"Error": "parse: parse spec: paths: /primary-domain/works: get: operation \"get_authorize\": responses: no responses"
+	"Error": "parse: parse spec: paths: /secondary-domain/fails: get: operation \"get_authorize\": responses: no responses"
 }

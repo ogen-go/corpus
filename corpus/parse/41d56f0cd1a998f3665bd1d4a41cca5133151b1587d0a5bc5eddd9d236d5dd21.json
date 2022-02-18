@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/surfstudio/SurfGen"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "Tests/Common/PackageSeparation/auth/api.yaml",
+			"byteSize": 755,
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n      \npaths:\n  /test:\n    post:\n      summary: Test api which is designed to return models from different packages in any way\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/TestModel\"\n      parameters:\n        - name: test\n          in: query\n          required: true\n          schema:\n            $ref: \"../very/long/dir/models.yaml#/components/schemas/TestEnum\"\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"models.yaml#/components/schemas/TestModel\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /test: post: operation \"\": parameters: parse parameter \"test\": schema: parse schema: reference \"../very/long/dir/models.yaml#/components/schemas/TestEnum\": resolve reference \"../very/long/dir/models.yaml#/components/schemas/TestEnum\": invalid schema reference \"../very/long/dir/models.yaml#/components/schemas/TestEnum\""
+}

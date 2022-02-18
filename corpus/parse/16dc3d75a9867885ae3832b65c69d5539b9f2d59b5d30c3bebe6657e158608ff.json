@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Petstore\n  description: 'This is a sample server Petstore server'\n  version: 1.0.0\nservers:\n  - url: http://mytestServer/{v1}\n    variables:\n      v2:\n        default: 'd'\npaths:\n  '/pet/{petId}':\n    get:\n      summary: Find pet by ID\n      description: Returns a single pet\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to return\n          required: true\n          schema:\n            type : integer\n            multipleOf: -10\n      responses:\n        '200':\n          description: successful operation"
 		}
 	},
-	"Error": "parse: parse spec: paths: /pet/{petId}: get: operation \"\": parameters: parse parameter \"petId\": schema: parse schema: invalid multipleOf value -10"
+	"Error": "parse: parse spec: paths: /pet/{petId}: get: operation \"\": parameters: parse parameter \"petId\": schema: parse schema: invalid multipleOf value \"-10\""
 }
