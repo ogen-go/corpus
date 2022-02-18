@@ -2,15 +2,15 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/GetDKAN/dkan"
+			"name": "github.com/GetDKAN/dkan2"
 		},
 		"file": {
-			"name": "openapi_spec.yml",
+			"name": "dkan_api_openapi_spec.yml",
 			"size": 0,
-			"path": "modules/metastore/tests/src/docs/openapi_spec.yml",
+			"path": "modules/dkan_metastore/tests/src/Unit/docs/dkan_api_openapi_spec.yml",
 			"byteSize": 2274,
 			"content": "openapi: 3.0.1\ninfo:\n  title: API Documentation\n  version: Alpha\ntags:\n  - name: Dataset\n  - name: SQL Query\n  - name: Another Tag\npaths:\n  /random/prefix/api/1/metastore/schemas/dataset/items/{identifier}/docs:\n    get:\n      operationId: docs-get-dataset-specific\n      summary: Dataset-specific json documentation\n      tags:\n        - Documentation\n      parameters:\n        - name: identifier\n          in: path\n          description: A dataset uuid\n          required: true\n          schema:\n            type: string\n          example: c9e2d352-e24c-4051-9158-f48127aa5692\n      responses:\n        '200':\n          description: Ok\n          content:\n            application/json:\n              schema:\n                type: object\n  /random/prefix/api/1/metastore/schemas/dataset/items/{identifier}:\n    get:\n      summary: Get this dataset\n      # description:\n      tags:\n        - Dataset\n      parameters:\n        - name: \"identifier\"\n          in: \"path\"\n          description: \"Dataset uuid\"\n          required: true\n          schema:\n            type: string\n          example: 11111111-1111-4111-1111-111111111111\n      responses:\n        200:\n          description: Ok\n    delete:\n      summary: This operation should not be present in dataset-specific docs.\n      responses:\n        200:\n          description: Ok\n    # Though an empty verb invalidates the spec, test its removal by dataset-specific docs.\n    post:\n  /random/prefix/api/1/datastore/sql:\n    get:\n      summary: Query resources\n      tags:\n        - SQL Query\n      parameters:\n        - $ref: '#/components/parameters/query'\n      responses:\n        '200':\n          description: Ok\n  /random/prefix/api/1/some/other/path:\n    patch:\n      summary: This path and operation should not be present in dataset-specific docs.\n      responses:\n        200:\n          description: Ok\n  # Though an empty path invalidates the spec, test its removal by dataset-specific docs.\n  /random/prefix/api/1/path/without/operations:\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n  parameters:\n    query:\n      name: query\n      in: query\n      description: SQL query\n      required: true\n      schema:\n        type: string\n      example: '[SELECT * FROM DATASTORE-UUID];'\n"
 		}
 	},
-	"Error": "parse: parse spec: /random/prefix/api/1/path/without/operations: unexpected nil schema"
+	"Error": "parse: parse spec: paths: /random/prefix/api/1/metastore/schemas/dataset/items/{identifier}: delete: operation \"\": parse path: path parameter not specified: \"identifier\""
 }
