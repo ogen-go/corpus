@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/emanuelfreitas/3gpp-documentation"
+			"name": "github.com/jdegre/5GC_APIs"
 		},
 		"file": {
 			"name": "TS26512_M5_MetricsReporting.yaml",
 			"size": 0,
-			"path": "apis/TS26512_M5_MetricsReporting.yaml",
+			"path": "TS26512_M5_MetricsReporting.yaml",
 			"byteSize": 1891,
 			"content": "openapi: 3.0.0\ninfo:\n  title: M5_MetricsReporting\n  version: 1.0.0\n  description: |\n    5GMS AF M5 Metrics Reporting API\n    © 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).\n    All rights reserved.\ntags:\n  - name: M5_ConsumptionReporting\n    description: '5G Media Streaming: Media Session Handling (M5) APIs: Metrics Reporting'\nexternalDocs:\n  description: 'TS 26.512 V16.2.0; 5G Media Streaming (5GMS); Protocols'\n  url: 'https://www.3gpp.org/ftp/Specs/archive/26_series/26.512/'\nservers:\n  - url: '{apiRoot}/3gpp-m5/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: See 3GPP TS 29.512 clause 6.1.\npaths:\n  /metrics-reporting/{provisioningSessionId}/{metricsReportingConfigurationId}:\n    parameters:\n      - name: provisioningSessionId\n        in: path\n        required: true\n        schema:\n          $ref: 'TS26512_CommonData.yaml#/components/schemas/ResourceId'\n        description: 'The resource identifier of an existing Provisioning Session.'\n      - name: metricsReportingConfigurationId\n        in: path\n        required: true\n        schema:\n          $ref: 'TS26512_CommonData.yaml#/components/schemas/ResourceId'\n        description: 'The resource identifier of a Metrics Configuration in the specified Provisioning Session.'\n    post:\n      operationId: submitMetricsReport\n      summary: 'Submit a Metrics Report'\n      requestBody:\n        description: 'A Metrics Report'\n        required: true\n        content:\n          application/3gpdash-qoe-report+xml:\n            schema:\n              type: string\n              format: xml\n          application/*:\n            schema:\n              type: string\n      responses:\n        '204':\n          description: 'Metrics Report Accepted'\n        '400':\n          description: 'Bad Request'\n        '415':\n          description: 'Unsupported Media Type'\n"
 		}
