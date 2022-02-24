@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mikunn/openapi2schema"
+		},
+		"file": {
+			"name": "invalid-type-request-spec.yaml",
+			"size": 0,
+			"path": "test/data/invalid-type-request-spec.yaml",
+			"byteSize": 961,
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: 1.0.0\n  title: Invalid Type Request Spec\n\npaths:\n  '/ok_type':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OKType'\n\n  '/ok_and/invalid/type':\n    get:\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OKType'\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/InvalidType'\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OKType'\n\ncomponents:\n  schemas:\n    OKType:\n      type: string\n    InvalidType:\n      type: someinvalidtype\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /ok_and/invalid/type: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/InvalidType\": parse schema: unexpected schema type: \"someinvalidtype\""
+}

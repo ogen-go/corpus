@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/solvedac/unofficial-documentation"
+		},
+		"file": {
+			"name": "list.yaml",
+			"size": 0,
+			"path": "src/paths/coins/shop/list.yaml",
+			"byteSize": 730,
+			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\npaths:\n  Path:\n    get:\n      summary: \"코인샵 판매 목록 가져오기\"\n      description: |\n        코인샵에서 팔고 있는 상품 목록을 가져옵니다.\n      tags:\n        - coins\n      operationId: getCoinShopProducts\n\n      responses:\n        \"200\":\n          description: \"서버가 반환에 성공한 경우입니다.\"\n          content:\n            application/json:\n              schema:\n                type: \"array\"\n                items:\n                  $ref: \"../../../schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: Path: get: operation \"getCoinShopProducts\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: reference \"../../../schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct\": resolve reference \"../../../schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct\": invalid schema reference \"../../../schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/18F/piipan"
+		},
+		"file": {
+			"name": "duplicate-participation-api.yaml",
+			"size": 0,
+			"path": "docs/openapi/duplicate-participation-api.yaml",
+			"byteSize": 1206,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Duplicate Participation API\"\n  version: 2.0.0\n  description: \"The API where matching will occur\"\nservers:\n  - url: \"/match/v2\"\npaths:\n  /find_matches:\n    post:\n      operationId: \"Find matches\"\n      tags:\n        - \"Match\"\n      summary: \"Search for all matching participant records using de-identified data\"\n      description: \"Searches all state databases for any participant records that are an exact match to the `lds_hash` of persons provided in the request.\"\n      parameters:\n        - $ref: '../../match/docs/openapi/schemas/match-query.yaml#/components/parameters/From'\n      requestBody:\n        $ref: '../../match/docs/openapi/schemas/match-query.yaml#/MatchRequest'\n      responses:\n        '200':\n          $ref: '../../match/docs/openapi/schemas/match-query.yaml#/components/responses/200'\n        '400':\n          $ref: '../../match/docs/openapi/schemas/match-query.yaml#/components/responses/400'\n        '429':\n          $ref: '../../match/docs/openapi/schemas/match-query.yaml#/components/responses/429'\n\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /find_matches: post: operation \"Find matches\": parameters: parse parameter \"\": resolve \"../../match/docs/openapi/schemas/match-query.yaml#/components/parameters/From\" reference: invalid parameter reference: \"../../match/docs/openapi/schemas/match-query.yaml#/components/parameters/From\""
+}
