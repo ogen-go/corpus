@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './paths/more-movies-actor.yaml'\n  /artist/{artist}:\n    $ref: './paths/artist-artist.yaml'\n  /music/{musician}/sorted:\n    $ref: './paths/music-musician-sorted.yaml'\n  /music/{musician}/no_duplicates:\n    $ref: './paths/music-musician-no-duplicates.yaml'\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n"
 		}
 	},
-	"Error": "parse: parse spec: /artist/{artist}: referenced pathItem not supported"
+	"Error": "parse: parse spec: /movies/{actor}: referenced pathItem not supported"
 }

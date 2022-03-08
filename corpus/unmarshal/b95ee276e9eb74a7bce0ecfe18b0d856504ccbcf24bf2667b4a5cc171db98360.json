@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Szer/GiraffeGenerator"
+		},
+		"file": {
+			"name": "specWithTextXml.yaml",
+			"size": 0,
+			"path": "tests/GiraffeGenerator.IntegrationTests/specs/specWithTextXml.yaml",
+			"byteSize": 1297,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Spec with xml schemas API\n  version: 1\npaths:\n  /postXml:\n    post:\n      operationId: postXml\n      requestBody:\n        content:\n          application/xml:\n            schema:\n              type: integer\n      responses:\n        '200':\n          description: returns integer\n          content:\n            application/xml:\n              schema:\n                type: integer\n  /textJson:\n    get:\n      operationId: textJson\n      responses:\n        '200':\n          description: returns string\n          content:\n            text/json:\n              schema:\n                type: string\n  /textXml:\n    get:\n      operationId: textXml\n      responses:\n        '200':\n          description: returns string\n          content:\n            text/xml:\n              schema:\n                type: string\n  /applicationXml:\n    get:\n      operationId: applicationXml\n      responses:\n        '200':\n          description: returns string\n          content:\n            application/xml:\n              schema:\n                type: string\n  /applicationJson:\n    get:\n      operationId: applicationJson\n      responses:\n        '200':\n          description: returns string\n          content:\n            application/json:\n              schema:\n                type: string\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+}

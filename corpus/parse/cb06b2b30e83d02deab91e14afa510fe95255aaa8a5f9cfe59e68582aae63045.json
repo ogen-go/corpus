@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cablelabs/lpwanserver"
+		},
+		"file": {
+			"name": "session.yml",
+			"size": 0,
+			"path": "docs/openapi/endpoints/session.yml",
+			"byteSize": 1435,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.2.1\n  title: An include file to define Session endpoints\n  license:\n    name: Apache 2.0\npaths:\n  /api/sessions:\n    post:\n      operationId: createSession\n      summary: Create a Session\n      description: Submit a user's credentials and receive a JWT token\n      parameters: []\n      security: []\n      tags:\n        - Session\n      requestBody:\n        $ref: '#/components/requestBodies/LoginCredentials'\n      responses:\n        '200':\n          description: JWT as response body\n          content:\n            text/plain:\n              schema:\n                type: string\n        '401':\n          description: Unauthorized\n        '400':\n          description: Bad Request\n    delete:\n      operationId: deleteSession\n      summary: Delete a Session\n      description: Invalidate the user's current jwt token\n      parameters: []\n      security:\n        - bearer_token: []\n      tags:\n        - Session\n      responses:\n        '204':\n          description: No content\ncomponents:\n  requestBodies:\n    LoginCredentials:\n      content:\n        application/json:\n          schema:\n            type: object\n            required:\n              - login_username\n              - login_password\n            properties:\n              login_username:\n                type: string\n              login_password:\n                type: string\n      description: User's login credentials\n      required: true\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/sessions: delete: operation \"deleteSession\": security: parse operation security: unknown security schema \"bearer_token\""
+}

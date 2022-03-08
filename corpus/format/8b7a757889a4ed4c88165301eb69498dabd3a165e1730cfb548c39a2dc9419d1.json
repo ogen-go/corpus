@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/MileHighAzure/Presentations"
+		},
+		"file": {
+			"name": "Demo.Sales.APISvc.openapi.yaml",
+			"size": 0,
+			"path": "March2020/Demo.Sales.APISvc.openapi.yaml",
+			"byteSize": 2230,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Demo.Sales.APISvc\n  description: Demo.Sales.APISvc - temporarily using \"Mocked Data\"\n  version: '1.0'\nservers:\n  - url: https://coresampledemo-dev-cus-apim.azure-api.net/demo-apis/api/sales\npaths:\n  /salesdata:\n    get:\n      summary: TestMock\n      description: Mock the sales data - https://docs.microsoft.com/en-us/azure/api-management/mock-api-responses\n      operationId: testmock\n      responses:\n        '200':\n          description: sales data\n          headers:\n            x-IsMocked-Data:\n              description: Is Mock Data\n              schema:\n                enum:\n                  - 'True'\n                type: Bool\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/salesHeader'\n              example:\n                customerId: 1234\n                orderId: 1234\n                salesQty: 12\n                salesAmount: 1234.5\n                taxExempt: true\n  /salesdataratelimit:\n    get:\n      summary: TestMockWithRateLimit\n      description: \"Mock the sales data with Rate Limit\\nhttps://docs.microsoft.com/en-us/azure/api-management/mock-api-responses\\nhttps://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies\"\n      operationId: testmockwithratelimit\n      responses:\n        '200':\n          description: sales data\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/salesHeader'\n              example:\n                customerId: 1234\n                orderId: 1234\n                salesQty: 12\n                salesAmount: 1234.5\n                taxExempt: true\ncomponents:\n  schemas:\n    salesHeader:\n      type: object\n      properties:\n        customerId:\n          type: integer\n        orderId:\n          type: integer\n        salesQty:\n          type: integer\n        salesAmount:\n          type: number\n        taxExempt:\n          type: boolean\n  securitySchemes:\n    apiKeyHeader:\n      type: apiKey\n      name: Ocp-Apim-Subscription-Key\n      in: header\n    apiKeyQuery:\n      type: apiKey\n      name: subscription-key\n      in: query\nsecurity:\n  - apiKeyHeader: [ ]\n  - apiKeyQuery: [ ]"
+		}
+	},
+	"Error": "security: failed to write file oas_security_gen.go: format: 121:3: expected 1 expression"
+}

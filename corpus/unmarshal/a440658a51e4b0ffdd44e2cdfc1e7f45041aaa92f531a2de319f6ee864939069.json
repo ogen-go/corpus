@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mrin9/RapiDoc"
+		},
+		"file": {
+			"name": "multiple-security-schemes.yaml",
+			"size": 0,
+			"path": "docs/specs/multiple-security-schemes.yaml",
+			"byteSize": 1594,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Different default and per-operation security schemes\n  description: Spec with multiple security schemes, not all of which are default\n  version: \"1.0\"\nservers:\n- url: https://api.bitbucket.org/2.0\nsecurity:\n- api_key1: []\n- api_key2: []\npaths:\n  /users/{username}/repositories:\n    get:\n      tags:\n      - Repo\n      description: |-\n        All repositories.\n      parameters:\n      - name: username\n        in: path\n        description: |\n          This can either be the username or the UUID of the account.\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          description: Unexpected error.\n      security:\n      - basic: []\n\n  /users/{username}/repositories-2:\n    get:\n      tags:\n      - Repo\n      description: |-\n        All repositories owned by a user/team. \n      parameters:\n      - name: username\n        in: path\n        description: |\n          This can either be the username or the UUID of the account.\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          description: Unexpected error.\n\n  /no-security:\n    get:\n      tags:\n      - Repo\n      description: |-\n        An open endpoint. \n      parameters:\n      security:\n      - []\n      responses:\n        default:\n          description: Unexpected error.\n\ncomponents:\n  securitySchemes:\n    api_key1:\n      type: apiKey\n      name: Authorization\n      in: header\n    api_key2:\n      type: apiKey\n      name: specialKey\n      in: header\n    basic:\n      type: http\n      scheme: basic\n    "
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal array into Go struct field Operation.paths.get.security of type map[string][]string"
+}

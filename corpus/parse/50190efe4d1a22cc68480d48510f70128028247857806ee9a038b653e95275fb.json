@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Codermar/openapi-editor"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/api/v1/api.yaml",
+			"byteSize": 1878,
+			"content": "openapi: 3.0.2\ninfo:\n  description: Puppeteer Demo API. \n  version: 1.0.0\n  title: A Demo API for Puppeteer\npaths:\n  /:\n    get:\n      tags:\n        - root\n      summary: Get API Version Information\n      description: Returns a list of the available API versions\n      operationId: versions\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ArrayOfVersions'\n  /ping:\n    get:\n      tags:\n        - root\n      summary: Get Server Information\n      description: Returns information about the server\n      operationId: ping\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ServerInfo'\n  /things:\n    get:\n      tags:\n        - demo\n      summary: List Things\n      description: Returns a list of things\n      operationId: listThings # TODO: try using version separators v1/things/listThings\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ArrayOfVersions'\n      security:\n      - slack:\n        - \"identity.basic\"\n        - \"identity.email\"                      \nservers:\n  - url: /api/v1\ncomponents:\n  schemas:\n    APIVersion:\n      type: object\n      properties:\n        version:\n          type: string\n          # format: int32 causes error\n        path:\n          type: string\n    ServerInfo:\n      type: object\n      properties:\n        name:\n          type: string\n        description:\n          type: string\n        version:\n          type: string\n        uptime:\n          type: number\n    ArrayOfVersions:\n      type: array\n      items:\n        $ref: '#/components/schemas/APIVersion'\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /things: get: operation \"listThings\": security: parse operation security: unknown security schema \"slack\""
+}

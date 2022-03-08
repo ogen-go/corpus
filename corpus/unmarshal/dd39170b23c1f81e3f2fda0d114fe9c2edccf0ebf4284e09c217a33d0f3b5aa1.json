@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/azure-api-management-monetization"
+		},
+		"file": {
+			"name": "billing.yaml",
+			"size": 0,
+			"path": "apiConfiguration/openApi/billing.yaml",
+			"byteSize": 2721,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Billing API\n  license:\n    name: Microsoft\npaths:\n  '/monetizationModels':\n    get:\n      summary: Gets a list of monetization models for products\n      operationId: get_monetization_models\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                   type: array\n                   items:\n                    $ref: \"#/components/schemas/monetizationModel\"\n  '/products':\n    get:\n      summary: Gets a list of APIM products\n      operationId: get_products\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  value:\n                   type: array\n                   items:\n                    $ref: \"#/components/schemas/product\"\ncomponents:\n  schemas:\n    product:\n      type: object\n      properties:\n        name:\n          type: string\n        properties:\n          type: object\n          properties:\n            displayName:\n              type: string\n            description:\n              type: string\n            additionalProperties: true\n        additionalProperties: true\n        \n    monetizationModel:\n      type: object\n      properties:\n        id:\n          type: string\n          example: standard\n        pricingModelType:\n          type: string\n          enum:\n            - Metered\n            - UnitAndMeteredOverage\n            - Unit\n          example: UnitAndMeteredOverage\n        recurring:\n          type: object\n          properties:\n            interval:\n              type: string\n              enum:\n                - day\n                - month\n                - year\n              example: month\n            intervalCount:\n              type: integer\n              example: 1\n        prices:\n          type: object\n          properties:\n            unit:\n              type: object\n              properties:\n                currency:\n                  type: string\n                  example: usd\n                unitAmount:\n                  type: number\n                  example: 89.95\n                quota:\n                  type: integer\n                  example: 50000\n                maxUnits:\n                  type: integer\n                  example: 1\n            metered:\n              type: object\n              properties:\n                currency:\n                  type: string\n                  example: usd\n                unitAmount:\n                  type: number\n                  example: 0.00095"
+		}
+	},
+	"Error": "unmarshal: callback: json: cannot unmarshal bool into Go value of type ogen.Schema"
+}

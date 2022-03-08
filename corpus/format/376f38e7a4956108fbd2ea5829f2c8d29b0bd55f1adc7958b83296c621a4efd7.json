@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "definition.json",
+			"size": 0,
+			"path": "packages/httpsnippet-client-api/test/__fixtures__/request/issue-76/definition.json",
+			"byteSize": 1064,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"issue-76\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v2\"\n    }\n  ],\n  \"paths\": {\n    \"/pet/findByStatus\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"status\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"explode\": true,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"available\",\n                  \"pending\",\n                  \"sold\"\n                ],\n                \"default\": \"available\"\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        },\n        \"security\": [\n          {\n            \"api_key\": []\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"api_key\": {\n        \"type\": \"apiKey\",\n        \"name\": \"api_key\",\n        \"in\": \"query\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "security: failed to write file oas_security_gen.go: format: 103:3: expected 1 expression"
+}

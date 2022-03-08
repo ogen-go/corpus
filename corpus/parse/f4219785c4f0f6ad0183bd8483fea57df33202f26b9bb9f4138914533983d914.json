@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive3.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/schema_discriminator_not_required/test/positive3.yaml",
+			"byteSize": 927,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\nsecurity:\n  - exampleSecurity: []\ncomponents:\n  schemas:\n    GeneralError:\n      type: object\n      discriminator:\n        propertyName: petType\n      properties:\n        code:\n          type: string\n          format: int32\n        petType:\n          type: string\n      required:\n        - name\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": security: parse global security: unknown security schema \"exampleSecurity\""
+}
