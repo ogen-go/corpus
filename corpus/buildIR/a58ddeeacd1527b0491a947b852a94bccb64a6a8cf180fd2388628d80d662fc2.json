@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "rest/tram-todo/multi-module/view-service/openapi.yaml",
+			"byteSize": 1789,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: TODO list tram example view side service API\n  license:\n    name: MIT\nservers:\n  - url: 'http://light-tram.swagger.io/v1'\npaths:\n  /todoviews:\n    get:\n      summary: List of todo task by search\n      operationId: listTodos\n      tags:\n        - todos\n      parameters:\n        - name: searchValue\n          in: query\n          description: search critiria\n          required: true\n          schema:\n            type: string\n      security:\n        - todo_auth:\n            - 'read:todo'\n      responses:\n        '200':\n          description: List of todos\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/TodoView'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  securitySchemes:\n    todo_auth:\n      type: oauth2\n      description: This API uses OAuth 2 with the client credential grant flow.\n      flows:\n        clientCredentials:\n          tokenUrl: 'https://localhost:6882/token'\n          scopes:\n            'write:todos': modify todo in your task list\n            'read:todos': read your todo from your task list\n  schemas:\n    TodoView:\n      required:\n        - id\n        - title\n      properties:\n        id:\n          type: string\n        title:\n          type: string\n        completed:\n          type: boolean\n        executionOrder:\n          type: integer\n          format: int32\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/todoviews\": get: security: security \"todo_auth\" (index 0): flow \"clientCredentials\": unknown scope \"read:todo\""
+}

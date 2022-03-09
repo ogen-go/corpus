@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative4.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/negative4.yaml",
+			"byteSize": 781,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersions\n      summary: List versions\n      servers:\n        - url: http://myapi.com/\n          description: server URL\n      security:\n        - OAuth2:\n            - write\n            - read\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersions\": security: parse operation security: unknown security schema \"OAuth2\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/urykhy/stuff"
+		},
+		"file": {
+			"name": "discovery.v1.yaml",
+			"size": 0,
+			"path": "swagger/discovery.v1.yaml",
+			"byteSize": 513,
+			"content": "openapi: 3.0.0\ninfo:\n  title: discovery\n  version: '1.0'\n  contact:\n    name: urykhy\n    email: urykhy@gmail.com\n  x-discovery: true\nservers:\n  - url: 'http://localhost:3000/api/v1'\npaths:\n  /discovery:\n    get:\n      summary: Dummy call\n      tags:\n        - Common\n      responses:\n        '200':\n          description: OK\n          content:\n            application/octet-stream:\n              schema:\n                type: string\n      operationId: get-discovery\ncomponents:\n  schemas: {}\ntags:\n  - name: Test\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/discovery\": get: responses: 200: contents: application/octet-stream: octet stream with \"string\" schema not supported"
+}

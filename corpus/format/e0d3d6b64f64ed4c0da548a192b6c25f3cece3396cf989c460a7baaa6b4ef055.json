@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/nasa.gov/apod/1.0.0/openapi.yaml",
+			"byteSize": 2044,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.nasa.gov/planetary\n  - url: http://api.nasa.gov/planetary\ninfo:\n  contact:\n    email: evan.t.yates@nasa.gov\n  description: This endpoint structures the APOD imagery and associated metadata\n    so that it can be repurposed for other applications. In addition, if the\n    concept_tags parameter is set to True, then keywords derived from the image\n    explanation are returned. These keywords could be used as auto-generated\n    hashtags for twitter or instagram feeds; but generally help with\n    discoverability of relevant imagery\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  title: APOD\n  version: 1.0.0\n  x-apisguru-categories:\n    - media\n    - open_data\n  x-origin:\n    - format: swagger\n      url: https://raw.githubusercontent.com/nasa/api-docs/gh-pages/assets/json/APOD\n      version: \"2.0\"\n  x-providerName: nasa.gov\n  x-serviceName: apod\ntags:\n  - description: An example tag\n    externalDocs:\n      description: Here's a link\n      url: https://example.com\n    name: request tag\npaths:\n  /apod:\n    get:\n      description: Returns the picture of the day\n      parameters:\n        - description: The date of the APOD image to retrieve\n          in: query\n          name: date\n          required: false\n          schema:\n            type: string\n        - description: Retrieve the URL for the high resolution image\n          in: query\n          name: hd\n          required: false\n          schema:\n            type: boolean\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                items:\n                  x-thing: ok\n                type: array\n          description: successful operation\n        \"400\":\n          description: Date must be between Jun 16, 1995 and Mar 28, 2019.\n      security:\n        - api_key: []\n      summary: Returns images\n      tags:\n        - request tag\ncomponents:\n  securitySchemes:\n    api_key:\n      in: query\n      name: api_key\n      type: apiKey\n"
+		}
+	},
+	"Error": "security: failed to write file oas_security_gen.go: format: 103:3: expected 1 expression"
+}

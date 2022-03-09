@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sleddog/methods"
+		},
+		"file": {
+			"name": "Calc.yaml",
+			"size": 0,
+			"path": "projects/AustinJohnson_MicroService/Project5/Calc.yaml",
+			"byteSize": 995,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"LambdaCalc\"\n  version: \"2019-04-29T03:42:17Z\"\npaths:\n  /calc:\n    get:\n      parameters:\n      - name: \"operand2\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operator\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      - name: \"operand1\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Input\"\n        required: true\n      responses:\n        200:\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /calc: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Empty\": resolve reference \"#/components/schemas/Empty\": schema not found"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/seriousme/openapi-schema-validator"
+		},
+		"file": {
+			"name": "invalid-spec.json",
+			"size": 0,
+			"path": "test/validation/invalid-spec.json",
+			"byteSize": 605,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost/v2\"\n    }\n  ],\n  \"security\": [\n    {\n      \"skipped\": []\n    }\n  ],\n  \"paths\": {\n    \"/pathParam/{id}\": {\n      \"get\": {\n        \"operationId\": \"getPathParam\",\n        \"summary\": \"Test path parameters\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ok\"\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: parse spec: paths: /pathParam/{id}: get: operation \"getPathParam\": security: parse global security: unknown security schema \"skipped\""
+}

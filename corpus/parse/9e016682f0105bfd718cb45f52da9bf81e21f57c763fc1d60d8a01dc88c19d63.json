@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/evilmint/aws-openapi-lint"
+		},
+		"file": {
+			"name": "no_authorizer_on_options.yml",
+			"size": 0,
+			"path": "test_files/no_authorizer_on_options.yml",
+			"byteSize": 475,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/:\n    options:\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n      security:\n        - Test-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.some_header: \"context.authorizer.some_variable\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\""
+		}
+	},
+	"Error": "parse: parse spec: paths: /test/resource/: options: operation \"\": security: parse operation security: unknown security schema \"Test-Authorizer\""
+}

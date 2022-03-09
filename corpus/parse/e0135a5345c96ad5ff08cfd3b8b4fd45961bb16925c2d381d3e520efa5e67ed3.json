@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "npm/redocly/openapi-core"
 		},
 		"file": {
 			"name": "openapi-with-external-refs.yaml",
 			"size": 0,
-			"path": "packages/core/__tests__/fixtures/refs/openapi-with-external-refs.yaml",
+			"path": "__tests__/fixtures/refs/openapi-with-external-refs.yaml",
 			"byteSize": 775,
 			"content": "openapi: 3.0.0\npaths:\n  /pet:\n    parameters:\n      - $ref: '#/components/parameters/path-param'\n    put:\n      parameters:\n        - $ref: '#/components/parameters/param-a'\n        - $ref: ./param-b.yaml\n        - name: test\n    get:\n      parameters:\n        - $ref: '#/components/parameters/param-a'\n        - $ref: ./param-c.yaml\n    post:\n      parameters:\n        - $ref: '#/paths/~1pet/put/parameters/2'\ncomponents:\n  parameters:\n    param-a:\n      name: param_a\n      schema:\n        $ref: ./schema-a.yaml\n      examples:\n        first:\n          $ref: ./examples.yaml#/param-a/first\n        second:\n          $ref: ./examples.yaml#/param-a/second\n    path-param:\n      name: path_param\n      examples:\n        first:\n          $ref: ./examples.yaml#/path-param/first"
 		}
