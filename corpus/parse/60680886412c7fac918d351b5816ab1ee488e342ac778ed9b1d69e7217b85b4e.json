@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/my_schema\"\n                },\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": \"this is a string\"\n                  },\n                  \"foo_2\": {\n                    \"value\": true\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"my_schema\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"exampleSecurity\": []\n    }\n  ]\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": security: parse global security: unknown security schema \"exampleSecurity\""
+	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": security: unknown security schema \"exampleSecurity\""
 }

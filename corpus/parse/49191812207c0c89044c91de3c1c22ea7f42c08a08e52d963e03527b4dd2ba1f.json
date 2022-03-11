@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: OpenTestData\n  license:\n    name: MIT\n\npaths:\n  /ping:\n    $ref: 'base.yaml#/paths/Ping'\n  /users:\n    $ref: 'users.yaml#/paths/SignUp'\n  /users/login:\n    $ref: 'users.yaml#/paths/Login'\n  /users/resend_confirmation_email:\n    $ref: 'users.yaml#/paths/EmailResend'\n  /users/confirm_email/{token}:\n    $ref: 'users.yaml#/paths/EmailConfirm'\n  /users/{id}:\n    $ref: 'users.yaml#/paths/GetOrUpdateUser'\n  /users/{id}/avatar:\n    $ref: 'users.yaml#/paths/GetOrUpdateAvatar'\n  /users/{id}/promote:\n    $ref: 'users.yaml#/paths/PromoteUser'\n  /data:\n    $ref: 'data.yaml#/paths/NewDatum'\n  /data/{id}:\n    $ref: 'data.yaml#/paths/GetOrUpdateDatum'\n  /tests:\n    $ref: 'tests.yaml#/paths/NewTest'\n  /tests/{id}:\n    $ref: 'tests.yaml#/paths/GetTest'\n  /search:\n    $ref: 'search.yaml#/paths/Search'\n\ncomponents:\n  securitySchemes:\n    jwt:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      x-bearerInfoFunc: api.handlers.auth.check_token\n"
 		}
 	},
-	"Error": "parse: parse spec: /tests/{id}: referenced pathItem not supported"
+	"Error": "parse: parse spec: /users/{id}/avatar: referenced pathItem not supported"
 }

@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: /v1\ntags:\n  - name: pets\n    description: Pets Tag\n  - name: list\n    description: List Tag\nsecurity:\n- petstore_auth:\n  - write:pets\n  - read:pets\n- user_auth:\n  - read:user\n\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      description: Show a list of pets in the system\n      operationId: listPets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: An paged array of pets\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /pets: get: operation \"listPets\": security: parse global security: unknown security schema \"petstore_auth\""
+	"Error": "parse: parse spec: paths: /pets: get: operation \"listPets\": security: unknown security schema \"petstore_auth\""
 }
