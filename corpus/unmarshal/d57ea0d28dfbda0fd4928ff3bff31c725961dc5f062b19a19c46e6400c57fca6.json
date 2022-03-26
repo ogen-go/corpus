@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smartlyio/oats"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "test/no-emit-unknown-index/api.yml",
+			"byteSize": 507,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: example service\nservers:\n  - url: http://localhost:12000\npaths: []\ncomponents:\n  schemas:\n    typedAdditional:\n      type: object\n      additionalProperties:\n        type: string\n      properties:\n        foo:\n          type: string\n    explicitAdditional:\n      type: object\n      additionalProperties: true\n      properties:\n        foo:\n          type: string\n    defaultAdditional:\n      type: object\n      properties:\n        foo:\n          type: string\n\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal array into Go struct field Spec.paths of type ogen.Paths"
+}

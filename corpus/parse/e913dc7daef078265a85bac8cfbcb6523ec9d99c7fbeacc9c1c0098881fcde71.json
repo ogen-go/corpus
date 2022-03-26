@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\n\ninfo:\n  version: 1.0.0\n  title: 'Web practice API'\n\nservers:\n  - url: http://web-practice.local:8080/api\n    description: 'Локальный сервер'\n\npaths:\n  /auth/sign-in:\n    $ref: './paths/auth/sign-in.yml#/paths/auth~1sign-in'\n  /auth/sign-up:\n    $ref: './paths/auth/sign-up.yml#/paths/auth~1sign-up'\n  /auth/verify-email/{user}:\n    $ref: './paths/auth/verify-email.yml#/paths/auth~1verify-email~1{user}'\n  /auth/user:\n    $ref: './paths/auth/user.yml#/paths/auth~1user'\n  /profile/videos:\n    $ref: './paths/profile/videos.yml#/paths/profile~1videos'\n  /profile/videos/{video}:\n    $ref: './paths/profile/videos.yml#/paths/profile~1videos~1{video}'\n  /video-files:\n    $ref: './paths/video-files.yml#/paths/video-files'\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\n  headers:\n    Api-Token:\n      description: 'JWT токен'\n      schema:\n        type: string\n\nsecurity:\n  - bearerAuth: []\n"
 		}
 	},
-	"Error": "parse: parse spec: /auth/user: referenced pathItem not supported"
+	"Error": "parse: parse spec: /auth/verify-email/{user}: referenced pathItem not supported"
 }
