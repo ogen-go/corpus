@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "479.yaml",
+			"size": 0,
+			"path": "test/data/31CollectionTransactions/479.yaml",
+			"byteSize": 578,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets/anyOf:\n    post:\n      summary: issue 479\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/example\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    example:\n      type:\n        - object\n      properties:\n        id:\n          type:\n            - integer\n        hasPet:\n          type:\n            - boolean\n"
+		}
+	},
+	"Error": "unmarshal: callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+}

@@ -7,7 +7,7 @@
 		"file": {
 			"name": "definition.yaml",
 			"size": 0,
-			"path": "tests/integration/testdata/sync/code/before/apigateway2/definition.yaml",
+			"path": "tests/integration/testdata/sync/infra/before/Python/apigateway2/definition.yaml",
 			"byteSize": 465,
 			"content": "openapi: 3.0.1\ninfo:\n  title: HelloWorldExample2\n  version: 1.0.0\nservers:\n  - url: /v1\npaths:\n  /hello:\n    get:\n      responses:\n        '200':\n          description: OK\n          content: {}\n      security:\n        - api_key: []\n      x-amazon-apigateway-auth:\n        type: none\n      x-amazon-apigateway-integration:\n        type: aws_proxy\n        uri: \n          Fn::Sub: ${HelloWorldFunction.Arn}\n        httpMethod : POST\n        payloadFormatVersion: 2.0\n"
 		}

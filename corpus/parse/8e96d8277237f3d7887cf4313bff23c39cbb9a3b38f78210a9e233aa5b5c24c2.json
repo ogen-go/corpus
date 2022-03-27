@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/surfstudio/SurfGen"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "Tests/Common/RefToAlias/api.yaml",
+			"byteSize": 951,
+			"content": "openapi: 3.0.2\ninfo:\n  title: \"API\"\n  version: \"1.0.0\"\n  \npaths:\n\n  /polygons:\n    get:\n      summary: Test api which is designed for testing references to alias in models\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/Polygons\"\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/Polygons\"\n                \n  /coordinates:\n    get:\n      summary: Regular api which returns regular array\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"models.yaml#/components/schemas/CoordsArray\"\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"models.yaml#/components/schemas/CoordsArray\"\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /coordinates: get: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"models.yaml#/components/schemas/CoordsArray\": resolve reference \"models.yaml#/components/schemas/CoordsArray\": invalid schema reference \"models.yaml#/components/schemas/CoordsArray\""
+}
