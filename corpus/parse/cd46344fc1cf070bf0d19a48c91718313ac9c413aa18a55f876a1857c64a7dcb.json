@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      responses:\n        default:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/container/properties/with%20space'\n            text/xml:\n              schema:\n                $ref: '#/components/schemas/container/properties/with+space'\ncomponents:\n  schemas:\n    container:\n      type: object\n      properties:\n        'with space':\n          type: string\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/container/properties/with%20space\": resolve reference \"#/components/schemas/container/properties/with%20space\": schema not found"
+	"Error": "parse: parse spec: paths: /: get: operation \"\": responses: default: content: \"text/xml\": schema: parse schema: reference \"#/components/schemas/container/properties/with+space\": resolve reference \"#/components/schemas/container/properties/with+space\": unmarshal: unexpected end of JSON input"
 }
