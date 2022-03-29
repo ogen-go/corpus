@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"X-RateLimit-Limit\": {\n                \"description\": \"The rate limit\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": schema not found"
+	"Error": "parse: parse spec: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"#/components/schemas/Pet\": resolve reference \"#/components/schemas/Pet\": resolve \"#/components/schemas/Pet\": unexpected invalid"
 }
