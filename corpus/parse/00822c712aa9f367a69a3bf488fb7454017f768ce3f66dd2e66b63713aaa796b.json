@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: Sample Vehicle API\n  description: This is an example API to showcase the translation from OpenAPI to PlantUML.\n  version: 0.0.1\n\n\npaths:\n  /vehicles/air:\n    description: Air vehicles\n    get:\n      summary: Returns a list of vehicles.\n      description: Returns a list of vehicles.\n      responses:\n        '200':\n          description: An JSON array of vehicles\n          content:\n            'application/json':\n              schema:\n                type: array\n                minItems: 0\n                items:\n                  $ref: 'vehicle.yaml#/components/schemas/airVehicle'\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /vehicles/air: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: reference \"vehicle.yaml#/components/schemas/airVehicle\": resolve reference \"vehicle.yaml#/components/schemas/airVehicle\": invalid schema reference \"vehicle.yaml#/components/schemas/airVehicle\""
+	"Error": "parse: parse spec: paths: /vehicles/air: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: resolve \"vehicle.yaml#/components/schemas/airVehicle\": find schema: external base \"vehicle.yaml\" is not supported"
 }

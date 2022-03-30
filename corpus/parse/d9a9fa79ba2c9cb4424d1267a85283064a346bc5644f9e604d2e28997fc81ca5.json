@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Swagger Parser Issue\npaths:\n  /:\n    post:\n      requestBody:\n        $ref: '#/components/requestBodies/RefRequestBody'\n      responses:\n        default:\n          description: \"Error\"\ncomponents:\n  requestBodies:\n    RefRequestBody:\n      content:\n        'application/json':\n          schema:\n            $ref: 'common.yaml#/components/schemas/StringObject'"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: post: operation \"\": requestBody: resolve \"#/components/requestBodies/RefRequestBody\" reference: content: \"application/json\": parse schema: parse schema: reference \"common.yaml#/components/schemas/StringObject\": resolve reference \"common.yaml#/components/schemas/StringObject\": invalid schema reference \"common.yaml#/components/schemas/StringObject\""
+	"Error": "parse: parse spec: paths: /: post: operation \"\": requestBody: resolve \"#/components/requestBodies/RefRequestBody\" reference: content: \"application/json\": parse schema: parse schema: resolve \"common.yaml#/components/schemas/StringObject\": find schema: external base \"common.yaml\" is not supported"
 }

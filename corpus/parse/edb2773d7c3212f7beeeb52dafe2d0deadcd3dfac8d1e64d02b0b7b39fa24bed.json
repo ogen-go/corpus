@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /local_file_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: normal.yml#/components/schemas/all_of_base\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\n  /reference_to_path_item_with_path_param:\n    $ref: 'path-item-ref.yaml#/paths/~1sample~1%7Bsample_id%7D'\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /local_file_reference: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"normal.yml#/components/schemas/all_of_base\": resolve reference \"normal.yml#/components/schemas/all_of_base\": invalid schema reference \"normal.yml#/components/schemas/all_of_base\""
+	"Error": "parse: parse spec: paths: /local_file_reference: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"normal.yml#/components/schemas/all_of_base\": find schema: external base \"normal.yml\" is not supported"
 }

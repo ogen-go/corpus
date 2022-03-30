@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Example\n  version: '1.0.1'\npaths:\n  /test1:\n    get:\n      responses:\n        200:\n          description: Test\n          content:\n            application/json:\n              schema:\n                $ref: './external-part.yml#/components/schemas/MyExternalSchema'\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /test1: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: reference \"./external-part.yml#/components/schemas/MyExternalSchema\": resolve reference \"./external-part.yml#/components/schemas/MyExternalSchema\": invalid schema reference \"./external-part.yml#/components/schemas/MyExternalSchema\""
+	"Error": "parse: parse spec: paths: /test1: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./external-part.yml#/components/schemas/MyExternalSchema\": find schema: external base \"./external-part.yml\" is not supported"
 }
