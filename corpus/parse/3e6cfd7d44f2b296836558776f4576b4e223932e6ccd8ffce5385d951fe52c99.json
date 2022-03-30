@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /cyclic_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: cyclic-remote-ref2.yaml#/components/schemas/outer\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\ncomponents:\n  schemas:\n    inner:\n      type: integer\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /cyclic_reference: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"cyclic-remote-ref2.yaml#/components/schemas/outer\": resolve reference \"cyclic-remote-ref2.yaml#/components/schemas/outer\": invalid schema reference \"cyclic-remote-ref2.yaml#/components/schemas/outer\""
+	"Error": "parse: parse spec: paths: /cyclic_reference: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"cyclic-remote-ref2.yaml#/components/schemas/outer\": find schema: external base \"cyclic-remote-ref2.yaml\" is not supported"
 }

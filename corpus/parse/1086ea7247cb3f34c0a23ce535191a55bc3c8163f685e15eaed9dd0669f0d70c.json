@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.0\n  title: Links example\npaths:\n  /users:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                    description: ID of the created user.\ncomponents:\n  schemas:\n    User:\n      $ref: ../スキーマ/人.json"
 		}
 	},
-	"Error": "parse: parse spec: paths: /users: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/User\": parse schema: reference \"../スキーマ/人.json\": resolve reference \"../スキーマ/人.json\": invalid schema reference \"../スキーマ/人.json\""
+	"Error": "parse: parse spec: paths: /users: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"#/components/schemas/User\": parse schema: resolve \"../スキーマ/人.json\": find schema: external base \"../スキーマ/人.json\" is not supported"
 }

@@ -2,15 +2,15 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
 			"name": "paths-get-requestBody.json",
 			"size": 0,
-			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-requestBody.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-requestBody.json",
 			"byteSize": 514,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"description\": \"The request body.\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            },\n            \"application/xml\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/User\"\n              }\n            }\n          },\n          \"required\": true\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /foo: get: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/User\": resolve reference \"#/components/schemas/User\": resolve \"#/components/schemas/User\": unexpected invalid"
+	"Error": "parse: parse spec: paths: /foo: get: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"#/components/schemas/User\": find schema: resolve \"#/components/schemas/User\": can't find value for \"components/schemas/User\""
 }

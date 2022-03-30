@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.1\n  title: API\npaths:\n  /:\n    post:\n      summary: Create\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/create'\n      responses:\n        '200':\n          description: Successful response\ncomponents:\n  schemas:\n    create:\n      type: object\n      properties:\n        attribute:\n          type: string\n        direct:\n          $ref: \"./external.yaml#/common\"\n        referenced:\n          type: array\n          items:\n            $ref: \"./external.yaml#/common\"\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: reference \"#/components/schemas/create\": parse schema: direct: parse schema: reference \"./external.yaml#/common\": resolve reference \"./external.yaml#/common\": invalid schema reference \"./external.yaml#/common\""
+	"Error": "parse: parse spec: paths: /: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"#/components/schemas/create\": parse schema: direct: parse schema: resolve \"./external.yaml#/common\": find schema: external base \"./external.yaml\" is not supported"
 }

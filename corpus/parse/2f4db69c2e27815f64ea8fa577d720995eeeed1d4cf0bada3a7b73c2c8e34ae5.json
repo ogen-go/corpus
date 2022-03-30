@@ -12,5 +12,5 @@
 			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Test specification for the translating parser\n  version: 0.0.0\npaths:\n  /hosts:\n    get:\n      responses:\n        default:\n          description: A file reference to the root file\n          content:\n            application/json:\n              schema:\n                $ref: 'root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject'\ncomponents:\n  schemas:\n    PlainObject:\n      type: object\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /hosts: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": resolve reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": invalid schema reference \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\""
+	"Error": "parse: parse spec: paths: /hosts: get: operation \"\": responses: default: content: \"application/json\": schema: parse schema: resolve \"root_file_reference_from_root.spec.yaml#/components/schemas/PlainObject\": find schema: external base \"root_file_reference_from_root.spec.yaml\" is not supported"
 }
