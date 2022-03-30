@@ -2,6 +2,11 @@ name: Regenerate corpus
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to fetch'
+        required: true
+        default: 'main'
 
 jobs:
   regenerate-schema:
@@ -34,6 +39,7 @@ jobs:
         id: generate
         env:
           GOPROXY: direct
+          VERSION: ${{ github.event.inputs.version }}
         run: |
           make generate
           STATS="$(cat stats.txt)"
