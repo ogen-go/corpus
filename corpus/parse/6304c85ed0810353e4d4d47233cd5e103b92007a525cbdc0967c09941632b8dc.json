@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/daniloab/koa-crud-backend"
+		},
+		"file": {
+			"name": "swagger.yml",
+			"size": 0,
+			"path": "src/swagger.yml",
+			"byteSize": 1720,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Koa Crud Backend\n  description: Koa Crud Backend\n  version: 1.0.0\nservers:\n  - url: https://github.com/daniloab/koa-crud-backend\n    description: Production server\nsecurity:\n  - AppID: []\npaths:\n  \"/api/user/{id}\":\n    get:\n      tags:\n        - users\n      summary: Get one user\n      parameters:\n        - name: id\n          in: path\n          description: platform ID or email\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: The user retrieve using the given ID\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  status:\n                    type: string\n                  user:\n                    type: object\n                    $ref: \"#/components/schemas/User\"\n        \"400\":\n          description: An error message\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  status:\n                    type: string\n                  message:\n                    type: string\n                  user:\n                    type: object\n                    $ref: \"#/components/schemas/User\"\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        _id:\n          type: string\n        name:\n          type: string\n        email:\n          type: string\n        removedAt:\n          type: string\n    UserPayload:\n      type: object\n      properties:\n        _id:\n          type: string\n        name:\n          type: string\n        email:\n          type: string\n        removedAt:\n          type: string\ntags: []\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /api/user/{id}: get: operation \"\": security: unknown security schema \"AppID\""
+}
