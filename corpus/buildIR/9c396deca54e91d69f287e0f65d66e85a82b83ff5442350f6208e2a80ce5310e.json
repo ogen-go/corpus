@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.3\ninfo:\n  title: deepobject-array-with-pattern-test\n  version: 1.0.0\npaths:\n  /test:\n    get:\n      operationId: test\n      parameters:\n        - name: options\n          in: query\n          required: false\n          style: deepObject\n          schema:\n            $ref: '#/components/schemas/Options'\n          explode: true\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Options:\n      type: object\n      properties:\n        a:\n          type: array\n          items:\n            type: string\n            pattern: '^[A-Z].*'\n"
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: parameters: field \"a\": nested arrays not allowed"
+	"Error": "buildIR: make ir: path \"/test\": get: parameters: field \"A\": nested arrays not allowed"
 }
