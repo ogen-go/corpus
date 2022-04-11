@@ -7,7 +7,7 @@
 		"file": {
 			"name": "negative2.yaml",
 			"size": 0,
-			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative2.yaml",
+			"path": "assets/queries/openAPI/3.0/components_request_body_definition_unused/test/negative2.yaml",
 			"byteSize": 674,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\n      requestBody:\n        \"$ref\": \"#/components/requestBodies/MyObjectBody\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n"
 		}
