@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/18F/piipan"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "docs/openapi/generated/bulk-api/openapi.yaml",
+			"byteSize": 2441,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Bulk API\n  version: 2.0.0\n  description: The API for performing bulk uploads\ntags:\n  - name: UploadAllParticipants\nservers:\n  - url: '/bulk/{stateAbbr}/v2'\n    variables:\n      stateAbbr:\n        default: none\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload_all_participants/{filename}':\n    put:\n      operationId: Upload a File\n      summary: Upload a CSV file of bulk participant data\n      tags:\n        - Upload\n      parameters:\n        - name: filename\n          in: path\n          description: Name of file being uploaded\n          required: true\n          schema:\n            type: string\n        - in: header\n          name: Content-Length\n          schema:\n            type: integer\n          required: true\n          description: Size in bytes of your file to be uploaded. A curl request will add this header by default when including a data or file parameter.\n          example: 6413\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n              format: binary\n      responses:\n        '201':\n          description: File uploaded\n        '401':\n          description: Access denied\n        '411':\n          description: Content-Length not provided\n  '/upload/{filename}':\n    description: A Deprecated endpoint.\n    put:\n      operationId: Upload a File\n      summary: Upload a CSV file of bulk participant data\n      tags:\n        - Upload\n      parameters:\n        - name: filename\n          in: path\n          description: Name of file being uploaded\n          required: true\n          schema:\n            type: string\n        - in: header\n          name: Content-Length\n          schema:\n            type: integer\n          required: true\n          description: Deprecated. Size in bytes of your file to be uploaded. A curl request will add this header by default when including a data or file parameter.\n          example: 6413\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n              format: binary\n      responses:\n        '201':\n          description: File uploaded\n        '401':\n          description: Access denied\n        '411':\n          description: Content-Length not provided\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n"
+		}
+	},
+	"Error": "parse: parse spec: paths: /upload/{filename}: put: duplicate operationId: \"Upload a File\""
+}
