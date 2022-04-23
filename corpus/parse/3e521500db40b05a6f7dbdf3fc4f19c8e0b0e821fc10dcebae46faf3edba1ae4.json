@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "TraitBaseClass.yaml",
+			"size": 0,
+			"path": "Specification/Components/Schemas/TraitBaseClass.yaml",
+			"byteSize": 2465,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    TraitBaseClass:\n      type: object\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: Additional arbitrary info\n          type: object\n        alternativeAbbreviations:\n          description: Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention\n          items:\n            type: string\n          type: array\n          example: ['H', 'PH', 'H1']\n        attribute:\n          description: A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"\n          type: string\n          example: height\n        traitClass:\n          description: 'Trait class. (examples: \"morphological\", \"phenological\", \"agronomical\", \"physiological\", \"abiotic stress\", \"biotic stress\", \"biochemical\", \"quality traits\", \"fertility\", etc.)'\n          type: string\n          example: phenological\n        traitDescription:\n          description: The description of a trait\n          type: string\n          example: The height of the plant \n        entity:\n          description: A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"\n          type: string\n          example: Stalk\n        mainAbbreviation:\n          description: 'Main abbreviation for trait name. (examples: \"Carotenoid content\" =\u003e \"CC\")'\n          type: string\n          example: PH\n        ontologyReference:\n          $ref: '#/components/schemas/OntologyReference'\n        status:\n          description: 'Trait status (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)'\n          type: string\n          example: recommended\n        synonyms:\n          description: Other trait names\n          items:\n            type: string\n          type: array\n          example: ['Height', 'Plant Height', 'Stalk Height', 'Canopy Height']\n        traitName:\n          description: |-\n            The human readable name of a trait\n            \n            MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation\n          type: string\n          example: Height\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"TraitBaseClass\": parse schema: property \"externalReferences\": parse schema: resolve \"#/components/schemas/ExternalReferences\": find schema: resolve \"#/components/schemas/ExternalReferences\": can't find value for \"components/schemas/ExternalReferences\""
+}

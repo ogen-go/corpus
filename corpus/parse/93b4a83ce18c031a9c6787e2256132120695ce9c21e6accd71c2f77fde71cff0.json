@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Position.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/Position.yaml",
+			"byteSize": 811,
+			"content": "components:\n  schemas:\n    Position:\n      description: |-\n        A `Position` is an unoriented base in some `Reference`. A `Position` is\n        represented by a `Reference` name, and a base number on that `Reference`\n        (0-based).\n      properties:\n        position:\n          description: |-\n            The 0-based offset from the start of the forward strand for that\n            `Reference`. Genomic positions are non-negative integers less than\n            `Reference` length.\n          format: int64\n          type: string\n        reference_name:\n          description: The name of the `Reference` on which the `Position` is located.\n          type: string\n        strand:\n          $ref: '#/components/schemas/Strand'\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Position\": parse schema: property \"strand\": parse schema: resolve \"#/components/schemas/Strand\": find schema: resolve \"#/components/schemas/Strand\": can't find value for \"components/schemas/Strand\""
+}

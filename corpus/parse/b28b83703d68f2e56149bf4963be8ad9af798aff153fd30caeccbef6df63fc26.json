@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.9-abcd\",\n    \"title\": \"Duplicate operationID\"\n  },\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"parameters\" : [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      },\n      \"post\": {\n        \"operationId\": \"getPetsById\",\n        \"responses\": {\n          \"default\": {\n            \"description\": \"error payload\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: parse spec: /pets/{id}: parameters: parse parameter \"id\": path parameters must be required"
+	"Error": "parse: parse spec: parse operations: /pets/{id}: parameters: parse parameter \"id\": path parameters must be required"
 }

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_enumeratum_enum_adding_default_when_encoded_value_specified.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_adding_default_when_encoded_value_specified.yml",
+			"byteSize": 1189,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref:'#/components/schemas/FruitQueryWithEncoded'\n        required: true\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/FruitWithEnum'\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    FruitQueryWithEncoded:\n      type: object\n      properties:\n        fruitType:\n          $ref: '#/components/schemas/FruitType'\n    FruitType:\n      type: string\n      default: PEAR\n      enum:\n        - APPLE\n        - PEAR\n    FruitWithEnum:\n      required:\n        - fruit\n        - amount\n      type: object\n      properties:\n        fruit:\n          type: string\n        amount:\n          type: integer\n          format: int32\n        fruitType:\n          type: array\n          items:\n            $ref: '#/components/schemas/FruitType'\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go struct field Media.paths.post.requestBody.content.schema of type ogen.Schema"
+}

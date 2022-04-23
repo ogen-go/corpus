@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bridgecrewio/checkov"
+		},
+		"file": {
+			"name": "fail.yaml",
+			"size": 0,
+			"path": "tests/openapi/checks/resource/v3/example_CleartextCredsOverUnencryptedChannel/fail.yaml",
+			"byteSize": 214,
+			"content": "openapi: 3.0.0\ninfo:\n  title: test\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    unencryptedScheme:\n      type: http\n      scheme: basic\npaths:\n  \"/\":\n    get:\n      security:\n        - unencryptedScheme: []\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"\": responses: no responses"
+}

@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /test:\n    post:\n      parameters:\n        - $ref: '#/components/parameters/InternalHeader'\n        - $ref: '#/components/parameters/SecondInternalHeader'\n        - $ref: '#/components/parameters/ExternalHeader'\n        - $ref: '#/components/parameters/ThirdInternalHeader'\n\ncomponents:\n  parameters:\n    InternalHeader:\n      x-internal: true\n      in: header\n      name: X-Internal-Header\n      schema:\n        type: string\n    SecondInternalHeader:\n      x-internal: true\n      in: header\n      name: X-Second-Internal-Header\n      schema:\n        type: string\n    ThirdInternalHeader:\n      x-internal: true\n      in: header\n      name: X-Third-Internal-Header\n      schema:\n        type: string\n    ExternalHeader:\n      in: header\n      name: X-External-Header\n      schema:\n        type: string\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /test: post: operation \"\": responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /test: post: operation \"\": responses: no responses"
 }

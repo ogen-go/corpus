@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: Innotech API backend\n  description: \u003e\n    API for the Innotech backend\n  version: 1.0.0\n\npaths:\n\n  ## Miscellaneous ###################################################################\n  \"/misc/ping\":\n    get:\n      tags:\n        - Ping\n      operationId: getPing\n      parameters:\n        - in: query\n          name: param\n          schema:\n            type: string\n            maxLength: 255\n          required: true\n      responses:\n        \"200\":\n          description: Ping response\n          content:\n            application/json:\n              schema:\n                $ref: \"schemas/_index.yaml#/pingResponse\"\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /misc/ping: get: operation \"getPing\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"schemas/_index.yaml#/pingResponse\": find schema: external base \"schemas/_index.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /misc/ping: get: operation \"getPing\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"schemas/_index.yaml#/pingResponse\": find schema: external base \"schemas/_index.yaml\" is not supported"
 }

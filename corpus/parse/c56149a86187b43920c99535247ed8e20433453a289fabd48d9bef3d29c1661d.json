@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Service.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/ServerInfo/Schemas/Service.yaml",
+			"byteSize": 1170,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    Service: \n      type: object\n      required:\n      - service\n      - versions\n      - methods\n      properties:\n        service:\n          description: The name of the available call as recorded in the documentation\n          type: string\n          example: germplasm/{germplasmDbId}/pedigree\n        dataTypes:\n          description: The possible data formats returned by the available call\n          items:\n            $ref: '#/components/schemas/WSMIMEDataTypes'\n          type: array\n          example: ['application/json']\n        methods:\n          description: The possible HTTP Methods to be used with the available call\n          items:\n            enum:\n            - GET\n            - POST\n            - PUT\n            - DELETE\n            type: string\n          type: array\n          example: ['GET', 'POST']\n        versions:\n          description: The supported versions of a particular call\n          items:\n            enum:\n            - '2.0'\n            - '2.1'\n            - '2.2'\n            type: string\n          type: array\n          example: ['2.0', '2.1']\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Service\": parse schema: property \"dataTypes\": parse schema: item: parse schema: resolve \"#/components/schemas/WSMIMEDataTypes\": find schema: resolve \"#/components/schemas/WSMIMEDataTypes\": can't find value for \"components/schemas/WSMIMEDataTypes\""
+}

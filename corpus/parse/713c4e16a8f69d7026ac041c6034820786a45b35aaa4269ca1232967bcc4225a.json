@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "TranscriptEffect.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/VariantAnnotations/Schemas/TranscriptEffect.yaml",
+			"byteSize": 1546,
+			"content": "components:\n  schemas:\n    TranscriptEffect:\n      properties:\n        alternate_bases:\n          description: |-\n            Alternate allele - a variant may have more than one alternate allele,\n            each of which will have distinct annotation.\n          type: string\n        analysis_results:\n          description: Output from prediction packages such as SIFT.\n          items:\n            $ref: '#/components/schemas/AnalysisResult'\n          type: array\n        attributes:\n          $ref: '#/components/schemas/Attributes'\n        cdna_location:\n          $ref: '#/components/schemas/AlleleLocation'\n        cds_location:\n          $ref: '#/components/schemas/AlleleLocation'\n        effects:\n          description: Effect of variant on this feature.\n          items:\n            $ref: '#/components/schemas/OntologyTerm'\n          type: array\n        feature_id:\n          title: |-\n            The id of the transcript feature the annotation is relative to.\n            TODO: derive unique id from digest of data [location, allele, transcript?]\n          type: string\n        hgvs_annotation:\n          $ref: '#/components/schemas/HGVSAnnotation'\n        id:\n          title: The ID of the transcript effect record\n          type: string\n        protein_location:\n          $ref: '#/components/schemas/AlleleLocation'\n      title: |-\n        A transcript effect record is a set of information describing the effect of\n        an allele on a transcript\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"TranscriptEffect\": parse schema: property \"analysis_results\": parse schema: item: parse schema: resolve \"#/components/schemas/AnalysisResult\": find schema: resolve \"#/components/schemas/AnalysisResult\": can't find value for \"components/schemas/AnalysisResult\""
+}

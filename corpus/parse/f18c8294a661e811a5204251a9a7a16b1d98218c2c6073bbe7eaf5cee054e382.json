@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ReferencesSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/References/Schemas/ReferencesSearchRequest.yaml",
+			"byteSize": 1853,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ReferencesSearchRequest: \n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - type: object\n        properties:\n          accessions:\n            description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).\n            items: \n              type: string\n            example: ['A0009283','A0006657'] \n          md5checksums:\n            description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).\n            items: \n              type: string\n            example: ['c2365e900c81a89cf74d83dab60df146']\n          referenceDbIds:\n            description: The `References` to search.\n            items: \n              type: string\n            example: ['04c83ea7', 'd0998a34']\n          referenceSetDbIds:\n            description: The `ReferenceSets` to search.\n            items: \n              type: string\n            example: ['32a19dd7', '2c182c18']\n          isDerived:\n            description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.\n            format: boolean\n            type: boolean\n          minLength:\n            description: The minimum length of this reference's sequence.\n            type: integer\n            example: 4000\n          maxLength:\n            description: The minimum length of this reference's sequence.\n            type: integer\n            example: 90000\n            \n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ReferencesSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "LinearAlignment.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/LinearAlignment.yaml",
+			"byteSize": 960,
+			"content": "components:\n  schemas:\n    LinearAlignment:\n      description: |-\n        A linear alignment describes the alignment of a read to a Reference, using a\n        position and CIGAR array.\n      properties:\n        cigar:\n          description: |-\n            Represents the local alignment of this sequence (alignment matches, indels,\n            etc)\n            versus the reference.\n          items:\n            $ref: '#/components/schemas/CigarUnit'\n          type: array\n        mapping_quality:\n          description: |-\n            The mapping quality of this alignment, meaning the likelihood that the read\n            maps to this position.\n\n            Specifically, this is -10 log10 Pr(mapping position is wrong), rounded to\n            the nearest integer.\n          format: int32\n          type: integer\n        position:\n          $ref: '#/components/schemas/Position'\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"LinearAlignment\": parse schema: property \"cigar\": parse schema: item: parse schema: resolve \"#/components/schemas/CigarUnit\": find schema: resolve \"#/components/schemas/CigarUnit\": can't find value for \"components/schemas/CigarUnit\""
+}

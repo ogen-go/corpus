@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VendorSample.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorSample.yaml",
+			"byteSize": 2383,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    VendorSample:\n      type: object\n      required:\n      - clientSampleId\n      properties:\n        clientSampleBarCode:\n          description: (Optional) The value of the bar code attached to this sample\n          type: string\n          example: 7c07e527\n        clientSampleId:\n          description: The ID which uniquely identifies this sample to the client making the request\n          type: string\n          example: bd96bd69\n        column:\n          description: The Column identifier for this samples location in the plate\n          type: integer\n          minimum: 1\n          maximum: 12\n          example: 6\n        comments:\n          description: Generic comments about this sample for the vendor\n          type: string\n          example: This is my favorite sample, please be extra careful with it.\n        concentration:\n          $ref: '#/components/schemas/Measurement'\n        organismName:\n          description: Scientific organism name\n          type: string\n          example: Aspergillus fructus\n        row:\n          description: The Row identifier for this samples location in the plate\n          type: string\n          example: B\n        speciesName:\n          description: Scientific species name\n          type: string\n          example: Aspergillus fructus\n        taxonomyOntologyReference:\n          $ref: '#/components/schemas/OntologyReference'\n        tissueType:\n          description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.\n          type: string\n          example: Root\n        tissueTypeOntologyReference:\n          $ref: '#/components/schemas/OntologyReference'\n        volume: \n          $ref: '#/components/schemas/Measurement'\n        well:\n          description: The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.\n          type: string\n          example: B6\n    Measurement: \n      type: object\n      description: A value with units\n      properties:\n        units:\n          description: 'Units (example: \"ng/ul\")'\n          type: string\n          example: ng/ul\n        value:\n          description: 'Value (example: \"2.3\")'\n          type: number\n          example: 2.3\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"VendorSample\": parse schema: property \"taxonomyOntologyReference\": parse schema: resolve \"#/components/schemas/OntologyReference\": find schema: resolve \"#/components/schemas/OntologyReference\": can't find value for \"components/schemas/OntologyReference\""
+}

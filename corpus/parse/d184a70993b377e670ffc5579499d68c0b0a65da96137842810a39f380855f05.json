@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\npaths:\n  /notify:\n    post:\n      summary: 'Receive notification about certain invoice'\n      security:\n        - Token: []\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'payment-service.oas3.yaml#/components/schemas/notification'\n      responses:\n        '200':\n          description: 'Notification successfully processed'\n          content:\n            text/plain:\n              examples:\n                ok:\n                  value: 'ok'\ncomponents:\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: token\n      in: query\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /notify: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"payment-service.oas3.yaml#/components/schemas/notification\": find schema: external base \"payment-service.oas3.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /notify: post: operation \"\": requestBody: content: \"application/json\": parse schema: parse schema: resolve \"payment-service.oas3.yaml#/components/schemas/notification\": find schema: external base \"payment-service.oas3.yaml\" is not supported"
 }

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "AsynchronousMachineEquivalentCircuit/swagger.yaml",
+			"byteSize": 2496,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    AsynchronousMachineEquivalentCircuit: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AsynchronousMachineEquivalentCircuit/model.yaml#/AsynchronousMachineEquivalentCircuit\"\ninfo:\n  description:  |\n    Adapted from CIM data models. The electrical equations of all variations of the asynchronous model are based on the AsynchronousEquivalentCircuit diagram for the direct and quadrature axes, with two equivalent rotor windings in each axis.      =  +   =  +  *  / ( + )  =  +  * *  / ( *  +  *  +  * )  = ( + ) / ( * )  = ( *  +  *  +  * ) / ( *  * (+ ) Same equations using CIM attributes from AsynchronousMachineTimeConstantReactance class on left of = sign and AsynchronousMachineEquivalentCircuit class on right (except as noted): xs = xm + RotatingMachineDynamics.statorLeakageReactance xp = RotatingMachineDynamics.statorLeakageReactance + xm * xlr1 / (xm + xlr1) xpp = RotatingMachineDynamics.statorLeakageReactance + xm * xlr1* xlr2 / (xm * xlr1 + xm * xlr2 + xlr1 * xlr2) tpo = (xm + xlr1) / (2*pi*nominal frequency * rr1) tppo = (xm * xlr1 + xm * xlr2 + xlr1 * xlr2) / (2*pi*nominal frequency * rr2 * (xm + xlr1).\n  title: AsynchronousMachineEquivalentCircuit\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - AsynchronousMachineEquivalentCircuit\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AsynchronousMachineEquivalentCircuit/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AsynchronousMachineEquivalentCircuit/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"AsynchronousMachineEquivalentCircuit\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/AsynchronousMachineEquivalentCircuit/model.yaml#/AsynchronousMachineEquivalentCircuit\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/AsynchronousMachineEquivalentCircuit/model.yaml\" is not supported"
+}

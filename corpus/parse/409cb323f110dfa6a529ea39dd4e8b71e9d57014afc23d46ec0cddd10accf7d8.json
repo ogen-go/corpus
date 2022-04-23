@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DataDog/apigentools"
+		},
+		"file": {
+			"name": "test_spec.yaml",
+			"size": 0,
+			"path": "tests/fixtures/test_spec.yaml",
+			"byteSize": 2269,
+			"content": "\nopenapi: 3.0.0\nservers:\n  - url: 'http://nile.com/v1'\ninfo:\n  description: \u003e-\n    Defines an api for a bookstore\n  version: 1.0.0\n  title: Nile bookstore\n  license:\n    name: BSD\n    url: 'https://github.com/DataDog/apigentools/blob/master/LICENSE'\ntags:\n  - name: book\n    description: book information\npaths:\n  /book:\n    post:\n      tags:\n        - book\n      summary: Add a new book to the store\n      description: ''\n      operationId: addBook\n      responses:\n        '405':\n          description: Invalid input\n      security:\n        - bookstore_auth:\n            - 'write:books'\n            - 'read:books'\n      requestBody:\n        $ref: '#/components/requestBodies/Book'\nexternalDocs:\n  description: More on apigentools\n  url: 'https://github.com/DataDog/apigentools'\ncomponents:\n  requestBodies:\n    UserArray:\n      content:\n        application/json:\n          schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/User'\n      description: List of user object\n      required: true\n    Book:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Book'\n        application/xml:\n          schema:\n            $ref: '#/components/schemas/Book'\n      description: Book to add to the store\n      required: true\n  securitySchemes:\n    bookstore_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: 'http://Nile.com/api/oauth/dialog'\n          scopes:\n            'write:books': modify books\n            'read:books': read book data\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n    auth_cookie:\n      type: apiKey\n      name: AUTH_KEY\n      in: cookie\n  schemas:\n    Book:\n      title: a Book\n      description: A book for sale\n      type: object\n      required:\n        - name\n        - photoUrls\n      properties:\n        id:\n          type: integer\n          format: int64\n        photoUrls:\n          type: array\n          xml:\n            name: photoUrl\n            wrapped: true\n          items:\n            type: string\n        status:\n          type: string\n          description: pet status in the store\n          enum:\n            - available\n            - pending\n            - sold\n      xml:\n        name: Book\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: requestBodies: \"UserArray\": content: \"application/json\": parse schema: parse schema: item: parse schema: resolve \"#/components/schemas/User\": find schema: resolve \"#/components/schemas/User\": can't find value for \"components/schemas/User\""
+}

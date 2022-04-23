@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/apidom"
+		},
+		"file": {
+			"name": "root.json",
+			"size": 0,
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/infinite-recursion/root.json",
+			"byteSize": 274,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"type\": \"object\",\n        \"$ref\": \"#/components/schemas/UserProfile\"\n      },\n      \"UserProfile\": {\n        \"type\": \"object\",\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"User\": parse schema: resolve \"#/components/schemas/UserProfile\": parse schema: resolve \"#/components/schemas/User\": infinite recursion"
+}

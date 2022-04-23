@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/discord-gophers/goapi-gen"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "internal/test/externalref/spec.yaml",
+			"byteSize": 258,
+			"content": "openapi: \"3.0.3\"\ninfo: {}\npaths: {}\ncomponents:\n  schemas:\n    Container:\n      properties:\n        objectA:\n          $ref: ./package_a/spec.yaml#/components/schemas/ObjectA\n        objectB:\n          $ref: ./package_b/spec.yaml#/components/schemas/ObjectB\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Container\": parse schema: property \"objectA\": parse schema: resolve \"./package_a/spec.yaml#/components/schemas/ObjectA\": find schema: external base \"./package_a/spec.yaml\" is not supported"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "BusNameMarker/swagger.yaml",
+			"byteSize": 2041,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    BusNameMarker: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/BusNameMarker/model.yaml#/BusNameMarker\"\ninfo:\n  description:  |\n    Adapted from CIM data models. Used to apply user standard names to topology buses. Typically used for bus/branch case generation. Associated with one or more terminals that are normally connected with the bus name. The associated terminals are normally connected by non-retained switches. For a ring bus station configuration, all busbar terminals in the ring are typically associated. For a breaker and a half scheme, both busbars would normally be associated.  For a ring bus, all busbars would normally be associated.  For a 'straight' busbar configuration, normally only the main terminal at the busbar would be associated.\n  title: BusNameMarker\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - BusNameMarker\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/BusNameMarker/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/BusNameMarker/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"BusNameMarker\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/BusNameMarker/model.yaml#/BusNameMarker\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/BusNameMarker/model.yaml\" is not supported"
+}

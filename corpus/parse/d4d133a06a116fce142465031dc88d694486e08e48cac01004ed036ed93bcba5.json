@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\n  description: A Sample file\npaths:\n  /characters:\n    get:\n      description: get characters\n      parameters:\n        - name: school_name\n          in: query\n          description: school name to filter by\n          required: false\n          style: form\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        '200':\n          # Does not exist, `ThisIsDefined` exists\n          $ref: '#/components/responses/ThisIsNotDefinedAnywhere'\n\ncomponents:\n  responses:\n    # Not used\n    ThisIsDefined:\n      type: object"
 		}
 	},
-	"Error": "parse: parse spec: paths: /characters: get: operation \"\": responses: 200: resolve \"#/components/responses/ThisIsNotDefinedAnywhere\" reference: component by reference \"#/components/responses/ThisIsNotDefinedAnywhere\" not found"
+	"Error": "parse: parse spec: parse operations: paths: /characters: get: operation \"\": responses: 200: resolve \"#/components/responses/ThisIsNotDefinedAnywhere\" reference: component by reference \"#/components/responses/ThisIsNotDefinedAnywhere\" not found"
 }

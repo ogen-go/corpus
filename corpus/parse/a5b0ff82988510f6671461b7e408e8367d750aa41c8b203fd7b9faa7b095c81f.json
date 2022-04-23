@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "ExcIEEEST2A/swagger.yaml",
+			"byteSize": 1883,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    ExcIEEEST2A: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ExcIEEEST2A/model.yaml#/ExcIEEEST2A\"\ninfo:\n  description:  |\n    Adapted from CIM data models. The class represents IEEE Std 421.5-2005 type ST2A model. Some static systems utilize both current and voltage sources (generator terminal quantities) to comprise the power source.  The regulator controls the exciter output through controlled saturation of the power transformer components.  These compound-source rectifier excitation systems are designated Type ST2A and are represented by ExcIEEEST2A.  Reference: IEEE Standard 421.5-2005 Section 7.2.\n  title: ExcIEEEST2A\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - ExcIEEEST2A\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ExcIEEEST2A/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ExcIEEEST2A/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ExcIEEEST2A\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/ExcIEEEST2A/model.yaml#/ExcIEEEST2A\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/ExcIEEEST2A/model.yaml\" is not supported"
+}

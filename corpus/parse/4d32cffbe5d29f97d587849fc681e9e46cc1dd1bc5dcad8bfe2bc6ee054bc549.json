@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/google/gnostic-grpc"
+		},
+		"file": {
+			"name": "cyclic_dependency_2.yaml",
+			"size": 0,
+			"path": "generator/testfiles/errors/cyclic_dependency_2.yaml",
+			"byteSize": 854,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test API for GSoC project\n  version: \"1.0.0\"\n  description: |\n    A cyclic dependency between cyclic_dependency_1.yaml \u003c--\u003e cyclic_dependency_2.yaml. jhumps's protoreflect can't\n    print cyclic dependency files. The method 'CreateFileDescriptorFromSet' inside renderer.go throws an error. As far\n    as I can tell gnostic-grpc is working correctly for cyclic dependencies.\npaths:\n  /someMethod: # Needed, otherwise gnostic gives error\n    get:\n      operationId: someMethod\n      responses:\n        200:\n          description: success\ncomponents:\n  responses:\n    Response:\n      description: success\n      content:\n        application/json:\n          schema:\n            $ref: 'https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_1.yaml#/components/schemas/Person'"
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"Response\": content: \"application/json\": schema: parse schema: resolve \"https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_1.yaml#/components/schemas/Person\": find schema: external base \"https://raw.githubusercontent.com/googleapis/gnostic-grpc/master/generator/testfiles/errors/cyclic_dependency_1.yaml\" is not supported"
+}

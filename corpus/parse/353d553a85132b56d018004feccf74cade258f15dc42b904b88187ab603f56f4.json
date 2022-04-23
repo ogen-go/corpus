@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: Entities\n  version: \"1.0\"\npaths:\n  /pet/{petId}/uploadImage:\n    post:\n      tags:\n        - pet\n      summary: uploads an image\n      description: \"\"\n      operationId: uploadFile\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to update\n          required: true\n          schema:\n            type: integer\n            format: int64\n        - name: additionalMetadata\n          in: query\n          description: Additional Metadata\n          required: false\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /pet/{petId}/uploadImage: post: operation \"uploadFile\": responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /pet/{petId}/uploadImage: post: operation \"uploadFile\": responses: no responses"
 }

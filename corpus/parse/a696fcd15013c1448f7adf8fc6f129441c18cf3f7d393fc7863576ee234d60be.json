@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/deepmap/oapi-codegen"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "internal/test/externalref/spec.yaml",
+			"byteSize": 258,
+			"content": "openapi: \"3.0.0\"\ninfo: {}\npaths: {}\ncomponents:\n  schemas:\n    Container:\n      properties:\n        object_a:\n          $ref: ./packageA/spec.yaml#/components/schemas/ObjectA\n        object_b:\n          $ref: ./packageB/spec.yaml#/components/schemas/ObjectB\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Container\": parse schema: property \"object_a\": parse schema: resolve \"./packageA/spec.yaml#/components/schemas/ObjectA\": find schema: external base \"./packageA/spec.yaml\" is not supported"
+}

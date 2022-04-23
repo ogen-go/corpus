@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VendorOrderSubmissionRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
+			"byteSize": 1227,
+			"content": "info: \n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    VendorOrderSubmissionRequest:\n      allOf:\n      - $ref: '#/components/schemas/VendorPlateSubmissionRequest'\n      - description: Request object structure to submit plate data to a vendor\n        type: object\n        required:\n        - serviceIds\n        properties:\n          requiredServiceInfo: \n            additionalProperties:\n              type: string\n            description: A map of additional data required by the requested service. This includes things like Volume and Concentration.\n            type: object\n            example:\n              genus: Zea\n              species: mays\n              volumePerWell: 2.3 ml\n              extractDNA: true\n          serviceIds:\n            description: |-\n              A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. \n              A Vendor Service defines what platform, technology, and markers will be used. \n              A list of available service IDs can be retrieved from the Vendor Specs.\n            items:\n              type: string\n            type: array\n            example: ['e8f60f64', '05bd925a', 'b698fb5e']\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"VendorOrderSubmissionRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/VendorPlateSubmissionRequest\": find schema: resolve \"#/components/schemas/VendorPlateSubmissionRequest\": can't find value for \"components/schemas/VendorPlateSubmissionRequest\""
+}

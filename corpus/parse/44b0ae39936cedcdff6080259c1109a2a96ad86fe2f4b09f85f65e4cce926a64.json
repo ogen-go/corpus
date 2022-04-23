@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/solvedac/unofficial-documentation"
+		},
+		"file": {
+			"name": "settings.yaml",
+			"size": 0,
+			"path": "src/schemas/settings.yaml",
+			"byteSize": 2303,
+			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\ncomponents:\n  schemas:\n    Settings:\n      title: Settings\n      description: \"사용자의 solved.ac 설정 정보입니다.\"\n      type: \"object\"\n      properties:\n        screenTheme:\n          description: \"사이트 디자인 테마입니다.\"\n          type: \"string\"\n          enum: [\"default\", \"light\", \"dark\", \"black\"]\n        tagDisplayLanguage:\n          allOf:\n            - $ref: \"./language.yaml#/components/schemas/Language\"\n            - description: \"태그 이름을 나타낼 때 사용할 언어입니다.\"\n        iconSchemeSolved:\n          allOf:\n            - $ref: \"./icon-scheme.yaml#/components/schemas/IconScheme\"\n            - description: \"해결한 문제의 난이도 아이콘입니다.\"\n        iconSchemeNotSolved:\n          allOf:\n            - $ref: \"./icon-scheme.yaml#/components/schemas/IconScheme\"\n            - description: \"해결하지 못한 문제의 난이도 아이콘입니다.\"\n        problemSortBy:\n          description: \"문제 목록의 기본 정렬 순서입니다.\"\n          type: \"string\"\n          enum: [\"id\", \"level\", \"title\", \"solved\", \"average_try\", \"random\"]\n        twitterPostHandle:\n          description: \"트윗에 핸들을 포함하는지 여부입니다.\"\n          type: \"string\"\n          format: \"boolean\"\n          example: \"true\"\n        twitterPostOnClassIncrease:\n          description: \"CLASS가 올랐을 때 트윗을 보내는지 여부입니다.\"\n          type: \"string\"\n          format: \"boolean\"\n          example: \"false\"\n        twitterPostOnProblemSolve:\n          description: \"문제를 처음 해결했을 때 트윗을 보내는지 여부입니다.\"\n          type: \"string\"\n          format: \"boolean\"\n          example: \"true\"\n        twitterPostOnRatingIncrease:\n          description: \"AC 레이팅이 올랐을 때 트윗을 보내는지 여부입니다.\"\n          type: \"string\"\n          format: \"boolean\"\n          example: \"false\"\n        twitterPostOnTierIncrease:\n          description: \"티어가 올랐을 때 트윗을 보내는지 여부입니다.\"\n          type: \"string\"\n          format: \"boolean\"\n          example: \"true\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Settings\": parse schema: property \"iconSchemeNotSolved\": parse schema: allOf: [0]: parse schema: resolve \"./icon-scheme.yaml#/components/schemas/IconScheme\": find schema: external base \"./icon-scheme.yaml\" is not supported"
+}

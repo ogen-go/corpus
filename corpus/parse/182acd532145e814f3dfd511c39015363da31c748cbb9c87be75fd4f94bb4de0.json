@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstoe\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\npaths:\n  /pet:\n    get:\n      operationId: listPets\n      parameters:\n        - name: limit\n          in: query\n          schema:\n            type: integer\n            default: 10\n            format: int32\n      responses:\n        '200':\n          description: An paged array of pets\n  /pets:\n    get:\n      operationId: listPetsForType\n      parameters:\n        - name: petType\n          in: query\n          schema:\n            type: array\n            items: {}\n            default: [\"dog\", \"cat\"]\n      responses:\n        '200':\n          description: An paged array of pets\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /pets: get: operation \"listPetsForType\": parameters: parse parameter \"petType\": schema: parse default: callback: validate item: unexpected type: \"\""
+	"Error": "parse: parse spec: parse operations: paths: /pets: get: operation \"listPetsForType\": parameters: parse parameter \"petType\": schema: parse default: callback: validate item: unexpected type: \"\""
 }

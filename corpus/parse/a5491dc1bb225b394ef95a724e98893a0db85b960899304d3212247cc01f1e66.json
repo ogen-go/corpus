@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "CrossNewRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/Crosses/Schemas/CrossNewRequest.yaml",
+			"byteSize": 2017,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    CrossNewRequest:\n      type: object\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: Additional arbitrary info\n          type: object\n        crossingProjectDbId:\n          description: the unique identifier for a crossing project\n          type: string\n          example: 696d7c92\n        crossingProjectName: \n          description: the human readable name for a crossing project\n          type: string\n          example: my_Crosses_2018\n        crossName: \n          description: the human readable name for a cross\n          type: string\n          example: my_Crosses_2018_01\n        crossType: \n          description: the type of cross\n          type: string\n          enum:\n          - BIPARENTAL\n          - SELF\n          - OPEN_POLLINATED\n          - BULK\n          - BULK_SELFED\n          - BULK_OPEN_POLLINATED\n          - DOUBLE_HAPLOID\n          example: BIPARENTAL\n        parent1: \n          $ref: '#/components/schemas/CrossParent'\n        parent2: \n          $ref: '#/components/schemas/CrossParent'\n        pollinationTimeStamp: \n          description: the timestamp when the pollination took place\n          type: string\n          format: date-time\n        crossAttributes: \n          description: Set of custom attributes associated with a cross\n          type: array\n          items:\n            description: a custom attributes associated with a cross\n            type: object\n            properties:\n              crossAttributeName:\n                description: the human readable name of a cross attribute\n                type: string\n                example: Humidity Percentage\n              crossAttributeValue: \n                description: the value of a cross attribute\n                type: string\n                example: '45'\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n          "
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"CrossNewRequest\": parse schema: property \"externalReferences\": parse schema: resolve \"#/components/schemas/ExternalReferences\": find schema: resolve \"#/components/schemas/ExternalReferences\": can't find value for \"components/schemas/ExternalReferences\""
+}

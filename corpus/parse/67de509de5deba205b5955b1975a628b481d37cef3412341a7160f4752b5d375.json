@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ListPeersResponse.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Peers/Schemas/ListPeersResponse.yaml",
+			"byteSize": 822,
+			"content": "components:\n  schemas:\n    ListPeersResponse:\n      description: |-\n        This is the response from `POST /peers/list` expressed as\n        JSON.\n      properties:\n        next_page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            Provide this value in a subsequent request to return the next page of\n            results. This field will be empty if there aren't any additional results.\n          type: string\n        peers:\n          description: |-\n            The list of `Peer` messages presented by the server. They\n            are not expected in any particular order.\n          items:\n            $ref: '#/components/schemas/Peer'\n          type: array\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ListPeersResponse\": parse schema: property \"peers\": parse schema: item: parse schema: resolve \"#/components/schemas/Peer\": find schema: resolve \"#/components/schemas/Peer\": can't find value for \"components/schemas/Peer\""
+}

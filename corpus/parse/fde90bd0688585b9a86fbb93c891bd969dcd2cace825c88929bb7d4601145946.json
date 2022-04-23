@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          \"$ref\": \"#/components/schemas/MyObject\"\n      requestBody:\n        \"$ref\": \"#/components/requestBodies/MyObjectBody\"\ncomponents:\n  schemas:\n    MyObject:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: get: operation \"listVersionsv2\": responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"listVersionsv2\": responses: 200: resolve \"#/components/schemas/MyObject\" reference: invalid response reference: \"#/components/schemas/MyObject\""
 }

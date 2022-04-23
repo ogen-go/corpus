@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Transportation"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "CrowdFlowObserved/swagger.yaml",
+			"byteSize": 1474,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    CrowdFlowObserved: \n      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/CrowdFlowObserved/model.yaml#/CrowdFlowObserved\"\ninfo:\n  description:  |\n    CrowdFlowObserved\n  title: CrowdFlowObserved\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - CrowdFlowObserved\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/CrowdFlowObserved/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/CrowdFlowObserved/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"CrowdFlowObserved\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Transportation/CrowdFlowObserved/model.yaml#/CrowdFlowObserved\": find schema: external base \"https://smart-data-models.github.io/dataModel.Transportation/CrowdFlowObserved/model.yaml\" is not supported"
+}

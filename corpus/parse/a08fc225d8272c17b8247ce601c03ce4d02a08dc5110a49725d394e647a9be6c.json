@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "person-with-relative-address-and-spouse.input.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/dereference/oai3/person-with-relative-address-and-spouse.input.json",
+			"byteSize": 584,
+			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"components\": {\n        \"schemas\": {\n            \"Widget\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"name\": {\n                        \"type\": \"string\"\n                    },\n                    \"description\": {\n                        \"type\": \"string\"\n                    },\n                    \"owner\": {\n                        \"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/PersonWithRelativeAddressAndSpouse\"\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Widget\": parse schema: property \"owner\": parse schema: resolve \"http://www.example.com/schemas/foo.json#/components/schemas/PersonWithRelativeAddressAndSpouse\": find schema: external base \"http://www.example.com/schemas/foo.json\" is not supported"
+}

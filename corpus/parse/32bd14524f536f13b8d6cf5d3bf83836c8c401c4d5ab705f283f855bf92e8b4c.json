@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: Wuhan2020 API service\n  description: This is the API service of the Wuhan2020 project, which aims at collecting all useful information to help people fight against the 2019-nCoV outbreak, check the developer website for more info\n  version: 0.1.0\n  contact:\n    name: \"Github Repo\"\n    url: https://github.com/wuhan2020/api-server\n\n# Let's version the APIs a bit later\n# servers:\n#   - url: /api/v1\n\ntags:\n  - name: Wuhan2020 Data\n    description: Get data that's collected and validated by Wuhan2020 volunteers\n\n# Refer to https://swagger.io/docs/specification/using-ref/ for Escape Characters e.g. ~1\npaths:\n  /accommodation/all:\n    $ref: \"accommodations.yml#/paths/~1accommodation~1all\"\n  /hospital/all:\n    $ref: \"hospitals.yml#/paths/~1hospital~1all\"\ncomponents:\n  schemas:\n    AccommodationItem:\n      $ref: \"accommodations.yml#/components/schemas/AccommodationItem\"\n    HospitalItem:\n      $ref: \"hospitals.yml#/components/schemas/HospitalItem\"\n"
 		}
 	},
-	"Error": "parse: parse spec: /accommodation/all: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"AccommodationItem\": parse schema: resolve \"accommodations.yml#/components/schemas/AccommodationItem\": find schema: external base \"accommodations.yml\" is not supported"
 }

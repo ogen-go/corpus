@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic content\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\"\n                },\n                \"examples\": {\n                  \"a\": {\n                    \"$ref\": \"external-example.json\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /test: get: operation \"test\": responses: 200: resolve: \"external-example.json\": invalid example reference: \"external-example.json\""
+	"Error": "parse: parse spec: parse operations: paths: /test: get: operation \"test\": responses: 200: resolve: \"external-example.json\": invalid example reference: \"external-example.json\""
 }

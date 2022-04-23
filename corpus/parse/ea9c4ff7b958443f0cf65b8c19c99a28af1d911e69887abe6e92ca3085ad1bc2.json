@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "rust-test.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/rust/rust-test.yaml",
+			"byteSize": 668,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Rust client test spec\n  description: Special testing for the Rust client generator\n  version: 1.0.7\npaths:\n  /dummy:\n    get:\n      summary: A dummy endpoint to make the spec valid.\n      responses:\n        '200':\n          description: Success\ncomponents:\n  schemas:\n    TypeTesting:\n      description: Test handling of differing types (see \\#3463)\n      type: object\n      properties:\n        integer:\n          type: integer\n        long:\n          type: long\n        number:\n          type: number\n        float:\n          type: float\n        double:\n          type: double\n        uuid:\n          type: string\n          format: uuid\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"TypeTesting\": parse schema: property \"double\": parse schema: unexpected schema type: \"double\""
+}

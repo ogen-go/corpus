@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bridgecrewio/checkov"
+		},
+		"file": {
+			"name": "fail1.yaml",
+			"size": 0,
+			"path": "tests/openapi/checks/resource/generic/example_SecurityOperations/fail1.yaml",
+			"byteSize": 1203,
+			"content": "openapi: 3.0.0\ninfo:\n  title: example\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: id\n      summary: example\n      security:\n      - OAuth2:\n        - admin\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\n  \"/apis\":\n    get:\n      operationId: id2\n      summary: example2\n      security: []\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - status: CURRENT\n                      updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - href: http://127.0.0.1:8774/v2/\n                        rel: self\nsecurity:\n- OAuth2:\n  - read"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"id\": security: unknown security schema \"OAuth2\""
+}

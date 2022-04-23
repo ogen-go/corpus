@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/simplesmiler/taxios"
+		},
+		"file": {
+			"name": "enums.yml",
+			"size": 0,
+			"path": "packages/taxios-sandbox/src/enums.yml",
+			"byteSize": 816,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Named enums\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /v1/roles:\n    get:\n      responses:\n        '200':\n          description: OK\ncomponents:\n  schemas:\n    OrderStatus:\n      type: string\n      enum: [Placed, Approved, Delivered]\n    StatusCode:\n      enum: [200, 400]\n      x-enumNames: [Ok, BadRequest]\n    ValidIdentifier:\n      enum: [$, _, a1, 'привет', '日本', 'null', delete]\n    InvalidIdentifier:\n      enum: ['1', ' untrimmed ', '#', null, true, [1, 2]]\n    RubiksCubeAlgorithm:\n      type: array\n      items:\n        type: object\n        additionalProperties: false\n        properties:\n          face:\n            enum: [F, R, U, L, B, D]\n          turns:\n            enum: [-1, 1, 2]\n        required:\n          - face\n          - turns\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"InvalidIdentifier\": parse enum values: parse value \"true\": expected type \"string\", got \"bool\""
+}

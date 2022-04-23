@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "ref-nullable-external.yaml",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/ref-nullable/ref-nullable-external.yaml",
+			"byteSize": 223,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Something\"\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    a:\n      type: object\n      properties:\n        a1:\n          $ref: \"/ref.yaml#b\"\n      example:\n        a1:\n          b1: null"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"a\": parse schema: property \"a1\": parse schema: resolve \"/ref.yaml#b\": find schema: external base \"/ref.yaml\" is not supported"
+}

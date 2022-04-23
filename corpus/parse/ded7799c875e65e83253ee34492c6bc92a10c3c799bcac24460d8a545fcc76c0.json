@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/regulaforensics/DocumentReader-web-openapi"
+		},
+		"file": {
+			"name": "rt-photo-ident.yml",
+			"size": 0,
+			"path": "authenticity/rt-photo-ident.yml",
+			"byteSize": 1132,
+			"content": "openapi: 3.0.1\ncomponents:\n  schemas:\n\n    PhotoIdentResult:\n      title: \"Photo Ident Check\"\n      allOf:\n        - $ref: '../rt-authenticity.yml#/components/schemas/AuthenticityCheckResultItem'\n        - type: object\n          properties:\n            LightIndex:\n              $ref: '../common.yml#/components/schemas/Light'\n            Area:\n              $ref: '../common.yml#/components/schemas/RectangleCoordinates'\n            SourceImage:\n              $ref: '../common.yml#/components/schemas/ImageData'\n            ResultImages:\n              $ref: '#/components/schemas/RawImageContainerList'\n            FieldTypesCount:\n              type: integer\n            FieldTypesList:\n              type: array\n              items:\n                type: integer\n            Step:\n              type: integer\n            Angle:\n              type: integer\n            Reserved3:\n              type: integer\n\n    RawImageContainerList:\n      type: object\n      properties:\n        Count:\n          type: integer\n        Images:\n          type: array\n          items:\n            $ref: '../common.yml#/components/schemas/ImageData'"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PhotoIdentResult\": parse schema: allOf: [0]: parse schema: resolve \"../rt-authenticity.yml#/components/schemas/AuthenticityCheckResultItem\": find schema: external base \"../rt-authenticity.yml\" is not supported"
+}

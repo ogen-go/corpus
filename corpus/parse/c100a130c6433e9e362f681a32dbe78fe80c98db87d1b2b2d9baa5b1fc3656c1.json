@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "spec2.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
+			"byteSize": 325,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: spec2\ncomponents:\n  schemas:\n    FlowDescription:\n      type: string\n    EthFlowDescription:\n      type: object\n      properties:\n        fDesc:\n          $ref: '#/components/schemas/FlowDescription'\n        fDir:\n          $ref: 'spec1.yaml#/components/schemas/FlowDirection'"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"EthFlowDescription\": parse schema: property \"fDir\": parse schema: resolve \"spec1.yaml#/components/schemas/FlowDirection\": find schema: external base \"spec1.yaml\" is not supported"
+}

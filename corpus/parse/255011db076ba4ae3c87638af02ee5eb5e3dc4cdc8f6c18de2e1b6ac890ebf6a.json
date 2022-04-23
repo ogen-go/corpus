@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "CigarUnit.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/CigarUnit.yaml",
+			"byteSize": 749,
+			"content": "components:\n  schemas:\n    CigarUnit:\n      description: A single CIGAR operation.\n      properties:\n        operation:\n          $ref: '#/components/schemas/CigarUnitOperation'\n        operation_length:\n          description: The number of genomic bases that the operation runs for. Required.\n          format: int64\n          type: string\n        reference_sequence:\n          description: |-\n            `referenceSequence` is only used at mismatches\n            (`SEQUENCE_MISMATCH`) and deletions (`DELETE`).\n            Filling this field replaces SAM's MD tag. If the relevant information is\n            not available, this field is unset.\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"CigarUnit\": parse schema: property \"operation\": parse schema: resolve \"#/components/schemas/CigarUnitOperation\": find schema: resolve \"#/components/schemas/CigarUnitOperation\": can't find value for \"components/schemas/CigarUnitOperation\""
+}

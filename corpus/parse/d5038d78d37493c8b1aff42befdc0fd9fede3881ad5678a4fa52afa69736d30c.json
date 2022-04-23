@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "IdentifiedObject/swagger.yaml",
+			"byteSize": 1580,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    IdentifiedObject: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/IdentifiedObject/model.yaml#/IdentifiedObject\"\ninfo:\n  description:  |\n    Adapted from CIM data models. This is a root class to provide common identification for all classes needing identification and naming attributes.\n  title: IdentifiedObject\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - IdentifiedObject\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/IdentifiedObject/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/IdentifiedObject/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"IdentifiedObject\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/IdentifiedObject/model.yaml#/IdentifiedObject\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/IdentifiedObject/model.yaml\" is not supported"
+}

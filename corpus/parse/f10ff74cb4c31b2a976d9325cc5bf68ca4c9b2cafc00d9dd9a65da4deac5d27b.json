@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anz-bank/sysl"
+		},
+		"file": {
+			"name": "ext-ref-1.yaml",
+			"size": 0,
+			"path": "pkg/importer/tests/openapi3/ext-ref-1.yaml",
+			"byteSize": 1024,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: ExtRef1\n  version: 1.2.3\ncomponents:\n  schemas:\n    test1:\n      $ref: \"./ext-ref-2.yaml#/components/schemas/test1\"\n    test2:\n      properties:\n        field1:\n          $ref: \"./ext-ref-2.yaml#/components/schemas/test1\"\n        field2:\n          $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n    test3:\n      allOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test4:\n      anyOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test5:\n      oneOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test6:\n      items:\n        $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test7:\n      $ref: \"./external-ref-test/ext-ref-4.yaml#/components/schemas/test1\"\n    test8:\n      type: string\n    test9:\n      $ref: './external-ref-test/asset.json'\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"test6\": parse schema: item: parse schema: resolve \"./ext-ref-2.yaml#/components/schemas/test3\": find schema: external base \"./ext-ref-2.yaml\" is not supported"
+}

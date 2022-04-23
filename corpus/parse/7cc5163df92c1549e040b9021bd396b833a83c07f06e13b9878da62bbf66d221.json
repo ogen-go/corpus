@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "a.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/nested-references/a.yaml",
+			"byteSize": 270,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  title: test\n  version: '0.0.0'\npaths: {}\ncomponents:\n  schemas:\n    y:\n      $ref: \"#/components/schemas/z\"\n    z:\n      type: object\n      properties:\n        name:\n          type: string\n    j:\n      $ref: \"./b.yaml#/components/schemas/k\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"j\": parse schema: resolve \"./b.yaml#/components/schemas/k\": find schema: external base \"./b.yaml\" is not supported"
+}

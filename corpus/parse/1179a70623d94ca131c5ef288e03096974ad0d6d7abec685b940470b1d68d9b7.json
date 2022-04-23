@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: All-in-one schema\n  version: 0.1.0\n  description: This is a Dummy api, containing a schema with as much OpenAPI schema possibilities as defined in the spec.\n\ncomponents:\n  schemas:\n    allInOne:\n      $ref: 'all-in-one.yaml#/components/schemas/allInOne'\n    \n\n\n\npaths:\n  /dummy:\n    get:\n      responses:\n        200:\n          content:\n            \"application/json\":\n              schema:\n                $ref: \"#/components/schemas/allInOne\"\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /dummy: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"#/components/schemas/allInOne\": parse schema: resolve \"all-in-one.yaml#/components/schemas/allInOne\": find schema: external base \"all-in-one.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"allInOne\": parse schema: resolve \"all-in-one.yaml#/components/schemas/allInOne\": find schema: external base \"all-in-one.yaml\" is not supported"
 }

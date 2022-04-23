@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.com\npaths:\n  \"/\":\n    head:\n      operationId: headers\n      summary: headers\n      responses:\n        \"200\":\n          description: wrong example\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/ApiVersion\"\ncomponents:\n  schemas:\n    ApiVersion:\n      type: object\n      discriminator:\n        propertyName: ApiVersion\n      properties:\n        code:\n          type: integer\n          format: int32\n        version:\n          type: string\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: head: operation \"headers\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"#/components/ApiVersion\": find schema: resolve \"#/components/ApiVersion\": can't find value for \"components/ApiVersion\""
+	"Error": "parse: parse spec: parse operations: paths: /: head: operation \"headers\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"#/components/ApiVersion\": find schema: resolve \"#/components/ApiVersion\": can't find value for \"components/ApiVersion\""
 }
