@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\npaths:\n  \"/item\":\n    put:\n      operationId: putItem\n      summary: Put item\n      responses:\n        \"500\":\n          description: 500 response\n        \"429\":\n          description: 429 response\n        \"400\":\n          description: 400 response\n        \"404\":\n          description: 404 response\n        \"415\":\n          description: 415 response\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        code:\n          type: string\n        message:\n          type: string\n      required:\n        - code\n        - message\nsecurity:\n  - petstore_auth:\n      - write:pets\n      - read:pets\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /item: put: operation \"putItem\": security: unknown security schema \"petstore_auth\""
+	"Error": "parse: parse spec: parse operations: paths: /item: put: operation \"putItem\": security: unknown security schema \"petstore_auth\""
 }

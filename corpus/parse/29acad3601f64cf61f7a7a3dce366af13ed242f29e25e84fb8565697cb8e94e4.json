@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "a.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/file-reference-to-recursive-defs/a.yaml",
+			"byteSize": 274,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  title: test\n  version: '0.0.0'\npaths: {}\ncomponents:\n  schemas:\n    y:\n      type: object\n      properties:\n        name:\n          type: string\n        children:\n          type: array\n          items:\n            $ref: \"#/components/schemas/y\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"true\": parse schema: property \"children\": parse schema: item: parse schema: resolve \"#/components/schemas/y\": find schema: resolve \"#/components/schemas/y\": can't find value for \"components/schemas/y\""
+}

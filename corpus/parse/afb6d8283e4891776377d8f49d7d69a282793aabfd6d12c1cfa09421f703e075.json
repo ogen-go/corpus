@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "RnaQuantification.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/RNAQuantifications/Schemas/RnaQuantification.yaml",
+			"byteSize": 1336,
+			"content": "components:\n  schemas:\n    RnaQuantification:\n      properties:\n        attributes:\n          $ref: '#/components/schemas/Attributes'\n        biosample_id:\n          title: Biosample ID\n          type: string\n        description:\n          title: Description\n          type: string\n        feature_set_ids:\n          description: List of annotation sets used.\n          items:\n            type: string\n          type: array\n        id:\n          description: |-\n            The unique ID assigned to the results of running the described programs\n            on the specified reads and assignment to the listed annotation.\n          type: string\n        name:\n          title: Name\n          type: string\n        programs:\n          description: Programs can be used to track the provenance of how read data was quantified.\n          items:\n            $ref: '#/components/schemas/Program'\n          type: array\n        read_group_ids:\n          description: ID(s) of the ReadGroup(s) providing the reads for the analysis.\n          items:\n            type: string\n          type: array\n        rna_quantification_set_id:\n          description: ID of the containing RnaQuantificationSet.\n          type: string\n      title: Top level identifying information\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"RnaQuantification\": parse schema: property \"attributes\": parse schema: resolve \"#/components/schemas/Attributes\": find schema: resolve \"#/components/schemas/Attributes\": can't find value for \"components/schemas/Attributes\""
+}

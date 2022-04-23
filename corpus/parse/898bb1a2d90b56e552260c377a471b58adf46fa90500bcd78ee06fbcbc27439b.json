@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SearchPhenotypesResponse.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/GenotypePhenotypeService/Schemas/SearchPhenotypesResponse.yaml",
+			"byteSize": 749,
+			"content": "components:\n  schemas:\n    SearchPhenotypesResponse:\n      description: This is the response from `POST /phenotypes/search` expressed as JSON.\n      properties:\n        next_page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            Provide this value in a subsequent request to return the next page of\n            results. This field will be empty if there aren't any additional results.\n          type: string\n        phenotypes:\n          description: The list of matching PhenotypeInstances.\n          items:\n            $ref: '#/components/schemas/PhenotypeInstance'\n          type: array\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"SearchPhenotypesResponse\": parse schema: property \"phenotypes\": parse schema: item: parse schema: resolve \"#/components/schemas/PhenotypeInstance\": find schema: resolve \"#/components/schemas/PhenotypeInstance\": can't find value for \"components/schemas/PhenotypeInstance\""
+}

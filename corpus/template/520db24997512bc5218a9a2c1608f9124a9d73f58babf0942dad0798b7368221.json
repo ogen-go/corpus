@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/coffeecoffeecoffeecoffee/coffee"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger/v1/swagger.yaml",
+			"byteSize": 2782,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: Coffee\n  version: v1\nservers:\n- url: http://localhost:3000\n- url: https://coffeecoffeecoffee.coffee\ncomponents:\n  schemas:\n    event:\n      type: object\n      properties:\n        id:\n          type: string\n        group_id:\n          type: string\n          nullable: true\n        name:\n          type: string\n        image_url:\n          type: string\n          nullable: true\n        start_at:\n          type: string\n          format: date-time\n        end_at:\n          type: string\n          format: date-time\n        venue:\n          oneOf:\n          - \"$ref\": \"#/components/schemas/venue\"\n          - type: 'null'\n          nullable: true\n        is_online:\n          type: boolean\n        online_event_url:\n          type: string\n          nullable: true\n      required:\n      - id\n      - group_id\n      - name\n      - image_url\n      - start_at\n      - end_at\n      - venue\n      - is_online\n      - online_event_url\n      additionalProperties: false\n    group:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n      required:\n      - id\n      - name\n      additionalProperties: false\n    location:\n      description: http://microformats.org/wiki/adr\n      type: object\n      properties:\n        address:\n          type: string\n        extended_address:\n          type: string\n        locality:\n          type: string\n          description: city or village\n        region:\n          type: string\n          description: state or province\n        postal_code:\n          type: string\n          description: e.g. US ZIP\n        country:\n          type: string\n        latitude:\n          type: number\n        longitude:\n          type: number\n      additionalProperties: false\n    venue:\n      type: object\n      properties:\n        name:\n          type: string\n        location:\n          \"$ref\": \"#/components/schemas/location\"\n      required:\n      - name\n      - location\n      additionalProperties: false\npaths:\n  \"/api/groups/{group_id}/events\":\n    get:\n      summary: List of events for the specified group in descending order\n      parameters:\n      - name: group_id\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/event\"\n  \"/api/groups\":\n    get:\n      summary: List public groups\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/group\"\n"
+		}
+	},
+	"Error": "template: schemas: format imports: oas_schemas_gen.go:90:9: expected type, found '{' (and 10 more errors)"
+}

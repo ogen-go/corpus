@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/IBM/openapi-validator"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/schema.yaml",
+			"byteSize": 224,
+			"content": "openapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    SchemaDef:\n      type: object\n    CircularSchema:\n      type: object\n      properties:\n        id:\n          type: string\n        city:\n          $ref: ./city.yaml#/schema\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"CircularSchema\": parse schema: property \"city\": parse schema: resolve \"./city.yaml#/schema\": find schema: external base \"./city.yaml\" is not supported"
+}

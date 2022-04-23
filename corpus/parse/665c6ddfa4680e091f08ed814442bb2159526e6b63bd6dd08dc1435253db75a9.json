@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Call.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/Calls/Schemas/Call.yaml",
+			"byteSize": 2473,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    Call:\n      type: object\n      description: |-\n        A `Call` represents the determination of genotype with respect to a particular `Variant`.\n\n        It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: Additional arbitrary info\n          type: object\n        callSetDbId:\n          description: |-\n            The ID of the call set this variant call belongs to.\n\n            If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.\n          type: string\n          example: 16466f55\n        callSetName:\n          description: The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.\n          type: string\n          example: Sample_123_DNA_Run_456\n        variantDbId:\n          description: The ID of the variant this call belongs to.\n          type: string\n          example: 538c8ecf\n        variantName:\n          description: The name of the variant this call belongs to.\n          type: string\n          example: Marker A\n        genotype:\n          $ref: '#/components/schemas/ListValue'\n        genotype_likelihood:\n          description: The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.\n          items:\n            format: double\n            type: number\n          type: array\n          example: [ 1.0 ]\n        phaseSet:\n          description: If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.\n          type: string\n          example: 6410afc5\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Call\": parse schema: property \"genotype\": parse schema: resolve \"#/components/schemas/ListValue\": find schema: resolve \"#/components/schemas/ListValue\": can't find value for \"components/schemas/ListValue\""
+}

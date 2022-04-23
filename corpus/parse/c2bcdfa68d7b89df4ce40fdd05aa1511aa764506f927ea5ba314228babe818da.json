@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/janephp/open-api"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "Tests/fixtures/discriminator-snake-case/swagger.json",
+			"byteSize": 2671,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Pets\",\n        \"version\": \"1.0.0\"\n    },\n    \"paths\": {},\n    \"components\": {\n        \"schemas\": {\n            \"Pet\": {\n                \"type\": \"object\",\n                \"discriminator\": {\n                    \"propertyName\": \"petType\"\n                },\n                \"enum\": [\"cat_in_snake_case\", \"dog_in_snake_case\"],\n                \"properties\": {\n                    \"name\": {\n                        \"type\": \"string\"\n                    },\n                    \"petType\": {\n                        \"type\": \"string\"\n                    }\n                },\n                \"required\": [\n                    \"name\",\n                    \"petType\"\n                ]\n            },\n            \"cat_in_snake_case\": {\n                \"description\": \"A representation of a cat\",\n                \"allOf\": [\n                    {\n                        \"$ref\": \"#/components/schemas/Pet\"\n                    },\n                    {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"huntingSkill\": {\n                                \"type\": \"string\",\n                                \"description\": \"The measured skill for hunting\",\n                                \"default\": \"lazy\",\n                                \"enum\": [\n                                    \"clueless\",\n                                    \"lazy\",\n                                    \"adventurous\",\n                                    \"aggressive\"\n                                ]\n                            }\n                        },\n                        \"required\": [\n                            \"huntingSkill\"\n                        ]\n                    }\n                ]\n            },\n            \"dog_in_snake_case\": {\n                \"description\": \"A representation of a dog\",\n                \"allOf\": [\n                    {\n                        \"$ref\": \"#/components/schemas/Pet\"\n                    },\n                    {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"packSize\": {\n                                \"type\": \"integer\",\n                                \"format\": \"int32\",\n                                \"description\": \"the size of the pack the dog is from\",\n                                \"default\": 0,\n                                \"minimum\": 0\n                            }\n                        },\n                        \"required\": [\n                            \"packSize\"\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse enum values: parse value \"\\\"cat_in_snake_case\\\"\": unexpected type: \"object\""
+}

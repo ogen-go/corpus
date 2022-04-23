@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "GovHydroPID/swagger.yaml",
+			"byteSize": 1455,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    GovHydroPID: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydroPID/model.yaml#/GovHydroPID\"\ninfo:\n  description:  |\n    Adapted from CIM data models. PID governor and turbine.\n  title: GovHydroPID\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - GovHydroPID\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydroPID/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydroPID/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"GovHydroPID\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydroPID/model.yaml#/GovHydroPID\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydroPID/model.yaml\" is not supported"
+}

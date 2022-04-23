@@ -12,5 +12,5 @@
 			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n  - url: http://test.com/test\npaths:\n  /:\n    get:\n      description: Test\n      summary: Test\n      operationId: getTest\n      responses:\n        200:\n          description: Response with schema containing reference\n          content:\n            application/json:\n              schema:\n                $ref: \"./components/schema-with-reference.yaml\"\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /: get: operation \"getTest\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./components/schema-with-reference.yaml\": find schema: external base \"./components/schema-with-reference.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"getTest\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./components/schema-with-reference.yaml\": find schema: external base \"./components/schema-with-reference.yaml\" is not supported"
 }

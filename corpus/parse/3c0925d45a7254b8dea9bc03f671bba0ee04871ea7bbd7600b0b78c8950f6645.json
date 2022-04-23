@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "FeaturePhenotypeAssociation.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/GenotypePhenotypeService/Schemas/FeaturePhenotypeAssociation.yaml",
+			"byteSize": 2434,
+			"content": "components:\n  schemas:\n    FeaturePhenotypeAssociation:\n      description: |-\n        An association between one or more genomic features and a phenotype.\n        The instance of association allows us to link a feature to a phenotype,\n        multiple times, each bearing potentially different levels of confidence,\n        such as resulting from alternative experiments and analysis.\n      properties:\n        description:\n          description: A textual description of the association.\n          type: string\n        environmental_contexts:\n          items:\n            $ref: '#/components/schemas/EnvironmentalContext'\n          title: |-\n            The context in which the phenotype arises.\n            Multiple contexts can be specified - these are assumed to all hold together\n          type: array\n        evidence:\n          description: |-\n            The evidence for this specific instance of association between the\n            features and the phenotype.\n          items:\n            $ref: '#/components/schemas/Evidence'\n          type: array\n        feature_ids:\n          description: |-\n            The set of features of the organism that bears the phenotype.\n            This could be as complete as a full complement of variants,\n            or as minimal as the confirmed variants that are known causation\n            for the annotated phenotype.\n            Examples of features could be variations at the nucleotide level,\n            large rearrangements at the chromosome level, or relevant epigenetic\n            markers.  Relevant genomic feature types are suggested to be\n            those typed in the Sequence Ontology (SO).\n            The feature set can have only one item, and must not be null.\n          items:\n            type: string\n          type: array\n        id:\n          description: A unique identifier for the association.\n          type: string\n        info:\n          additionalProperties:\n            $ref: '#/components/schemas/ListValue'\n          description: Additional annotation data in key-value pairs.\n          type: object\n        phenotype:\n          $ref: '#/components/schemas/PhenotypeInstance'\n        phenotype_association_set_id:\n          description: |-\n            The ID of the PhenotypeAssociationSet this FeaturePhenotypeAssociation\n            belongs to.\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"FeaturePhenotypeAssociation\": parse schema: property \"environmental_contexts\": parse schema: item: parse schema: resolve \"#/components/schemas/EnvironmentalContext\": find schema: resolve \"#/components/schemas/EnvironmentalContext\": can't find value for \"components/schemas/EnvironmentalContext\""
+}

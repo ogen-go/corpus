@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sergiyhii/openapi-typescript"
+		},
+		"file": {
+			"name": "remote1.yml",
+			"size": 0,
+			"path": "tests/remote-schema/spec/subschema/remote1.yml",
+			"byteSize": 284,
+			"content": "openapi: 3.1.0\ncomponents:\n  schemas:\n    Remote1:\n      description: this is a duplicate of spec.yml#components/schemas/Remote1\n      type: string\n    Remote2:\n      $ref: \"./remote2.yml#components/schemas/Remote2\"\n    Circular:\n      $ref: \"../spec.yml#components/schemas/Circular\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Circular\": parse schema: resolve \"../spec.yml#components/schemas/Circular\": find schema: external base \"../spec.yml\" is not supported"
+}

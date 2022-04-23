@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/regulaforensics/DocumentReader-web-openapi"
+		},
+		"file": {
+			"name": "rt-security-feature.yml",
+			"size": 0,
+			"path": "authenticity/rt-security-feature.yml",
+			"byteSize": 861,
+			"content": "openapi: 3.0.1\ncomponents:\n  schemas:\n\n    SecurityFeatureResult:\n      title: \"Security Feature Check\"\n      allOf:\n        - $ref: '../rt-authenticity.yml#/components/schemas/AuthenticityCheckResultItem'\n        - type: object\n          properties:\n            ElementType:\n              $ref: '../e-security-feature-type.yml#/components/schemas/SecurityFeatureType'\n            ElementRect:\n              $ref: '../common.yml#/components/schemas/RectangleCoordinates'\n            Visibility:\n              $ref: './e-visibility.yml#/components/schemas/Visibility'\n            CriticalFlag:\n              $ref: './e-critical.yml#/components/schemas/Critical'\n            AreaList:\n              type: array\n              items:\n                $ref: '../rt-authenticity.yml#/components/schemas/AreaContainer'\n            Reserved2:\n              type: integer"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"SecurityFeatureResult\": parse schema: allOf: [0]: parse schema: resolve \"../rt-authenticity.yml#/components/schemas/AuthenticityCheckResultItem\": find schema: external base \"../rt-authenticity.yml\" is not supported"
+}

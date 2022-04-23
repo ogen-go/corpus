@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SearchFeaturesResponse.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Features/Schemas/SearchFeaturesResponse.yaml",
+			"byteSize": 859,
+			"content": "components:\n  schemas:\n    SearchFeaturesResponse:\n      description: This is the response from `POST /features/search` expressed as JSON.\n      properties:\n        features:\n          description: |-\n            The list of matching annotations, sorted by start position. Annotations\n            which share a start position are returned in a deterministic order.\n          items:\n            $ref: '#/components/schemas/Feature'\n          type: array\n        next_page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            Provide this value in a subsequent request to return the next page of\n            results. This field will be empty if there aren't any additional results.\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"SearchFeaturesResponse\": parse schema: property \"features\": parse schema: item: parse schema: resolve \"#/components/schemas/Feature\": find schema: resolve \"#/components/schemas/Feature\": can't find value for \"components/schemas/Feature\""
+}

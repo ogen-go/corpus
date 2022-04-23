@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "schema-with-allOf.expected.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
+			"byteSize": 480,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"components\": {\n    \"schemas\": {\n      \"Example\": {\n        \"type\": \"object\",\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/address\"\n          },\n          {\n            \"properties\": {\n              \"type\": {\n                \"enum\": [\n                  \"residential\",\n                  \"business\"\n                ]\n              }\n            }\n          }\n        ],\n        \"additionalProperties\": false\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Example\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/address\": find schema: resolve \"#/components/schemas/address\": can't find value for \"components/schemas/address\""
+}

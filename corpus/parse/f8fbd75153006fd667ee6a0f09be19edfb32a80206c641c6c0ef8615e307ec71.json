@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cjbooms/fabrikt"
+		},
+		"file": {
+			"name": "ErrorMissingRefArray.yaml",
+			"size": 0,
+			"path": "src/test/resources/badInput/ErrorMissingRefArray.yaml",
+			"byteSize": 300,
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Organisation:\n      type: object\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        icon:\n          type: string\n        hooks:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Webhook\""
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Organisation\": parse schema: property \"hooks\": parse schema: item: parse schema: resolve \"#/components/schemas/Webhook\": find schema: resolve \"#/components/schemas/Webhook\": can't find value for \"components/schemas/Webhook\""
+}

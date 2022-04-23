@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Peer.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Peers/Schemas/Peer.yaml",
+			"byteSize": 1027,
+			"content": "components:\n  schemas:\n    Peer:\n      description: |-\n        Peers allow clients to represent services to each other so\n        ad-hoc networks can be easily constructed.\n      properties:\n        attributes:\n          $ref: '#/components/schemas/Attributes'\n        url:\n          description: |-\n            This is the base URL where the service can be accessed from. It is\n            expected to be fully formed and to include the port number if the\n            port in use is not standard (http 80, https 443).\n\n            For example, the peer at 1kgenomes would appear as:\n              http://1kgenomes.ga4gh.org\n\n            Trailing slashes should be ignored when constructing client\n            requests based on this peer, and so shouldn't be included.\n\n            This example shows a peer that has specified both a base path\n            and a port.\n              http://myapp.mycloudservice.com:8080/data/\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Peer\": parse schema: property \"attributes\": parse schema: resolve \"#/components/schemas/Attributes\": find schema: resolve \"#/components/schemas/Attributes\": can't find value for \"components/schemas/Attributes\""
+}

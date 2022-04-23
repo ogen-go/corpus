@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "PlannedCrossNewRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/PlannedCrosses/Schemas/PlannedCrossNewRequest.yaml",
+			"byteSize": 1288,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    PlannedCrossNewRequest:\n      type: object\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: Additional arbitrary info\n          type: object\n        crossingProjectDbId:\n          description: the unique identifier for a crossing project\n          type: string\n          example: 696d7c92\n        crossingProjectName: \n          description: the human readable name for a crossing project\n          type: string\n          example: my_Crosses_2018\n        plannedCrossName: \n          description: the human readable name for a cross\n          type: string\n          example: my_Crosses_2018_01\n        crossType: \n          description: the type of cross\n          type: string\n          enum:\n          - BIPARENTAL\n          - SELF\n          - OPEN_POLLINATED\n          - BULK\n          - BULK_SELFED\n          - BULK_OPEN_POLLINATED\n          - DOUBLE_HAPLOID\n          example: BIPARENTAL\n        parent1: \n          $ref: '#/components/schemas/CrossParent'\n        parent2: \n          $ref: '#/components/schemas/CrossParent'\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n          "
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PlannedCrossNewRequest\": parse schema: property \"externalReferences\": parse schema: resolve \"#/components/schemas/ExternalReferences\": find schema: resolve \"#/components/schemas/ExternalReferences\": can't find value for \"components/schemas/ExternalReferences\""
+}

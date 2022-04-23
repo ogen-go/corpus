@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anz-bank/sysl"
+		},
+		"file": {
+			"name": "ext-ref-4.yaml",
+			"size": 0,
+			"path": "pkg/importer/tests/openapi3/external-ref-test/ext-ref-4.yaml",
+			"byteSize": 433,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: ExtRef4\n  version: 1.2.3\ncomponents:\n  schemas:\n    test1:\n      properties:\n        x:\n          $ref: \"#/components/schemas/test2\"\n        \"y\":\n          $ref: \"#/components/schemas/test3\"\n        z:\n          $ref: \"./ext-ref-5.json#/components/schemas/test1\"\n    test2:\n      $ref: \"../ext-ref-1.yaml#/components/schemas/test8\"\n    test3:\n      $ref: \"../ext-ref-3.yaml#/components/schemas/test1\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"test1\": parse schema: property \"x\": parse schema: resolve \"#/components/schemas/test2\": parse schema: resolve \"../ext-ref-1.yaml#/components/schemas/test8\": find schema: external base \"../ext-ref-1.yaml\" is not supported"
+}

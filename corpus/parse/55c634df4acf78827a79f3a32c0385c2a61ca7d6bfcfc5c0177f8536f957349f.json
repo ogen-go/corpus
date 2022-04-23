@@ -12,5 +12,5 @@
 			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\nservers:\n  - url: 'http: //localhost:3333'\npaths:\n  '/user':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'file://./oapi-split-types.yaml#/components/schemas/User'\n      responses:\n        '200':\n          description: Newly Created User\n          content:\n            application/json:\n              schema:\n                $ref: 'oapi-split-types.yaml#/components/schemas/NewUser'\n    get:\n      responses:\n        '200':\n          description: Loaded User\n          content:\n            application/json:\n              schema:\n                $ref: './oapi-split-types.yaml#/components/schemas/User'\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /user: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./oapi-split-types.yaml#/components/schemas/User\": find schema: external base \"./oapi-split-types.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /user: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./oapi-split-types.yaml#/components/schemas/User\": find schema: external base \"./oapi-split-types.yaml\" is not supported"
 }

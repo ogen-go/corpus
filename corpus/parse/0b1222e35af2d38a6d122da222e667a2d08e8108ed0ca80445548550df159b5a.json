@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "b.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/file-reference-to-recursive-defs/b.yaml",
+			"byteSize": 326,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  title: test\n  version: '0.0.0'\npaths: {}\ncomponents:\n  schemas:\n    x:\n      $ref: \"./a.yaml#/components/schemas/y\"\n    v:\n      type: object\n      properties:\n        name:\n          type: string\n        children:\n          type: array\n          items:\n            $ref: \"#/components/schemas/v\"\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"x\": parse schema: resolve \"./a.yaml#/components/schemas/y\": find schema: external base \"./a.yaml\" is not supported"
+}

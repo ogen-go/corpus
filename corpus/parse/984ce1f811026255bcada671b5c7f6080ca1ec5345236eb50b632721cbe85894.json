@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/strongbugman/apiman"
+		},
+		"file": {
+			"name": "dog_template.yml",
+			"size": 0,
+			"path": "examples/docs/dog_template.yml",
+			"byteSize": 390,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: 'Dog Store'\n  version: '0.1'\n  description: 'A dog store example'\npaths:\n  /health/:\n    get:\n      tags:\n        - Not implement\n      responses:\n        \"200\":\n          description: OK\ncomponents:\n  schemas:\n    Dogs:\n      type: object\n      properties:\n        objects:\n          type: array\n          items:\n            $ref: '#/components/schemas/Dog'"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Dogs\": parse schema: property \"objects\": parse schema: item: parse schema: resolve \"#/components/schemas/Dog\": find schema: resolve \"#/components/schemas/Dog\": can't find value for \"components/schemas/Dog\""
+}

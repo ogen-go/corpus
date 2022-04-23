@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/{resourceId}:\n    get:\n      parameters:\n        - name: \"resourceId\"\n          in: \"path\"\n          required: true\n          description: \"Some description\"\n          schema:\n            type: \"string\"\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n        400:\n          description: \"400 response\"\n          content: {}\n      security:\n        - Some-Authorizer: []\n      x-amazon-apigateway-integration:\n        responses:\n          default:\n            statusCode: \"200\"\n        passthroughBehavior: \"when_no_templates\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        contentHandling: \"CONVERT_TO_TEXT\"\n        type: \"mock\""
 		}
 	},
-	"Error": "parse: parse spec: paths: /test/resource/{resourceId}: get: operation \"\": security: unknown security schema \"Some-Authorizer\""
+	"Error": "parse: parse spec: parse operations: paths: /test/resource/{resourceId}: get: operation \"\": security: unknown security schema \"Some-Authorizer\""
 }

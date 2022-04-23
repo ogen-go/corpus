@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "CallSetsSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/CallSets/Schemas/CallSetsSearchRequest.yaml",
+			"byteSize": 1482,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    callSetsSearchRequest: \n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'\n      - type: object\n        properties:\n          sampleDbIds:\n            description: Return only call sets generated from the provided Biosample IDs.\n            type: array\n            items:\n              type: string\n            example: [ '758d3f6d', '39c0a3f7']\n          sampleNames:\n            description: Return only call sets generated from the provided Biosample human readable names.\n            type: array\n            items:\n              type: string\n            example: [ 'Sample_123', 'Sample_789' ]\n          callSetDbIds: \n            description: Only return call sets with these DbIds (case-sensitive, exact match).\n            type: array\n            items:\n              type: string\n            example: [ '6c7486b2', '49c36a73']\n          callSetNames:\n            description: Only return call sets with these names (case-sensitive, exact match).\n            type: array\n            items:\n              type: string\n            example: [ 'Sample_123_DNA_Run_456', 'Sample_789_DNA_Run_101' ]\n          variantSetDbIds: \n            description: The VariantSet to search.\n            type: array\n            items:\n              type: string\n            example: [ '8a9a8972', '32a2649a']\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"callSetsSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

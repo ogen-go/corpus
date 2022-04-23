@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cjbooms/fabrikt"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "src/test/resources/examples/externalReferences/api.yaml",
+			"byteSize": 261,
+			"content": "openapi: 3.0.0\npaths: {}\ninfo:\n  title: \"\"\n  version: \"\"\ncomponents:\n  schemas:\n    ContainingExternalReference:\n      type: object\n      properties:\n        some-external-reference:\n          $ref: './external-models.yaml#/components/schemas/ExternalObject'\n\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ContainingExternalReference\": parse schema: property \"some-external-reference\": parse schema: resolve \"./external-models.yaml#/components/schemas/ExternalObject\": find schema: external base \"./external-models.yaml\" is not supported"
+}

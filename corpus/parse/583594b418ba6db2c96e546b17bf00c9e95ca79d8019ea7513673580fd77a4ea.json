@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SearchRnaQuantificationsResponse.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/RNAQuantifications/Schemas/SearchRnaQuantificationsResponse.yaml",
+			"byteSize": 739,
+			"content": "components:\n  schemas:\n    SearchRnaQuantificationsResponse:\n      description: This is the response from 'POST /rnaquantifications/search' expressed as JSON.\n      properties:\n        next_page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            To get the next page of results, set this parameter to the value of\n            'nextPageToken' from the previous response.\n          type: string\n        rna_quantifications:\n          description: The list of matching quantifications.\n          items:\n            $ref: '#/components/schemas/RnaQuantification'\n          type: array\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"SearchRnaQuantificationsResponse\": parse schema: property \"rna_quantifications\": parse schema: item: parse schema: resolve \"#/components/schemas/RnaQuantification\": find schema: resolve \"#/components/schemas/RnaQuantification\": can't find value for \"components/schemas/RnaQuantification\""
+}

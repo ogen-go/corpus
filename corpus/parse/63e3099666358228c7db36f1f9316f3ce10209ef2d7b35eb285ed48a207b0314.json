@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-1352.json",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1352.json",
+			"byteSize": 1818,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Responses\",\n    \"version\": \"0.0.0\"\n  },\n  \"paths\": {\n    \"/responses\": {\n      \"patch\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"It's a secret\",\n            \"headers\": {\n              \"x-my-secret-header\": {\n                \"required\": true,\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/secrets\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"maxProperties\": 1,\n                  \"additionalProperties\": {\n                    \"type\": \"number\"\n                  }\n                }\n              },\n              \"text/javascript\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"minProperties\": 1,\n                  \"additionalProperties\": {\n                    \"type\": \"boolean\"\n                  }\n                }\n              }\n            }\n          },\n          \"4XX\": {\n            \"$ref\": \"#/components/responses/failure\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"success\": {\n        \"description\": \"Success\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/successContent\"\n            }\n          }\n        }\n      },\n      \"failure\": {\n        \"description\": \"Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"secrets\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"success\": content: \"application/json\": schema: parse schema: resolve \"#/components/schemas/successContent\": find schema: resolve \"#/components/schemas/successContent\": can't find value for \"components/schemas/successContent\""
+}

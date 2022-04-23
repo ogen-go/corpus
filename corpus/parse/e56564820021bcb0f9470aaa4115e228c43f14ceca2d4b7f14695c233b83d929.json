@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Transportation"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "FleetVehicleStatus/swagger.yaml",
+			"byteSize": 1702,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    FleetVehicleStatus: \n      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/FleetVehicleStatus/model.yaml#/FleetVehicleStatus\"\ninfo:\n  description:  |\n    This entity contains a harmonised description of the status of a generic fleet vehicle. This entity is primarily associated with the vertical segment of the transport and logistics but may also be used many other related IoT applications.\n  title: FleetVehicleStatus\n  version: \"0.0.1\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - FleetVehicleStatus\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/FleetVehicleStatus/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/FleetVehicleStatus/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"FleetVehicleStatus\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Transportation/FleetVehicleStatus/model.yaml#/FleetVehicleStatus\": find schema: external base \"https://smart-data-models.github.io/dataModel.Transportation/FleetVehicleStatus/model.yaml\" is not supported"
+}

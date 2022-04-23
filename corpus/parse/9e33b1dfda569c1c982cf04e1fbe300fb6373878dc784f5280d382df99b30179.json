@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/incubated"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "TMFORUM/WeatherObserved/swagger.yaml",
+			"byteSize": 1573,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    WeatherObserved: \n      $ref: \"https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved\"\ninfo:\n  description:  |\n    An observation of weather conditions at a certain place and time. This data model has been developed in cooperation with mobile operators and the GSMA.\n  title: WeatherObserved\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - WeatherObserved\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"WeatherObserved\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved\": find schema: external base \"https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml\" is not supported"
+}

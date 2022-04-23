@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "AnalogLimit/swagger.yaml",
+			"byteSize": 1467,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    AnalogLimit: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AnalogLimit/model.yaml#/AnalogLimit\"\ninfo:\n  description:  |\n    Adapted from CIM data models. Limit values for Analog measurements.\n  title: AnalogLimit\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - AnalogLimit\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AnalogLimit/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/AnalogLimit/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"AnalogLimit\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/AnalogLimit/model.yaml#/AnalogLimit\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/AnalogLimit/model.yaml\" is not supported"
+}

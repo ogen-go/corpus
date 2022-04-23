@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VariantAnnotation.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/VariantAnnotations/Schemas/VariantAnnotation.yaml",
+			"byteSize": 1110,
+			"content": "components:\n  schemas:\n    VariantAnnotation:\n      description: |-\n        A `VariantAnnotation` record represents the result of comparing a variant to\n        a set of reference data.\n      properties:\n        attributes:\n          $ref: '#/components/schemas/Attributes'\n        created:\n          description: The time at which this record was created, in ISO 8601 format.\n          type: string\n        id:\n          description: The ID of this VariantAnnotation.\n          type: string\n        transcript_effects:\n          description: |-\n            The transcript effect annotation for the alleles of this variant. Each\n            one represents the effect of a single allele on a single transcript.\n          items:\n            $ref: '#/components/schemas/TranscriptEffect'\n          type: array\n        variant_annotation_set_id:\n          description: The ID of the variant annotation set this record belongs to.\n          type: string\n        variant_id:\n          description: The variant ID.\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"VariantAnnotation\": parse schema: property \"attributes\": parse schema: resolve \"#/components/schemas/Attributes\": find schema: resolve \"#/components/schemas/Attributes\": can't find value for \"components/schemas/Attributes\""
+}

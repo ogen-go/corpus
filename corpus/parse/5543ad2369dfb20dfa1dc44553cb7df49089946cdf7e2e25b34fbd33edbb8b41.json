@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ota42y/openapi_parser"
+		},
+		"file": {
+			"name": "cyclic-remote-ref2.yaml",
+			"size": 0,
+			"path": "spec/data/cyclic-remote-ref2.yaml",
+			"byteSize": 249,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\ncomponents:\n  schemas:\n    outer:\n      type: object\n      properties:\n        content:\n          $ref: cyclic-remote-ref1.yaml#/components/schemas/inner\n      required:\n        - content\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"outer\": parse schema: property \"content\": parse schema: resolve \"cyclic-remote-ref1.yaml#/components/schemas/inner\": find schema: external base \"cyclic-remote-ref1.yaml\" is not supported"
+}

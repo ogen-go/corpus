@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/regulaforensics/DocumentReader-web-openapi"
+		},
+		"file": {
+			"name": "rt-document-position.yml",
+			"size": 0,
+			"path": "rt-document-position.yml",
+			"byteSize": 1100,
+			"content": "openapi: 3.0.3\ncomponents:\n  schemas:\n\n    DocumentPositionResult:\n      title: \"Document Position\"\n      description: \"Contains information about document position on the input image, its center, angle, etc\"\n      allOf:\n        - type: object\n          properties:\n            DocumentPosition:\n              $ref: \"#/components/schemas/DocumentPosition\"\n        - $ref: './rt.yml#/components/schemas/ResultItem'\n\n    DocumentPosition:\n      type: object\n      properties:\n        docFormat:\n          $ref: \"./rt-doc-type-old.yml#/components/schemas/DocumentFormat\"\n        Angle:\n          type: number\n        Width:\n          type: integer\n        Height:\n          type: integer\n        Center:\n          $ref: './common.yml#/components/schemas/Point'\n        LeftBottom:\n          $ref: './common.yml#/components/schemas/Point'\n        LeftTop:\n          $ref: './common.yml#/components/schemas/Point'\n        RightBottom:\n          $ref: './common.yml#/components/schemas/Point'\n        RightTop:\n          $ref: './common.yml#/components/schemas/Point'\n        Dpi:\n          type: integer\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"DocumentPosition\": parse schema: property \"Center\": parse schema: resolve \"./common.yml#/components/schemas/Point\": find schema: external base \"./common.yml\" is not supported"
+}

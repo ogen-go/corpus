@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    get:\n      requestBody:\n        content:\n          'application': {}   # Noncompliant {{Declared media type range should conform to RFC7231.}}\n#         ^^^^^^^^^^^^^\n          'text/*': {}\n      responses:\n        '200':\n          description: some operation\n          content:\n            'application': {} # Noncompliant {{Declared media type range should conform to RFC7231.}}\n      parameters:\n        - name: someParam\n          in: query\n          content:\n            'application': {} # Noncompliant {{Declared mime type should conform to RFC6838.}}\n            'text/plain': {}  # invalid (only 1 content allowed by spec), but should not be caught by this rule\n        - name: otherParam\n          in: path\n    post:\n      responses:\n         '200':\n           description: some operation\n"
 		}
 	},
-	"Error": "parse: parse spec: paths: /pets: get: operation \"\": parameters: parse parameter \"otherParam\": path parameters must be required"
+	"Error": "parse: parse spec: parse operations: paths: /pets: get: operation \"\": parameters: parse parameter \"otherParam\": path parameters must be required"
 }

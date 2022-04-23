@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "change-parameter-definition-type.after.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/cmd/commands/change-parameter-type/openapi-3/change-parameter-definition-type.after.json",
+			"byteSize": 655,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"parameters\": {\n      \"Param1\": {\n        \"name\": \"username\",\n        \"in\": \"path\",\n        \"description\": \"username to fetch\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      },\n      \"Param2\": {\n        \"name\": \"id\",\n        \"in\": \"query\",\n        \"description\": \"ID of the object to fetch\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\"\n          }\n        },\n        \"style\": \"form\",\n        \"explode\": true\n      },\n      \"RefParam\": {\n        \"$ref\": \"#/other/Ref\"\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"RefParam\": resolve \"#/other/Ref\" reference: invalid parameter reference: \"#/other/Ref\""
+}

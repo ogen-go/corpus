@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cebe/php-openapi"
+		},
+		"file": {
+			"name": "base.yaml",
+			"size": 0,
+			"path": "tests/spec/data/reference/base.yaml",
+			"byteSize": 278,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\ncomponents:\n  schemas:\n    Pet:\n      $ref: definitions.yaml#/Pet\n    Dog:\n      $ref: ##ABSOLUTEPATH##/definitions.yaml#/Dog\npaths:\n  '/pet':\n    get:\n      responses:\n        200:\n          description: return a pet\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse schema: resolve \"definitions.yaml#/Pet\": find schema: external base \"definitions.yaml\" is not supported"
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "PhenotypeInstance.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/GenotypePhenotypeService/Schemas/PhenotypeInstance.yaml",
+			"byteSize": 1406,
+			"content": "components:\n  schemas:\n    PhenotypeInstance:\n      properties:\n        age_of_onset:\n          $ref: '#/components/schemas/OntologyTerm'\n        description:\n          description: |-\n            A textual description of the phenotype. This is used to complement the\n            structured phenotype description in the type field.\n          type: string\n        id:\n          description: The Phenotype ID.\n          type: string\n        info:\n          additionalProperties:\n            $ref: '#/components/schemas/ListValue'\n          description: Additional annotation data in key-value pairs.\n          type: object\n        qualifier:\n          items:\n            $ref: '#/components/schemas/OntologyTerm'\n          title: |-\n            PATO is recommended.  Often this qualifier might be for abnormal/normal,\n            or severity.\n            For example, severe: http://purl.obolibrary.org/obo/PATO_0000396\n            or abnormal: http://purl.obolibrary.org/obo/PATO_0000460\n          type: array\n        type:\n          $ref: '#/components/schemas/OntologyTerm'\n      title: |-\n        An association to a phenotype and related information.\n        This record is intended primarily to be used in conjunction with variants, but\n        the record can also be composed with other kinds of entities such as diseases\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PhenotypeInstance\": parse schema: property \"age_of_onset\": parse schema: resolve \"#/components/schemas/OntologyTerm\": find schema: resolve \"#/components/schemas/OntologyTerm\": can't find value for \"components/schemas/OntologyTerm\""
+}

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "WindProtectionIEC/swagger.yaml",
+			"byteSize": 1639,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    WindProtectionIEC: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/WindProtectionIEC/model.yaml#/WindProtectionIEC\"\ninfo:\n  description:  |\n    Adapted from CIM data models. The grid protection model includes protection against over and under voltage, and against over and under frequency.  Reference: IEC Standard 614000-27-1 Section 6.6.6.\n  title: WindProtectionIEC\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - WindProtectionIEC\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/WindProtectionIEC/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/WindProtectionIEC/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"WindProtectionIEC\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/WindProtectionIEC/model.yaml#/WindProtectionIEC\": find schema: external base \"https://smart-data-models.github.io/dataModel.EnergyCIM/WindProtectionIEC/model.yaml\" is not supported"
+}

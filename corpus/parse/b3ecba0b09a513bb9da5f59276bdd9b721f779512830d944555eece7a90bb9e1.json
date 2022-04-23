@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "valid-ref-to-endpoint-with-ref.yaml",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/double-references/valid-ref-to-endpoint-with-ref.yaml",
+			"byteSize": 202,
+			"content": "openapi: 3.0.3\r\ninfo:\r\n  version: 1.0.0\r\n  title: Swagger Petstore\r\n  license:\r\n    name: MIT\r\nservers:\r\n  - url: http://petstore.swagger.io/v1\r\npaths:\r\n  /pets:\r\n    $ref: \"firstRefLevel/endpoint.yaml\""
+		}
+	},
+	"Error": "parse: parse spec: parse operations: /pets: referenced pathItem not supported"
+}

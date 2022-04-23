@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/apidom"
+		},
+		"file": {
+			"name": "root.json",
+			"size": 0,
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"byteSize": 394,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"$ref\": \"#/components/schemas/Indirection1\"\n      },\n      \"Indirection1\": {\n        \"$ref\": \"#/components/schemas/Indirection2\"\n      },\n      \"Indirection3\": {\n        \"$ref\": \"#/components/schemas/Indirection3\"\n      },\n      \"Indirection4\": {\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Indirection3\": parse schema: resolve \"#/components/schemas/Indirection3\": infinite recursion"
+}

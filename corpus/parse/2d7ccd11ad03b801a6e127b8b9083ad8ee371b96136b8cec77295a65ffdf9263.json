@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VariantsSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/Variants/Schemas/VariantsSearchRequest.yaml",
+			"byteSize": 1644,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    variantsSearchRequest: \n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersTokenPaging'\n      - type: object\n        properties:\n          callSetDbIds: \n            description: Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.\n            items:\n              type: string\n            type: array\n            example: ['4639fe3e', 'b60d900b']\n          end:\n            description: The end of the window (0-based, exclusive) for which overlapping variants should be returned.\n            type: integer\n            example: 1500\n          referenceDbId:\n            description: Only return variants on this reference.\n            type: string\n            example: 120a2d5c\n          start:\n            description: The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).\n            type: integer\n            example: 100\n          variantDbIds: \n            description: The `Variant`s to search.\n            items:\n              type: string\n            type: array\n            example: ['3b63d889', 'ab4d174d']\n          variantSetDbIds: \n            description: The `VariantSet` to search.\n            items:\n              type: string\n            type: array\n            example: ['ba63d810', '434d1760']\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"variantsSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersTokenPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersTokenPaging\": can't find value for \"components/schemas/SearchRequestParametersTokenPaging\""
+}
