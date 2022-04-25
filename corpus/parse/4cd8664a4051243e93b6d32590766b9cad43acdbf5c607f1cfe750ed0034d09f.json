@@ -12,5 +12,5 @@
 			"content": "{\"openapi\": \"3.0.3\",\n\"components\": {\n    \"schemas\": {\n      \"Import2Pet\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"test_import.json#/components/schemas/ImportNewPet\"\n          },\n          {\n            \"required\": [\n              \"id\"\n            ],\n            \"properties\": {\n              \"id\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\"\n              }\n            }\n          }\n        ]\n      },  \n      \"Import2Error\": {\n        \"$ref\": \"test_import.json#/components/schemas/ImportError\"\n      }    \n   }\n}\n}"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Import2Error\": parse schema: resolve \"test_import.json#/components/schemas/ImportError\": find schema: external base \"test_import.json\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"Import2Pet\": parse schema: allOf: [0]: parse schema: resolve \"test_import.json#/components/schemas/ImportNewPet\": find schema: external base \"test_import.json\" is not supported"
 }
