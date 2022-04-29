@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CDCgov/prime-reportstream"
+		},
+		"file": {
+			"name": "requeue.yml",
+			"size": 0,
+			"path": "prime-router/docs/api/requeue.yml",
+			"byteSize": 1519,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: ReportStream Requeue API\n  version: \"1.0\"\n  contact:\n    name: USDS at Centers for Disease Control and Prevention\n    url: https://open.cdc.gov\n    email: usds@cdc.gov\npaths:\n  /api/requeue/send:\n    post:\n      description: manually queue up a report to be sent again to one receiver\n      security:\n        - OktaAuth: [ FUNCTION ]\n      parameters:\n        - name: reportId\n          in: query\n          description: UUID for the report to resend\n          required: true\n          schema:\n            type: string\n            format: uuid\n        - name: receiver\n          in: query\n          description: full name of the receiver to resend the report to\n          required: true\n          schema:\n            type: string\n        - name: test\n          in: query\n          description: if given, includes additional debug messages\n          schema:\n            type: boolean\n      requestBody:\n        description: Empty body due to the POST format\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EmptyBody'\n      responses:\n        '200':\n          description: text stating how many items in the report will be resent\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RequeueResponse'\n        '400':\n          description: bad request\ncomponents:\n  schemas:\n    EmptyBody:\n      type: string\n    RequeueResponse:\n      type: string"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /api/requeue/send: post: operation \"\": security: unknown security schema \"OktaAuth\""
+}
