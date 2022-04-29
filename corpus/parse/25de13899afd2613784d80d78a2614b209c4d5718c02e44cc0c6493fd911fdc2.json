@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CDCgov/prime-reportstream"
+		},
+		"file": {
+			"name": "token.yml",
+			"size": 0,
+			"path": "prime-router/docs/api/token.yml",
+			"byteSize": 1274,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: ReportStream Token API\n  version: \"1.0\"\n  contact:\n    name: USDS at Centers for Disease Control and Prevention\n    url: https://open.cdc.gov\n    email: usds@cdc.gov\npaths:\n  /api/token:\n    post:\n      description: generate a new token for the requested scope\n      security:\n        - OktaAuth: [ ANONYMOUS ]\n      parameters:\n        - name: client_assertion\n          in: path\n          description: signed JWT for the sender\n          required: true\n          schema:\n            type: string\n            format: verylong.signed.jwtstring\n        - name: scope\n          in: path\n          description: permissions for the auth token\n          required: true\n          schema:\n            type: string\n            format: org.sender.endpoint\n            example: strac.default.reports\n      requestBody:\n        description: empty body needed on post calls\n        content:\n          application/json: {}\n      responses:\n        '200':\n          description: the token was created and returned\n          # content:\n          #   application/json:\n          #     schema:\n          #       $ref: '#/components/schemas/TableVersionInfo'\n        '400':\n          description: bad request\n        '401':\n          description: unauthorized\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /api/token: post: operation \"\": security: unknown security schema \"OktaAuth\""
+}
