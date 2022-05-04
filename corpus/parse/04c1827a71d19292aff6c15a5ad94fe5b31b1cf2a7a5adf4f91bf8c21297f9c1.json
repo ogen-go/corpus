@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /circular_example: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./schema.yaml#/components/schemas/CircularSchema\": find schema: external base \"./schema.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /example: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"./schema.yaml#/components/schemas/SchemaDef\": find schema: external base \"./schema.yaml\" is not supported"
 }

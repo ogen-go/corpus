@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  version: \"1.2.3\"\n  title: \"securitySchemes\"\nsecurity:\n  - BasicAuth: []\npaths:\n  /security-gloabl-ok-put:\n    put:\n      responses: {}\n  /security-ok-put:\n    put:\n      security:\n        -  BasicAuth: []\n      responses: {}\n  /security-ko-patch-noauth:\n    patch:\n      security:\n        - {}\n      responses: {}\n  /security-ko-post-noauth:\n    patch:\n      security:\n        - {}\n        - BasicAuth: []\n      responses: {}\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /security-ko-post-noauth: patch: operation \"\": responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /security-gloabl-ok-put: put: operation \"\": responses: no responses"
 }
