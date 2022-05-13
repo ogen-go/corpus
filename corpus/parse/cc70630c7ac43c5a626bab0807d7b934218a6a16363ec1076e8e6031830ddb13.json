@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apiaryio/api-elements.js"
+		},
+		"file": {
+			"name": "path-item-object-parameters-alias.yaml",
+			"size": 0,
+			"path": "packages/openapi3-parser/test/integration/fixtures/components/path-item-object-parameters-alias.yaml",
+			"byteSize": 284,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Parameter Component with alias\npaths:\n  /:\n    parameters:\n      - $ref: '#/components/parameters/UserAlias'\ncomponents:\n  parameters:\n    User:\n      in: query\n      name: foo\n    UserAlias:\n      $ref: '#/components/parameters/User'\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"User\": parameter MUST contain either a schema property, or a content property"
+}

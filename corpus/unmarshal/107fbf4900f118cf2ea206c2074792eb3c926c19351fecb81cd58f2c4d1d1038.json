@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TheSoftwareHouse/express-boilerplate"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "swagger/api.yaml",
+			"byteSize": 1933,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Boilerplate example API\nservers:\n  - url: http://localhost:1337/api\npaths:\n  /example/login:\n    post:\n      summary: Example login\n      operationId: loginUsers\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                authToken:\n                  type: string\n                  required: true\n              example:\n                authToken: SomeAuthTokenExample\n      tags:\n        - example\n      responses:\n        '200':\n          description: Login successed\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/LoginSucceed\"\n        '400':\n          description: Validation error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error400\"\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorDefault\"\n  /example/users:\n    get:\n      summary: Example method, list all users\n      operationId: listUsers\n      tags:\n        - example\n      responses:\n        '200':\n          description: Array of users\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorDefault\"\n\ncomponents:\n  schemas:\n    LoginSucceed:\n      $ref: 'schemas/login-succeed.yaml'\n    User:\n      $ref: 'schemas/user.yaml'\n    Users:\n      type: array\n      items:\n        $ref: \"#/components/schemas/User\"\n    ErrorDefault:\n      $ref: 'schemas/error-default.yaml'\n    Error400:\n      $ref: 'schemas/error-400.yaml'"
+		}
+	},
+	"Error": "unmarshal: callback: json: cannot unmarshal bool into Go struct field Schema.required of type []string"
+}

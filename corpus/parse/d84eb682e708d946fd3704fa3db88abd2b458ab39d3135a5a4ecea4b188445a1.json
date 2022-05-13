@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dart-ogurets/dart-openapi-maven"
+		},
+		"file": {
+			"name": "copy-with.yaml",
+			"size": 0,
+			"path": "src/test/resources/copy-with.yaml",
+			"byteSize": 1429,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Copy-With problem issue 76\n  version: 1.0.0\npaths:\n  /inheritance:\n    get:\n      tags:\n        - MapService\n      operationId: \"inheritance\"\n      responses:\n        \"200\":\n          description: \"Description\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SearchParams\"\ncomponents:\n  schemas:\n    SearchParams:\n      type: object\n      additionalProperties: false\n      properties:\n        phrase:\n          type: string\n          nullable: true\n        virtualCategory:\n          type: string\n          nullable: true\n        inDescription:\n          type: boolean\n          nullable: true\n          default: false\n        sorting:\n          type: string\n          nullable: true\n        filters:\n          type: object\n          nullable: true\n          default: {}\n          additionalProperties:\n            \"$ref\": \"#/components/schemas/FilterQuery\"\n        categoryId:\n          type: integer\n          nullable: true\n          default: 0\n        slug:\n          type: string\n          nullable: true\n    FilterQuery:\n      type: object\n      additionalProperties: false\n      properties:\n        values:\n          type: string\n          nullable: true\n        from:\n          type: number\n          format: float\n          nullable: true\n        to:\n          type: number\n          format: float\n          nullable: true\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"SearchParams\": parse schema: property \"filters\": parse default: unexpected type: \"object\""
+}

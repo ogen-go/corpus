@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"X-RateLimit-Remaining\": {\n                \"description\": \"The number of allowed requests in the current period\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /foo: get: operation \"\": responses: 200: content: \"application/json\": schema: parse schema: resolve \"#/components/schemas/Pet\": find schema: resolve \"#/components/schemas/Pet\": can't find value for \"components/schemas/Pet\""
+	"Error": "parse: parse spec: parse operations: paths: /foo: get: responses: 200: content: application/json: schema: parse schema: resolve \"#/components/schemas/Pet\": find schema: resolve \"#/components/schemas/Pet\": can't find value for \"components/schemas/Pet\""
 }

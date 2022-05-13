@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"Parameter\": {\n        \"name\": \"foo\",\n        \"in\": \"query\",\n        \"style\": \"foo\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"Parameter\": style: unexpected style: \"foo\""
+	"Error": "parse: parse spec: parse components: parameters: \"Parameter\": parameter MUST contain either a schema property, or a content property"
 }

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Environment"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "FloodMonitoring/swagger.yaml",
+			"byteSize": 1568,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    FloodMonitoring: \n      $ref: \"https://smart-data-models.github.io/dataModel.Environment/FloodMonitoring/model.yaml#/FloodMonitoring\"\ninfo:\n  description:  |\n    Flood Sensor Data Model intended to represent the level of flooding w.r.t water flow/level at a certain water mass(river, lake,etc.)..\n  title: FloodMonitoring\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - FloodMonitoring\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/FloodMonitoring/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/FloodMonitoring/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"FloodMonitoring\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Environment/FloodMonitoring/model.yaml#/FloodMonitoring\": find schema: external base \"https://smart-data-models.github.io/dataModel.Environment/FloodMonitoring/model.yaml\" is not supported"
+}

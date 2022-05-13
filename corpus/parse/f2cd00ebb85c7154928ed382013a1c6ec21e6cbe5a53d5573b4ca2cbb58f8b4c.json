@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/apidom"
+		},
+		"file": {
+			"name": "root.json",
+			"size": 0,
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/internal-only/root.json",
+			"byteSize": 586,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"parameters\": {\n      \"userId\": {\n        \"$ref\": \"#/components/parameters/indirection1\",\n        \"description\": \"override\"\n      },\n      \"indirection1\": {\n        \"$ref\": \"#/components/parameters/indirection2\",\n        \"summary\": \"indirect summary\"\n      },\n      \"indirection2\": {\n        \"$ref\": \"#/components/parameters/userIdRef\",\n        \"summary\": \"indirect summary\"\n      },\n      \"userIdRef\": {\n        \"name\": \"userId\",\n        \"in\": \"query\",\n        \"description\": \"ID of the user\",\n        \"required\": true\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"indirection1\": resolve \"#/components/parameters/indirection2\" reference: resolve \"#/components/parameters/userIdRef\" reference: parameter MUST contain either a schema property, or a content property"
+}

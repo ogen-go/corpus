@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CDCgov/prime-reportstream"
+		},
+		"file": {
+			"name": "requeue.yml",
+			"size": 0,
+			"path": "prime-router/docs/api/requeue.yml",
+			"byteSize": 1697,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: ReportStream Requeue API\n  version: \"1.0\"\n  contact:\n    name: USDS at Centers for Disease Control and Prevention\n    url: https://open.cdc.gov\n    email: usds@cdc.gov\npaths:\n  /api/requeue/send:\n    post:\n      description: manually queue up a report to be sent again to one receiver\n      security:\n        - OAuth2: [ system_admin ]\n      parameters:\n        - name: reportId\n          in: query\n          description: UUID for the report to resend\n          required: true\n          schema:\n            type: string\n            format: uuid\n        - name: receiver\n          in: query\n          description: full name of the receiver to resend the report to\n          required: true\n          schema:\n            type: string\n        - name: test\n          in: query\n          description: if given, includes additional debug messages\n          schema:\n            type: boolean\n      requestBody:\n        description: Empty body due to the POST format\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EmptyBody'\n      responses:\n        '200':\n          description: text stating how many items in the report will be resent\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RequeueResponse'\n        '400':\n          description: bad request\ncomponents:\n  schemas:\n    EmptyBody:\n      type: string\n    RequeueResponse:\n      type: string\n\n  securitySchemes:\n    OAuth2:\n      $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/security_schemes.yml#/OAuth2'\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/api/requeue/send\": post: security: security \"OAuth2\" (index 0): unknown security type \"\""
+}
