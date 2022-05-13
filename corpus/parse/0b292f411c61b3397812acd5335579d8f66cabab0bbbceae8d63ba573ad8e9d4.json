@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apiaryio/api-elements.js"
+		},
+		"file": {
+			"name": "path-item-object-parameters-unsupported-parameter.yaml",
+			"size": 0,
+			"path": "packages/openapi3-parser/test/integration/fixtures/components/path-item-object-parameters-unsupported-parameter.yaml",
+			"byteSize": 462,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Unsupported Parameter Components\npaths:\n  /pets:\n    parameters:\n      - $ref: '#/components/parameters/authParam'\n    get:\n      summary: List all pets\n      responses:\n        '200':\n          description: A paged array of pets\n          content:\n            application/json:\n              schema:\n                type: array\ncomponents:\n  parameters:\n    authParam:\n      name: Authorization\n      in: cookie\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"authParam\": parameter MUST contain either a schema property, or a content property"
+}

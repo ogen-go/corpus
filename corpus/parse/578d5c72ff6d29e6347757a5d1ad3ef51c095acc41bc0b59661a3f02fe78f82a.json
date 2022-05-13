@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/monologg/hashtag-prediction-pytorch"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger.yaml",
+			"byteSize": 1360,
+			"content": "openapi: 3.0.0 # Open api version\n\ninfo: # Set basic infomation\n  title: hashtag\n  version: 0.1.0\n\nservers: # Set your server endpoint\n  - url: https://endpoint.ainize.ai/monologg/hashtag\n\npaths:\n  /predict: # GET method path\n    get:\n      parameters: # Set parameter values here\n        - name: image_id # Set parameter name\n          in: query # Select amongst query, header, path, and cookie\n          default: 1DGu9R5a9jpkY-fy79VrGFmCdJigzTMC-\n          required: true\n          allowReserved: true # Option for percent-encoding, default; false\n        - name: text\n          in: query\n          required: true\n          default: 20 days till Christmas 😍🎅\n          allowReserved: true # Option for percent-encoding, default; false\n        - name: max_seq_len\n          in: query\n          required: true\n          default: 30\n          allowReserved: true # Option for percent-encoding, default; false\n        - name: n_label\n          in: query\n          required: true\n          default: 10\n          allowReserved: true # Option for percent-encoding, default; false\n      responses: # Set response\n        \"200\":\n          description: OK\n          content:\n            text/html:\n              schema:\n                type: string\n        \"400\":\n          description: Bad Request Error\n        default:\n          description: Unexpected Error\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /predict: get: parameters: parse parameter \"image_id\": parameter MUST contain either a schema property, or a content property"
+}

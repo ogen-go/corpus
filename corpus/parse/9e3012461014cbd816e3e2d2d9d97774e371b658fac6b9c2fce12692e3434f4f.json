@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/saucelabs/node-saucelabs"
+		},
+		"file": {
+			"name": "datastore.json",
+			"size": 0,
+			"path": "apis/datastore.json",
+			"byteSize": 2147,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"A service that orchestrates the Sauce cloud as well as test runner packages.\",\n    \"version\": \"0.1.7\",\n    \"title\": \"Testrunner Data Store Job Orchestrator\",\n    \"termsOfService\": \"https://saucelabs.com/terms-of-service\",\n    \"contact\": {\n      \"name\": \"Open Source Program Office at Sauce\",\n      \"email\": \"opensource@saucelabs.com\",\n      \"url\": \"https://saucelabs.com\"\n    }\n  },\n  \"externalDocs\": {\n    \"description\": \"Sauce Labs Wiki\",\n    \"url\": \"https://wiki.saucelabs.com\"\n  },\n  \"basePath\": \"/v1/test-results\",\n  \"servers\": [\n    {\n      \"url\": \"https://api.{region}.saucelabs.{tld}\",\n      \"variables\": {\n        \"region\": {\n          \"default\": \"us-west-1\",\n          \"description\": \"region of datacenter\",\n          \"enum\": [\"us-west-1\", \"eu-central-1\", \"apac-southeast-1\", \"staging\"]\n        },\n        \"tld\": {\n          \"default\": \"com\",\n          \"description\": \"internal or external API\",\n          \"enum\": [\"net\", \"com\"]\n        }\n      }\n    }\n  ],\n  \"components\": {\n    \"securitySchemes\": {\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"JWT\"\n      },\n      \"basicAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"post\": {\n        \"description\": \"create test result job via data store\",\n        \"operationId\": \"createResultJob\",\n        \"parameters\": [\n          {\n            \"in\": \"body\",\n            \"name\": \"parameters\",\n            \"required\": true,\n            \"description\": \"create test result job request body\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"externalDocs\": {\n          \"description\": \"TBD\",\n          \"url\": \"https://wiki.saucelabs.com\"\n        },\n        \"tags\": [\"Job\"],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"create test result job\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"json\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: post: operation \"createResultJob\": parameters: parse parameter \"parameters\": unsupported parameter type \"body\""
+}

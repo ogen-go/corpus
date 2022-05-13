@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Redocly/openapi-cli"
+			"name": "github.com/Redocly/redocly-cli"
 		},
 		"file": {
 			"name": "openapi.yaml",
@@ -12,5 +12,5 @@
 			"content": "openapi: 3.1.0\nservers:\n  - url: http://example.xyz\ninfo:\n  license:\n    name: test licence\n    url: http://example.xyz\n  title: Example OpenAPI 3 definition.\n  description: Example description\n  version: '1.0'\n  contact:\n    name: qa\n    url: https://swagger.io/specification/#definitions\n    email: email@redoc.ly\n\npaths:\n  /pet/findByStatus:\n    get:\n      operationId: example\n      summary: summary example\n      tags:\n        - foo\n        - baz\n        - bar\n      responses:\n        '200':\n          description: example description\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Dog'\n            application/xml:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Dog'\n        '404':\n          description: example description\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pet/findByStatus: get: operation \"example\": responses: 200: content: \"application/json\": schema: parse schema: item: parse schema: resolve \"#/components/schemas/Dog\": find schema: resolve \"#/components/schemas/Dog\": can't find value for \"components/schemas/Dog\""
+	"Error": "parse: parse spec: parse operations: paths: /pet/findByStatus: get: operation \"example\": responses: 200: content: application/json: schema: parse schema: item: parse schema: resolve \"#/components/schemas/Dog\": find schema: resolve \"#/components/schemas/Dog\": can't find value for \"components/schemas/Dog\""
 }

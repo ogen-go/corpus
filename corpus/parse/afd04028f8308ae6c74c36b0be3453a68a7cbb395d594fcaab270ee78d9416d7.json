@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "MyApi.json",
+			"size": 0,
+			"path": "tcases-maven-plugin/src/test/resources/api-project-13/src/test/tcases/openapi/org/cornutum/MyApi.json",
+			"byteSize": 2136,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Array\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/array\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"cookie\",\n                        \"style\": \"form\",\n\n                        \"schema\": {\n                            \"type\": \"array\",\n                            \"uniqueItems\": false,\n                            \"items\": {\n                                \"type\": \"object\"\n                            }\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"parameters\": {\n            \"id\": {\n                \"name\": \"id\",\n                \"in\": \"query\",\n                \"schema\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"requestBodies\": {\n            \"standard\": {\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /array: post: parameters: parse parameter \"param0\": invalid schema:style:explode combination"
+}

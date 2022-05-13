@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sleddog/methods"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "projects/calculator/openapi.yaml",
+			"byteSize": 715,
+			"content": "openapi: 3.0.1\ninfo:\n  title: pyCalc\n  description: Simple service that will return the results of simple math calculations using python\n  version: 1.0.0\nservers:\n- url: /\npaths:\n  /:\n    get:\n      summary: Calculate simple math operations\n      parameters:\n      - name: firstVar\n        in: query\n        description: First Variable\n        required: true\n        schema: {}\n      - name: secondVar\n        in: query\n        description: Second Variable\n        schema: {}\n      - name: operation\n        in: query\n        description: Math operation between variables\n        schema: {}\n      responses:\n        200:\n          description: Return correctly calculated value\n          content: {}\ncomponents: {}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: parameters: parse parameter \"firstVar\": invalid schema:style:explode combination"
+}
