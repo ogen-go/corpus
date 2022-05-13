@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n    title: 'Point Web Service'\n    description: 'This in an implemention of a point query service, based on the OGC web api guidelines'\n    contact:\n        name: \"\"\n    version: 1.0.0\nservers:\n    -\n        url: 'http://data.example.org'\n        description: 'This server'\npaths:\n    /:\n        $ref: 'wotw_domain.yaml#/paths/~1'\n    /conformance:\n        $ref: 'wotw_domain.yaml#/paths/~1conformance'        \n    /groups:\n        $ref: 'wotw_domain.yaml#/paths/~1groups'\n    '/groups/{groupId}':\n        $ref: 'wotw_domain.yaml#/paths/~1groups~1%7BgroupId%7D'\n    /collections:\n        $ref: 'wotw_domain.yaml#/paths/~1collections'\n    '/collections/{collectionId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D'\n    '/collections/{collectionId}/{instanceId}':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D'\n    '/collections/{collectionId}/{instanceId}/point':\n        $ref: 'wotw_domain.yaml#/paths/~1collections~1%7BcollectionId%7D~1%7BinstanceId%7D~1polygon'"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /conformance: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: /collections/{collectionId}: referenced pathItem not supported"
 }
