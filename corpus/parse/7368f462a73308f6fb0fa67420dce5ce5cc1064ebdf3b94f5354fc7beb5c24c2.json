@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  version: \"1.2.3\"\n  title: \"securitySchemes\"\npaths:\n  /security-ko-missing:\n    put:\n      responses: {}\n    post:\n      security: []\n  /security-ok-put:\n    put:\n      security:\n        -  BasicAuth: []\n      responses: {}\n  /security-ok-get:\n    get:\n      security:\n        - {}\n      responses: {}\n    head:\n      security:\n        - {}\n        - BasicAuth: []\n  /security-ko-get:\n    get:\n      responses: {}\n    head:\n      security: []\n  /security-ko-info:\n    post:\n      security:\n        - {}\n        - BasicAuth: []\n            \n\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /security-ko-get: get: responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /security-ok-get: get: responses: no responses"
 }

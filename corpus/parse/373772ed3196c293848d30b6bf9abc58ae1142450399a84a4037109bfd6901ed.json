@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Simple ExAmPlE\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"SOME URL\",\n      \"description\": \"SOME DESC\"\n    },\n    {\n      \"url\": \"new server url\",\n      \"description\": \"new server url\"\n    }\n  ],\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"header\",\n            \"name\": \"ACCEPT\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"style\": \"simple\",\n            \"schema\": {\n              \"type\": \"STRING\",\n              \"pattern\": \".+(_|-abc-|\\\\.).+\"\n            },\n            \"example\": \"some-uuid\"\n          }\n        ]\n      }\n    },\n    \"/AdMiN\": {\n      \"get\": {}\n    }\n  }\n}"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /AdMiN: get: responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /users: get: parameters: parse parameter \"id\": schema: parse schema: unexpected schema type: \"STRING\""
 }
