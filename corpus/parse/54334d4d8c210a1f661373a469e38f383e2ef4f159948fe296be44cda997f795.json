@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: \"\"\r\n  description: Authorization is not required for the /matches endpoint because it is not rate-limited.\r\nservers:\r\n  - url: https://api.pubg.com/shards/{platform}\r\n    variables:\r\n      \"platform\":\r\n        enum:\r\n        - \"console\"\r\n        - \"kakao\"\r\n        - \"psn\"\r\n        - \"stadia\"\r\n        - \"steam\"\r\n        - \"tournament\"\r\n        - \"xbox\"\r\n        default: steam\r\npaths:\r\n  /matches/{id}:\r\n    $ref: './paths/index.yml#/match'\r\ncomponents:\r\n  schemas:\r\n    match:\r\n      $ref: 'schemas/index.yml#/match'\r\n    roster:\r\n      $ref: 'schemas/index.yml#/roster'\r\n    participant:\r\n      $ref: 'schemas/index.yml#/participant'\r\n    asset:\r\n      $ref: 'schemas/index.yml#/asset'\r\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"asset\": parse schema: resolve \"schemas/index.yml#/asset\": find schema: external base \"schemas/index.yml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"roster\": parse schema: resolve \"schemas/index.yml#/roster\": find schema: external base \"schemas/index.yml\" is not supported"
 }
