@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /ref-sample/broken_reference:\n    post:\n      description: Broken Reference in YAML\n      requestBody:\n        $ref: '#/components/requestBodies/foobar'\n      responses:\n        \"204\":\n          description: empty\nrequestBodies:\n  hoge:\n    type: object\n    description: This object is defined, but `foobar` is not\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /ref-sample/broken_reference: post: requestBody: resolve \"#/components/requestBodies/foobar\" reference: component by reference \"#/components/requestBodies/foobar\" not found"
+	"Error": "parse: parse spec: parse operations: paths: /ref-sample/broken_reference: post: requestBody: resolve \"#/components/requestBodies/foobar\" reference: component by reference not found"
 }

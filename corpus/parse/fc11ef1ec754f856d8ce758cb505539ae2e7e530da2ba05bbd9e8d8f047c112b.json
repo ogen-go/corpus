@@ -12,5 +12,5 @@
 			"content": "---\nopenapi: \"3.0.0\"\nexternalDocs:\n  description: Test\n  url: http://test.com/test\ninfo:\n  version: 0.0.1\n  title: Test\n  license:\n    name: Test\n    url: http://test.com/test\nservers:\n- url: http://test.com/test\npaths:\n  /foo:\n    get:\n      description: foo\n      summary: foo\n      operationId: foo\n      responses:\n        200:\n          $ref: \"./components/response1.yaml\"\n        300:\n          $ref: \"./components/response2.yaml\"\n  /bar:\n    get:\n      description: bar\n      summary: bar\n      operationId: bar\n      responses:\n        200:\n          $ref: \"./components/response1.yaml\""
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /bar: get: operation \"bar\": responses: 200: resolve \"./components/response1.yaml\" reference: invalid response reference: \"./components/response1.yaml\""
+	"Error": "parse: parse spec: parse operations: paths: /foo: get: operation \"foo\": responses: 200: resolve \"./components/response1.yaml\" reference: invalid response reference"
 }

@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"parameters\": {\n      \"userId\": {\n        \"$ref\": \"#/components/parameters/indirection1\",\n        \"description\": \"description 1\"\n      },\n      \"indirection1\": {\n        \"$ref\": \"#/components/parameters/indirection2\",\n        \"description\": \"description 1\"\n      },\n      \"indirection2\": {\n        \"$ref\": \"#/components/parameters/indirection3\",\n        \"description\": \"description 1\"\n      },\n      \"indirection3\": {\n        \"$ref\": \"#/components/parameters/userId\",\n        \"description\": \"description 1\"\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"userId\": resolve \"#/components/parameters/indirection1\" reference: resolve \"#/components/parameters/indirection2\" reference: resolve \"#/components/parameters/indirection3\" reference: resolve \"#/components/parameters/userId\" reference: infinite recursion: \"#/components/parameters/userId\""
+	"Error": "parse: parse spec: parse components: parameters: \"userId\": resolve \"#/components/parameters/indirection1\" reference: resolve \"#/components/parameters/indirection2\" reference: resolve \"#/components/parameters/indirection3\" reference: resolve \"#/components/parameters/userId\" reference: infinite recursion"
 }
