@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_header_after.yaml",
+			"size": 0,
+			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_header_after.yaml",
+			"byteSize": 208,
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      responses:\n        200:\n          headers:\n            x-next:\n              $ref: \"#/components/headers/NewHeader\"\ncomponents:\n  headers:\n    \u003ccaret\u003eNewHeader:\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /pathA: get: responses: 200: headers: x-next: resolve \"#/components/headers/NewHeader\" reference: component by reference not found"
+}

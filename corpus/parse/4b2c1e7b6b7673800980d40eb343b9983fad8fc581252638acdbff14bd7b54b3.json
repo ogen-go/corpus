@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/anz-bank/sysl-catalog"
+			"name": "github.com/anz-bank/sysl"
 		},
 		"file": {
 			"name": "mastercard.yaml",
 			"size": 0,
-			"path": "demo/html/demo/mastercard.yaml",
+			"path": "demo/sizzle/mastercard.yaml",
 			"byteSize": 747,
 			"content": "openapi: \"3.0\"\ninfo:\n  title: MasterCard\npaths:\n  /pay:\n    post:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n        500:\n          $ref: \"#/components/responses/500Response\"\ncomponents:\n  schemas:\n    SimpleObj:\n      type: object\n      properties:\n        name:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj\n    AustralianState:\n      type: string\n      enum: [act, nsw, nt, qld, sa, tas, vic, wa]\n  responses:\n    500Response:\n      description: Internal Server Error\n      schema:\n        $ref: \"#/components/schemas/SimpleObj\"\n"
 		}
