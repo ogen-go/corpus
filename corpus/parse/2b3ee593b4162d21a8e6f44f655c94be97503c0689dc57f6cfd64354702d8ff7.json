@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\n\ninfo:\n  title: Structured OpenAPI Schema\n  description: description\n  version: '1.0'\n\nservers:\n  - url: http://localhost:0000/{api_version}\n    description: Local API Server\n    variables:\n      api_version:\n        default: 'v1'\n        enum:\n          - 'v1'\n\ntags:\n  - name: user\n    description: tag for user\n\npaths:\n  /users:\n    $ref: ./paths/users.yml\n  /users/{user_id}:\n    $ref: ./paths/users-by-id.yml\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /users: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: /users/{user_id}: referenced pathItem not supported"
 }

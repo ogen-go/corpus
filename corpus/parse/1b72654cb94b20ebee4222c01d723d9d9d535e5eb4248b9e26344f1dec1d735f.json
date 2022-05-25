@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "dereferenced.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/3.1.0/dereference/examples/dereferenced.yaml",
+			"byteSize": 2177,
+			"content": "openapi: 3.1.0\nservers:\n- url: /\npaths:\n  /internal:\n    get:\n      description: Internal PathItem\n      operationId: Internal PathItem\n      parameters:\n      - in: query\n        required: false\n        style: form\n        explode: true\n        examples:\n          bar:\n            summary: overwritten summary\n            description: root item bar\n            $ref: '#/components/examples/userId'\n          foo:\n            summary: foo summary\n            description: root item foo\n            value:\n              test: aaa\n          ext:\n            summary: ext overwritten summary\n            description: root item ext\n            value:\n              foo: bar\n      - $ref: '#/components/parameters/externalRef'\n      - name: externalDirectParameter\n        in: query\n        description: this is externalDirectParameter stored in external file\n        required: true\n        style: form\n        explode: true\ncomponents:\n  parameters:\n    indirection1:\n      $ref: '#/components/parameters/indirection2'\n    indirection2:\n      description: indirect description 2\n      $ref: '#/components/parameters/userIdRef'\n    userIdRef:\n      name: userId\n      in: query\n      description: ID of the user\n      required: true\n      style: form\n      explode: true\n    externalRef:\n      name: externalParameter\n      in: query\n      description: pulled from external source\n      required: true\n      style: form\n      explode: true\n    externalRefIndirect3:\n      name: externalParameter3\n      in: query\n      description: external ref 3 overwritten\n      required: true\n      style: form\n      explode: true\n    externalRefIndirect32:\n      name: externalParameter3\n      in: query\n      description: external ref 32 overwritten\n      required: true\n      style: form\n      explode: true\n    externalRefIndirect33:\n      description: external ref 33 overwritten\n      $ref: '#/components/parameters/externalRefIndirect32'\n  examples:\n    userId:\n      summary: summary  components userId\n      description: root userId\n      value:\n        test: aaa\n    indirect:\n      summary: summary  components indirect\n      description: root indirect\n      value:\n        foo: bar\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"externalRefIndirect33\": resolve \"#/components/parameters/externalRefIndirect32\" reference: parameter MUST contain either a schema property, or a content property"
+}

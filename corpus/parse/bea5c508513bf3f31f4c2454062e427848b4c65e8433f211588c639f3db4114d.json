@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "unknown_encoding_property.json",
+			"size": 0,
+			"path": "_testdata/negative/unknown_encoding_property.json",
+			"byteSize": 864,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/x-www-form-urlencoded\": {\n              \"encoding\": {\n                \"bar\": {\n                }\n              },\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"foo\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /healthz: post: requestBody: content: application/x-www-form-urlencoded: unknown encoding prop \"bar\""
+}
