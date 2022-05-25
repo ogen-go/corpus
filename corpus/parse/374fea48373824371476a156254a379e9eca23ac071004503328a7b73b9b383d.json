@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: 1.0.0\n  title: Path include test case\n\npaths:\n  /foo:\n    $ref: './issue-822-b.yaml#/paths/~1foo'\n  /wtf/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1wtf~1%7Bbar%7D'\n  /bar/wtf:\n    $ref: './issue-822-b.yaml#/paths/~1bar~1wtf'\n  /haha/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1haha~1{bar}'\n  /haha2/{bar}:\n    $ref: './issue-822-b.yaml#/paths/~1haha/{bar}'\n  /bar/haha:\n    $ref: './issue-822-b.yaml#/paths/bar/haha'\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /haha2/{bar}: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: /bar/haha: referenced pathItem not supported"
 }
