@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: unit test\n  version: 0.0.1\ncomponents:\n  schemas:\n    employee:\n      allOf: \n      - $ref: \"#/components/schemas/doctor\"\n      - $ref: \"#/components/schemas/nurse\"\n      \n    nurse:\n      properties:\n        level:\n          type: integer\n        agreement:\n          $ref: 'agreements.yml#/components/schemas/agreement'\n      required:\n      - level\n      \n    doctor:\n      properties:\n        income:\n          type: number\n        agreement:\n          $ref: 'agreements.yml#/components/schemas/agreement'\n      required:\n      - income"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"employee\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/doctor\": parse schema: property \"agreement\": parse schema: resolve \"agreements.yml#/components/schemas/agreement\": find schema: external base \"agreements.yml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"doctor\": parse schema: property \"agreement\": parse schema: resolve \"agreements.yml#/components/schemas/agreement\": find schema: external base \"agreements.yml\" is not supported"
 }
