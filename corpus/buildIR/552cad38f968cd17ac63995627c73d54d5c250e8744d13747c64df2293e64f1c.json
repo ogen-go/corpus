@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\npaths:\n  /arrayschema:\n    post:\n      description: subscribes a client to updates relevant to the requestor's account,\n        as identified by the input token.  The supplied url will be used as the delivery\n        address for response payloads\n      operationId: subscribe\n      parameters:\n      - name: arrayParameter\n        in: query\n        required: true\n        schema:\n          maxItems: 10\n          minItems: 1\n          uniqueItems: true\n          type: array\n          items:\n            $ref: '#/components/schemas/SubscriptionResponse'\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/SubscriptionResponse'\ncomponents:\n  schemas:\n    SubscriptionResponse:\n      type: object\n      properties:\n        subscriptionId:\n          type: string\n"
 		}
 	},
-	"Error": "buildIR: make ir: path \"/arrayschema\": post: parameters: nested objects not allowed"
+	"Error": "buildIR: make ir: path \"/arrayschema\": post: parameters: fail: nested objects not allowed"
 }
