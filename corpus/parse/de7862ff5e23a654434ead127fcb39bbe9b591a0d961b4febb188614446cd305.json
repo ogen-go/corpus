@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.0\n  title: Test\n\ncomponents:\n  schemas:\n    Top:\n      type: object\n      properties:\n        obj:\n          $ref: \"#/components/schemas/Sub1\"\n        arr:\n          $ref: \"#/components/schemas/Sub2\"\n        boo:\n          $ref: \"#/components/schemas/Sub3\"\n    Sub1:\n      type: object\n      properties:\n        foo:\n          type: string\n    Sub2:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Sub1\"\n    Sub3:\n      type: bool\n      description: Type alias for a value type\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Sub3\": parse schema: unexpected schema type: \"bool\""
+	"Error": "parse: parse spec: parse components: schemas: \"Top\": parse schema: property \"boo\": parse schema: resolve \"#/components/schemas/Sub3\": parse schema: unexpected schema type: \"bool\""
 }
