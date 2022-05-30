@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\n\ninfo:\n  version: 1.0.0\n  title: \"\"\n  description: \"\"\nservers:\n  - url: https://api.pubg.com/shards/{platform}\n    variables:\n      \"platform\":\n        enum:\n        - \"kakao\"\n        - \"psn\"\n        - \"stadia\"\n        - \"steam\"\n        - \"xbox\"\n        default: steam\n\nsecurity:\n  - ApiKeyAuth: []\n\npaths:\n  /players/{accountId}/seasons/lifetime:\n    $ref: './paths/index.yml#/lifetime'\n\n  /seasons/lifetime/gameMode/{gameMode}/players:\n    $ref: './paths/index.yml#/batchLifetime'\n\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: http\n      description: \"Enter your API key here to be used with the interactive documentation!\"\n      scheme: bearer\n      bearerFormat: JWT\n\n  schemas:\n    gameModeStats:\n      $ref: 'schemas/index.yml#/gameModeStats'\n    matchList:\n      $ref: 'schemas/index.yml#/matchList'\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"gameModeStats\": parse schema: resolve \"schemas/index.yml#/gameModeStats\": find schema: external base \"schemas/index.yml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"matchList\": parse schema: resolve \"schemas/index.yml#/matchList\": find schema: external base \"schemas/index.yml\" is not supported"
 }

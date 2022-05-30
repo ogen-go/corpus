@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/influxdata/openapi"
+		},
+		"file": {
+			"name": "svc-uiproxyd.yml",
+			"size": 0,
+			"path": "src/svc-uiproxyd.yml",
+			"byteSize": 672,
+			"content": "openapi: 3.0.0\ninfo:\n  title: uiproxyd\n  version: 1.0.0\nservers:\n  - url: /\npaths:\n  /uiproxy/mapToken:\n    $ref: \"./svc/uiproxyd/paths/mapToken.yml\"\n  /uiproxy/sfdc-support:\n    $ref: \"./svc/uiproxyd/paths/sfdcSupport.yml\"\ncomponents:\n  schemas:\n    Token:\n      $ref: \"./svc/uiproxyd/schemas/Token.yml\"\n    Error:\n      $ref: \"./common/schemas/Error.yml\"\n  requestBodies:\n    './svc/uiproxyd/requestBodies/SFDCSupportParams.yml'\n  responses:\n    ServerError:\n      $ref: \"./common/responses/ServerError.yml\"\n    AuthorizationError:\n      $ref: \"./common/responses/AuthorizationError.yml\"\n    InternalServerError:\n      $ref: \"./common/responses/InternalServerError.yml\"\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal string into Go struct field Components.components.requestBodies of type map[string]*ogen.RequestBody"
+}

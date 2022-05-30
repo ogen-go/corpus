@@ -12,5 +12,8 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstoe\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\npaths:\n  /pets:\n    get:\n      operationId: listPets\n      parameters:\n        - name: offset\n          in: query\n          required: true\n          schema:\n            type: array\n            items:\n              type: array\n              items:\n                type: integer\n      responses:\n        '200':\n          description: An paged array of pets\n  /dogs:\n    get:\n      operationId: listDogs\n      parameters:\n        - name: offset\n          in: query\n          required: true\n          schema:\n            type: array\n            items: {}\n      responses:\n        '200':\n          description: An paged array of pets\n"
 		}
 	},
-	"Error": "buildIR: make ir: path \"/pets\": get: parameters: fail: nested arrays not allowed"
+	"Error": "buildIR: make ir: path \"/pets\": get: parameters: fail: nested arrays not allowed",
+	"NotImplemented": [
+		"any type parameter"
+	]
 }
