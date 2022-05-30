@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kiegroup/kogito-runtimes"
+		},
+		"file": {
+			"name": "openapi3.0-security.yaml",
+			"size": 0,
+			"path": "integration-tests/integration-tests-quarkus-openapi-client/src/main/resources/specs/openapi3.0-security.yaml",
+			"byteSize": 1152,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Generated API\n  version: \"1.0\"\npaths:\n  /:\n    post:\n      operationId: doOperation\n      security:\n        - client_id: [ ]\n        - oauth: [ read, write ]\n        - bearerAuth: [ ]\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MultiplicationOperation'\n      responses:\n        \"200\":\n          description: OK\ncomponents:\n  schemas:\n    MultiplicationOperation:\n      type: object\n  securitySchemes:\n    client_id:\n      type: apiKey\n      in: header\n      name: X-Client-Id\n      x-key-type: clientId\n    bearerAuth:\n      type: http\n      scheme: bearer\n    oauth:\n      type: oauth2\n      flows:\n        authorizationCode:\n          authorizationUrl: https://example.com/oauth/authorize\n          tokenUrl: https://example.com/oauth/token\n          scopes:\n            read: Grants read access\n            write: Grants write access\n            admin: Grants read and write access to administrative information\n        clientCredentials:\n          tokenUrl: http://localhost:8382/oauth/token\n          scopes:\n            read: read"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/\": post: security: security \"oauth\" (index 1): flow \"clientCredentials\": unknown scope \"write\""
+}

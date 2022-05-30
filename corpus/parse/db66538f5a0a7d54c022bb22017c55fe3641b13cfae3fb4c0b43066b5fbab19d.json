@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/oleksandrvorob/openapi-typescript"
+			"name": "github.com/sergiyhii/openapi-typescript"
 		},
 		"file": {
 			"name": "spec.yml",
@@ -12,5 +12,5 @@
 			"content": "openapi: 3.1.0\ncomponents:\n  schemas:\n    Circular:\n      description: this is a duplicate of subschema/remote1.yml\n      type: string\n    Remote1:\n      $ref: \"./subschema/remote1.yml#components/schemas/Remote1\"\n    Pet:\n      $ref: \"https://raw.githubusercontent.com/drwpow/openapi-typescript/main/tests/v3/specs/petstore.yaml#components/schemas/Pet\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse schema: resolve \"https://raw.githubusercontent.com/drwpow/openapi-typescript/main/tests/v3/specs/petstore.yaml#components/schemas/Pet\": find schema: external base \"https://raw.githubusercontent.com/drwpow/openapi-typescript/main/tests/v3/specs/petstore.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"Remote1\": parse schema: resolve \"./subschema/remote1.yml#components/schemas/Remote1\": find schema: external base \"./subschema/remote1.yml\" is not supported"
 }
