@@ -1,0 +1,19 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "readOnly-7.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/readOnly-7.json",
+			"byteSize": 1843,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Object\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/object\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"alpha\": {\n                                    \"type\": \"string\",\n                                    \"readOnly\": true\n                                },\n                                \"bravo\": {\n                                    \"type\": \"string\",\n                                    \"writeOnly\": true\n                                },\n                                \"charlie\": {\n                                    \"type\": \"string\",\n                                    \"readOnly\": true\n                                },\n                                \"delta\": {\n                                    \"type\": \"string\",\n                                    \"writeOnly\": true\n                                }\n                            },\n                            \"required\": [ \"charlie\", \"alpha\" ],\n                            \"additionalProperties\": true\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"description\": \"Success\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"object\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
+		}
+	},
+	"Error": "template: uri: failed to execute template uri for oas_uri_gen.go: template: encode.tmpl:38:4: executing \"uri/encode\" at \u003cerrorf \"unexpected kind %s\" $t.Kind\u003e: error calling errorf: unexpected kind any",
+	"NotImplemented": [
+		"object with additionalProperties"
+	]
+}

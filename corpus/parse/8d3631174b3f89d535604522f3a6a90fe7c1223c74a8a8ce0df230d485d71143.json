@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "parameter-multiple-content-entries.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/basic-parameters/parameter-multiple-content-entries.json",
+			"byteSize": 1267,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"parameters\": {\n      \"query-with-content\": {\n        \"in\": \"query\",\n        \"name\": \"coordinates\",\n        \"deprecated\": true,\n        \"allowEmptyValue\": true,\n        \"allowReserved\": true,\n        \"example\": {\n          \"lat\": 5,\n          \"long\": 4\n        },\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"lat\",\n                \"long\"\n              ],\n              \"properties\": {\n                \"lat\": {\n                  \"type\": \"number\"\n                },\n                \"long\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          },\n          \"application/xml\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"lat\",\n                \"long\"\n              ],\n              \"properties\": {\n                \"lat\": {\n                  \"type\": \"number\"\n                },\n                \"long\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n  }\n\n}"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"query-with-content\": content: \"content\" map MUST only contain one entry"
+}

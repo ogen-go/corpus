@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/codingsoo/REST_Go"
+			"name": "github.com/Cornutum/tcases"
 		},
 		"file": {
-			"name": "api-warn.json",
+			"name": "Conditions.json",
 			"size": 0,
-			"path": "tcases/docs/examples/openapi/api-warn.json",
+			"path": "tcases-maven-plugin/src/test/resources/api-project-6/src/test/tcases/openapi/org/cornutum/Conditions.json",
 			"byteSize": 2252,
 			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"AllOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/allOf\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"header\",\n\n                        \"schema\": {\n                            \"allOf\": [\n                                {\n                                    \"type\": \"string\",\n                                    \"pattern\": \".*\",\n                                    \"anyOf\": [\n                                        {\n                                            \"enum\": [ \"A\", \"B\", \"C\" ]\n                                        },\n                                        {\n                                            \"minLength\": 2\n                                        },\n                                        {\n                                            \"type\": \"boolean\"\n                                        }\n                                    ],\n                                    \"oneOf\": [\n                                        {\n                                            \"type\": \"object\"\n                                        },\n                                        {\n                                            \"pattern\": \"XXX\"\n                                        },\n                                        {\n                                            \"maxLength\": 1\n                                        }\n                                    ]\n                                }\n                            ]\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n"
 		}

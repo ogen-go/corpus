@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.3\r\ninfo:\r\n  title: deepobject-test\r\n  version: 1.0.0\r\npaths:\r\n  /test:\r\n    get:\r\n      operationId: test\r\n      parameters:\r\n        - name: options\r\n          in: query\r\n          required: false\r\n          style: deepObject\r\n          schema:\r\n            $ref: '#/components/schemas/Options'\r\n          explode: true\r\n      responses:\r\n        '200':\r\n          description: OK\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                type: string\r\ncomponents:\r\n  schemas:\r\n    Options:\r\n      type: object\r\n      properties:\r\n        a:\r\n          nullable: true\r\n          type: string\r\n          format: date-time\r\n        b:\r\n          type: string\r\n          nullable: true\r\n          format: date-time\r\n        c:\r\n          type: array\r\n          items:\r\n            type: string\r\n"
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: parameters: fail: field \"C\": nested arrays not allowed"
+	"Error": "buildIR: make ir: path \"/test\": get: parameters: fail: \"options\": field \"C\": nested arrays not allowed"
 }

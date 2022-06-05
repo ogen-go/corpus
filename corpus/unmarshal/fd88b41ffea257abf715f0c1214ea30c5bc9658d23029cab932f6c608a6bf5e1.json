@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/drwpow/openapi-typescript"
+		},
+		"file": {
+			"name": "any-of.yaml",
+			"size": 0,
+			"path": "test/v3/specs/any-of.yaml",
+			"byteSize": 1095,
+			"content": "openapi: 3.0\npaths:\n  /cats:\n    post:\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: string\n                  name:\n                    type: string\n                  colors:\n                    anyOf:\n                      - type: array\n                        items:\n                          type: string\n                      - type: array\n                        items:\n                          type: object\n                          properties:\n                            id:\n                              type: string\n                            name:\n                              type: string\n                          required:\n                            - id\n                            - name\n                          additionalProperties: false\n                required:\n                  - id\n                  - name\n                  - colors\n                additionalProperties: false\n"
+		}
+	},
+	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Alias.openapi of type string"
+}
