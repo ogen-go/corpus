@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: Authentication Test Case\n  description: Demonstrate various authentication methods supported by RapiDoc\nservers:\n  - url: https://reqres.in/api/\npaths:\n  /users/{userId}:\n    get:\n      description: Uses HTTP Basic Auth\n      parameters:\n        - in: path\n          name: userId\n          schema:\n            type: integer\n            example: 3\n          required: true\n          description: Numeric ID of the user to get\n      security:\n      - http-basic: []\n\n  /users:\n    get:\n      description: Uses API Key Auth\n      security:\n      - api_key1: []\ncomponents:\n  securitySchemes:\n    http-basic:\n      type: http\n      scheme: basic\n    api_key1:\n      type: apiKey\n      name: Authorization\n      in: header\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /users: get: responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /users/{userId}: get: responses: no responses"
 }
