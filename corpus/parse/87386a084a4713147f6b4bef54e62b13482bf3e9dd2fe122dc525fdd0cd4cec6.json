@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"a pet to be returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorModel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /foo: get: responses: default: content: application/json: schema: parse schema: resolve \"#/components/schemas/ErrorModel\": find schema: resolve \"#/components/schemas/ErrorModel\": can't find value for \"components/schemas/ErrorModel\""
+	"Error": "parse: parse spec: parse operations: paths: /foo: get: responses: 200: content: application/json: schema: parse schema: resolve \"#/components/schemas/Pet\": find schema: resolve \"#/components/schemas/Pet\": can't find value for \"components/schemas/Pet\""
 }
