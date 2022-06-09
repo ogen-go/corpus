@@ -12,5 +12,5 @@
 			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  title: test\n  version: '0.0.0'\npaths: {}\ncomponents:\n  schemas:\n    x:\n      $ref: \"./a.yaml#/components/schemas/y\"\n    v:\n      type: object\n      properties:\n        name:\n          type: string\n        children:\n          type: array\n          items:\n            $ref: \"#/components/schemas/v\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"x\": parse schema: resolve \"./a.yaml#/components/schemas/y\": find schema: external base \"./a.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"x\": parse schema: resolve \"./a.yaml#/components/schemas/y\": external \"./a.yaml\": file: local file reference is not allowed"
 }

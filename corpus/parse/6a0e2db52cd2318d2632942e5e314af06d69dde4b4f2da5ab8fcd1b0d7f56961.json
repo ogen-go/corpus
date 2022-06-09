@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: ref test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /user/login:\n    post:\n      summary: Login\n      operationId: loginUser\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"issue768-reference.yaml#/User\"\ncomponents:\n  schemas: {}"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /user/login: post: operation \"loginUser\": requestBody: content: application/json: schema: parse schema: resolve \"issue768-reference.yaml#/User\": find schema: external base \"issue768-reference.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /user/login: post: operation \"loginUser\": requestBody: content: application/json: schema: parse schema: resolve \"issue768-reference.yaml#/User\": external \"issue768-reference.yaml\": file: local file reference is not allowed"
 }

@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\npaths:\n  /pet:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                local:\n                  $ref: '#/components/schemas/Local'\n                localTransitive:\n                  $ref: '#/components/schemas/Local/properties/string'\n                externalWithPointer:\n                  $ref: ./External.yaml#/properties/string\n                external:\n                  $ref: ./External.yaml\ncomponents:\n  schemas:\n    Local:\n      properties:\n        number:\n          type: number\n        string:\n          type: string\n        localCircular:\n          $ref: '#/components/schemas/Local'"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pet: put: requestBody: content: application/json: schema: parse schema: property \"external\": parse schema: resolve \"./External.yaml\": find schema: external base \"./External.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /pet: put: requestBody: content: application/json: schema: parse schema: property \"external\": parse schema: resolve \"./External.yaml\": external \"./External.yaml\": file: local file reference is not allowed"
 }

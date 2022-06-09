@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: ExtRef3\n  version: 1.2.3\ncomponents:\n  schemas:\n    test1:\n      type: string\n    test2:\n      properties:\n        x:\n          type: number\n        \"y\":\n          properties:\n            a:\n              type: string\n            b:\n              $ref: \"./external-ref-test/ext-ref-4.yaml#/components/schemas/test1\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"test2\": parse schema: property \"y\": parse schema: property \"b\": parse schema: resolve \"./external-ref-test/ext-ref-4.yaml#/components/schemas/test1\": find schema: external base \"./external-ref-test/ext-ref-4.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"test2\": parse schema: property \"y\": parse schema: property \"b\": parse schema: resolve \"./external-ref-test/ext-ref-4.yaml#/components/schemas/test1\": external \"./external-ref-test/ext-ref-4.yaml\": file: local file reference is not allowed"
 }

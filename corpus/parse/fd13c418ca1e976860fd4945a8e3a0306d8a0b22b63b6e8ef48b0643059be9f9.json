@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local circular relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"refs/Circular.yaml\"\n      responses:\n        201:\n          description: Created\n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /simple: post: operation \"simple\": requestBody: content: application/json: schema: parse schema: resolve \"refs/Circular.yaml\": find schema: external base \"refs/Circular.yaml\" is not supported"
+	"Error": "parse: parse spec: parse operations: paths: /simple: post: operation \"simple\": requestBody: content: application/json: schema: parse schema: resolve \"refs/Circular.yaml\": external \"refs/Circular.yaml\": file: local file reference is not allowed"
 }

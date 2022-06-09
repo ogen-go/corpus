@@ -12,5 +12,5 @@
 			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"garage\",\n    \"description\": \"Authentication API\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"LoginResponse\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/APIResponse\"\n          },\n          {\n            \"not\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"$ref\": \"external.json#/first\"\n          }\n        ]\n      },\n      \"APIResponse\": {\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"paths\": {}\n}\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"LoginResponse\": parse schema: oneOf: [2]: parse schema: resolve \"external.json#/first\": find schema: external base \"external.json\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"LoginResponse\": parse schema: oneOf: [2]: parse schema: resolve \"external.json#/first\": external \"external.json\": file: local file reference is not allowed"
 }

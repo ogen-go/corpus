@@ -12,5 +12,5 @@
 			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\ncomponents:\n  schemas:\n    FullUser:\n      title: FullUser\n      description: |\n        사용자 정보입니다.\n      allOf:\n        - $ref: \"./user.yaml#/components/schemas/User\"\n        - type: \"object\"\n          properties:\n            rank:\n              description: \"사용자의 순위입니다.\"\n              type: \"integer\"\n              format: \"int64\"\n            isRival:\n              description: \"라이벌 여부입니다.\"\n              type: \"boolean\"\n            isReverseRival:\n              description: \"역라이벌 여부입니다.\"\n              type: \"boolean\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"FullUser\": parse schema: allOf: [0]: parse schema: resolve \"./user.yaml#/components/schemas/User\": find schema: external base \"./user.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"FullUser\": parse schema: allOf: [0]: parse schema: resolve \"./user.yaml#/components/schemas/User\": external \"./user.yaml\": file: local file reference is not allowed"
 }

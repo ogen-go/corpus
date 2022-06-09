@@ -12,5 +12,5 @@
 			"content": "openapi: 3.1.0\r\ninfo:\r\n  title: My API\r\n  description: It ain't so wonderful, but at least it's mine.\r\n  version: '1.0'\r\n  contact:\r\n    email: me@theintenet.com\r\n    name: me\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: 'test'\r\n      responses:\r\n        200:\r\n          description: test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: ./vendor.schema.yaml\r\ncomponents:\r\n  schemas:\r\n    vendor:\r\n      $ref: ./vendor.schema.yaml\r\n    myvendor:\r\n      $ref: ./vendor.schema.yaml\r\n    simple:\r\n      $ref: ./simple.yaml\r\n    A:\r\n      $ref: ./definitions.yaml#/$defs/A\r\n    test:\r\n      $ref: ./rename.yaml\r\n    rename:\r\n      type: string\r\n    rename-2:\r\n      $ref: ./rename.yaml"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"test\": parse schema: resolve \"./rename.yaml\": find schema: external base \"./rename.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"vendor\": parse schema: resolve \"./vendor.schema.yaml\": external \"./vendor.schema.yaml\": file: local file reference is not allowed"
 }
