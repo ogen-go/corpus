@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: 'some service spec'\n  version: 1.2.3\n\npaths:\n  /service:\n    get:\n      tags:\n        - services/service\n      summary: List services\n      description: List services.\n      operationId: list-services\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/model_service\"\n\ncomponents:\n  schemas:\n    model_service:\n      allOf:\n        - $ref: \"common/properties.yaml#/timestamps\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"model_service\": parse schema: allOf: [0]: parse schema: resolve \"common/properties.yaml#/timestamps\": find schema: external base \"common/properties.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"model_service\": parse schema: allOf: [0]: parse schema: resolve \"common/properties.yaml#/timestamps\": external \"common/properties.yaml\": file: local file reference is not allowed"
 }

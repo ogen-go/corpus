@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec0-typo.yml#/components/schemas/ObjectD'\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": parse schema: property \"object_b\": parse schema: resolve \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": find schema: external base \"issue235.spec0-typo.yml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": parse schema: property \"object_b\": parse schema: resolve \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": external \"issue235.spec0-typo.yml\": file: local file reference is not allowed"
 }

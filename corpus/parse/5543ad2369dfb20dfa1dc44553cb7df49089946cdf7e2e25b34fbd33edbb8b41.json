@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\ncomponents:\n  schemas:\n    outer:\n      type: object\n      properties:\n        content:\n          $ref: cyclic-remote-ref1.yaml#/components/schemas/inner\n      required:\n        - content\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"outer\": parse schema: property \"content\": parse schema: resolve \"cyclic-remote-ref1.yaml#/components/schemas/inner\": find schema: external base \"cyclic-remote-ref1.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"outer\": parse schema: property \"content\": parse schema: resolve \"cyclic-remote-ref1.yaml#/components/schemas/inner\": external \"cyclic-remote-ref1.yaml\": file: local file reference is not allowed"
 }

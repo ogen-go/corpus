@@ -12,5 +12,5 @@
 			"content": "# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20\n---\n# for the intellisense\nopenapi: \"3.1.0\"\ninfo: { title: \"\", version: \"\" }\n\ncomponents:\n  schemas:\n    TaggedProblem:\n      title: TaggedProblem\n      description: |\n        문제 정보입니다.\n      allOf:\n        - $ref: \"./problem.yaml#/components/schemas/Problem\"\n        - type: \"object\"\n          properties:\n            tags:\n              description: \"태그 목록입니다.\"\n              type: \"array\"\n              items:\n                $ref: \"./problem-tag.yaml#/components/schemas/ProblemTag\"\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"TaggedProblem\": parse schema: allOf: [0]: parse schema: resolve \"./problem.yaml#/components/schemas/Problem\": find schema: external base \"./problem.yaml\" is not supported"
+	"Error": "parse: parse spec: parse components: schemas: \"TaggedProblem\": parse schema: allOf: [0]: parse schema: resolve \"./problem.yaml#/components/schemas/Problem\": external \"./problem.yaml\": file: local file reference is not allowed"
 }
