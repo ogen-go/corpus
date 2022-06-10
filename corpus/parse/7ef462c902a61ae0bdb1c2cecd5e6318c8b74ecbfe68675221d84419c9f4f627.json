@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /bar: parameters: parse parameter \"\": resolve \"http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid\" reference: invalid parameter reference"
+	"Error": "parse: parse spec: parse operations: /bar: parameters: parse parameter \"\": resolve \"http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid\" reference: parse \"http://localhost:${dynamicPort}/issue-domain/\": invalid port \":${dynamicPort}\" after host"
 }
