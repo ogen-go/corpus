@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  description: \u003e-\n    This is a sample server Petstore server. For this sample, you can use the api key\n    `special-key` to test the authorization filters.\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: Apache-2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /pet:\n    post:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      description: ''\n      operationId: addPet\n      responses:\n        '405':\n          description: Invalid input\n      requestBody:\n        $ref: 'http://www.example.com/subspec#/components/requestBodies/Pet'\n  /pet/findByStatus:\n    $ref: 'subspec2'"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pet: post: operation \"addPet\": requestBody: resolve \"http://www.example.com/subspec#/components/requestBodies/Pet\" reference: external \"http://www.example.com/subspec\": http: do: Get \"http://www.example.com/subspec\": host \"www.example.com\" is not allowed"
+	"Error": "parse: parse spec: parse operations: /pet/findByStatus: referenced pathItem not supported"
 }
