@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cam-inc/viron"
+		},
+		"file": {
+			"name": "root.yaml",
+			"size": 0,
+			"path": "example/golang/openapi/yaml/root.yaml",
+			"byteSize": 391,
+			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/example-golang'\n  description: api specifications\n\nservers:\n  - url: /\n\ntags:\n  - name: root\n\npaths:\n  /:\n    get:\n      operationId: getRoot\n      tags:\n        - root\n      summary: redirect to /oas\n      description: /oas へリダイレクト\n      responses:\n        301:\n          description: OK\n      security:\n        - jwt: []"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"getRoot\": security: unknown security schema \"jwt\""
+}
