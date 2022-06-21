@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/SoliDry/api-generator"
+			"name": "github.com/SoliDry/laravel-api"
 		},
 		"file": {
 			"name": "topic.yaml",
 			"size": 0,
-			"path": "tests/functional/oas/topic.yaml",
+			"path": "oas/topic.yaml",
 			"byteSize": 1242,
 			"content": "openapi: 3.0.1\ninfo: This api provides access to articles\nservers:\n- url: https://{environment}.example.com:{port}/{basePath}\n  description: Production server\n  variables:\n    environment:\n      default: api\n      description: An api for devices at Google dot com\n    port:\n      enum:\n        - 80\n        - 443\n      defualt: 80\n    basePath:\n      default: v3\ncomponents:\n  schemas:\n    ID:\n      type: integer\n      required: true\n    Type:\n      type: string\n      required: true\n      minLength: 1\n      maxLength: 255\n    DataObject:\n      type: object\n      required: true\n    DataArray:\n      type: array\n      required: true\n    RelationshipsDataItem:\n      type: object\n      properties:\n        id: ID\n        type: Type\n    ArticleRelationships:\n      type: object\n      properties:\n        data:\n          type: DataArray\n          items:\n            type: RelationshipsDataItem\n    TopicAttributes:\n      type: object\n      properties:\n        title:\n          required: true\n          type: string\n          minLength: 16\n          maxLength: 256\n    Topic:\n      type: object\n      properties:\n        type: Type\n        id: ID\n        attributes: TopicAttributes\n        relationships:\n          type: ArticleRelationships[]"
 		}

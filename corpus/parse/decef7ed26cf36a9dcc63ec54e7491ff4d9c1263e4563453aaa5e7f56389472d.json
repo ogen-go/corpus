@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
 			"name": "paths-get-callbacks.json",
 			"size": 0,
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
+			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
 			"byteSize": 888,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
 		}
