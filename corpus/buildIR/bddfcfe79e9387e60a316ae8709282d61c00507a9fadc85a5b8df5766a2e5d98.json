@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_multipart.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/expected_multipart.yml",
+			"byteSize": 798,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /api/echo/multipart:\n    post:\n      operationId: echofile\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/FruitData'\n        required: true\n      responses:\n        '200':\n          description: ''\n          content:\n            multipart/form-data:\n              schema:\n                $ref: '#/components/schemas/FruitData'\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    FruitData:\n      required:\n        - data\n      type: object\n      properties:\n        data:\n          type: string\n          format: binary\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/api/echo/multipart\": post: responses: 200: contents: multipart/form-data: override form \"FruitData\": schema name conflict: \"FruitDataForm\""
+}

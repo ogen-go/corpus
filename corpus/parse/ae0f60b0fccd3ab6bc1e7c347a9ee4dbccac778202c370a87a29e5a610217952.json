@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/smallrye/smallrye-open-api"
+			"name": "github.com/Apicurio/apicurio-data-models"
 		},
 		"file": {
-			"name": "schemas-discriminator.json",
+			"name": "discriminator.json",
 			"size": 0,
-			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-discriminator.json",
+			"path": "src/test/resources/fixtures/io/openapi/3.0/schemas/discriminator.json",
 			"byteSize": 693,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"MyResponseType\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Cat\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Dog\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Lizard\"\n          },\n          {\n            \"$ref\": \"https://gigantic-server.com/schemas/Monster/schema.json\"\n          }\n        ],\n        \"discriminator\": {\n          \"propertyName\": \"pet_type\",\n          \"mapping\": {\n            \"dog\": \"#/components/schemas/Dog\",\n            \"monster\": \"https://gigantic-server.com/schemas/Monster/schema.json\"\n          }\n        }\n      }\n    }\n  }\n}"
 		}

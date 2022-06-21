@@ -2,12 +2,12 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/bbgithub/ledger"
+			"name": "github.com/academic-resources/stared-repos"
 		},
 		"file": {
 			"name": "callbacks.openapi.yaml",
 			"size": 0,
-			"path": "swagger/test/e2e/specs/callbacks.openapi.yaml",
+			"path": "swagger-ui/test/e2e-selenium/static/test-specs/callbacks.openapi.yaml",
 			"byteSize": 1022,
 			"content": "openapi: 3.0.0\nservers:\n- url: http://petstore.swagger.io/v2\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\npaths:\n  \"/pet\":\n    post:\n      tags:\n      - pet\n      summary: Add a new pet to the store\n      description: ''\n      operationId: addPet\n      parameters: []\n      responses:\n        '405':\n          description: Invalid input\n      security:\n      - petstore_auth:\n        - write:pets\n        - read:pets\n      callbacks:\n        myWebhook:\n          '$request.body#/url':\n            post:\n              requestBody:\n                description: Callback payload\n                content:\n                  'application/json':\n                    schema:\n                      type: string\n              responses:\n                '200':\n                  description: webhook successfully processed and no retries will be performed\n"
 		}

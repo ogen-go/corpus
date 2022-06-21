@@ -12,5 +12,5 @@
 			"content": "openapi: 3.1.0\ninfo:\n  version: \"1.0.0\"\n  title: parse-api\n  description: Test swagger-parser\npaths:\n  /externalref:\n    $ref: 'http://localhost:${dynamicPort}/external-internal-nested/nested/domain.yaml#/components/pathItems/ExternalRef'\n  /relativeref:\n    $ref: './nested/domain.yaml#/components/pathItems/RelativeRef'\n  /internalref:\n    $ref: '#/components/pathItems/InternalRef'\n  /internal:\n    get:\n      description: Internal PathItem\n      operationId: Internal PathItem\n      responses:\n        '200':\n          description: OK\ncomponents:\n  pathItems:\n    InternalRef:\n      get:\n        description: InternalRef PathItem\n        operationId: InternalRef PathItem\n        responses:\n          '200':\n            description: OK      \n"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /internalref: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: /externalref: referenced pathItem not supported"
 }
