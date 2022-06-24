@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /test:\n    post:\n      summary: schema with examples\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/schema1\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    schema1:\n      type:\n        - object\n      properties:\n        id:\n          type:\n            - string\n            - integer\n          examples:\n            - 1234\n            - 12\n"
 		}
 	},
-	"Error": "unmarshal: callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
+	"Error": "unmarshal: json: line 1:31: callback: json: cannot unmarshal array into Go struct field Schema.type of type string"
 }

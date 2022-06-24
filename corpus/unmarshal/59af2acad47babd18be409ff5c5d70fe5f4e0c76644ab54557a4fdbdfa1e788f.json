@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "x-auth-id-alias.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/extensions/x-auth-id-alias.yaml",
+			"byteSize": 2573,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This specification shows how to use x-auth-id-alias extension for API keys.\n  version: 1.0.0\n  title: OpenAPI Extension x-auth-id-alias\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: usage\n    description: Show usage of x-auth-id-alias\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: X-Api-Key\n      in: header\n    api_key_query:\n      type: apiKey\n      name: api_key\n      # Test key aliasing\n      x-auth-id-alias: api_key\n      in: query\npaths:\n  /both:\n    get:\n      tags:\n        - usage\n      summary: Use both API keys\n      description: Use both API keys\n      operationId: bothKeys\n      security:\n        - api_key_query: []\n          api_key: []\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n  /any:\n    get:\n      tags:\n        - usage\n      summary: Use any API key\n      description: Use any API key\n      operationId: anyKey\n      security:\n        - api_key_query: []\n        - api_key: []\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n  /query:\n    get:\n      tags:\n        - usage\n      summary: Use API key in query\n      description: Use API key in query\n      operationId: keyInQuery\n      security:\n        - api_key_query: []\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n  /header:\n    get:\n      tags:\n        - usage\n      summary: Use API key in header\n      description: Use API key in header\n      operationId: keyInHeader\n      security:\n        - api_key: []\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\nservers:\n  - url: 'http://{server}.swagger.io:{port}/v2'\n    description: petstore server\n    variables:\n      server:\n        enum:\n          - 'petstore'\n          - 'qa-petstore'\n          - 'dev-petstore'\n        default: 'petstore'\n      port:\n        enum:\n          - 80\n          - 8080\n        default: 80\n  - url: https://localhost:8080/{version}\n    description: The local server\n    variables:\n      version:\n        enum:\n          - 'v1'\n          - 'v2'\n        default: 'v2'\n"
+		}
+	},
+	"Error": "unmarshal: json: line 1:1737: json: cannot unmarshal number into Go struct field ServerVariable.servers.variables.default of type string"
+}

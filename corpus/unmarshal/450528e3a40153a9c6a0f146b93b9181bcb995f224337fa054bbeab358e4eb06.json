@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\n\ninfo:\n  title: ...\n  version: 0.0.0\n\npaths:\n  /foo:\n    get:\n      responses:\n        200:\n          description: ...\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Bar'\n\ncomponents:\n  schemas:\n    Bar:\n      type: string\n      enum:\n        - Foo\n        - Bar\n        - Foo Bar\n        - Foo-Bar\n        - 1Foo\n        - Bar  # A swagger validator would catch this duplicate value\n        - ' Foo'\n        - ' Foo '\n        - _Foo_\n        - \"1\"\n"
 		}
 	},
-	"Error": "unmarshal: callback: value \"\\\"Bar\\\"\" is duplicated"
+	"Error": "unmarshal: json: callback: value \"\\\"Bar\\\"\" is duplicated"
 }

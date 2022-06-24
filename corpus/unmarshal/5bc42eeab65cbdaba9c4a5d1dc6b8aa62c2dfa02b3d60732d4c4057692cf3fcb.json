@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths: {}\ncomponents:\n  schemas:\n    ErrorModel:\n      type: object\n      required:\n        - message\n        - code\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          minimum: 100\n          maximum: 600\n      allOf:\n        - \"$ref\": \"#/components/schemas/ErrorModel\"\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: integer\n              minimum: 100\n              maximum: 600\n      additionalProperties:\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: string\n"
 		}
 	},
-	"Error": "unmarshal: unexpected type array"
+	"Error": "unmarshal: json: unexpected type array"
 }

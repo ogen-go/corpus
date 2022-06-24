@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ntags:\n  name: Order\n  description: API para interactura con las categorias\npaths:\n  /order:\n    post:\n      summary: Registra una orden de compra\n      tags: [Order]\n      parameters:\n        - in: header\n          name: token\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/postCategorya'\n      responses:\n        200:\n          description: Registra las categorias de los usuarios\ncomponents:\n  schemas:\n    postCategorya:\n      type: object\n      properties:\n        order:\n          type: string\n          format: array\n          description: Arreglo de jsons cada uno con los campos id, total"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Alias.tags of type []ogen.Tag"
+	"Error": "unmarshal: json: line 1:546: json: cannot unmarshal object into Go struct field Alias.tags of type []ogen.Tag"
 }

@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "unknown_header_style.json",
+			"size": 0,
+			"path": "_testdata/negative/unknown_header_style.json",
+			"byteSize": 629,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"headers\": {\n              \"X-FooBar\": {\n                \"style\": \"matrix\",\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            },\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /healthz: get: responses: 200: headers: X-FooBar: invalid style explode combination \"matrix\", explode:false"
+}

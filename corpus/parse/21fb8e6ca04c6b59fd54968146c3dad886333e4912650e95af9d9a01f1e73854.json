@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.1\ninfo:\n  title: Example OpenAPI spec\n  version: 0.0.1\npaths:\n  '/example':\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExamplePost'\n      responses:\n        204:\n          description: No content\ncomponents:\n  schemas:\n    # Renaming this key from `Example` to `ExampleGet` stops the issue from occurring\n    # Removing this key stops the issue from occurring\n    Example:\n      $ref: example.get.yaml\n    ExamplePost:\n      $ref: example.post.yaml"
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Example\": parse schema: resolve \"example.get.yaml\": external \"example.get.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"ExamplePost\": parse schema: resolve \"example.post.yaml\": external \"example.post.yaml\": file: local file reference is not allowed"
 }

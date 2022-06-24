@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Response Components with Headers\npaths:\n  /user:\n    get:\n      summary: View the current User\n      responses:\n        '200':\n          $ref: '#/components/responses/UserResponse'\n        '226':\n          $ref: '#/components/responses/UserResponse'\ncomponents:\n  responses:\n    UserResponse:\n      description: A user\n      headers:\n        X-Rate-Limit-Limit:\n          $ref: '#/components/headers/X-Rate-Limit-Limit'\n  headers:\n    X-Rate-Limit-Limit:\n      description: The number of allowed requests in the current period\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: responses: \"UserResponse\": headers: X-Rate-Limit-Limit: resolve \"#/components/headers/X-Rate-Limit-Limit\" reference: header MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse components: responses: \"UserResponse\": headers: X-Rate-Limit-Limit: resolve \"#/components/headers/X-Rate-Limit-Limit\" reference: parameter MUST contain either a schema property, or a content property"
 }

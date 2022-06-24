@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.3\ninfo:\n  title: ClassWithNestedOptionalField\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ClassWithNestedOptionalField'\n              required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    ClassWithNestedOptionalField:\n      type: object\n      properties:\n        value:\n          $ref: '#/components/schemas/Nested'\n    Nested:\n      required:\n      - nestedValue\n      type: object\n      properties:\n        nestedValue:\n          type: string\n      default:\n        nestedValue: foo\n      example:\n        nestedValue: foo\n"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal bool into Go struct field Schema.paths.get.requestBody.content.schema.required of type []string"
+	"Error": "unmarshal: json: line 1:562: json: cannot unmarshal bool into Go struct field Schema.paths.get.requestBody.content.schema.required of type []string"
 }

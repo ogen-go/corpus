@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: CBETA API\n  description: API to access CBETA Chinese Buddhist Texts Resources.\n  version: 1.2.19\n\nservers:\n  - url: http://cbdata.dila.edu.tw/v1.2\n    description: Main server\n  - url: http://api.cbetaonline.cn/\n    description: Mirror server\n\npaths:\n  /catalog_entry:\n    get:\n      summary: Returns a catalog entry information, including its children.\n      parameters:\n        $ref: 'catalog-entry-parameters.yaml'\n      responses:\n        '200':\n          description: A Catalog Entry Object\n          content:\n            application/json:\n              schema: \n                type: object\n                properties:\n                  $ref: 'catalog-entry-response.yaml'"
 		}
 	},
-	"Error": "unmarshal: callback: json: cannot unmarshal string into Go value of type ogen.Schema"
+	"Error": "unmarshal: json: line 1:30: callback: json: cannot unmarshal string into Go value of type ogen.Schema"
 }
