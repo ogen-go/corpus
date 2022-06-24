@@ -12,5 +12,5 @@
 			"content": "- name: Setup AWS API Gateway setup on AWS and deploy API 222\n  aws_api_gateway:\n    swagger_text: |\n      openapi: 3.0.0\n      info:\n        title: Sample API\n        description: Optional multiline or single-line description\n        version: 0.1.9\n      components:\n        ssecuritySchemes:\n          request_authorizer_single_stagevar:\n            type: apiKey\n            name: Unused\n            in: header\n            x-amazon-apigateway-authtype: custom\n    stage: production\n    cache_enabled: true\n    cache_size: \"1.6\"\n    tracing_enabled: true\n    endpoint_type: EDGE\n    state: present\n"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal array into Go value of type ogen.Alias"
+	"Error": "unmarshal: json: line 1:2: json: cannot unmarshal array into Go value of type ogen.Alias"
 }

@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    A:\n      description: a schema\n      type: string\n      format: byte\n    oneOfError:\n      description: should be array but instead just a ref\n      oneOf:\n        $ref: '#/components/schemas/A'\n    allOfError:\n      description: should be array but instead just a type\n      allOf:\n        type: string\n    anyOfError:\n      description: should be array but instead just a ref\n      anyOf:\n        $ref: '#/components/schemas/A'\n"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal object into Go struct field Schema.components.schemas.allOf of type []*ogen.Schema"
+	"Error": "unmarshal: json: line 1:113: json: cannot unmarshal object into Go struct field Schema.components.schemas.allOf of type []*ogen.Schema"
 }

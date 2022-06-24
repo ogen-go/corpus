@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.2\ninfo:\n  title: Example OpenAPI 3 definition. Valid.\n  version: 1.0\n\ncomponents:\n  parameters:\n    offsetParam:\n      in: query\n      name: offset\n      required: false\n      schema:\n        type: integer\n        minimum: 0\n    limitParam:\n      in: query\n      name: limit\n      required: false\n      schema:\n        type: integer\n        minimum: 1\n        maximum: 50\n        default: 20\n\npaths:\n  '/ping':\n    parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        required: true\n    get:\n      operationId: getPing\n      summary: Example summary\n      parameters:\n        - in: path\n          name: userId\n          schema:\n            type: integer\n          required: true\n      responses:\n        '200':\n          description: example description\n"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "unmarshal: json: line 1:326: json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

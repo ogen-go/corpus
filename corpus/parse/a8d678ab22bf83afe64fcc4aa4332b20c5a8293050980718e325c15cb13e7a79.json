@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "invalid-header-names.yaml",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/invalid-header-names.yaml",
+			"byteSize": 280,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: anApi\n  version: \"1.0\"\npaths:\n  /myPath:\n    description: something\n    parameters:\n      - in: header\n        name: X-@-ID\n        schema:\n          type: string\n      - in: header\n        name: valid-header\n        schema:\n          type: string\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: /myPath: parameters: parse parameter \"X-@-ID\": invalid header name \"X-@-ID\""
+}

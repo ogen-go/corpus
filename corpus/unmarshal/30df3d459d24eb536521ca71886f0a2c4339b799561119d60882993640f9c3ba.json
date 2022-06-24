@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Spec with a simple validated argument for extensibility testing\n  version: 1\npaths:\n  /test-validation:\n    get:\n      tags:\n        - search\n      summary: \u003e-\n        Used to test validation\n      operationId: TestValidation\n      parameters:\n        - name: maxLengthRestrictedTo8String\n          schema:\n            type: string\n            maxLength: 8\n          in: query\n          required: true\n      responses:\n        '200':\n          description: object is valid\n          content:\n            application/json:\n              schema:\n                type: string\n        '400':\n          description: object is invalid\n          content:\n            application/json:\n              schema:\n                type: string"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "unmarshal: json: line 1:95: json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

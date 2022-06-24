@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: Petstore API\n  version: 1.0.0\n  description: description\n\npaths:\n\n  /v1/pets/{petId}:\n    get:\n      operationId: getPet\n      parameters:\n      - name: petId\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: Details of the requested pet.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n\n        '400':\n          description: Bad Request.\n        '500': \n          description: Internal Server Error.\n\ncomponents:\n\n  schemas:\n    Pet:\n      type: object\n      required:\n        -  id\n      properties:\n        name:\n          type: string\n        id:\n          type: string\n          format: uuid\n        status:\n          type: string\n          enum: string"
 		}
 	},
-	"Error": "unmarshal: callback: start: unexpected byte 34 '\"'"
+	"Error": "unmarshal: json: callback: start: unexpected byte 34 '\"'"
 }

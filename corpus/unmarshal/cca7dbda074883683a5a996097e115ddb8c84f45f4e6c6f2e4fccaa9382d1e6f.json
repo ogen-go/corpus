@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bridgecrewio/checkov"
+		},
+		"file": {
+			"name": "pass2.yaml",
+			"size": 0,
+			"path": "tests/openapi/checks/resource/v3/example_CleartextCredsOverUnencryptedChannel/pass2.yaml",
+			"byteSize": 216,
+			"content": "openapi: 3.0.0\ninfo:\n  title: test\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    encryptedScheme: 'none'\npaths:\n  \"/\":\n    get:\n      security:\n        - encryptedScheme:\n            - write\n            - read\n"
+		}
+	},
+	"Error": "unmarshal: json: line 1:59: json: cannot unmarshal string into Go struct field Components.components.securitySchemes of type ogen.SecuritySchema"
+}

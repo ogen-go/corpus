@@ -12,5 +12,5 @@
 			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0\n  title: Demo API\npaths:\n  /api:\n    post:\n      summary: 'Demo invalid type'\n      requestBody:\n        description: 'Cannot use type boolean'\n        content:\n          application/json:\n              schema:\n                type: \n                  - boolean\n      responses:\n        '200':\n          content:\n            application/json:\n                schema:\n                  type: \n                    - integer\n                  minimum: 5\n                  maximum: 10\n"
 		}
 	},
-	"Error": "unmarshal: json: cannot unmarshal number into Go struct field Info.info.version of type string"
+	"Error": "unmarshal: json: line 1:40: json: cannot unmarshal number into Go struct field Info.info.version of type string"
 }

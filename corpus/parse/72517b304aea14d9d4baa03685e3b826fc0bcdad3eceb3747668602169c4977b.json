@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "null_parameter_schema_content.json",
+			"size": 0,
+			"path": "_testdata/negative/null_parameter_schema_content.json",
+			"byteSize": 716,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/healthz\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/Parameter\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"Parameter\": {\n        \"name\": \"foo\",\n        \"in\": \"query\",\n        \"schema\": null,\n        \"content\": null\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"Parameter\": parameter MUST contain either a schema property, or a content property"
+}
