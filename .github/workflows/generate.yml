@@ -48,6 +48,13 @@ jobs:
           STATS="${STATS//$'\r'/'%0D'}"
           echo "::set-output name=stats::$STATS"
 
+      - name: Upload profiles
+        uses: actions/upload-artifact@v3
+        with:
+          path: "*profile.out"
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Create PR
         id: cpr
         uses: peter-evans/create-pull-request@v4
