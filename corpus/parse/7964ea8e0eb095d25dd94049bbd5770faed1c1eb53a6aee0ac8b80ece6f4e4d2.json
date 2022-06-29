@@ -12,5 +12,5 @@
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Parameter Components\npaths:\n  /pets:\n    parameters:\n      - $ref: '#/components/parameters/skipParam'\n      - $ref: '#/components/parameters/limitParam'\n    get:\n      summary: List all pets\n      responses:\n        '200':\n          description: A paged array of pets\n          content:\n            application/json:\n              schema:\n                type: array\ncomponents:\n  parameters:\n    skipParam:\n      name: skip\n      in: query\n      description: number of items to skip\n      required: true\n    limitParam:\n      name: limit\n      in: query\n      description: max records to return\n      required: true\n"
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"skipParam\": parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse components: parameters: \"limitParam\": parameter MUST contain either a schema property, or a content property"
 }

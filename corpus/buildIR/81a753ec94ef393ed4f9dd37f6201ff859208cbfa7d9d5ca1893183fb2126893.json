@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      anyOf:\n        - $ref: \"#/components/schemas/Bad\"\n"
 		}
 	},
-	"Error": "buildIR: make ir: path \"/api/foo\": get: responses: 200: contents: application/json;charset=utf-8: generate schema: anyOf: collect variants: reference \"#/components/schemas/Bad\" [0] leads to infinite recursion"
+	"Error": "buildIR: make ir: path \"/api/foo\": get: responses: 200: contents: application/json;charset=utf-8: generate schema: anyOf: anyOf \"#/components/schemas/Bad\" [0]: reference \"#/components/schemas/Bad\" [0] leads to infinite recursion"
 }

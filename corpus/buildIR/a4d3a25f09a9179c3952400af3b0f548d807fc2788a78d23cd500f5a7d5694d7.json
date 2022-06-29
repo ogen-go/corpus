@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdkandersson/OpenAlchemy"
+		},
+		"file": {
+			"name": "column-example-spec.yml",
+			"size": 0,
+			"path": "examples/all_of/column-example-spec.yml",
+			"byteSize": 2091,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate allOf usage for columns.\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n  /division:\n    get:\n      summary: Used to retrieve all divisions.\n      responses:\n        200:\n          description: Return all divisions from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Division\"\n\ncomponents:\n  schemas:\n    IdBase:\n      type: integer\n      description: Base for the id schema of an object.\n      example: 0\n      x-primary-key: true\n    NameBase:\n      type: string\n      description: The name of the object.\n      example: Object 1.\n    Employee:\n      description: Person that works for a company.\n      type: object\n      x-tablename: employee\n      properties:\n        id:\n          allOf:\n            - \"$ref\": \"#/components/schemas/IdBase\"\n            - description: Unique identifier for the employee.\n        name:\n          allOf:\n            - \"$ref\": \"#/components/schemas/NameBase\"\n            - description: The name of the employee.\n              example: David Andersson\n        salary:\n          type: number\n          description: The amount of money the employee is paid.\n          example: 1000000.00\n    Division:\n      description: A part of a company.\n      type: object\n      x-tablename: division\n      properties:\n        id:\n          allOf:\n            - \"$ref\": \"#/components/schemas/IdBase\"\n            - description: Unique identifier for the division.\n        name:\n          allOf:\n            - \"$ref\": \"#/components/schemas/NameBase\"\n            - description: The name of the division.\n              example: Engineering.\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/division\": get: responses: 200: contents: application/json: generate schema: item: field id: allOf: schema type mismatch: integer and "
+}

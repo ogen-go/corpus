@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "multiple-oneof.yaml",
+			"size": 0,
+			"path": "docs/specs/multiple-oneof.yaml",
+			"byteSize": 1114,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Multiple One-Of Test\n  version: 1.0.0\npaths:\n  \"/multiple-one-of\":\n    get:\n      summary: Multiple One of\n      description: Schema composition using multiple `one-of` \n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Data\"\ncomponents:\n  schemas:\n    Woman:\n      properties:\n        haircolor:\n          type: string\n    Man:\n      properties:\n        weight:\n          type: integer\n    Young:\n      properties:\n        schoolName:\n          type: string\n    Old:\n      properties:\n        employerName:\n          type: string\n    Data:\n      allOf:\n      - type: object\n        properties:\n          id:\n            type: integer\n          name:\n            type: string\n      - oneOf:\n        - \"$ref\": \"#/components/schemas/Woman\"\n        - \"$ref\": \"#/components/schemas/Man\"\n      - oneOf:\n        - \"$ref\": \"#/components/schemas/Young\"\n        - \"$ref\": \"#/components/schemas/Old\"\n      - properties:\n          language:\n            type: string"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/multiple-one-of\": get: responses: 200: contents: application/json: generate schema: allOf: schema type mismatch: object and "
+}

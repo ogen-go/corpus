@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive2.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/invalid_media_type_value/test/positive2.yaml",
+			"byteSize": 534,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              encoding:\n                code:\n                  contentType: image/png, image/jpeg\n      requestBody:\n        content:\n          multipart/form- data:\n            encoding:\n              code:\n                contentType: image/png, image/jpeg\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"listVersionsv2\": requestBody: content: content type \"multipart/form- data\": mime: unexpected content after media subtype"
+}

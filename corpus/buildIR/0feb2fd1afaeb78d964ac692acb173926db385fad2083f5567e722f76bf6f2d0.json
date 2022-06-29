@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/oas"
+		},
+		"file": {
+			"name": "polymorphism-quirks.json",
+			"size": 0,
+			"path": "__tests__/__datasets__/polymorphism-quirks.json",
+			"byteSize": 2504,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Polymorhism quirks\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/allof-with-empty-object-property\": {\n      \"post\": {\n        \"description\": \"Within the allOf of this requestBody there is a `data` object property that has no schema.\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"allOf\": [\n                  {\n                    \"$ref\": \"#/components/schemas/api.WithdrawalRequest\"\n                  },\n                  {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"token\": {\n                        \"allOf\": [\n                          {\n                            \"$ref\": \"#/components/schemas/core.Token\"\n                          },\n                          {\n                            \"type\": \"object\",\n                            \"properties\": {\n                              \"data\": {\n                                \"$ref\": \"#/components/schemas/core.TokenData\"\n                              }\n                            }\n                          }\n                        ]\n                      }\n                    }\n                  }\n                ]\n              }\n            }\n          },\n          \"required\": true\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"api.WithdrawalRequest\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"amount\",\n          \"token\",\n          \"user\"\n        ],\n        \"properties\": {\n          \"amount\": {\n            \"type\": \"string\"\n          },\n          \"token\": {\n            \"$ref\": \"#/components/schemas/core.Token\"\n          },\n          \"user\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"core.TokenData\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"decimals\": {\n            \"type\": \"integer\",\n            \"example\": 18\n          },\n          \"token_address\": {\n            \"type\": \"string\"\n          },\n          \"token_id\": {\n            \"type\": \"string\",\n            \"example\": \"200\"\n          }\n        }\n      },\n      \"core.Token\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"data\": {},\n          \"type\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/allof-with-empty-object-property\": post: requestBody: contents: application/json: generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch:  and object"
+}

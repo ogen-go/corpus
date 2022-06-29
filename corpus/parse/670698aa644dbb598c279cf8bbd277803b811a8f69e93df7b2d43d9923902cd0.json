@@ -12,5 +12,5 @@
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://myhost.com/testpath'\ninfo:\n  title: Tests\n  description: Tests\n  version: beta\npaths:\n  pets:\n    get:\n      summary: null\n      description: null\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './Pet.yaml#/Pet'"
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: pets: get: operation \"list\": responses: 200: content: */*: schema: parse schema: resolve \"./Pet.yaml#/Pet\": external \"./Pet.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: paths: pets: get: operation \"list\": parse path \"pets\": path MUST begin with a forward slash"
 }

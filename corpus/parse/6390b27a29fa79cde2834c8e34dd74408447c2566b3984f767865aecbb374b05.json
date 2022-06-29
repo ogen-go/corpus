@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Azure/autorest.typescript"
+		},
+		"file": {
+			"name": "patterntest.yml",
+			"size": 0,
+			"path": "test/integration/swaggers/patterntest.yml",
+			"byteSize": 446,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Data\n  description: Services for general drinkaware data\n  version: 1.0.0\npaths:\n  /:\n    get:\n      operationId: Home\n      summary: Get Home Page\n      responses:\n        \"200\":\n          description: Home page\n          content:\n            text/plain; utf-8:\n              schema:\n                type: string\n                pattern: \"^.*$\"\n                maxLength: 1000\n                example: unauthorized\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"Home\": responses: 200: content: content type \"text/plain; utf-8\": mime: invalid media parameter"
+}

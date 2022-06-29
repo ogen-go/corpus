@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "allof_string_patterns.json",
+			"size": 0,
+			"path": "_testdata/negative/allof_string_patterns.json",
+			"byteSize": 1061,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"operationId\": \"test\",\n        \"description\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"allOf\": [\n                    {\n                      \"type\": \"string\",\n                      \"description\": \"email address\",\n                      \"pattern\": \"^[a-zA-Z0-9.!#$%\u0026'*+\\\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\"\n                    },\n                    {\n                      \"type\": \"string\",\n                      \"description\": \"ip address\",\n                      \"pattern\": \"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}\"\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/test\": get: responses: 200: contents: application/json: generate schema: allOf: pattern: cannot merge different patterns: \"^[a-zA-Z0-9.!#$%\u0026'*+\\\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\" and \"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}\""
+}
