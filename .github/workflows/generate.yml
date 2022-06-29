@@ -4,9 +4,24 @@ on:
   workflow_dispatch:
     inputs:
       version:
+        type: string
         description: 'Version to fetch'
         required: true
         default: 'main'
+      filter:
+        type: string
+        description: 'Additional query filter'
+        required: false
+      yaml:
+        type: boolean
+        description: 'Query YAML schemas'
+        required: false
+        default: true
+      query:
+        type: string
+        description: 'Query to use'
+        required: false
+        default: ''
 
 jobs:
   regenerate-schema:
@@ -39,6 +54,10 @@ jobs:
         id: generate
         env:
           GOPROXY: direct
+          COLLECTOR_FLAGS: >
+            --yaml=${{ github.event.inputs.yaml }}
+            --query=${{ github.event.inputs.query }}
+            --filter=${{ github.event.inputs.filter }}
           VERSION: ${{ github.event.inputs.version }}
         run: |
           make generate
@@ -65,8 +84,8 @@ jobs:
           branch: chore/regenerate-corpus
           delete-branch: true
           add-paths: |
-             ./stats.txt
-             ./corpus
+            ./stats.txt
+            ./corpus
           title: Re-generate corpus
           assignees: tdakkota
           reviewers: tdakkota
