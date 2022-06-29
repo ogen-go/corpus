@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "cyclic_oneOf_double.json",
+			"size": 0,
+			"path": "_testdata/negative/cyclic_oneOf_double.json",
+			"byteSize": 739,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Test\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Test\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Test2\"\n          }\n        ]\n      },\n      \"Test2\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Test\"\n          }\n        ]\n      }\n    }\n  }\n}\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/test\": get: responses: 200: contents: application/json: generate schema: oneOf: oneOf \"#/components/schemas/Test\" [0]: oneOf \"#/components/schemas/Test2\" [0]: reference \"#/components/schemas/Test\" [0] leads to infinite recursion"
+}

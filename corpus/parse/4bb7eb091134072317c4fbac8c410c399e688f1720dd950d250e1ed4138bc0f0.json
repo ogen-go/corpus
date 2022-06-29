@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sanfrecce-osaka/katarina"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "spec/fixtures/openapi.yaml",
+			"byteSize": 2421,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: katarina\npaths:\n  \"/v1/users\":\n    get:\n      summary: 'api/v1/users #index'\n      parameters:\n      responses:\n        '200':\n          description: Response code is 200\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  data:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        id:\n                          type: integer\n                        name:\n                          type: string\n                        retired:\n                          type: boolean\n                  total_pages:\n                    type: integer\n                  current_page:\n                    type: integer\n                  per_page:\n                    type: integer\n              example:\n                data:\n                  - id: 4\n                    name: sanfrecce-osaka\n                    retired: false\n                total_pages: 1\n                current_page: 1\n                per_page: 25\n    post:\n      summary: 'api/v1/users #create'\n      parameters:\n      responses:\n        '204':\n          description: Response code is 204\n          content:\n            '':\n              schema:\n                type: string\n  \"/v1/users/{id}\":\n    get:\n      summary: 'api/v1/users #show'\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Response code is 200\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                  name:\n                    type: string\n                  retired:\n                    type: boolean\n              example:\n                id: 3\n                name: smith1045\n                retired: false\n        '404':\n          description: Response code is 404\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  code:\n                    type: integer\n                  message:\n                    type: string\n              example:\n                code: 404\n                message: Not Found\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /v1/users: post: responses: 204: content: content type \"\": mime: no media type"
+}

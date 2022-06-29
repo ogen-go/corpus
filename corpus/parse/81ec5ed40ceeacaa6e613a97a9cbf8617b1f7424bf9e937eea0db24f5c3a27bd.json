@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/GuillaumeKergreis/ing-fr-unofficial-api"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 1745,
+			"content": "openapi: 3.0.3\ninfo:\n  title: ING FR Unofficial API\n  description: This openapi specification file describe the available endpoints for the ING API.\n    This API is used by the official ING web application to communicate with the ING backend.\n    ING does not provide any support or documentation for this API as it should be only used by their mobile app and their website.\n    This file is the result of a long reverse-engineering work.\n    **Use it at your own risks**.\n  contact:\n    name: Guillaume Kergreis\n    email: guillaume.kergreis@gmail.com\n  version: 1.0.0\n\nservers:\n  - url: 'https://m.ing.fr/secure/api-v1'\n  - url: 'https://m.ing.fr/saveinvestapi/v1'\ntags:\n  - name: login\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/secure/api-v1\n  - name: account\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/secure/api-v1\n  - name: card\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/secure/api-v1\n  - name: customer\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/secure/api-v1\n  - name: save and invest\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/saveinvestapi/v1\n  - name: terms and conditions\n    externalDocs:\n      description: 'Server to use'\n      url: https://m.ing.fr/secure/api-v1\n\npaths:\n  /login/cif?v2=true:\n    post:\n      tags:\n        - login\n      summary: Post the customerId and the birthdate to complete the first authentication step\n      responses:\n        200:\n          description: Login successful\n      operationId: postLogin\n\ncomponents:\n  schemas:\n    Account:\n      type: object\n      properties:\n        uid:\n          type: string\n\n\n"
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /login/cif?v2=true: post: operation \"postLogin\": parse path \"/login/cif?v2=true\": path MUST NOT contain a query string"
+}

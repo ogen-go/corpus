@@ -1,0 +1,16 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdkandersson/OpenAlchemy"
+		},
+		"file": {
+			"name": "example-spec.yml",
+			"size": 0,
+			"path": "examples/relationship/many_to_many/example-spec.yml",
+			"byteSize": 1871,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate Many to Many Relationships.\n  version: \"0.1\"\n\npaths:\n  /project:\n    get:\n      summary: Used to retrieve all projects.\n      responses:\n        200:\n          description: Return all projects from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Project\"\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Project:\n      description: A large sized business objective.\n      type: object\n      x-tablename: project\n      properties:\n        id:\n          type: integer\n          description: Unique identifier for the project.\n          example: 0\n          x-primary-key: true\n        name:\n          type: string\n          description: The name of the project.\n          example: Expand to the USA\n    Employee:\n      description: Person that works for a company.\n      type: object\n      x-tablename: employee\n      properties:\n        id:\n          type: integer\n          description: Unique identifier for the employee.\n          example: 0\n          x-primary-key: true\n        name:\n          type: string\n          description: The name of the employee.\n          example: David Andersson\n        projects:\n          type: array\n          items:\n            allOf:\n              - \"$ref\": \"#/components/schemas/Project\"\n              - x-secondary: employee_project\n          description: The projects the employee is working on.\n"
+		}
+	},
+	"Error": "buildIR: make ir: path \"/employee\": get: responses: 200: contents: application/json: generate schema: item: field projects: item: allOf: schema type mismatch: object and "
+}
