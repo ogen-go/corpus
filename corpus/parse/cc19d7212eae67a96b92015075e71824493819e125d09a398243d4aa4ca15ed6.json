@@ -2,18 +2,18 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/janephp/janephp"
+			"name": "github.com/janephp/open-api-3"
 		},
 		"file": {
 			"name": "swagger.json",
 			"size": 0,
-			"path": "src/Component/OpenApi3/Tests/fixtures/discriminator/swagger.json",
+			"path": "Tests/fixtures/discriminator/swagger.json",
 			"byteSize": 2615,
 			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Pets\",\n        \"version\": \"1.0.0\"\n    },\n    \"paths\": {},\n    \"components\": {\n        \"schemas\": {\n            \"Pet\": {\n                \"type\": \"object\",\n                \"discriminator\": {\n                    \"propertyName\": \"petType\"\n                },\n                \"enum\": [\"Cat\", \"Dog\"],\n                \"properties\": {\n                    \"name\": {\n                        \"type\": \"string\"\n                    },\n                    \"petType\": {\n                        \"type\": \"string\"\n                    }\n                },\n                \"required\": [\n                    \"name\",\n                    \"petType\"\n                ]\n            },\n            \"Cat\": {\n                \"description\": \"A representation of a cat\",\n                \"allOf\": [\n                    {\n                        \"$ref\": \"#/components/schemas/Pet\"\n                    },\n                    {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"huntingSkill\": {\n                                \"type\": \"string\",\n                                \"description\": \"The measured skill for hunting\",\n                                \"default\": \"lazy\",\n                                \"enum\": [\n                                    \"clueless\",\n                                    \"lazy\",\n                                    \"adventurous\",\n                                    \"aggressive\"\n                                ]\n                            }\n                        },\n                        \"required\": [\n                            \"huntingSkill\"\n                        ]\n                    }\n                ]\n            },\n            \"Dog\": {\n                \"description\": \"A representation of a dog\",\n                \"allOf\": [\n                    {\n                        \"$ref\": \"#/components/schemas/Pet\"\n                    },\n                    {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"packSize\": {\n                                \"type\": \"integer\",\n                                \"format\": \"int32\",\n                                \"description\": \"the size of the pack the dog is from\",\n                                \"default\": 0,\n                                \"minimum\": 0\n                            }\n                        },\n                        \"required\": [\n                            \"packSize\"\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n}\n",
-			"canonicalURL": "/github.com/janephp/janephp@3274b67bc6187098181d97579ed9d664f0718d43/-/blob/src/Component/OpenApi3/Tests/fixtures/discriminator/swagger.json",
+			"canonicalURL": "/github.com/janephp/open-api-3@e38eb9ca3830f553d80e71c59032955013fa442e/-/blob/Tests/fixtures/discriminator/swagger.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/janephp/janephp/blob/3274b67bc6187098181d97579ed9d664f0718d43/src/Component/OpenApi3/Tests/fixtures/discriminator/swagger.json",
+					"url": "https://github.com/janephp/open-api-3/blob/e38eb9ca3830f553d80e71c59032955013fa442e/Tests/fixtures/discriminator/swagger.json",
 					"serviceKind": "GITHUB"
 				}
 			]
