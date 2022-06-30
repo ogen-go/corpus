@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/terraform-aws-modules/terraform-aws-apigateway-v2"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/complete-http/api.yaml",
+			"byteSize": 552,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 0.0.1\n  title: My awesome API\n  description: My awesome API\npaths:\n  /debug:\n    get:\n      operationId: getDebug\n      responses:\n        default:\n          description: \"Default response for GET /debug\"\n      x-amazon-apigateway-integration:\n        $ref: '#/components/x-amazon-apigateway-integrations/debug'\n\ncomponents:\n  x-amazon-apigateway-integrations:\n    debug:\n      type: AWS_PROXY\n      httpMethod: GET\n      uri: \"${example_function_arn}\"\n      payloadFormatVersion: \"2.0\"\n      connectionType: INTERNET\n",
+			"canonicalURL": "/github.com/terraform-aws-modules/terraform-aws-apigateway-v2@40809d16337daa5a416f0184841066b536afbe9a/-/blob/examples/complete-http/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/terraform-aws-modules/terraform-aws-apigateway-v2/blob/40809d16337daa5a416f0184841066b536afbe9a/examples/complete-http/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

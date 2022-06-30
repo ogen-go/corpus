@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openvalidation/openvalidation"
+		},
+		"file": {
+			"name": "oapispec.yaml",
+			"size": 0,
+			"path": "openvalidation-cli/src/test/resources/oapispec.yaml",
+			"byteSize": 1376,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Sample\n  version: \"1.0\"\npaths:\n  /simple:\n    post:\n      requestBody:\n        content:\n          application/json:\n            x-ov-rules:\n              name: SimpleRule\n              rule: |\n                WENN der Name IST GLEICH Ilja\n                DANN was für ein Quatsch!\n            schema:\n              $ref: '#/components/schemas/Model'\n      responses:\n        '200':\n          description: successful response\n\n  /second:\n    post:\n      requestBody:\n        content:\n          application/json:\n            x-ov-rules:\n              name: SecondRule2\n              rule: |\n                WENN das Alter des Bewerbers IST KLEINER ALS 18 Jahre\n                DANN mööp!\n            schema:\n              $ref: '#/components/schemas/Model'\n      responses:\n        '200':\n          description: successful response\ncomponents:\n  schemas:\n    Model:\n      properties:\n        Name:\n          type: string\n        Alter:\n          type: number\n        Strasse:\n          type: string\n        Ort:\n          type: string\n        Plz:\n          type: string\n        EMail:\n          type: string\n        Telefonnummer:\n          type: string\n        Kuendigungsfrist:\n          type: number\n        Berufserfahrung:\n          type: number\n        Jahresbruttogehalt:\n          type: number\n        Position:\n          type: string",
+			"canonicalURL": "/github.com/openvalidation/openvalidation@de960b91d8fc09d4271f4d4dae8864346c0600d2/-/blob/openvalidation-cli/src/test/resources/oapispec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openvalidation/openvalidation/blob/de960b91d8fc09d4271f4d4dae8864346c0600d2/openvalidation-cli/src/test/resources/oapispec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse-dataspaceconnector/DataSpaceConnector"
+		},
+		"file": {
+			"name": "contractagreement.yaml",
+			"size": 0,
+			"path": "resources/openapi/yaml/contractagreement.yaml",
+			"byteSize": 1972,
+			"content": "openapi: 3.0.1\npaths:\n  /contractagreements:\n    get:\n      operationId: getAllAgreements\n      parameters:\n      - in: query\n        name: offset\n        schema:\n          type: integer\n          format: int32\n      - in: query\n        name: limit\n        schema:\n          type: integer\n          format: int32\n      - in: query\n        name: filter\n        schema:\n          type: string\n      - in: query\n        name: sort\n        schema:\n          type: string\n          enum:\n          - ASC\n          - DESC\n      - in: query\n        name: sortField\n        schema:\n          type: string\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/ContractAgreementDto'\n          description: default response\n      tags:\n      - Contract Agreement\n  /contractagreements/{id}:\n    get:\n      operationId: getContractAgreement\n      parameters:\n      - in: path\n        name: id\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ContractAgreementDto'\n          description: default response\n      tags:\n      - Contract Agreement\ncomponents:\n  schemas:\n    ContractAgreementDto:\n      type: object\n      properties:\n        assetId:\n          type: string\n        consumerAgentId:\n          type: string\n        contractEndDate:\n          type: integer\n          format: int64\n        contractSigningDate:\n          type: integer\n          format: int64\n        contractStartDate:\n          type: integer\n          format: int64\n        id:\n          type: string\n        policyId:\n          type: string\n        providerAgentId:\n          type: string\n      required:\n      - assetId\n      - consumerAgentId\n      - id\n      - policyId\n      - providerAgentId\n",
+			"canonicalURL": "/github.com/eclipse-dataspaceconnector/DataSpaceConnector@fb4dd6757031c256573696e1c63e9ec98f53eb6f/-/blob/resources/openapi/yaml/contractagreement.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/blob/fb4dd6757031c256573696e1c63e9ec98f53eb6f/resources/openapi/yaml/contractagreement.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

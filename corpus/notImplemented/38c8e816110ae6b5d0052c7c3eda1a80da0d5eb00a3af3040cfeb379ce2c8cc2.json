@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/astrizhachuk/epf-transmitter"
+		},
+		"file": {
+			"name": "transmitter.yml",
+			"size": 0,
+			"path": "api/transmitter.yml",
+			"byteSize": 3545,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Внешние обработки (transmitter)\n  description: |\n    Распределение внешних обработок по информационным базам\n  contact:\n    email: a.strizhachuk@yandex.ru\n  version: 2.0.0\nservers:\n  - url: http://transmitter/api/hs\n    description: develop\ntags:\n  - name: default\n  - name: gitlab\npaths:\n  /version:\n    get:\n      summary: Версия конфигурации\n      operationId: version\n      responses:\n        \"200\":\n          description: Текущая версия\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  version:\n                    type: string\n                    example: 1.0.0\n  /gitlab/status:\n    get:\n      tags:\n        - gitlab\n      summary: Статус функциональности обработки запросов\n      description: |\n        Показывает текущий статус функциональности обработки запросов\n        внешних хранилищ (репозиториев)\n      operationId: status\n      responses:\n        \"200\":\n          description: Текущий статус\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/message\"\n              examples:\n                enabled:\n                  summary: Включено\n                  value:\n                    message: обработка запросов включена\n                disabled:\n                  summary: Отключено\n                  value:\n                    message: обработка запросов отключена\n  /gitlab/events/push:\n    post:\n      tags:\n        - gitlab\n      summary: Событие \"push events\"\n      description: |\n        Обработка запроса GitLab с событием \"push events\"\n      operationId: gitlabPush\n      parameters:\n        - name: X-Gitlab-Event\n          in: header\n          description: X-Gitlab-Event\n          required: true\n          schema:\n            type: string\n            enum:\n              - Push Hook\n      responses:\n        \"200\":\n          description: Успех\n          content: {}\n        \"400\":\n          description: Ошибочный запрос\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/message\"\n        \"401\":\n          description: Аутентификация не пройдена\n          content: {}\n        \"404\":\n          description: Обработчик события не найден\n          content: {}\n        \"423\":\n          description: Функционал отключен\n          content: {}\n        \"500\":\n          description: Ошибка сервера\n          content:\n            text/plain:\n              schema:\n                type: string\n              examples:\n                runtime error:\n                  summary: Ошибка выполнения\n                  value: |\n                    {CommonModule.HTTPConnector.Module(764)}: Ошибка при\n                    вызове метода контекста (ReadJSON)\n      security:\n        - api_key: []\ncomponents:\n  schemas:\n    message:\n      type: object\n      properties:\n        message:\n          type: string\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: X-Gitlab-Token\n      in: header\n",
+			"canonicalURL": "/github.com/astrizhachuk/epf-transmitter@4c0f901d24579e576b47adcec168f5fa3d162ce1/-/blob/api/transmitter.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/astrizhachuk/epf-transmitter/blob/4c0f901d24579e576b47adcec168f5fa3d162ce1/api/transmitter.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/gitlab/events/push\": post: responses: 500: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

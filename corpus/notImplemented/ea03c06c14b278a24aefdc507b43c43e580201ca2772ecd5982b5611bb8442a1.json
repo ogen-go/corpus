@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mosip/documentation"
+		},
+		"file": {
+			"name": "registration-processor-registration-transaction-service-openapi.json",
+			"size": 0,
+			"path": "api/registration-processor-registration-transaction-service-openapi.json",
+			"byteSize": 3376,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Registration Transaction Service API documentation\",\n    \"description\": \"Registration Transaction Service API documentation\",\n    \"license\": {\n      \"name\": \"Mosip\",\n      \"url\": \"https://docs.mosip.io/platform/license\"\n    },\n    \"version\": \"1.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://dev2.mosip.net/registrationprocessor/v1/registrationtransaction\",\n      \"description\": \"Registration Processor URL\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"Registration Status\",\n      \"description\": \"Registration Transaction Controller\"\n    }\n  ],\n  \"paths\": {\n    \"/search/{rid}\": {\n      \"get\": {\n        \"tags\": [\n          \"Registration Status\"\n        ],\n        \"summary\": \"Get the transaction entity/entities\",\n        \"description\": \"Get the transaction entity/entities\",\n        \"operationId\": \"getTransactionsbyRid\",\n        \"parameters\": [\n          {\n            \"name\": \"rid\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Transaction Entity/Entities successfully fetched\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/RegTransactionResponseDTO\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Unable to fetch Transaction Entity/Entities\"\n          },\n          \"401\": {\n            \"description\": \"Unauthorized\"\n          },\n          \"403\": {\n            \"description\": \"Forbidden\"\n          },\n          \"404\": {\n            \"description\": \"Not Found\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"ErrorDTO\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"errorCode\": {\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"RegTransactionResponseDTO\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"version\": {\n            \"type\": \"string\"\n          },\n          \"responsetime\": {\n            \"type\": \"string\"\n          },\n          \"response\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/RegistrationTransactionDto\"\n            }\n          },\n          \"errors\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/ErrorDTO\"\n            }\n          }\n        }\n      },\n      \"RegistrationTransactionDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"registrationId\": {\n            \"type\": \"string\"\n          },\n          \"transactionTypeCode\": {\n            \"type\": \"string\"\n          },\n          \"parentTransactionId\": {\n            \"type\": \"string\"\n          },\n          \"statusCode\": {\n            \"type\": \"string\"\n          },\n          \"subStatusCode\": {\n            \"type\": \"string\"\n          },\n          \"statusComment\": {\n            \"type\": \"string\"\n          },\n          \"createdDateTimes\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/mosip/documentation@80c18e5b360ae9106b6b1bd68f7f81d0dd3952ce/-/blob/api/registration-processor-registration-transaction-service-openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mosip/documentation/blob/80c18e5b360ae9106b6b1bd68f7f81d0dd3952ce/api/registration-processor-registration-transaction-service-openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/search/{rid}\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

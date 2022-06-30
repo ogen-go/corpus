@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/gridsmartercities/python-serverless-template"
+		},
+		"file": {
+			"name": "api-contract.yaml",
+			"size": 0,
+			"path": "api-contract.yaml",
+			"byteSize": 1721,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"0.1\"\n  title: AWS Python Serverless Template API\n  description: An API to produce a simple AWS Python Serverless Template\npaths:\n  /alambda:\n    get:\n      description: gets something\n      responses:\n        \"200\":\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Response\"\n        \"500\":\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Response\"\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ALambda.Arn}/invocations\n        passthroughBehavior: when_no_match\n        httpMethod: POST\n        type: aws_proxy\n  /blambda:\n    get:\n      description: gets something\n      responses:\n        \"200\":\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Response\"\n        \"500\":\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Response\"\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${BLambda.Arn}/invocations\n        passthroughBehavior: when_no_match\n        httpMethod: POST\n        type: aws_proxy\ncomponents:\n  schemas:\n    Response:\n      type: object\n      required:\n        - message\n      properties:\n        message:\n          type: string\n          description: The Error message\n",
+			"canonicalURL": "/github.com/gridsmartercities/python-serverless-template@a9f5d91cd5a83ecf17ca4e5e26f594e963164e20/-/blob/api-contract.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/gridsmartercities/python-serverless-template/blob/a9f5d91cd5a83ecf17ca4e5e26f594e963164e20/api-contract.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "allOf.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/allOf-example/allOf.yaml",
+			"byteSize": 1460,
+			"content": "openapi: 3.0.0\nservers:\n  - url: /subscribed_products/v1.0.1\ninfo:\n  description: \u003e-\n    API to get information on services currently subscribed by a specific user\n    or phone number.\n  version: 1.0.1\n  title: Products API definition for the 4th Platform\n  termsOfService: 'https://www.telefonica.es/es/'\n  contact:\n    name: 4th Platform Team\n    email: 4pf@tid.es\nx-fp-apiPrefix: /subscribed_products\ntags:\n  - name: subscribed_products\n    description: Operations available with products subscribed by a user\npaths:\n  '/users/{user_id}/description':\n    get:\n      operationId: description\n      parameters:\n        - $ref: '#/components/parameters/UserId'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/DescriptionUrl'\ncomponents:\n  parameters:\n    UserId:\n      name: user_id\n      description: Unique identifier of a user\n      in: path\n      required: true\n      schema:\n        type: string\n  schemas:\n    Description:\n      type: object\n      description: Information about de product\n      properties:\n        text:\n          type: string\n    DescriptionUrl:\n      allOf:\n        - type: object\n          required:\n            - url\n          properties:\n            url:\n              type: string\n              description: Url with information or picture of the product\n        - $ref: '#/components/schemas/Description'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/allOf-example/allOf.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/allOf-example/allOf.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Budibase/budibase"
+		},
+		"file": {
+			"name": "crud.yaml",
+			"size": 0,
+			"path": "packages/server/src/api/controllers/query/import/sources/tests/openapi3/data/crud/crud.yaml",
+			"byteSize": 3498,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  description: A basic swagger file\n  version: 1.0.0\n  title: CRUD\nservers:\n  - url: http://example.com\ntags:\n  - name: entity\npaths:\n  \"/entities\":\n    post:\n      tags:\n        - entity\n      operationId: createEntity\n      requestBody:\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/CreateEntity\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Entity\"\n    get:\n      tags:\n        - entity\n      operationId: getEntities\n      parameters:\n        - \"$ref\": \"#/components/parameters/PageParameter\"\n        - \"$ref\": \"#/components/parameters/SizeParameter\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Entities\"\n  \"/entities/{entityId}\":\n    parameters:\n      - \"$ref\": \"#/components/parameters/EntityIdParameter\"\n    get:\n      tags:\n        - entity\n      operationId: getEntity\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Entity\"\n    put:\n      tags:\n        - entity\n      operationId: updateEntity\n      requestBody:\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/Entity\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Entity\"\n    patch:\n      tags:\n        - entity\n      operationId: patchEntity\n      requestBody:\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/Entity\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Entity\"\n    delete:\n      tags:\n        - entity\n      parameters:\n        - \"$ref\": \"#/components/parameters/APIKeyParameter\"\n      operationId: deleteEntity\n      responses:\n        '204':\n          description: successful operation\ncomponents:\n  parameters:\n    EntityIdParameter:\n      schema:\n        type: integer\n        format: int64\n      name: entityId\n      in: path\n      required: true\n    PageParameter:\n      schema:\n        type: integer\n        format: int32\n      name: page\n      in: query\n      required: false\n    SizeParameter:\n      schema:\n        type: integer\n        format: int32\n      name: size\n      in: query\n      required: false\n    APIKeyParameter:\n      schema:\n        type: string\n      name: x-api-key\n      in: header\n      required: false\n  schemas:\n    CreateEntity:\n      type: object\n      properties:\n        name:\n          type: string\n        type:\n          type: string\n      example:\n        name: name\n        type: type\n    Entity:\n      allOf:\n        - type: object\n          properties:\n            id:\n              type: integer\n              format: int64\n        - \"$ref\": \"#/components/schemas/CreateEntity\"\n      example:\n        id: 1\n        name: name\n        type: type\n    Entities:\n      type: array\n      items:\n        \"$ref\": \"#/components/schemas/Entity\"\n",
+			"canonicalURL": "/github.com/Budibase/budibase@00888d4572da3a8ebdf824a9e8e9c1d5a1579611/-/blob/packages/server/src/api/controllers/query/import/sources/tests/openapi3/data/crud/crud.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Budibase/budibase/blob/00888d4572da3a8ebdf824a9e8e9c1d5a1579611/packages/server/src/api/controllers/query/import/sources/tests/openapi3/data/crud/crud.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

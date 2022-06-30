@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SecureIdentityAlliance/osia"
+		},
+		"file": {
+			"name": "uin.yaml",
+			"size": 0,
+			"path": "src/doc/yaml/uin.yaml",
+			"byteSize": 2638,
+			"content": "\n# (c) Secure Identity Alliance\n\nopenapi: 3.0.0\ninfo:\n  description: |\n    The OSIA UIN Interface.\n\n    Change log:\n    \n    - 1.2.0:\n      - Add error structure on 400 errors\n      - Force additionalProperties to false when extension is not allowed\n      - Add transactionId as a parameter (mandatory)\n    - 1.1.0:\n      - Addition of security\n    - 1.0.0: Initial version\n\n  title: OSIA UIN Interface\n  version: 1.2.0\n  license:\n    name: SIA\n    url: \"https://raw.githubusercontent.com/SecureIdentityAlliance/osia/master/LICENSE\"\nservers:\n  - url: https://uin.com/\npaths:\n  /v1/uin:\n    post:\n      description: |\n        Request the generation of a new UIN.\n        The request body should contain a list of attributes and their value, formatted as a json dictionary.\n      operationId: generateUIN\n      security:\n        - BearerAuth: [uin.generate]\n      parameters:\n        - name: transactionId\n          in: query\n          description: The id of the transaction\n          required: true\n          schema:\n            type: string\n      requestBody:\n        description: A set of attributes for the person\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Attributes'\n            example:\n              firstName: John\n              lastName: Doo\n              dateOfBirth: \"1984-11-19\"\n      responses:\n        200:\n          description: UIN is generated\n          content:\n            application/json:\n              schema:\n                type: string\n              example:\n                '\"1235567890\"'\n        400:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n        401:\n          description: Client must be authenticated\n        403:\n          description: Service forbidden\n        500:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n      additionalProperties: false\n    Attributes:\n      type: object\n      additionalProperties:\n        oneOf:\n        - type: string\n        - type: integer\n        - type: number\n        - type: boolean\n      # Or ?:\n      #additionalProperties:\n      #  type: string\n",
+			"canonicalURL": "/github.com/SecureIdentityAlliance/osia@3985bcb9999ca644b07865dd7e1424cd0e47946e/-/blob/src/doc/yaml/uin.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SecureIdentityAlliance/osia/blob/3985bcb9999ca644b07865dd7e1424cd0e47946e/src/doc/yaml/uin.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/uin\": post: requestBody: contents: application/json: generate schema: item: oneOf: oneOf AttributesItem: variant String: no unique fields, unable to parse without discriminator: discriminator inference not implemented",
+	"NotImplemented": [
+		"discriminator inference"
+	]
+}

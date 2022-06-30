@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jamesseanwright/ron-swanson-quotes"
+		},
+		"file": {
+			"name": "schema.json",
+			"size": 0,
+			"path": "src/schema.json",
+			"byteSize": 2710,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Ron Swanson Quotes\",\n        \"version\": \"1.0.0\",\n        \"description\": \"A HTTP API for retrieving Ron Swanson quotes\",\n        \"contact\": {\n            \"name\": \"James Wright\",\n            \"email\": \"james@jamesswright.co.uk\",\n            \"url\": \"https://jamesswright.co.uk\"\n        },\n        \"license\": {\n            \"name\": \"Apache 2.0\",\n            \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n        }\n    },\n    \"servers\": [\n        {\n            \"url\": \"https://ron-swanson-quotes.herokuapp.com/v2\"\n        }\n    ],\n    \"paths\": {\n        \"/quotes\": {\n            \"get\": {\n                \"description\": \"Returns a single Ron Swanson quote wrapped in an array\",\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        },\n        \"/quotes/{count}\": {\n            \"get\": {\n                \"description\": \"Returns {count} quotes in an array\",\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                },\n                \"parameters\": [\n                    {\n                        \"name\": \"count\",\n                        \"in\": \"path\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"type\": \"integer\"\n                        }\n                    }\n                ]\n            }\n        },\n        \"/quotes/search/{term}\": {\n            \"get\": {\n                \"description\": \"Returns an array of quotes matching {term} without case sensitivity\",\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                },\n                \"parameters\": [\n                    {\n                        \"name\": \"term\",\n                        \"in\": \"path\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"type\": \"string\"\n                        }\n                    }\n                ]\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"OK\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"array\",\n                            \"items\": {\n                                \"type\": \"string\"\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/jamesseanwright/ron-swanson-quotes@7930e2636589d8b22a3f504027623e0c7e285ef4/-/blob/src/schema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jamesseanwright/ron-swanson-quotes/blob/7930e2636589d8b22a3f504027623e0c7e285ef4/src/schema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

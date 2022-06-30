@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-router"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/test/resources/config/openapi.yaml",
+			"byteSize": 1361,
+			"content": "openapi: 3.0.0\nservers:\n  - url: http://test.lightapi.net\ninfo:\n  contact:\n    name: Steve Hu\n    url: www.networknt.com/example\n    email: stevehu@gmail.com\n  version: v1_0_0\n  description: Test API\n  title: TEST API\npaths:\n  /v1/address/{id}:\n    get:\n      description: Returns an address.\n      operationId: getAddressById\n      security:\n        - test_auth:\n            - api.r\n      parameters:\n        - in: path\n          name: id\n          description: The address id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Success\n  /v2/address:\n    get:\n      description: Returns address list.\n      operationId: getAddress\n      security:\n        - test_auth:\n            - api.r\n      responses:\n        '200':\n          description: Success\n  /v1/contact:\n    post:\n      description: Update contact\n      operationId: postContact\n      security:\n        - test_auth:\n            - api.r\n      responses:\n        '200':\n          description: Success\ncomponents:\n  securitySchemes:\n    test_auth:\n      type: oauth2\n      description: This API uses OAuth 2.0 with the client credential grant flow.\n      flows:\n        clientCredentials:\n          tokenUrl: https://localhost:6882/token\n          scopes:\n            api.r: read information\n            api.w: write information\n",
+			"canonicalURL": "/github.com/networknt/light-router@9618e590cb89de34599d1f4191cef9e42494a508/-/blob/src/test/resources/config/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-router/blob/9618e590cb89de34599d1f4191cef9e42494a508/src/test/resources/config/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/address/{id}\": get: security: security \"test_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

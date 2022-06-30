@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/link-it/govway"
+		},
+		"file": {
+			"name": "parser2.yaml",
+			"size": 0,
+			"path": "tools/utils/src/org/openspcoop2/utils/openapi/parser2.yaml",
+			"byteSize": 3242,
+			"content": "openapi: 3.0.3\nservers:\n  - url: http://petstore.swagger.io/api\n    description: esempio\n\ninfo:\n  x-api-id: https://esempioId\n  title: Document Retrieve\n  x-summary: Servizio demo che consente di comprendere le varie modalità di scambio degli allegati\n  description: Servizio demo che consente di comprendere le varie modalità di scambio degli allegati\n  version: \"0.1\"\n  contact:\n    email: info@link.it\n  license:\n    name: GPL v3.0\n    url: 'https://www.gnu.org/licenses/gpl-3.0.txt'\n\ntags:\n  - name: discriminator\n    description: test su discriminator  \n    \npaths:\n   \n  /pets:\n    patch:\n      tags:\n       - discriminator\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pet4'\n      responses:\n        '200':\n          description: Updated\n          \ncomponents:\n        \n  schemas:\n\n      \n    # NotRequired\n    Pet4:\n      type: object\n      required:\n         - altro\n         - pet\n      properties:\n        altro:\n          type: string\n        pet:\n          type: object\n          oneOf:\n            - $ref: '#/components/schemas/Dog4'\n            - $ref: '#/components/schemas/Cat4'\n          discriminator:\n            propertyName: pet_type\n            mapping:\n              'dog': '#/components/schemas/Dog4'\n              'cat': '#/components/schemas/Cat4'\n              \n    Dog4:\n      type: object\n      required:\n        - bark\n        - breed\n        - pet_type\n      properties:\n        bark:\n          type: boolean\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd] \n        pet_type: \n           type: string\n      additionalProperties: false\n    Cat4:\n      type: object\n      required:\n        - hunts\n        - age\n      properties:\n        pet_type: \n          type: string\n        hunts:\n          type: boolean\n        age:\n          type: integer\n      additionalProperties: false\n            \n    # Struttura corretta in allOf+properties\n    Pet5:\n      type: object\n      required:\n         - altro\n         - pet\n      properties:\n        altro:\n          type: string\n        pet:\n          type: object\n          oneOf:\n            - $ref: '#/components/schemas/Dog5'\n            - $ref: '#/components/schemas/Cat5'\n          discriminator:\n            propertyName: pet_type5\n            mapping:\n              'dog': '#/components/schemas/Dog5'\n              'cat': '#/components/schemas/Cat5'\n    Dog5Base:\n      type: object\n      required:\n        - bark\n        - breed\n      properties: \n        bark:\n          type: boolean\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd]\n      additionalProperties: false\n    Dog5:\n      allOf:\n        - $ref: '#/components/schemas/Dog5Base'\n        - type: object\n          required:\n           - pet_type5\n          properties:\n            pet_type5: \n              type: string\n          additionalProperties: false\n    Cat5:\n      type: object\n      required:\n        - pet_type5\n        - hunts\n        - age\n      properties:\n        pet_type5: \n          type: string\n        hunts:\n          type: boolean\n        age:\n          type: integer\n      additionalProperties: false\n    \n      ",
+			"canonicalURL": "/github.com/link-it/govway@a2e75d237ade3c36c8967adef1b6f57ca28ca6e8/-/blob/tools/utils/src/org/openspcoop2/utils/openapi/parser2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/link-it/govway/blob/a2e75d237ade3c36c8967adef1b6f57ca28ca6e8/tools/utils/src/org/openspcoop2/utils/openapi/parser2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

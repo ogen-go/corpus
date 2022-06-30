@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/interzoid.com/getcurrencyrate/1.0.0/openapi.yaml",
+			"byteSize": 2769,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.interzoid.com\ninfo:\n  contact:\n    email: support@interzoid.com\n    name: API Support\n    url: https://www.interzoid.com\n    x-twitter: interzoid\n  description: This API retrieves the latest currency exchange rate, against the US Dollar, for the given three-letter international currency code. These currency rates are compiled from many global sources and are updated several times per day.\n  license:\n    name: Interzoid license\n    url: https://www.interzoid.com/license\n  termsOfService: https://www.interzoid.com/terms\n  title: Interzoid Get Currency Rate API\n  version: 1.0.0\n  x-apisguru-categories:\n    - developer_tools\n  x-logo:\n    url: https://twitter.com/interzoid/profile_image?size=original\n  x-origin:\n    - format: openapi\n      url: https://oas.interzoid.com/api/getcurrencyrate.json\n      version: \"3.0\"\n  x-providerName: interzoid.com\n  x-serviceName: getcurrencyrate\nexternalDocs:\n  description: API home page and documentation\n  url: https://www.interzoid.com/services/getcurrencyrate\npaths:\n  /getcurrencyrate:\n    get:\n      description: Use a currency symbol (EUR, GBP, CNY, JPY, AUD, etc.) to obtain a live currency foreign exchange rate for one US Dollar. See the API home page for list of all supported currencies.\n      operationId: getcurrencyrate\n      parameters:\n        - description: Your Interzoid license API key. Register at www.interzoid.com/register\n          in: query\n          name: license\n          required: true\n          schema:\n            type: string\n        - description: Currency symbol to retrieve current rate for\n          in: query\n          name: symbol\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                properties:\n                  Code:\n                    type: string\n                  Country:\n                    type: string\n                  Credits:\n                    type: string\n                  Name:\n                    type: string\n                  Rate:\n                    type: string\n                  Symbol:\n                    type: string\n                type: object\n          description: Currency rate data to one US Dollar\n        \"400\":\n          description: bad request - insufficient parameters\n        \"402\":\n          description: credits exhausted\n        \"403\":\n          description: invalid license API key\n        \"404\":\n          description: currency symbol not found\n        \"405\":\n          description: method not allowed\n        \"500\":\n          description: internal server error\n      summary: Gets a foreign currency rate for one US Dollar\n      tags:\n        - Currency Rates\n",
+			"canonicalURL": "/github.com/APIs-guru/openapi-directory@47bf2b618e492e31bc62743e9f72c47cb8460229/-/blob/APIs/interzoid.com/getcurrencyrate/1.0.0/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/APIs-guru/openapi-directory/blob/47bf2b618e492e31bc62743e9f72c47cb8460229/APIs/interzoid.com/getcurrencyrate/1.0.0/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

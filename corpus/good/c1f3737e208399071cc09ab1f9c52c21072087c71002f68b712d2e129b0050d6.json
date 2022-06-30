@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "comms.yaml",
+			"size": 0,
+			"path": "examples/comms/comms.yaml",
+			"byteSize": 1636,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Comms\n  version: 1.0.0\npaths:\n  \"/comms\":\n    post:\n      description: Send New Comm\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/SendComm\"\n      responses:\n        '200':\n          description: Newly created comm\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Comm\"\n  \"/comms/{id}\":\n    get:\n      description: Retrieve Comm\n      parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: Comm found\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Comm\"\n        '404':\n          description: No comm has been found\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    SendComm:\n      type: object\n      additionalProperties: false\n      properties:\n        email:\n          type: string\n      required:\n        - email\n    Comm:\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          type: integer\n        commId:\n          type: string\n        status:\n          enum: [\"Pending\", \"Delivered\", \"Failed\"]\n      required:\n        - id\n        - commId\n        - status\n    Error:\n      additionalProperties: false\n      type: object\n      properties:\n        message:\n          type: string\n      required:\n        - message\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/examples/comms/comms.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/examples/comms/comms.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

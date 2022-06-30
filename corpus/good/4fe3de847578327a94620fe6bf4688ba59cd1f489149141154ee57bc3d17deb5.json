@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/muonsoft/openapi-mock"
+		},
+		"file": {
+			"name": "persons.yaml",
+			"size": 0,
+			"path": "examples/persons.yaml",
+			"byteSize": 1834,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Persons API example\n  license:\n    name: MIT\nservers:\n  - url: http://example.com/api\npaths:\n  /persons:\n    get:\n      summary: List all persons\n      operationId: listPersons\n      tags:\n        - persons\n      responses:\n        200:\n          description: An paged array of persons\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Persons\"\n  /persons/{personId}:\n    get:\n      summary: Info for a specific person\n      operationId: showPersonById\n      tags:\n        - persons\n      parameters:\n        - name: personId\n          in: path\n          required: true\n          description: The id of the person to retrieve\n          schema:\n            type: string\n      responses:\n        200:\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Person\"\ncomponents:\n  schemas:\n    Person:\n      required:\n        - id\n        - email\n        - name\n        - salary\n        - birthDate\n      properties:\n        id:\n          type: string\n          format: uuid\n        email:\n          type: string\n          format: email\n        name:\n          type: string\n          maxLength: 20\n        salary:\n          type: number\n          format: float\n          minimum: 100\n          maximum: 1000000\n        birthDate:\n          type: string\n          format: date\n        tags:\n          type: array\n          minItems: 1\n          maxItems: 3\n          uniqueItems: true\n          items:\n            type: string\n            enum:\n              - manager\n              - admin\n              - programmer\n    Persons:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Person\"\n",
+			"canonicalURL": "/github.com/muonsoft/openapi-mock@3bbb09841436604d2b655105a64f983474962f47/-/blob/examples/persons.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/muonsoft/openapi-mock/blob/3bbb09841436604d2b655105a64f983474962f47/examples/persons.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

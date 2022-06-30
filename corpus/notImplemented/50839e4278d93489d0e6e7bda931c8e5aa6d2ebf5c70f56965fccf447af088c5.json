@@ -1,0 +1,21 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/openapi-to-postmanv2"
+		},
+		"file": {
+			"name": "compositeSchemaSpec.yaml",
+			"size": 0,
+			"path": "test/data/validationData/compositeSchemaSpec.yaml",
+			"byteSize": 1884,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets/anyOf:\n    post:\n      summary: composite schema with anyOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/anyOfExample\"\n      responses:\n        default:\n          description: ok\n  /pets/oneOf:\n    post:\n      summary: composite schema with oneOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/oneOfExample\"\n      responses:\n        default:\n          description: ok\n  /pets/allOf:\n    post:\n      summary: composite schema with allOf keyword\n      requestBody:\n        content:\n          application/json:    \n            schema:\n              $ref: \"#/components/schemas/allOfExample\"\n      responses:\n        default:\n          description: ok\ncomponents:\n  schemas:\n    anyOfExample:\n      anyOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema2\"\n    oneOfExample:\n      oneOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema3\"\n    allOfExample:\n      allOf:\n        - $ref: \"#/components/schemas/schema1\"\n        - $ref: \"#/components/schemas/schema3\"\n    schema1:\n      type: object\n      required:\n        - objectType\n      properties:\n        objectType:\n          type: integer\n          example: 4321\n    schema2:\n      type: object\n      required:\n        - objectType\n      properties:\n        objectType:\n          type: string\n          example: prop named objectType\n    schema3:\n      type: object\n      required:\n        - objectType2\n      properties:\n        objectType2:\n          type: string\n          example: prop named objectType2\n",
+			"canonicalURL": "/npm/openapi-to-postmanv2@8662e530a1fe4e843e6779d4e062197c292df425/-/blob/test/data/validationData/compositeSchemaSpec.yaml",
+			"externalURLs": []
+		}
+	},
+	"Error": "notImplemented: path \"/pets/anyOf\": post: requestBody: contents: application/json: generate schema: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

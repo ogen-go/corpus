@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oxidecomputer/dropshot"
+		},
+		"file": {
+			"name": "test_pagination_schema.json",
+			"size": 0,
+			"path": "dropshot/tests/test_pagination_schema.json",
+			"byteSize": 3470,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"test\",\n    \"description\": \"gusty winds may exist\",\n    \"termsOfService\": \"no hat, no cane? no service!\",\n    \"contact\": {\n      \"name\": \"old mate\"\n    },\n    \"license\": {\n      \"name\": \"CDDL\"\n    },\n    \"version\": \"1985.7\"\n  },\n  \"paths\": {\n    \"/super_pages\": {\n      \"get\": {\n        \"operationId\": \"handler\",\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"garbage_goes_in\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/GarbageGoesIn\"\n            },\n            \"style\": \"form\"\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"limit\",\n            \"description\": \"Maximum number of items returned by a single call\",\n            \"schema\": {\n              \"nullable\": true,\n              \"type\": \"integer\",\n              \"format\": \"uint32\",\n              \"minimum\": 1\n            },\n            \"style\": \"form\"\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"page_token\",\n            \"description\": \"Token returned by previous call to retrieve the subsequent page\",\n            \"schema\": {\n              \"nullable\": true,\n              \"type\": \"string\"\n            },\n            \"style\": \"form\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ResponseItemResultsPage\"\n                }\n              }\n            }\n          },\n          \"4XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          },\n          \"5XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          }\n        },\n        \"x-dropshot-pagination\": true\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"Error\": {\n        \"description\": \"Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Error\": {\n        \"description\": \"Error information from a response.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"error_code\": {\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          },\n          \"request_id\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"message\",\n          \"request_id\"\n        ]\n      },\n      \"ResponseItem\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"word\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"word\"\n        ]\n      },\n      \"ResponseItemResultsPage\": {\n        \"description\": \"A single page of results\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"items\": {\n            \"description\": \"list of items on this page of results\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/ResponseItem\"\n            }\n          },\n          \"next_page\": {\n            \"nullable\": true,\n            \"description\": \"token used to fetch the next page of results (if any)\",\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"items\"\n        ]\n      },\n      \"GarbageGoesIn\": {\n        \"type\": \"string\",\n        \"enum\": [\n          \"garbage-can\"\n        ]\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/oxidecomputer/dropshot@25b85d73571277ad2862904ad0be25dc00a4f86a/-/blob/dropshot/tests/test_pagination_schema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oxidecomputer/dropshot/blob/25b85d73571277ad2862904ad0be25dc00a4f86a/dropshot/tests/test_pagination_schema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/super_pages\": get: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern"
+	]
+}

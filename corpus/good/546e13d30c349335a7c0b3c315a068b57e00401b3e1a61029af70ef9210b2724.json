@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/opticdev/optic"
+		},
+		"file": {
+			"name": "circular-references.yaml",
+			"size": 0,
+			"path": "projects/openapi-io/inputs/openapi3-with-references/circular-references.yaml",
+			"byteSize": 899,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Recursive Example\n  description: \u003e-\n    Documentation of services\n  version: '1.0'\npaths:\n  /api/example:\n    get:\n      summary: Get example\n      description: example\n      operationId: GetExample\n      responses:\n        '200':\n          description: Successful operation\n          headers: {}\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/CircularExample'\n\n      deprecated: false\ncomponents:\n  schemas:\n    CircularExample:\n      title: CircularExample\n      type: object\n      properties:\n        name:\n          type: string\n          description: name of the example\n        id:\n          type: string\n          description: identifier of the example\n        circular_property:\n          type: object\n          additionalProperties:\n            $ref: '#/components/schemas/CircularExample'\n",
+			"canonicalURL": "/github.com/opticdev/optic@2b0b58095283c6f5d2c3b974d50441e3df453736/-/blob/projects/openapi-io/inputs/openapi3-with-references/circular-references.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/opticdev/optic/blob/2b0b58095283c6f5d2c3b974d50441e3df453736/projects/openapi-io/inputs/openapi3-with-references/circular-references.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

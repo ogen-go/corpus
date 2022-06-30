@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "extensions.parsing.expected.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/extensions.parsing.expected.json",
+			"byteSize": 1812,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/ext\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"text/plain\": {\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"callbacks\": {\n          \"extendedCallback\": {\n            \"http://localhost:8080/resources/ext-callback\": {\n              \"get\": {\n                \"summary\": \"Get results\",\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"successful operation\",\n                    \"content\": {\n                      \"application/json\": {\n                        \"schema\": {\n                          \"type\": \"array\",\n                          \"items\": {\n                            \"type\": \"string\"\n                          }\n                        }\n                      }\n                    }\n                  }\n                },\n                \"x-object\": {\n                  \"key\": \"value\"\n                },\n                \"x-object-unparsed\": \"{ \\\"key\\\":\\\"value\\\" }\",\n                \"x-array\": [\n                  \"val1\",\n                  \"val2\"\n                ],\n                \"x-booltrue\": true,\n                \"x-boolfalse\": false,\n                \"x-number\": 42,\n                \"x-number-sci\": 4.2E56,\n                \"x-positive-number-remains-string\": \"+42\",\n                \"x-negative-number\": -42,\n                \"x-unparsable-number\": \"-Not.A.Number\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/extensions.parsing.expected.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/extensions.parsing.expected.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ext\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

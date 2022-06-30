@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Gi60s/openapi-enforcer"
+		},
+		"file": {
+			"name": "cyclic_reference.yaml",
+			"size": 0,
+			"path": "test-resources/issue-39/cyclic_reference.yaml",
+			"byteSize": 1169,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Cyclic Reference Test\n  description: \u003e\n    Demonstrate an Open API document using a JSON Schema that contains a type\n    with a cyclic reference.\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0\n  version: 0.0.1\npaths:\n  /cyclic_reference:\n    get:\n      responses:\n        200:\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ElementOrCollection'\ncomponents:\n  schemas:\n    Common:\n      type: object\n      properties:\n        tag:\n          type: string\n          enum: [ red, blue, green ]\n    Element:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/Common'\n    Collection:\n      allOf:\n        - type: object\n          properties:\n            elements:\n              type: array\n              items:\n                $ref: '#/components/schemas/ElementOrCollection'\n          required: [ elements ]\n        - $ref: '#/components/schemas/Common'\n    ElementOrCollection:\n      oneOf:\n        - $ref: '#/components/schemas/Element'\n        - $ref: '#/components/schemas/Collection'\n",
+			"canonicalURL": "/github.com/Gi60s/openapi-enforcer@82b58ad19f2dfc037b525b9b07d62da5a4828656/-/blob/test-resources/issue-39/cyclic_reference.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Gi60s/openapi-enforcer/blob/82b58ad19f2dfc037b525b9b07d62da5a4828656/test-resources/issue-39/cyclic_reference.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

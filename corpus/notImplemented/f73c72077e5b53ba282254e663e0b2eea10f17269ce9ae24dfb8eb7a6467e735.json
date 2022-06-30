@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app126.json",
+			"size": 0,
+			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app126.json",
+			"byteSize": 2475,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"summary\": \"getAllCurrencies\",\n        \"description\": \"Get all currencies\",\n        \"operationId\": \"getAllCurrencies\",\n        \"responses\": {\n          \"401\": {\n            \"$ref\": \"#/components/responses/http401NoToken\"\n          },\n          \"403\": {\n            \"$ref\": \"#/components/responses/http403\"\n          },\n          \"200\": {\n            \"description\": \"All currencies returned\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Problem\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"instance\": {\n            \"type\": \"string\",\n            \"format\": \"uri\"\n          },\n          \"type\": {\n            \"type\": \"string\",\n            \"format\": \"uri\"\n          },\n          \"parameters\": {\n            \"type\": \"object\",\n            \"additionalProperties\": {\n              \"type\": \"object\"\n            }\n          },\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"status\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"detail\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"responses\": {\n      \"http401NoToken\": {\n        \"description\": \"Invalid authentication.\",\n        \"content\": {\n          \"application/problem+json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Problem\"\n            }\n          }\n        }\n      },\n      \"http401BadToken\": {\n        \"description\": \"Invalid authentication.\",\n        \"content\": {\n          \"application/problem+json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Problem\"\n            }\n          }\n        }\n      },\n      \"http403\": {\n        \"description\": \"Missing authorities.\",\n        \"content\": {\n          \"application/problem+json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Problem\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app126.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app126.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

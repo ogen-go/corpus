@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anitechcs/microservices-reference-application"
+		},
+		"file": {
+			"name": "rating-openapi-spec.yml",
+			"size": 0,
+			"path": "rating-openapi-spec.yml",
+			"byteSize": 2775,
+			"content": "openapi: 3.0.2\ninfo:\n  title: RatingService API Specification\n  description: 'This API server exposes required endpoints for managing book ratings in Microservices reference application.'\n  termsOfService: https://www.anitechcs.com/terms-condition/\n  contact:\n    email: contact@anitechcs.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: v1.0.0\nexternalDocs:\n  description: Find out more about Microservices reference application\n  url: https://github.com/anitechcs/microservices-reference-application\nservers:\n  - url: 'https://mra-bookstore.tk/v1'\n    description: Rating Service production server\ntags:\n- name: Rating-Service\n  description: Rating service enpoints required for Microservices reference application\ncomponents:\n  schemas:\n    Rating:\n      type: object\n      properties:\n        rating:\n          description: Average rating\n          type: number\n          format: float\n          maximum: 5\n          example: 4.5\n        ratingCount:\n          description: Total number of rating count\n          type: integer\n          format: int64\n          example: 350\n    RatingSuccessResponse:\n      type: object\n      properties:\n        statusCode:\n          type: integer\n          format: int32\n        message:\n          type: string\n        ratings:\n          $ref: '#/components/schemas/Rating'\n    RatingErrorResponse:\n      type: object\n      properties:\n        statusCode:\n          description: Non zero error code\n          type: integer\n          format: int32\n        message:\n          description: Error message\n          type: string\npaths:\n  /rating/{bookId}:\n    description: Rating service\n    get:\n      tags:\n        - Rating-Service\n      description: Returns ratings for a particulat book\n      operationId: getBookRatings\n      parameters:\n      - name: bookId\n        in: path\n        description: Id of book to return ratings\n        required: true\n        schema:\n          type: integer\n          format: int64\n      responses:\n        200:\n          description: Success response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RatingSuccessResponse'\n        400:\n          description: Client error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RatingErrorResponse'\n        404:\n          description: No records found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RatingErrorResponse'\n        500:\n          description: Server error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RatingErrorResponse'\n\n",
+			"canonicalURL": "/github.com/anitechcs/microservices-reference-application@dec89c32025e93fb3ffbb56b9dbf7488c2b797ed/-/blob/rating-openapi-spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anitechcs/microservices-reference-application/blob/dec89c32025e93fb3ffbb56b9dbf7488c2b797ed/rating-openapi-spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

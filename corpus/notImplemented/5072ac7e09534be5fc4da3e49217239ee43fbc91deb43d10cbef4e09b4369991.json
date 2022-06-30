@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mockoon/mockoon"
+		},
+		"file": {
+			"name": "reference.json",
+			"size": 0,
+			"path": "packages/desktop/test/data/res/export-openapi/reference.json",
+			"byteSize": 3383,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": { \"title\": \"Demo users API V2\", \"version\": \"1.0.0\" },\n  \"servers\": [{ \"url\": \"https://localhost:3000/v2\" }],\n  \"paths\": {\n    \"/users\": {\n      \"get\": {\n        \"description\": \"Get all users\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": { \"text/plain\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              },\n              \"Route-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"route-header\"\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"description\": \"Create a user\",\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Success\",\n            \"content\": { \"application/json\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Missing data\",\n            \"content\": { \"application/json\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/users/{id}\": {\n      \"get\": {\n        \"description\": \"Get a user\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Get userId 2\",\n            \"content\": { \"application/json\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              }\n            }\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"schema\": { \"type\": \"string\" },\n            \"required\": true\n          }\n        ]\n      },\n      \"delete\": {\n        \"description\": \"Delete a user\",\n        \"responses\": {\n          \"204\": {\n            \"description\": \"User deleted\",\n            \"content\": { \"application/json\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              }\n            }\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"schema\": { \"type\": \"string\" },\n            \"required\": true\n          }\n        ]\n      }\n    },\n    \"/users/{id}/status/{status}\": {\n      \"put\": {\n        \"description\": \"Set user status\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": { \"application/json\": {} },\n            \"headers\": {\n              \"Global-Header\": {\n                \"schema\": { \"type\": \"string\" },\n                \"example\": \"global-header\"\n              }\n            }\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"schema\": { \"type\": \"string\" },\n            \"required\": true\n          },\n          {\n            \"name\": \"status\",\n            \"in\": \"path\",\n            \"schema\": { \"type\": \"string\" },\n            \"required\": true\n          }\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/mockoon/mockoon@5ca800127f758e5abdd1778fa8de65288ffc6dd7/-/blob/packages/desktop/test/data/res/export-openapi/reference.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mockoon/mockoon/blob/5ca800127f758e5abdd1778fa8de65288ffc6dd7/packages/desktop/test/data/res/export-openapi/reference.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/users\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"empty schema",
+		"unsupported content types"
+	]
+}

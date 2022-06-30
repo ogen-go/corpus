@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dogbin/dogbin"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "documents/openapi.yml",
+			"byteSize": 3250,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Dogbin API\n  description: ''\n  contact:\n    email: dogbin@deletescape.ch\n  license:\n    name: MIT\n    url: https://github.com/dogbin/dogbin/blob/master/LICENSE\n  version: 1.0.0\nservers:\n  - url: https://del.dog/api/v1\ntags:\n  - name: auth\n    description: Authentication\n  - name: docs\n    description: Documents\npaths:\n  /auth/login:\n    post:\n      tags:\n        - auth\n      summary: Login with an existing user\n      operationId: login\n      requestBody:\n        description: Pet object that needs to be added to the store\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/LoginRequest'\n        required: true\n      responses:\n        401:\n          description: Username or password incorrect\n          content: {}\n        200:\n          description: Succesfully signed in\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/LoginResponse'\n  /auth/logout:\n    post:\n      tags:\n        - auth\n      summary: Sign out (Delete session)\n      operationId: logout\n      parameters:\n        - name: key\n          schema:\n            type: string\n            example: c6g37GHLadXI90lOb22O5136zvODZIDf7jcUk5Jw\n          description: The api key of the session\n          in: query\n      responses:\n        200:\n          description: Successfully signed out\n          content: {}\n  /docs:\n    get:\n      tags:\n        - docs\n      summary: Lists all documents of the authenticated user (given the `list` permission has been requested and granted)\n      responses:\n        200:\n          description: List of all documents\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/DocumentList'\n        401:\n          description: Api key missing, session ended, or not enough permissions\n      security:\n        - api_key: []\ncomponents:\n  schemas:\n    LoginRequest:\n      type: object\n      properties:\n        username:\n          type: string\n          example: user\n        password:\n          type: string\n          example: password\n        permissions:\n          type: array\n          items:\n            type: string\n            enum:\n              - create\n              - update\n              - delete\n              - list\n        application:\n          type: string\n          description: A human readable application name\n          example: dogbin Android\n      required: [username, password, permissions]\n    LoginResponse:\n      type: object\n      properties:\n        username:\n          type: string\n          example: user\n        key:\n          type: string\n          example: c6g37GHLadXI90lOb22O5136zvODZIDf7jcUk5Jw\n          description: API key for the user, to be used in X-Api-Key header\n    DocumentList:\n      type: array\n      items:\n        type: object\n        properties:\n          slug:\n            type: string\n          created:\n            type: string\n            format: date-time\n          link:\n            type: string\n          type:\n            type: string\n            enum:\n              - url\n              - paste\n\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: X-Api-Key\n      in: header",
+			"canonicalURL": "/github.com/dogbin/dogbin@ab9db4a8751e9b870a02a3867899c0f67fe50c9a/-/blob/documents/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dogbin/dogbin/blob/ab9db4a8751e9b870a02a3867899c0f67fe50c9a/documents/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "escape_identifier_02.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/escape_identifier_02.yaml",
+			"byteSize": 3030,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Limit\n  version: 0.0.0\nservers:\n  - url: \"{server}:{port}/limit\"\n    variables:\n      server:\n        default: http://localhost\n      port:\n        default: \"9090\"\npaths:\n  /steps/from/date:\n    get:\n      summary: Query parameter\n      operationId: getStepsFromDate\n      parameters:\n        - name: limit\n          in: query\n          description: QParameter Description\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n        \"500\":\n          description: Found unexpected output\n          content:\n            text/plain:\n              schema:\n                type: string\n  /steps/{join}:\n    get:\n      summary: Header parameter\n      operationId: getStepsJoin\n      parameters:\n        - name: join\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n        - name: limit\n          in: header\n          description: HParameter Description\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n        \"500\":\n          description: Found unexpected output\n          content:\n            text/plain:\n              schema:\n                type: string\n  /steps:\n    post:\n      operationId: postSteps\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Offset'\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n        \"500\":\n          description: Found unexpected output\n          content:\n            text/plain:\n              schema:\n                type: string\n  /พิมพ์ชื่อ:\n    get:\n      operationId: getพิมพ์ชื่อ\n      parameters:\n        - name: ชื่อ\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        \"202\":\n          description: Accepted\n    put:\n      operationId: putพิมพ์ชื่อ\n      parameters:\n        - name: ชื่อ\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        \"202\":\n          description: Accepted\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - type\n      type: object\n      properties:\n        type:\n          type: string\n        id:\n          type: integer\n          format: int64\n    Offset:\n      required:\n        - id\n        - join\n        - type\n      type: object\n      properties:\n        type:\n          type: string\n          description: pet type\n        id:\n          type: integer\n          format: int64\n        join:\n          $ref: '#/components/schemas/Pet'\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/escape_identifier_02.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/escape_identifier_02.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/steps\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"crypticName",
+		"unsupported content types"
+	]
+}

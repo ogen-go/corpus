@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/epam/covid-resistance-back-end"
+		},
+		"file": {
+			"name": "maintenance_endpoints.yaml",
+			"size": 0,
+			"path": "deployment/open-api/maintenance_endpoints.yaml",
+			"byteSize": 2715,
+			"content": "openapi: 3.0.6\ninfo:\n  title: Maintenance endpoints\n  version: v1\n  description: Available API's.\npaths:\n  /admin/login:\n    parameters:\n      - $ref: '#/components/parameters/correlationId'\n    post:\n      tags:\n        - Admin\n      summary: Logins the user for administrative purposes.  \n      description: Logins the user for administrative purposes.\n      operationId: \"adminLogin\"      \n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/LoginRequest'\n      responses:\n        '200':\n          description: Login is successful.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TokenResponse'\n  /admin/generateHealthSecurityIds:\n    parameters:\n      - $ref: '#/components/parameters/correlationId'\n    post:\n      tags:\n        - Admin\n      summary: Generates health security ids. \n      description: Called when an admin wants to generate new validity codes for doctor registration.\n      operationId: \"generateHealthSecurityIds\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/GenerateDoctorCodesRequest'\n      responses:\n        '200':\n          description: Security codes are created.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SecurityCodesList'\ncomponents:\n  parameters:\n    correlationId:\n      in: header\n      name: X-Correlation-Id\n      schema:\n        type: string\n  schemas:\n    LoginRequest:\n      type: object\n      properties:\n        username:\n          type: string\n          example: \"Username\"\n        password:\n          type: string\n          example: \"Password\"\n      required:\n        - username\n        - password\n    Token:\n      type: object\n      properties:\n        accessToken: \n          type: string\n        refreshToken:\n          type: string\n        expiresIn:\n          type: integer\n          format: int32\n    TokenResponse:\n      type: object\n      properties:\n        token:\n          $ref: '#/components/schemas/Token'\n    GenerateDoctorCodesRequest:\n      type: object\n      properties:\n        numberOfCodes:\n          type: integer\n          example: 1\n        codeLength:\n          type: integer\n          format: int32\n          example: 8\n        comment:\n          type: string\n          example: \"Doctors for XXX hospital.\"\n      required:\n        - numberOfCodes\n        - codeLength\n    SecurityCodesList:\n      type: object\n      properties:\n        healthSecurityIds:\n          type: array\n          items:\n            type: string\n            example: \"UCS265DA\"",
+			"canonicalURL": "/github.com/epam/covid-resistance-back-end@4a28ec3456eb0df6469732cb59fde443f15df432/-/blob/deployment/open-api/maintenance_endpoints.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/epam/covid-resistance-back-end/blob/4a28ec3456eb0df6469732cb59fde443f15df432/deployment/open-api/maintenance_endpoints.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

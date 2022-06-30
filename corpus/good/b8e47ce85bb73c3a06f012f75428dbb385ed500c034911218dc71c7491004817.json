@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ec-jrc/re3gistry"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "sources/Re3gistry2RestAPI/openapi.yaml",
+			"byteSize": 1518,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Re3gistry 2 API\n  description: \"The Re3gistry 2 API provides access to the items contained in the registry system.\"\n  version: 2.0.0\nservers:\n- url: https://example-url.eu/registry\ntags:\n- name: Get registry resources\npaths:\n  /rest:\n    get:\n      tags:\n      - Get registry resources\n      description: \"Retrieve the Registry Register or item whith the specified URI,\\\n        \\ language and in the specified format. \\n\"\n      parameters:\n      - name: uri\n        in: query\n        description: The uniform resource identifier of the item.\n        required: true\n        schema:\n          type: string\n      - name: language\n        in: query\n        description: The language of the item specified as 2 character code.\n        schema:\n          type: string\n          default: en\n      - name: format\n        in: query\n        description: The format of the response.\n        schema:\n          type: string\n          default: json\n          enum:\n          - json\n          - iso19135xml\n      responses:\n        200:\n          description: An object describing the item, and list of contained item (if\n            any).\n          content: {}\n        404:\n          description: The item with the requested URI is not available.\n          content: {}\n        406:\n          description: The request is not acceptable. Parameter(s) missing or not\n            valid.\n          content: {}\n        500:\n          description: An error has occurred at server level.\n          content: {}\n",
+			"canonicalURL": "/github.com/ec-jrc/re3gistry@ba4effb5a0e479695656fd689a4f2bb92f2f97bd/-/blob/sources/Re3gistry2RestAPI/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ec-jrc/re3gistry/blob/ba4effb5a0e479695656fd689a4f2bb92f2f97bd/sources/Re3gistry2RestAPI/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

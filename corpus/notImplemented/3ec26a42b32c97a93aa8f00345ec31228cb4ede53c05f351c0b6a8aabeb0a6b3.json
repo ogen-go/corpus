@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "resource.testRequestBodyComponentGeneration.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/resource.testRequestBodyComponentGeneration.json",
+			"byteSize": 2580,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Test Request Body\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/requestbodies/impl\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/DifferentObject\"\n              }\n            }\n          },\n          \"required\": true\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Created\"\n          }\n        }\n      }\n    },\n    \"/requestbodies/ref\": {\n      \"post\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/test\"\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Created\"\n          }\n        }\n      }\n    },\n    \"/requestbodies/any\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"*/*\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/SomeObject\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Created\"\n          }\n        }\n      }\n    },\n    \"/requestbodies/defaults\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/SomeObject\"\n              }\n            }\n          },\n          \"required\": true\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Created\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"DifferentObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"differentName\": {\n            \"type\": \"string\"\n          },\n          \"myId\" : {\n            \"$ref\" : \"#/components/schemas/UUID\"\n          }\n        }\n      },\n      \"SomeObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"someName\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"UUID\" : {\n        \"format\" : \"uuid\",\n        \"title\" : \"UUID\",\n        \"description\" : \"Universally Unique Identifier\",\n        \"pattern\" : \"^[a-f0-9]{8}-?[a-f0-9]{4}-?[1-5][a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$\",\n        \"type\" : \"string\",\n        \"example\" : \"de8681db-b4d6-4c47-a428-4b959c1c8e9a\"\n      }\n    },\n    \"requestBodies\": {\n      \"test\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/DifferentObject\"\n            }\n          }\n        },\n        \"required\": true\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/resource.testRequestBodyComponentGeneration.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/resource.testRequestBodyComponentGeneration.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/requestbodies/any\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

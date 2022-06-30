@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bundesAPI/risikogebiete-api"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 1654,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  description: \"Aktuelle Corona Risikogebietsinformationen als API\"\n  version: \"1.0.0\"\n  title: \"Robert Koch Institut: Corona Risikogebiete API\"\n\nservers:\n  - url: 'https://api.einreiseanmeldung.de/reisendenportal'\n\npaths:\n  /risikogebiete:\n    get:\n      description: Liste aller Länder mit Risikoeinstufung\n      summary: Liste der Länder\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RiskCountries'\n\ncomponents:\n  schemas:\n    RiskCountries: \n      type: array\n      items: \n        type: object\n        properties: \n          longName: \n            type: string\n            example: Königreich Kambodscha\n          riskClass: \n            type: string\n            nullable: true\n          regions: \n            type: array\n            items: \n              type: object\n              properties:\n                name:\n                  type: string\n                  example: Französisch-Guayana / French Guiana\n                type:\n                  type: string\n                  example: Überseegebiete / overseas territories\n                riskClass:\n                  type: string\n                  example: Hochinzidenzgebiet / high incidence area\n          createdAt: \n            type: string\n            example: 2021-07-26T22:00:08.412961\n          updatedAt: \n            type: string\n            example: 2021-07-26T22:00:08.412961\n          id: \n            type: string\n            example: KH\n          name: \n            type: string\n            example: Kambodscha / Cambodia\n",
+			"canonicalURL": "/github.com/bundesAPI/risikogebiete-api@ed699c6d4b54446679dd37a3247bb15b12b7dad8/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bundesAPI/risikogebiete-api/blob/ed699c6d4b54446679dd37a3247bb15b12b7dad8/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

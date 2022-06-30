@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/EMResearch/EvoMaster"
+		},
+		"file": {
+			"name": "openapi-headerobject.json",
+			"size": 0,
+			"path": "e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-headerobject.json",
+			"byteSize": 1219,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:8080\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/api/headerobject\": {\n      \"get\": {\n        \"tags\": [\n          \"header-object-rest\"\n        ],\n        \"operationId\": \"get\",\n        \"parameters\": [\n          {\n            \"name\": \"token\",\n            \"in\": \"header\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Token\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Token\": {\n        \"required\": [\n          \"counter\",\n          \"x\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"counter\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"x\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/EMResearch/EvoMaster@cbb92f7799ea2c7adf345e7d496c5a48cda1a6d1/-/blob/e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-headerobject.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/EMResearch/EvoMaster/blob/cbb92f7799ea2c7adf345e7d496c5a48cda1a6d1/e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-headerobject.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/headerobject\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

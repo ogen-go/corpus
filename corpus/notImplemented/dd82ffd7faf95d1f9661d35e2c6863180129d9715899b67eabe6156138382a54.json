@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-example-4j"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "rest/access-control/src/main/resources/config/openapi.yaml",
+			"byteSize": 2615,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: \"1.0.0\"\n  title: \"OpenAPI Account\"\n  license:\n    name: \"MIT\"\nservers:\n- url: \"http://account.lightapi.net\"\npaths:\n  /accounts:\n    get:\n      summary: \"List all accounts\"\n      operationId: \"listAccounts\"\n      x-request-access:\n        rule: \"account-cc-group-role-auth\"\n        roles: \"manager teller customer\"\n      security:\n      - account_auth:\n        - \"account.r\"\n      responses:\n        \"200\":\n          description: \"An paged array of accounts\"\n          content:\n            application/json:\n              schema:\n                type: \"array\"\n                items:\n                  $ref: \"#/components/schemas/Account\"\n              example:\n              - num: 521112392\n                owner: \"stevehu\"\n                type: \"checking\"\n                firstName: \"Steve\"\n                lastName: \"Hu\"\n                sinNumber: 123456789\n                status: \"open\"\n              - num: 521112321\n                owner: \"stevehu\"\n                type: \"investment\"\n                firstName: \"Steve\"\n                lastName: \"Hu\"\n                sinNumber: 123456789\n                status: \"open\"\n              - num: 521999128\n                owner: \"stevehu\"\n                type: \"saving\"\n                firstName: \"Steve\"\n                lastName: \"Hu\"\n                sinNumber: 123456789\n                status: \"closed\"\n    post:\n      summary: \"Create an account\"\n      operationId: \"createAccount\"\n      requestBody:\n        description: \"Open a new account\"\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Account\"\n      security:\n      - account_auth:\n        - \"account.w\"\n      responses:\n        \"201\":\n          description: \"Null response\"\ncomponents:\n  securitySchemes:\n    account_auth:\n      type: \"oauth2\"\n      description: \"This API uses OAuth 2 with the client credential grant flow.\"\n      flows:\n        clientCredentials:\n          tokenUrl: \"https://localhost:6882/token\"\n          scopes:\n            account.w: \"update\"\n            account.r: \"query\"\n  schemas:\n    Account:\n      type: \"object\"\n      required:\n      - \"num\"\n      - \"name\"\n      - \"type\"\n      - \"firstName\"\n      - \"lastName\"\n      - \"sinNumber\"\n      - \"status\"\n      properties:\n        num:\n          type: \"string\"\n        name:\n          type: \"string\"\n        type:\n          type: \"string\"\n        firstName:\n          type: \"string\"\n        lastName:\n          type: \"string\"\n        sinNumber:\n          type: \"string\"\n        status:\n          type: \"string\"\n",
+			"canonicalURL": "/github.com/networknt/light-example-4j@74513c019570e65623b80c1cadc1423e7a18807a/-/blob/rest/access-control/src/main/resources/config/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-example-4j/blob/74513c019570e65623b80c1cadc1423e7a18807a/rest/access-control/src/main/resources/config/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/accounts\": get: security: security \"account_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/making/spring-socks"
+		},
+		"file": {
+			"name": "doc.yml",
+			"size": 0,
+			"path": "payment-spec/openapi/doc.yml",
+			"byteSize": 1879,
+			"content": "servers:\n  - description: Local\n    url: 'http://localhost:5002'\n  - url: 'https://sock-payment.apps.pcfone.io'\n    description: PCF One\n  - url: 'https://sock-payment.apps.cf.maki.lol'\n    description: CF for K8s\ncomponents:\n  schemas:\n    AuthorizationRequest:\n      type: object\n      x-tags:\n        - Payment\n      properties:\n        amount:\n          type: number\n          description: Payment amount\n    AuthorizationResponse:\n      type: object\n      x-tags:\n        - Payment\n      properties:\n        authorization:\n          $ref: '#/components/schemas/Authorization'\n    Authorization:\n      type: object\n      x-tags:\n        - Payment\n      properties:\n        authorised:\n          description: Flag specifying whether the payment was authorized\n          type: boolean\n        message:\n          description: Approval or rejection message\n          type: string\ninfo:\n  description: Payment API\n  license:\n    name: Apache 2.0\n  title: 'Spring Sock Shop: Payment API'\n  version: 0.1.0-SNAPSHOT\nopenapi: 3.0.1\npaths:\n  /paymentAuth:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AuthorizationRequest'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuthorizationResponse'\n          description: OK\n        '400':\n          description: Bad Request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuthorizationResponse'\n        '409':\n          description: Conflict\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuthorizationResponse'\n      summary: Authorize a payment\n      tags:\n        - Payment\n      operationId: authorize-payment\n",
+			"canonicalURL": "/github.com/making/spring-socks@20ea1d0fa5e6e3bc34a399d8693600ebe7f50607/-/blob/payment-spec/openapi/doc.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/making/spring-socks/blob/20ea1d0fa5e6e3bc34a399d8693600ebe7f50607/payment-spec/openapi/doc.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

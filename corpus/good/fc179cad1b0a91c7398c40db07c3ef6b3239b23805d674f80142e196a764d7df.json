@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hopeit-git/hopeit.engine"
+		},
+		"file": {
+			"name": "openpai.json",
+			"size": 0,
+			"path": "apps/tutorials/02-open-api/api/openpai.json",
+			"byteSize": 2677,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"version\": \"1.0.1\",\n    \"title\": \"Sample endpoint\",\n    \"description\": \"sample-endpoint app with OpenAPI validation and API docs\"\n  },\n  \"paths\": {\n    \"/api/my-app/1x0/sample-endpoint\": {\n      \"get\": {\n        \"description\": \"API: sample-endpoint\\n--------------\\nSame as first app sample-endpoint now with Open API.\\n\\nThis endpoint adds the capability of json-schema validation and API docs.\\n[CommonMark syntax](http://spec.commonmark.org/)  MAY be used for rich text\\nrepresentation.\",\n        \"parameters\": [\n          {\n            \"name\": \"payload\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"description\": \"provide a 'string' to create 'MyObject'\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"number\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"description\": \"number to be added to the 'length' of the payload of MyObject\",\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          },\n          {\n            \"name\": \"X-Track-Request-Id\",\n            \"in\": \"header\",\n            \"required\": false,\n            \"description\": \"Track information: Request-Id\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"X-Track-Request-Ts\",\n            \"in\": \"header\",\n            \"required\": false,\n            \"description\": \"Track information: Request-Ts\",\n            \"schema\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"MyObject where name is the received string uppercased and number its length\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/MyObject\"\n                }\n              }\n            }\n          }\n        },\n        \"tags\": [\n          \"my_app.1x0\"\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"text\",\n          \"length\"\n        ],\n        \"properties\": {\n          \"text\": {\n            \"type\": \"string\"\n          },\n          \"length\": {\n            \"type\": \"integer\"\n          }\n        },\n        \"description\": \"MyObject(text: str, length: int)\"\n      }\n    },\n    \"securitySchemes\": {\n      \"auth.basic\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"auth.bearer\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\"\n      }\n    }\n  },\n  \"security\": []\n}",
+			"canonicalURL": "/github.com/hopeit-git/hopeit.engine@9a4f737dc14a1ad2e9e8bd5704be8430e5849d44/-/blob/apps/tutorials/02-open-api/api/openpai.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hopeit-git/hopeit.engine/blob/9a4f737dc14a1ad2e9e8bd5704be8430e5849d44/apps/tutorials/02-open-api/api/openpai.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

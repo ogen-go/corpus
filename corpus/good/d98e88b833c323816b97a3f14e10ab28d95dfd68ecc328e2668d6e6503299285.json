@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_11897.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/bugs/issue_11897.yaml",
+			"byteSize": 3265,
+			"content": "openapi: 3.0.1\ninfo:\n  title: metadata-svc\n  description: Metadata Service\n  contact:\n    name: Test Svc\n    email: xyz@xyz.com\n  version: 3.1.2\nservers:\n- url: https://localhost:8080/\ntags:\n- name: metadata\n  description: APIs to get metadata.\npaths:\n  /v1/array-of-string:\n    get:\n      tags:\n      - metadata\n      summary: Get groups.\n      description: Get the list of groups for this example.\n      operationId: getWithArrayOfString\n      responses:\n        200:\n          description: List of groups.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n  /v1/array-of-objects:\n    get:\n      tags:\n      - metadata\n      summary: Get groups.\n      description: Get the list of groups for this example.\n      operationId: getWithArrayOfObjects\n      responses:\n        200:\n          description: List of groups.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/TestResponse'\n  /v1/set-of-strings:\n    get:\n      tags:\n      - metadata\n      summary: Get groups.\n      description: Get the set of strings for this example.\n      operationId: getWithSetOfStrings\n      responses:\n        200:\n          description: Set of strings.\n          content:\n            application/json:\n              schema:\n                type: array\n                uniqueItems: true\n                items:\n                  type: string\n  /v1/set-of-objects:\n    get:\n      tags:\n        - metadata\n      summary: Get groups.\n      description: Get the set of groups for this example.\n      operationId: getWithSetOfObjects\n      responses:\n        200:\n          description: Set of groups.\n          content:\n            application/json:\n              schema:\n                type: array\n                uniqueItems: true\n                items:\n                  $ref: '#/components/schemas/TestResponse'\n  /v1/map-of-strings:\n    get:\n      tags:\n      - metadata\n      summary: Get groups.\n      description: Get the map of strings for this example.\n      operationId: getWithMapOfStrings\n      responses:\n        200:\n          description: Map of strings.\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  type: string\n                type: object\n  /v1/map-of-objects:\n    get:\n      tags:\n        - metadata\n      summary: Get groups.\n      description: Get the map of groups for this example.\n      operationId: getWithMapOfObjects\n      responses:\n        200:\n          description: Map of groups.\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  $ref: '#/components/schemas/TestResponse'\n                type: object\ncomponents:\n  schemas:\n    TestResponse:\n      title: TestResponse\n      required:\n      - enabled\n      type: object\n      properties:\n        enabled:\n          type: boolean\n          description: Default value is false.\n          example: false\n      description: Object\n  securitySchemes:\n    bearerAuth:\n      type: apiKey\n      name: Authorization\n      in: header\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/bugs/issue_11897.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/bugs/issue_11897.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

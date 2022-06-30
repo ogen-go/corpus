@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/po3rin/go_playground"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "colab6/server/api/openapi.yaml",
+			"byteSize": 1184,
+			"content": "openapi: 3.0.2\ninfo:\n  title: userapi\n  version: 1.0.0\nservers:\n- description: development\n  url: http://localhost:8080\npaths:\n  /users:\n    get:\n      description: Userをすべて取得する\n      operationId: getUsers\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Users'\n          description: Userの配列\ncomponents:\n  responses:\n    Users:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Users'\n      description: Userの配列\n  schemas:\n    Users:\n      example:\n        users:\n        - name: po3rin\n          id: 1\n        - name: po3rin\n          id: 1\n      properties:\n        users:\n          items:\n            $ref: '#/components/schemas/UserProperties'\n          type: array\n      required:\n      - users\n      type: object\n    UserProperties:\n      example:\n        name: po3rin\n        id: 1\n      properties:\n        id:\n          example: 1\n          format: int32\n          type: integer\n        name:\n          example: po3rin\n          type: string\n      required:\n      - id\n      - name\n      type: object\n",
+			"canonicalURL": "/github.com/po3rin/go_playground@d5f711b230385333ee562be83c9c02c68373481d/-/blob/colab6/server/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/po3rin/go_playground/blob/d5f711b230385333ee562be83c9c02c68373481d/colab6/server/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

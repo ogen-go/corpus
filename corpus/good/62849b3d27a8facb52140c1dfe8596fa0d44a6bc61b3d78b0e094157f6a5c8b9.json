@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "example-with-nested-refs.yaml",
+			"size": 0,
+			"path": "docs/specs/example-with-nested-refs.yaml",
+			"byteSize": 1338,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Providing example in nested refs\n  version: '1.0'\npaths:\n  /nested-refs-with-example:\n    get:\n      summary: List Bank Accounts\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ListBankAccountsResponse'\ncomponents:\n  schemas:\n    EditableBankAccountParams:\n      properties:\n        name:\n          type: string\n        type:\n          type: string\n    ReadOnlyBankAccountParams:\n      properties:\n        url:\n          type: string\n          readOnly: true\n        current_balance:\n          type: number\n          readOnly: true\n    BankAccount:\n      title: BankAccount\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/EditableBankAccountParams'\n        - $ref: '#/components/schemas/ReadOnlyBankAccountParams'\n      example:\n        name: 'account-name'\n        type: StandardBankAccount\n        url: 'https://api.freeagent.com/v2/bank_accounts/4093'\n        current_balance: 28742\n    ListBankAccountsResponse:\n      title: ListBankAccountsResponse\n      type: object\n      properties:\n        bank_accounts:\n          type: array\n          items:\n            $ref: '#/components/schemas/BankAccount'\ntags:\n  - name: Person\n    description: Person Datatype",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/example-with-nested-refs.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/example-with-nested-refs.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

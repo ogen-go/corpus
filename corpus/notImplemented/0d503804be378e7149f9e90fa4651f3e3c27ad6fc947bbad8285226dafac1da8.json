@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.uuid-params-responses.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.uuid-params-responses.json",
+			"byteSize": 1715,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/uuid\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"val\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/UUID\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/WrappedUUID\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"text/plain\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/UUID\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/UUID\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"WrappedUUID\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"theUUID\": {\n            \"allOf\": [\n              {\n                \"$ref\": \"#/components/schemas/UUID\"\n              },\n              {\n                \"description\": \"test\"\n              }\n            ]\n          }\n        }\n      },\n      \"UUID\": {\n        \"type\": \"string\",\n        \"format\": \"uuid\",\n        \"pattern\": \"[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.uuid-params-responses.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.uuid-params-responses.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/uuid\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "ServerOperationResource.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/operation/ServerOperationResource.yaml",
+			"byteSize": 1511,
+			"content": "openapi: 3.0.1\nservers:\n- url: http://foo\n  description: server 1\n  variables: {}\npaths:\n  /serversoperation:\n    get:\n      description: Pets Example\n      operationId: Pets\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Pet'\n      servers:\n      - url: http://foo2\n        description: server 2\n        variables: {}\ncomponents:\n  schemas:\n    Category:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n      xml:\n        name: Category\n    Tag:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n      xml:\n        name: Tag\n    Pet:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        category:\n          $ref: '#/components/schemas/Category'\n        name:\n          type: string\n        photoUrls:\n          type: array\n          xml:\n            wrapped: true\n          items:\n            type: string\n            xml:\n              name: photoUrl\n        tags:\n          type: array\n          xml:\n            wrapped: true\n          items:\n            $ref: '#/components/schemas/Tag'\n        status:\n          type: string\n          description: pet status in the store\n          enum:\n          - available,pending,sold\n      xml:\n        name: Pet\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/operation/ServerOperationResource.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/petstore/operation/ServerOperationResource.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/serversoperation\": get: responses: default: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NCATS-Tangerine/translator-api-registry"
+		},
+		"file": {
+			"name": "smartapi.yaml",
+			"size": 0,
+			"path": "automat-covid-phenotypes/smartapi.yaml",
+			"byteSize": 2285,
+			"content": "openapi: 3.0.0\ninfo:\n  contact:\n    email: help@renci.org\n    name: Chris B.\n  description: Scibite\n  termsOfService: https://automat.renci.org\n  title: Automat covid-phenotypes API\n  version: '2.0'\nservers:\n- description: Production server\n  url: curl -X GET \"https://automat.renci.org/covid-phenotypes\ntags:\n- name: phenotype\n- name: disease\n- name: automat\n- name: translator\npaths:\n  /disease/phenotype/{mondo}:\n    get:\n      parameters:\n      - description: Put MONDO ID here, e.g. \"MONDO:0100096\"\n        example: \"MONDO:0100096\"\n        in: path\n        name: mondo\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: An association object\n      summary: disease2phenotype\n      x-bte-kgs-operations:\n      - $ref: '#/components/x-bte-kgs-operations/disease2phenotype'\n      tags: \n        - disease\n  /phenotypic_feature/disease/{hp}:\n    get:\n      parameters:\n      - description: Put HPO ID here, e.g. \"HP:0002027\"\n        example: \"HP:0002027\"\n        in: path\n        name: hp\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: An association object\n      summary: phenotype2disease\n      x-bte-kgs-operations:\n      - $ref: '#/components/x-bte-kgs-operations/phenotype2disease'\n      tags:\n        - phenotype\ncomponents:\n  x-bte-kgs-operations:\n    disease2phenotype:\n    - inputs:\n      - id: MONDO\n        semantic: Disease\n      outputs:\n      - id: HP\n        semantic: PhenotypicFeature\n      parameters:\n        chebi: '{inputs[0]}'\n      predicate: has_phenotype\n      response_mapping:\n        $ref: '#/components/x-bte-response-mapping/disease2phenotype'\n      source: covid_phenotypes_csv\n      supportBatch: false\n    phenotype2disease:\n    - inputs:\n      - id: HP\n        semantic: PhenotypicFeature\n      outputs:\n      - id: MONDO\n        semantic: Disease\n      parameters:\n        chebi: '{inputs[0]}'\n      predicate: related_to\n      response_mapping:\n        $ref: '#/components/x-bte-response-mapping/phenotype2disease'\n      source: covid_phenotypes_csv\n      supportBatch: false\n  x-bte-response-mapping:\n    disease2phenotype:\n      HP: associated_with.hp\n    phenotype2disease:\n      MONDO: associated_with.mondo\n",
+			"canonicalURL": "/github.com/NCATS-Tangerine/translator-api-registry@5925bba6420fb77fa3e54d9258970431e340e092/-/blob/automat-covid-phenotypes/smartapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NCATS-Tangerine/translator-api-registry/blob/5925bba6420fb77fa3e54d9258970431e340e092/automat-covid-phenotypes/smartapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

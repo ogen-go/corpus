@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudtrust/keycloak-bridge"
+		},
+		"file": {
+			"name": "swagger-api_communcations.yaml",
+			"size": 0,
+			"path": "api/communications/swagger-api_communcations.yaml",
+			"byteSize": 2958,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Cloudtrust Communications\n  description: 'Communications API for Cloudtrust'\n  version: 1.0.0\nservers:\n- url: http://localhost:8888/communications\ntags:\n- name: Email\n  description: Send Emails\n- name: SMS\n  description: Send SMS\npaths:\n  /actions:\n    get:\n      tags:\n      - Actions\n      summary: Get the list of all possible actions\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Actions'\n  /realms/{realm}/send-mail:\n    post:\n      tags:\n      - Email\n      summary: Send an email to a user\n      parameters:\n      - name: realm\n        in: path\n        description: realm name (not id!)\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EmailRepresentation'\n      responses:\n        200:\n          description: successful operation\n  /realms/{realm}/send-sms:\n    post:\n      tags:\n      - SMS\n      summary: Send SMS to the user\n      parameters:\n      - name: realm\n        in: path\n        description: realm name (not id!)\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SMSRepresentation'\n      responses:\n        200:\n          description: successful operation\n\ncomponents:\n  schemas:\n    Actions:\n      type: object\n      properties:\n        name:\n          type: string\n        scope:\n          type: string\n    EmailRepresentation:\n      type: object\n      properties:\n        recipient:\n          type: string\n        theming:\n          type: object\n          properties:\n            subjectKey:\n              type: string\n            subjectParameters:\n              type: array\n              items:\n                type: string\n            template:\n              type: string\n            templateParameters:\n              type: object\n            locale:\n              type: string\n        attachments:\n          type: object\n          properties:\n            filename:\n              type: string\n            contentType:\n              type: string\n            content:\n              type: string\n    SMSRepresentation:\n      type: object\n      properties:\n        msisdn:\n          type: string\n        theming:\n          type: object\n          properties:\n            messageKey:\n              type: string\n            messageParameters:\n              type: array\n              items:\n                type: string\n            locale:\n              type: string\n  securitySchemes:\n    openId:\n      type: openIdConnect\n      openIdConnectUrl: http://toto.com/.well-known/openid-configuration\nsecurity:\n  - openId:\n    - todo",
+			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@9ba93092766b60c67c76b3432b8df605e4f7d8a7/-/blob/api/communications/swagger-api_communcations.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/9ba93092766b60c67c76b3432b8df605e4f7d8a7/api/communications/swagger-api_communcations.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/actions\": get: security: security \"openId\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

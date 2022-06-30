@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zaproxy/zap-extensions"
+		},
+		"file": {
+			"name": "openapi_path_servers.yaml",
+			"size": 0,
+			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/converter/swagger/openapi_path_servers.yaml",
+			"byteSize": 780,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Paths with servers\n  version: 1.0.0\nservers:\n  - url: http://server0.localhost/\npaths:\n  /path/without/servers:\n    get:\n      operationId: path/without/servers\n      responses:\n        default:\n          description:\n          content:\n            text/plain: {}\n  /path/with/server:\n    servers:\n      - url: http://server1.localhost/\n    get:\n      operationId: path/with/server\n      responses:\n        default:\n          description:\n          content:\n            text/plain: {}\n  /path/with/servers:\n    servers:\n      - url: http://server2.localhost/v1/\n      - url: http://server3.localhost/\n    get:\n      operationId: path/with/servers\n      responses:\n        default:\n          description:\n          content:\n            text/plain: {}\n",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@e9a7bcc56b8a383668a755ccdca1be18aa99052e/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/converter/swagger/openapi_path_servers.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zaproxy/zap-extensions/blob/e9a7bcc56b8a383668a755ccdca1be18aa99052e/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/converter/swagger/openapi_path_servers.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/path/with/servers\": get: responses: default: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

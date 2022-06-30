@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "extensible-enums-swagger.json",
+			"size": 0,
+			"path": "_testdata/positive/autorest/extensible-enums-swagger.json",
+			"byteSize": 3094,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:3000/\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"2016-07-07\",\n    \"title\": \"PetStore Inc\",\n    \"description\": \"PetStore\"\n  },\n  \"paths\": {\n    \"/extensibleenums/pet/{petId}\": {\n      \"get\": {\n        \"operationId\": \"Pet_GetByPetId\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/petid\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/extensibleenums/pet/addPet\": {\n      \"post\": {\n        \"operationId\": \"Pet_AddPet\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"x-ms-requestBody-name\": \"petParam\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"DaysOfWeek\": {\n            \"type\": \"string\",\n            \"description\": \"Type of Pet\",\n            \"enum\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\"],\n            \"x-ms-enum\": {\n              \"name\": \"DaysOfWeekExtensibleEnum\",\n              \"modelAsString\": true\n            },\n            \"default\": \"Friday\"\n          },\n          \"IntEnum\": {\n            \"type\": \"string\",\n            \"description\": \"\",\n            \"enum\": [\"1\", \"2\", \"3\"],\n            \"x-ms-enum\": {\n              \"modelAsString\": true,\n              \"name\": \"IntEnum\",\n              \"values\": [\n                {\n                  \"value\": \"1\",\n                  \"description\": \"one\",\n                  \"name\": \"1\",\n                  \"allowedValues\": [\"1.1\", \"1.2\", \"1.3\"]\n                },\n                {\n                  \"value\": \"2\",\n                  \"description\": \"two\",\n                  \"name\": \"2\",\n                  \"allowedValues\": [\"2.1\", \"2.2\"]\n                },\n                {\n                  \"value\": \"3\",\n                  \"description\": \"three\",\n                  \"name\": \"3\",\n                  \"allowedValues\": [\"3.1\", \"3.3\"]\n                }\n              ]\n            }\n          }\n        },\n        \"required\": [\"IntEnum\"]\n      }\n    },\n    \"parameters\": {\n      \"petid\": {\n        \"name\": \"petId\",\n        \"in\": \"path\",\n        \"required\": true,\n        \"description\": \"Pet id\",\n        \"x-ms-parameter-location\": \"method\",\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@c32616b6ac950daeea1ef813fadd242a139e147a/-/blob/_testdata/positive/autorest/extensible-enums-swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/c32616b6ac950daeea1ef813fadd242a139e147a/_testdata/positive/autorest/extensible-enums-swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

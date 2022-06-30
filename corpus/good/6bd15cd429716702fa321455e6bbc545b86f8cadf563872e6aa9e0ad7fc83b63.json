@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hasadna/open-bus"
+		},
+		"file": {
+			"name": "rest_api.yml",
+			"size": 0,
+			"path": "web_app/rest_api.yml",
+			"byteSize": 2691,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Open-Bus Back-End\n  description: 'API documentation for the back-end of open-bus'\n  version: 1.0.0\n  \nexternalDocs:\n  description: open-bus at GitHub\n  url: https://github.com/hasadna/open-bus\n  \ntags:\n- name: transport\n  description: \"Case 1: Investigation of a specific case\"\n- name: routeStats\n  description: \"Case 2: Investigation of a route or a few routes in specified time ranges\"\n  \npaths:\n  /transport:\n    get:\n      tags:\n      - transport\n      summary: Finds transport by route ID and origin aimed departure time\n      description: \"\"\n      operationId: findTransport1\n      parameters:\n      - name: \"routeId\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"number\"\n      - name: \"originAimedDepartureTime\"\n        in: \"query\"\n        required: true\n        schema:\n          type: \"string\"\n          format: \"date-time\"\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Trip'\ncomponents:\n  schemas:\n    Point:\n      required:\n      - lat\n      - lon\n      type: object\n      properties:\n        lat:\n          type: number\n        lon:\n          type: number\n\n    Trip:\n      required:\n      - name\n      - photoUrls\n      type: object\n      properties:\n        tripId:\n          type: integer\n          format: int64\n        routeId:\n          type: integer\n          format: int64\n        routeShortName:\n          type: string\n        routeLongName:\n          type: string\n        agencyName:\n          type: string\n          format: int64\n        routeType:\n          type: integer \n          description: GTFS route type\n        stops:\n          type: array\n          items:\n            $ref: '#/components/schemas/Stop'\n        startZone:\n          type: string\n          example: השומרון\n        endZone:\n          type: string\n          example: סובב חיפה\n        isLoop:\n          type: boolean\n        distance:\n          type: number\n          description: \"Distance from the start point, probably in meters\"\n        duration:\n          type: number\n          description: \"Trip duration, in hours\"\n        speed:\n          type: number\n          description: \"Average speed, in km/h\"\n        shape:\n          type: array\n          items:\n            $ref: '#/components/schemas/Point'\n    Stop:\n      required:\n      - stopCode\n      - stopName\n      - stopLocation\n      type: object\n      properties:\n        stopCode:\n          type: number\n        stopName:\n          type: string\n        stopLocation:\n          $ref: '#/components/schemas/Point'\n",
+			"canonicalURL": "/github.com/hasadna/open-bus@1e972a43ca5141bf42f0662d2e21196fa8ff8438/-/blob/web_app/rest_api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hasadna/open-bus/blob/1e972a43ca5141bf42f0662d2e21196fa8ff8438/web_app/rest_api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

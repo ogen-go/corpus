@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cnizzardini/cakephp-swagger-bake"
+		},
+		"file": {
+			"name": "swagger-with-generic-collection.yml",
+			"size": 0,
+			"path": "tests/test_app/config/swagger-with-generic-collection.yml",
+			"byteSize": 3058,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Bakery\n  license:\n    name: MIT\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\nx-swagger-bake:\n  components:\n    schemas:\n      Generic-Collection:\n        type: object\n        x-data-element: data # property or node that contains the collections items (records)\n        properties:\n          collection: # sample of a property holding pagination data\n            type: object\n            properties:\n              url:\n                type: string\n                format: url\n                example: /index\n              count:\n                type: integer\n                example: 20\n              total:\n                type: integer\n                example: 200\n              pages:\n                type: integer\n                example: 10\n              next:\n                type: string\n                format: url\n                example: /index?page=:number\n              prev:\n                type: string\n                format: url\n                example: /index?page=:number\n              first:\n                type: string\n                format: url\n                example: /index\n              last:\n                type: string\n                format: url\n                example: /index?page=:number\n      app-exceptions:\n        ValidationException:\n          x-exception-fqn: '\\MixerApi\\ExceptionRender\\ValidationException'\n          type: object\n          properties:\n            exception:\n              type: string\n              example: ValidationException\n            message:\n              type: string\n              example: Error saving resource `Schema`\n            url:\n              type: string\n              example: /url/path\n            code:\n              type: integer\n              example: 500\n            violations:\n              type: array\n              items:\n                $ref: '#/x-swagger-bake/components/schemas/app-exceptions/Violation'\n        Violation:\n          type: object\n          properties:\n            propertyPath:\n              type: string\n              example: property_name\n            messages:\n              type: array\n              items:\n                $ref: '#/x-swagger-bake/components/schemas/app-exceptions/ViolationMessage'\n        ViolationMessage:\n          type: object\n          properties:\n            rule:\n              type: string\n              example: _rule_name\n            message:\n              type: string\n              example: error message\n    parameters:\n      paginatorPage:\n        name: page\n        in: query\n        required: false\n        schema:\n          type: integer\n      paginatorLimit:\n        name: limit\n        in: query\n        required: false\n        schema:\n          type: integer\n      paginatorSort:\n        name: direction\n        in: query\n        required: false\n        schema:\n          type: string\n      paginatorDirection:\n        name: direction\n        in: query\n        required: false\n        schema:\n          type: string",
+			"canonicalURL": "/github.com/cnizzardini/cakephp-swagger-bake@9e2e405966990d67eb2a9cbd8df31faebb4e59e7/-/blob/tests/test_app/config/swagger-with-generic-collection.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cnizzardini/cakephp-swagger-bake/blob/9e2e405966990d67eb2a9cbd8df31faebb4e59e7/tests/test_app/config/swagger-with-generic-collection.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

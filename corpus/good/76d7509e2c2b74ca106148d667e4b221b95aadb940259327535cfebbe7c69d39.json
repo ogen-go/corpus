@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openvalidation/openvalidation-openapi"
+		},
+		"file": {
+			"name": "oapispec.yaml",
+			"size": 0,
+			"path": "src/test/resources/oapispec.yaml",
+			"byteSize": 2612,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: BiPROShowcase\n  version: \"1.0.0\"\n  description: |\n    Dieses Showcase zeigt die Verwendung von openVALIDATION Rules innerhalb eines OpenAPI Contracts.\n    Die Regelen werden mittels der vendor extension 'x-ov-rules' einem RequestBody hinzugefügt.\npaths:\n  /simple:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MyModel'\n            x-ov-rules:\n              rule: |\n                WENN  der Name ist GLEICH Ilja\n                DANN  was für ein Quatsch!\n\n                      10\n                 ALS  career start\n\n                WENN  career start + power ist GLEICH 301\n                DANN  second plus operator with power in rule works\n      responses:\n        '200':\n          description: successful response\n  /second:\n    post:\n      requestBody:\n        content:\n          application/json:\n            x-ov-rules:\n              rule: |\n                WENN das Alter des Bewerbers KLEINER als 18 Jahre ist\n                DANN mööp!\n            schema:\n              $ref: '#/components/schemas/MyModel'\n      responses:\n        '200':\n          description: successful response\n  /abc:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                Name:\n                  type: string\n      responses:\n        '200':\n          description: successful response\n  /abcd:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                Name:\n                  type: string\n      responses:\n        '200':\n          description: successful response\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                Test:\n                  type: string\n      responses:\n        '200':\n          description: successful response\ncomponents:\n  schemas:\n    MyModel:\n      properties:\n        Name:\n          type: string\n        Alter:\n          type: number\n        Strasse:\n          type: string\n        Ort:\n          type: string\n        Plz:\n          type: string\n        EMail:\n          type: string\n        Telefonnummer:\n          type: string\n        Kuendigungsfrist:\n          type: number\n        Berufserfahrung:\n          type: number\n        Jahresbruttogehalt:\n          type: number\n        Position:\n          type: string\n        power:\n          type: integer",
+			"canonicalURL": "/github.com/openvalidation/openvalidation-openapi@517cabc59336fa1aca789e069e791e596628e2bd/-/blob/src/test/resources/oapispec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openvalidation/openvalidation-openapi/blob/517cabc59336fa1aca789e069e791e596628e2bd/src/test/resources/oapispec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

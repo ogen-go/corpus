@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cspannos/PRAXIS-Blockchain-API-Maximizer"
+		},
+		"file": {
+			"name": "1519.yaml",
+			"size": 0,
+			"path": "praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1519.yaml",
+			"byteSize": 2210,
+			"content": "meta:\n  title: \"#1519 - incorrect usage of Schema Object properties\"\ncases:\n- name: \"`required: true` in an object schema property subschema\"\n  input:\n    openapi: 3.0.0\n    info:\n      title: Example API\n      version: 1.0.0\n    paths:\n      /:\n        post:\n          tags:\n            - login\n          summary: Login using email or nickname\n          description: Returns customer info and jwt access and refresh tokens\n          security:\n            - apiKey: []\n          requestBody:\n            content:\n              application/json:\n                schema:\n                  type: object\n                  properties:\n                    emailOrNickname:\n                      type: string\n                      required: true\n                    password:\n                      type: string\n                      required: true\n          responses:\n            \"200\":\n              description: ok\n  output:\n    length: 2\n    match:\n    - level: error\n      message: should be an array of property names required within an object schema\n      path: [paths, \"/\", post, requestBody, content, application/json, schema, properties, emailOrNickname, required]\n      source: structural\n    - level: error\n      message: should be an array of property names required within an object schema\n      path: [paths, \"/\", post, requestBody, content, application/json, schema, properties, password, required]\n      source: structural\n- name: \"`type: bool` instead of `type: boolean`\"\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: 1.0.0\n      title: A thing\n      license:\n        name: AGPL-3.0\n\n    paths: {}\n    components:\n      schemas:\n        ExcellentThing:\n          description: \"Something excellent\"\n          properties:\n            extremelyExcellent:\n              description: \"If false, this item is only somewhat excellent\"\n              type: bool\n              example: true\n  output:\n    length: 1\n    match:\n    - level: error\n      source: structural\n      message: |-\n        should be equal to one of the allowed values\n        allowedValues: array, boolean, integer, number, object, string\n      path: [components, schemas, ExcellentThing, properties, extremelyExcellent, type]\n",
+			"canonicalURL": "/github.com/cspannos/PRAXIS-Blockchain-API-Maximizer@8ee70fc7c85d5bde8da762dbfbefe748d6c89492/-/blob/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1519.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer/blob/8ee70fc7c85d5bde8da762dbfbefe748d6c89492/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1519.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

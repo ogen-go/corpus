@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/interagent/committee"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "examples/openapi3/openapi.yaml",
+			"byteSize": 987,
+			"content": "openapi: 3.0.0\r\ninfo:\r\n  title: api-test\r\n  version: '1.0'\r\nservers:\r\n  - url: 'http://localhost:3000'\r\n    description: dev\r\npaths:\r\n  /posts:\r\n    get:\r\n      parameters:\r\n        - in: query\r\n          name: page\r\n          required: true\r\n          schema:\r\n            type: integer\r\n      responses:\r\n        '200':\r\n          description: No Content\r\n          content:\r\n            application/json:\r\n              schema:\r\n                type: object\r\n\r\n  /dont_allow_additional_parameter:\r\n    post:\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              type: object\r\n              additionalProperties: false\r\n              required:\r\n                - only_param\r\n              properties:\r\n                only_param:\r\n                  type: string\r\n      responses:\r\n        '200':\r\n          description: No Content\r\n          content:\r\n            application/json:\r\n              schema:\r\n                type: object\r\n",
+			"canonicalURL": "/github.com/interagent/committee@6a62dda46ddf627f69c1ff3cc330660aa4518a97/-/blob/examples/openapi3/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/interagent/committee/blob/6a62dda46ddf627f69c1ff3cc330660aa4518a97/examples/openapi3/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

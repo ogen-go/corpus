@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/EXXETA/openapi-cop"
+		},
+		"file": {
+			"name": "3-parameters.yaml",
+			"size": 0,
+			"path": "schemas/v3/3-parameters.yaml",
+			"byteSize": 1050,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Test API 3 - Parameters\nservers:\n- url: https://petstore.com\npaths:\n  \"/pets/{category}\":\n    post:\n      description: List all pets in a category\n      operationId: addPet\n      parameters:\n      - in: path\n        name: category\n        required: true\n        description: Pet category\n        schema:\n          type: string\n          default: all\n      - in: query\n        name: limit\n        description: Amt returned\n        schema:\n          type: integer\n          format: int32\n      responses:\n        '200':\n          description: Successful response\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required: ['search']\n              properties:\n                search:\n                  type: string\n                  description: Search pet details\n                strict:\n                  type: boolean\n                  description: Exact matches?\n              additionalProperties: true",
+			"canonicalURL": "/github.com/EXXETA/openapi-cop@38eb969f72852f3ef8e015d34bc99440ed06417b/-/blob/schemas/v3/3-parameters.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/EXXETA/openapi-cop/blob/38eb969f72852f3ef8e015d34bc99440ed06417b/schemas/v3/3-parameters.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

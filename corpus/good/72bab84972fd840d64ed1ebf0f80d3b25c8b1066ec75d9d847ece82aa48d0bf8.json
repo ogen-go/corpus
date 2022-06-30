@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RoadieHQ/sample-service"
+		},
+		"file": {
+			"name": "api-spec.yaml",
+			"size": 0,
+			"path": "api-spec.yaml",
+			"byteSize": 1868,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: The Sample Service API\n  version: 0.0.1\n  description: Send errors to Rollbar or Sentry\n\nservers:\n  - url: https://sample-service.backstage-demo.roadie.io\n    description: A plublic instance which anyone can hit to generate sample data.\n\npaths:\n  /:\n    get:\n      summary: Return Hello World\n      responses:\n        '200':\n          description: A JSON object with a message key and Hello World value.\n          content:\n            application/json:\n              schema:\n                type: object\n                example:\n                  message: Hello world!\n\n  /debug-sentry:\n    post:\n      summary: Send an error to Sentry\n\n      requestBody:\n        description: Optional error text to send to Sentry.\n        required: false\n        content:\n          application/json:\n            schema:\n              type: object\n            example:\n              errorMessage: My first Sentry Error\n\n      responses:\n        '200':\n          description: Confirmation that the error was sent.\n          content:\n            application/json:\n              schema:\n                type: object\n                example:\n                  message: 'Error sent to Sentry: \"My first error\"'\n                    \n  /debug-rollbar:\n    post:\n      summary: Send an error to Rollbar\n\n      requestBody:\n        description: Optional error text to send to Rollbar.\n        required: false\n        content:\n          application/json:\n            schema:\n              type: object\n            example:\n              errorMessage: My first Rollbar Error\n\n      responses:\n        '200':\n          description: Confirmation that the error was sent.\n          content:\n            application/json:\n              schema:\n                type: object\n                example:\n                  message: 'Error sent to Rollbar: \"My first error\"'\n",
+			"canonicalURL": "/github.com/RoadieHQ/sample-service@507a7dd0b6b6c740443bbddf8ce17bd97c414b1a/-/blob/api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RoadieHQ/sample-service/blob/507a7dd0b6b6c740443bbddf8ce17bd97c414b1a/api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

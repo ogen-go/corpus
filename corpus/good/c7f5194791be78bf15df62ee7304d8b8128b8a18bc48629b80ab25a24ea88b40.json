@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/i18next/i18next-fs-backend"
+		},
+		"file": {
+			"name": "app-sam.json",
+			"size": 0,
+			"path": "example/fastify/app-sam.json",
+			"byteSize": 1238,
+			"content": "{\n  \"AWSTemplateFormatVersion\": \"2010-09-09\",\n  \"Transform\": \"AWS::Serverless-2016-10-31\",\n  \"Parameters\": {\n    \"Timeout\": {\n      \"Type\": \"Number\",\n      \"Default\": 30000\n    }\n  },\n  \"Resources\": {\n    \"ExampleAppApi\": {\n      \"Type\": \"AWS::Serverless::HttpApi\",\n      \"Properties\": {\n        \"StageName\": \"$default\",\n        \"DefinitionBody\": {\n          \"info\": {\n            \"title\": {\n              \"Ref\": \"AWS::StackName\"\n            }\n          },\n          \"openapi\": \"3.0.1\",\n          \"paths\": {}\n        }\n      }\n    },\n    \"ExampleApp\": {\n      \"Type\": \"AWS::Serverless::Function\",\n      \"Properties\": {\n        \"FunctionName\": {\n          \"Ref\": \"AWS::StackName\"\n        },\n        \"Runtime\": \"nodejs14.x\",\n        \"Handler\": \"lambda.handler\",\n        \"Timeout\": 30,\n        \"MemorySize\": 512,\n        \"CodeUri\": \"build\",\n        \"Events\": {\n          \"ExampleAppProxyGET\": {\n            \"Type\": \"HttpApi\",\n            \"Properties\": {\n              \"Path\": \"/{proxy+}\",\n              \"Method\": \"GET\",\n              \"ApiId\": {\n                \"Ref\": \"ExampleAppApi\"\n              },\n              \"TimeoutInMillis\": {\n                \"Ref\": \"Timeout\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/i18next/i18next-fs-backend@421f4340c24f55c387ec5047158b6a0eb56192f4/-/blob/example/fastify/app-sam.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/i18next/i18next-fs-backend/blob/421f4340c24f55c387ec5047158b6a0eb56192f4/example/fastify/app-sam.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

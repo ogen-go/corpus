@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/agoncal/agoncal-fascicle-quarkus-pract"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "rest-number/openapi.yaml",
+			"byteSize": 1235,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Number API\n  description: This API allows to generate all sorts of numbers\n  contact:\n    name: '@agoncal'\n    url: https://twitter.com/agoncal\n  version: \"2.0\"\nexternalDocs:\n  description: 'All the Practising Quarkus code'\n  url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract\ntags:\n  - name: api\n    description: Public API that can be used by anybody\n  - name: numbers\n    description: Anybody interested in numbers\n  - name: Number Endpoint\npaths:\n  /api/numbers:\n    get:\n      tags:\n        - Number Endpoint\n      summary: Generates book numbers\n      description: \"These book numbers have several formats: ISBN, ASIN and EAN\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BookNumbers'\ncomponents:\n  schemas:\n    BookNumbers:\n      description: Several formats of book numbers\n      required:\n        - isbn_10\n        - isbn_13\n      type: object\n      properties:\n        asin:\n          type: string\n        ean_13:\n          type: string\n        ean_8:\n          type: string\n        isbn_10:\n          type: string\n        isbn_13:\n          type: string\n",
+			"canonicalURL": "/github.com/agoncal/agoncal-fascicle-quarkus-pract@3e8b92db89b4888d221c88f66e42bf3092becad0/-/blob/rest-number/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/agoncal/agoncal-fascicle-quarkus-pract/blob/3e8b92db89b4888d221c88f66e42bf3092becad0/rest-number/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

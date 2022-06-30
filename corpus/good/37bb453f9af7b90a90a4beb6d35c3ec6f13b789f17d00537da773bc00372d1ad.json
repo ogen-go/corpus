@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/amrutprabhu/spring-boot-api-first-approach"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "api-first-server/src/main/resources/api.yaml",
+			"byteSize": 1667,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Bank Application API\n  version: '1.0'\npaths:\n  /account:\n    summary: Banking Api\n    description: This API is related to accessing account resource\n    post:\n      summary: Create an account\n      description: This API provides a way to create an account\n      operationId: 'createAccount'\n      tags:\n        - account\n      requestBody:\n        # because there is a bug which doesn allow to use `$ref` in request body\n        # https://github.com/OpenAPITools/openapi-generator/issues/7922\n         content:\n           application/json:\n             schema:\n               type: object\n               properties:\n                 name:\n                   type: string\n                 accountType:\n                   type: string\n                 residencyStatus:\n                   type: string\n      responses:\n        '200':\n          description: Response on creating the account\n          $ref: '#/components/responses/accountCreationResponse'\n\ncomponents:\n  responses:\n    accountCreationResponse:\n      description: Response on creating the account\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              name:\n                type: string\n              accountType:\n                type: string\n              accountId:\n                type: string\n  requestBodies:\n    accountCreation:\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              name:\n                type: string\n              accountType:\n                type: string\n              residencyStatus:\n                type: string\n",
+			"canonicalURL": "/github.com/amrutprabhu/spring-boot-api-first-approach@dd26a08e565e4169f3bce53bc8d21cac03df003d/-/blob/api-first-server/src/main/resources/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/amrutprabhu/spring-boot-api-first-approach/blob/dd26a08e565e4169f3bce53bc8d21cac03df003d/api-first-server/src/main/resources/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

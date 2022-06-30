@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/p1c2u/openapi-core"
+		},
+		"file": {
+			"name": "requests_factory.yaml",
+			"size": 0,
+			"path": "tests/integration/contrib/requests/data/v3.0/requests_factory.yaml",
+			"byteSize": 1861,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Basic OpenAPI specification used with requests integration tests\n  version: \"0.1\"\nservers:\n  - url: 'http://localhost'\npaths:\n  '/browse/{id}/':\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the ID of the resource to retrieve\n        schema:\n          type: integer\n      - name: q\n        in: query\n        required: true\n        description: query key\n        schema:\n          type: string\n    post:\n      requestBody:\n        description: request data\n        required: True\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - param1\n              properties:\n                param1:\n                  type: integer\n      responses:\n        200:\n          description: Return the resource.\n          content:\n            application/json:    \n              schema:\n                type: object\n                required:\n                  - data\n                properties:\n                  data:\n                    type: string\n          headers:\n            X-Rate-Limit:\n              description: Rate limit\n              schema:\n                type: integer\n              required: true\n        default:\n          description: Return errors.\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - errors\n                properties:\n                  errors:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        title:\n                          type: string\n                        code:\n                          type: string\n                        message:\n                          type: string\n",
+			"canonicalURL": "/github.com/p1c2u/openapi-core@c1e9f7208731924e38cc1bd7c3760452f3c3a72d/-/blob/tests/integration/contrib/requests/data/v3.0/requests_factory.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/p1c2u/openapi-core/blob/c1e9f7208731924e38cc1bd7c3760452f3c3a72d/tests/integration/contrib/requests/data/v3.0/requests_factory.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

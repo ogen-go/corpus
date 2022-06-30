@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/formidablae/restaurant-reservation-api"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "postman/schemas/schema.yaml",
+			"byteSize": 3525,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0.0'\n  title: 'Restaurant Reservation API'\nservers:\n  - url: 'localhost:3000'\npaths:\n  /health:\n    get:\n      summary: 'Returns state of health of the API'\n      tags:\n        - health\n      responses:\n        '200':\n          description: API's healthy\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /api/users:\n    get:\n      summary: 'Returns all users'\n      tags:\n        - users\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Users'\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /api/restaurants:\n    get:\n      summary: 'Returns all restaurants'\n      tags:\n        - restaurants\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Restaurants'\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /api/reservations:\n    get:\n      summary: 'Returns all reservations'\n      tags:\n        - reservations\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Reservations'\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - id\n        - name\n        - email\n        - password\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Users:\n      type: array\n      items:\n        type: object\n        $ref: '#/components/schemas/User'\n    Restaurant:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Restaurants:\n      type: array\n      items:\n        type: object\n        $ref: '#/components/schemas/Restaurant'\n    Reservation:\n      type: object\n      required:\n        - id\n        - user_id\n        - restaurant_id\n        - order_datetime\n        - table_number\n        - guests\n      properties:\n        id:\n          type: integer\n          format: int64\n        user_id:\n          type: integer\n          format: int64\n        restaurant_id:\n          type: integer\n          format: int64\n        order_datetime:\n          type: string\n          format: date-time\n        tag:\n          type: string\n    Reservations:\n      type: array\n      items:\n        type: object\n        $ref: '#/components/schemas/Reservation'\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\nsecurity:\n  - BasicAuth: []\n",
+			"canonicalURL": "/github.com/formidablae/restaurant-reservation-api@246e315babd14bbdae791d3fc0ae21ca27a4ec7c/-/blob/postman/schemas/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/formidablae/restaurant-reservation-api/blob/246e315babd14bbdae791d3fc0ae21ca27a4ec7c/postman/schemas/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

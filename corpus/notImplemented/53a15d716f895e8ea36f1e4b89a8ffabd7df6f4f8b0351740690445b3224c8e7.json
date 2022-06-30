@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "oapi-api-key.yaml",
+			"size": 0,
+			"path": "packages/laminar-jwt/examples/oapi-api-key.yaml",
+			"byteSize": 1520,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:3333\npaths:\n  '/session':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/x-www-form-urlencoded:\n            schema: { $ref: '#/components/schemas/User' }\n      responses:\n        '200':\n          description: A session object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n          headers:\n            Set-Cookie:\n              schema:\n                type: string\n                example: auth=abcde12345; Path=/; HttpOnly\n  '/test':\n    post:\n      description: Protected by CookieSecurity, no scopes\n      security:\n        - CookieSecurity: []\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n    get:\n      description: Protected by CookieSecurity, no scopes\n      security:\n        - CookieSecurity: []\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n\ncomponents:\n  securitySchemes:\n    CookieSecurity:\n      description: Security using the `auth` cookie. To be used in the routes.\n      type: apiKey\n      in: cookie\n      name: auth\n\n  schemas:\n    User:\n      properties:\n        email:\n          type: string\n      required:\n        - email\n    Text:\n      type: string\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-jwt/examples/oapi-api-key.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-jwt/examples/oapi-api-key.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/session\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

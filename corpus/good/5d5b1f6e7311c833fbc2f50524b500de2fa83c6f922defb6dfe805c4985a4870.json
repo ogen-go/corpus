@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdkandersson/OpenAlchemy"
+		},
+		"file": {
+			"name": "example-spec.yml",
+			"size": 0,
+			"path": "examples/namespaced/example-spec.yml",
+			"byteSize": 1422,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate OpenAlchemy using namespaced extension properties (x-open-alchemy* instead of x-*).\n  version: \"0.1\"\n\npaths:\n  /employee:\n    get:\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Employee\"\n\ncomponents:\n  schemas:\n    Employee:\n      description: Person that works for a company.\n      type: object\n      x-open-alchemy-tablename: employee\n      properties:\n        id:\n          type: integer\n          description: Unique identifier for the employee.\n          example: 0\n          x-open-alchemy-primary-key: true\n          x-open-alchemy-autoincrement: true\n        name:\n          type: string\n          description: The name of the employee.\n          example: David Andersson\n          x-open-alchemy-index: true\n        division:\n          type: string\n          description: The part of the company the employee works in.\n          example: Engineering\n          x-open-alchemy-index: true\n        salary:\n          type: number\n          description: The amount of money the employee is paid.\n          example: 1000000.00\n      required:\n        - name\n        - division\n",
+			"canonicalURL": "/github.com/jdkandersson/OpenAlchemy@40f52d003e40ad79e67dcb305aef3dd4debefcc9/-/blob/examples/namespaced/example-spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jdkandersson/OpenAlchemy/blob/40f52d003e40ad79e67dcb305aef3dd4debefcc9/examples/namespaced/example-spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

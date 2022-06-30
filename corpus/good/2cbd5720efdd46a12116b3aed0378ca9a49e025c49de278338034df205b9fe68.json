@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NickHeap2/newman-reporter-openapi"
+		},
+		"file": {
+			"name": "path-ordering.yaml",
+			"size": 0,
+			"path": "tests/path-ordering.yaml",
+			"byteSize": 3007,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: \"Path ordering spec\"\n  description: \"Path ordering spec\"\n  version: 0.0.1\n  contact:\n    email: \"me@mail.com\"\nservers:\n- url: \"/api\"\ntags:\n- name: refpath\npaths:\n  /resource/{resourceId}:\n    get:\n      tags:\n      - get\n      summary: Get a resource\n      description: Get a resource\n      operationId: getResource\n      parameters:\n        - in: path\n          name: resourceId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n  /resource/getall:\n    get:\n      tags:\n      - get\n      summary: Get all resources\n      description: Get all resources\n      operationId: getBulkResource\n      responses:\n        \"200\":\n          description: OK\n  /correctorder/getall:\n    get:\n      tags:\n      - get\n      summary: Get all resources\n      description: Get all resources\n      operationId: getCorrectOrder1\n      responses:\n        \"200\":\n          description: OK\n  /correctorder/{resourceId}:\n    get:\n      tags:\n      - get\n      summary: Get a resource\n      description: Get a resource\n      operationId: getCorrectOrder2\n      parameters:\n        - in: path\n          name: resourceId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n  /resource/{resourceId}/subresourceB/{subresourceBId}:\n    get:\n      tags:\n      - get\n      summary: Get a B resource\n      description: Get a B resource\n      operationId: getResourceB\n      parameters:\n        - in: path\n          name: resourceId\n          required: true\n          schema:\n            type: string\n        - in: path\n          name: subresourceBId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n  /resource/{resourceId}/subresourceA/{subresourceAId}:\n    get:\n      tags:\n      - get\n      summary: Get a A resource\n      description: Get a A resource\n      operationId: getResourceA\n      parameters:\n        - in: path\n          name: resourceId\n          required: true\n          schema:\n            type: string\n        - in: path\n          name: subresourceAId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n  /ambiguous/{firstId}:\n    get:\n      tags:\n      - get\n      summary: Get an ambiguous\n      description: Get an ambiguous\n      operationId: getFirst\n      parameters:\n        - in: path\n          name: firstId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n  /ambiguous/{secondId}:\n    get:\n      tags:\n      - get\n      summary: Get an ambiguous\n      description: Get an ambiguous\n      operationId: getSecond\n      parameters:\n        - in: path\n          name: secondId\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n",
+			"canonicalURL": "/github.com/NickHeap2/newman-reporter-openapi@00ce6cdcc7b10b825a6f0426a3d4bbf85f8ae4fd/-/blob/tests/path-ordering.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NickHeap2/newman-reporter-openapi/blob/00ce6cdcc7b10b825a6f0426a3d4bbf85f8ae4fd/tests/path-ordering.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

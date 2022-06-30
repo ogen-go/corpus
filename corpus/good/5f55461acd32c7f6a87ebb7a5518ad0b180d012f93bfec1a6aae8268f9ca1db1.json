@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alpacahq/alpaca-docs"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "oas/oauth/token/openapi.yaml",
+			"byteSize": 2369,
+			"content": "openapi: 3.0.0\ninfo:\n  title: OAuth API\n  version: 1.0.0\n  description: |-\n    The OAuth API allows you to request market data and manage portfolios on behalf of your end-users. \n\n    For more information, visit https://alpaca.markets/docs/build-apps_services-with-alpaca/oauth-guide/.\n  contact:\n    name: Alpaca Support\n    email: support@alpaca.markets\n    url: 'https://alpaca.markets/support/'\nservers:\n  - url: 'https://api.alpaca.markets'\n    description: Api\ntags:\n  - name: OAuth\npaths:\n  /oauth/token:\n    post:\n      summary: Retrieve an access token\n      operationId: post-oauth-token\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  access_token:\n                    type: string\n                  token_type:\n                    type: string\n                  scope:\n                    type: string\n      tags:\n        - OAuth\n      description: Exchange your temporary code for an access token.\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              description: ''\n              type: object\n              x-examples:\n                example-1:\n                  grant_type: authorization_code\n              properties:\n                grant_type:\n                  type: string\n                  description: Must be set to authorization_code for an access token request.\n                code:\n                  type: string\n                  description: The temporary authorization code received from redirection request.\n                client_id:\n                  type: string\n                  description: The Client ID you received when you registered the application.\n                client_secret:\n                  type: string\n                  description: The Client Secret you received when you registered the application.\n                redirect_uri:\n                  type: string\n                  description: The redirect URI you used for the authorization code request.\n              required:\n                - grant_type\n                - code\n                - client_id\n                - client_secret\n                - redirect_uri\n        description: ''\n    parameters: []\ncomponents:\n  securitySchemes: {}",
+			"canonicalURL": "/github.com/alpacahq/alpaca-docs@7cec702640ecf11a47e80f9c4b28bfaff6f59a4e/-/blob/oas/oauth/token/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/alpacahq/alpaca-docs/blob/7cec702640ecf11a47e80f9c4b28bfaff6f59a4e/oas/oauth/token/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

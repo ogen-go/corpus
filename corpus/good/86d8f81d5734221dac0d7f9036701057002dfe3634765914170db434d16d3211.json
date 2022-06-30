@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/niklasb/libc-database"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "searchengine/api.yml",
+			"byteSize": 2063,
+			"content": "openapi: 3.0.3\ninfo:\n  version: 1.0.0\n  title: libc-database search engine\n  description: ''\npaths:\n  /find:\n    post:\n      operationId: app.find\n      tags:\n      - libcsearch\n      description: |-\n        Look up libc by various attributes\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Libc'\n        required: true\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Libc'\n          description: ''\n\n  /libc/{id}:\n    post:\n      operationId: app.dump\n      tags:\n      - libcsearch\n      parameters:\n      - in: path\n        name: id\n        schema:\n          type: string\n        required: true\n      description: |-\n        Dump libc symbols\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/DumpRequest'\n        required: true\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Libc'\n          description: ''\n\ncomponents:\n  schemas:\n    Libc:\n      type: object\n      properties:\n        md5:\n          type: string\n        sha1:\n          type: string\n        sha256:\n          type: string\n        buildid:\n          type: string\n        id:\n          type: string\n        symbols:\n          type: object\n          additionalProperties:\n            type: string\n            pattern: '^(0x)?[a-fA-F0-9]+$'\n        download_url:\n          type: string\n          format: url\n          readOnly: true\n        symbols_url:\n          type: string\n          format: url\n          readOnly: true\n        libs_url:\n          type: string\n          format: url\n          readOnly: true\n\n    DumpRequest:\n      type: object\n      properties:\n        symbols:\n          type: array\n          items:\n            type: string\n\n\nservers:\n  - url: https://libc.rip/api\n",
+			"canonicalURL": "/github.com/niklasb/libc-database@b3034c8eddf02ae39102c62935dbec261d1b4fd7/-/blob/searchengine/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/niklasb/libc-database/blob/b3034c8eddf02ae39102c62935dbec261d1b4fd7/searchengine/api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/contiamo/openapi-generator-go"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "pkg/generators/models/testdata/cases/oneof_mapped_discriminator/api.yaml",
+			"byteSize": 2774,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.0\n  title: Test oneOf discriminator support\n\ncomponents:\n  schemas:\n    GenericError:\n      type: object\n      description: Represents and unknown error. The system may be unstable, it is unknown if retrying the request will succeed.\n      properties:\n        kind:\n          type: string\n          enum:\n            - \"generic\"\n            - \"auth\"\n        message:\n          type: string\n          description: the user friendly error message.\n        code:\n          type: string\n          description: machine friendly error code.\n        traceId:\n          type: string\n          description: the request tracing id, this can be submitted during bug reports to help with debugging the underlying cause.\n      required:\n        - kind\n        - message\n\n    FieldError:\n      type: object\n      description: Represents a validation error. The request must be corrected before retrying.\n      properties:\n        kind:\n          type: string\n          enum:\n            - \"field\"\n        errors:\n          type: array\n          items:\n            $ref: '#/components/schemas/ValidationError'\n        traceId:\n          type: string\n          description: the request tracing id, this can be submitted during bug reports to help with debugging the underlying cause.\n      required:\n        - kind\n        - errors\n        - traceId\n\n    ValidationError:\n      type: object\n      description: a validation error for a form field\n      properties:\n        name:\n          type: string\n          description: the field name\n        message:\n          type: string\n          description: the user friendly validation error message\n\n    ExternalError:\n      type: object\n      description: Represents an error from an external service. The system is stable, but can not complete the request. Try again later.\n      properties:\n        kind:\n          type: string\n          enum:\n            - \"external\"\n        service:\n          type: string\n          description: name of the service that is returning errors\n          minLength: 1\n        traceId:\n          type: string\n          description: the request tracing id, this can be submitted during bug reports to help with debugging the underlying cause.\n          minLength: 1\n      required:\n        - kind\n        - traceId\n\n    Error:\n      oneOf:\n        - $ref: \"#/components/schemas/GenericError\"\n        - $ref: \"#/components/schemas/FieldError\"\n        - $ref: \"#/components/schemas/ExternalError\"\n      discriminator:\n        propertyName: kind\n        mapping:\n          generic: '#/components/schemas/GenericError'\n          field: '#/components/schemas/FieldError'\n          external: '#/components/schemas/ExternalError'\n          auth: '#/components/schemas/GenericError'\n",
+			"canonicalURL": "/github.com/contiamo/openapi-generator-go@bf0225ad6fe0798dffca43f08fe80078956acef3/-/blob/pkg/generators/models/testdata/cases/oneof_mapped_discriminator/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/contiamo/openapi-generator-go/blob/bf0225ad6fe0798dffca43f08fe80078956acef3/pkg/generators/models/testdata/cases/oneof_mapped_discriminator/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

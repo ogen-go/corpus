@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Swagger2Markup/swagger2markup"
+		},
+		"file": {
+			"name": "simple.yaml",
+			"size": 0,
+			"path": "openapi2markup/src/test/resources/open_api/simple.yaml",
+			"byteSize": 3038,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This is a simple API\n  version: \"1.0.0\"\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: admins\n    description: Secured Admin-only calls\n  - name: developers\n    description: Operations available to regular developers\npaths:\n  /inventory:\n    get:\n      tags:\n        - developers\n      summary: searches inventory\n      operationId: searchInventory\n      description: |\n        By passing in the appropriate options, you can search for\n        available inventory in the system\n      parameters:\n        - in: query\n          name: searchString\n          description: pass an optional search string for looking up inventory\n          required: false\n          schema:\n            type: string\n        - in: query\n          name: skip\n          description: number of records to skip for pagination\n          schema:\n            type: integer\n            format: int32\n            minimum: 0\n        - in: query\n          name: limit\n          description: maximum number of records to return\n          schema:\n            type: integer\n            format: int32\n            minimum: 0\n            maximum: 50\n      responses:\n        '200':\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/InventoryItem'\n        '400':\n          description: bad input parameter\n    post:\n      tags:\n        - admins\n      summary: adds an inventory item\n      operationId: addInventory\n      description: Adds an item to the system\n      responses:\n        '201':\n          description: item created\n        '400':\n          description: 'invalid input, object invalid'\n        '409':\n          description: an existing item already exists\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/InventoryItem'\n        description: Inventory item to add\ncomponents:\n  schemas:\n    InventoryItem:\n      type: object\n      required:\n        - id\n        - name\n        - manufacturer\n        - releaseDate\n      properties:\n        id:\n          type: string\n          format: uuid\n          example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        name:\n          type: string\n          example: Widget Adapter\n        releaseDate:\n          type: string\n          format: date-time\n          example: '2016-08-29T09:12:33.001Z'\n        manufacturer:\n          $ref: '#/components/schemas/Manufacturer'\n    Manufacturer:\n      required:\n        - name\n      properties:\n        name:\n          type: string\n          example: ACME Corporation\n        homePage:\n          type: string\n          format: url\n          example: 'https://www.acme-corp.com'\n        phone:\n          type: string\n          example: 408-867-5309\n      type: object\n",
+			"canonicalURL": "/github.com/Swagger2Markup/swagger2markup@ac22f6340410daeae82fe2c5954624f82076d6c3/-/blob/openapi2markup/src/test/resources/open_api/simple.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Swagger2Markup/swagger2markup/blob/ac22f6340410daeae82fe2c5954624f82076d6c3/openapi2markup/src/test/resources/open_api/simple.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PayU/api-schema-builder"
+		},
+		"file": {
+			"name": "pets-custom-content-type.yaml",
+			"size": 0,
+			"path": "test/openapi3/general/pets-custom-content-type.yaml",
+			"byteSize": 1013,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\npaths:\n  /haljson:\n    put:\n      parameters:\n        - in: header\n          name: public-key\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/apiV2+json:\n            schema:\n              type: string\n        required: true\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/hal+json:\n              schema:\n                properties:\n                  lastname:\n                    type: string\n        default:\n          description: unexpected error\n          content:\n            text/plain:\n              schema:\n                $ref: \"#/components/schemas/Error\"\nservers:\n- url: http://petstore.swagger.io\ncomponents:\n  schemas:\n    Error:\n      required:\n      - code\n      - message\n      properties:\n        code:\n          type: integer\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/PayU/api-schema-builder@93195281ea36bc30278bea9d2c291e6e8a5bd74d/-/blob/test/openapi3/general/pets-custom-content-type.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PayU/api-schema-builder/blob/93195281ea36bc30278bea9d2c291e6e8a5bd74d/test/openapi3/general/pets-custom-content-type.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/haljson\": put: requestBody: contents: unsupported content types: [application/apiV2+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

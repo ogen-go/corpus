@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eugenp/tutorials"
+		},
+		"file": {
+			"name": "petstore.yml",
+			"size": 0,
+			"path": "spring-swagger-codegen/custom-validations-opeanpi-codegen/src/main/resources/petstore.yml",
+			"byteSize": 1538,
+			"content": "openapi: 3.0.1\ninfo:\n  version: \"1.0\"\n  title: PetStore\npaths:\n  /pets:\n    post:\n      tags:\n        - pet\n      summary: Add a new pet to the store\n      description:  Add a new pet to the store\n      operationId: addPet\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pet'\n      responses:\n        '201':\n          description: default response, returning the new pet id\n          content:\n            application/json:\n              schema:\n                type: integer\n        '400':\n          description: Invalid input\n    get:\n      tags:\n        - pet\n      summary: Finds Pets by name\n      description: 'Find pets by name'\n      operationId: findPetsByName\n      parameters:\n        - name: name\n          in: query\n          schema:\n            type: string\n          description: Tags to filter by\n          x-constraints: \"@Capitalized(required = true)\"\n      responses:\n        '200':\n          description: default response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Pet'\n        '400':\n          description: Invalid name value\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n          x-constraints: \"@Capitalized(required = true)\"",
+			"canonicalURL": "/github.com/eugenp/tutorials@4e51dd8f18c58c61d9ca4e703b02249882a258a6/-/blob/spring-swagger-codegen/custom-validations-opeanpi-codegen/src/main/resources/petstore.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eugenp/tutorials/blob/4e51dd8f18c58c61d9ca4e703b02249882a258a6/spring-swagger-codegen/custom-validations-opeanpi-codegen/src/main/resources/petstore.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

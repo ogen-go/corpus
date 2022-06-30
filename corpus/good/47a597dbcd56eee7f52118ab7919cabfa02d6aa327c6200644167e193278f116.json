@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "additional-props.yaml",
+			"size": 0,
+			"path": "docs/specs/additional-props.yaml",
+			"byteSize": 1547,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Additional Properties\npaths:\n  /additional-props/primitive:\n    get:\n      summary: Only addtional props\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties:\n                  type: integer\n  /additional-props/multiple:\n    get:\n      summary: Defined Props and additional props\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  defined-prop:\n                    type: integer\n                additionalProperties:\n                  type: object\n                  properties:\n                    additional-prop1:\n                      type: integer\n                    additional-prop2:\n                      type: string\n  /additional-props/schema:\n    get:\n      summary: additional props as $ref\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties:\n                  $ref: '#/components/schemas/Person'\ncomponents:\n  schemas:\n    Person:\n      type: object\n      properties:\n        Name:\n          type: string\n        Age:\n          type: integer\n      additionalProperties:\n        type: string\n    ",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/additional-props.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/additional-props.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

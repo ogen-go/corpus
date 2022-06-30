@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "sshidentity.json",
+			"size": 0,
+			"path": "openapi3_autogen/sshidentity.json",
+			"byteSize": 2284,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"sshidentity\": {\n        \"description\": \"Returns an SSH certificate containing the bearer claims. This SSH certificate\\ncan\\nbe used to connect to a node where the enforcer is protecting SSH sessions.\",\n        \"properties\": {\n          \"certificate\": {\n            \"description\": \"Contains the signed SSH certificate in OpenSSH format.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"publicKey\": {\n            \"description\": \"Contains the public key to sign in OpenSSH format. You can generate an SSH\\npublic key with the standard `ssh-keygen` tool.\",\n            \"example\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCytT my key\",\n            \"type\": \"string\"\n          },\n          \"systemAccount\": {\n            \"description\": \"Define the targeted system account name.\",\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"publicKey\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"sshidentity\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/sshidentities\": {\n      \"post\": {\n        \"description\": \"Creates a new SSH certificate.\",\n        \"operationId\": \"create-a-new-sshidentity\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/sshidentity\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/sshidentity\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"policy/ssh\",\n          \"cactuar\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'policy/ssh'\",\n      \"name\": \"policy/ssh\"\n    },\n    {\n      \"description\": \"This tag is for package 'cactuar'\",\n      \"name\": \"cactuar\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@135fa774a34971a04dc7232e029f99de005f0e87/-/blob/openapi3_autogen/sshidentity.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/135fa774a34971a04dc7232e029f99de005f0e87/openapi3_autogen/sshidentity.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

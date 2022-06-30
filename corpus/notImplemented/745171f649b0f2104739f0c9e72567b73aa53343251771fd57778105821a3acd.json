@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Urigo/graphql-mesh"
+		},
+		"file": {
+			"name": "example_oas_combined.json",
+			"size": 0,
+			"path": "packages/handlers/openapi/test/fixtures/example_oas_combined.json",
+			"byteSize": 3016,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Example API combined\",\n    \"description\": \"An API to test converting Open API Specs 3.0 to GraphQL\",\n    \"version\": \"1.0.0\",\n    \"termsOfService\": \"http://example.com/terms/\",\n    \"contact\": {\n      \"name\": \"Erik Wittern\",\n      \"url\": \"http://www.example.com/support\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"externalDocs\": {\n    \"url\": \"http://example.com/docs\",\n    \"description\": \"Some more natural language description.\"\n  },\n  \"tags\": [\n    {\n      \"name\": \"test\",\n      \"description\": \"Indicates this API is for testing\"\n    }\n  ],\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:{port}/{basePath}\",\n      \"description\": \"The location of the local test server.\",\n      \"variables\": {\n        \"port\": {\n          \"default\": \"3004\"\n        },\n        \"basePath\": {\n          \"default\": \"api\"\n        }\n      }\n    }\n  ],\n  \"paths\": {\n    \"/cars\": {\n      \"get\": {\n        \"operationId\": \"getAllCars\",\n        \"description\": \"Returns information about all employee cars\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Everyone's cars\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"allOf\": [\n                      {\n                        \"$ref\": \"#/components/schemas/car\"\n                      },\n                      {\n                        \"$ref\": \"#/components/schemas/hasTags\"\n                      }\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"car\": {\n        \"type\": \"object\",\n        \"description\": \"A car\",\n        \"properties\": {\n          \"model\": {\n            \"type\": \"string\",\n            \"description\": \"The model of the car.\"\n          },\n          \"color\": {\n            \"type\": \"string\",\n            \"description\": \"The color of the car.\"\n          },\n          \"features\": {\n            \"properties\": {}\n          },\n          \"tags\": {\n            \"$ref\": \"#/components/schemas/tags\"\n          },\n          \"kind\": {\n            \"type\": \"string\",\n            \"enum\": [\"SEDAN\", \"SUV\", \"MINIVAN\", \"LIMOSINE\", \"RACE_CAR\"]\n          },\n          \"rating\": {\n            \"type\": \"number\",\n            \"enum\": [100, 101, 200],\n            \"description\": \"The rating of the car.\"\n          }\n        }\n      },\n      \"hasTags\": {\n        \"type\": \"object\",\n        \"description\": \"A thing with tags\",\n        \"properties\": {\n          \"tags\": {\n            \"$ref\": \"#/components/schemas/tags\"\n          }\n        }\n      },\n      \"tags\": {\n        \"type\": \"object\",\n        \"title\": \"Tags\",\n        \"description\": \"Arbitrary (string) tags describing an entity.\",\n        \"additionalProperties\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  },\n  \"security\": []\n}\n",
+			"canonicalURL": "/github.com/Urigo/graphql-mesh@0797f37f83ba2cafc2b4a5e6954bf9cbd8f91f8a/-/blob/packages/handlers/openapi/test/fixtures/example_oas_combined.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Urigo/graphql-mesh/blob/0797f37f83ba2cafc2b4a5e6954bf9cbd8f91f8a/packages/handlers/openapi/test/fixtures/example_oas_combined.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/cars\": get: responses: 200: contents: application/json: generate schema: item: allOf: merge properties: try to merge conflicting property schemas: allOf additionalProperties merging not implemented",
+	"NotImplemented": [
+		"allOf additionalProperties merging"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zircote/swagger-php"
+		},
+		"file": {
+			"name": "example-object.yaml",
+			"size": 0,
+			"path": "Examples/example-object/example-object.yaml",
+			"byteSize": 2226,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Example for response examples value'\n  description: 'Example info'\n  contact:\n    name: 'Swagger API Team'\n  version: '1.0'\nservers:\n  -\n    url: 'https://example.localhost'\n    description: 'API server'\npaths:\n  '/users/{id}':\n    put:\n      tags:\n        - user\n      summary: 'Updates a user'\n      description: 'Updates a user'\n      operationId: updateUser\n      parameters:\n        -\n          name: id\n          in: path\n          description: 'Parameter with mutliple examples'\n          required: true\n          schema:\n            type: string\n          examples:\n            int:\n              summary: 'An int value.'\n              value: '1'\n            uuid:\n              summary: 'An UUID value.'\n              value: 0006faf6-7a61-426c-9034-579f2cfcfa83\n      responses:\n        '200':\n          description: OK\n  /users:\n    post:\n      tags:\n        - user\n      summary: 'Adds a new user - with oneOf examples'\n      description: 'Adds a new user'\n      operationId: addUser\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                id:\n                  type: string\n                name:\n                  type: string\n                phone:\n                  oneOf: [{ type: string }, { type: integer }]\n              type: object\n              example:\n                id: a3fb6\n                name: 'Jessica Smith'\n                phone: 12345678\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - { $ref: '#/components/schemas/Result' }\n                  - { type: boolean }\n              examples:\n                result:\n                  summary: 'An result object.'\n                  value: { success: true }\n                bool:\n                  summary: 'A boolean value.'\n                  value: false\ncomponents:\n  schemas:\n    Result:\n      title: 'Sample schema for using references'\n      properties:\n        status:\n          type: string\n        error:\n          type: string\n      type: object\ntags:\n  -\n    name: user\n    description: 'User related operations'\n",
+			"canonicalURL": "/github.com/zircote/swagger-php@7a316d962d7b1c4d78de5c95e27b722cb0294b0c/-/blob/Examples/example-object/example-object.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zircote/swagger-php/blob/7a316d962d7b1c4d78de5c95e27b722cb0294b0c/Examples/example-object/example-object.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

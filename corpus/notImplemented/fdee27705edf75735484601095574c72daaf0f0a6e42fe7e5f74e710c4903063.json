@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/academic-resources/stared-repos"
+		},
+		"file": {
+			"name": "6627.yaml",
+			"size": 0,
+			"path": "swagger-ui/test/e2e-cypress/static/documents/bugs/6627.yaml",
+			"byteSize": 756,
+			"content": "openapi: 3.0.1\ninfo:\n  title: XML array schema with array-level example\n  version: 1.0.0\n\npaths:\n  /users:\n    get:\n      responses:\n        \"200\":\n          description: ''\n          content:\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/Users'\n\ncomponents:\n  schemas:\n    Users:\n      type: array\n      example:\n        - id: 123\n          name: bob\n        - id: 456\n          name: jane\n      xml:\n        name: Users\n        wrapped: true\n      items:\n        type: object\n        xml:\n          name: User\n        properties:\n          id:\n            type: integer\n            xml:\n              attribute: true\n          name:\n            type: string\n            xml:\n              attribute: true\n",
+			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/test/e2e-cypress/static/documents/bugs/6627.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/test/e2e-cypress/static/documents/bugs/6627.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/users\": get: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

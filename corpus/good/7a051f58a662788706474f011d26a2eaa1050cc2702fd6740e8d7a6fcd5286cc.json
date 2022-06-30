@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_status_codes.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/oneOf/expected_status_codes.yml",
+			"byteSize": 1144,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        '200':\n          description: ''\n        '401':\n          description: unauthorized\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Unauthorized'\n        '404':\n          description: not found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NotFound'\n        default:\n          description: unknown\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Unknown'\ncomponents:\n  schemas:\n    NotFound:\n      required:\n        - what\n      type: object\n      properties:\n        what:\n          type: string\n    Unauthorized:\n      required:\n        - realm\n      type: object\n      properties:\n        realm:\n          type: string\n    Unknown:\n      required:\n        - code\n        - msg\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        msg:\n          type: string",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/oneOf/expected_status_codes.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/oneOf/expected_status_codes.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

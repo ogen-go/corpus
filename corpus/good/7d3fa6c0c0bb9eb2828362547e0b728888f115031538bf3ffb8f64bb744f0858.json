@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NCATS-Tangerine/translator-api-registry"
+		},
+		"file": {
+			"name": "smartapi.yaml",
+			"size": 0,
+			"path": "quickgo/smartapi.yaml",
+			"byteSize": 2431,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: QuickGO API\n  description: \u003e-\n    The QuickGO REST API provides access to key biological data from QuickGO\n    and GOA. The services provide a unified interface to query information about ontology\n    terms from GO (the Gene Ontology) and ECO (the Evidence \u0026 Conclusion Ontology),\n    Gene Ontology annotations from the EBI's GOA database, and gene products (proteins\n    from UniProt, RNA from RNAcentral and complexes from ComplexPortal).\n  termsOfService: https://www.ebi.ac.uk/QuickGO/services\n  contact:\n    name: pharmgkb help desk\n    x-role: responsible developer\n    email: help@pharmgkb.org\n  x-translator:\n    infores: \"infores:ebi-quick-go\"\n    component: KP\n    team:\n      - Service Provider\n    biolink-version: \"2.2.13\"\nservers:\n- url: https://www.ebi.ac.uk/QuickGO/services\n  description: Production server\n  x-maturity: production\ntags:\n- name: ontology\n- name: translator\npaths:\n  \"/ontology/go/terms/{goid}/children\":\n    get:\n      summary: retrieve the children of specified ontology terms\n      parameters:\n      - name: goid\n        in: path\n        description: Put Gene Ontology ID here, e.g. GO:0000082\n        required: true\n        example: GO:0000082\n        schema:\n          type: string\n      responses:\n        '200':\n          description: A gene ontology annotation object\n      x-bte-kgs-operations:\n      - \"$ref\": \"#/components/x-bte-kgs-operations/ma_has_subclass_ma\"\ncomponents:\n  x-bte-kgs-operations:\n    ## BIG NOTE: there is likely more data in this API, but want to add stuff that would be helpful for use cases, that we regularly update\n    ma_has_subclass_ma:\n    - inputs:\n      - id: GO\n        semantic: MolecularActivity\n      source: \"infores:go\"\n      predicate: superclass_of  ## this is current biolink, same meaning as \"has_subclass\"\n      outputs:\n      - id: GO\n        semantic: MolecularActivity\n      parameters:\n        goid: \"{inputs[0]}\"  ## has prefix (GO)\n      supportBatch: false\n      response_mapping:\n        \"$ref\": \"#/components/x-bte-response-mapping/ma_has_subclass_ma\"\n      # testExamples:\n      #   - qInput: \"GO:0000082\"     ## G1/S transition of mitotic cell cycle\n      #     oneOutput: \"GO:2000045\"  ## regulation of G1/S transition of mitotic cell cycle\n  x-bte-response-mapping:\n    ma_has_subclass_ma:\n      GO: results.children.id  ## has prefix (GO)\n      relation: results.children.relation\n",
+			"canonicalURL": "/github.com/NCATS-Tangerine/translator-api-registry@5925bba6420fb77fa3e54d9258970431e340e092/-/blob/quickgo/smartapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NCATS-Tangerine/translator-api-registry/blob/5925bba6420fb77fa3e54d9258970431e340e092/quickgo/smartapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

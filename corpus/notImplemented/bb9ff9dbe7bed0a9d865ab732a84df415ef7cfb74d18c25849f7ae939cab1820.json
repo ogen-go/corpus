@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "EPBDS-10481-wrong_request_body.yaml",
+			"size": 0,
+			"path": "Util/openl-openapi-parser/test-resources/test.converter/spreadsheets/EPBDS-10481-wrong_request_body.yaml",
+			"byteSize": 865,
+			"content": "openapi: 3.0.1\r\ninfo:\r\n  title: test\r\n  version: 1.0.0\r\nservers:\r\n  - url: /test\r\n    variables: { }\r\npaths:\r\n  /ThisIsEndpoint:\r\n    post:\r\n      summary: TestCalc\r\n      description: \"Test text\"\r\n      operationId: BlaBlaBla\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              $ref: '#/components/schemas/WrapperObject'\r\n      responses:\r\n        \"200\":\r\n          description: \"Test response\"\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                type: string\r\ncomponents:\r\n  schemas:\r\n    InnerObject:\r\n      type: object\r\n      properties:\r\n        text:\r\n          type: string\r\n        birthDate:\r\n          type: string\r\n          format: date-time\r\n    WrapperObject:\r\n      type: object\r\n      properties:\r\n        input:\r\n          $ref: '#/components/schemas/InnerObject'",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/Util/openl-openapi-parser/test-resources/test.converter/spreadsheets/EPBDS-10481-wrong_request_body.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/Util/openl-openapi-parser/test-resources/test.converter/spreadsheets/EPBDS-10481-wrong_request_body.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ThisIsEndpoint\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "modules/swagger-parser-v3/src/test/resources/same-refs-different-model.yaml",
 			"byteSize": 400,
-			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'"
+			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: 'http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/same-refs-different-model.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/same-refs-different-model.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: /bar: parameters: parse parameter \"\": resolve \"http://localhost:${dynamicPort}/issue-domain/#/components/parameters/requestid\" reference: parse \"http://localhost:${dynamicPort}/issue-domain/\": invalid port \":${dynamicPort}\" after host"

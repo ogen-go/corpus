@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ClearPointNZ/connect-java"
+		},
+		"file": {
+			"name": "oas.yaml",
+			"size": 0,
+			"path": "maven-plugins/openapi-jersey2-plugin/src/it/serverdelegate/oas.yaml",
+			"byteSize": 2835,
+			"content": "openapi: 3.0.1\ninfo:\n  title: ManagementResourceApi\n  description: Sample taken from random parts of the FeatureHub-IO (https://featurehub.io) API\n  version: \"1.1.1\"\npaths:\n  /initiate-subscription:\n    post:\n      description: \"Initiate the customer subscription process\"\n      security:\n        - bearerAuth: [ ]\n      operationId: initiateSubscription\n      tags:\n        - SubscriptionService\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/InitiateSubscriptionRequest\"\n      responses:\n        302:\n          description: \"redirected\"\n          headers:\n            Location:\n              schema:\n                type: string\n        400:\n          description: \"Bad request\"\n        401:\n          description: \"No permission\"\n        403:\n          description: \"Forbidden\"\n        422:\n          description: \"Incorrect data supplied\"\n  /mr-api/authentication/{id}/replaceTempPassword:\n    parameters:\n      - name: id\n        description: \"The id of the person to replace temporary password for\"\n        in: path\n        schema:\n          type: string\n        required: true\n      - name: includeGroups\n        description: \"Include groups for this this portfolio in results\"\n        in: query\n        schema:\n          type: boolean\n      - name: includeApplications\n        description: \"Include applications for this portfolio in results\"\n        in: query\n        schema:\n          type: boolean\n    put:\n      tags:\n        - AuthService\n      description: \"Replace temporary password\"\n      x-java-annotations: \"@io.featurehub.mr.api.AllowedDuringPasswordReset\"\n      security:\n        - bearerAuth: []\n      operationId: replaceTempPassword\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/PasswordReset\"\n      responses:\n        \"200\":\n          description: \"Successfully reset temporary password\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/TokenizedPerson\"\ncomponents:\n  securitySchemes:\n    bearerAuth:            # arbitrary name for the security scheme\n      type: http\n      scheme: bearer\n      bearerFormat: JWT    # optional, arbitrary value for documentation purposes\n  schemas:\n    InitiateSubscriptionRequest:\n      properties:\n        id:\n          type: string\n          format: UUID\n    PasswordReset:\n      required:\n        - password\n      properties:\n        password:\n          type: string\n        reactivate:\n          type: boolean\n    TokenizedPerson:\n      required:\n        - accessToken\n        - refreshToken\n      properties:\n        accessToken:\n          type: string\n        refreshToken:\n          type: string\n",
+			"canonicalURL": "/github.com/ClearPointNZ/connect-java@13fd0a9e79f15da9930f20d4aa0418a331028ae6/-/blob/maven-plugins/openapi-jersey2-plugin/src/it/serverdelegate/oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ClearPointNZ/connect-java/blob/13fd0a9e79f15da9930f20d4aa0418a331028ae6/maven-plugins/openapi-jersey2-plugin/src/it/serverdelegate/oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

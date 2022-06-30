@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "request_body_basic_scenarios.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/swagger/request_body_basic_scenarios.yaml",
+			"byteSize": 3918,
+			"content": "openapi: 3.0.0\ninfo:\n  title: refComponent\n  description: refComponent\n  version: 1.0.0\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n  - url: https://{subdomain}.swagger.io:{port}/{basePath}\n    description: The production API server\n    variables:\n      subdomain:\n        default: petstore\n        description: this value is assigned by the service provider\n      port:\n        enum:\n          - '8443'\n          - '443'\n        default: '443'\n      basePath:\n        default: v2\npaths:\n  /path01:\n    post:\n      operationId: postUser\n      summary: 01 Request body with reference.\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n    put:\n      summary: 02 Example for rb has inline requestbody.\n      operationId: updateUser\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - userName\n              properties:\n                userName:\n                  type: string\n                firstName:\n                  type: string\n  /path02:\n    post:\n      summary: 03 Request body with record reference.\n      operationId: postNewUser\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/User'\n    put:\n      operationId: updateNewUser\n      summary: 04 Example for rb has inline requestbody.\n      responses:\n        200:\n          description: OK\n      requestBody:\n        $ref: '#/components/requestBodies/PetBody'\n\n  /path03:\n    post:\n      operationId: postXMLUser\n      summary: 05 Example for rb has array inline requestbody.\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/xml:\n            schema:\n              type: object\n              required:\n                - userName\n              properties:\n                userName:\n                  type: string\n                firstName:\n                  type: string\n    put:\n      operationId: updateXMLUser\n      summary: 06 Example for rb has array inline requestbody.\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/xml:\n            schema:\n              required:\n                - userName\n              properties:\n                userName:\n                  type: string\n                firstName:\n                  type: string\n  /path04:\n    post:\n      operationId: postXMLUserInLineArray\n      summary: 07 Example for rb has array inline requestbody.\n      responses:\n        200:\n          description: OK\n      requestBody:\n        content:\n          application/xml:\n            schema:\n              type: array\n              items:\n                type: object\n                required:\n                  - userName\n                properties:\n                  id:\n                    type: integer\n                  userName:\n                    type: string\n                  firstName:\n                    type: string\ncomponents:\n  requestBodies:\n    PetBody:\n      description: A JSON object containing pet information\n      required: true\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/User'\n  schemas:\n    User:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/swagger/request_body_basic_scenarios.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/swagger/request_body_basic_scenarios.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/path03\": put: requestBody: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

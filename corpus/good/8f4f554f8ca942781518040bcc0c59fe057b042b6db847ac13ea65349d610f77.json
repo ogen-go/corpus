@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cjbooms/fabrikt"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "src/test/resources/examples/duplicatePropertyHandling/api.yaml",
+			"byteSize": 704,
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    DuplicatesParent:\n      allOf:\n        - $ref: '#/components/schemas/ContainsNestedAnyOfWithDupes'\n        - type: object\n          properties:\n            top_level_duplicate:\n              type: number\n\n    ContainsNestedAnyOfWithDupes:\n      anyOf:\n        - $ref: \"#/components/schemas/FirstOneD\"\n        - $ref: \"#/components/schemas/FirstOneD\"\n        - $ref: \"#/components/schemas/TheDuplicator\"\n\n    FirstOneD:\n      type: object\n      properties:\n        child_duplicate:\n          type: string\n\n    TheDuplicator:\n      type: object\n      properties:\n        top_level_duplicate:\n          type: string\n        child_duplicate:\n          type: string\n\n",
+			"canonicalURL": "/github.com/cjbooms/fabrikt@c0b5fac3861f8751b24f063055106d0ee1bd1754/-/blob/src/test/resources/examples/duplicatePropertyHandling/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cjbooms/fabrikt/blob/c0b5fac3861f8751b24f063055106d0ee1bd1754/src/test/resources/examples/duplicatePropertyHandling/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

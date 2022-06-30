@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenLiberty/open-liberty"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "dev/com.ibm.ws.openapi.3.1/lib/openapi.yaml",
+			"byteSize": 2577,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  title: \"OpenAPI APIs\"\n  description: \"APIs available from the OpenAPI feature\"\n  version: \"1.0.0\"\ntags:\n- name: \"OpenAPI\"\n  description: \"APIs available from the OpenAPI feature\"\npaths:\n  /ibm/api/docs:\n    get:\n      tags:\n      - \"OpenAPI\"\n      summary: \"Get a valid OpenAPI 3.0 document with all REST APIs available from\\\n        \\ a Liberty instance\"\n      description: \"Returns a valid OpenAPI 3.0 document with all REST APIs available\\\n        \\ from a Liberty instance merged into a single document. This is useful for\\\n        \\ consumer applications that want to programmatically navigate the set of\\\n        \\ available APIs, such as an API Management solution. By default, the document\\\n        \\ is returned in YAML format. Including an optional 'Accept' header with an\\\n        \\ 'application/json' value provides the document in JSON format. This endpoint\\\n        \\ has two multiple-cardinality, optional query parameters called 'root' that\\\n        \\ can filter the found context roots and 'compact' that can control whether\\\n        \\ the output should be formatted or not.\"\n      operationId: \"getDocs\"\n      parameters:\n      - name: \"root\"\n        in: \"query\"\n        description: \"Filter the found context roots\"\n        required: false\n        schema:\n          type: array\n          items:\n            type: string\n      - name: \"compact\"\n        in: \"query\"\n        description: \"Indicates if the output will contain any indenting white spaces,\\\n          \\ new line feeds, etc. By default, the output will not be compacted\"\n        required: false\n        schema:\n            type: boolean\n            default: false\n      - name: \"accept\"\n        in: \"header\"\n        description: \"Format of the returned document\"\n        required: false\n        schema:\n            type: string\n            enum:\n            - application/json\n            - application/yaml\n      responses:\n        200:\n          description: \"All available or filtered REST APIs from a Liberty instance\\\n            \\ merged into a single document\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/GeneratedDoc\"\n            application/yaml:\n              schema:\n                $ref: \"#/components/schemas/GeneratedDoc\"\n        405:\n          description: \"Method not allowed\"\n        415:\n          description: \"Requested media type is not supported\"\n        500:\n          description: \"An internal error has occurred\"\ncomponents:\n  schemas:\n    GeneratedDoc:\n      type: string\n",
+			"canonicalURL": "/github.com/OpenLiberty/open-liberty@cfd85465eb25f7adaf892d6ffe7814e504110dd1/-/blob/dev/com.ibm.ws.openapi.3.1/lib/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenLiberty/open-liberty/blob/cfd85465eb25f7adaf892d6ffe7814e504110dd1/dev/com.ibm.ws.openapi.3.1/lib/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

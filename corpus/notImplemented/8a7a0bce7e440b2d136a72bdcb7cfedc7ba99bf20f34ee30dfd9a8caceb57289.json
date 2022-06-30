@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_whole_numbers_in_examples_of_string_schemas.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/validator/expected_whole_numbers_in_examples_of_string_schemas.yml",
+			"byteSize": 490,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /positive:\n    get:\n      operationId: getPositive\n      parameters:\n        - name: x\n          in: query\n          required: true\n          schema:\n            type: integer\n            minimum: 0\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: query parameter x'\n          content:\n            text/plain:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/validator/expected_whole_numbers_in_examples_of_string_schemas.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/validator/expected_whole_numbers_in_examples_of_string_schemas.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/positive\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

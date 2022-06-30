@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "readwrite.yaml",
+			"size": 0,
+			"path": "docs/specs/readwrite.yaml",
+			"byteSize": 2103,
+			"content": "openapi: 3.0.3\ninfo:\n  version: \"1.0.0\"\n  title: \"RaedOnly and WriteOnly Testcase \"\npaths:\n  /read-write:\n    post:\n      summary: \"Request doesn't show the read-only and Response doesn't show write-only\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                holder:\n                  $ref: '#/components/schemas/Holder'\n      responses:\n        '200':\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Holder'\n\ncomponents:\n  schemas:\n    Holder:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        others:\n          $ref: '#/components/schemas/other'\n    other:\n      type: object\n      required:\n        - obj-regular\n      properties:\n        primitive:\n          type: integer\n        primitive-readonly:\n          readOnly: true\n          type: integer\n        obj-regular:\n          type: object\n          properties:\n            obj-prop1:\n              type: integer\n            obj-prop2:\n              type: integer\n            obj-prop-readonly:\n              readOnly: true\n              type: integer\n            obj-prop-writeonly:\n              writeOnly: true\n              type: integer\n        primitive-writeonly:\n          writeOnly: true\n          type: integer\n        obj-readonly:\n          type: object\n          readOnly: true\n          properties:\n            c1:\n              type: integer\n            c2:\n              type: integer\n        obj-writeonly:\n          type: object\n          writeOnly: true\n          properties:\n            d1:\n              type: integer\n            d2:\n              type: integer\n        arr-readonly:\n          type: array\n          readOnly: true\n          items:\n            type: string\n        arr-writeonly:\n          type: array\n          writeOnly: true\n          items:\n            type: string\n        g:\n          type: integer",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/readwrite.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/readwrite.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

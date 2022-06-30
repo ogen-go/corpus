@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/validator-badge"
+		},
+		"file": {
+			"name": "valid_oas3.yaml",
+			"size": 0,
+			"path": "src/test/resources/valid_oas3.yaml",
+			"byteSize": 1309,
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  version: 1.0.0\n  title: minimal\n  description: News Articles ftw\npaths:\n  /users:\n    get:\n      responses:\n        '200':\n          description: hello world\ncomponents:\n  schemas:\n    NewsArticle:\n      title: NewsArticle\n      type: object\n      nullable: true\n      properties:\n        id:\n          type: integer\n          format: int32\n          x-mysql-type: int(11)\n    allOfNewsArticle:\n      title: allOfNewsArticle\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    anyOfNewsArticle:\n      title: anyOfNewsArticle\n      type: object\n      anyOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    oneOfNewsArticle:\n      title: oneOfNewsArticle\n      type: object\n      oneOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    notNewsArticle:\n      title: notNewsArticle\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - not:\n            type: string\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  securitySchemes: {}\n  headers: {}",
+			"canonicalURL": "/github.com/swagger-api/validator-badge@3849b44117f7de2ac6a4f32cc7cfd1d0425fda22/-/blob/src/test/resources/valid_oas3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/validator-badge/blob/3849b44117f7de2ac6a4f32cc7cfd1d0425fda22/src/test/resources/valid_oas3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

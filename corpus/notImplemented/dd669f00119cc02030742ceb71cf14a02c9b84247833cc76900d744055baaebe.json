@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "rest/openapi/aa/1.0.0/openapi.yaml",
+			"byteSize": 1221,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://aa.networknt.com/v1'\ninfo:\n  version: 1.0.0\n  title: API AA for aggregate microservices pattern\n  description: API AA is called by consumer directly and it will call API AB, API AC and API AD to get data\n  contact:\n    email: stevehu@gmail.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /data:\n    get:\n      description: Return an array of strings collected from down stream APIs\n      operationId: listData\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                title: ArrayOfStrings\n                type: array\n                items:\n                  type: string\n              examples:\n                response:\n                  value:\n                    - Message 1\n                    - Message 2\n      security:\n        - aa_auth:\n            - aa.w\n            - aa.r\ncomponents:\n  securitySchemes:\n    aa_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: 'http://localhost:8080/oauth2/code'\n          scopes:\n            aa.w: write access\n            aa.r: read access",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/openapi/aa/1.0.0/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/openapi/aa/1.0.0/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/data\": get: security: security \"aa_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

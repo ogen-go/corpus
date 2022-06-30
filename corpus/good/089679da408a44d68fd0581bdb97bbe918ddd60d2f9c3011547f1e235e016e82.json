@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/muonsoft/openapi-mock"
+		},
+		"file": {
+			"name": "LocalCrossReference.yaml",
+			"size": 0,
+			"path": "test/resources/openapi-files/LocalCrossReference.yaml",
+			"byteSize": 1019,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: 'test'\n  version: 1.0.0\npaths:\n  /entities:\n    get:\n      summary: 'Get entities'\n      responses:\n        200:\n          description: 'Returns entity in JSON'\n          content:\n            application/json:\n              schema:\n                type: array\n                minItems: 1\n                maxItems: 1\n                items:\n                  $ref: '#/paths/~1entities~1%7Bid%7D/get/responses/200/content/application~1json/schema'\n  /entities/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: integer\n    get:\n      summary: 'Get entity by id'\n      responses:\n        200:\n          description: 'Returns entity in JSON'\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - key\n                properties:\n                  key:\n                    type: string\n                    enum:\n                      - value\n",
+			"canonicalURL": "/github.com/muonsoft/openapi-mock@3bbb09841436604d2b655105a64f983474962f47/-/blob/test/resources/openapi-files/LocalCrossReference.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/muonsoft/openapi-mock/blob/3bbb09841436604d2b655105a64f983474962f47/test/resources/openapi-files/LocalCrossReference.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/imfht/flaskapps"
+		},
+		"file": {
+			"name": "helloworld-api.yaml",
+			"size": 0,
+			"path": "connexion-master/examples/openapi3/helloworld_aiohttp/openapi/helloworld-api.yaml",
+			"byteSize": 676,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Hello World\n  version: \"1.0\"\nservers:\n  - url: http://localhost:9090/v1.0\n\npaths:\n  /greeting/{name}:\n    post:\n      summary: Generate greeting\n      description: Generates a greeting message.\n      operationId: hello.post_greeting\n      responses:\n        200:\n          description: greeting response\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"hello dave!\"\n      parameters:\n        - name: name\n          in: path\n          description: Name of the person to greet.\n          required: true\n          schema:\n            type: string\n            example: \"dave\"\n",
+			"canonicalURL": "/github.com/imfht/flaskapps@d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/-/blob/connexion-master/examples/openapi3/helloworld_aiohttp/openapi/helloworld-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/imfht/flaskapps/blob/d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/connexion-master/examples/openapi3/helloworld_aiohttp/openapi/helloworld-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/greeting/{name}\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

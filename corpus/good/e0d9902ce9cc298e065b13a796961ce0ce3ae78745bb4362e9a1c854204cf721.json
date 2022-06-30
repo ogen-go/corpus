@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/thedevdrawer/app-with-api"
+		},
+		"file": {
+			"name": "using-traits-inherit.yaml",
+			"size": 0,
+			"path": "api/vendor/zircote/swagger-php/Examples/using-traits/using-traits-inherit.yaml",
+			"byteSize": 3027,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Example of using traits in swagger-php'\n  version: 1.0.0\npaths:\n  '/entities/{id}':\n    delete:\n      tags:\n        - Entities\n      operationId: 'UsingTraits\\DeleteEntity::deleteEntity'\n      parameters:\n        -\n          name: id\n          in: path\n          description: 'ID of entity to delete'\n          required: true\n          schema:\n            type: string\n      responses:\n        default:\n          description: 'successful operation'\n  '/products/{product_id}':\n    get:\n      tags:\n        - Products\n      operationId: 'UsingTraits\\ProductController::getProduct'\n      parameters:\n        -\n          name: product_id\n          in: path\n          description: 'ID of product to return'\n          required: true\n          schema:\n            type: string\n      responses:\n        default:\n          description: 'successful operation'\ncomponents:\n  schemas:\n    BellsAndWhistles:\n      title: 'Bells and Whistles trait'\n      allOf:\n        -\n          $ref: '#/components/schemas/Bells'\n        -\n          $ref: '#/components/schemas/Whistles'\n        -\n          properties:\n            plating:\n              description: 'The plating.'\n              example: gold\n    Blink:\n      title: 'Blink trait'\n      properties:\n        frequency:\n          description: 'The frequency.'\n          example: 1\n      type: object\n    Colour:\n      title: 'Colour trait'\n      properties:\n        colour:\n          description: 'The colour.'\n          example: red\n      type: object\n    Bells:\n      title: 'Bells trait'\n      properties:\n        bell:\n          description: 'The bell.'\n          example: chime\n      type: object\n    Whistles:\n      title: 'Whistles trait'\n      properties:\n        whistle:\n          description: 'The bell.'\n          example: 'bone whistle'\n      type: object\n    DeleteEntity:\n      title: 'Delete entity trait'\n    Product:\n      title: 'Product model'\n      allOf:\n        -\n          $ref: '#/components/schemas/Colour'\n        -\n          $ref: '#/components/schemas/BellsAndWhistles'\n        -\n          properties:\n            id:\n              description: 'The unique identifier of a product in our catalog.'\n              type: integer\n              format: int64\n              example: 1\n            bell:\n              description: 'The product bell.'\n              example: gong\n    SimpleProduct:\n      title: 'SimpleProduct model'\n      allOf:\n        -\n          $ref: '#/components/schemas/Bells'\n        -\n          properties:\n            id:\n              description: 'The unique identifier of a simple product in our catalog.'\n              type: integer\n              format: int64\n              example: 1\n    TrickyProduct:\n      allOf:\n        -\n          $ref: '#/components/schemas/Blink'\n        -\n          $ref: '#/components/schemas/SimpleProduct'\n        -\n          title: 'TrickyProduct model'\n          properties:\n            trick:\n              description: 'The trick.'\n              example: 'recite poem'\n",
+			"canonicalURL": "/github.com/thedevdrawer/app-with-api@41d748c430fa5d3706b352c754efbb77c070d73e/-/blob/api/vendor/zircote/swagger-php/Examples/using-traits/using-traits-inherit.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/thedevdrawer/app-with-api/blob/41d748c430fa5d3706b352c754efbb77c070d73e/api/vendor/zircote/swagger-php/Examples/using-traits/using-traits-inherit.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

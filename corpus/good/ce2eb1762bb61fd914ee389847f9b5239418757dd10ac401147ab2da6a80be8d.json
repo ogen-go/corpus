@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microcks/api-lifecycle"
+		},
+		"file": {
+			"name": "UserRegistrationAPI-openapi-1.0.0.yml",
+			"size": 0,
+			"path": "user-registration-demo/api-contracts/UserRegistrationAPI-openapi-1.0.0.yml",
+			"byteSize": 2145,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  title: User registration API\n  version: 1.0.0\n  description: APi used for registering new users in the system\npaths:\n  /register:\n    post:\n      requestBody:\n        description: A User registration request\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/UserRegistration'\n            examples:\n              chuck:\n                value:\n                  fullName: Chuck Norris\n                  email: chuck@norris.com\n                  age: 23\n        required: true\n      responses:\n        \"201\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ApprovedUserRegistration'\n              examples:\n                chuck:\n                  value:\n                    id: '{{ randomString(32) }}'\n                    fullName: '{{ request.body/fullName }}'\n                    email: '{{ request.body/email }}'\n                    age: 23\n                    registrationDate: '{{ now() }}'\n          description: An approved User registration completed with id and date\n      operationId: CreateUserRegistration\n      summary: Create a new registration\ncomponents:\n  schemas:\n    UserRegistration:\n      title: Root Type for UserRegistration\n      description: \"\"\n      type: object\n      properties:\n        fullName:\n          type: string\n        email:\n          type: string\n        age:\n          type: integer\n      example:\n        fullName: Firstname Lastname\n        email: john@example.com\n        age: 42\n    ApprovedUserRegistration:\n      title: Root Type for UserRegistration\n      description: \"\"\n      required:\n      - id\n      - registrationDate\n      type: object\n      properties:\n        fullName:\n          type: string\n        email:\n          type: string\n        age:\n          type: integer\n        id:\n          type: string\n        registrationDate:\n          type: string\n      example:\n        id: Wen7JHPUzriJxbmw9btmFhZypjPYUM8B\n        fullName: Firstname Lastname\n        email: john@example.com\n        age: 42\n        regsitrationDate: \"1600244138045\"\n",
+			"canonicalURL": "/github.com/microcks/api-lifecycle@5cc435e19873488b1be031ba5358b4e929ac3a50/-/blob/user-registration-demo/api-contracts/UserRegistrationAPI-openapi-1.0.0.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microcks/api-lifecycle/blob/5cc435e19873488b1be031ba5358b4e929ac3a50/user-registration-demo/api-contracts/UserRegistrationAPI-openapi-1.0.0.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

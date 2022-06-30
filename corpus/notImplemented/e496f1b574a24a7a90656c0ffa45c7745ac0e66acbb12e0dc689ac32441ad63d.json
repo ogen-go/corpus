@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tfranzel/drf-spectacular"
+		},
+		"file": {
+			"name": "test_i18n.yml",
+			"size": 0,
+			"path": "tests/test_i18n.yml",
+			"byteSize": 3381,
+			"content": "openapi: 3.0.3\ninfo:\n  title: ''\n  version: 0.0.0\n  description: Lazy translated description with missing translation\npaths:\n  /api/schema/:\n    get:\n      operationId: schema_retrieve\n      description: |-\n        OpenApi3 schema for this API. Format can be selected via content negotiation.\n\n        - YAML: application/vnd.oai.openapi\n        - JSON: application/vnd.oai.openapi+json\n      parameters:\n      - in: query\n        name: format\n        schema:\n          type: string\n          enum:\n          - json\n          - yaml\n      - in: query\n        name: lang\n        schema:\n          type: string\n          enum:\n          - de-de\n          - en-us\n      tags:\n      - schema\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/vnd.oai.openapi:\n              schema:\n                type: object\n                additionalProperties: {}\n            application/yaml:\n              schema:\n                type: object\n                additionalProperties: {}\n            application/vnd.oai.openapi+json:\n              schema:\n                type: object\n                additionalProperties: {}\n            application/json:\n              schema:\n                type: object\n                additionalProperties: {}\n          description: ''\n  /api/x/:\n    get:\n      operationId: x_list\n      description: Eine laengere Erklaerung des Views\n      tags:\n      - x\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/X'\n          description: ''\n    post:\n      operationId: x_create\n      description: Eine laengere Erklaerung des Views\n      summary: Hauptendpunkt fuer die Erstellung von X\n      tags:\n      - x\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/X'\n          application/x-www-form-urlencoded:\n            schema:\n              $ref: '#/components/schemas/X'\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/X'\n        required: true\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '201':\n          description: Kein Inhalt\n  /api/x/{id}/:\n    get:\n      operationId: x_retrieve\n      description: Eine laengere Erklaerung des Views\n      parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        description: A unique integer value identifying this Internätiönalisierung.\n        required: true\n      tags:\n      - x\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/X'\n          description: ''\ncomponents:\n  schemas:\n    X:\n      type: object\n      properties:\n        id:\n          type: integer\n          readOnly: true\n        field_str:\n          type: string\n      required:\n      - field_str\n      - id\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: sessionid\n",
+			"canonicalURL": "/github.com/tfranzel/drf-spectacular@df9e115ca9b9a3ec84d60df942be28ce3cda13fa/-/blob/tests/test_i18n.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tfranzel/drf-spectacular/blob/df9e115ca9b9a3ec84d60df942be28ce3cda13fa/tests/test_i18n.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/schema/\": get: security: security \"cookieAuth\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

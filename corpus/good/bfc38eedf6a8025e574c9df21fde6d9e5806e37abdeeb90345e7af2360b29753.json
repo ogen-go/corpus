@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "readOnly-writeOnly.json",
+			"size": 0,
+			"path": "docs/specs/readOnly-writeOnly.json",
+			"byteSize": 2791,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Hidden readOnly\",\n        \"version\": \"1.0.0\",\n        \"description\": \"Hidden readOnly/writeOnly properties for write/read actions.\"\n    },\n    \"components\": {\n        \"schemas\": {\n            \"dummy\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"id\": { \"type\": \"string\", \"readOnly\": true },\n                    \"name\": { \"type\": \"string\" },\n                    \"password\": { \"type\": \"string\", \"writeOnly\": true }\n                }\n            }\n        },\n        \"requestBodies\": {\n            \"request\": {\n                \"description\": \"Check out the model tab to see (or not see) the readOnly property `id`\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": { \"$ref\": \"#/components/schemas/dummy\" }\n                    }\n                }\n            }\n        },\n        \"responses\": {\n            \"response\": {\n                \"description\": \"Check out the model tab to see (or not see) the writeOnly property `password`\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": { \"$ref\": \"#/components/schemas/dummy\" }\n                    }\n                }\n            }\n        }\n    },\n    \"paths\": {\n        \"/user\": {\n            \"get\": {\n                \"summary\": \"1. Get\",\n                \"description\": \"Note: although uncommon, and it's an odd example here, but a GET request could also have a request body\",\n                \"requestBody\": { \"$ref\": \"#/components/requestBodies/request\" },\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            },\n            \"post\": {\n                \"summary\": \"2. Post\",\n                \"requestBody\": { \"$ref\": \"#/components/requestBodies/request\" },\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            },\n            \"put\": {\n                \"summary\": \"3. Put\",\n                \"requestBody\": { \"$ref\": \"#/components/requestBodies/request\" },\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            },\n            \"patch\": {\n                \"summary\": \"4. Patch\",\n                \"requestBody\": { \"$ref\": \"#/components/requestBodies/request\" },\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            },\n            \"delete\": {\n                \"summary\": \"5. Delete\",\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            },\n            \"options\": {\n                \"summary\": \"6. Options\",\n                \"responses\": { \"200\": { \"$ref\": \"#/components/responses/response\" } }\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/readOnly-writeOnly.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/readOnly-writeOnly.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

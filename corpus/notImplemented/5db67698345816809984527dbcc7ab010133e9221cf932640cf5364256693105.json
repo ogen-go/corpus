@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative2.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/cleartext_api_key_in_operation_security/test/negative2.yaml",
+			"byteSize": 643,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  /pets:\n    post:\n      description: Creates a new pet in the store\n      responses:\n        \"200\":\n          description: 200 response\n      operationId: addPet\n      security:\n        - OAuth2:\n            - write\n            - read\ncomponents:\n  securitySchemes:\n    OAuth2:\n      type: oauth2\n      flows:\n        authorizationCode:\n          scopes:\n            write: modify objects in your account\n            read: read objects in your account\n          authorizationUrl: https://example.com/oauth/authorize\n          tokenUrl: https://example.com/oauth/token\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/general/cleartext_api_key_in_operation_security/test/negative2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/general/cleartext_api_key_in_operation_security/test/negative2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": post: security: security \"OAuth2\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

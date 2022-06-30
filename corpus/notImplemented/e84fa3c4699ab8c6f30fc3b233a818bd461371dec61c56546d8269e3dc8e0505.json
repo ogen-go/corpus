@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "azure-ai-text-function.yaml",
+			"size": 0,
+			"path": "tests/generator-azureai/azure-ai-text-function.yaml",
+			"byteSize": 1661,
+			"content": "openapi: 3.0.0\ninfo:\n  title: azure-ai-text-function_upload-enabled\n  description: \"No description provided\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"No description provided\"\npaths:\n  /azure-ai-text-function_upload-enabled/get_text_results:\n     get:\n      summary: \"Read text from an image\"\n      description: \"This example describes the contents of a text image\"\n      operationId: azure-ai-text-function_upload-enabled.get_text_results\n      parameters:\n        - in: query\n          name: image_name\n          description: \"Name of the image file\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /azure-ai-text-function_upload-enabled/path_expand:\n     get:\n      summary: \"returns a string with expanded variable.\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: azure-ai-text-function_upload-enabled.path_expand\n      \n      responses:\n        '204':\n          description: \"This operation returns no response.\"\n\n  /upload:\n    post:\n      summary: upload a file\n      operationId: azure-ai-text-function_upload-enabled.upload\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/generator-azureai/azure-ai-text-function.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/generator-azureai/azure-ai-text-function.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/upload\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

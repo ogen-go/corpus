@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/influxdata/openapi"
+		},
+		"file": {
+			"name": "mapsd.yml",
+			"size": 0,
+			"path": "contracts/svc/mapsd.yml",
+			"byteSize": 1915,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Maps service\n  version: 0.1.0\nservers:\n  - url: /api/v1\npaths:\n  /mapToken:\n    get:\n      summary: Get a mapbox token\n      operationId: getMapboxToken\n      responses:\n        '200':\n          description: Temporary token for Mapbox.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Token'\n        '401':\n          $ref: '#/components/responses/ServerError'\n        '500':\n          $ref: '#/components/responses/ServerError'\n        default:\n          $ref: '#/components/responses/ServerError'\ncomponents:\n  schemas:\n    Token:\n      type: object\n      properties:\n        token:\n          type: string\n    Error:\n      properties:\n        code:\n          description: code is the machine-readable error code.\n          readOnly: true\n          type: string\n          enum:\n            - internal error\n            - not found\n            - conflict\n            - invalid\n            - unprocessable entity\n            - empty value\n            - unavailable\n            - forbidden\n            - too many requests\n            - unauthorized\n            - method not allowed\n            - request too large\n            - unsupported media type\n        message:\n          readOnly: true\n          description: Human-readable message.\n          type: string\n        op:\n          readOnly: true\n          description: Describes the logical code operation when the error occurred. Useful for debugging.\n          type: string\n        err:\n          readOnly: true\n          description: Stack of errors that occurred during processing of the request. Useful for debugging.\n          type: string\n      required:\n        - code\n  responses:\n    ServerError:\n      description: Non 2XX error response from server.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n",
+			"canonicalURL": "/github.com/influxdata/openapi@a57b04ad0d88b646a1a04bd90a03477ca945fc3b/-/blob/contracts/svc/mapsd.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/influxdata/openapi/blob/a57b04ad0d88b646a1a04bd90a03477ca945fc3b/contracts/svc/mapsd.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

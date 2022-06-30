@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mustafar/parrot"
+		},
+		"file": {
+			"name": "openapi3.yml",
+			"size": 0,
+			"path": "__tests__/openapi3.yml",
+			"byteSize": 1601,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Parrot Test Api\n  description: test api\n  contact: {}\n  version: '1.0.0'\n\nservers:\n- url: http://{defaultHost}\n  variables:\n    defaultHost:\n      default: www.example.com/parrot-test\n\npaths:\n  /robin/location:\n    get:\n      summary: RobinLocation_GET\n      operationId: RobinlocationGet\n      parameters: []\n      responses:\n        200:\n          description: ''\n          headers: {}\n          content:\n            text/plain:\n              schema:\n                type: string\n        500:\n          description: failed to find robin\n      deprecated: false\n\n  /robin/catchphrases/{id}:\n    get:\n      summary: RobinCatchphrasesById_GET\n      operationId: RobincatchphrasesbyidGet\n      parameters:\n      - name: id\n        in: path\n        description: ''\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: integer\n          format: int32\n      responses:\n        200:\n          description: ''\n          headers: {}\n          content:\n            text/plain:\n              schema:\n                type: string\n        500:\n          description: failed to find catchphrase\n      deprecated: false\n\n  /batman/location:\n    get:\n      summary: BatmanLocation_GET\n      operationId: BatmanlocationGet\n      parameters: []\n      responses:\n        200:\n          description: ''\n          headers: {}\n          content:\n            text/plain:\n              schema:\n                type: string\n              example: batcave\n        500:\n          description: failed to find batman\n      deprecated: false\n\ntags: []\n",
+			"canonicalURL": "/github.com/mustafar/parrot@990d79760ce6e88ff36773f4bd37e047777adbaa/-/blob/__tests__/openapi3.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mustafar/parrot/blob/990d79760ce6e88ff36773f4bd37e047777adbaa/__tests__/openapi3.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/batman/location\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

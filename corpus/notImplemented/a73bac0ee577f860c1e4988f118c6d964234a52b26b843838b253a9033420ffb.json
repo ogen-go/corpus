@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nikolaydubina/openapi-inline-examples"
+		},
+		"file": {
+			"name": "openapi.with-error.yaml",
+			"size": 0,
+			"path": "testdata/openapi.with-error.yaml",
+			"byteSize": 1146,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Swagger Marvelstore\n\npaths:\n  /users:\n    get:\n      responses:\n        '200':\n          description: A user object.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                    example: 4\n                  name:\n                    type: string\n                    example: Jessica Smith\n              examples:\n                basic:\n                  value: #source testdata/asdf.json\n        '400':\n          description: The specified user ID is invalid (not a number).\n          content:\n            application/json:\n              examples:\n                basic 400:\n                  value: #source testdata/asdf.json\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n      examples:\n        user only id:\n          value: #source testdata/asdf.json\n        user all fields:\n          value: #source testdata/asdf.json\n",
+			"canonicalURL": "/github.com/nikolaydubina/openapi-inline-examples@40b258a112e3a4dd5f764d53ced788fd262e71ab/-/blob/testdata/openapi.with-error.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nikolaydubina/openapi-inline-examples/blob/40b258a112e3a4dd5f764d53ced788fd262e71ab/testdata/openapi.with-error.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/users\": get: responses: 400: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

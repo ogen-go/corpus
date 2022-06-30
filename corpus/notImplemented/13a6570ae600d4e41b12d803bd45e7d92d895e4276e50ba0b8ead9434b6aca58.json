@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "azure-ai-image-function.yaml",
+			"size": 0,
+			"path": "tests/generator-azureai/azure-ai-image-function.yaml",
+			"byteSize": 2894,
+			"content": "openapi: 3.0.0\ninfo:\n  title: azure-ai-image-function_upload-enabled\n  description: \"No description provided\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"No description provided\"\npaths:\n  /azure-ai-image-function_upload-enabled/get_image_analysis:\n     get:\n      summary: \"Analyze an Image\"\n      description: \"This example analyzes the contents of an image with the confidence score.\"\n      operationId: azure-ai-image-function_upload-enabled.get_image_analysis\n      parameters:\n        - in: query\n          name: image_name\n          description: \"Name of the image+extension\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /azure-ai-image-function_upload-enabled/get_image_desc:\n     get:\n      summary: \"Describe an Image\"\n      description: \"This example describes the contents of an image with the confidence score.\"\n      operationId: azure-ai-image-function_upload-enabled.get_image_desc\n      parameters:\n        - in: query\n          name: image_name\n          description: \"Name of the image+extension\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /azure-ai-image-function_upload-enabled/get_image_tags:\n     get:\n      summary: \"Generate list of tags for input image with confidence score.\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: azure-ai-image-function_upload-enabled.get_image_tags\n      parameters:\n        - in: query\n          name: image_name\n          description: \"Name of the image+extension\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /azure-ai-image-function_upload-enabled/path_expand:\n     get:\n      summary: \"returns a string with expanded variable.\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: azure-ai-image-function_upload-enabled.path_expand\n      \n      responses:\n        '204':\n          description: \"This operation returns no response.\"\n\n  /upload:\n    post:\n      summary: upload a file\n      operationId: azure-ai-image-function_upload-enabled.upload\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/generator-azureai/azure-ai-image-function.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/generator-azureai/azure-ai-image-function.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/azure-ai-image-function_upload-enabled/get_image_desc\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

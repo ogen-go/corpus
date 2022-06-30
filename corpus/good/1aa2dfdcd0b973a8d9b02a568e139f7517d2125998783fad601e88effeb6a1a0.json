@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/s2o-test/issue112/openapi.yaml",
+			"byteSize": 3613,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: RequestBody Test v1\n  description: 'This is a testcase re: body and form params.'\npaths:\n  /v1/bodytest1:\n    post:\n      operationId: bodyTest1\n      summary: Body parameter test 1\n      description: Body param is a referenced parameter.\n      responses:\n        '201':\n          description: Successful request.\n        '400':\n          description: Invalid request.\n      x-codegen-request-body-name: body_param\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Person'\n        description: A referenced body parameter.\n        required: true\n        x-alternate-name: person\n        x-test-property: true\n  /v1/bodytest2:\n    post:\n      operationId: bodyTest2\n      summary: Body parameter test 2\n      description: Body param is normal inline parameter.\n      responses:\n        '201':\n          description: Successful request.\n        '400':\n          description: Invalid request.\n      x-codegen-request-body-name: body_param\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Person'\n        description: The content of the new counterexample.\n        required: true\n  /v1/formtest1:\n    post:\n      operationId: formTest1\n      summary: Form parameter test 1\n      description: Form params are referenced parameters.\n      responses:\n        '201':\n          description: Successful request.\n        '400':\n          description: Invalid request.\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                form_part_1:\n                  description: A file transmitted via a mimepart within a multipart form.\n                  type: string\n                  format: binary\n                  x-file-content-types:\n                    - application/zip\n                    - application/octet-stream\n                  x-include-filename: true\n                  x-alternate-name: filePart\n                form_part_2:\n                  description: A string transmitted via a mimepart within a multipart form.\n                  type: string\n                  x-test-property: true\n                  x-alternate-name: stringPart\n  /v1/formtest2:\n    post:\n      operationId: formTest2\n      summary: Form parameter test 2\n      description: Form params are defined inline.\n      responses:\n        '201':\n          description: Successful request.\n        '400':\n          description: Invalid request.\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                part_1:\n                  description: A file transmitted via a mimepart within a multipart form.\n                  type: string\n                  format: binary\n                  x-file-content-types:\n                    - application/gzip\n                    - application/jpg\n                  x-include-filename: false\n                  x-alternate-name: filePart\n                part_2:\n                  description: A string within a multipart form.\n                  type: string\n                  x-alternate-name: stringPart\nservers:\n  - url: /rbtest/api\ncomponents:\n  schemas:\n    Person:\n      properties:\n        name:\n          type: string\n          description: The person's name.\n        age:\n          type: integer\n          description: The person's age.\n      required:\n        - name\n        - age\n      x-test-property: a value\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/s2o-test/issue112/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/s2o-test/issue112/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

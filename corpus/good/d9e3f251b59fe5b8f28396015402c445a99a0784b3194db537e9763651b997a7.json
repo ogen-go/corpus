@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue11088-model-mutable-with-containers.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/kotlin/issue11088-model-mutable-with-containers.yaml",
+			"byteSize": 1308,
+			"content": "openapi: 3.0.3\ninfo:\n  title: 'Issue 11088 - modelMutable and Kotlin container types'\n  version: 0.1.0\npaths:\n  '/':\n    get:\n      operationId: myOperation\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MyModel'\ncomponents:\n  schemas:\n    MyModel:\n      description: Model with properties that should be mutable in Kotlin\n      properties:\n        myIntArray:\n          type: array\n          items:\n            type: integer\n        myStringSet:\n          type: array\n          items:\n            type: string\n          uniqueItems: true\n        myFreeFormObjectWithPrimitiveValues:\n          type: object\n          additionalProperties:\n            type: integer\n        myFreeFormObjectWithComplexValues:\n          type: object\n          additionalProperties:\n            type: object\n            properties:\n              myArrayOfInts:\n                type: array\n                items:\n                  type: integer\n              mySetOfStrings:\n                type: array\n                items:\n                  type: string\n                uniqueItems: true\n        myFreeFormObject:\n          type: object\n          additionalProperties:\n            type: object\n\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/kotlin/issue11088-model-mutable-with-containers.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/kotlin/issue11088-model-mutable-with-containers.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

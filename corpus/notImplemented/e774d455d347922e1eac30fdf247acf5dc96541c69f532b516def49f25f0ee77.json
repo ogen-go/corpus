@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.multipart-form.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.multipart-form.json",
+			"byteSize": 3313,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/multipart/{id1}/{id2}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id1\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          }\n        },\n        {\n          \"name\": \"id2\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"multipart/form-data\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"required\": [\n                  \"formField4\",\n                  \"f3\"\n                ],\n                \"properties\": {\n                  \"formField1\": {\n                    \"type\": \"string\",\n                    \"default\": \"f1-default\"\n                  },\n                  \"f2\": {\n                    \"type\": \"string\",\n                    \"default\": \"default2\"\n                  },\n                  \"f3\": {\n                    \"type\": \"integer\",\n                    \"format\": \"int32\",\n                    \"default\": 3\n                  },\n                  \"formField4\": {\n                    \"type\": \"string\",\n                    \"nullable\": false\n                  },\n                  \"data\": {\n                    \"type\": \"object\"\n                  },\n                  \"binaryData\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  },\n                  \"file\": {\n                    \"format\": \"binary\",\n                    \"type\": \"string\"\n                  },\n                  \"listOfFileStreams\": {\n                    \"description\": \"List of streams\",\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"format\": \"binary\",\n                      \"type\": \"string\"\n                    }\n                  },\n                  \"listOfBinaryArrays\": {\n                    \"description\": \"List of byte arrays\",\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"format\": \"binary\",\n                      \"type\": \"string\"\n                    }\n                  }\n                }\n              },\n              \"encoding\": {\n                \"formField1\": {\n                  \"contentType\": \"text/x-custom-type\"\n                },\n                \"f2\": {\n                  \"contentType\": \"text/plain\"\n                },\n                \"binaryData\": {\n                  \"contentType\": \"application/octet-stream\"\n                },\n                \"file\": {\n                  \"contentType\": \"application/octet-stream\"\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Widget\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.multipart-form.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.multipart-form.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/multipart/{id1}/{id2}\": post: requestBody: contents: multipart/form-data: form parameter \"formField1\": parameter content-type not implemented",
+	"NotImplemented": [
+		"parameter content-type"
+	]
+}

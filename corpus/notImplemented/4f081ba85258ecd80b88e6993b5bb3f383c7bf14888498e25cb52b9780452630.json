@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/spec-first/connexion"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "tests/fixtures/json_validation/openapi.yaml",
+			"byteSize": 2603,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: \"{{title}}\"\n  version: \"1.0\"\n\nservers:\n  - url: /v1.0\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n      - name\n      - user_id\n      - password\n      properties:\n        user_id:\n          type: integer\n          readOnly: true\n        name:\n          type: string\n        password:\n          type: string\n          writeOnly: true\n    X:\n      type: object\n      properties:\n        name:\n          type: string\n        age:\n          type: integer\n\npaths:\n  /minlength:\n    post:\n      operationId: fakeapi.hello.post\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                foo:\n                  type: string\n      responses:\n        200:\n          description: Success\n\n  /user:\n    get:\n      operationId: fakeapi.hello.get_user\n      responses:\n        200:\n          description: User object\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n    post:\n      operationId: fakeapi.hello.post_user\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n      responses:\n        200:\n          description: User object\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n  /user_with_password:\n    get:\n      operationId: fakeapi.hello.get_user_with_password\n      responses:\n        200:\n          description: User object\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n\n  /nullable_default:\n    get:\n      operationId: fakeapi.hello.nullable_default\n      parameters:\n        - name: test\n          in: query\n          schema:\n            type: string\n            nullable: true\n            default: null\n      responses:\n        204:\n          description: OK\n\n  /multipart_form_json:\n    post:\n      operationId: fakeapi.hello.post_multipart_form\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                x:\n                  $ref: \"#/components/schemas/X\"\n            encoding:\n              x:\n                contentType: \"application/json\"\n      responses:\n        200:\n          description: Modified Echo\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/X\"\n",
+			"canonicalURL": "/github.com/spec-first/connexion@9be473d5eabebde3df8d50e69f46513a66bba497/-/blob/tests/fixtures/json_validation/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/spec-first/connexion/blob/9be473d5eabebde3df8d50e69f46513a66bba497/tests/fixtures/json_validation/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/multipart_form_json\": post: requestBody: contents: multipart/form-data: form parameter \"x\": parameter content-type not implemented",
+	"NotImplemented": [
+		"parameter content-type"
+	]
+}

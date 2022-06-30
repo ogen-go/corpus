@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "allOf.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/schema/swagger/allOf.yaml",
+			"byteSize": 1633,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Uber API\n  description: Move your app forward with the Uber API\n  version: 1.0.0\nservers:\n  - url: https://api.uber.com/v1\npaths:\n  /xmlarrayproducts:\n    get:\n      summary: Product Types\n      operationId: getProducts\n      description: The Products endpoint returns information about the Uber products\n        offered at a given location. The response includes the display name and\n        other details about each product, and lists the products in the proper\n        display order.\n      tags:\n        - Products\n      responses:\n        \"200\":\n          description: An array of products\n          content:\n            application/xml:\n              schema:\n                type: array\n                items: {}\ncomponents:\n  schemas:\n    Profile:\n      properties:\n        first_name:\n          type: string\n          description: First name of the Uber user.\n        last_name:\n          type: string\n          description: Last name of the Uber user.\n    Activity:\n      properties:\n        uuid:\n          type: string\n          description: Unique identifier for the activity\n    Activities:\n      properties:\n        offset:\n          type: integer\n          format: int32\n          description: Position in pagination.\n        history:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Activity\"\n    Subject:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        subject_type:\n          allOf:\n            - $ref: '#/components/schemas/Activity'\n            - $ref: '#/components/schemas/Profile'\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/allOf.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/schema/swagger/allOf.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/xmlarrayproducts\": get: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rackerlabs/repose"
+		},
+		"file": {
+			"name": "validations.yaml",
+			"size": 0,
+			"path": "repose-aggregator/tests/functional-tests/src/integrationTest/configs/features/filters/openapivalidation/validation/v3/validations.yaml",
+			"byteSize": 2169,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Validations\n  version: 1.0.0\nservers:\n  - url: /v3/validations\npaths:\n  /path:\n    get:\n      responses:\n        '200':\n          description: A 200 response\n  /query:\n    get:\n      parameters:\n        - name: int\n          in: query\n          description: A required query parameter with an integer value\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: A 200 response\n  /method:\n    get:\n      responses:\n        '200':\n          description: A 200 response\n  /header:\n    get:\n      parameters:\n        - name: x-int-header\n          in: header\n          description: A required header with an integer value\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: A 200 response\n  /accept:\n    get:\n      responses:\n        '200':\n          description: A 200 response\n          content:\n            application/json: {}\n  /contentType:\n    post:\n      requestBody:\n        content:\n          application/json: {}\n      responses:\n        '200':\n          description: A 200 response\n  /requestBody:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              required:\n                - testKey\n              properties:\n                testKey:\n                  type: string\n      responses:\n        '200':\n          description: A 200 response\n  /multiple:\n    post:\n      parameters:\n        - name: x-int-header\n          in: header\n          description: A required header with an integer value\n          required: true\n          schema:\n            type: integer\n            format: int32\n        - name: int\n          in: query\n          description: A required query parameter with an integer value\n          required: true\n          schema:\n            type: integer\n            format: int32\n      requestBody:\n        required: true\n        content:\n          application/json: {}\n      responses:\n        '200':\n          description: A 200 response\n",
+			"canonicalURL": "/github.com/rackerlabs/repose@93a3c5155f691ea5a571cad2916874ac7c80c771/-/blob/repose-aggregator/tests/functional-tests/src/integrationTest/configs/features/filters/openapivalidation/validation/v3/validations.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rackerlabs/repose/blob/93a3c5155f691ea5a571cad2916874ac7c80c771/repose-aggregator/tests/functional-tests/src/integrationTest/configs/features/filters/openapivalidation/validation/v3/validations.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/multiple\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

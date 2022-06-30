@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/StarterInc/StackGen"
+		},
+		"file": {
+			"name": "happypath-oas3.yml",
+			"size": 0,
+			"path": "src/resources/openapi_specs/happypath-oas3.yml",
+			"byteSize": 3422,
+			"content": "openapi: 3.0.1\n\ninfo:\n  title: SimpleCMS API\n  description: This is the SimpleCMS API\n  termsOfService: http://apicloud.co/tos/\n  contact:\n    email: simplecms@apicloud.co\n  license:\n    name: AGPL 3.0\n    url: https://www.gnu.org/licenses/agpl-3.0.html\n  version: 1.0.0\nexternalDocs:\n  description: Find out more about Starter Ignite\n  url: https://starterinc.github.io/Ignite/\nservers:\n  - url: https://simpleCMS.apicloud.co/v1\ntags:\n  - name: admins\n    description: Secured Admin-only calls\n  - name: users\n    description: Operations available to regular users\npaths:\n  /user/login:\n    post:\n      tags:\n        - user\n      summary: Logs user into the system\n      operationId: loginUser\n      parameters:\n        - name: username\n          in: query\n          description: The user name for login\n          required: true\n          schema:\n            type: string\n        - name: password\n          in: query\n          description: The password for login in clear text\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: successful operation\n          headers:\n            X-Rate-Limit:\n              description: calls per hour allowed by the user\n              schema:\n                type: integer\n                format: int32\n            X-Expires-After:\n              description: date in UTC when token expires\n              schema:\n                type: string\n                format: date-time\n          content:\n            application/xml:\n              schema:\n                type: string\n            application/json:\n              schema:\n                type: string\n        400:\n          description: Invalid username/password supplied\n          content: {}\n  /user/logout:\n    get:\n      tags:\n        - user\n      summary: Logs out current logged in user session\n      operationId: logoutUser\n      responses:\n        default:\n          description: successful operation\n          content: {}\ncomponents:\n  schemas:\n    Content:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n          example: Widget Adapter\n        contentData:\n          type: string\n          example: The full content\n        releaseDate:\n          type: string\n          format: date-time\n      xml:\n        name: Content\n    User:\n      required:\n        - username\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        fingerprint:\n          type: string\n          example: DK$DFSJaraDD\n          x-starter-secureField: true\n        password:\n          type: string\n          description: Password field encrypted with hash\n          example: anExcellentPassword\n          x-starter-secureField: true\n        username:\n          type: string\n          example: Sparky\n        homePage:\n          type: string\n          format: url\n          example: https://www.acme-corp.com\n        social:\n          type: string\n          format: url\n          example: https://twitter.com/StarterIO\n      xml:\n        name: User\n  securitySchemes:\n    automator_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://apicloud.co/oauth/\n          scopes:\n            write:items: modify items in your account\n            read:items: read your items\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n",
+			"canonicalURL": "/github.com/StarterInc/StackGen@36ff544e394eb90fea0b22b570b3977775c68429/-/blob/src/resources/openapi_specs/happypath-oas3.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/StarterInc/StackGen/blob/36ff544e394eb90fea0b22b570b3977775c68429/src/resources/openapi_specs/happypath-oas3.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

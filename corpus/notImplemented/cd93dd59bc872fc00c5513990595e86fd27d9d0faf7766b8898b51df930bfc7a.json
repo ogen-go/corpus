@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zaproxy/zap-extensions"
+		},
+		"file": {
+			"name": "OpenApi_defn_allof_schema.yaml",
+			"size": 0,
+			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_allof_schema.yaml",
+			"byteSize": 1426,
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n              discriminator:\n                propertyName: pet_type\n      responses:\n        '200':\n          description: Updated\n\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - pet_type\n      properties:\n        pet_type:\n          type: string\n      discriminator:\n        propertyName: pet_type\n\n    Dog:     # \"Dog\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Dog`-specific properties \n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Dog`\n          properties:\n            bark:\n              type: boolean\n            breed:\n              type: string\n              enum: [Dingo, Husky, Retriever, Shepherd]\n\n    Cat:     # \"Cat\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Cat`-specific properties \n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Cat`\n          properties:\n            hunts:\n              type: boolean\n            age:\n              type: integer\n",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@e9a7bcc56b8a383668a755ccdca1be18aa99052e/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_allof_schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zaproxy/zap-extensions/blob/e9a7bcc56b8a383668a755ccdca1be18aa99052e/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_allof_schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": patch: requestBody: contents: application/json: generate schema: allOf: complex schema merging not implemented",
+	"NotImplemented": [
+		"complex schema merging"
+	]
+}

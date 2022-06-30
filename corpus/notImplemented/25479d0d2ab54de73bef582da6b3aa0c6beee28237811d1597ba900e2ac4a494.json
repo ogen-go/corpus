@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "url_encoded.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/utils/swagger/url_encoded.yaml",
+			"byteSize": 3033,
+			"content": "openapi: 3.0.0\ninfo:\n  contact:\n    email: dev-platform@stripe.com\n    name: Stripe Dev Platform Team\n    url: https://stripe.com\n  description: The Stripe REST API. Please see https://stripe.com/docs/api for more\n    details.\n  termsOfService: https://stripe.com/us/terms/\n  title: Stripe API\n  version: '2020-08-27'\n  x-stripeSpecFilename: spec3\npaths:\n  \"/v1/payment_methods/{payment_method}\":\n    get:\n      description: \"\u003cp\u003eRetrieves a PaymentMethod object.\u003c/p\u003e\"\n      operationId: GetPaymentMethodsPaymentMethod\n      tags:\n        - \"Payment_Methods\"\n      parameters:\n        - in: path\n          name: payment_method\n          description: Payment Method\n          required: true\n          schema:\n            maxLength: 5000\n            type: string\n          style: simple\n\n      responses:\n        '200':\n          content:\n            application/json:\n              schema: {}\n          description: Successful response.\n  \"/v1/customer/{customer}\":\n    post:\n      description: \"\u003cp\u003eCreates a new customer object.\u003c/p\u003e\"\n      operationId: PostCustomers\n      tags:\n        - \"Customers\"\n      parameters:\n        - in: path\n          name: customer\n          description: Customer ID\n          schema:\n            type: string\n          required: true\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              properties:\n                address:\n                  anyOf:\n                    - $ref: \"#/components/schemas/customer_adresss\"\n                    - type: string\n                  description: The customer's address.\n                balance:\n                  description: An integer amount in %s that represents the customer's\n                    current balance, which affect the customer's future invoices.\n                    A negative amount represents a credit that decreases the amount\n                    due on an invoice; a positive amount increases the amount due\n                    on an invoice.\n                  type: integer\n        description: Customer Details\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/customer\"\n          description: Successful response.\ncomponents:\n  schemas:\n    customer_adresss:\n      properties:\n        city:\n          maxLength: 5000\n          type: string\n        country:\n          maxLength: 5000\n          type: string\n        line1:\n          maxLength: 5000\n          type: string\n        line2:\n          maxLength: 5000\n          type: string\n        postal_code:\n          maxLength: 5000\n          type: string\n        state:\n          maxLength: 5000\n          type: string\n      title: optional_fields_address\n      type: object\n    customer:\n      properties:\n        address:\n          anyOf:\n            - \"$ref\": \"#/components/schemas/customer_adresss\"\n          description: The customer's address.\n          nullable: true\n        name:\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/utils/swagger/url_encoded.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/utils/swagger/url_encoded.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/customer/{customer}\": post: requestBody: contents: application/x-www-form-urlencoded: form parameter \"address\": sum type parameter not implemented",
+	"NotImplemented": [
+		"sum type parameter"
+	]
+}

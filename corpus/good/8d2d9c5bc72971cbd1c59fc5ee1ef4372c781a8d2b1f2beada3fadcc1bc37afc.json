@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "petstore_listeners05.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/listeners/petstore_listeners05.yaml",
+			"byteSize": 2598,
+			"content": "openapi: 3.0.0\nservers:\n  - description: Localhost\n    url: http://localhost:9080\ninfo:\n  title: Interceptor\n  description: Interceptor Service\n  version: v1\n  contact:\n    name: WSO2\n    url: http://wso2.com/products/api-manager/\n    email: architecture@wso2.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\ntags:\n  - name: mediation\n    description: Mediation\npaths:\n  /handle-request:\n    post:\n      tags:\n        - Request\n      summary: Handle request mediation\n      operationId: handleRequest\n      requestBody:\n        description: |\n          Content of the request\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/HandleRequest_RequestBody\"\n      responses:\n        200:\n          description: Successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/HandleResponse_RequestBody\"\ncomponents:\n  schemas:\n    HandleRequest_RequestBody:\n      title: Request/Response handler\n      type: object\n      properties:\n        headers:\n          \"$ref\": \"#/components/schemas/Headers\"\n        body:\n          \"$ref\": \"#/components/schemas/Body\"\n        context:\n          \"$ref\": \"#/components/schemas/Context\"\n    HandleResponse_RequestBody:\n      title: Request/Response handler\n      type: object\n      properties:\n        headersToAdd:\n          \"$ref\": \"#/components/schemas/Headers\"\n        headersToRemove:\n          \"$ref\": \"#/components/schemas/HeaderKeys\"\n        headersToReplace:\n          \"$ref\": \"#/components/schemas/Headers\"\n        body:\n          \"$ref\": \"#/components/schemas/Body\"\n        context:\n          \"$ref\": \"#/components/schemas/Context\"\n    Headers:\n      title: Headers\n      type: object\n      additionalProperties:\n        type: string\n      description: |\n        Map (string-to-string dictionary) of key value pairs of headers\n      example:\n        content-type: application/json\n        content-length: \"40\"\n    HeaderKeys:\n      title: HeaderKeys\n      type: array\n      items:\n        type: string\n      description: |\n        Array of header keys\n      example:\n        - header-to-remove\n    Body:\n      type: string\n      description: |\n        Base64 encoded body\n      example: eyJIZWxsbyI6IldvcmxkIn0K\n    Context:\n      type: object\n      additionalProperties:\n        type: string\n      description: |\n        Map (string-to-string dictionary) of key value pairs shared in Request and Response flow\n      example:\n        user-type: admin\n        validation: \"true\"\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/service/swagger/listeners/petstore_listeners05.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/service/swagger/listeners/petstore_listeners05.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

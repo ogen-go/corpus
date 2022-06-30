@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "responses.generic-type-variables.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.generic-type-variables.json",
+			"byteSize": 2519,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/generic/map\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"additionalProperties\": {\n                    \"$ref\": \"#/components/schemas/Apple\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/generic/retrieve\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"name\": \"ids\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"format\": \"int32\",\n                \"type\": \"integer\"\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Apple\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/generic/save\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Apple\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Apple\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/generic/typevar\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"q1\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"string\",\n              \"description\": \"Description for q1's schema\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Apple\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Apple\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.generic-type-variables.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/responses.generic-type-variables.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/generic/map\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

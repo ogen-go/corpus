@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stackql/stackql-provider-registry"
+		},
+		"file": {
+			"name": "ThreatInsight.yaml",
+			"size": 0,
+			"path": "providers/src/okta/v0.1.0/services/ThreatInsight.yaml",
+			"byteSize": 2978,
+			"content": "components:\n  schemas:\n    ThreatInsightConfiguration:\n      properties:\n        _links:\n          additionalProperties:\n            properties: {}\n            type: object\n          readOnly: true\n          type: object\n        action:\n          type: string\n        created:\n          format: date-time\n          readOnly: true\n          type: string\n        excludeZones:\n          items:\n            type: string\n          type: array\n        lastUpdated:\n          format: date-time\n          readOnly: true\n          type: string\n      type: object\n      x-okta-crud:\n      - alias: read\n        arguments: []\n        operationId: getCurrentConfiguration\n      - alias: update\n        arguments:\n        - dest: threatInsightConfiguration\n          self: true\n        operationId: updateConfiguration\n      x-okta-tags:\n      - ThreatInsight\n  securitySchemes:\n    api_token:\n      description: SSWS {API Token}\n      in: header\n      name: Authorization\n      type: apiKey\n  x-stackQL-resources:\n    configuration:\n      id: okta.threatinsight.configuration\n      methods:\n        get:\n          operation:\n            $ref: '#/paths/~1api~1v1~1threats~1configuration/GET'\n          response:\n            mediaType: application/json\n            openAPIDocKey: '200'\n      name: configuration\n      title: configuration\nexternalDocs:\n  description: Find more info here\n  url: https://developer.okta.com/docs/api/getting_started/design_principles.html\ninfo:\n  contact:\n    email: devex-public@okta.com\n    name: Okta Developer Team\n    url: https://developer.okta.com/\n  description: Allows customers to easily access the Okta API\n  license:\n    name: Apache-2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  termsOfService: https://developer.okta.com/terms/\n  title: Okta API\n  version: 2.8.0\nopenapi: 3.0.1\npaths:\n  /api/v1/threats/configuration:\n    get:\n      description: Gets current ThreatInsight configuration\n      operationId: getCurrentConfiguration\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ThreatInsightConfiguration'\n          description: Success\n      security:\n      - api_token: []\n      tags:\n      - ThreatInsight\n    post:\n      description: Updates ThreatInsight configuration\n      operationId: updateConfiguration\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ThreatInsightConfiguration'\n        required: true\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ThreatInsightConfiguration'\n          description: Success\n      security:\n      - api_token: []\n      tags:\n      - ThreatInsight\n      x-codegen-request-body-name: ThreatInsightConfiguration\nservers:\n- url: https://{subdomain}.okta.com/\n  variables:\n    subdomain:\n      default: my-domain\n",
+			"canonicalURL": "/github.com/stackql/stackql-provider-registry@7482bc9b2425a6491d640bf921a1dc9cf508f339/-/blob/providers/src/okta/v0.1.0/services/ThreatInsight.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stackql/stackql-provider-registry/blob/7482bc9b2425a6491d640bf921a1dc9cf508f339/providers/src/okta/v0.1.0/services/ThreatInsight.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

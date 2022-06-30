@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dnshealth/dns-health"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "web_api/swagger/swagger.yaml",
+			"byteSize": 3455,
+			"content": "openapi: 3.0.2\ninfo:\n  title: DNSHEALTH DNS authoritative name server verification tool\n  description: Tool used for checking if authoritative name servers comply with the\n    necessary IANA guidlines.\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  version: \"1.0\"\nservers:\n- url: https://api.dnshealth.eu/v1\npaths:\n  /check:\n    post:\n      tags:\n      - query\n      summary: Send a query to the backend to test name servers\n      operationId: test_servers\n      requestBody:\n        description: Domain and name servers to be tested\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Check'\n        required: true\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Result'\n        \"400\":\n          description: Invalid parameters\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/InvPar'\n      x-openapi-router-controller: web_api.controllers.query_controller\n  /auth:\n    get:\n      tags:\n      - authentication\n      summary: Send random token to user\n      description: User is given token which is later used for authentication\n      operationId: get_token\n      parameters: []\n      responses:\n        \"200\":\n          description: Token successfully delivered\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Token'\n      x-openapi-router-controller: web_api.controllers.authentication_controller\ncomponents:\n  schemas:\n    Check:\n      type: object\n      properties:\n        domain:\n          type: string\n          description: The domain to be delegated\n          nullable: true\n        nameservers:\n          type: array\n          description: Name servers as strings\n          nullable: true\n          items:\n            type: string\n            nullable: true\n        token:\n          type: string\n        delegation:\n          type: boolean\n        ipv6:\n          type: boolean\n    Token:\n      type: object\n      properties:\n        token:\n          type: string\n          description: User authentication token\n    Result:\n      type: object\n      properties:\n        domain:\n          type: string\n          description: The domain to be delegated\n        nameservers:\n          type: array\n          description: Name servers as strings\n          items:\n            type: string\n        checks:\n          type: array\n          description: Results of checks\n          items:\n            $ref: '#/components/schemas/Result_checks'\n      example:\n        nameservers:\n        - nameservers\n        - nameservers\n        checks:\n        - result: true\n          id: 0\n          key: key\n        - result: true\n          id: 0\n          key: key\n        domain: domain\n    InvPar:\n      type: object\n      properties:\n        errorDesc:\n          type: string\n          description: Description of error\n    Result_checks:\n      type: object\n      properties:\n        id:\n          type: integer\n          description: ID of test\n          format: int64\n        result:\n          type: boolean\n          description: Result of check in boolean form\n        key:\n          type: string\n          description: Detailed results of the check\n      example:\n        result: true\n        id: 0\n        key: key\n\n",
+			"canonicalURL": "/github.com/dnshealth/dns-health@e6cc41dbaeff76c59d6ea0b87b83d94877740bfc/-/blob/web_api/swagger/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dnshealth/dns-health/blob/e6cc41dbaeff76c59d6ea0b87b83d94877740bfc/web_api/swagger/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

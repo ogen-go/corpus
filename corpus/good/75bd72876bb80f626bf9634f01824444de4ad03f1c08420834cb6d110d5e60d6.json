@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/atc-net/atc-rest-api-generator"
+		},
+		"file": {
+			"name": "api.v1.yaml",
+			"size": 0,
+			"path": "test/Atc.Rest.ApiGenerator.Tests/IntegrationTests/Scenarios/Scenario1/api.v1.yaml",
+			"byteSize": 2751,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Demo Api\n  description: Demo Api - SingleFileVersion\n  version: '1.0'\n  contact:\n    name: atc-net A/S\nservers:\n  - url: /api/v1\n    description: Api version 1.0\npaths:\n  /users:\n    get:\n      summary: Get all users\n      description: Get all users\n      operationId: getUsers\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Users'\n        '409':\n          description: Conflict\n  '/addresses/{postalCode}':\n    get:\n      summary: Get addresses by postal code\n      description: Get addresses by postal code\n      operationId: getAddressesByPostalCodes\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Address'\n        '404':\n          description: Not Found\n    parameters:\n      - name: postalCode\n        in: path\n        required: true\n        description: The postalCode to limit addresses on\n        schema:\n          type: string\ncomponents:\n  schemas:\n    User:\n      title: User\n      description: A single user.\n      type: object\n      properties:\n        id:\n          type: string\n          format: uuid\n          example: 00000000-0000-0000-0000-000000000000\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n          format: email\n          example: email@email.dk\n        homepage:\n          type: string\n          format: uri\n        homeAddress:\n          $ref: '#/components/schemas/Address'\n        companyAddress:\n          $ref: '#/components/schemas/Address'\n    Users:\n      description: A list of users.\n      type: array\n      items:\n        $ref: '#/components/schemas/User'\n      x-tags:\n        - Users\n      title: Users\n    Address:\n      title: Address\n      type: object\n      properties:\n        streetName:\n          type: string\n          maxLength: 255\n        streetNumber:\n          type: string\n        postalCode:\n          type: string\n        cityName:\n          type: string\n        myCountry:\n          $ref: '#/components/schemas/Country'\n    Country:\n      title: Country\n      type: object\n      properties:\n        name:\n          type: string\n        alpha2Code:\n          type: string\n          minLength: 2\n          maxLength: 2\n          pattern: '^[A-Za-z]{2}$'\n        alpha3Code:\n          type: string\n          minLength: 3\n          maxLength: 3\n          pattern: '^[A-Za-z]{3}$'\n      required:\n        - name\n        - alpha2Code\n        - alpha3Code\n\n",
+			"canonicalURL": "/github.com/atc-net/atc-rest-api-generator@0560f2d8e67fd9c880d6d561ac11e604fe4c102e/-/blob/test/Atc.Rest.ApiGenerator.Tests/IntegrationTests/Scenarios/Scenario1/api.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/atc-net/atc-rest-api-generator/blob/0560f2d8e67fd9c880d6d561ac11e604fe4c102e/test/Atc.Rest.ApiGenerator.Tests/IntegrationTests/Scenarios/Scenario1/api.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

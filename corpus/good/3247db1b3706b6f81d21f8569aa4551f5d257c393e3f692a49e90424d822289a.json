@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/heldersepu/hs-scripts"
+		},
+		"file": {
+			"name": "4196_swagger.yaml",
+			"size": 0,
+			"path": "swagger/4196_swagger.yaml",
+			"byteSize": 2268,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Demo API\n  description: First test\n  termsOfService: 'http://demo.io/terms-of-service/'\n  contact:\n    name: Demo Support\n    email: support@demo.io\n  version: 1.0.0\nservers:\n  - url: '{server}/v1'\n    variables:\n      server:\n        default: https://api.demo.io\n        description: the API endpoint\n\npaths:\n  /session:\n    put:\n      summary: Returns a new authentication token\n      tags:\n        - session\n      security:\n        - basicAuth: []\n      responses:\n        '201':\n          description: A session object\n          content:\n            application/json:\n              schema:\n                allOf:\n                  - type: object\n                    properties:\n                      user_id:\n                        type: string\n                        format: uuid\n                        readOnly: true\n                        example: 110e8400-e29b-11d4-a716-446655440000\n                  - $ref: '#/components/schemas/Session'\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n    Session:\n      required:\n        - token\n      properties:\n        token:\n          type: string\n          readOnly: true\n          example: \u003e-\n            eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGuERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE\n        \n    Error:\n      required:\n        - message\n      properties:\n        message:\n          description: a human readable message explaining the error\n          type: string\n        reason:\n          description: a functionnal key about the error\n          type: string\n  responses:\n    Unauthorized:\n      description: Not authenticated\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    Default:\n      description: unexpected error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'",
+			"canonicalURL": "/github.com/heldersepu/hs-scripts@3ef99e958af8f73a8339f089ae685a0cb6fe20f2/-/blob/swagger/4196_swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/heldersepu/hs-scripts/blob/3ef99e958af8f73a8339f089ae685a0cb6fe20f2/swagger/4196_swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cjbooms/fabrikt"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "src/test/resources/examples/enumExamples/api.yaml",
+			"byteSize": 1345,
+			"content": "openapi: 3.0.0\npaths:\ninfo:\n  title:\n  version:\ncomponents:\n  schemas:\n    EnumHolder:\n      type: object\n      properties:\n        array_of_enums:\n          type: array\n          items:\n            type: string\n            x-extensible-enum:\n              - array_enum_one\n              - array_enum_two\n        inlined_enum:\n          type: string\n          enum:\n            - inlined_one\n            - inlined_two\n            - inlined_three\n        inlined_extensible_enum:\n          type: string\n          x-extensible-enum:\n            - inlined_one\n            - inlined_two\n            - inlined_three\n        enum_ref:\n          $ref: '#/components/schemas/EnumObject'\n        extensible_enum_ref:\n          $ref: '#/components/schemas/ExtensibleEnumObject'        \n        list_enums:\n          $ref: '#/components/schemas/ListEnums'\n\n    EnumObject:\n      type: string\n      enum:\n        - one\n        - two\n        - three\n\n    ExtensibleEnumObject:\n      type: string\n      x-extensible-enum:\n        - active\n        - inactive\n \n    ContentType:\n      type: string\n      x-extensible-enum:\n        - application/json\n        - application/x.some-type+json    \n        - application/x.some-other-type+json;version=2    \n          \n    ListEnums:\n      type: array\n      items: \n        $ref: '#/components/schemas/ContentType'\n\n\n",
+			"canonicalURL": "/github.com/cjbooms/fabrikt@c0b5fac3861f8751b24f063055106d0ee1bd1754/-/blob/src/test/resources/examples/enumExamples/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cjbooms/fabrikt/blob/c0b5fac3861f8751b24f063055106d0ee1bd1754/src/test/resources/examples/enumExamples/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

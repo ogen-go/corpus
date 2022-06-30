@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/spec-first/connexion"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "examples/openapi3/basicauth/openapi.yaml",
+			"byteSize": 476,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Basic Auth Example\n  version: '1.0'\npaths:\n  /secret:\n    get:\n      summary: Return secret string\n      operationId: app.get_secret\n      responses:\n        '200':\n          description: secret response\n          content:\n            '*/*':\n              schema:\n                type: string\n      security:\n        - basic: []\ncomponents:\n  securitySchemes:\n    basic:\n      type: http\n      scheme: basic\n      x-basicInfoFunc: app.basic_auth\n",
+			"canonicalURL": "/github.com/spec-first/connexion@9be473d5eabebde3df8d50e69f46513a66bba497/-/blob/examples/openapi3/basicauth/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/spec-first/connexion/blob/9be473d5eabebde3df8d50e69f46513a66bba497/examples/openapi3/basicauth/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/secret\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

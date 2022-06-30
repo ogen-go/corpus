@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "domain.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/codegen-remote-responses/Responses/1.0.0/domain.yaml",
+			"byteSize": 3471,
+			"content": "# OpenAPI version identifier - required for OpenAPI 3.0 domains\nopenapi: 3.0.0\n\n#######################\n# Optional info section\n#######################\ninfo:\n  title: Acme Components\n  description: Common components for Acme REST APIs\n  version: '1.0.0'\n\ncomponents:\n\n  ####################\n  # Common data models\n  ####################\n  schemas:\n    ErrorModel:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n\n  ####################\n  # Common parameters\n  ####################\n  parameters:\n    offsetParam:\n      name: offset\n      in: query\n      schema:\n        type: integer\n        minimum: 0\n      description: The number of items to skip before returning the results\n    limitParam:\n      in: query\n      name: limit\n      schema:\n        type: integer\n        format: int32\n        minimum: 1\n        maximum: 100\n        default: 20\n      description: The number of items to return\n\n  #######################\n  # Common request bodies\n  #######################\n  requestBodies:\n    NewItem:\n      description: A JSON object containing item data\n      required: true\n      content:\n        application/json:\n          schema:\n            type: object\n\n  ####################\n  # Common responses\n  ####################\n  responses:\n    GeneralError:\n      description: An error occurred\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorModel'\n      headers:\n        X-RateLimit-Limit:\n          $ref: '#/components/headers/X-RateLimit-Limit'\n        X-RateLimit-Remaining:\n          $ref: '#/components/headers/X-RateLimit-Remaining'\n\n  #########################\n  # Common headers\n  # (except request headers - they are defined as parameters)\n  #########################\n  headers:\n    X-RateLimit-Limit:\n      description: Request limit per hour\n      schema:\n        type: integer\n      example: 100\n    X-RateLimit-Remaining:\n      description: Remaining requests for the hour\n      schema:\n        type: integer\n      example: 94\n\n  #######################\n  # Common path items\n  #######################\n  pathitems:\n    EntityOperations:\n      get:\n        summary: Get all items\n        description: This operation supports pagination\n        parameters:\n          - $ref: '#/components/parameters/offsetParam'\n          - $ref: '#/components/parameters/limitParam'\n        responses:\n          '200':\n            description: A list of items\n          default:\n            $ref: '#/components/responses/GeneralError'\n      post:\n        summary: Add a new item\n        requestBody:\n          $ref: '#/components/requestBodies/NewItem'\n        responses:\n          '201':\n            description: Created\n\n  ######################################\n  # Common examples of input/output data\n  ######################################\n  examples:\n    tshirt:\n      summary: Sample T-shirt data\n      value:\n        # Example value starts here\n        id: 17\n        name: T-shirt\n        description: 100% cotton shirt\n        categories: [clothes]\n\n  #########################\n  # Common link definitions\n  # See: https://swagger.io/docs/specification/links/\n  #########################\n  links: {}\n\n  #########################\n  # Common callback definitions\n  # See: https://swagger.io/docs/specification/callbacks/\n  #########################\n  callbacks: {}",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/codegen-remote-responses/Responses/1.0.0/domain.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/codegen-remote-responses/Responses/1.0.0/domain.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

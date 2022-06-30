@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cyclosproject/ng-openapi-gen"
+		},
+		"file": {
+			"name": "person-place.json",
+			"size": 0,
+			"path": "test/person-place.json",
+			"byteSize": 2224,
+			"content": "{\n  \"openapi\": \"3.0\",\n  \"info\": {\n    \"title\": \"Person and Place\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {},\n  \"components\": {\n    \"schemas\": {\n      \"Id\": {\n        \"type\": \"string\"\n      },\n      \"Entity\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"$ref\": \"#/components/schemas/Id\"\n          }\n        }\n      },\n      \"Person\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Entity\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"name\": {\n                \"type\": \"string\"\n              },\n              \"places\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"$ref\": \"#/components/schemas/PersonPlace\"\n                }\n              }\n            }\n          }\n        ]\n      },\n      \"GPSLocation\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"gps\": {\n            \"type\": \"string\",\n            \"description\": \"GPS coordinates\"\n          }\n        }\n      },\n      \"Place\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Entity\"\n          },\n          {\n            \"oneOf\": [\n              {\n                \"$ref\": \"#/components/schemas/GPSLocation\"\n              },\n              {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"address\": {\n                    \"type\": \"string\",\n                    \"description\": \"Street address\"\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"description\": {\n                \"name\": \"string\",\n                \"type\": \"string\"\n              }\n            },\n            \"additionalProperties\": {\n              \"type\": \"string\"\n            }\n          }\n        ]\n      },\n      \"PersonPlace\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"place\": {\n            \"$ref\": \"#/components/schemas/Place\"\n          },\n          \"since\": {\n            \"description\": \"The date this place was assigned to the person\",\n            \"type\": \"string\",\n            \"format\": \"date\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/cyclosproject/ng-openapi-gen@a6120fdb8f4a7b863bab0d94c6784d470b57d62d/-/blob/test/person-place.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cyclosproject/ng-openapi-gen/blob/a6120fdb8f4a7b863bab0d94c6784d470b57d62d/test/person-place.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-codegen-generators"
+		},
+		"file": {
+			"name": "allof_inline_ref.yaml",
+			"size": 0,
+			"path": "src/test/resources/3_0_0/composedFlatten/allof_inline_ref.yaml",
+			"byteSize": 1087,
+			"content": "openapi: 3.0.2\ninfo:\n  title: CC-20717 test - OAS3\n  version: 1.0.0\npaths:\n  /something:\n    get:\n      responses:\n        200:\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Bar'\ncomponents:\n  schemas:\n    Foo:\n      type: object\n      properties:\n        foo:\n          type: string\n    Bar:\n      type: object\n      properties:\n        foo1:\n          description: An instance of Foo\n          allOf:\n            - $ref: '#/components/schemas/Foo'\n        foo2:\n          $ref: '#/components/schemas/Foo'\n    OneOfTest:\n      oneOf:\n        - $ref: \"#/components/schemas/Foo\"\n        - type: object\n          properties:\n            oneOfInlineBar:\n              type: string\n    SchemaTest:\n      allOf:\n        - type: object\n          properties:\n            schemaTestInline1Foo:\n              type: string\n            schemaTestInline1Ref:\n              type: array\n              items:\n                $ref: '#/components/schemas/Bar'\n        - $ref: '#/components/schemas/OneOfTest'\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-codegen-generators@56bf0942d7510e50f6511ee1eb214038e98611ce/-/blob/src/test/resources/3_0_0/composedFlatten/allof_inline_ref.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-codegen-generators/blob/56bf0942d7510e50f6511ee1eb214038e98611ce/src/test/resources/3_0_0/composedFlatten/allof_inline_ref.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/schema_component_recursion.yaml",
 			"byteSize": 633,
-			"content": "openapi: 3.0.0\nservers:\n  - url: http://localhost:@@@PORT@@@/\npaths:\n  /first:\n    get:\n      parameters:\n      - \"$ref\": \"#/components/parameters/p_one\"\n      - \"$ref\": \"#/components/parameters/p_one\"\n      - \"$ref\": \"#/components/parameters/p_one\"\n      responses:\n        200:\n          description: ok\ncomponents:\n  parameters:\n    p_one:\n      in: query\n      schema:\n        \"$ref\": \"#/components/schemas/NestedObject\"\n      style: deepObject\n  schemas:\n    NestedObject:\n      additionalProperties:\n        oneOf:\n        - \"$ref\": \"#/components/schemas/NestedObject\"\n        - not:\n            type: object\n      type: object"
+			"content": "openapi: 3.0.0\nservers:\n  - url: http://localhost:@@@PORT@@@/\npaths:\n  /first:\n    get:\n      parameters:\n      - \"$ref\": \"#/components/parameters/p_one\"\n      - \"$ref\": \"#/components/parameters/p_one\"\n      - \"$ref\": \"#/components/parameters/p_one\"\n      responses:\n        200:\n          description: ok\ncomponents:\n  parameters:\n    p_one:\n      in: query\n      schema:\n        \"$ref\": \"#/components/schemas/NestedObject\"\n      style: deepObject\n  schemas:\n    NestedObject:\n      additionalProperties:\n        oneOf:\n        - \"$ref\": \"#/components/schemas/NestedObject\"\n        - not:\n            type: object\n      type: object",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@e9a7bcc56b8a383668a755ccdca1be18aa99052e/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/schema_component_recursion.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zaproxy/zap-extensions/blob/e9a7bcc56b8a383668a755ccdca1be18aa99052e/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/schema_component_recursion.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /first: get: parameters: duplicate parameter: \"\" in \"query\""

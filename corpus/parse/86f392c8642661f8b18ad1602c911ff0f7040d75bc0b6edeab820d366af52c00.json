@@ -9,8 +9,15 @@
 			"size": 0,
 			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
 			"byteSize": 394,
-			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"$ref\": \"#/components/schemas/Indirection1\"\n      },\n      \"Indirection1\": {\n        \"$ref\": \"#/components/schemas/Indirection2\"\n      },\n      \"Indirection3\": {\n        \"$ref\": \"#/components/schemas/Indirection3\"\n      },\n      \"Indirection4\": {\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n"
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"$ref\": \"#/components/schemas/Indirection1\"\n      },\n      \"Indirection1\": {\n        \"$ref\": \"#/components/schemas/Indirection2\"\n      },\n      \"Indirection3\": {\n        \"$ref\": \"#/components/schemas/Indirection3\"\n      },\n      \"Indirection4\": {\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/swagger-api/apidom@ce809003cf2878bf27d88b8bc30cb90dfabddda3/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/apidom/blob/ce809003cf2878bf27d88b8bc30cb90dfabddda3/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"User\": parse schema: resolve \"#/components/schemas/Indirection1\": parse schema: resolve \"#/components/schemas/Indirection2\": find schema: resolve \"#/components/schemas/Indirection2\": can't find value for \"components/schemas/Indirection2\""
+	"Error": "parse: parse spec: parse components: schemas: \"Indirection4\": parse schema: resolve \"#/components/schemas/User\": parse schema: resolve \"#/components/schemas/Indirection1\": parse schema: resolve \"#/components/schemas/Indirection2\": find schema: resolve \"#/components/schemas/Indirection2\": can't find value for \"components/schemas/Indirection2\""
 }

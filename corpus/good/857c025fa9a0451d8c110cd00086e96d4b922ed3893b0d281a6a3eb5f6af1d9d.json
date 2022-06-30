@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "linkIssue.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/linkIssue.yaml",
+			"byteSize": 1731,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\npaths:\n  /2.0/repositories/{username}:\n    get:\n      operationId: getRepositoriesByOwner\n      parameters:\n      - name: username\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: repositories owned by the supplied user\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/repository'\n          links:\n            userRepository:\n              operationId: getRepository\n              requestBody: '$response.body#/slug'\n  /2.0/repositories/{username}/{slug}:\n    get:\n      operationId: getRepository\n      parameters:\n      - name: username\n        in: path\n        required: true\n        schema:\n          type: string\n      - name: slug\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: The repository\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/repository'\ncomponents:\n  schemas:\n    user:\n      type: object\n      properties:\n        username:\n          type: string\n        uuid:\n          type: string\n    repository:\n      type: object\n      properties:\n        slug:\n          type: string\n        owner:\n          $ref: '#/components/schemas/user'\n    pullrequest:\n      type: object\n      properties:\n        id:\n          type: integer\n        title:\n          type: string\n        repository:\n          $ref: '#/components/schemas/repository'\n        author:\n          $ref: '#/components/schemas/user'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/linkIssue.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/linkIssue.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

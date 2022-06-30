@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "toomany-example-generation.yaml",
+			"size": 0,
+			"path": "docs/specs/toomany-example-generation.yaml",
+			"byteSize": 2264,
+			"content": "openapi: 3.0.0\ninfo:\n  title: tennis\n  version: '1.0'\n  contact:\n    name: test\npaths:\n  /getPlayer:\n    get:\n      summary: Possibility of generatiing 1024 Examples\n      description: the test case ensures that it do not generate more than 10 examples\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Player'\n      tags:\n        - Many Examples\n\n  /getTennisMatch:\n    get:\n      summary: Possibility of generatiing 1 million Examples \n      description: the test case ensures that it do not generate more than 10 examples\n      tags:\n        - Many Examples\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  leftPlayer:\n                    $ref: '#/components/schemas/Player'\n                  rightPlayer:\n                    $ref: '#/components/schemas/Player'\n      \n    parameters: []\ncomponents:\n  schemas:\n    Color:\n      title: Color\n      description: ''\n      oneOf:\n        - type: string\n          properties: {}\n          description: color code\n          example: '#FF0000'\n        - type: object\n          properties:\n            r:\n              type: integer\n              example: 255\n            g:\n              type: integer\n              example: 0\n            b:\n              type: integer\n              example: 0\n          description: RGB color\n    Player:\n      title: Player\n      type: object\n      properties:\n        eyeColor:\n          $ref: '#/components/schemas/Color'\n        hairColor:\n          $ref: '#/components/schemas/Color'\n        lipColor:\n          $ref: '#/components/schemas/Color'\n        mouthColor:\n          $ref: '#/components/schemas/Color'\n        pantsColor:\n          $ref: '#/components/schemas/Color'\n        racketColor:\n          $ref: '#/components/schemas/Color'\n        shirtColor:\n          $ref: '#/components/schemas/Color'\n        shoeColor:\n          $ref: '#/components/schemas/Color'\n        skinColor:\n          $ref: '#/components/schemas/Color'\n        sockColor:\n          $ref: '#/components/schemas/Color'\n",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/toomany-example-generation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/toomany-example-generation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

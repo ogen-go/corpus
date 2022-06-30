@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "header_without_parameter.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/swagger/header_without_parameter.yaml",
+			"byteSize": 1118,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n\ntags:\n  - name: pets\n    description: Pets Tag\n  - name: list\n    description: List Tag\n\npaths:\n  /pets:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      responses:\n        '200':\n          description: Expected response to a valid request\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n      security:\n        - X-API-KEY: []\ncomponents:\n  schemas:\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    X-API-KEY:\n      type: apiKey\n      in: header\n      name: X-API-KEY",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/swagger/header_without_parameter.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/swagger/header_without_parameter.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

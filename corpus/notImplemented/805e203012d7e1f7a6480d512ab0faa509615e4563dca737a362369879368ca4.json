@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devonfw/cobigen"
+		},
+		"file": {
+			"name": "devonfw.yml",
+			"size": 0,
+			"path": "cobigen-eclipse/cobigen-eclipse-test/src/main/resources/OpenAPITest/input/devonfw.yml",
+			"byteSize": 3728,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://localhost:8081/devonfw-server/services/rest'\ninfo:\n  title: Devon Example\n  description: Example of a API definition\n  version: 1.0.0\npaths:\n  /sampledatamanagement/v1/sampledata/custom/{id}:\n    get:\n      operationId: customMethod\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 0\n            maximum: 100\n      responses:\n        '200':\n          description: Custom Method\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleData'\n    delete:\n      summary: 'Delegates to {@link Sampledatamanagement#deleteSampleData}.'\n      description: Deletes an existent SampleData from his ID.\n      operationId: deleteCustomSampleData\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 0\n            maximum: 100\n      responses:\n        '200':\n          description: An SampleDataETO object\n          content:\n             application/json:\n               schema:\n                 type: boolean\n  /sampledatamanagement/v1/sampledata/customSave:\n    post:\n      summary: 'Delegates to {@link Sampledatamanagement#saveSampleData}.'\n      description: Save a SampleData into de DB\n      operationId: saveCustomSampleData\n      responses:\n        '200':\n          description: An SampleDataETO object.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SampleData'\n      requestBody:\n        $ref: '#/components/requestBodies/SampleData'\n      tags:\n       - paginated\n  /sampledatamanagement/v1/sampledata/customSearch/:\n    post:\n      summary: 'Delegates to {@link Moredatamanagement#findMoreDataEtos}.'\n      description: Return SampleData that fits the filter.\n      operationId: findCustomSampleDataEtos\n      responses:\n        '200':\n          description: List of SampleData's.\n          content:\n            image/png:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SampleData'\n      requestBody:\n        $ref: '#/components/requestBodies/SampleData'\n      tags:\n        - searchCriteria\n        - paginated\ncomponents:\n  schemas:\n    RestaurantTable:\n      x-component: sampledatamanagement\n      type: object\n      properties:\n        seats:\n          type: integer\n          format: int32\n      x-manytomany: MoreData\n    SampleData:\n      x-component: sampledatamanagement\n      type: object\n      properties:\n        name:\n          type: string\n          maxLength: 100\n          minLength: 0\n          description: Name string.\n        surname:\n          type: string\n          description: Surname string.\n        age:\n          type: integer\n          format: int32\n          description: Age integer.\n        mail:\n          type: string\n          description: Mail string.\n        collection:\n          type: array\n          items:\n            type: integer\n            format: int64\n      x-onetoone: RestaurantTable\n      x-onetomany: MoreData\n      x-onetomany: RestaurantTable\n      required:\n        - name\n    MoreData:\n      x-component: moredatamanagement\n      type: object\n      properties:\n        example:\n          type: string\n      x-manytoone: SampleData\n      x-manytomany: RestaurantTable\n  requestBodies:\n    SampleData:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/SampleData'\n      required: true",
+			"canonicalURL": "/github.com/devonfw/cobigen@faf3432caec9bff09cfa58dcfb7e7c78df249e8a/-/blob/cobigen-eclipse/cobigen-eclipse-test/src/main/resources/OpenAPITest/input/devonfw.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devonfw/cobigen/blob/faf3432caec9bff09cfa58dcfb7e7c78df249e8a/cobigen-eclipse/cobigen-eclipse-test/src/main/resources/OpenAPITest/input/devonfw.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/sampledatamanagement/v1/sampledata/customSearch/\": post: responses: 200: contents: unsupported content types: [image/png]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

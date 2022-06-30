@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/product-microgateway"
+		},
+		"file": {
+			"name": "backend_security_openAPI.yaml",
+			"size": 0,
+			"path": "integration/test-integration/src/test/resources/openAPIs/backend_security_openAPI.yaml",
+			"byteSize": 1186,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Backend Security\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\nservers:\n  - url: http://mockBackend:2383/v3\nx-wso2-basePath: /backend-security\nx-wso2-production-endpoints:\n  urls:\n    - http://mockBackend:2383/v2\n  securityConfig:\n    type: basic\n    username: admin\n    password: admin\n  advanceEndpointConfig:\n    circuitBreakers:\n      maxConnections: 5\n      maxRequests: 3\nx-wso2-sandbox-endpoints:\n  urls:\n    - http://mockBackend:2390/v2\n  securityConfig:\n    type: basic\n    username: guest\n    password: password\npaths:\n  /echo:\n    get:\n      summary: Echo request\n      operationId: echo\n      responses:\n        '200':\n          description: Expected response to a valid request\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/wso2/product-microgateway@a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/-/blob/integration/test-integration/src/test/resources/openAPIs/backend_security_openAPI.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/product-microgateway/blob/a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/integration/test-integration/src/test/resources/openAPIs/backend_security_openAPI.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

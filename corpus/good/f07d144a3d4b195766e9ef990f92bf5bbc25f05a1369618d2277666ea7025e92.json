@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "object_without_fields_reference.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/schema/swagger/object_without_fields_reference.yaml",
+			"byteSize": 1905,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: World Bank Indicator API\n  description: Here you can find documentation for COVID-19 REST API.\nservers:\n  - description: Indicators represent data like total population, gross national income, energy use, and many more\n    url: http://api.worldbank.org/v2/\npaths:\n  /country/{country_name}/indicator/NY.GDP.MKTP.CD:\n    get:\n      tags: [\"GDP data of a given country\"]\n      operationId: getGDPBycountry\n      parameters:\n        - name: date\n          in: query\n          description: Date-range by year, month or quarter that scopes the result-set.\n          required: false\n          schema:\n            type: string\n        - name: country_name\n          in: path\n          description: Date-range by year, month or quarter that scopes the result-set.\n          required: true\n          schema:\n            type: string\n        - name: format\n          in: query\n          description: Format of the response.\n          required: false\n          schema:\n            type: string\n            default: json\n      responses:\n        '200':\n          description: List GDP information of each year\n          content:\n            application/json:\n              schema:\n                type: array\n                items: {}\ncomponents:\n  schemas:\n    Country:\n      type: object\n      properties:\n        id:\n          type: string\n          example: CHL\n        value:\n          type: string\n          example: Chilie\n    YouthLiteracyRate:\n      type: object\n      properties:\n        indicator:\n          type: object\n        country:\n          \"$ref\": \"#/components/schemas/Country\"\n        date:\n          type: string\n          example: \"2016\"\n        value:\n          type: integer\n          example: 100\n        decimal:\n          type: integer\n          example: 2\n    Error:\n      type: object\n      properties:\n        name:\n          type: string\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/object_without_fields_reference.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/schema/swagger/object_without_fields_reference.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

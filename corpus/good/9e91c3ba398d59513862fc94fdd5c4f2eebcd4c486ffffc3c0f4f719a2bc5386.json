@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-connectors"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "openapi/interzoid.globalnumberinfo/openapi.yml",
+			"byteSize": 3446,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.interzoid.com\ninfo:\n  x-ballerina-display:\n      label: Interzoid Global Phone Number Info\n      iconPath: \"icon.png\"\n  version: \"1.0.0\"\n  title: Interzoid Get Global Phone Number Information API\n  description: \u003e\n    This is a generated connector for [Interzoid Global Phone Number Information API v1.0.0](https://interzoid.com/services/getglobalnumberinfo) OpenAPI specification.\n\n    This API provides geographic information for a global telephone number, including city and country information, primary languages spoken, and mobile device identification.\n  \n    For additional help getting started with the API, \n    visit [Interzoid Global Phone Number Information API](https://interzoid.com/services/getglobalnumberinfo)\n  x-ballerina-init-description: \u003e\n    The connector initialization requires setting the API credentials.\n    \n    Create an [Interzoid Account](https://www.interzoid.com/register) \n    and obtain tokens by log into [Interzoid Account](https://www.interzoid.com/account).\n  contact:\n    name: API Support\n    email: support@interzoid.com\n    url: https://www.interzoid.com\n  termsOfService: https://www.interzoid.com/terms\n  license:\n    name: Interzoid license\n    url: 'https://www.interzoid.com/license'\nexternalDocs:\n  description: API home page and documentation\n  url: https://www.interzoid.com/services/getglobalnumberinfo\ncomponents:\n  schemas:\n    GlobalNumberInfo: \n      properties:\n        Country:\n          type: string\n        Region:\n          type: string\n        PrimaryCity:\n          type: string\n        PrimaryLanguage:\n          type: string\n        Language2:\n          type: string\n        Language3:\n          type: string\n        Mobile:\n          type: string\n        Wealth:\n          type: string\n        Code:\n          type: string\n        Credits:\n          type: string\n  securitySchemes:\n    ApiKeyAuth:\n      description: All requests on this API needs to include an API key. The API key can be provided as part of the query string or as a request header. The name of the API key needs to be `license`.\n      type: apiKey\n      in: query\n      name: license\nsecurity:\n  - ApiKeyAuth : []\npaths:\n  /getglobalnumberinfo:\n    get:\n      tags:\n        - Global Phone Number Information\n      summary: Get demographic information for a global telephone number\n      operationId: getglobalnumberinfo\n      description: |\n        Get demographic information for a global telephone number, including city and country information, primary languages spoken, and mobile device identification.\n      parameters:\n        - in: query\n          name: intlnumber\n          description: International number (with country code) to retrieve information for\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Global telephone demographic information\n          content:\n            application/json:\n              schema:\n                type: object\n                $ref: '#/components/schemas/GlobalNumberInfo'\n        '400':\n          description: bad request - insufficient parameters\n        '402':\n          description: credits exhausted\n        '403':\n          description: invalid license API key\n        '404':\n          description: telephone number not found\n        '405':\n          description: method not allowed\n        '500':\n          description: internal server error",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-connectors@c3641dddbc4e41686ae3d1b9bacf1621b639a019/-/blob/openapi/interzoid.globalnumberinfo/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-connectors/blob/c3641dddbc4e41686ae3d1b9bacf1621b639a019/openapi/interzoid.globalnumberinfo/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

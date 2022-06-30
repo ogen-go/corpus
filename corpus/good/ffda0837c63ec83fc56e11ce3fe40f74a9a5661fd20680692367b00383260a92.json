@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/isel-leic-daw/1819v-public"
+		},
+		"file": {
+			"name": "api-definition.yaml",
+			"size": 0,
+			"path": "LI61N/misc/api-definition.yaml",
+			"byteSize": 1910,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"the api name\"\n  description: \"the description\"\n  version: \"1.0\"\nservers:\n  - url: \"http://api.example.com\"\n    description: \"production\"\n  - url: \"http://stage.example.com\"\n    description: \"staging\"\npaths:\n  \"/courses\":\n    description: course list\n    get:\n      description: gets all courses\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/responses/course-list\"\n    post:\n      description: creates a course\n      requestBody:\n        description: course creation\n        content:\n          \"application/x-www-form-urlencoded\":\n            schema:\n              type: object\n              properties:\n                acronym:\n                  type: string\n                name:\n                  type: string\n                description:\n                  type: string\n      responses:\n        \"201\":\n          \"$ref\": \"#/components/responses/course-list\"\n  \"/courses/{acr}\":\n    description: course\n    get:\n      responses:\n        \"200\":\n          \"$ref\": \"#/components/responses/course-list\"\n      parameters:\n        - name: acr\n          in: path\n          required: true\n          schema:\n            type: string\ncomponents:\n  schemas:\n    course-item:\n      type: object\n      required: [name, description, acronym]\n      properties:\n        name:\n          type: string\n        description:\n          type: string\n        acronym:\n          type: string\n    course-list:\n      type: array\n      items:\n        \"$ref\": \"#/components/schemas/course-item\"\n  responses:\n    \"course-detail\":\n      description: course detail\n      content:\n        \"application/json\":\n          schema:\n            \"$ref\": \"#/components/schemas/course-item\"\n    \"course-list\":\n      description: course list\n      content:\n        \"application/json\":\n          schema:\n            \"$ref\": \"#/components/schemas/course-list\"\n    \"created\":\n      description: created\n    ",
+			"canonicalURL": "/github.com/isel-leic-daw/1819v-public@c5d8e79b9d5afd260743f84fa8fc84c8d8a2c842/-/blob/LI61N/misc/api-definition.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/isel-leic-daw/1819v-public/blob/c5d8e79b9d5afd260743f84fa8fc84c8d8a2c842/LI61N/misc/api-definition.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

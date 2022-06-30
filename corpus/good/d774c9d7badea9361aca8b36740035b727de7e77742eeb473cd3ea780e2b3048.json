@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "websocket-api.yaml",
+			"size": 0,
+			"path": "examples/websocket/websocket-api.yaml",
+			"byteSize": 2389,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: ws-server\nspec:\n  # service name and port should be specified inside x-kusk annotation\n  spec: |\n    openapi: 3.0.0\n    info:\n      title: Websocket test\n      version: 1.0.0\n    x-kusk:\n      hosts: [ \"localhost\", \"*\"]\n      # Enable websocket globally\n      websocket: true\n      upstream:\n        service:\n          namespace: default\n          name: ws-server\n          port: 80\n    paths:\n      /apiwebsocket:\n        get:\n          responses:\n            '200':\n              description: ''\n              content:\n                application/json:\n                  schema:\n                    type: object\n                    properties:\n                      test:\n                        type: string\n                        description: Description of test endpoint\n                    # required:\n                    #   - test\n            '400':\n              description: Client error\n              content:\n                application/json:\n                  schema:\n                    $ref: '#/components/schemas/endpoints.Errors'\n            '500':\n              description: Server error\n              content:\n                application/json:\n                  schema:\n                    $ref: '#/components/schemas/endpoints.Errors'\n      /disabledapiwebsocket:\n        x-kusk:\n          websocket: false\n        get:\n          responses:\n            '200':\n              description: ''\n              content:\n                application/json:\n                  schema:\n                    type: object\n                    properties:\n                      test:\n                        type: string\n                        description: Description of test endpoint\n                    # required:\n                    #   - test\n            '400':\n              description: Client error\n              content:\n                application/json:\n                  schema:\n                    $ref: '#/components/schemas/endpoints.Errors'\n            '500':\n              description: Server error\n              content:\n                application/json:\n                  schema:\n                    $ref: '#/components/schemas/endpoints.Errors'\n          summary: Test websocket\n    components:\n      schemas:\n        endpoints.Errors:\n          type: array\n          items:\n            type: string\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@71d8a6c204f833b6e837095bdd2bb340290906af/-/blob/examples/websocket/websocket-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/71d8a6c204f833b6e837095bdd2bb340290906af/examples/websocket/websocket-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

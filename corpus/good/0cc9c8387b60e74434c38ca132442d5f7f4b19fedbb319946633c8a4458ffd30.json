@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anz-bank/sysl"
+		},
+		"file": {
+			"name": "one-of.yaml",
+			"size": 0,
+			"path": "pkg/importer/tests/openapi3/one-of.yaml",
+			"byteSize": 1292,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: Simple\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n      responses:\n        '200':\n          description: Updated\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      properties:\n        bark:\n          type: boolean\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd]\n    Cat:\n      type: object\n      properties:\n        hunts:\n          type: boolean\n        age:\n          type: integer\n    Pet:\n        type: object\n        oneOf:\n          - $ref: '#/components/schemas/Cat'\n          - $ref: '#/components/schemas/Dog'\n    # This is also currently unsupported\n    # Feline:\n    #   type: object\n    #   oneOf:\n    #     - $ref: '#/components/schemas/Cat'\n    #     - type: object\n    #       properties:\n    #         hunts:\n    #           type: boolean\n    #         nocturnal:\n    #           type: boolean\n    #  Primitives in oneOf are currently unsupported\n    # CatDog: \n    #     type: object\n    #     oneOf:\n    #       - type: string\n    #         format: email\n    #       - $ref: '#/components/schemas/Dog'\n\n",
+			"canonicalURL": "/github.com/anz-bank/sysl@ed832ffbbebdb8970241347dfda3c8d6cf3eb638/-/blob/pkg/importer/tests/openapi3/one-of.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anz-bank/sysl/blob/ed832ffbbebdb8970241347dfda3c8d6cf3eb638/pkg/importer/tests/openapi3/one-of.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stoicflame/enunciate-openapi"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "src/test/java/dk/jyskebank/tools/enunciate/modules/openapi/utf8/openapi.yml",
+			"byteSize": 1153,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Title from enunciate.xml\"\n  version: \"version from enunciate.xml\"\n  description: \"Description from enunciate.xml. Can contain weird letters æøåÆØÅ\"\nservers:\n- url: \"../..\"\npaths:\n  \"/path/{pathArg}\":\n    get:\n      description: \"\"\n      tags:\n        - \"Other\"\n      summary: \"\"\n      deprecated: false\n      operationId: get\n      parameters:\n      - name: \"pathArg\"\n        in: path\n        description: \"\"\n        required: true\n        schema:\n          type: string\n        style: simple\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            \"*/*\":\n              schema:\n                $ref: \"#/components/schemas/json_DataUTF8CharsetFieldsDTO\"\n \ncomponents:\n  schemas:\n    \"json_DataUTF8CharsetFieldsDTO\":\r\n      title: \"DataUTF8CharsetFieldsDTO\"\r\n      type: object\r\n      properties:\r\n        \"fieldContainsDanishLettersÆØÅæøå\":\r\n          type: integer\r\n          format: int32\r\n        \"noFunkyLettersHere\":\r\n          type: integer\r\n          format: int32\r\n      example:\r\n        fieldContainsDanishLettersÆØÅæøå: 12345\r\n        noFunkyLettersHere: 12345\n",
+			"canonicalURL": "/github.com/stoicflame/enunciate-openapi@ca475534f83e4b37fe7d2d943bcb655190d0514e/-/blob/src/test/java/dk/jyskebank/tools/enunciate/modules/openapi/utf8/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stoicflame/enunciate-openapi/blob/ca475534f83e4b37fe7d2d943bcb655190d0514e/src/test/java/dk/jyskebank/tools/enunciate/modules/openapi/utf8/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/path/{pathArg}\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

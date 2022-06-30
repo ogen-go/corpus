@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/backbase-openapi-tools"
+		},
+		"file": {
+			"name": "no-lint-warnings.yaml",
+			"size": 0,
+			"path": "boat-maven-plugin/src/test/resources/oas-examples/no-lint-warnings.yaml",
+			"byteSize": 1625,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: An API\n  x-api-id: provider\n  x-icon: pet\n  contact:\n    name: John\n    url: https://john.no\n    email: john@john.no\nservers:\n  - url: http://petstore.swagger.io/\ntags:\n  - name: Retail\n    description: Retail pets tags\npaths:\n  /client-api/v1/pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - Retail\n      responses:\n        '200':\n          description: A paged array of pets\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/PetsResponse\"\n        default:\n          description: unexpected error\n          content:\n            application/problem+json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: string\n          format: int64\n          minLength: 1\n          maxLength: 64\n        name:\n          type: string\n          minLength: 0\n          maxLength: 64\n        tag:\n          type: string\n          minLength: 0\n          maxLength: 12\n    PetsResponse:\n      type: object\n      properties:\n        pets:\n          items:\n            $ref: '#/components/schemas/Pet'\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n          minimum: 0\n          maximum: 12\n        message:\n          type: string\n          minLength: 0\n          maxLength: 64\n",
+			"canonicalURL": "/github.com/Backbase/backbase-openapi-tools@b6235105d3511f2e8a3dfb8c8b1ecc48ef783c52/-/blob/boat-maven-plugin/src/test/resources/oas-examples/no-lint-warnings.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Backbase/backbase-openapi-tools/blob/b6235105d3511f2e8a3dfb8c8b1ecc48ef783c52/boat-maven-plugin/src/test/resources/oas-examples/no-lint-warnings.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/client-api/v1/pets\": get: responses: default: contents: unsupported content types: [application/problem+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

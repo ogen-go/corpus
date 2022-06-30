@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mu-box/core"
+		},
+		"file": {
+			"name": "slurp-sync-coordinator-api.yaml",
+			"size": 0,
+			"path": "docs/servers/slurp-sync-coordinator-api.yaml",
+			"byteSize": 3351,
+			"content": "openapi: 3.0.0\n# Added by API Auto Mocking Plugin\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/danhunsaker/slurp-sync-coordinator/1.0.0\n  - description: Individual application server\n    url: https://{host}:1566\n    variables:\n      host:\n        default: ''\n        description: The host IP of the server\ninfo:\n  version: '1.0.0'\n  title: 'Slurp Sync Coordinator API'\n  description: 'The API spec for the Slurp sync coordinator component.'\npaths:\n  /ping:\n    get:\n      summary: Check Slurp health\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: |\n                pong\n  /stages:\n    post:\n      summary: Tell slurp about new build\n      description: |\n        This endpoint will set up an SSH user for port 1567, so that an rsync\n        request (to any directory) will sync files to the new build. The SSH\n        username is the `secret` property returned here. If `old-id` is given,\n        Slurp will contact Hoarder on the same system, retrieve the\n        corresponding archive file, and extract it before the sync takes place,\n        allowing for updates to be synced more quickly.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required: [new-id]\n              properties:\n                new-id:\n                  type: string\n                old-id:\n                  type: string\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  secret:\n                    type: string\n        default:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /stages/{id}:\n    parameters:\n      - name: id\n        in: path\n        schema:\n          type: string\n        required: true\n    put:\n      summary: Commit update (done syncing)\n      description: |\n        Tells Slurp to archive the files that have been synced, and pass the\n        archive to Hoarder for long-term storage.\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Message'\n        default:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n    delete:\n      summary: Delete temp build dir\n      description: Removes synced files and sync target directory\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Message'\n        default:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Message:\n      type: object\n      properties:\n        msg:\n          type: string\n    Error:\n      type: object\n      properties:\n        error:\n          type: string\n  securitySchemes:\n    Token:\n      in: header\n      name: X-Auth-Token\n      type: apiKey\nsecurity:\n  - Token: []\n",
+			"canonicalURL": "/github.com/mu-box/core@a66c79bb43fe850bcd6c1ede58051555e1736204/-/blob/docs/servers/slurp-sync-coordinator-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mu-box/core/blob/a66c79bb43fe850bcd6c1ede58051555e1736204/docs/servers/slurp-sync-coordinator-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ping\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

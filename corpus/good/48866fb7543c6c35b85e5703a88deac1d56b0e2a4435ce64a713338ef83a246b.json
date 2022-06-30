@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "anyOf_OneOf.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/anyOf_OneOf.yaml",
+			"byteSize": 1574,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.0\n  title: test\n\npaths:\n  /path:\n    get:\n      responses:\n        '200':\n          description: A book or movie object\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Book'\n                  - $ref: '#/components/schemas/Movie'\n                anyOf:\n                  - $ref: '#/components/schemas/Movie'\n                  - $ref: '#/components/schemas/Book'\n\n  /mixed-array:\n    get:\n      responses:\n        '200':\n          description: An array containing strings and/or integers\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  oneOf:\n                    - type: string\n                    - type: integer\n\ncomponents:\n  schemas:\n    Book:\n      type: object\n      properties:\n        title:\n          type: string\n        authors:\n          type: array\n          items:\n            type: string\n        isbn:\n          type: string\n      required:\n        - title\n      example:\n        title: The Hitchhiker's Guide to the Galaxy\n        authors:\n          - Douglas Adams\n        isbn: 0-330-25864-8\n    Movie:\n      type: object\n      properties:\n        title:\n          type: string\n        directors:\n          type: array\n          items:\n            type: string\n        year:\n          type: integer\n      required:\n        - year\n      example:\n        title: Blade Runner\n        directors:\n          - Ridley Scott\n        year: 1982",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/anyOf_OneOf.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/anyOf_OneOf.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

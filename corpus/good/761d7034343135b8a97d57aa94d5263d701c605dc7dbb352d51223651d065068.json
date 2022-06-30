@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/sessions-with-aws-sam"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "eventbridge-dlq-retry/api.yaml",
+			"byteSize": 537,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"EventBridge DLQ\"\npaths:\n  /eb:\n    post:\n      responses:\n        default:\n          description: \"EventBridge response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          Detail: \"$request.body.Detail\"\n          DetailType: \"MyDetailType\"\n          Source: \"WebApp\"\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"",
+			"canonicalURL": "/github.com/aws-samples/sessions-with-aws-sam@b57ae6fa954ec05a6dce67f2b03620ad84bbb420/-/blob/eventbridge-dlq-retry/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/sessions-with-aws-sam/blob/b57ae6fa954ec05a6dce67f2b03620ad84bbb420/eventbridge-dlq-retry/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

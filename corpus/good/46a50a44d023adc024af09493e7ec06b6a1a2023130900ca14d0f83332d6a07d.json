@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "gitlab.com/dlalic/gitlab-clippy"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "backend/openapi.yml",
+			"byteSize": 2197,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 0.1.0\n  title: GitLab Clippy\n  license:\n    name: MIT\nservers:\n  - url: https://gitlab-cq-rust.herokuapp.com\n    description: Production server\n  - url: https://gitlab-cq-rust-staging.herokuapp.com\n    description: Staging server\n  - url: http://localhost:3000\n    description: Local server\npaths:\n  /clippy:\n    post:\n      summary: \"Upload the clippy output and receive the GitLab code quality report\"\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n              format: binary\n      responses:\n        '200':\n          description: GitLab code quality report\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ArrayOfCQReport'\n        '400':\n          description: Failed to parse the output\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n\ncomponents:\n  schemas:\n    ArrayOfCQReport:\n      type: array\n      items:\n        $ref: '#/components/schemas/CQReport'\n    CQReport:\n      type: object\n      required:\n        - description\n        - fingerprint\n        - lines\n      properties:\n        description:\n          type: string\n          example: you seem to be trying to use match for destructuring a single pattern. Consider using `if let`\n        fingerprint:\n          type: string\n          example: 86ffc66e391a1594d07b5b1ccae7d35e\n        location:\n          type: object\n          required:\n            - path\n            - lines\n          properties:\n            path:\n              type: string\n              example: src/main.rs\n            lines:\n              type: object\n              required:\n                - begin\n              properties:\n                begin:\n                  type: integer\n                  format: int32\n                  example: 35\n    Error:\n      type: object\n      required:\n        - message\n        - description\n      properties:\n        message:\n          type: string\n          example: Unable to parse body\n        description:\n          type: string\n          example: stream did not contain valid UTF-8\n",
+			"canonicalURL": "/gitlab.com/dlalic/gitlab-clippy@5f92d2e2a25840b8f91a355a86e043b7cea557ec/-/blob/backend/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://gitlab.com/dlalic/gitlab-clippy/blob/5f92d2e2a25840b8f91a355a86e043b7cea557ec/backend/openapi.yml",
+					"serviceKind": "GITLAB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "form-duplicated-parameter.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+			"byteSize": 1167,
+			"content": "openapi: 3.0.1\ninfo:\n  title: FormData Test Api Documentation\n  description: Minimal OpenAPI spec file to showcase duplicated params for formData.\n  version: 0.0.1\nservers:\n  - url: /backend/rest\ntags:\n  - name: form-param-poc\n    description: File storage resource for Fiscalization France standard\npaths:\n  '/form-param-poc/{id}':\n    put:\n      tags:\n        - form-param-poc\n      summary: fullUpdate\n      operationId: form-param-poc_update\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/FormParameters'\n      responses:\n        '200':\n          description: OK.\n      security:\n        - oAuthConfig: []\ncomponents:\n  schemas:\n    FormParameters:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          readOnly: true\n  securitySchemes:\n    oAuthConfig:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: ../backend/login/openid\n          scopes: {}\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/form-param-poc/{id}\": put: security: security \"oAuthConfig\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

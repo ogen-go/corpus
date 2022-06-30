@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "packages/laminar-cli/examples/api.yaml",
+			"byteSize": 1025,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:3333\npaths:\n  '/test':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema: { $ref: '#/components/schemas/User' }\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            application/json:\n              schema: { $ref: '#/components/schemas/Test' }\n    get:\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            application/json:\n              schema: { $ref: '#/components/schemas/Test' }\n\ncomponents:\n  schemas:\n    User:\n      additionalProperties: false\n      properties:\n        email:\n          type: string\n        scopes:\n          type: array\n          items:\n            type: string\n      required:\n        - email\n\n    Test:\n      properties:\n        text:\n          type: string\n        user:\n          $ref: '#/components/schemas/User'\n      required:\n        - text\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-cli/examples/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-cli/examples/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

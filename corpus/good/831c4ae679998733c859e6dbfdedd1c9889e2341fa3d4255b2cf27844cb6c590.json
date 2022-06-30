@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/gematik/api-kim"
+		},
+		"file": {
+			"name": "AccountLimit.yaml",
+			"size": 0,
+			"path": "src/openapi/AccountLimit.yaml",
+			"byteSize": 2621,
+			"content": "openapi: 3.0.3\ninfo:\n  title: I_AccountLimit_Service\n  description:  Über diese Schnittstelle werden die Limits eines Nutzer-Accounts abgefragt\n  version: 1.0.0\n  ### 1.0.0\n  # - initial Version of I_AccountLimit_Service\n\nexternalDocs:\n  description: GitHub - Dokumentation\n  url: https://github.com/gematik/api-kim\nservers:\n- url: https://account-manager.hrst1.kim.telematik/AccountLimit/v1.0/\ntags:\n- name: AccountLimit\n\npaths:\n##--\n##------\n  /limit:\n    get:\n      tags:\n      - AccountLimit\n      summary: Limits eines Accounts abgefragen\n      description: Gibt die Limits eines Accounts zurück\n      operationId: getLimits\n      \n      security:\n        - basicAuth: []\n\n      responses:\n        200:\n          description: OK\n             # Rückgabe der Metadaten eines Nutzer-Accounts \n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AccountLimit'\n        401:\n          description: Authentifizierung fehlgeschlagen\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n        404:\n          description: Mail Account nicht vorhanden\n          content:\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/Error' \n        500:\n          description: Internal Server Error          \n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'                  \n\n##--\n##------               \ncomponents:\n\n  schemas:\n  \n    AccountLimit:\n      type: object\n      properties:\n        dataTimeToLive: \n          type: integer\n          maxLength: 3\n          minimum: 10\n          maximum: 365\n          default: 90\n          example: 90\n          description: Speicherdauer von Mails und Anhängen auf dem KAS Fachdienst/KAS. Angabe in Tagen\n        maxMailSize:\n          type: integer\n          format: int64\n          example: 734003200\n          description: Setzt die maximale Größe einer KIM-Mail in Bytes\n        quota:\n          type: \"integer\"     \n          format: int64\n          example: 160000000000\n          description: Gibt das maximale Speichervolumen für einen Nutzer-Account an\n        remainQuota:\n          type: \"integer\"     \n          format: int64\n          example: 112000000000\n          description: Gibt das verbleibende Speichervolumen für einen Nutzer-Account an\n\n    Error:\n      type: object\n      properties:\n        message:\n          type: string\n  \n  securitySchemes: \n    basicAuth: \n      type: http\n      scheme: basic\n",
+			"canonicalURL": "/github.com/gematik/api-kim@b45e73f6f8e784249e993565021f847394a87b81/-/blob/src/openapi/AccountLimit.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/gematik/api-kim/blob/b45e73f6f8e784249e993565021f847394a87b81/src/openapi/AccountLimit.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

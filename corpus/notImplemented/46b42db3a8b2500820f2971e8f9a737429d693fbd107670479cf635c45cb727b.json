@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenLiberty/guide-microprofile-openapi"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "finish/src/main/webapp/META-INF/openapi.yaml",
+			"byteSize": 2426,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Inventory App\n  description: App for storing JVM system properties of various hosts.\n  license:\n    name: Eclipse Public License - v 1.0\n    url: https://www.eclipse.org/legal/epl-v10.html\n  version: \"1.0\"\npaths:\n  /inventory/properties:\n    get:\n      operationId: getProperties\n      responses:\n        \"200\":\n          description: JVM system properties of the host running this service.\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties:\n                  type: string\n  /inventory/systems:\n    get:\n      summary: List inventory contents.\n      description: Returns the currently stored host:properties pairs in the inventory.\n      responses:\n        \"200\":\n          description: host:properties pairs stored in the inventory.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/InventoryList'\n  /inventory/systems/{hostname}:\n    get:\n      summary: Get JVM system properties for particular host\n      description: Retrieves and returns the JVM system properties from the system\n        service running on the particular host.\n      parameters:\n      - name: hostname\n        in: path\n        description: The host for whom to retrieve the JVM system properties for.\n        required: true\n        schema:\n          type: string\n        example: foo\n      responses:\n        \"404\":\n          description: Invalid hostname or the system service may not be running on\n            the particular host.\n          content:\n            application/json: {}\n        \"200\":\n          description: JVM system properties of a particular host.\n          content:\n            application/json:\n              schema:\n                type: object\ncomponents:\n  schemas:\n    InventoryList:\n      description: POJO that represents the inventory contents.\n      required:\n      - systems\n      type: object\n      properties:\n        systems:\n          type: array\n          items:\n            $ref: '#/components/schemas/SystemData'\n        total:\n          format: int32\n          type: integer\n    SystemData:\n      description: POJO that represents a single inventory entry.\n      required:\n      - hostname\n      - properties\n      type: object\n      properties:\n        hostname:\n          type: string\n        properties:\n          type: object\n",
+			"canonicalURL": "/github.com/OpenLiberty/guide-microprofile-openapi@538f24ce0a23caad5e45457b7591d17916856ccb/-/blob/finish/src/main/webapp/META-INF/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenLiberty/guide-microprofile-openapi/blob/538f24ce0a23caad5e45457b7591d17916856ccb/finish/src/main/webapp/META-INF/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/inventory/systems/{hostname}\": get: responses: 404: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

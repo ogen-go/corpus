@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/thresholds"
+		},
+		"file": {
+			"name": "azure.com-web-DeletedWebApps-2016-03-01-swagger.yaml",
+			"size": 0,
+			"path": "benchmark-repository/openapi/azure.com-web-DeletedWebApps-2016-03-01-swagger.yaml",
+			"byteSize": 3360,
+			"content": "openapi: 3.0.0\ninfo:\n  title: DeletedWebApps API Client\n  version: 2016-03-01\n  x-apisguru-categories:\n    - cloud\n  x-logo:\n    url: https://assets.onestore.ms/cdnfiles/onestorerolling-1606-01000/shell/v3/images/logo/microsoft.png\n  x-origin:\n    - format: swagger\n      url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/DeletedWebApps.json\n      version: \"2.0\"\n  x-preferred: false\n  x-providerName: azure.com\n  x-serviceName: web-DeletedWebApps\n  x-tags:\n    - Azure\n    - Microsoft\nsecurity:\n  - azure_auth:\n      - user_impersonation\npaths:\n  \"/subscriptions/{subscriptionId}/providers/Microsoft.Web/deletedSites\":\n    get:\n      description: Get all deleted apps for a subscription.\n      operationId: DeletedWebApps_List\n      parameters:\n        - $ref: \"#/components/parameters/subscriptionIdParameter\"\n        - $ref: \"#/components/parameters/apiVersionParameter\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/DeletedWebAppCollection\"\n      summary: Get all deleted apps for a subscription.\n      tags:\n        - DeletedWebApps\n      x-ms-pageable:\n        nextLinkName: nextLink\nservers:\n  - url: https://management.azure.com\ncomponents:\n  parameters:\n    apiVersionParameter:\n      description: API Version\n      in: query\n      name: api-version\n      required: true\n      schema:\n        type: string\n    subscriptionIdParameter:\n      description: Your Azure subscription ID. This is a GUID-formatted string (e.g.\n        00000000-0000-0000-0000-000000000000).\n      in: path\n      name: subscriptionId\n      required: true\n      schema:\n        type: string\n  securitySchemes:\n    azure_auth:\n      description: Azure Active Directory OAuth2 Flow\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize\n          scopes:\n            user_impersonation: impersonate your user account\n  schemas:\n    DeletedSite:\n      description: A deleted app.\n      properties:\n        deletedTimestamp:\n          description: Time in UTC when the app was deleted.\n          readOnly: true\n          type: string\n        id:\n          description: Numeric id for the deleted site\n          format: int32\n          type: integer\n        name:\n          description: Name of the deleted site\n          readOnly: true\n          type: string\n        resourceGroup:\n          description: ResourceGroup that contained the deleted site\n          readOnly: true\n          type: string\n        slot:\n          description: Slot of the deleted site\n          readOnly: true\n          type: string\n        subscription:\n          description: Subscription containing the deleted site\n          readOnly: true\n          type: string\n      type: object\n    DeletedWebAppCollection:\n      description: Collection of deleted apps.\n      properties:\n        nextLink:\n          description: Link to next page of resources.\n          readOnly: true\n          type: string\n        value:\n          description: Collection of resources.\n          items:\n            $ref: \"#/components/schemas/DeletedSite\"\n          type: array\n      required:\n        - value\n      type: object\n",
+			"canonicalURL": "/github.com/restful-ma/thresholds@5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/-/blob/benchmark-repository/openapi/azure.com-web-DeletedWebApps-2016-03-01-swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/thresholds/blob/5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/benchmark-repository/openapi/azure.com-web-DeletedWebApps-2016-03-01-swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/subscriptions/{subscriptionId}/providers/Microsoft.Web/deletedSites\": get: security: security \"azure_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api-explorer"
+		},
+		"file": {
+			"name": "common-parameters.json",
+			"size": 0,
+			"path": "example/swagger-files/common-parameters.json",
+			"byteSize": 1361,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"An example of how we render $ref usage on resource parameters\"\n  },\n  \"paths\": {\n    \"/anything/{id}\": {\n      \"parameters\": [\n        {\n          \"in\": \"path\",\n          \"name\": \"id\",\n          \"schema\": {\n            \"type\": \"number\"\n          },\n          \"required\": true\n        },\n        {\n          \"in\": \"header\",\n          \"name\": \"x-extra-id\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"summary\": \"Get anything\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      },\n      \"post\": {\n        \"summary\": \"Post anything\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/limitParam\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"limitParam\": {\n        \"in\": \"query\",\n        \"name\": \"limit\",\n        \"required\": false,\n        \"schema\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 50,\n          \"default\": 20\n        },\n        \"description\": \"The numbers of items to return.\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/api-explorer@5c7d47a2e2afe66b4b0f754383df14319cd4d0da/-/blob/example/swagger-files/common-parameters.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/api-explorer/blob/5c7d47a2e2afe66b4b0f754383df14319cd4d0da/example/swagger-files/common-parameters.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cue-lang/cue"
+		},
+		"file": {
+			"name": "embed-norefs.json",
+			"size": 0,
+			"path": "encoding/openapi/testdata/embed-norefs.json",
+			"byteSize": 3678,
+			"content": "{\n   \"openapi\": \"3.0.0\",\n   \"info\": {\n      \"title\": \"test\",\n      \"version\": \"v1\"\n   },\n   \"paths\": {},\n   \"components\": {\n      \"schemas\": {\n         \"Foo\": {\n            \"type\": \"string\"\n         },\n         \"LoadBalancerSettings\": {\n            \"type\": \"object\",\n            \"properties\": {\n               \"consistentHash\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                     \"httpHeaderName\": {\n                        \"type\": \"string\"\n                     }\n                  }\n               },\n               \"b\": {\n                  \"type\": \"string\"\n               }\n            },\n            \"oneOf\": [\n               {\n                  \"not\": {\n                     \"anyOf\": [\n                        {\n                           \"required\": [\n                              \"consistentHash\",\n                              \"b\"\n                           ],\n                           \"properties\": {\n                              \"consistentHash\": {\n                                 \"oneOf\": [\n                                    {\n                                       \"not\": {\n                                          \"anyOf\": [\n                                             {\n                                                \"required\": [\n                                                   \"httpHeaderName\"\n                                                ]\n                                             }\n                                          ]\n                                       }\n                                    },\n                                    {\n                                       \"required\": [\n                                          \"httpHeaderName\"\n                                       ]\n                                    }\n                                 ]\n                              }\n                           }\n                        }\n                     ]\n                  }\n               },\n               {\n                  \"required\": [\n                     \"consistentHash\",\n                     \"b\"\n                  ],\n                  \"properties\": {\n                     \"consistentHash\": {\n                        \"oneOf\": [\n                           {\n                              \"not\": {\n                                 \"anyOf\": [\n                                    {\n                                       \"required\": [\n                                          \"httpHeaderName\"\n                                       ]\n                                    }\n                                 ]\n                              }\n                           },\n                           {\n                              \"required\": [\n                                 \"httpHeaderName\"\n                              ]\n                           }\n                        ]\n                     }\n                  }\n               }\n            ]\n         },\n         \"LoadBalancerSettings.ConsistentHashLB\": {\n            \"type\": \"object\",\n            \"properties\": {\n               \"httpHeaderName\": {\n                  \"type\": \"string\"\n               }\n            },\n            \"oneOf\": [\n               {\n                  \"not\": {\n                     \"anyOf\": [\n                        {\n                           \"required\": [\n                              \"httpHeaderName\"\n                           ]\n                        }\n                     ]\n                  }\n               },\n               {\n                  \"required\": [\n                     \"httpHeaderName\"\n                  ]\n               }\n            ]\n         }\n      }\n   }\n}",
+			"canonicalURL": "/github.com/cue-lang/cue@2f05fc92404e0c47dd62c8f769c8881f87ae9bec/-/blob/encoding/openapi/testdata/embed-norefs.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cue-lang/cue/blob/2f05fc92404e0c47dd62c8f769c8881f87ae9bec/encoding/openapi/testdata/embed-norefs.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

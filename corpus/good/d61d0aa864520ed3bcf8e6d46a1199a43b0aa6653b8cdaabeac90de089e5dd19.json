@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oat-sa/tao-core"
+		},
+		"file": {
+			"name": "taoApi.yml",
+			"size": 0,
+			"path": "doc/taoApi.yml",
+			"byteSize": 3576,
+			"content": "openapi: 3.0.1\ninfo:\n  title: TAO Core Internal API\n  description: 'TAO Core Internal API'\n  version: v1\n\npaths:\n  /tao/Languages/index:\n    get:\n      summary: Get a list of available languages in the TAO platform\n      responses:\n        200:\n          $ref: '#/components/responses/LanguagesResponse'\n        400:\n          $ref: '#/components/responses/BadRequestResponse'\n        500:\n          $ref: '#/components/responses/InternalServerErrorResponse'\n  /tao/ResourceRelations:\n    get:\n      summary: Get the resource relations\n      parameters:\n        - in: query\n          name: sourceId\n          required: false\n          schema:\n            type: string\n          description: The sourceId of the relation. In case of RDF id, this parameter must be urlencoded.\n        - in: query\n          name: classId\n          required: false\n          schema:\n            type: string\n          description: The classId will deterimine to make recursive search in order to find media that is .\n        - in: query\n          name: type\n          required: false\n          schema:\n            type: string\n          description: The type of resource to find relations with\n      responses:\n        200:\n          $ref: '#/components/responses/ResourceRelationsResponse'\n        400:\n          $ref: '#/components/responses/BadRequestResponse'\n        500:\n          $ref: '#/components/responses/InternalServerErrorResponse'\ncomponents:\n  schemas:\n    ResourceRelationResource:\n      description: 'A resource related to another resources'\n      type: object\n      properties:\n        id:\n          type: string\n          example: 'http://www.tao.lu/tao.rdf#i5e89a2063326711164b1a816b433b1ec'\n        type:\n          type: string\n          enum:\n            - item\n            - media\n            - sharedStimulus\n        data:\n          description: specific payload according to type\n          type: array\n          items:\n            type: object\n          example:\n            - label: 'My Item'\n      required:\n        - classId\n    ResourceRelations:\n      description: 'A relationship between two resources'\n      type: object\n      properties:\n        success:\n          type: boolean\n          example: true\n        data:\n          type: object\n          properties:\n            relations:\n              type: array\n              items:\n                $ref: '#/components/schemas/ResourceRelationResource'\n    Languages:\n      properties:\n        success:\n          type: boolean\n          example: true\n        data:\n          type: object\n          example:\n            en-US: English\n            fr-FR: French\n            de-DE: German\n    ErrorResponse:\n      properties:\n        success:\n          type: boolean\n          example: false\n        code:\n          type: integer\n          example: 400\n        message:\n          type: string\n  responses:\n    ResourceRelationsResponse:\n      description: Bad request\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ResourceRelations'\n    LanguagesResponse:\n      description: The list of languages\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Languages'\n    BadRequestResponse:\n      description: Bad request\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorResponse'\n    InternalServerErrorResponse:\n      description: Internal server error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorResponse'",
+			"canonicalURL": "/github.com/oat-sa/tao-core@e3e947157a5535acce836c4a5a2e8cc26aafbbe2/-/blob/doc/taoApi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oat-sa/tao-core/blob/e3e947157a5535acce836c4a5a2e8cc26aafbbe2/doc/taoApi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

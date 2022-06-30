@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rstropek/htl-mobile-computing"
+		},
+		"file": {
+			"name": "api-spec.yaml",
+			"size": 0,
+			"path": "rest-fundamentals/9080-tictactoe/api-spec.yaml",
+			"byteSize": 1728,
+			"content": "openapi: 3.0.0\ninfo:\n  description: TicTacToe exam example\n  version: 0.1.0\n  title: TicTacToe Evaluator\npaths:\n  /api/getWinner:\n    post:\n      summary: Gets the winner of a TicTacToe board\n      operationId: getWinner1\n      requestBody:\n        description: TicTacToe board\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Board'\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Winner'\n        '400':\n          description: Invalid board (e.g. board array does not have exactly nine elements)\n    get:\n      summary: Gets the winner of a TicTacToe board\n      operationId: getWinner2\n      parameters:\n        - name: board\n          in: query\n          description: TicTacToe board (comma-separated values of nine cells; e.g. \",X,O,,X,O,O,X,\")\n          required: true\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Board'\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Winner'\n        '400':\n          description: Invalid board (e.g. board array does not have exactly nine elements)\ncomponents:\n  schemas:\n    Winner:\n      type: object\n      properties:\n        winner:\n          type: string\n          description: Winner, `null` if there is no winner\n    Board:\n      type: array\n      items:\n        type: string\n        description: Array with nine strings, each representing a cell of the TicTacToe board\n",
+			"canonicalURL": "/github.com/rstropek/htl-mobile-computing@1f0841dd117d820544e9e28328f1c98beb3510d1/-/blob/rest-fundamentals/9080-tictactoe/api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rstropek/htl-mobile-computing/blob/1f0841dd117d820544e9e28328f1c98beb3510d1/rest-fundamentals/9080-tictactoe/api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

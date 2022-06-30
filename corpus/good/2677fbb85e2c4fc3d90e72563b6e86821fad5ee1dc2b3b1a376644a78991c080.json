@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/elixir-cloud-aai/foca"
+		},
+		"file": {
+			"name": "openapi_3_petstore.modified.yaml",
+			"size": 0,
+			"path": "tests/test_files/openapi_3_petstore.modified.yaml",
+			"byteSize": 2666,
+			"content": "components:\n  schemas:\n    Error:\n      properties:\n        code:\n          format: int32\n          type: integer\n        message:\n          type: string\n      required:\n      - code\n      - message\n      type: object\n    Pet:\n      properties:\n        id:\n          format: int64\n          type: integer\n        name:\n          type: string\n        tag:\n          type: string\n      required:\n      - id\n      - name\n      type: object\n    Pets:\n      items:\n        $ref: '#/components/schemas/Pet'\n      type: array\ninfo:\n  license:\n    name: MIT\n  title: Swagger Petstore\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /pets:\n    get:\n      operationId: listPets\n      parameters:\n      - description: How many items to return at one time (max 100)\n        in: query\n        name: limit\n        required: false\n        schema:\n          format: int32\n          type: integer\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pets'\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n          description: unexpected error\n      summary: List all pets\n      tags:\n      - pets\n      x-openapi-router-controller: controllers\n    post:\n      operationId: createPets\n      responses:\n        '201':\n          description: Null response\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n          description: unexpected error\n      summary: Create a pet\n      tags:\n      - pets\n      x-openapi-router-controller: controllers\n  /pets/{petId}:\n    get:\n      operationId: showPetById\n      parameters:\n      - description: The id of the pet to retrieve\n        in: path\n        name: petId\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n          description: Expected response to a valid request\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n          description: unexpected error\n      summary: Info for a specific pet\n      tags:\n      - pets\n      x-openapi-router-controller: controllers\nservers:\n- url: http://petstore.swagger.io/v2\n",
+			"canonicalURL": "/github.com/elixir-cloud-aai/foca@03e0f54b181b015dda167810cfd580f133749849/-/blob/tests/test_files/openapi_3_petstore.modified.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/elixir-cloud-aai/foca/blob/03e0f54b181b015dda167810cfd580f133749849/tests/test_files/openapi_3_petstore.modified.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

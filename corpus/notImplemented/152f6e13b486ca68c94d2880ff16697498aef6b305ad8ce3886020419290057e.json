@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/IBM/python-django-app"
+		},
+		"file": {
+			"name": "schema.yml",
+			"size": 0,
+			"path": "schema.yml",
+			"byteSize": 736,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Django REST API\n  version: 1.0.0\n  description: API for Django REST app\npaths:\n  /health/:\n    get:\n      operationId: health_retrieve\n      description: ''\n      parameters:\n      - in: query\n        name: health\n        schema:\n          type: string\n      tags:\n      - health\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties: {}\n          description: ''\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: Session\n",
+			"canonicalURL": "/github.com/IBM/python-django-app@cb641cdb49fd1b090b932c44d9304e934bc5d043/-/blob/schema.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/IBM/python-django-app/blob/cb641cdb49fd1b090b932c44d9304e934bc5d043/schema.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/health/\": get: security: security \"cookieAuth\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

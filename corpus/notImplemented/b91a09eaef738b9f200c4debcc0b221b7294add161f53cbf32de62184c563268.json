@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Optum/faas-swagger"
+		},
+		"file": {
+			"name": "swagger1.yaml",
+			"size": 0,
+			"path": "lib/test/test-files/swagger/swagger1.yaml",
+			"byteSize": 2187,
+			"content": "info:\n  license:\n    name: MIT\n  title: Openfaas Swagger\n  version: 1.0.0\nopenapi: 3.0.0\npaths:\n  /serverdecommission:\n    post:\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              properties:\n                serverName:\n                  type: string\n                userMSID:\n                  type: string\n              type: object\n        description: user to add to the system\n      responses:\n        5XX:\n          description: Internal API Error.\n        \"200\":\n          content:\n            text/plain:\n              schema:\n                example: Server Decommission successful\n                type: string\n          description: Decommission message\n        \"404\":\n          description: Invalid server.\n        \"417\":\n          description: Invalid Data.\n      summary: Funcion to decommission a server\n  /serverlesspoc:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"200\":\n          description: success\n  /testgradle:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                serverName:\n                  type: string\n              type: object\n        description: user to add to the system\n      responses:\n        5XX:\n          description: Internal API Error.\n        \"200\":\n          content:\n            text/plain:\n              schema:\n                example: Server Decommission successful\n                type: string\n          description: Decommission message\n        \"404\":\n          description: Invalid server.\n        \"417\":\n          description: Invalid Data.\n      summary: Funcion to decommission a server\n  /testing:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"200\":\n          description: success\n  /testopenfaasfunction:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"200\":\n          description: success\nservers:\n- url: /",
+			"canonicalURL": "/github.com/Optum/faas-swagger@4db883cd4f7f8476c7b90f3c82baeaacf7b4e11e/-/blob/lib/test/test-files/swagger/swagger1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Optum/faas-swagger/blob/4db883cd4f7f8476c7b90f3c82baeaacf7b4e11e/lib/test/test-files/swagger/swagger1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/serverdecommission\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"HTTP code pattern",
+		"unsupported content types"
+	]
+}

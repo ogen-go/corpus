@@ -9,8 +9,15 @@
 			"size": 0,
 			"path": "openapi/website.yaml",
 			"byteSize": 920,
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Movies Website\nx-yc-apigateway:\n  service_account_id: ${movies_api_sa_id}\n\npaths:\n  /:\n    get:\n      operationId: index\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: 'index.html'\n  /{file+}:\n    get:\n      operationId: website\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: '{file}'\n  /images/{file+}:\n    get:\n      operationId: posters\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_images_bucket}\n        object: '{file}'\n"
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Movies Website\nx-yc-apigateway:\n  service_account_id: ${movies_api_sa_id}\n\npaths:\n  /:\n    get:\n      operationId: index\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: 'index.html'\n  /{file+}:\n    get:\n      operationId: website\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_website_bucket}\n        object: '{file}'\n  /images/{file+}:\n    get:\n      operationId: posters\n      parameters:\n        - name: file\n          in: path\n          required: false\n          schema:\n            type: string\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: ${movies_images_bucket}\n        object: '{file}'\n",
+			"canonicalURL": "/github.com/kvikuz/sls-web-application@1cbf2aab96a1ccf48440cd37cee6ad3b68a7e24f/-/blob/openapi/website.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kvikuz/sls-web-application/blob/1cbf2aab96a1ccf48440cd37cee6ad3b68a7e24f/openapi/website.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"index\": responses: no responses"
+	"Error": "parse: parse spec: parse operations: paths: /{file+}: get: operation \"website\": parameters: parse parameter \"file\": path parameters must be required"
 }

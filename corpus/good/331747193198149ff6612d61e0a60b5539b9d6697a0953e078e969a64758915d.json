@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/quarkiverse/quarkus-openapi-generator"
+		},
+		"file": {
+			"name": "multipart-openapi.yml",
+			"size": 0,
+			"path": "deployment/src/test/resources/openapi/multipart-openapi.yml",
+			"byteSize": 1552,
+			"content": "openapi: 3.0.3\ninfo:\n  title: \"Multipart form data API\"\n  description: An api that uses multipart/form-data as request type\n  version: 1.0.0\n\nservers:\n  - url: \"http://my.endpoint.com/api/v1\"\n\npaths:\n  /user-profile-data:\n    post:\n      tags:\n        - User Profile Data\n      description: Upload data for a user profile, adapted from https://swagger.io/docs/specification/describing-request-body/multipart-requests/\n      operationId: PostUserProfileData\n      requestBody:\n        required: true\n        description: The data of a user profile\n        content:\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/UserProfileData'\n      responses:\n        \"204\":\n          description: \"Data uploaded\"\n        \"400\":\n          description: \"Invalid ID supplied\"\n\ncomponents:\n  schemas:\n    Address:\n      title: Address\n      type: object\n      properties:\n        street:\n          type: string\n          description: Street name\n          example: 7th avenue\n        city:\n          type: string\n          description: Name of the city\n          example: New Delhi\n    UserId:\n      type: string\n      format: uuid\n    ProfileImage:\n      type: string\n      format: binary\n\n    UserProfileData:\n      type: object\n      properties: # Request parts\n        id: # Part 1 (string value)\n          $ref: '#/components/schemas/UserId'\n        address: # Part2 (object)\n          $ref: '#/components/schemas/Address'\n        profileImage: # Part 3 (an image)\n          $ref: '#/components/schemas/ProfileImage'\n\n\n",
+			"canonicalURL": "/github.com/quarkiverse/quarkus-openapi-generator@8c760ad5bab6c199864d25b36bee41ee5a2bfdc0/-/blob/deployment/src/test/resources/openapi/multipart-openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/quarkiverse/quarkus-openapi-generator/blob/8c760ad5bab6c199864d25b36bee41ee5a2bfdc0/deployment/src/test/resources/openapi/multipart-openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

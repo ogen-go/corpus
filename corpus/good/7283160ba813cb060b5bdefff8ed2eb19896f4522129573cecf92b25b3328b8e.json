@@ -1,0 +1,17 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/api-spec-converter"
+		},
+		"file": {
+			"name": "form_param.yml",
+			"size": 0,
+			"path": "test/input/openapi_3/form_param.yml",
+			"byteSize": 1032,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.1\n  title: test\npaths:\n  /foo:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                name:\n                  type: string\n                format:\n                  $ref: '#/components/schemas/ImageFormat'\n                uploadDate:\n                  type: string\n                  format: date-time\n                  readOnly: true\n                image:\n                  type: string\n                  format: binary\n              required:\n              - image\n      responses:\n        '200':\n          description: Foo\n          content:\n            application/json:\n              schema:\n                type: object\n      tags:\n        - Foos\n      operationId: getFoo\ncomponents:\n  schemas:\n    ImageFormat:\n      type: string\n      enum:\n        - gif\n        - jpeg\n        - png\n      x-ms-enum:\n        name: ImageType\n        modelAsString: true\n",
+			"canonicalURL": "/npm/api-spec-converter@c15292a823805817d82c5dee4b6a4c923a76d57a/-/blob/test/input/openapi_3/form_param.yml",
+			"externalURLs": []
+		}
+	}
+}

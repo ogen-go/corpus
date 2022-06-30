@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/karlvr/openapi-generator-plus-generators"
+		},
+		"file": {
+			"name": "one-of-all-of.yml",
+			"size": 0,
+			"path": "__tests__/specs/one-of-all-of.yml",
+			"byteSize": 1198,
+			"content": "openapi: 3.0.3\ninfo:\n  title: oneOf allOf\n  version: '1.0'\npaths: {}\ncomponents:\n  schemas:\n    PropertyInfo:\n      oneOf:\n        - $ref: '#/components/schemas/IntegerProperty'\n        - $ref: '#/components/schemas/StringProperty'\n        - $ref: '#/components/schemas/ObjectProperty'\n      discriminator:\n        propertyName: type\n        mapping:\n          int: '#/components/schemas/IntegerProperty'\n          string: '#/components/schemas/StringProperty'\n    AbstractProperty:\n      type: object\n      properties:\n        type:\n          type: string\n    IntegerProperty:\n      allOf:\n        - $ref: '#/components/schemas/AbstractProperty'\n        - type: object\n          properties:\n            value:\n              type: integer\n    StringProperty:\n      allOf:\n        - $ref: '#/components/schemas/AbstractProperty'\n        - type: object\n          properties:\n            value:\n              type: string\n    ObjectProperty:\n      allOf:\n        - $ref: '#/components/schemas/AbstractProperty'\n        - $ref: '#/components/schemas/ObjectValue'\n    ObjectValue:\n      type: object\n      required:\n        - id\n      nullable: true\n      properties:\n        id:\n          type: string\n",
+			"canonicalURL": "/github.com/karlvr/openapi-generator-plus-generators@57cdb83edb435119e29597695b9037d2da85266b/-/blob/__tests__/specs/one-of-all-of.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/karlvr/openapi-generator-plus-generators/blob/57cdb83edb435119e29597695b9037d2da85266b/__tests__/specs/one-of-all-of.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

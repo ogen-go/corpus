@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springframeworkguru/sccoa3-fraud-example"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "oa3-http-server/src/test/resources/contracts/fraudname/openapi.yml",
+			"byteSize": 2234,
+			"content": "openapi: \"3.0.0\"\ninfo:\n    description: Spring Cloud Contract Verifier Http Server OA3 Sample\n    version: \"1.0.0\"\n    title: Fraud Name Service API\npaths:\n    /frauds/name:\n        put:\n            x-contracts:\n            - contractId: 4\n              name: Should Return a Fraud for the Name\n              priority: 1\n            - contractId: 5\n              name: Should Return Non-Fraud for the Name\n            requestBody:\n                content:\n                    application/json:\n                        schema:\n                            type: object\n                            properties:\n                                name:\n                                    type: string\n                x-contracts:\n                - contractId: 4\n                  headers:\n                      Content-Type: application/json\n                  body:\n                      name: \"fraud\"\n                - contractId: 5\n                  headers:\n                      Content-Type: application/json\n                  body:\n                      name: \"non fraud\"\n                  matchers:\n                      body:\n                      - path: $.name\n                        type: by_regex\n                        predefined: only_alpha_unicode\n            responses:\n                '200':\n                    description: okay\n                    content:\n                        application/json:\n                            schema:\n                                type: object\n                                properties:\n                                    name:\n                                        type: string\n                    x-contracts:\n                    - contractId: 4\n                      body:\n                        result: \"Sorry {{{ jsonpath this '$.name' }}} but you're a fraud\"\n                      headers:\n                          Content-Type: \"{{{ request.headers.Content-Type.0 }}};charset=UTF-8\"\n                    - contractId: 5\n                      body:\n                        result: \"Don't worry {{{ jsonpath this '$.name' }}} you're not a fraud\"\n                      headers:\n                          Content-Type: \"{{{ request.headers.Content-Type.0 }}};charset=UTF-8\"\n\n\n",
+			"canonicalURL": "/github.com/springframeworkguru/sccoa3-fraud-example@f516298ab93db6f06af1ee6914be94021f4d8683/-/blob/oa3-http-server/src/test/resources/contracts/fraudname/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springframeworkguru/sccoa3-fraud-example/blob/f516298ab93db6f06af1ee6914be94021f4d8683/oa3-http-server/src/test/resources/contracts/fraudname/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

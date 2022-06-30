@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/unitn-software-engineering/EasyLib"
+		},
+		"file": {
+			"name": "oas3.yaml",
+			"size": 0,
+			"path": "oas3.yaml",
+			"byteSize": 2854,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: \"EasyLib OpenAPI 3.0\"\n  description: API for managing book lendings.\n  license:\n    name: MIT\nservers:\n  - url: http://localhost:8000/api/v1\n    description: Localhost\npaths:\n  /students:\n    post:\n      description: \u003e-\n        Creates a new student in the system.\n      summary: Register a new student\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - email\n              properties:\n                email:\n                  type: string\n                  description: 'Email address of the student'\n      responses:\n        '201':\n          description: 'User created. Link in the Location header'\n          headers:\n            'Location':\n              schema:\n                type: string\n              description: Link to the newly created student.\n\n  /books:\n    get:\n      description: \u003e-\n        Gets the list of books.\n      summary: View all books\n      responses:\n        '200':\n          description: 'Collection of books'\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Book'\n  /booklendings:\n    post:\n      description: \u003e-\n        Creates a new booklending.\n      summary: Borrow a book\n      responses:\n        '201':\n          description: 'Booklending created. Link in the Location header'\n          headers:\n            'Location':\n              schema:\n                type: string\n              description: Link to the newly created booklending.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Booklending'\n          \ncomponents:\n  schemas:\n    Student:\n      type: object\n      required:\n        - id\n        - email\n      properties:\n        id:\n          type: integer\n          description: 'ID of the user'\n        email:\n          type: string\n          description: 'Email address of the user'\n    Book:\n      type: object\n      required:\n        - title\n        - author\n        - ISBN\n        - status\n      properties:\n        title:\n          type: string\n          description: 'Title of the book'\n        author:\n          type: string\n          description: 'Author of the book'\n        ISBN:\n          type: string\n          description: 'ISBN of the book'\n        status:\n          type: string\n          enum: [available, lended]\n          description: 'Tells whether the book is currently available or not'\n    Booklending:\n      type: object\n      required:\n      - student\n      - book\n      properties:\n        user:\n          type: string\n          description: 'Link to the user'\n        book:\n          type: integer\n          description: 'Link to the book'",
+			"canonicalURL": "/github.com/unitn-software-engineering/EasyLib@9c841b9483db13877f1a41f6208a412ed27a18be/-/blob/oas3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/unitn-software-engineering/EasyLib/blob/9c841b9483db13877f1a41f6208a412ed27a18be/oas3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

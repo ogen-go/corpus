@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "path.params.yaml",
+			"size": 0,
+			"path": "test/resources/path.params.yaml",
+			"byteSize": 1652,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: \"Test for allOf\"\n  version: \"1\"\nservers:\n  - url: /v1/\npaths:\n  /users/{id}:\n    get:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n  /users_alt/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: string\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n  /multi_users/{ids}:\n    get:\n      summary: Deletes Features given a number of uuids.\n      parameters:\n        - in: path\n          name: ids\n          required: true\n          schema:\n            type: array\n            items:\n              type: string\n          style: simple\n      responses:\n        \"200\":\n          description: Features were successfully deleted\n          content:\n            application/json:\n              schema:\n                type: object\n  \"/user_lookup:{name}\":\n    get:\n      parameters:\n        - name: name\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: \"string\"\n",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@6448f4548db32bf5d2ae18e25dd36996ae9500ef/-/blob/test/resources/path.params.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/6448f4548db32bf5d2ae18e25dd36996ae9500ef/test/resources/path.params.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

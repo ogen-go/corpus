@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtomio/website-screenshot"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "openapi.yml",
+			"byteSize": 2749,
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: '{{version}}'\n  description: 📸 website screenshots as a service\n  title: website-screenshot\n  contact:\n    name: Support\n    email: mail@tomio.fun\n    url: https://github.com/devtomio/website-screenshot/issues/new\n  license:\n    name: MIT/Apache-2.0\n    url: https://github.com/devtomio/website-screenshot#license\n\npaths:\n  /:\n    get:\n      summary: The root route\n      tags:\n        - HTTP Routes\n      operationId: rootRoute\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: Hello, world!\n        '429':\n          description: Ratelimited\n\n  /screenshot:\n    post:\n      summary: Takes a screenshot of a website\n      tags:\n        - HTTP Routes\n      operationId: postScreenshot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ScreenshotRequest'\n        description: Inventory item to add\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ScreenshotResponse'\n        '400':\n          description: Bad Request\n        '401':\n          description: Unauthorized\n        '403':\n          description: Forbidden\n        '413':\n          description: Payload Too Large\n        '429':\n          description: Ratelimited\n          \n  /s/{slug}:\n    get:\n      summary: Get a screenshot\n      parameters:\n        - in: path\n          name: slug\n          schema:\n            type: string\n            example: abcdefghijk\n          required: true\n          description: The slug of the screenshot\n      tags:\n        - HTTP Routes\n      responses:\n        '200':\n          description: OK\n          content:\n            image/png:\n              schema:\n                type: string\n                format: binary\n        '404':\n          description: Not Found\n\nservers:\n  - url: '{{url}}'\n\ncomponents:\n  schemas:\n    ScreenshotRequest:\n      type: object\n      required:\n        - url\n      properties:\n        url:\n          type: string\n          format: uri\n          example: https://rust-lang.org\n        fullscreen:\n          type: boolean\n          example: false\n        check_nsfw:\n          type: boolean\n          example: false\n        dark_mode:\n          type: boolean\n          example: false\n    ScreenshotResponse:\n      type: object\n      properties:\n        slug:\n          type: string\n          example: abcdefghijk\n        path:\n          type: string\n          example: /s/abcdefghijk\n        metadata:\n          $ref: '#/components/schemas/ScreenshotRequest'\n",
+			"canonicalURL": "/github.com/devtomio/website-screenshot@e599caa417eae1f9fcf55b5c56c31c9f3c5dec95/-/blob/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtomio/website-screenshot/blob/e599caa417eae1f9fcf55b5c56c31c9f3c5dec95/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

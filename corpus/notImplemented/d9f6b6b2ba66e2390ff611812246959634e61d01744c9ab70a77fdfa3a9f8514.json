@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stackhawk/hawkscan-action"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "__tests__/integration-tests/configs/javaspringvulny/openapi.yaml",
+			"byteSize": 3040,
+			"content": "openapi: 3.0.1\ninfo:\n  title: OpenAPI definition\n  version: v0\nservers:\n- url: https://localhost:9000\n  description: Generated server url\npaths:\n  /api/jwt/items/search/:\n    get:\n      tags:\n      - jwt-item-controller\n      operationId: searchAll\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/jwt/items/search/{text}:\n    get:\n      tags:\n      - jwt-item-controller\n      operationId: search\n      parameters:\n      - name: text\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/jwt/auth/signin:\n    post:\n      tags:\n      - jwt-auth-controller\n      operationId: signin\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AuthenticationRequest'\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/token/items/search/:\n    get:\n      tags:\n      - token-item-controller\n      operationId: search_1\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/token/items/search/{text}:\n    get:\n      tags:\n      - token-item-controller\n      operationId: search_2\n      parameters:\n      - name: text\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/basic/items/search/:\n    get:\n      tags:\n      - basic-auth-item-controller\n      operationId: search_3\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/basic/items/search/{text}:\n    get:\n      tags:\n      - basic-auth-item-controller\n      operationId: search_4\n      parameters:\n      - name: text\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                type: string\n  /api/jwt/log4j:\n    get:\n      tags:\n        - jwt-auth-controller\n      operationId: log4j,\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              type: string\n      responses:\n        200:\n          description: default response,\n          content:\n            '*/*':\n              schema:\n                type: string\ncomponents:\n  schemas:\n    AuthenticationRequest:\n      type: object\n      properties:\n        username:\n          type: string\n        password:\n          type: string\n",
+			"canonicalURL": "/github.com/stackhawk/hawkscan-action@3c257c43ca65f0be7982f8c1fbd6c189b2d7bd4c/-/blob/__tests__/integration-tests/configs/javaspringvulny/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stackhawk/hawkscan-action/blob/3c257c43ca65f0be7982f8c1fbd6c189b2d7bd4c/__tests__/integration-tests/configs/javaspringvulny/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/jwt/items/search/{text}\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

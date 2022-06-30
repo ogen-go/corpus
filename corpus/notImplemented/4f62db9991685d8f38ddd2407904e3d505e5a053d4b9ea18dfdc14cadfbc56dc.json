@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/thresholds"
+		},
+		"file": {
+			"name": "xkcd.com-1.0.0-swagger.yaml",
+			"size": 0,
+			"path": "benchmark-repository/openapi/xkcd.com-1.0.0-swagger.yaml",
+			"byteSize": 1721,
+			"content": "openapi: 3.0.0\ninfo:\n  description: Webcomic of romance, sarcasm, math, and language.\n  title: XKCD\n  version: 1.0.0\n  x-apisguru-categories:\n    - media\n  x-logo:\n    url: http://imgs.xkcd.com/static/terrible_small_logo.png\n  x-origin:\n    - format: swagger\n      url: https://raw.githubusercontent.com/APIs-guru/unofficial_openapi_specs/master/xkcd.com/1.0.0/swagger.yaml\n      version: \"2.0\"\n  x-providerName: xkcd.com\n  x-tags:\n    - humor\n    - comics\n  x-unofficialSpec: true\nexternalDocs:\n  url: https://xkcd.com/json.html\npaths:\n  /info.0.json:\n    get:\n      description: |\n        Fetch current comic and metadata.\n      responses:\n        \"200\":\n          description: OK\n          content:\n            \"*/*\":\n              schema:\n                $ref: \"#/components/schemas/comic\"\n  \"/{comicId}/info.0.json\":\n    get:\n      description: |\n        Fetch comics and metadata  by comic id.\n      parameters:\n        - in: path\n          name: comicId\n          required: true\n          schema:\n            type: number\n      responses:\n        \"200\":\n          description: OK\n          content:\n            \"*/*\":\n              schema:\n                $ref: \"#/components/schemas/comic\"\nservers:\n  - url: http://xkcd.com/\ncomponents:\n  schemas:\n    comic:\n      properties:\n        alt:\n          type: string\n        day:\n          type: string\n        img:\n          type: string\n        link:\n          type: string\n        month:\n          type: string\n        news:\n          type: string\n        num:\n          type: number\n        safe_title:\n          type: string\n        title:\n          type: string\n        transcript:\n          type: string\n        year:\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/restful-ma/thresholds@5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/-/blob/benchmark-repository/openapi/xkcd.com-1.0.0-swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/thresholds/blob/5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/benchmark-repository/openapi/xkcd.com-1.0.0-swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/info.0.json\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

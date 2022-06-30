@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microcks/microcks-cli"
+		},
+		"file": {
+			"name": "weather-forecast-openapi.yml",
+			"size": 0,
+			"path": "samples/weather-forecast-openapi.yml",
+			"byteSize": 1633,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  title: WeatherForecast API\n  version: 1.1.0\n  description: A simple API for demonstrating dispatching capabilities in Microcks\n  contact:\n    name: Laurent Broudoux\n    url: https://github.com/lbroudoux\n    email: laurent.broudoux@gmail.com\n  license:\n    name: MIT License\n    url: https://opensource.org/licenses/MIT\npaths:\n  /forecast/{region}:\n    get:\n      operationId: GetForecast\n      summary: Get forecast for region\n      parameters:\n        - name: region\n          description: The region to get forecast for\n          schema:\n            type: string\n          in: path\n          required: true\n        - name: apiKey\n          description: Client API key\n          schema:\n            type: string\n          in: query\n          required: true\n      responses:\n        \"200\":\n          description: Weather forecast for region\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Forecast'\n        \"404\":\n          description: Region is unknown\n          content:\n            application/json:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Forecast:\n      title: Root Type for Forecast\n      description: A weather forecast for a requested region\n      type: object\n      properties:\n        region:\n          type: string\n        temp:\n          format: double\n          type: number\n        weather:\n          type: string\n        visibility:\n          format: int32\n          type: integer\n      example:\n        region: west\n        temp: 25.2\n        weather: cloudy\n        visibility: 1000\n",
+			"canonicalURL": "/github.com/microcks/microcks-cli@f2d31298c5d7661ca3136c0902ff7754d00665f2/-/blob/samples/weather-forecast-openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microcks/microcks-cli/blob/f2d31298c5d7661ca3136c0902ff7754d00665f2/samples/weather-forecast-openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

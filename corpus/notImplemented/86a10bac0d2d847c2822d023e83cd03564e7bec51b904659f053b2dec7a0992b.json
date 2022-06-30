@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/menes-dotnet/Menes"
+		},
+		"file": {
+			"name": "OpenApiWebLinkResolverTest.yaml",
+			"size": 0,
+			"path": "Solutions/Menes.Specs/Steps/TestClasses/OpenApiWebLinkResolverTest.yaml",
+			"byteSize": 3507,
+			"content": "﻿openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://localhost:7071/api\npaths:\n  /pets/{petId}:\n    parameters:\n      - name: petId\n        in: path\n        required: true\n        description: The id of the pet to retrieve\n        schema:\n          type: string\n          default: \"abcdefg\"\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n        '404':\n          description: No pet with that ID\n        default:\n          description: unexpected error\n          content:\n            application/problem+json:\n              schema:\n                $ref: \"#/components/schemas/ProblemDetails\"\n  /pets/{petId}/image:\n    parameters:\n      - name: petId\n        in: path\n        required: true\n        description: The id of the pet to retrieve\n        schema:\n          type: string\n    get:\n      summary: Returns a picture for the pet\n      operationId: getPetImage\n      tags:\n        - pets\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            image/jpeg:\n              schema:\n                type: string\n                format: binary\n        '404':\n          description: No pet with that ID\n        default:\n          description: unexpected error\n          content:\n            application/problem+json:\n              schema:\n                $ref: \"#/components/schemas/ProblemDetails\"\n  /pets/{petId}/dogimage:\n    parameters:\n      - name: petId\n        in: path\n        required: true\n        description: The id of the pet to retrieve\n        schema:\n          type: string\n    get:\n      summary: Returns a picture for the pet\n      operationId: getDogImage\n      tags:\n        - pets\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            image/jpeg:\n              schema:\n                type: string\n                format: binary\n        '404':\n          description: No pet with that ID\n        default:\n          description: unexpected error\n          content:\n            application/problem+json:\n              schema:\n                $ref: \"#/components/schemas/ProblemDetails\"\ncomponents:\n  schemas:\n    Pet:\n      properties:\n        id:\n          type: integer\n          format: int64\n        globalIdentifier:\n          type: string\n          format: guid\n        name:\n          type: string\n        tag:\n          type: string\n          nullable: true\n        size:\n          type: string\n        _links:\n          $ref: \"#/components/schemas/Links\"\n\n    Links:\n      type: object\n      additionalProperties: true\n      example:\n        self: { href: \"/path/to/self\" }\n        friends:\n          - { href: \"/path/to/friend/1\" }\n          - { href: \"/path/to/friend/2\" }\n    ProblemDetails:\n      required:\n        - status\n        - detail\n      properties:\n        status:\n          type: integer\n          format: int32\n        detail:\n          type: string\n        title:\n          type: string\n        instance:\n          type: string\n          format: url\n        type: \n          type: string\n          format: url\n        validationErrors: \n          type: array\n      additionalProperties: true",
+			"canonicalURL": "/github.com/menes-dotnet/Menes@f1fa192aa463049acbb7edaad4188d08b6438329/-/blob/Solutions/Menes.Specs/Steps/TestClasses/OpenApiWebLinkResolverTest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/menes-dotnet/Menes/blob/f1fa192aa463049acbb7edaad4188d08b6438329/Solutions/Menes.Specs/Steps/TestClasses/OpenApiWebLinkResolverTest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets/{petId}\": get: responses: default: contents: unsupported content types: [application/problem+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

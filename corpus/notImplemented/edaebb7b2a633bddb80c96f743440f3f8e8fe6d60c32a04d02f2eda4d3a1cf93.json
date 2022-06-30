@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/samples-apim"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "apim-tutorial/dockerfiles/scripts/gogo-resources/passengerinfo/swagger.json",
+			"byteSize": 2116,
+			"content": "{\n    \"openapi\": \"3.0.1\",\n    \"info\": {\n     \"title\": \"PassengerInfoAPI\",\n     \"description\": \"This is the API definition for Passenger information backend\\n\",\n     \"version\": \"1.0.0\"\n    },\n    \"servers\": [\n     {\n      \"url\": \"http://backend-service:8080/train-operations/v1\"\n     }\n    ],\n    \"security\": [\n     {\n      \"default\": []\n     }\n    ],\n    \"paths\": {\n     \"/passenger-count\": {\n      \"get\": {\n       \"responses\": {\n        \"200\": {\n         \"description\": \"ok\",\n         \"content\": {\n          \"application/json\": {\n           \"schema\": {\n            \"$ref\": \"#/components/schemas/Count\"\n           }\n          }\n         }\n        }\n       },\n       \"security\": [\n        {\n         \"default\": []\n        }\n       ],\n       \"x-auth-type\": \"Application \u0026 Application User\",\n       \"x-throttling-tier\": \"Unlimited\",\n       \"x-wso2-application-security\": {\n        \"security-types\": [\n         \"oauth2\"\n        ],\n        \"optional\": false\n       }\n      }\n     }\n    },\n    \"components\": {\n     \"schemas\": {\n      \"Count\": {\n       \"title\": \"Passenger Count information.\",\n       \"type\": \"object\",\n       \"properties\": {\n        \"count\": {\n         \"type\": \"integer\",\n         \"description\": \"number of passengers for the given time.\"\n        },\n        \"time\": {\n         \"type\": \"string\",\n         \"description\": \"Time.\"\n        }\n       }\n      }\n     },\n     \"securitySchemes\": {\n      \"default\": {\n       \"type\": \"oauth2\",\n       \"flows\": {\n        \"implicit\": {\n         \"authorizationUrl\": \"https://test.com\",\n         \"scopes\": {}\n        }\n       }\n      }\n     }\n    },\n    \"x-wso2-auth-header\": \"Authorization\",\n    \"x-wso2-production-endpoints\": {\n     \"urls\": [\n      \"http://backend-service:8080/train-operations/v1\"\n     ],\n     \"type\": \"http\"\n    },\n    \"x-wso2-sandbox-endpoints\": {\n     \"urls\": [\n      \"http://backend-service:8080/train-operations/v1\"\n     ],\n     \"type\": \"http\"\n    },\n    \"x-wso2-basePath\": \"/info/1.0.0\",\n    \"x-wso2-transports\": [\n     \"http\",\n     \"https\"\n    ],\n    \"x-wso2-response-cache\": {\n     \"enabled\": false,\n     \"cacheTimeoutInSeconds\": 300\n    }\n   }",
+			"canonicalURL": "/github.com/wso2/samples-apim@8bf648c7b912f95bbe5fc13ce0bd7935d44ec2e7/-/blob/apim-tutorial/dockerfiles/scripts/gogo-resources/passengerinfo/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/samples-apim/blob/8bf648c7b912f95bbe5fc13ce0bd7935d44ec2e7/apim-tutorial/dockerfiles/scripts/gogo-resources/passengerinfo/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/passenger-count\": get: security: security \"default\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

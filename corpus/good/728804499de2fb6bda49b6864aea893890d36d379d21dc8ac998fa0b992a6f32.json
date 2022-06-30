@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "multipart-form-data.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/multipart-form-data.yaml",
+			"byteSize": 1592,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Whatever\n  version: 1.0.0\nservers:\n  - url: 'http://localhost:1234'\npaths:\n  /foo:\n    post:\n      operationId: doFoo\n      x-jvm-package: foo\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              # Including `type` causes us to emit the three form parameters as expected,\n              # but also a fourth body parameter of an uspecified JSON object type.  Not\n              # sure if this is a problem with the parser, or a problem with guardrail,\n              # or if you really are just supposed to leave out `type` here, despite the\n              # examples on the OpenAPI website including it.\n              # type: object\n              required:\n                - id\n                - date\n              properties:\n                id:\n                  type: integer\n                  format: int64\n                date:\n                  type: string\n                  format: date-time\n                optional_date:\n                  type: string\n                  format: date-time\n      responses:\n        '201':\n          description: \"Created\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Foo'\ncomponents:\n  schemas:\n    Foo:\n      type: object\n      required:\n        - id\n        - date\n      properties:\n        id:\n          type: integer\n          format: int64\n        date:\n          type: string\n          format: date-time\n        optional_date:\n          type: string\n          format: date-time\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/multipart-form-data.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/multipart-form-data.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

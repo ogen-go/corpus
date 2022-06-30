@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/janephp/janephp"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "src/Component/OpenApi3/Tests/fixtures/response-reference-with-schema-reference/swagger.json",
+			"byteSize": 2337,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"paths\": {\n        \"/test-exception\": {\n            \"get\": {\n                \"operationId\": \"Test\",\n                \"responses\": {\n                    \"400\": {\n                        \"$ref\": \"#/components/responses/400\"\n                    }\n                }\n            }\n        }\n    },\n    \"servers\": [\n        {\n            \"url\": \"/\"\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"components\": {\n        \"schemas\": {\n            \"error\": {\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"code\": {\n                        \"description\": \"An application-specific error code, expressed as a string value.\",\n                        \"type\": \"string\"\n                    },\n                    \"title\": {\n                        \"description\": \"A short, human-readable summary of the problem.\",\n                        \"type\": \"string\"\n                    }\n                },\n                \"type\": \"object\"\n            },\n            \"failure\": {\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"errors\": {\n                        \"items\": {\n                            \"$ref\": \"#/components/schemas/error\"\n                        },\n                        \"type\": \"array\",\n                        \"uniqueItems\": true\n                    }\n                },\n                \"required\": [\n                    \"errors\"\n                ],\n                \"type\": \"object\"\n            }\n        },\n        \"responses\": {\n            \"400\": {\n                \"content\": {\n                    \"application/json\": {\n                        \"example\": {\n                            \"errors\": [\n                                {\n                                    \"status\": \"400\",\n                                    \"title\": \"Bad Request\",\n                                    \"description\": \"Bad parameters for this endpoint.\"\n                                }\n                            ]\n                        },\n                        \"schema\": {\n                            \"$ref\": \"#/components/schemas/failure\"\n                        }\n                    }\n                },\n                \"description\": \"Bad Request\"\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/janephp/janephp@3274b67bc6187098181d97579ed9d664f0718d43/-/blob/src/Component/OpenApi3/Tests/fixtures/response-reference-with-schema-reference/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/janephp/janephp/blob/3274b67bc6187098181d97579ed9d664f0718d43/src/Component/OpenApi3/Tests/fixtures/response-reference-with-schema-reference/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

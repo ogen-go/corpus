@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DoclerLabs/api-client-generator"
+		},
+		"file": {
+			"name": "petstore_with_intl_requirement.yaml",
+			"size": 0,
+			"path": "test/suite/functional/Meta/ComposerJson/petstore_with_intl_requirement.yaml",
+			"byteSize": 1479,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    post:\n      operationId: addPet\n      requestBody:\n        description: Pet to add to the store\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/NewPet'\n      responses:\n        '200':\n          description: pet response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Pet:\n      allOf:\n        - $ref: '#/components/schemas/NewPet'\n        - type: object\n          required:\n            - id\n          properties:\n            id:\n              type: integer\n              format: int64\n\n    NewPet:\n      type: object\n      required:\n        - name\n      properties:\n        name:\n          type: string\n          maxLength: 50\n        tag:\n          type: string\n\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/-/blob/test/suite/functional/Meta/ComposerJson/petstore_with_intl_requirement.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DoclerLabs/api-client-generator/blob/bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/test/suite/functional/Meta/ComposerJson/petstore_with_intl_requirement.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

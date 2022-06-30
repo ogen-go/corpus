@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "one.of.yaml",
+			"size": 0,
+			"path": "test/resources/one.of.yaml",
+			"byteSize": 3464,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  version: 1.0.0\n  title: requestBodies $ref\n  description: requestBodies $ref Test\n\nservers:\n  - url: /v1\n\npaths:\n  /one_of:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/OneOfType\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OneOfType'\n        \"400\":\n          description: Bad Request\n          \n  /one_of_b:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/OneOfTypeB\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OneOfType'\n        \"400\":\n          description: Bad Request\n\ncomponents:\n  schemas:\n    SimilarTypeOne:\n      allOf:\n        - $ref: \"#/components/schemas/SimilarSuperType\"\n        - type: object\n          properties:\n            type:\n              type: string\n              enum:\n                - type_1\n            unique_one:\n              type: string\n          required:\n            - type\n            - unique_one\n\n    SimilarTypeTwo:\n      allOf:\n        - $ref: \"#/components/schemas/SimilarSuperType\"\n        - type: object\n          properties:\n            type:\n              type: string\n              enum:\n                - type_2\n            unique_two:\n              type: string\n          required:\n            - type\n            - unique_two\n\n    OneOfType:\n      type: object\n      properties:\n        array_of_oneofs:\n          type: array\n          items:\n            oneOf:\n              - $ref: \"#/components/schemas/SimilarTypeOne\"\n              - $ref: \"#/components/schemas/SimilarTypeTwo\"\n            discriminator:\n              propertyName: type\n\n    SimilarTypeOneB:\n      allOf:\n        - $ref: \"#/components/schemas/SimilarSuperTypeB\"\n      properties:\n        type:\n          type: string\n          enum:\n            - type_1\n        unique_one:\n          type: string\n        value:\n          type: number\n          format: int32\n          enum: [ 1 ]\n          default: 1\n      required:\n        - type\n        - unique_one\n        - value\n\n    SimilarTypeTwoB:\n      allOf:\n        - $ref: \"#/components/schemas/SimilarSuperTypeB\"\n      properties:\n        type:\n          type: string\n          enum:\n            - type_2\n        unique_two:\n          type: string\n        value:\n          type: number\n          format: int32\n          enum: [ 2 ]\n          default: 2\n      required:\n        - type\n        - unique_two\n        - value\n\n    OneOfTypeB:\n      type: object\n      properties:\n        array_of_oneofs:\n          type: array\n          items:\n            oneOf:\n              - $ref: \"#/components/schemas/SimilarTypeOneB\"\n              - $ref: \"#/components/schemas/SimilarTypeTwoB\"\n            discriminator:\n              propertyName: type\n\n    SimilarSuperType:\n      type: object\n      properties:\n        id:\n          type: string\n          \n    SimilarSuperTypeB:\n      type: object\n      properties:\n        id:\n          type: string\n        value:\n          type: number\n          format: int32\n      discriminator:\n        propertyName: type\n      required:\n        - value\n\n",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@6448f4548db32bf5d2ae18e25dd36996ae9500ef/-/blob/test/resources/one.of.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/6448f4548db32bf5d2ae18e25dd36996ae9500ef/test/resources/one.of.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/one_of_b\": post: requestBody: contents: application/json: generate schema: field array_of_oneofs: item: oneOf: collect variants: OneOfTypeBArrayOfOneofsItem: sum types with same names not implemented",
+	"NotImplemented": [
+		"sum types with same names"
+	]
+}

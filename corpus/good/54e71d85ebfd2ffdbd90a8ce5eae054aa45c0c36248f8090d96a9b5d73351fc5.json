@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/p1c2u/openapi-core"
+		},
+		"file": {
+			"name": "links.yaml",
+			"size": 0,
+			"path": "tests/integration/data/v3.0/links.yaml",
+			"byteSize": 1085,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Minimal valid OpenAPI specification\n  version: \"0.1\"\npaths:\n  /linked/noParam:\n    get:\n      operationId: noParOp\n      responses:\n        default:\n          description: the linked result\n  /linked/withParam:\n    get:\n      operationId: paramOp\n      parameters:\n        - name: opParam\n          in: query\n          description: test\n          schema:\n            type: string\n      responses:\n        default:\n          description: the linked result\n  /status:\n    get:\n      responses:\n        default:\n          description: Return something\n          links:\n            noParamLink:\n              operationId: noParOp\n  /status/{resourceId}:\n    get:\n      parameters:\n        - name: resourceId\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        default:\n          description: Return something else\n          links:\n            paramLink:\n              operationId: paramOp\n              parameters:\n                opParam: $request.path.resourceId\n              requestBody: test\n",
+			"canonicalURL": "/github.com/p1c2u/openapi-core@c1e9f7208731924e38cc1bd7c3760452f3c3a72d/-/blob/tests/integration/data/v3.0/links.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/p1c2u/openapi-core/blob/c1e9f7208731924e38cc1bd7c3760452f3c3a72d/tests/integration/data/v3.0/links.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

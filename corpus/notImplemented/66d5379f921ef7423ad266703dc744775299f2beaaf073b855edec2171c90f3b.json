@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1161/swagger.yaml",
+			"byteSize": 756,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  version: 15.3.0\n  title: test\npaths:\n  /add-pets:\n    put:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pets'\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Pets:\n      type: object\n      oneOf:\n        - required: [petType, colouring]\n        - required: [breed, colouring]\n      properties:\n        petType:\n          type: string\n        breed:\n          $ref: 'common.yaml#/components/schemas/Breed'\n        colouring:\n          $ref: 'common.yaml#/components/schemas/Colouring'\n\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1161/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue-1161/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/add-pets\": put: requestBody: contents: application/json: generate schema: oneOf: collect variants: Pets: sum types with same names not implemented",
+	"NotImplemented": [
+		"sum types with same names"
+	]
+}

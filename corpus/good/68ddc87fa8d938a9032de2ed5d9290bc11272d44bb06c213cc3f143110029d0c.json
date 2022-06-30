@@ -1,0 +1,17 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/openapi-examples-validator"
+		},
+		"file": {
+			"name": "simple-api-with-examples-exclusive-minimum-invalid.json",
+			"size": 0,
+			"path": "test/data/v3/simple-api-with-examples-exclusive-minimum-invalid.json",
+			"byteSize": 1501,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"operationId\": \"showPetById\",\n        \"tags\": [\n          \"pets\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"petId\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"description\": \"The id of the pet to retrieve\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                },\n                \"example\": {\n                  \"code\": 10,\n                  \"message\": \"An unexpected error has occurred.\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Error\": {\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"number\",\n            \"minimum\": 10,\n            \"exclusiveMinimum\": true\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/npm/openapi-examples-validator@55801f5eb3784f16ad0ad71a82b294795f01f78a/-/blob/test/data/v3/simple-api-with-examples-exclusive-minimum-invalid.json",
+			"externalURLs": []
+		}
+	}
+}

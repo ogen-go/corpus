@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/watson-developer-cloud/assistant-toolkit"
+		},
+		"file": {
+			"name": "metaweather.basic.openapi.json",
+			"size": 0,
+			"path": "integrations/extensions/starter-kits/metaweather/basic/metaweather.basic.openapi.json",
+			"byteSize": 3314,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"0.0.0\",\n    \"title\": \"MetaWeather API\",\n    \"description\": \"MetaWeather provides an API that delivers JSON over HTTPS for access to our data.\",\n    \"contact\": {\n      \"url\": \"https://www.metaweather.com\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://www.metaweather.com\"\n    }\n  ],\n  \"paths\": {\n    \"/api/location/{woeid}/\": {\n      \"summary\": \"Location\",\n      \"get\": {\n        \"summary\": \"Location\",\n        \"parameters\": [\n          {\n            \"name\": \"woeid\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful retrieval of location weather\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Location\"\n                }\n              }\n            }\n          },\n          \"404\": {\n            \"description\": \"Failed to retrieve information\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"detail\": {\n                      \"type\": \"string\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Location\": {\n        \"properties\": {\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"location_type\": {\n            \"type\": \"string\",\n            \"description\": \"City|Region / State / Province|Country|Continent\"\n          },\n          \"latt_long\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[0-9]+([0-9]+)?,[0-9]+([0-9]+)?$\"\n          },\n          \"time\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"Time in location\"\n          },\n          \"sun_rise\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"sun_set\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"timezone_name\": {\n            \"type\": \"string\"\n          },\n          \"consolidated_weather\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/Weather\"\n            }\n          }\n        }\n      },\n      \"Weather\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"description\": \"Internal identifier for the forecast\"\n          },\n          \"weather_state_name\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"Snow\",\n              \"Sleet\",\n              \"Hail\",\n              \"Thunderstorm\",\n              \"Heavy Rain\",\n              \"Light Rain\",\n              \"Showers\",\n              \"Heavy Cloud\",\n              \"Light Cloud\",\n              \"Clear\"\n            ],\n            \"description\": \"Text description of the weather state\"\n          },\n          \"wind_speed\": {\n            \"type\": \"number\",\n            \"description\": \"In mph\"\n          },\n          \"the_temp\": {\n            \"type\": \"integer\",\n            \"description\": \"In centigrade\"\n          } \n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/watson-developer-cloud/assistant-toolkit@93df6646b5e2c49322e90407f560a7d81516ddf8/-/blob/integrations/extensions/starter-kits/metaweather/basic/metaweather.basic.openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/watson-developer-cloud/assistant-toolkit/blob/93df6646b5e2c49322e90407f560a7d81516ddf8/integrations/extensions/starter-kits/metaweather/basic/metaweather.basic.openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

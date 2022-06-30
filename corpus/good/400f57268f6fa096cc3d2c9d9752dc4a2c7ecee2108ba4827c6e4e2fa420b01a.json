@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/glademiller/openapiv3"
+		},
+		"file": {
+			"name": "petstore-discriminated.yaml",
+			"size": 0,
+			"path": "fixtures/petstore-discriminated.yaml",
+			"byteSize": 1223,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Swagger Petstore\n  license:\n    name: MIT\n  version: 1.0.0\n  x-hash: abc123\nservers:\n  - url: \"http://petstore.swagger.io/v1\"\npaths: {}\ncomponents:\n  schemas:\n    Cat:\n      description: A representation of a cat\n      allOf:\n        - $ref: \"#/components/schemas/Pet\"\n        - type: object\n          properties:\n            huntingSkill:\n              description: The measured skill for hunting\n              type: string\n              enum:\n                - clueless\n                - lazy\n                - adventurous\n                - aggressive\n          required:\n            - huntingSkill\n    Dog:\n      description: A representation of a dog\n      allOf:\n        - $ref: \"#/components/schemas/Pet\"\n        - type: object\n          properties:\n            packSize:\n              description: the size of the pack the dog is from\n              type: integer\n              format: int32\n              minimum: 0\n          required:\n            - packSize\n    Pet:\n      discriminator:\n        propertyName: petType\n      type: object\n      properties:\n        name:\n          type: string\n        petType:\n          type: string\n      required:\n        - name\n        - petType\n",
+			"canonicalURL": "/github.com/glademiller/openapiv3@2dbc9402c4802a287d9317c44cdcd8b395f7bdbe/-/blob/fixtures/petstore-discriminated.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/glademiller/openapiv3/blob/2dbc9402c4802a287d9317c44cdcd8b395f7bdbe/fixtures/petstore-discriminated.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/touchifyapp/spec2ts"
+		},
+		"file": {
+			"name": "response-ref.yml",
+			"size": 0,
+			"path": "packages/openapi/tests/assets/response-ref.yml",
+			"byteSize": 1128,
+			"content": "openapi: 3.0.3\n\ninfo:\n  title: chicken\n  version: 0.0.0\n\npaths:\n  /get:\n    post:\n      operationId: getOneThing\n      requestBody:\n        $ref: '#/components/requestBodies/GetOneThingRequest'\n      responses:\n        200:\n          $ref: '#/components/responses/GetOneThingResponse'\n\ncomponents:\n  schemas:\n    ThingKey:\n      type: object\n      properties:\n        userId:\n          type: integer\n        thingId:\n          type: integer\n      required:\n        - userId\n        - thingId\n\n    ThingData:\n      type: object\n      properties:\n        lastSeen:\n          type: string\n          format: date-time\n        value:\n          type: integer\n          \n    Thing:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/ThingKey'\n        - $ref: '#/components/schemas/ThingData'\n\n  requestBodies:\n    GetOneThingRequest:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ThingKey'\n\n  responses:\n    GetOneThingResponse:\n      description: one thing\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Thing'",
+			"canonicalURL": "/github.com/touchifyapp/spec2ts@1b5d2e06f23505cf4666bdbd87640b427ac5ba4b/-/blob/packages/openapi/tests/assets/response-ref.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/touchifyapp/spec2ts/blob/1b5d2e06f23505cf4666bdbd87640b427ac5ba4b/packages/openapi/tests/assets/response-ref.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

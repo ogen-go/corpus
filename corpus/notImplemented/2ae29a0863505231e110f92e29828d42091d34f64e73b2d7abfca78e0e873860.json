@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/prisma.pan.dev"
+		},
+		"file": {
+			"name": "Settings.yaml",
+			"size": 0,
+			"path": "static/oas/cspm/Settings.yaml",
+			"byteSize": 2867,
+			"content": "components:\n  requestBodies: {}\n  securitySchemes:\n    x-redlock-auth:\n      description: The x-redlock-auth value is a JSON Web Token (JWT).\n      in: header\n      name: x-redlock-auth\n      type: apiKey\n  schemas:\n    EnterpriseSettingsRequestModel:\n      description: Model used for EnterpriseSettings\n      properties:\n        accessKeyMaxValidity:\n          description: Access Keys maximum validity in days\n          format: int32\n          type: integer\n        alarmEnabled:\n          description: Alarms enabled\n          enum:\n          - true\n          - false\n          type: boolean\n        applyDefaultPoliciesEnabled:\n          description: Apply default policies enabled\n          enum:\n          - true\n          - false\n          type: boolean\n        defaultPoliciesEnabled:\n          additionalProperties:\n            type: boolean\n          description: Default Policies Enabled. An example is {\"low\":true, \"medium\":true,\n            \"high\":true}\n          type: object\n        requireAlertDismissalNote:\n          description: Require Alert Dismissal Note\n          type: boolean\n        sessionTimeout:\n          description: Browser Session Timeout\n          format: int32\n          type: integer\n        userAttributionInNotification:\n          description: User Attribution in Notification\n          type: boolean\n      type: object\ninfo:\n  contact: {}\n  description: 'Manage enterprise settings such as a user inactivity timeout, user\n    attribution for alerts, and global\n\n    settings for policies and alerts.\n\n    '\n  title: Prisma Cloud Enterprise Settings API Overview\n  version: Latest\nopenapi: 3.0.0\npaths:\n  /settings/enterprise:\n    get:\n      description: Returns enterprise settings for your tenant.\n      operationId: get-enterprise-settings\n      responses:\n        '200':\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/EnterpriseSettingsRequestModel'\n          description: successful operation\n        '500':\n          description: internal_error\n      security:\n      - x-redlock-auth: []\n      summary: Enterprise Settings - GET\n      tags:\n      - Settings\n    post:\n      description: Configures enterprise settings for your tenant.\n      operationId: update-enterprise-settings\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EnterpriseSettingsRequestModel'\n      responses:\n        '200':\n          description: successful operation\n        '400':\n          description: bad_request\n        '500':\n          description: internal_error\n      security:\n      - x-redlock-auth: []\n      summary: Enterprise Settings - POST\n      tags:\n      - Settings\nservers:\n- url: https://api.prismacloud.io\ntags:\n- description: The Enterprise Settings endpoints are listed below.\n  name: Settings\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/prisma.pan.dev@b738b3f9404554218e437ccabc9187b4ff7ec563/-/blob/static/oas/cspm/Settings.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/prisma.pan.dev/blob/b738b3f9404554218e437ccabc9187b4ff7ec563/static/oas/cspm/Settings.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/settings/enterprise\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

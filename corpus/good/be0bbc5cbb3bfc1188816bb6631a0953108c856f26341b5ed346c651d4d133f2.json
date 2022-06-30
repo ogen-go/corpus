@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/xanthoko/PyAPIS"
+		},
+		"file": {
+			"name": "test_simple.yml",
+			"size": 0,
+			"path": "test_simple.yml",
+			"byteSize": 2295,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    post:\n      summary: Create a pet\n      operationId: createPets\n      tags:\n        - pets\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              properties:\n                access_token:\n                  type: string\n                refresh_token:\n                  type: string\n                api_key:\n                  type: string\n              required: \n                - access_token\n                - api_key\n      responses:\n        '201':\n          description: Null response\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n        - name: temp\n          in: query\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string",
+			"canonicalURL": "/github.com/xanthoko/PyAPIS@5147c9f4901471bc6455fc7a2a17cd65ace15e17/-/blob/test_simple.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/xanthoko/PyAPIS/blob/5147c9f4901471bc6455fc7a2a17cd65ace15e17/test_simple.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

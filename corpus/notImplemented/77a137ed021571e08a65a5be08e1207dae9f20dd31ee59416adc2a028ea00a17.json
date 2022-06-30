@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TimesysGit/board-farm-rest-api"
+		},
+		"file": {
+			"name": "lab_controllers.yaml",
+			"size": 0,
+			"path": "spec/labcontrollers/lab_controllers.yaml",
+			"byteSize": 1183,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/labcontrollers/:\n    get:\n      tags:\n      - api\n      operationId: api_devices_lab_controllers\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: string\n                  message:\n                    type: string\n                  data:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        id:\n                          type: string\n                        'type':\n                          type: string\n                required:\n                  - result",
+			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@57a558a86e35ed348bff7d90b730a6671d662379/-/blob/spec/labcontrollers/lab_controllers.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/57a558a86e35ed348bff7d90b730a6671d662379/spec/labcontrollers/lab_controllers.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/v0.2/devices/{DeviceName}/labcontrollers/\": get: security: security \"tokenAuth\" (index 0): unsupported scheme \"token\": http security scheme not implemented",
+	"NotImplemented": [
+		"http security scheme"
+	]
+}

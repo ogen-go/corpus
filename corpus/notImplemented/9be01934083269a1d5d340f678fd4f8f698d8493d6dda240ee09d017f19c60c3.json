@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app3.json",
+			"size": 0,
+			"path": "springdoc-openapi-kotlin/src/test/resources/results/app3.json",
+			"byteSize": 1426,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/status\": {\n      \"get\": {\n        \"tags\": [\n          \"system-status-controller\"\n        ],\n        \"operationId\": \"index\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/SystemStatusResponse\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/status/foo\": {\n      \"get\": {\n        \"tags\": [\n          \"system-status-controller\"\n        ],\n        \"operationId\": \"foo\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/SystemStatusResponse\"\n                }\n              }\n            }\n          }\n        },\n        \"deprecated\": true\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"SystemStatusResponse\": {\n        \"required\": [\n          \"status\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"OK\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-kotlin/src/test/resources/results/app3.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-kotlin/src/test/resources/results/app3.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/status\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

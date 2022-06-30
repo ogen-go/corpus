@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/contiamo/openapi-generator-go"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "pkg/generators/models/testdata/cases/allOf_enum_merging_and_validation/api.yaml",
+			"byteSize": 1777,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.0\n  title: Test\n\ncomponents:\n  schemas:\n    Connection:\n      type: object\n      required:\n        - createdAt\n        - updatedAt\n        - id\n        - name\n        - technology\n        - properties\n      properties:\n        createdAt:\n          type: string\n          format: date-time\n        updatedAt:\n          type: string\n          format: date-time\n        id:\n          type: string\n          format: uuid\n        name:\n          type: string\n          minLength: 2\n          maxLength: 255\n          pattern: ^([a-zA-z_]+[a-z0-9_]*){2}$\n        technology:\n          allOf:\n            - $ref: \"#/components/schemas/ConnectionTechnology\"\n        properties:\n          $ref: \"#/components/schemas/ConnectionProperties\"\n\n    ConnectionProperties:\n      type: object\n\n    ConnectionTechnology:\n      description: \"The connection technology is either the technology value of the related data source or the integration type\"\n      allOf:\n        - $ref: \"#/components/schemas/DataSourceTechnology\"\n        - $ref: \"#/components/schemas/IntegrationType\"\n\n    DataSourceTechnology:\n      type: string\n      description: |\n          Technology of a data source. For external data sources this also specifies the type of connection (driver) being used to connect to the data source. Generic data sources may use any technology value (but no connection will be established). Generic data sources may also use the value \"other\" for technology in case no technology should be shown in the catalog or the technology is not known to the catalog.\n      enum:\n          - mssql\n          - mysql\n          - oracle\n          - postgresql\n          - other\n\n    IntegrationType:\n      type: string\n      enum:\n        - generic\n        - tableau\n",
+			"canonicalURL": "/github.com/contiamo/openapi-generator-go@bf0225ad6fe0798dffca43f08fe80078956acef3/-/blob/pkg/generators/models/testdata/cases/allOf_enum_merging_and_validation/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/contiamo/openapi-generator-go/blob/bf0225ad6fe0798dffca43f08fe80078956acef3/pkg/generators/models/testdata/cases/allOf_enum_merging_and_validation/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

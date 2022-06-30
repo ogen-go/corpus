@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/open-traffic-generator/openapiart"
+		},
+		"file": {
+			"name": "negative_nested_config.yaml",
+			"size": 0,
+			"path": "openapiart/tests/config/negative_nested_config.yaml",
+			"byteSize": 1553,
+			"content": "openapi: 3.0.3\n\ninfo:\n  title: yaml definition used for testing validation\n  description: A Sample Service in Go.\n  version: 0.0.0\n\nservers:\n- url: https://0.0.0.0\n\npaths:\n  /:\n    get:\n      tags: [AnythingGoes]\n      operationId: getTest\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/RootComponentWithNested'\n        400:\n          description: 'error 4xx'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error.Details'\n        500:\n          description: 'error 5xx'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error.Details'\n\ncomponents:\n  schemas:\n    ComponentWithNoProperties:\n      type: object\n      description: Component with no properties\n\n    Error.Details:\n      type: object\n      properties:\n        errors:\n          type: array\n          items:\n            type: string\n\n    RootComponentWithNested:\n      type: object\n      description: |-\n        Nested Component is not supported and should throw a meaningful exception\n        Only root level components are checked for nested\n      properties:\n        name:\n          type: string\n        nested_component_1:\n          type: object\n          properties:\n            name:\n              type: string\n        nested_component_2:\n          type: object\n          properties:\n            name:\n              type: string\n",
+			"canonicalURL": "/github.com/open-traffic-generator/openapiart@cdb3edbc42f9cc645fb55c134b7f59ffb5810aa9/-/blob/openapiart/tests/config/negative_nested_config.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/open-traffic-generator/openapiart/blob/cdb3edbc42f9cc645fb55c134b7f59ffb5810aa9/openapiart/tests/config/negative_nested_config.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

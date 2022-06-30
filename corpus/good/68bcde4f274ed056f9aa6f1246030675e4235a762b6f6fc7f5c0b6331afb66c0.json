@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-codegen-generators"
+		},
+		"file": {
+			"name": "model_named_file.yaml",
+			"size": 0,
+			"path": "src/test/resources/3_0_0/model_named_file.yaml",
+			"byteSize": 1305,
+			"content": "openapi: 3.0.0\nservers:\n  - description: test definition\n    url: /\ninfo:\n  description: This is a simple API\n  version: \"1.0.0\"\n  title: Simple Inventory API\n\npaths:\n  /inventory:\n    post:\n      tags:\n        - Inventory\n      summary: adds an inventory item\n      operationId: addInventory\n      description: Adds an item to the system\n      responses:\n        '201':\n          description: item created\n        '400':\n          description: 'invalid input, object invalid'\n        '409':\n          description: an existing item already exists\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Setting'\n        description: Inventory item to add\ncomponents:\n  schemas:\n    Archive:\n      type: string\n      format: binary\n\n    File:\n      description: File.\n      type: object\n      properties:\n        prop1:\n          type: string\n\n    Date:\n      type: object\n      properties:\n        place:\n          type: string\n\n    Setting:\n      description: Setting.\n      properties:\n        file:\n          $ref: '#/components/schemas/File'\n        date:\n          $ref: '#/components/schemas/Date'\n        document:\n          type: string\n          format: binary\n        time:\n          type: string\n          format: date-time\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-codegen-generators@56bf0942d7510e50f6511ee1eb214038e98611ce/-/blob/src/test/resources/3_0_0/model_named_file.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-codegen-generators/blob/56bf0942d7510e50f6511ee1eb214038e98611ce/src/test/resources/3_0_0/model_named_file.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

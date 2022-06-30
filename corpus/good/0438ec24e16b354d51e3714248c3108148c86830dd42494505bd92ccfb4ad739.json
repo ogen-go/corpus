@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "scala_reserved_words.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/scala_reserved_words.yaml",
+			"byteSize": 1856,
+			"content": "openapi: 3.0.1\ninfo:\n  title: ping some object\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8082/'\npaths:\n  /ping:\n    post:\n      operationId: postPing\n      tags:\n      - ping\n      requestBody:\n        content:\n          'application/json':\n             schema:\n               $ref: \"#/components/schemas/SomeObj\"\n      responses:\n        '200':\n          description: OK\n          content:\n            'application/json':\n               schema:\n                 $ref: \"#/components/schemas/SomeObj\"\ncomponents:\n  schemas:\n    SomeObj:\n      type: object\n      properties:\n        $_type:\n          type: string\n          # using 'enum' \u0026 'default' for '$_type' is a work-around until constants are supported\n          # See https://github.com/OAI/OpenAPI-Specification/issues/1313\n          enum:\n          - SomeObjIdentifier\n          default: SomeObjIdentifier\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        val:\n          type: string\n        var:\n          type: string\n        class:\n          type: string\n        trait:\n          type: string\n        object:\n          type: string\n        try:\n          type: string\n        catch:\n          type: string\n        finally:\n          type: string\n        def:\n          type: string\n        for:\n          type: string\n        implicit:\n          type: string\n        match:\n          type: string\n        case:\n          type: string\n        import:\n          type: string\n        lazy:\n          type: string\n        private:\n          type: string\n        type:\n          type: string\n        foobar:\n          type: boolean\n        created_at:\n          type: string\n          format: date-time\n      required:\n        - id\n        - try\n        - catch\n        - finally\n        - lazy\n        - foobar\n        - created_at\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/scala_reserved_words.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/scala_reserved_words.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pact-foundation/pact-ruby-cli"
+		},
+		"file": {
+			"name": "oas.yml",
+			"size": 0,
+			"path": "example/provider-contracts/oas.yml",
+			"byteSize": 1540,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.\n  version: 0.1.9\nservers:\n  - url: https://test.pactflow.io\n    description: Prod\n  - url: https://test.test.pactflow.io\n    description: Test\npaths:\n  /admin/teams/{uuid}:\n    get:\n      summary: Returns a team\n      parameters:\n        - name: uuid\n          in: path\n          description: The UUID of the team to return\n          required: true\n          example: 85ad09f5-e014-4e0f-a146-4377fa64b5ef\n          schema:\n            type: string\n      responses:\n        '200':\n          description: A JSON team\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties: false\n                properties:\n                  name:\n                    type: string\n                    example: Team Awesome\n                  uuid:\n                    type: string\n                    example: 85ad09f5-e014-4e0f-a146-4377fa64b5ef\n                  numberOfMembers:\n                    type: integer\n                    example: 4\n                  _links:\n                    type: object\n                    properties:\n                      self:\n                        type: object\n                        properties:\n                          href:\n                            type: string\n                            example: http://test.pactflow.io/admin/teams/85ad09f5-e014-4e0f-a146-4377fa64b5ef\n",
+			"canonicalURL": "/github.com/pact-foundation/pact-ruby-cli@7fbbf2f5dd3fbbc3d61aa1792940ae3b16cbdf4f/-/blob/example/provider-contracts/oas.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pact-foundation/pact-ruby-cli/blob/7fbbf2f5dd3fbbc3d61aa1792940ae3b16cbdf4f/example/provider-contracts/oas.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

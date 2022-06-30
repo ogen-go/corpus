@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ministero-salute/it-dgc-documentation"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 2779,
+			"content": "openapi: 3.0.1\ninfo:\n  title: DGC Verifier Service API\n  description: The API defines how to exchange verification information for the Digital Green Certificates.\n  version: 1.0.0\nservers:\n  - url: 'http://localhost:9080'\n    description: Generated server url\npaths:\n  /v1/dgc/signercertificate/update:\n    get:\n      tags:\n        - Signer Information\n      summary: Gets one signer certificate.\n      operationId: getSignerCertificateUpdate\n      parameters:\n        - name: X-RESUME-TOKEN\n          in: header\n          description: Defines where to resume the download of the certificates\n          required: false\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: Returns a filtered list of trusted certificates.\n          content:\n            text/plain:\n              schema:\n                type: string\n              example: MIIBGzCBwqADAgECAgRggUObMAoGCCqGSM49BAMCMBYxFDASBgNVBAMMC2VkZ2NfZGV2X2VjMB4XDTIxMDQyMjA5MzYyN1oXDTIyMDQyMjA5MzYyN1owFjEUMBIGA1UEAwwLZWRnY19kZXZfZWMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQVQc9JY190s/Jn0CBSq/AWuxmqUzRVu+AsCe6gfbqk3s0e4jonzp5v/5IMW/9t7v5Fu2ITMmOTVfKL1TuM+aixMAoGCCqGSM49BAMCA0gAMEUCIQCGWIk6ZET3afRxdpFVuXdrEYtFiR1MGDx4HweZfspjSgIgBdCJsT746/FI3euIbzKDoeY65m+Qx2/4Cd/vOayNbuw=\n        '204':\n          description: No Content available. All certificates already downloaded.\n  /v1/dgc/signercertificate/status:\n    get:\n      tags:\n        - Signer Information\n      summary: Gets list of kids from all valid certificates.\n      operationId: getSignerCertificateStatus\n      responses:\n        '200':\n          description: Returns a filtered list of trusted certificates.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n              example:\n                - 8xYtW2837bc=\n                - zoQi+KT68LM=\n  /v1/dgc/settings:\n    get:\n      tags:\n        - Settings\n      summary: Gets list of italian business rules and other settings.\n      operationId: getSettings\n      responses:\n        '200':\n          description: Returns a list of settings.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SettingEntity'\n              example:\n                - name: vaccine_start_day\n                  type: VACCINE1\n                  value: '15'\n                - name: vaccine_end_day\n                  type: VACCINE1\n                  value: '180'\ncomponents:\n  schemas:\n    SettingEntity:\n      type: object\n      properties:\n        name:\n          type: string\n        type:\n          type: string\n        value:\n          type: string\n",
+			"canonicalURL": "/github.com/ministero-salute/it-dgc-documentation@2db61ec7a49bb1cc4c31033ce9a4f8f15b881302/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ministero-salute/it-dgc-documentation/blob/2db61ec7a49bb1cc4c31033ce9a4f8f15b881302/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/dgc/signercertificate/update\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

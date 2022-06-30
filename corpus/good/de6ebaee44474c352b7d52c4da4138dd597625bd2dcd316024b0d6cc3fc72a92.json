@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "convertion.yaml",
+			"size": 0,
+			"path": "packages/laminar-cli/examples/convertion.yaml",
+			"byteSize": 1096,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\nservers:\n  - url: 'http: //localhost:3333'\npaths:\n  '/user':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              '$ref': '#/components/schemas/User'\n      responses:\n        '200':\n          description: Newly Created User\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/NewUser'\n    get:\n      responses:\n        '200':\n          description: Loaded User\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/User'\ncomponents:\n  schemas:\n    User:\n      properties:\n        email:\n          type: string\n        title:\n          type: string\n        createdAt:\n          type: string\n          format: date-time\n      required:\n        - email\n    NewUser:\n      properties:\n        result:\n          type: string\n        user:\n          '$ref': '#/components/schemas/User'\n      required:\n        - result\n        - user\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-cli/examples/convertion.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-cli/examples/convertion.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/access-control/openapi.json",
+			"byteSize": 3698,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"OpenAPI Account\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://account.lightapi.net\"\n    }\n  ],\n  \"paths\": {\n    \"/accounts\": {\n      \"get\": {\n        \"summary\": \"List all accounts\",\n        \"operationId\": \"listAccounts\",\n        \"security\": [\n          {\n            \"account_auth\": [\n              \"account.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"An paged array of accounts\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Account\"\n                  }\n                },\n                \"example\": [\n                  {\n                    \"num\": 521112392,\n                    \"owner\": \"stevehu\",\n                    \"type\": \"checking\",\n                    \"firstName\": \"Steve\",\n                    \"lastName\": \"Hu\",\n                    \"sinNumber\": 123456789,\n                    \"status\": \"open\"\n                  },\n                  {\n                    \"num\": 521112321,\n                    \"owner\": \"stevehu\",\n                    \"type\": \"investment\",\n                    \"firstName\": \"Steve\",\n                    \"lastName\": \"Hu\",\n                    \"sinNumber\": 123456789,\n                    \"status\": \"open\"\n                  },\n                  {\n                    \"num\": 521999128,\n                    \"owner\": \"stevehu\",\n                    \"type\": \"saving\",\n                    \"firstName\": \"Steve\",\n                    \"lastName\": \"Hu\",\n                    \"sinNumber\": 123456789,\n                    \"status\": \"closed\"\n                  }\n                ]\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"summary\": \"Create an account\",\n        \"operationId\": \"createAccount\",\n        \"requestBody\": {\n          \"description\": \"Open a new account\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Account\"\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"account_auth\": [\n              \"account.w\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Null response\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"account_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"account.w\": \"update\",\n              \"account.r\": \"query\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Account\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"num\",\n          \"name\",\n          \"type\",\n          \"firstName\",\n          \"lastName\",\n          \"sinNumber\",\n          \"status\"\n        ],\n        \"properties\": {\n          \"num\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"type\": {\n            \"type\": \"string\"\n          },\n          \"firstName\": {\n            \"type\": \"string\"\n          },\n          \"lastName\": {\n            \"type\": \"string\"\n          },\n          \"sinNumber\": {\n            \"type\": \"string\"\n          },\n          \"status\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/openapi/access-control/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/openapi/access-control/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/accounts\": get: security: security \"account_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

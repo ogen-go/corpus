@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TheMdTF/mdtf-public"
+		},
+		"file": {
+			"name": "rally5-acquisition-system-openapi.yaml",
+			"size": 0,
+			"path": "rally5/acquisition-system/api/rally5-acquisition-system-openapi.yaml",
+			"byteSize": 3690,
+			"content": "---\nopenapi: 3.0.3\n\ninfo:\n  title: The Maryland Test Facility Acquisition System Interface\n  description: Application Programming Interface for sending acquisition records to the MdTF Backend.\n  version: 2.0.0\n  contact:\n    name: The MdTF\n    url: https://mdtf.org\n    email: rally@mdtf.org\n  license:\n    name: Copyright (c) 2022, The Maryland Test Facility\n\nservers:\n  - url: http://api.mdtf.org/\n    variables:\n      host:\n        default: ids.lab\n      port:\n        enum:\n          - '8080'\n        default: '8080'\n\ntags:\n  - name: Image Submission\n    description: Endpoints for submitting images to an ongoing transaction.\n\ncomponents:\n  schemas:\n    FaceCapture:\n      type: object\n      required: [StationID, FaceImageData]\n      properties:\n        StationID:\n          type: string\n          description: The unique identifier for the station that the image was captured at.\n          example: Station_A\n          x-nullable: false\n        FaceImageData:\n          type: string\n          description: The captured face image data in PNG format, encoded as a base64 string. The data string shall not exceed 1MB.\n          example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAEElEQVR4nGJiYGAABAAA//8ADAADcZGLFwAAAABJRU5ErkJggg==\n          x-nullable: false\n\n    Error:\n      type: object\n      properties:\n        Code:\n          type: integer\n          description: The error code.\n        Message:\n          type: string\n          description: A description of the returned code.\n        ErrorString:\n          type: string\n          description: A detailed description of the error that occurred.\n\n  requestBodies:\n    face_capture:\n      description: face image collected as part of a transaction\n      required: true\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/FaceCapture'\n\n  responses:\n    400:\n      description: The request is malformed.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    404:\n      description: No ongoing transaction was found for the specified StationID.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    410:\n      description: The test volunteer has exited the station and the transaction has ended.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    429:\n      description: Too many requests for the ongoing transaction.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    500:\n      description: This capture failed because of a server side issue\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n\npaths:\n  /v1/face-captures:\n    post:\n      summary: Associate a face image capture with the ongoing transaction\n      description: |\n        Acquisition System Providers may submit face image data through this endpoint. Submitted image captures will be\n        stored and associated with the ongoing transaction. Multiple images may be submitted during a transaction.\n      tags:\n        - Image Submission\n      requestBody:\n        $ref: '#/components/requestBodies/face_capture'\n      responses:\n        200:\n          description: Successfully associated the image capture with the ongoing transaction.\n        400:\n          $ref: '#/components/responses/400'\n        404:\n          $ref: '#/components/responses/404'\n        410:\n          $ref: '#/components/responses/410'\n        429:\n          $ref: '#/components/responses/429'\n        500:\n          $ref: '#/components/responses/500'\n",
+			"canonicalURL": "/github.com/TheMdTF/mdtf-public@ba2ef8b23fd15971c05ee372e48391dda0bd508a/-/blob/rally5/acquisition-system/api/rally5-acquisition-system-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/TheMdTF/mdtf-public/blob/ba2ef8b23fd15971c05ee372e48391dda0bd508a/rally5/acquisition-system/api/rally5-acquisition-system-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

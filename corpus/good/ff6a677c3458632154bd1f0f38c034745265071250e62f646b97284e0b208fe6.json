@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "basic-callbacks.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/basic-callbacks.json",
+			"byteSize": 2079,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"callbacks\": {\n          \"myWebhook\": {\n            \"http://notificationServer.com?transactionId={$request.body#/id}\u0026email={$request.body}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"string\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          },\n          \"myWebhook2\": {\n            \"http://notificationServer2.com?transactionId={$request.body#/id}\u0026email={$request.body}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload 2\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"number\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook 2 successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://test.com/\",\n      \"description\": \"The production API server\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/-/blob/amf-cli/shared/src/test/resources/upanddown/oas3/basic-callbacks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/amf-cli/shared/src/test/resources/upanddown/oas3/basic-callbacks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

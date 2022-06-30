@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alma-cdk/openapix"
+		},
+		"file": {
+			"name": "books-api.yaml",
+			"size": 0,
+			"path": "examples/books-api/schema/books-api.yaml",
+			"byteSize": 1359,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Books API\n  description: Just for demonstration purposes\npaths:\n  \"/\":\n    get:\n      operationId: listBooks\n      summary: List all the books\n      responses:\n        \"200\":\n          description: List of books\n          content:\n            \"application/json\":\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/BookResponse\"\n\n  \"/{isbn}\":\n    get:\n      operationId: getBook\n      summary: Get a single book by ISBN\n      parameters:\n      - name: isbn\n        in: path\n        required: true\n        description: Identifies a single book by ISBN code\n        example: \"9781617296284\"\n        schema:\n          type: string\n      responses:\n        \"200\":\n          description: A Book\n          content:\n            \"application/json\":\n              schema:\n                $ref: \"#/components/schemas/BookResponse\"\n\n\ncomponents:\n  schemas:\n    BookResponse:\n      required:\n      - isbn\n      - name\n      type: object\n      properties:\n        isbn:\n          type: string\n          example: \"9781617296284\"\n        name:\n          type: string\n          example: \"Designing APIs with Swagger and OpenAPI\"\n        authors:\n          type: array\n          example: [\"Joshua S. Ponelat\", \"Lukas L. Rosenstock\"]\n          items:\n            type: string\n",
+			"canonicalURL": "/github.com/alma-cdk/openapix@088fdd2354b46a372499a4e3699a16b11c6e1dfa/-/blob/examples/books-api/schema/books-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/alma-cdk/openapix/blob/088fdd2354b46a372499a4e3699a16b11c6e1dfa/examples/books-api/schema/books-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

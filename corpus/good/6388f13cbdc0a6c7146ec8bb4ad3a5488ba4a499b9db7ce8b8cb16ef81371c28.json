@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue11242.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue11242.yaml",
+			"byteSize": 852,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Issue 11242 - Path Param encoding\n  description: \"White space encoding in path parameters\"\n  version: \"1.0.0\"\nservers:\n  - url: localhost:8080\npaths:\n  /api/{someParam}:\n    parameters:\n      - in: path\n        name: someParam\n        schema:\n          type: string\n        required: true\n        description: Some parameter.\n    get:\n      operationId: GetSomeParam\n      summary: View some param\n      responses:\n        '200':\n          description: Some return value\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SomeReturnValue'\n              example:\n                someParam: someValue\ncomponents:\n  schemas:\n    SomeReturnValue:\n      type: object\n      required:\n        - someParam\n      properties:\n        someParam:\n          type: string\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue11242.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue11242.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

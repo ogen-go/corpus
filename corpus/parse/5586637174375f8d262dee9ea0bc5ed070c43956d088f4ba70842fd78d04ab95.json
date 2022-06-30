@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "swagger/v1/swagger.yaml",
 			"byteSize": 1202,
-			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: API V1\n  version: v1\npaths:\n  \"/api/posts/{post_id}/comments\":\n    parameters:\n    - name: post_id\n      in: path\n      description: post_id\n      required: true\n      schema:\n        type: string\n    get:\n      summary: list comments\n      security:\n      - bearer_auth: []\n      responses:\n        '200':\n          description: successful\n    post:\n      summary: create comment\n      security:\n      - bearer_auth: []\n      parameters: []\n      responses:\n        '201':\n          description: successful\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                text:\n                  type: string\n              required:\n              - text\n  \"/api/posts\":\n    get:\n      summary: list posts\n      security:\n      - bearer_auth: []\n      responses:\n        '200':\n          description: successful\n        '401':\n          description: authentication failed\nservers:\n- url: https://{defaultHost}\n  variables:\n    defaultHost:\n      default: www.example.com\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n"
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: API V1\n  version: v1\npaths:\n  \"/api/posts/{post_id}/comments\":\n    parameters:\n    - name: post_id\n      in: path\n      description: post_id\n      required: true\n      schema:\n        type: string\n    get:\n      summary: list comments\n      security:\n      - bearer_auth: []\n      responses:\n        '200':\n          description: successful\n    post:\n      summary: create comment\n      security:\n      - bearer_auth: []\n      parameters: []\n      responses:\n        '201':\n          description: successful\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                text:\n                  type: string\n              required:\n              - text\n  \"/api/posts\":\n    get:\n      summary: list posts\n      security:\n      - bearer_auth: []\n      responses:\n        '200':\n          description: successful\n        '401':\n          description: authentication failed\nservers:\n- url: https://{defaultHost}\n  variables:\n    defaultHost:\n      default: www.example.com\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n",
+			"canonicalURL": "/github.com/usmansbk/blog@7e5ce55d32b77fdcf2c95b2b5e82e44e9dc6183f/-/blob/swagger/v1/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/usmansbk/blog/blob/7e5ce55d32b77fdcf2c95b2b5e82e44e9dc6183f/swagger/v1/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /api/posts: get: security: unknown security schema \"bearer_auth\""

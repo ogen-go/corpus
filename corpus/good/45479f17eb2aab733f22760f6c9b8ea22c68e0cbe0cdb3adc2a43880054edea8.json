@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "temp.yaml",
+			"size": 0,
+			"path": "docs/specs/temp.yaml",
+			"byteSize": 2185,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test case\n  version: \"1\"\n\npaths:\n  /users:\n    get:\n      responses:\n        \"200\":\n          description: Get all the users\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/User\"\n    post:\n      summary: Create a user\n      requestBody:\n        description: Pass in the RFQ properties to update. Only `product` is required.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/User\"\n      callbacks:\n        created:\n          /webhook:\n            post:\n              description: Called when the user is created\n              requestBody:\n                content:\n                  application/json:\n                    schema:\n                      $ref: \"#/components/schemas/User\"\n              responses:\n                \"200\":\n                  description: OK\n      responses:\n        \"202\":\n          description: Accepted\nwebhooks:\n  user-hooks:\n    post:\n      summary: Called after user Creation\n      requestBody:\n        description: Informs the client that a user is created and passes on the user data\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/User\"\n      responses:\n        \"200\":\n          description: Return a 200 status to indicate that the data was received successfully\n    get:\n      summary: register for subscription to user events\n      responses:\n        \"200\":\n          description: Create a subscription on a user\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: string\n          description: Server-generated ID of the user\n          readOnly: true\n        name:\n          type: string\n          description: The name of the user\n        password:\n          type: string\n          description: Password of the user\n          format: password\n          writeOnly: true\n",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/temp.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/temp.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

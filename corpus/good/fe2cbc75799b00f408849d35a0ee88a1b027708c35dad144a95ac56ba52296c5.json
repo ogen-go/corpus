@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/abunuwas/documentation-driven-development"
+		},
+		"file": {
+			"name": "oas.yaml",
+			"size": 0,
+			"path": "oas.yaml",
+			"byteSize": 3618,
+			"content": "openapi: 3.0.3\n\ninfo:\n  title: TODO API\n  description: API that allows you to manage a to-do list\n  version: 1.0.0\n\npaths:\n  /todo/:\n    get:\n      summary: Returns a list of to-do items\n      responses:\n        '200':\n          description: A JSON array of tasks\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/GetTaskSchema'\n\n    post:\n      summary: Creates an task\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/CreateTaskSchema'\n      responses:\n        '201':\n          description: A JSON representation of the created task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetTaskSchema'\n\n  /todo/{item_id}:\n    parameters:\n      - in: path\n        name: item_id\n        required: true\n        schema:\n          type: string\n          format: uuid\n        example: d222e7a3-6afb-463a-9709-38eb70cc670d\n    get:\n      summary: Returns the details of a task\n      responses:\n        '200':\n          description: A JSON representation of a task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetTaskSchema'\n        '404':\n          $ref: '#/components/responses/NotFound'\n\n    put:\n      summary: Updates an existing task\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/CreateTaskSchema'\n      responses:\n        '200':\n          description: A JSON representation of a task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetTaskSchema'\n        '404':\n          $ref: '#/components/responses/NotFound'\n\n    delete:\n      summary: Deletes an existing task\n      responses:\n        '204':\n          description: The resource was deleted successfully\n        '404':\n          $ref: '#/components/responses/NotFound'\n\ncomponents:\n  responses:\n    NotFound:\n      description: The specified resource was not found.\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n\n  schemas:\n    Error:\n      type: object\n      properties:\n        code:\n          type: number\n        message:\n          type: string\n        status:\n          type: string\n\n    CreateTaskSchema:\n      type: object\n      required:\n        - task\n      additionalProperties: false\n      properties:\n        priority:\n          type: string\n          enum:\n            - low\n            - medium\n            - high\n          default: low\n        status:\n          type: string\n          enum:\n            - pending\n            - progress\n            - completed\n          default: pending\n        task:\n          type: string\n\n    GetTaskSchema:\n      type: object\n      required:\n        - created\n        - id\n        - priority\n        - status\n        - task\n      additionalProperties: false\n      properties:\n        id:\n          type: string\n          format: uuid\n        created:\n          type: integer\n          description: Date in the form of UNIX timestmap\n        priority:\n          type: string\n          enum:\n            - low\n            - medium\n            - high\n          default: low\n        status:\n          type: string\n          enum:\n            - pending\n            - progress\n            - completed\n        task:\n          type: string\n",
+			"canonicalURL": "/github.com/abunuwas/documentation-driven-development@bc549d7ef13d3d305b11aac9cc2348e290ab3614/-/blob/oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/abunuwas/documentation-driven-development/blob/bc549d7ef13d3d305b11aac9cc2348e290ab3614/oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

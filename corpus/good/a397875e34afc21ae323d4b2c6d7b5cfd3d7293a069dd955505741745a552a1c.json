@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/michaelawyu/api_tutorial"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/getting-started/codegen_server_completed/openapi_server/openapi/openapi.yaml",
+			"byteSize": 1632,
+			"content": "openapi: 3.0.2\ninfo:\n  description: 'An OpenAPI specification example for Building API services: A Beginners\n    Guide document.'\n  title: Sample OpenAPI Specification\n  version: 0.0.1\nservers:\n- description: Example API Service\n  url: http://localhost:8080/\npaths:\n  /users/{user_id}:\n    get:\n      description: Gets a user\n      operationId: get_user\n      parameters:\n      - description: ID of a user\n        explode: false\n        in: path\n        name: user_id\n        required: true\n        schema:\n          type: string\n        style: simple\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n          description: User found\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorMessage'\n          description: Unexpected error\n      x-openapi-router-controller: openapi_server.controllers.default_controller\ncomponents:\n  schemas:\n    User:\n      example:\n        name: name\n        display_name: display_name\n        email: email\n      properties:\n        name:\n          readOnly: true\n          type: string\n        display_name:\n          maxLength: 20\n          minLength: 1\n          type: string\n        email:\n          format: email\n          type: string\n      required:\n      - display_name\n      - email\n      type: object\n    ErrorMessage:\n      properties:\n        error_code:\n          type: string\n        error_message:\n          type: string\n      required:\n      - error_code\n      - error_message\n      type: object\n",
+			"canonicalURL": "/github.com/michaelawyu/api_tutorial@d76bcd0d77f18b005ecef2d01c6cba4f42856007/-/blob/openapi/getting-started/codegen_server_completed/openapi_server/openapi/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/michaelawyu/api_tutorial/blob/d76bcd0d77f18b005ecef2d01c6cba4f42856007/openapi/getting-started/codegen_server_completed/openapi_server/openapi/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

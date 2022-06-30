@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/imfht/flaskapps"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "connexion-master/examples/openapi3/sqlalchemy/openapi.yaml",
+			"byteSize": 2817,
+			"content": "openapi: 3.0.0\nservers:\n  - url: http://localhost:8081/\ninfo:\n  title: Pet Shop Example API\n  version: '0.1'\npaths:\n  /pets:\n    get:\n      tags:\n        - Pets\n      operationId: app.get_pets\n      summary: Get all pets\n      parameters:\n        - name: animal_type\n          in: query\n          schema:\n            type: string\n            pattern: '^[a-zA-Z0-9]*$'\n        - name: limit\n          in: query\n          schema:\n            type: integer\n            minimum: 0\n            default: 100\n      responses:\n        '200':\n          description: Return pets\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Pet'\n  '/pets/{pet_id}':\n    get:\n      tags:\n        - Pets\n      operationId: app.get_pet\n      summary: Get a single pet\n      parameters:\n        - $ref: '#/components/parameters/pet_id'\n      responses:\n        '200':\n          description: Return pet\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n        '404':\n          description: Pet does not exist\n    put:\n      tags:\n        - Pets\n      operationId: app.put_pet\n      summary: Create or update a pet\n      parameters:\n        - $ref: '#/components/parameters/pet_id'\n      responses:\n        '200':\n          description: Pet updated\n        '201':\n          description: New pet created\n      requestBody:\n        content:\n          application/json:\n            schema:\n              x-body-name: pet\n              $ref: '#/components/schemas/Pet'\n    delete:\n      tags:\n        - Pets\n      operationId: app.delete_pet\n      summary: Remove a pet\n      parameters:\n        - $ref: '#/components/parameters/pet_id'\n      responses:\n        '204':\n          description: Pet was deleted\n        '404':\n          description: Pet does not exist\ncomponents:\n  parameters:\n    pet_id:\n      name: pet_id\n      description: Pet's Unique identifier\n      in: path\n      required: true\n      schema:\n        type: string\n        pattern: '^[a-zA-Z0-9-]+$'\n  schemas:\n    Pet:\n      type: object\n      required:\n        - name\n        - animal_type\n      properties:\n        id:\n          type: string\n          description: Unique identifier\n          example: '123'\n          readOnly: true\n        name:\n          type: string\n          description: Pet's name\n          example: Susie\n          minLength: 1\n          maxLength: 100\n        animal_type:\n          type: string\n          description: Kind of animal\n          example: cat\n          minLength: 1\n        created:\n          type: string\n          format: date-time\n          description: Creation time\n          example: '2015-07-07T15:49:51.230+02:00'\n          readOnly: true\n",
+			"canonicalURL": "/github.com/imfht/flaskapps@d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/-/blob/connexion-master/examples/openapi3/sqlalchemy/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/imfht/flaskapps/blob/d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/connexion-master/examples/openapi3/sqlalchemy/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

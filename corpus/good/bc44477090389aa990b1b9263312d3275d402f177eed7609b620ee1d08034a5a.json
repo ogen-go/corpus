@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/atlassian/oas3-chow-chow"
+		},
+		"file": {
+			"name": "parameter-in-path-level.json",
+			"size": 0,
+			"path": "__test__/fixtures/parameter-in-path-level.json",
+			"byteSize": 2060,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Query Fixture\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://petstore.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/pets/{petId}\": {\n      \"parameters\": [\n        {\n          \"name\": \"petId\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"The id of the pet to retrieve\",\n          \"schema\": {\n            \"type\": \"integer\"\n          }\n        }\n      ],\n      \"get\": {\n        \"summary\": \"Info for a specific pet\",\n        \"operationId\": \"showPetById\",\n        \"tags\": [\n          \"pets\"\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Expected response to a valid request\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pets\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"required\": [\n          \"id\",\n          \"name\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"tag\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Pets\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"$ref\": \"#/components/schemas/Pet\"\n        }\n      },\n      \"Error\": {\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/atlassian/oas3-chow-chow@63c77914c1fe7bf40efa10025bb3d78bc26f9523/-/blob/__test__/fixtures/parameter-in-path-level.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/atlassian/oas3-chow-chow/blob/63c77914c1fe7bf40efa10025bb3d78bc26f9523/__test__/fixtures/parameter-in-path-level.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

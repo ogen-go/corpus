@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/urykhy/stuff"
+		},
+		"file": {
+			"name": "mq.v1.yaml",
+			"size": 0,
+			"path": "swagger/api/mq.v1.yaml",
+			"byteSize": 1157,
+			"content": "openapi: 3.0.0\ninfo:\n  title: mq\n  version: '1.0'\n  contact:\n    name: urykhy\n    email: urykhy@gmail.com\nservers:\n  - url: 'http://localhost:3000/api/v1'\npaths:\n  /mq:\n    put:\n      parameters:\n        - schema:\n            type: string\n            default: default\n          in: query\n          name: client\n          required: true\n        - schema:\n            type: string\n          in: query\n          name: hash\n          required: true\n      responses:\n        '200':\n          description: OK\n        '400':\n          description: Bad Request\n        '413':\n          description: Request Entity Too Large\n        '429':\n          description: Too Many Requests\n        '502':\n          description: Bad Gateway\n        '503':\n          description: Service Unavailable\n      summary: Put message to queue\n      tags:\n        - MessageQueue\n      operationId: put-mq\n      requestBody:\n        content:\n          application/octet-stream:\n            schema:\n              type: string\n              format: binary\n            examples:\n              example-1:\n                value: string\ncomponents:\n  schemas: {}\ntags:\n  - name: MessageQueue\n",
+			"canonicalURL": "/github.com/urykhy/stuff@fb601f9505fb493c26b835663cd1e96d15c1aa5c/-/blob/swagger/api/mq.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/urykhy/stuff/blob/fb601f9505fb493c26b835663cd1e96d15c1aa5c/swagger/api/mq.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

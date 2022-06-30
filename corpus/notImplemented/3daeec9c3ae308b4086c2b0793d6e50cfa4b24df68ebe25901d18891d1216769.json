@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/luckymarmot/Paw-OpenAPI3Importer"
+		},
+		"file": {
+			"name": "exported-with-generator.yaml",
+			"size": 0,
+			"path": "examples/exported-with-generator.yaml",
+			"byteSize": 2678,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Untitled Paw Document\n  version: \"1596784727917\"\npaths:\n  /test/:\n    servers:\n      - url: https://example.com/\n    get:\n      operationId: f6507537-dd9a-4d81-ba1c-1b98a7c7ee3c\n      summary: Example request\n      description: \u003e-\n        This is first example request with type \"GET\".\n\n        The base url is \"https://example.com\" and path is \"/test\".\n\n        It should be simple get with 2 URL params \"a\" and \"b\" with values same as their names.\n\n\n        Request has also 1 custom header \"Forehead\" with value \"Clean\"\n      responses:\n        default:\n          description: Default response\n      parameters:\n        - name: a\n          in: query\n          schema:\n            type: string\n            default: a\n        - name: b\n          in: query\n          schema:\n            type: string\n            default: b\n        - name: Forehead\n          in: header\n          schema:\n            type: string\n            default: Clean\n  \"/user/{user_id}/limit/{limit}/\":\n    servers:\n      - url: https://example.com/\n    post:\n      operationId: e3bf96da-239f-487c-b3d1-617c4f9ca6a8\n      summary: Example post request\n      description: \u003e-\n        This is second example request ith type \"POST\".\n\n        The base url is \"https://example.com\" and path is \"/user/{user_id}/limit/{limit}\". The variable {limit} has set value 15 and is set as not required.\n\n\n        This request has set Basic Authorization with login \"Admin\" and password \"VeryStrongPassword\"\n\n\n        Request has also \"text/plain\" content in body with value \"Body is here\"\n      responses:\n        default:\n          description: Default response\n      requestBody:\n        content:\n          text/plain:\n            example:\n              value: Body is here\n      parameters:\n        - name: Authorization\n          in: header\n          schema:\n            type: string\n            default: Basic QWRtaW46VmVyeVN0cm9uZ1Bhc3N3b3Jk\n        - name: Content-Type\n          in: header\n          schema:\n            type: string\n            default: text/plain; charset=utf-8\n        - name: limit\n          in: path\n          required: true\n          example:\n            summary: NonRequired\n            value: true\n          schema:\n            type: string\n            default: \"15\"\n        - name: user_id\n          in: path\n          required: true\n          schema:\n            type: string\n            default: \"\"\n      security:\n        - BasicAuth: []\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\n  examples:\n    BasicAuth:\n      summary: Basic credentials\n      value:\n        username: Admin\n        password: VeryStrongPassword\n",
+			"canonicalURL": "/github.com/luckymarmot/Paw-OpenAPI3Importer@0a5fd424e3681b4bcab928d0fc4cef39a343ff9c/-/blob/examples/exported-with-generator.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/luckymarmot/Paw-OpenAPI3Importer/blob/0a5fd424e3681b4bcab928d0fc4cef39a343ff9c/examples/exported-with-generator.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/user/{user_id}/limit/{limit}/\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

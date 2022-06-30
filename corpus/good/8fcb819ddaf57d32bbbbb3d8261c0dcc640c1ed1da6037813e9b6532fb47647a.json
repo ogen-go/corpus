@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/gojek/turing"
+		},
+		"file": {
+			"name": "common.yaml",
+			"size": 0,
+			"path": "api/api/specs/common.yaml",
+			"byteSize": 998,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Common types of Turing schemas\n  version: 0.0.1\n\npaths:\n\ncomponents:\n  schemas:\n    Id:\n      type: \"integer\"\n      format: \"int32\"\n\n    IdObject:\n      type: \"object\"\n      properties:\n        id:\n          $ref: \"#/components/schemas/Id\"\n\n    FieldSource:\n      type: \"string\"\n      enum:\n        - \"header\"\n        - \"payload\"\n\n    EnvVar:\n      type: \"object\"\n      required:\n        - name\n      properties:\n        name:\n          type: \"string\"\n          pattern: '^[a-zA-Z0-9_]*$'\n        value:\n          type: \"string\"\n\n    pagination.Paging:\n      type: \"object\"\n      properties:\n        total:\n          type: \"integer\"\n          format: \"int32\"\n          description: \"Total number of results matching the query criteria\"\n        page:\n          type: \"integer\"\n          format: \"int32\"\n          description: \"Number of the current page\"\n        pages:\n          type: \"integer\"\n          format: \"int32\"\n          description: \"Total number of pages\"\n",
+			"canonicalURL": "/github.com/gojek/turing@1af7d9a5519ec6632f1150e53132bd1bb8d62084/-/blob/api/api/specs/common.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/gojek/turing/blob/1af7d9a5519ec6632f1150e53132bd1bb8d62084/api/api/specs/common.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

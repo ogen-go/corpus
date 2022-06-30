@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-js"
+		},
+		"file": {
+			"name": "issue-1719-ref-object-reference.yaml",
+			"size": 0,
+			"path": "test/data/issue-1719-ref-object-reference.yaml",
+			"byteSize": 1560,
+			"content": "openapi: 3.0.0\nservers:\n  - description: \"mock definition for swagger-client issue #1719\"\n    url: https://test.com/v1\ninfo:\n  version: \"0.0.1\"\n  title: Test Defect\n  description: \u003e-\n    A client side JS error occured when the throwError endpoint was expanded in\n    the UI Docs panel. This error was specifically visible when a $ref is seen \n    by the subtree resolver after an allOf or after an anyOf. E.g. the subtree\n    resolver was treating the $ref as a reference instead as an object.\npaths:\n  /throwError:\n    post:\n      summary: Opening this documentation (previously) throws an error\n      description: Allows baskets of new prospects to be imported in to a portal\n      responses:\n        '200':\n          description: OK\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/1_SchemaRef'\n        description: the data to import\n        required: true\ncomponents:\n  schemas:\n    1_SchemaRef:\n      type: object\n      properties:\n        propertyOne:\n          type: array\n          items:\n            $ref: '#/components/schemas/2_RefWithAllOf'\n\n    2_RefWithAllOf:\n      allOf:\n        - $ref: '#/components/schemas/3_InnerAllOfRef'\n    \n    3_InnerAllOfRef:\n      type: object\n      properties:\n        propertyTwo:\n          $ref: '#/components/schemas/0_TargetRef'\n\n    0_TargetRef:\n      type: object\n      properties:\n        $ref: # this $ref should be treated as an object, not a reference string\n          type: string\n        devTestRefId:\n          type: string\n\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-js@6c95de2c4465241c43d2d197eb17d92df680f80b/-/blob/test/data/issue-1719-ref-object-reference.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-js/blob/6c95de2c4465241c43d2d197eb17d92df680f80b/test/data/issue-1719-ref-object-reference.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

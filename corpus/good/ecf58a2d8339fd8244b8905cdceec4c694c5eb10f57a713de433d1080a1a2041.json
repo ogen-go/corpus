@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VendorOrder.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrder.yaml",
+			"byteSize": 1717,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    VendorOrder: \n      description: The details of a vendor order\n      type: object\n      required:\n      - clientId\n      - numberOfSamples\n      - orderId\n      - serviceIds\n      properties: \n        clientId:\n          description: A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.\n          type: string\n          example: 7b51ad15\n        numberOfSamples:\n          description: The total number of samples contained in this request. Used for billing and basic validation of the request.\n          type: integer\n          example: 180\n        orderId:\n          description: The order id returned by the vendor when the order was successfully submitted.\n          type: string\n          example: 96ba0ca3\n        requiredServiceInfo:\n          additionalProperties:\n            type: string\n          description: A map of additional data required by the requested service. This includes things like Volume and Concentration.\n          type: object\n          example:\n            genus: Zea\n            species: mays\n            volumePerWell: 2.3 ml\n            extractDNA: 'true'\n        serviceIds:\n          description: |-\n            A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. \n            A Vendor Service defines what platform, technology, and markers will be used. \n            A list of available service IDs can be retrieved from the Vendor Specs.\n          items:\n            type: string\n          type: array\n          example: ['e8f60f64', '05bd925a', 'b698fb5e']\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@5252d84f331840650fffbca6cb8cece10a65cea6/-/blob/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrder.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/5252d84f331840650fffbca6cb8cece10a65cea6/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrder.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

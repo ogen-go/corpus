@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alexa-samples/skill-sample-nodejs-facts-aws-microservice"
+		},
+		"file": {
+			"name": "fact-service-api.yml",
+			"size": 0,
+			"path": "Final/Fact-Service/fact-service-api.yml",
+			"byteSize": 998,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Fact Service\npaths:\n  /fact:\n    get:\n      summary: Gets a Random Fact\n      operationId: getFact\n      tags:\n        - fact\n      responses:\n        '200':\n          description: A random fact.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Fact\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Fact:\n      type: object\n      required:\n        - id\n        - text\n      properties:\n        id:\n          type: integer\n          format: int64\n        text:\n          type: string\n        tag:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string",
+			"canonicalURL": "/github.com/alexa-samples/skill-sample-nodejs-facts-aws-microservice@96057331b08fd6d5125cd6599d93831530cf3b8a/-/blob/Final/Fact-Service/fact-service-api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/alexa-samples/skill-sample-nodejs-facts-aws-microservice/blob/96057331b08fd6d5125cd6599d93831530cf3b8a/Final/Fact-Service/fact-service-api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_single_example_with_summary.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/example/expected_single_example_with_summary.yml",
+			"byteSize": 657,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Users\n  version: '1.0'\npaths:\n  /users:\n    get:\n      operationId: getUsers\n      parameters:\n        - name: active\n          in: query\n          description: Filter for only active or inactive users.\n          required: false\n          schema:\n            type: boolean\n          examples:\n            For active users:\n              summary: Get only active users\n              value: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: query parameter active'\n          content:\n            text/plain:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/example/expected_single_example_with_summary.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/example/expected_single_example_with_summary.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/users\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/gotechnica/technica-expo-app"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/openapi.yaml",
+			"byteSize": 4372,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Technica Expo App\n  description: API documentation for the Technica Expo backend.\n  version: \"0.1\"\nservers:\n- url: http://127.0.0.1:8000\npaths:\n  /api/is_published_status:\n    get:\n      description: Get whether the app is published.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            text/html; charset=utf-8:\n              schema:\n                type: string\n  /api/publish_winners_status:\n    get:\n      description: Get whether the expo winners are published.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            text/html; charset=utf-8:\n              schema:\n                type: string\n  /api/projects_and_winners:\n    get:\n      description: Get an object containing list of available projects.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/inline_response_200'\n  /api/challenges:\n    get:\n      description: Get a challenge_list object.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                type: object\n                additionalProperties:\n                  type: array\n                  example:\n                  - Best Use of React JS\n                  items:\n                    type: string\n  /api/projects/generate_projects_list_csv:\n    get:\n      description: Get an HTML table of challenges, companies and projects.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            text/html; charset=utf-8:\n              schema:\n                type: string\n  /api/projects:\n    get:\n      description: Get an object containing list of available projects.\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/inline_response_200'\n  /api/projects/id/{project_id}:\n    get:\n      description: Get details about a project.\n      parameters:\n      - name: project_id\n        in: path\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: string\n        example: 5d499f76dbf232000863e742\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Project'\n        500:\n          description: Internal Server Error\ncomponents:\n  schemas:\n    Challenge:\n      type: object\n      properties:\n        challenge_name:\n          type: string\n          description: challenge name.\n          example: Best Cybersecurity Related Hack\n        company:\n          type: string\n          description: company name.\n          example: OPIS\n        won:\n          type: boolean\n          description: list of challenges won.\n          example: false\n      description: Represents a challenge.\n    Project:\n      type: object\n      properties:\n        challenges:\n          type: array\n          description: list of challenges applied to.\n          items:\n            $ref: '#/components/schemas/Challenge'\n        challenges_won:\n          type: array\n          description: list of challenges won.\n          items:\n            $ref: '#/components/schemas/Challenge'\n        project_id:\n          type: string\n          description: project id.\n          example: 5d499f76dbf232000863e742\n        project_name:\n          type: string\n          description: project name.\n          example: Anarchypedia\n        project_url:\n          type: string\n          description: list of challenges won.\n          example: http://bitcamp2018.devpost.com/submissions/92175-anarchypedia\n        table_number:\n          type: integer\n          description: table number.\n          example: 1\n      description: Represents a project.\n    inline_response_200:\n      type: object\n      properties:\n        is_published:\n          type: boolean\n          description: whether projects are published.\n        projects:\n          type: array\n          description: list of projects.\n          items:\n            $ref: '#/components/schemas/Project'\n",
+			"canonicalURL": "/github.com/gotechnica/technica-expo-app@db473a575de4cc5bf67ec49c39652963c71daca1/-/blob/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/gotechnica/technica-expo-app/blob/db473a575de4cc5bf67ec49c39652963c71daca1/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/is_published_status\": get: responses: 200: contents: unsupported content types: [text/html; charset=utf-8]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

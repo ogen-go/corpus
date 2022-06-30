@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kiegroup/kogito-runtimes"
+		},
+		"file": {
+			"name": "token-propagation-external-service5.yaml",
+			"size": 0,
+			"path": "quarkus/extensions/kogito-quarkus-serverless-workflow-extension/kogito-quarkus-serverless-workflow-integration-test/src/main/resources/specs/token-propagation-external-service5.yaml",
+			"byteSize": 833,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: external-service5 API\n  version: 2.0.0-SNAPSHOT\npaths:\n  /token-propagation-external-service5/executeQuery5:\n    post:\n      operationId: executeQuery5\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/QueryRequest'\n      responses:\n        \"200\":\n          description: OK\n      security:\n        - service5-oauth2: []\ncomponents:\n  schemas:\n    QueryRequest:\n      type: object\n      properties:\n        processInstanceId:\n          type: string\n        query:\n          type: string\n  securitySchemes:\n    service5-oauth2:\n        type: oauth2\n        flows:\n          clientCredentials:\n            authorizationUrl: https://example.com/oauth\n            tokenUrl: https://example.com/oauth/token\n            scopes: {}",
+			"canonicalURL": "/github.com/kiegroup/kogito-runtimes@d6419fa286f52e736d76e1c8b4f7ac6ea877f35a/-/blob/quarkus/extensions/kogito-quarkus-serverless-workflow-extension/kogito-quarkus-serverless-workflow-integration-test/src/main/resources/specs/token-propagation-external-service5.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kiegroup/kogito-runtimes/blob/d6419fa286f52e736d76e1c8b4f7ac6ea877f35a/quarkus/extensions/kogito-quarkus-serverless-workflow-extension/kogito-quarkus-serverless-workflow-integration-test/src/main/resources/specs/token-propagation-external-service5.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/token-propagation-external-service5/executeQuery5\": post: security: security \"service5-oauth2\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

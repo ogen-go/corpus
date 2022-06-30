@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/OpenAPI.NET.OData"
+		},
+		"file": {
+			"name": "Empty.OpenApi.yaml",
+			"size": 0,
+			"path": "test/Microsoft.OpenAPI.OData.Reader.Tests/Resources/Empty.OpenApi.yaml",
+			"byteSize": 2340,
+			"content": "openapi: 3.0.1\ninfo:\n  title: 'OData Service for namespace '\n  description: This OData service is located at http://localhost\n  version: 1.0.1\nservers:\n  - url: http://localhost\npaths: { }\ncomponents:\n  schemas:\n    ODataErrors.ODataError:\n      required:\n        - error\n      type: object\n      properties:\n        error:\n          $ref: '#/components/schemas/ODataErrors.MainError'\n    ODataErrors.MainError:\n      required:\n        - code\n        - message\n      type: object\n      properties:\n        code:\n          type: string\n        message:\n          type: string\n        target:\n          type: string\n          nullable: true\n        details:\n          type: array\n          items:\n            $ref: '#/components/schemas/ODataErrors.ErrorDetails'\n        innererror:\n          $ref: '#/components/schemas/ODataErrors.InnerError'\n    ODataErrors.ErrorDetails:\n      required:\n        - code\n        - message\n      type: object\n      properties:\n        code:\n          type: string\n        message:\n          type: string\n        target:\n          type: string\n          nullable: true\n    ODataErrors.InnerError:\n      type: object\n      description: The structure of this object is service-specific\n    ODataCountResponse:\n      type: integer\n      format: int32\n  responses:\n    error:\n      description: error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ODataErrors.ODataError'\n    ODataCountResponse:\n      description: The count of the resource\n      content:\n        text/plain:\n          schema:\n            $ref: '#/components/schemas/ODataCountResponse'\n  parameters:\n    top:\n      name: $top\n      in: query\n      description: Show only the first n items\n      schema:\n        minimum: 0\n        type: integer\n      example: 50\n    skip:\n      name: $skip\n      in: query\n      description: Skip the first n items\n      schema:\n        minimum: 0\n        type: integer\n    count:\n      name: $count\n      in: query\n      description: Include count of items\n      schema:\n        type: boolean\n    filter:\n      name: $filter\n      in: query\n      description: Filter items by property values\n      schema:\n        type: string\n    search:\n      name: $search\n      in: query\n      description: Search items by search phrases\n      schema:\n        type: string",
+			"canonicalURL": "/github.com/microsoft/OpenAPI.NET.OData@079f8ea2dfa227325a2ff7905cab86f15ee2347f/-/blob/test/Microsoft.OpenAPI.OData.Reader.Tests/Resources/Empty.OpenApi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/OpenAPI.NET.OData/blob/079f8ea2dfa227325a2ff7905cab86f15ee2347f/test/Microsoft.OpenAPI.OData.Reader.Tests/Resources/Empty.OpenApi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rancher-sandbox/rancher-desktop"
+		},
+		"file": {
+			"name": "command-api.yaml",
+			"size": 0,
+			"path": "src/assets/specs/command-api.yaml",
+			"byteSize": 2873,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: \"Rancher Desktop API\"\n  version: 0.0.1\npaths:\n  /v0/list-settings:\n    get:\n      operationId: listSettings\n      summary:  List the current preference settings\n      responses:\n        '200':\n          description: \u003e-\n            The current preferences in JSON format\n          content:\n            application/json:\n              schema:\n                \"$ref\" : \"#/components/schemas/preferences\"\n\n  /v0/set:\n    put:\n      operationId: updateSettings\n      summary:  Updates the specified preference settings\n      requestBody:\n        description: \u003e-\n          JSON block consisting of some or all of the current preferences,\n          with changes applied to any number of settings the backend supports changing this way.\n        content:\n          application/json:\n            schema:\n              \"$ref\" : \"#/components/schemas/preferences\"\n        required: true\n      responses:\n        '202':\n          description: \u003e-\n            The settings were accepted.\n          content:\n            \"text/plain\":\n              schema:\n                type: string\n        '400':\n          description: \u003e-\n            The proposed settings were not valid.\n          content:\n            \"text/plain\":\n              schema:\n                type: string\n\n  /v0/shutdown:\n    put:\n      operationId: shutdownApp\n      summary:  Shuts down Rancher Desktop\n      responses:\n        '202':\n          description: \u003e-\n            The application is in the process of shutting down.\n          content:\n            \"text/plain\":\n              schema:\n                type: string\ncomponents:\n  schemas:\n    preferences:\n      type: object\n      properties:\n        kubernetes:\n          type: object\n          properties:\n            version:\n              type: string\n            memoryInGB:\n              type: integer\n              minimum: 1\n            numberCPUs:\n              type: integer\n              minimum: 1\n            port:\n              type: integer\n            containerEngine:\n              type: string\n            checkForExistingKimBuilder:\n              type: boolean\n            enabled:\n              type: boolean\n            WSLIntegrations:\n              type: object\n              additionalProperties: true\n            options:\n              type: object\n              properties:\n                traefik:\n                  type: boolean\n                flannel:\n                  type: boolean\n        portForwarding:\n          type: object\n          properties:\n            includeKubernetesServices:\n              type: boolean\n        images:\n          type: object\n          properties:\n            showAll:\n              type: boolean\n            namespace:\n              type: string\n        telemetry:\n          type: boolean\n        updater:\n          type: boolean\n        debug:\n          type: boolean\n",
+			"canonicalURL": "/github.com/rancher-sandbox/rancher-desktop@22c062514b16cb3fe0f1f3926676fdc95088f422/-/blob/src/assets/specs/command-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rancher-sandbox/rancher-desktop/blob/22c062514b16cb3fe0f1f3926676fdc95088f422/src/assets/specs/command-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v0/set\": put: responses: 202: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

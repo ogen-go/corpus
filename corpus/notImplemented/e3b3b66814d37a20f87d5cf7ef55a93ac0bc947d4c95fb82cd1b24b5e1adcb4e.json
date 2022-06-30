@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHat-Middleware-Workshops/dayinthelife-serverless"
+		},
+		"file": {
+			"name": "openapi-spec.yaml",
+			"size": 0,
+			"path": "projects/lab-01/openapi-spec.yaml",
+			"byteSize": 1587,
+			"content": "openapi: 3.0.2\ninfo:\n    title: Meter API\n    version: 1.0.0\n    description: Parking Meter API. Allows meters to provide their updates via HTTP POST.\npaths:\n    /meter/status:\n        post:\n            requestBody:\n                content:\n                    application/json:\n                        schema:\n                            $ref: '#/components/schemas/meterstatus'\n                required: true\n            responses:\n                '200':\n                    content:\n                        application/json: {}\n                    description: update status\n            operationId: create\n            summary: update meter status\n            description: update meter status\ncomponents:\n    schemas:\n        meterstatus:\n            title: Root Type for meterstatus\n            description: ''\n            type: object\n            properties:\n                key:\n                    description: Key of meter update\n                    type: string\n                value:\n                    description: Meter status\n                    type: object\n                    properties:\n                        meterId:\n                            type: string\n                        timestamp:\n                            format: int32\n                            type: integer\n                        status:\n                            type: string\n            example:\n                key: F6PeB2XQRYG-8EN5yFcrP\n                value:\n                    meterId: F6PeB2XQRYG-8EN5yFcrP\n                    timestamp: 1510934784\n                    status: unknown\n",
+			"canonicalURL": "/github.com/RedHat-Middleware-Workshops/dayinthelife-serverless@4e80c6c0ce84605fa87f450386ef286a94c2dd89/-/blob/projects/lab-01/openapi-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RedHat-Middleware-Workshops/dayinthelife-serverless/blob/4e80c6c0ce84605fa87f450386ef286a94c2dd89/projects/lab-01/openapi-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/meter/status\": post: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jqueguiner/image-segmentation"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "docs/swagger.json",
+			"byteSize": 2567,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"description\": \"This API will return an segmented image\",\n    \"version\": \"1.0.0\",\n    \"title\": \"Image Segmentation\",\n    \"termsOfService\": \"https://market-place.ai.ovh.net/#!/cgu-en\",\n    \"contact\": {\n      \"name\": \"API Support\",\n      \"url\": \"https://gitter.im/ovh/ai\"\n    },\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://github.com/jqueguiner/image-segmentation/blob/master/LICENSE\"\n    }\n  },\n  \"host\": \"api-market-place.ai.ovh.net\",\n  \"basePath\": \"/\",\n  \"tags\": [\n    {\n      \"name\": \"Image Segmentation\",\n      \"description\": \"Everything you need to segment your image\",\n      \"externalDocs\": {\n        \"description\": \"Find out more\",\n        \"url\": \"https://bit.ly/\"\n      }\n    },\n    {\n      \"name\": \"process\",\n      \"description\": \"Segment your image\"\n    }\n  ],\n  \"paths\": {\n    \"/process\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"apikey\": []\n          }\n        ],\n        \"tags\": [\n          \"process\"\n        ],\n        \"summary\": \"Segment your image\",\n        \"description\": \"Process image\",\n        \"operationId\": \"process\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"image/jpg\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"input error\"\n          },\n          \"401\": {\n            \"description\": \"Unauthorized\"\n          }\n        },\n        \"requestBody\": {\n          \"description\": \"Segment your image\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Process\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"apikey\": {\n        \"type\": \"apiKey\",\n        \"name\": \"X-OVH-Api-Key\",\n        \"in\": \"header\"\n      }\n    },\n    \"schemas\": {\n      \"Process\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"url\",\n          \"model\"\n        ],\n        \"properties\": {\n          \"url\": {\n            \"type\": \"string\",\n            \"example\": \"https://i.ibb.co/6X88r2n/input.jpg\"\n          },\n          \"model\": {\n            \"type\": \"string\",\n            \"example\": \"scene_parsing\",\n            \"enum\": [\n              \"scene_parsing\",\n              \"cityscapes\",\n              \"visual_object\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/jqueguiner/image-segmentation@d331aa093be2ce0e118c963dff5f2e217aac3818/-/blob/docs/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jqueguiner/image-segmentation/blob/d331aa093be2ce0e118c963dff5f2e217aac3818/docs/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

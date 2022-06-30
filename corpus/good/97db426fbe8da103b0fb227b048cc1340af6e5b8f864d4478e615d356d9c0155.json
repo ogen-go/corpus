@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/srikavin/Chess"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "doc/openapi.yaml",
+			"byteSize": 1380,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Chess Web API\n  description: Description\n  version: 1.0.0\nservers:\n  - url: 'http://localhost:37629/api/v1/'\n    description: Local Test Server\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: X-API-KEY\n  responses:\n    UnauthorizedError:\n      description: API key is invalid\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              error:\n                type: string\n                description: An error string containing information about the unauthorized error\n  schemas:\n    Game:\n      type: object\n      properties:\n        id:\n          type: string\n\n\nsecurity:\n  - ApiKeyAuth: []\n\npaths:\n  /games/:\n    post:\n      description: Creates a new game and joins it as a random player\n      security:\n        - ApiKeyAuth: []\n      responses:\n        '200':\n          description: A JSON object containing information about the created game\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  created:\n                    description: A string containing the id of the newly created game\n                    type: string\n                    example: dodblmgo88px61tf\n        '401':\n          $ref: \"#/components/responses/UnauthorizedError\"",
+			"canonicalURL": "/github.com/srikavin/Chess@0b259b5674496456a0f191ccbc6e92efa267f133/-/blob/doc/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/srikavin/Chess/blob/0b259b5674496456a0f191ccbc6e92efa267f133/doc/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

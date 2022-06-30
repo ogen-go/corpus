@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nasa/uam-apis"
+		},
+		"file": {
+			"name": "adsb_vehicle_metadata.yaml",
+			"size": 0,
+			"path": "datacollection/openapi/v3/schema/adsb_vehicle_metadata.yaml",
+			"byteSize": 1312,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"v1.0-oas3\"\n  title: vehicle surveillance metadata\n  description: OpenAPI 3.0 compliant definitions for vehicle metadata for ADS-B\n      Out data.\n\ncomponents:\n  schemas:\n      adsb_vehicle_metadata:\n        type: object\n        required:\n          - icaoAddress\n          - time_start\n        properties:\n          icaoAddress:\n            type: string\n            pattern: '^[0-9a-fA-F]{6}$'\n            description: 24 bit hexadecimal ICAO address of the aircraft\n          squawk:\n            type: string\n            maxLength: 4\n            minLength: 4\n            pattern: \"^[0-7][0-7][0-7][0-7]$\"\n            description: Squawk code. octal\n          callsign:\n            type: string\n            maxLength: 8\n            pattern: \"^[A-Za-z0-9]+$\"\n            description: call sign of the aircraft\n          additionalNotes:\n            type: string\n            maxLength: 1000\n          time_start:\n            type: string\n            format: date-time\n          time_end:\n            type: string\n            format: date-time\n          adsbDeviceIdentifier:\n            type: string\n            maxLength: 64\n            description: pingStation calls their unique ID a GUID, but it is\n                only 32 bits. Other device or source identifiers are possible.\n",
+			"canonicalURL": "/github.com/nasa/uam-apis@d18c3afbdac9b91b89564c7a0f9dbe1c7332a9de/-/blob/datacollection/openapi/v3/schema/adsb_vehicle_metadata.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nasa/uam-apis/blob/d18c3afbdac9b91b89564c7a0f9dbe1c7332a9de/datacollection/openapi/v3/schema/adsb_vehicle_metadata.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/goadesign/examples"
+		},
+		"file": {
+			"name": "openapi3.yaml",
+			"size": 0,
+			"path": "cookies/gen/http/openapi3.yaml",
+			"byteSize": 2964,
+			"content": "openapi: 3.0.3\ninfo:\n    title: Session service\n    description: HTTP service that showcase the use of HTTP cookies in Goa services.\n    version: \"1.0\"\nservers:\n    - url: http://localhost:80\n      description: Default server for session\npaths:\n    /:\n        get:\n            tags:\n                - session\n            summary: use_session session\n            operationId: session#use_session\n            parameters:\n                - name: SID\n                  in: cookie\n                  description: Session ID\n                  allowEmptyValue: true\n                  required: true\n                  schema:\n                    type: string\n                    description: Session ID\n                    example: Mollitia aut quis.\n                  example: At mollitia itaque facere voluptas.\n            responses:\n                \"200\":\n                    description: OK response.\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/CreateSessionResponseBody'\n                            example:\n                                message: Omnis eligendi.\n        post:\n            tags:\n                - session\n            summary: create_session session\n            operationId: session#create_session\n            requestBody:\n                required: true\n                content:\n                    application/json:\n                        schema:\n                            $ref: '#/components/schemas/CreateSessionRequestBody'\n                        example:\n                            name: Ut quas sit at illum tempore ad.\n            responses:\n                \"200\":\n                    description: OK response.\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/CreateSessionResponseBody'\n                            example:\n                                message: Aliquam aut iste incidunt impedit maiores.\ncomponents:\n    schemas:\n        CreateSessionRequestBody:\n            type: object\n            properties:\n                name:\n                    type: string\n                    description: Name of session\n                    example: Necessitatibus eum atque ut.\n            example:\n                name: Quis sunt sed culpa tempore natus est.\n            required:\n                - name\n        CreateSessionResponseBody:\n            type: object\n            properties:\n                message:\n                    type: string\n                    description: User message\n                    example: Et dolor.\n            example:\n                message: Aliquid illum dolore quasi voluptates mollitia deserunt.\n            required:\n                - message\ntags:\n    - name: session\n      description: The session service illustrates managing user sessions with cookies.\n",
+			"canonicalURL": "/github.com/goadesign/examples@ce03fa792214d1ce76a2557ea1336a0d558714df/-/blob/cookies/gen/http/openapi3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/goadesign/examples/blob/ce03fa792214d1ce76a2557ea1336a0d558714df/cookies/gen/http/openapi3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: cookie params not implemented",
+	"NotImplemented": [
+		"cookie params"
+	]
+}

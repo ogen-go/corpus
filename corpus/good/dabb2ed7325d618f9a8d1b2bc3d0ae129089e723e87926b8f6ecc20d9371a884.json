@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ghostbuster91/sttp-openapi-generator"
+		},
+		"file": {
+			"name": "discriminator_with_enum_mapping.yaml",
+			"size": 0,
+			"path": "core/src/test/resources/api/coproduct/one_of/discriminator_with_enum_mapping.yaml",
+			"byteSize": 1014,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: \"1.0\"\npaths:\n  /:\n    get:\n      operationId: getRoot\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Entity\"\ncomponents:\n  schemas:\n    Entity:\n      oneOf:\n        - $ref: \"#/components/schemas/Person\"\n        - $ref: \"#/components/schemas/Organization\"\n      discriminator:\n        propertyName: name\n        mapping:\n          bob: \"#/components/schemas/Person\"\n          alice: \"#/components/schemas/Organization\"\n    PersonName:\n      type: string\n      enum:\n        - bob\n        - alice\n    Person:\n      required:\n        - name\n        - age\n      type: object\n      properties:\n        name:\n          $ref: \"#/components/schemas/PersonName\"\n        age:\n          type: integer\n    Organization:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          $ref: \"#/components/schemas/PersonName\"\n",
+			"canonicalURL": "/github.com/ghostbuster91/sttp-openapi-generator@4a23dff5eabea9f226814c8ecc75bef5d0645d59/-/blob/core/src/test/resources/api/coproduct/one_of/discriminator_with_enum_mapping.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ghostbuster91/sttp-openapi-generator/blob/4a23dff5eabea9f226814c8ecc75bef5d0645d59/core/src/test/resources/api/coproduct/one_of/discriminator_with_enum_mapping.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

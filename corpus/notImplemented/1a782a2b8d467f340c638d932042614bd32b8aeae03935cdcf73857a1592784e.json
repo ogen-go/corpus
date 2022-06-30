@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "additional.props.query.params.yaml",
+			"size": 0,
+			"path": "test/resources/additional.props.query.params.yaml",
+			"byteSize": 1082,
+			"content": "openapi: 3.0.3\ninfo:\n  version: 1.0.0\n  title: Test\n  description: A sample API\nservers:\n  - url: /\npaths:\n  /params_with_additional_props:\n    get:\n      parameters:\n        - name: required\n          in: query\n          description: maximum number of results to return\n          required: true\n          schema:\n            type: integer\n            format: int32\n            minimum: 1\n            maximum: 20\n        - name: params\n          in: query\n          required: false\n          schema:\n            type: object\n            # If the parameter values are of specific type, e.g. string:\n            # additionalProperties:\n            #   type: string\n            # If the parameter values can be of different types\n            # (e.g. string, number, boolean, ...)\n            additionalProperties: true\n\n          # `style: form` and `explode: true` is the default serialization method\n          # for query parameters, so these keywords can be omitted\n          style: form\n          explode: true\n      responses:\n        '200':\n          description: the response\n\n\n",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@6448f4548db32bf5d2ae18e25dd36996ae9500ef/-/blob/test/resources/additional.props.query.params.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/6448f4548db32bf5d2ae18e25dd36996ae9500ef/test/resources/additional.props.query.params.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: \"params\": object with additionalProperties not implemented",
+	"NotImplemented": [
+		"object with additionalProperties"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/interzoid.com/convertcurrency/1.0.0/openapi.yaml",
+			"byteSize": 2977,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.interzoid.com\ninfo:\n  contact:\n    email: support@interzoid.com\n    name: API Support\n    url: https://www.interzoid.com\n    x-twitter: interzoid\n  description: This API enables you to convert an amount of one currency into another currency using current foreign exchange rates.\n  license:\n    name: Interzoid license\n    url: https://www.interzoid.com/license\n  termsOfService: https://www.interzoid.com/terms\n  title: Interzoid Convert Currency Rate API\n  version: 1.0.0\n  x-apisguru-categories:\n    - developer_tools\n  x-logo:\n    url: https://twitter.com/interzoid/profile_image?size=original\n  x-origin:\n    - format: openapi\n      url: https://oas.interzoid.com/api/convertcurrency.json\n      version: \"3.0\"\n  x-providerName: interzoid.com\n  x-serviceName: convertcurrency\nexternalDocs:\n  description: API home page and documentation\n  url: https://www.interzoid.com/services/convertcurrency\npaths:\n  /convertcurrency:\n    get:\n      description: Provide an amount in one currency (EUR, GBP, CNY, JPY, AUD, etc.), and also a second currency to convert it to. The API will return the result using current foreign exchange rates. See the API home page for a list of all supported currencies.\n      operationId: convertcurrency\n      parameters:\n        - description: Your Interzoid license API key. Register at www.interzoid.com/register\n          in: query\n          name: license\n          required: true\n          schema:\n            type: string\n        - description: Currency symbol for the converted from amount\n          in: query\n          name: from\n          required: true\n          schema:\n            type: string\n        - description: Currency symbol for the converted to amount\n          in: query\n          name: to\n          required: true\n          schema:\n            type: string\n        - description: The amount of currency to be converted\n          in: query\n          name: amount\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                properties:\n                  Code:\n                    type: string\n                  Converted:\n                    type: string\n                  Credits:\n                    type: string\n                  Currency:\n                    type: string\n                type: object\n          description: Currency rate data to one US DOllar\n        \"400\":\n          description: bad request - insufficient parameters\n        \"402\":\n          description: credits exhausted\n        \"403\":\n          description: invalid license API key\n        \"404\":\n          description: currency symbol not found\n        \"405\":\n          description: method not allowed\n        \"500\":\n          description: internal server error\n      summary: Converts amount in one currency to that of another\n      tags:\n        - Live Currency Rate Conversion\n",
+			"canonicalURL": "/github.com/APIs-guru/openapi-directory@47bf2b618e492e31bc62743e9f72c47cb8460229/-/blob/APIs/interzoid.com/convertcurrency/1.0.0/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/APIs-guru/openapi-directory/blob/47bf2b618e492e31bc62743e9f72c47cb8460229/APIs/interzoid.com/convertcurrency/1.0.0/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

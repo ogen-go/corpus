@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "predefined-example.yaml",
+			"size": 0,
+			"path": "docs/specs/predefined-example.yaml",
+			"byteSize": 1277,
+			"content": "openapi: 3.0.2\ninfo:\n  version: '1.0'\n  title: My OpenAPI\n  description: OpenAPI with examples\nservers:\n  - url: /api\npaths:\n  /dogs:\n    post:\n      tags:\n        - User provided Example\n      summary: User provided example\n      description: Demonstrate how user provided examples in schema are displayed\n      requestBody:\n        summary: Dog Schema\n        description: This schema contains a user supplied example value for the dog as `Fido`\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Dog'\n            examples:\n              example-1:\n                value:\n                  name: Fido\n              example-2:\n                value:\n                  name: Dido\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Dog'\n              examples:\n                example-1:\n                  value:\n                    name: Fido\n                example-2:\n                  value:\n                    name: Dido\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      properties:\n        name:\n          type: string\n          pattern: '^[A-Za-z]+'\n      required:\n        - name",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/predefined-example.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/predefined-example.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

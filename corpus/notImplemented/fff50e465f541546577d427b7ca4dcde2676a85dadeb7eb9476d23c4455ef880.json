@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cam-inc/viron"
+		},
+		"file": {
+			"name": "oas.yaml",
+			"size": 0,
+			"path": "packages/golang/openapi/origin/oas.yaml",
+			"byteSize": 1333,
+			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/lib oas'\n  description: oas api specifications\n  # type=tableの仕様定義\n  x-table:\n    responseListKey: list # リストデータを返すキー\n    pager:\n      requestPageKey: page # ページ番号を指定するクエリパラメータ\n      requestSizeKey: size # ページサイズを指定するクエリパラメータ\n      responseMaxpageKey: maxPage # 最大ページ数を返すキー\n      responsePageKey: currentPage # 現在のページ番号を返すキー\n    sort:\n      requestKey: sort # ソートを指定するクエリパラメータ\n  # オートコンプリートの仕様定義\n  x-autocomplete:\n    responseLabelKey: label\n    responseValueKey: value\n\ntags:\n  - name: oas\n\npaths:\n  /oas:\n    get:\n      operationId: getOas\n      tags:\n        - oas\n      summary: get oas\n      description: OpenAPI Specification の取得\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                example: {}\n      security:\n        - jwt: []\n\ncomponents:\n  securitySchemes:\n    jwt:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://localhost:3000/signin\n          scopes:\n            api:access: API access\n",
+			"canonicalURL": "/github.com/cam-inc/viron@22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/-/blob/packages/golang/openapi/origin/oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cam-inc/viron/blob/22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/packages/golang/openapi/origin/oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/oas\": get: security: security \"jwt\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

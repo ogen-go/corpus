@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "allof.yaml",
+			"size": 0,
+			"path": "docs/specs/allof.yaml",
+			"byteSize": 1673,
+			"content": "openapi: 3.0.0\r\ninfo:\r\n  title: all-of Models\r\n  description: Model composition using all-of\r\n  version: 1.0.0\r\npaths:\r\n  /all-of/employee:\r\n    get:\r\n      summary: List of employees\r\n      responses:\r\n        \"200\":\r\n          description: Checkout the model tab to view object schemas defined using all-of\r\n          content:\r\n            application/json:\r\n              schema:\r\n                type: object\r\n                $ref: \"#/components/schemas/emp1\"\r\ncomponents:\r\n  schemas:\r\n    emp1:\r\n      type: object\r\n      additionalProperties: false\r\n      description: Employee Details\r\n      allOf:\r\n        - properties:\r\n            Id:\r\n              type: string\r\n              description: Employee ID\r\n        - $ref: \"#/components/schemas/name\"\r\n        - $ref: \"#/components/schemas/job\"\r\n    emp2:\r\n      type: object\r\n      additionalProperties: false\r\n      properties:\r\n        Employee:\r\n          description: Employee Details\r\n          allOf:\r\n            - properties:\r\n                Id:\r\n                  type: string\r\n                  description: Employee ID\r\n            - $ref: \"#/components/schemas/name\"\r\n            - $ref: \"#/components/schemas/job\"\r\n    name:\r\n      type: object\r\n      additionalProperties: false\r\n      properties:\r\n        firstName:\r\n          type: string\r\n          description: First name\r\n        lastName:\r\n          type: string\r\n          description: Last Name\r\n    job:\r\n      type: object\r\n      additionalProperties: false\r\n      properties:\r\n        jobTitle:\r\n          type: string\r\n          description: Job title\r\n        department:\r\n          type: string\r\n          description: Department name",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/allof.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/allof.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/all-of/employee\": get: responses: 200: contents: application/json: generate schema: allOf: allOf additionalProperties merging not implemented",
+	"NotImplemented": [
+		"allOf additionalProperties merging"
+	]
+}

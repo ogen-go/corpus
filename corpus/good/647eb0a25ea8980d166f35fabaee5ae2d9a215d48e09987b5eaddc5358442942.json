@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ecspangler/rtp-reference"
+		},
+		"file": {
+			"name": "Events.yaml",
+			"size": 0,
+			"path": "rtp-flow-viz-service/api/Events.yaml",
+			"byteSize": 1095,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Events\n  version: 1.0.0\npaths:\n  /events:\n    get:\n      summary: Get the events that have occured within the simulation\n      responses:\n        200:\n          description: Got Events\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/events'\n              examples:\n                events:\n                  value: |-\n                    [\n                        {\n                            \"transId\": \"1\",\n                            \"location\": \"debtor-payment-service\"\n                        },\n                        {\n                            \"transId\": \"1\",\n                            \"location\": \"debtor-send-payment\"\n                        }\n                    ]\ncomponents:\n  schemas:\n    events:\n      description: Events\n      type: array\n      items:\n        $ref: '#/components/schemas/event'\n    event:\n      type: object\n      required:\n        - transId\n        - location\n      properties:\n        transId:\n          type: string\n        location:\n          type: string\n",
+			"canonicalURL": "/github.com/ecspangler/rtp-reference@541b255b41c9f3f18be2cdb407c62233bef29557/-/blob/rtp-flow-viz-service/api/Events.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ecspangler/rtp-reference/blob/541b255b41c9f3f18be2cdb407c62233bef29557/rtp-flow-viz-service/api/Events.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

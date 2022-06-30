@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "server.yaml",
+			"size": 0,
+			"path": "docs/specs/server.yaml",
+			"byteSize": 3101,
+			"content": "openapi: 3.0.2\ninfo:\n  version: '1.0'\n  title: API Server templating using variables\n  description: \u003e\n    Various ways to define API servers in the spec including variables\n\n    ```yaml\n      servers:\n        - url: 'http://example.com/api'\n          description: Test server (just for example)\n        - url: '/api'\n        - url: '{protocol}://dev.com/api/{version}'\n          variables:\n            protocol:\n              description: Protocol (with enum)\n              default: https\n              enum:\n                - http\n                - https\n            version:\n              description: API Version (without enum)\n              default: v1\n        - url: '{protocol}://{environment}.example.com/{version}'\n          variables:\n            environment:\n              default: api    # Production server\n              description: \u003e\n                Server choices:\n                * `api` Production (this is the default).\n                * `api.qa` QA server.\n                * `api.dev` Development server.\n              enum:\n                - api      # Production server\n                - api.dev  # Development server\n                - api.qa   # Testing server\n            protocol:\n              default: https\n              enum:\n                - http\n                - https\n            version:\n              default: v2\n              enum:\n                - v1\n                - v2\n    ```\nservers:\n  - url: 'http://example.com/api'\n    description: Test server (just for example)\n  - url: '/api'\n  - url: '{protocol}://dev.com/api/{version}'\n    variables:\n      protocol:\n        description: Protocol (with enum)\n        default: https\n        enum:\n          - http\n          - https\n      version:\n        description: API Version (without enum)\n        default: v1\n  - url: '{protocol}://{environment}.example.com/{version}'\n    variables:\n      environment:\n        default: api    # Production server\n        description: \u003e\n          Server choices:\n           * `api` Production (this is the default).\n           * `api.qa` QA server.\n           * `api.dev` Development server.\n        enum:\n          - api      # Production server\n          - api.dev  # Development server\n          - api.qa   # Testing server\n      protocol:\n        default: https\n        enum:\n          - http\n          - https\n      version:\n        default: v2\n        enum:\n          - v1\n          - v2\npaths:\n  /api-server-template:\n    get:\n      summary: Dynamic API Server.\n      description: Uses API server template string and variables which can be used to generatea a desired API server url -  The selected and computed API Server URL should be shown against `API SERVER`.\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  name:\n                    description: Person Name\n                    type: string\n                  age:\n                    description: Person Age\n                    type: integer",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/server.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/server.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

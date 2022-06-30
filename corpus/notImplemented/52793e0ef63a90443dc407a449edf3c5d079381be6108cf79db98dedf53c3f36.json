@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ibissource/iaf"
+		},
+		"file": {
+			"name": "multipleChoices.json",
+			"size": 0,
+			"path": "core/src/test/resources/OpenApi/multipleChoices.json",
+			"byteSize": 2754,
+			"content": "{\n    \"openapi\":\"3.0.0\",\n    \"info\":{\n        \"title\":\"TestConfiguration\",\n        \"description\":\"OpenApi auto-generated at -timestamp- for TestConfiguration (xxx)\",\n        \"version\":\"unknown\"\n    },\n    \"servers\":[\n        {\n            \"url\":\"http://mock-hostname/mock-context-path/mock-servlet-path\"\n        }\n    ],\n    \"paths\":{\n        \"/multipleChoices\":{\n            \"post\":{\n                \"summary\":\"description4simple-get\",\n                \"requestBody\":{\n                    \"content\":{\n                        \"*/*\":{\n                            \"schema\":{\n                                \"$ref\":\"#/components/schemas/EmbeddedChoice\"\n                            }\n                        }\n                    }\n                },\n                \"responses\":{\n                    \"200\":{\n                        \"description\":\"OK\",\n                        \"content\":{\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\":{\n        \"schemas\":{\n            \"EmbeddedChoice\":{\n                \"$ref\":\"#/components/schemas/EmbeddedChoiceType\"\n            },\n            \"EmbeddedChoiceType\":{\n                \"type\":\"object\",\n                \"allOf\":[\n                    {\n                        \"oneOf\":[\n                            {\n                                \"required\":[\n                                    \"BusinessPartnerId\"\n                                ]\n                            },\n                            {\n                                \"required\":[\n                                    \"Qualifier\"\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"oneOf\":[\n                            {\n                                \"required\":[\n                                    \"EnableFuzzySearch\"\n                                ]\n                            },\n                            {\n                                \"required\":[\n                                    \"IgnoreFilter\"\n                                ]\n                            }\n                        ]\n                    }\n                ],\n                \"additionalProperties\":false,\n                \"properties\":{\n                    \"BusinessPartnerId\":{\n                        \"type\":\"string\"\n                    },\n                    \"Qualifier\":{\n                        \"type\":\"string\"\n                    },\n                    \"EnableFuzzySearch\":{\n                        \"type\":\"string\"\n                    },\n                    \"IgnoreFilter\":{\n                        \"type\":\"string\"\n                    }\n                }\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/ibissource/iaf@ba29a5f63f168ecfb080b19cce60e45a6b7fdc0b/-/blob/core/src/test/resources/OpenApi/multipleChoices.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ibissource/iaf/blob/ba29a5f63f168ecfb080b19cce60e45a6b7fdc0b/core/src/test/resources/OpenApi/multipleChoices.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/multipleChoices\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

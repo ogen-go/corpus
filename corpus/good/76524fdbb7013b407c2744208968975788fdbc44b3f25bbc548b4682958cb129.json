@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/s2o-test/issue145/openapi.yaml",
+			"byteSize": 1547,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Issue 145 Test v1\n  description: \"This is a testcase re: a referenced form param which is a string array.\"\npaths:\n  /v1/formtest1:\n    post:\n      operationId: formTest1\n      summary: Form parameter test 1\n      description: Form param is a referenced parameter.\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                referenced_form_param:\n                  description: Referenced form param\n                  type: array\n                  items:\n                    type: string\n              required:\n                - referenced_form_param\n        required: true\n      responses:\n        \"201\":\n          description: Successful request.\n        \"400\":\n          description: Invalid request.\n  /v1/formtest2:\n    post:\n      operationId: formTest2\n      summary: Form parameter test 2\n      description: Form param is defined inline\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                inline_form_param:\n                  description: Inline form param.\n                  type: array\n                  items:\n                    type: string\n              required:\n                - inline_form_param\n        required: true\n      responses:\n        \"201\":\n          description: Successful request.\n        \"400\":\n          description: Invalid request.\nservers:\n  - url: /issue145/api\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/s2o-test/issue145/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/s2o-test/issue145/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

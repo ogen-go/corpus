@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cscbe/writeups"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "2020-Qualifiers/web/No_Time/server/swagger.yaml",
+			"byteSize": 2182,
+			"content": "openapi: 3.0.1\ninfo:\n  title: no_time_challenge\n  description: i have no time\n  version: '0.1'\nservers:\n  - url: 'server'\npaths:\n  /login:\n    post:\n      description: login to get the flag\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                pin:\n                  type: string\n            examples:\n              'correct pin length':\n                value: |-\n                  {\n                      \"pin\": \"000000000000\"\n                  }\n              'wrong pin length':\n                value: |-\n                  {\n                      \"pin\": \"00000000000\"\n                  }\n      responses:\n        '200':\n          description: pin entered in right format\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n              examples:\n                'wrong pin':\n                  value: |\n                    {\n                      \"message\": \"wrong pin\"\n                    }\n        '400':\n          description: Auto generated using Swagger Inspector\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n              examples:\n                'wrong pin length':\n                  value: |\n                    {\n                      \"message\": \"pin length is not correct\"\n                    }\n                'value is not of type String':\n                  value: |\n                    {\n                      \"message\": \"pin should be of type String\"\n                    }\n      servers:\n        - url: 'server'\n    servers:\n      - url: 'server'\n  /:\n    get:\n      description: dont need this\n      responses:\n        '200':\n          description: you have time to read this?\n          content:\n            text/html; charset=utf-8:\n              schema:\n                type: string\n              examples: {}\n      servers:\n        - url: 'server'\n    servers:\n      - url: 'server'",
+			"canonicalURL": "/github.com/cscbe/writeups@836cab03805c4648e99fc570fb05ab17164ae3e0/-/blob/2020-Qualifiers/web/No_Time/server/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cscbe/writeups/blob/836cab03805c4648e99fc570fb05ab17164ae3e0/2020-Qualifiers/web/No_Time/server/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: unsupported content types: [text/html; charset=utf-8]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

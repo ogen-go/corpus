@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Pylons/pyramid_openapi3"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "examples/todoapp/openapi.yaml",
+			"byteSize": 1612,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  version: \"1.0.0\"\n  title: A simple Todo app API\n\npaths:\n\n  /:\n\n    get:\n      summary: List of my TODO items\n      responses:\n        '200':\n          description: A list of my TODO items\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Item\"\n\n    post:\n      summary: Create a TODO item\n      operationId: todo.create\n      requestBody:\n        required: true\n        description: Data for creating a new TODO item\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Item'\n\n      responses:\n        '200':\n          description: Success message.\n          content:\n            application/json:\n              schema:\n                type: string\n\n        '400':\n          $ref: '#/components/responses/ValidationError'\n        '500':\n          $ref: '#/components/responses/ValidationError'\n\n\ncomponents:\n\n  schemas:\n\n    Item:\n      type: object\n      required:\n        - title\n      properties:\n        title:\n          type: string\n          maxLength: 40\n\n    Error:\n      type: object\n      required:\n        - message\n      properties:\n        field:\n          type: string\n        message:\n          type: string\n        exception:\n          type: string\n\n  responses:\n\n    ValidationError:\n      description: OpenAPI request/response validation failed\n      content:\n        application/json:\n          schema:\n            type: array\n            items:\n              $ref: \"#/components/schemas/Error\"\n",
+			"canonicalURL": "/github.com/Pylons/pyramid_openapi3@29f0180a97d9d33cbe65488aee97af8339c120c4/-/blob/examples/todoapp/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Pylons/pyramid_openapi3/blob/29f0180a97d9d33cbe65488aee97af8339c120c4/examples/todoapp/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

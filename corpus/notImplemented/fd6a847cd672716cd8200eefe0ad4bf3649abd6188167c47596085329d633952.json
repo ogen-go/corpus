@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive1.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/invalid_oauth2_token_url/test/positive1.yaml",
+			"byteSize": 647,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\ncomponents:\n  securitySchemes:\n    oAuth2AuthCodePos1:\n      type: oauth2\n      description: For more information, see https://api.my.company.com/docs/oauth\n      flows:\n        authorizationCode:\n          authorizationUrl: https://api.my.company.com/oauth/authorize\n          tokenUrl: http://example.com#@evil.com/\n          scopes:\n            read:api: read your apis\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/invalid_oauth2_token_url/test/positive1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/invalid_oauth2_token_url/test/positive1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

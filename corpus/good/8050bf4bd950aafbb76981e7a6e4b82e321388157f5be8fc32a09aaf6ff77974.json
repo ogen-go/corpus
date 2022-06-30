@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Nexmo/oas_parser"
+		},
+		"file": {
+			"name": "petstore-parameter-oneof.yml",
+			"size": 0,
+			"path": "spec/fixtures/petstore-parameter-oneof.yml",
+			"byteSize": 1462,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    post:\n      description: Creates a new pet in the store. Duplicates are allowed\n      requestBody:\n        description: Pet to add to the store\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                name:\n                  oneOf:\n                    - $ref: \"#/components/schemas/RealName\"\n                    - $ref: \"#/components/schemas/NickName\"\n\n      responses:\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                properties:\n                  done:\n                    type: string\n                    example: \"Done\"\ncomponents:\n  schemas:\n    RealName:\n      type: object\n      properties:\n        realname:\n          type: string\n          example: Fido\n          description: What's your dog's real name?\n    NickName:\n      type: object\n      properties:\n        nickname:\n          type: string\n          example: SillyDog\n          description: What do you call your dog when it's being silly?",
+			"canonicalURL": "/github.com/Nexmo/oas_parser@2d3f445a16daf42ff5c27566406de10794808893/-/blob/spec/fixtures/petstore-parameter-oneof.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Nexmo/oas_parser/blob/2d3f445a16daf42ff5c27566406de10794808893/spec/fixtures/petstore-parameter-oneof.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue______kotlinArrayEnumEmbedded.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue______kotlinArrayEnumEmbedded.yaml",
+			"byteSize": 1449,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: test\n  version: \"1.0\"\npaths:\n  /test:\n    get:\n      operationId: test\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/EmbeddedEnumArray'\n\ncomponents:\n  schemas:\n    EmbeddedEnumArray:\n      type: object\n      properties:\n        colors:\n          type: array\n          items:\n            type: string\n            enum: ['BLACK', 'RED', 'ORANGE', 'YELLOW', 'BLUE', 'GREEN']\n        reqColors:\n          type: array\n          items:\n            type: string\n            enum: ['BLACK', 'RED', 'ORANGE', 'YELLOW', 'BLUE', 'GREEN']\n      required:\n        - reqColors\n    NoEmbeddedEnumArray:\n      type: object\n      properties:\n        colors:\n          type: array\n          items:\n            $ref: '#/components/schemas/Colors'\n        reqColors:\n          type: array\n          items:\n            $ref: '#/components/schemas/Colors'\n          required:\n            - reqColors\n    Colors:\n      type: string\n      enum: ['BLACK', 'RED', 'ORANGE', 'YELLOW', 'BLUE', 'GREEN']\n    SimpleColorContainer:\n      type: object\n      properties:\n        color:\n          type: string\n          enum: ['BLACK', 'RED', 'ORANGE', 'YELLOW', 'BLUE', 'GREEN']\n        reqColor:\n          type: string\n          enum: ['BLACK', 'RED', 'ORANGE', 'YELLOW', 'BLUE', 'GREEN']\n      required:\n        - reqColor\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue______kotlinArrayEnumEmbedded.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue______kotlinArrayEnumEmbedded.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

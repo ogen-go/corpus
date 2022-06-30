@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oracle/helidon"
+		},
+		"file": {
+			"name": "openapi-greeting.yml",
+			"size": 0,
+			"path": "openapi/src/test/resources/openapi-greeting.yml",
+			"byteSize": 2766,
+			"content": "#\n# Copyright (c) 2019, 2021 Oracle and/or its affiliates.\n# \n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n# \n#     http://www.apache.org/licenses/LICENSE-2.0\n# \n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n# \n---\nopenapi: 3.0.0\nx-my-personal-map:\n  owner:\n    first: Me\n    last: Myself\n  value-1: 2.3\nx-other-item: 10\nx-boolean: true\nx-int: 117\nx-string-array:\n  - one\n  - two\nx-object-array:\n  - name: item-1\n    value: 16\n  - name: item-2\n    value: 18\ninfo:\n  title: Helidon SE OpenAPI test \n  description: OpenAPI document for testing\n\n  version: 1.0.0\n  x-my-personal-seq:\n    - who: Prof. Plum\n      why: felt like it\n    - when: yesterday\n      how: with the lead pipe\n\nservers:\n  - url: http://localhost:8000\n    description: Local test server\n\npaths:\n  /greet/greeting:\n    put:\n      summary: Sets the greeting prefix\n      description: Permits the client to set the prefix part of the greeting (\"Hello\")\n      requestBody:\n        description: Conveys the new greeting prefix to use in building greetings\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - greeting\n              properties:\n                greeting:\n                  type: string\n\n      responses:\n        '204':\n          description: Greeting set\n\n  /greet/:\n    get:\n      summary: Returns a generic greeting\n      description: Greets the user generically\n      responses:\n        '200':\n          description: Simple JSON containing the greeting\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n                    example: Hello World!\n  /greet/{userID}:\n    get:\n      summary: Returns a personalized greeting\n      parameters:\n        - name: userID\n          in: path\n          required: true\n          description: Name of the user to be used in the returned greeting\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Simple JSON containing the greeting\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n                    example: Hello Joe!\n",
+			"canonicalURL": "/github.com/oracle/helidon@19863e66fba6522131bdd1e37203151af3968310/-/blob/openapi/src/test/resources/openapi-greeting.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oracle/helidon/blob/19863e66fba6522131bdd1e37203151af3968310/openapi/src/test/resources/openapi-greeting.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

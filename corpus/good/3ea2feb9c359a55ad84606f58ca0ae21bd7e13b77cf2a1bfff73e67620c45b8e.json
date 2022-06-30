@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eosnetworkfoundation/mandel"
+		},
+		"file": {
+			"name": "db_size.swagger.yaml",
+			"size": 0,
+			"path": "plugins/db_size_api_plugin/db_size.swagger.yaml",
+			"byteSize": 1426,
+			"content": "openapi: 3.0.0\ninfo:\n  title: DB Size API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /db_size/get:\n    post:\n      summary: get\n      description: Retrieves database stats\n      operationId: get\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties: {}\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                description: Defines the database stats\n                properties:\n                  free_bytes:\n                    type: integer\n                  used_bytes:\n                    type: integer\n                  size:\n                    type: integer\n                  indices:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        index:\n                          type: string\n                        row_count:\n                          type: integer\n",
+			"canonicalURL": "/github.com/eosnetworkfoundation/mandel@4ef2e72c00f149add060939c015d321ced3d37d5/-/blob/plugins/db_size_api_plugin/db_size.swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eosnetworkfoundation/mandel/blob/4ef2e72c00f149add060939c015d321ced3d37d5/plugins/db_size_api_plugin/db_size.swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

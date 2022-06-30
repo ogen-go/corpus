@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "api_with_openapi_definition_body_no_flag.yaml",
+			"size": 0,
+			"path": "tests/translator/input/api_with_openapi_definition_body_no_flag.yaml",
+			"byteSize": 1414,
+			"content": "Globals:\n  Api:\n    Name: \"some api\"\n    CacheClusterEnabled: True\n    CacheClusterSize: \"1.6\"\n    Auth:\n      DefaultAuthorizer: MyCognitoAuth\n      Authorizers:\n        MyCognitoAuth:\n          UserPoolArn: !GetAtt MyUserPool.Arn\n    Variables:\n      SomeVar: Value\n\nResources:\n  ImplicitApiFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: s3://sam-demo-bucket/member_portal.zip\n      Handler: index.gethtml\n      Runtime: nodejs12.x\n      Events:\n        GetHtml:\n          Type: Api\n          Properties:\n            Path: /\n            Method: get\n\n  ExplicitApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: SomeStage\n      DefinitionBody:\n        openapi: 3.1.1\n        info:\n          version: '1.0'\n          title: !Ref AWS::StackName\n        paths:\n          \"/\":\n            get:\n              x-amazon-apigateway-integration:\n                httpMethod: POST\n                type: aws_proxy\n                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ImplicitApiFunction.Arn}/invocations\n              responses: {}\n\n  MyUserPool:\n    Type: AWS::Cognito::UserPool\n    Properties:\n      UserPoolName: UserPoolName\n      Policies:\n        PasswordPolicy:\n          MinimumLength: 8\n      UsernameAttributes:\n        - email\n      Schema:\n        - AttributeDataType: String\n          Name: email\n          Required: false",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/tests/translator/input/api_with_openapi_definition_body_no_flag.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/tests/translator/input/api_with_openapi_definition_body_no_flag.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

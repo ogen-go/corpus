@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/spectral-postman"
+		},
+		"file": {
+			"name": "cosmos.yaml",
+			"size": 0,
+			"path": "cosmos.yaml",
+			"byteSize": 2319,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Cosmos\n  description: A sample API that retrieves constellations as an example to demonstrate features in the OpenAPI 3.0 specification\n  license:\n    name: MIT\nservers:\n  - url: https://e8c086f7-a5c9-4752-b81f-bfac0d0dc5d2.mock.pstmn.io\npaths:\n  /cosmos:\n    get:\n      description: Returns all constellations in this sample dataset\n      summary: List all cosmos\n      operationId: listCosmos\n      tags:\n        - cosmos\n      responses:\n        \"200\":\n          description: An array of constellations\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Cosmos\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n  /cosmos/{cosmoId}:\n    get:\n      description: Returns a constellation based on a single ID\n      summary: Info for a specific constellation\n      operationId: showCosmoById\n      tags:\n        - cosmos\n      parameters:\n        - name: cosmoId\n          in: path\n          required: true\n          description: The id of the constellation to retrieve\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Cosmo\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Cosmos:\n      type: array\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Cosmo:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n        description:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/postmanlabs/spectral-postman@7bf393251f6c04a1668ce77d262950a828182642/-/blob/cosmos.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/spectral-postman/blob/7bf393251f6c04a1668ce77d262950a828182642/cosmos.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

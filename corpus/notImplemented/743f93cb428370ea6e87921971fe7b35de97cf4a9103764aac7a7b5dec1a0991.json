@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/credifit-br/brazilian-banks-api"
+		},
+		"file": {
+			"name": "doc.yaml",
+			"size": 0,
+			"path": "public/doc.yaml",
+			"byteSize": 1080,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Brazilian Banks Api\n  version: 1.0.0\npaths:\n  \"/api/feriados/:data\":\n    get:\n      operationId: getFeriado\n      summary: Retorna um feriado bancário a partir de uma data\n      parameters:\n        - name: data\n          in: path\n          required: true\n          description: Data do feriado no no formato ISO 8601 YYYY-MM-DD\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: |-\n            A data informada é um feriado bancário\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    {\n                      \"name\": \"Dia Mundial da Paz\",\n                      \"date\": \"2021-01-01\",\n                      \"type\": \"Feriado Nacional\",\n                    }\n        \"404\":\n          description: |-\n            A data fornecida não é um feriado bancário\n          content:\n            application/json:\n              examples:\n                foo:\n                  value: { \"message\": \"Data não encontrada\" }\n",
+			"canonicalURL": "/github.com/credifit-br/brazilian-banks-api@57a617ae7c6a57d7e0367f81cfe080f1e9969b41/-/blob/public/doc.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/credifit-br/brazilian-banks-api/blob/57a617ae7c6a57d7e0367f81cfe080f1e9969b41/public/doc.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/feriados/:data\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

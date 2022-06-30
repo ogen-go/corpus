@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/blockexchange/blockexchange_server"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "openapi.yml",
+			"byteSize": 1261,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Blockexchange API\n  description: blockexchange cloud schema exchanger api docs\n  version: latest\nservers:\n  - url: https://blockexchange.minetest.land/api\n    description: blockexchange.minetest.land central server\n\ncomponents:\n  schemas:\n    Info:\n      type: object\n      properties:\n        api_version_major: \n          type: number\n        api_version_minor: \n          type: number\n        name:\n          type: string\n        owner:\n          type: string\npaths:\n  /info:\n    get:\n      tags: [\"info\"]\n      summary: Returns some infos about the running blockexchange\n      responses:\n        '200':    # status code\n          description: info object\n          content:\n            application/json:\n              schema: \n                $ref: '#/components/schemas/Info'\n  /token:\n    post:\n      tags: [\"token\"]\n      summary: exchange login credentials with a token\n      responses:\n        '200':\n          description: the resulting jwt token\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+			"canonicalURL": "/github.com/blockexchange/blockexchange_server@34f077bb949c4c494162af28853d450e6c7a0003/-/blob/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/blockexchange/blockexchange_server/blob/34f077bb949c4c494162af28853d450e6c7a0003/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/token\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "AnnotatedModelAndContentExample.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/examples/AnnotatedModelAndContentExample.yaml",
+			"byteSize": 1545,
+			"content": "openapi: 3.0.1\npaths:\n  /test:\n    post:\n      operationId: testAnnotatedModel\n      requestBody:\n        description: Created user object\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AnnotatedSubscription'\n            examples:\n              Default Request 2:\n                summary: Subscription  Example 2\n                description: Default Request 2\n                value:\n                  subscriptionId: \"12\"\n                  subscriptionItem:\n                    subscriptionItemId: \"22\"\n              Default Request:\n                summary: Subscription  Example\n                description: Default Request\n                value:\n                  subscriptionId: \"1\"\n                  subscriptionItem:\n                    subscriptionItemId: \"2\"\n        required: true\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/AnnotatedSubscription'\ncomponents:\n  schemas:\n    AnnotatedSubscriptionItem:\n      type: object\n      properties:\n        subscriptionItemId:\n          type: string\n      example:\n        subscriptionItemId: \"1\"\n    AnnotatedSubscription:\n      type: object\n      properties:\n        subscriptionId:\n          type: string\n        subscriptionItem:\n          $ref: '#/components/schemas/AnnotatedSubscriptionItem'\n      example:\n        subscriptionId: \"1\"\n        subscriptionItem:\n          subscriptionItemId: \"2\"\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/examples/AnnotatedModelAndContentExample.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/examples/AnnotatedModelAndContentExample.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test\": post: responses: default: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wikimedia/eventgate"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "spec.yaml",
+			"byteSize": 2589,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.7.0\n  title: EventGate\n  description: Validates and produces events\n  termsOfService: https://wikimediafoundation.org/wiki/Terms_of_Use\n  license:\n    name: Apache2 License\n    url: http://www.apache.org/licenses/LICENSE-2.0\n\npaths:\n  # from routes/root.js\n  /robots.txt:\n    get:\n      tags:\n        - Root\n        - Robots\n      description: Gets robots.txt\n      responses:\n        200:\n          description: Success\n        default:\n          description: Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-amples:\n        - title: robots.txt check\n          request: {}\n          response:\n            status: 200\n  /:\n    get:\n      tags:\n        - Root\n      description: The root service end-point\n      responses:\n        200:\n          description: Success\n        default:\n          description: Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-amples:\n        - title: root with no query params\n          request: {}\n          response:\n            status: 404\n        - title: spec from root\n          request:\n            query:\n              spec: true\n          response:\n            status: 200\n        - title: doc from root\n          request:\n            query:\n              doc: true\n          response:\n            status: 200\n        - title: root with wrong query param\n          request:\n            query:\n              fooo: true\n          response:\n            status: 404\n\n  # from routes/events.js\n  /v1/events:\n    post:\n      summary: Produce events\n      responses:\n        201:\n          description: Success\n        202:\n          description: Hasty success. Response returned before events guaranteed to be persisted.\n        207:\n          description: Partial Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/problem'\n        400:\n          description: Failure\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/problem'\n\ncomponents:\n  schemas:\n    # A https://tools.ietf.org/html/draft-nottingham-http-problem\n    problem:\n      required:\n        - type\n      properties:\n        status:\n          type: integer\n        type:\n          type: string\n        title:\n          type: string\n        detail:\n          type: string\n        method:\n          type: string\n        uri:\n          type: string",
+			"canonicalURL": "/github.com/wikimedia/eventgate@5b6b3b995d44568edaabd92196fa144d56275fb2/-/blob/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wikimedia/eventgate/blob/5b6b3b995d44568edaabd92196fa144d56275fb2/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

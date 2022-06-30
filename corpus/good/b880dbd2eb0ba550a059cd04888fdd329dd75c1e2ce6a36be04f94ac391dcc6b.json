@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-processor/openapi-processor-spring"
+		},
+		"file": {
+			"name": "openapi30.yaml",
+			"size": 0,
+			"path": "src/testInt/resources/tests/params-complex-data-types/inputs/openapi30.yaml",
+			"byteSize": 935,
+			"content": "openapi: 3.0.2\ninfo:\n  title: test complex parameters\n  version: 1.0.0\n\npaths:\n\n  /endpoint-object:\n    get:\n      description: \u003c\n        should be mapped to a `Props` pojo\n\n          /endpoint-object?prop1=foo\u0026prop2=bar\n\n      parameters:\n        - name: props\n          description: query parameter object\n          in: query\n          schema:\n            $ref: '#/components/schemas/Props'\n      responses:\n        '204':\n          description: empty\n\n  /endpoint-map:\n    get:\n      description: \u003c\n        should be mapped to a `Map` (from mapping)\n      parameters:\n        - name: props\n          description: query parameter object\n          in: query\n          schema:\n            $ref: '#/components/schemas/Props'\n      responses:\n        '204':\n          description: empty\n\ncomponents:\n\n  schemas:\n\n    Props:\n      type: object\n      properties:\n        prop1:\n          type: string\n        prop2:\n          type: string\n",
+			"canonicalURL": "/github.com/openapi-processor/openapi-processor-spring@0b1232400ddc857bdd30b9472ab28eecc5e58a97/-/blob/src/testInt/resources/tests/params-complex-data-types/inputs/openapi30.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openapi-processor/openapi-processor-spring/blob/0b1232400ddc857bdd30b9472ab28eecc5e58a97/src/testInt/resources/tests/params-complex-data-types/inputs/openapi30.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

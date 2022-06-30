@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
+		},
+		"file": {
+			"name": "Parameter.yaml",
+			"size": 0,
+			"path": "com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/Parameter.yaml",
+			"byteSize": 1726,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Headers Object\n  version: \"1.0.0\"\nservers:\n  - url: https://api.uber.com/v1\n  \npaths: \n\n  /pets:\n    parameters:\n      #KZOE-ref name=\"parameter in path item\", value=\"components/parameters\" kzoe-arrayItem \n     - $ref: \"#/components/parameters/username\"\n    get:\n      parameters:\n        #KZOE-ref name=\"parameter in operation\", value=\"components/parameters\" kzoe-arrayItem \n        - $ref: \"#/components/parameters/id\"\n      summary: Read\n      description: Provide details for the entire list (for collection resources) or an item (for object resources)\n      responses:\n        '200':\n          description: A simple string response\n          \ncomponents: \n\n  parameters:\n    test:\n      #KZOE-ref name=\"parameter in components/parameters\", value=\"components/parameters\"\n      $ref: \"#/components/parameters/id\"\n    # header parameter\n    token:\n      name: token\n      in: header\n      description: token to be passed as a header\n      required: true\n      schema:\n        type: array\n        items:\n          type: integer\n          format: int64\n      style: simple  \n\n# path parameter      \n    username:\n      name: username\n      in: path\n      description: username to fetch\n      required: true\n      schema:\n        type: string \n        \n   # query parameter\n    id:\n      name: id\n      in: query\n      description: ID of the object to fetch\n      required: false\n      schema:\n        type: array\n        items:\n          type: string\n      style: form\n      explode: true        \n      \n      # freeform query parameter\n    freeform:\n      in: query\n      name: freeForm\n      schema:\n        type: object\n        additionalProperties:\n          type: integer\n      style: form",
+			"canonicalURL": "/github.com/RepreZen/KaiZen-OpenAPI-Editor@7c199211d432c4bbd8915f26791282546fa750e5/-/blob/com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/Parameter.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RepreZen/KaiZen-OpenAPI-Editor/blob/7c199211d432c4bbd8915f26791282546fa750e5/com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/Parameter.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

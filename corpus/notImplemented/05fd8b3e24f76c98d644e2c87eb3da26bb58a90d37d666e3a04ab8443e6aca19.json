@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_9086_expected.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/2_0/issue_9086_expected.yaml",
+			"byteSize": 845,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Buggy Api\n  version: \"1.0\"\nservers:\n  - url: /\npaths:\n  /foo/bar:\n    post:\n      responses:\n        \"200\":\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/_foo_bar_post_200_response'\n          description: ok\n  /foo/bar2:\n    post:\n      responses:\n        \"200\":\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/bar2'\n          description: ok\ncomponents:\n  schemas:\n    bar2:\n      example:\n        \"n\": 4.56\n      properties:\n        \"n\":\n          example: 4.56\n          type: number\n      type: object\n    _foo_bar_post_200_response:\n      example:\n        \"n\": 1.23\n      properties:\n        \"n\":\n          example: 1.23\n          type: number\n      type: object\nx-original-swagger-version: \"2.0\"",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/2_0/issue_9086_expected.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/2_0/issue_9086_expected.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/foo/bar\": post: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

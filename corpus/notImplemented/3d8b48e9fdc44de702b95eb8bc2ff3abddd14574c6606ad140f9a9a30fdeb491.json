@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zaproxy/zap-extensions"
+		},
+		"file": {
+			"name": "OpenApi_defn_anyof_schema.yaml",
+			"size": 0,
+			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_anyof_schema.yaml",
+			"byteSize": 714,
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              anyOf:\n                - $ref: '#/components/schemas/PetByAge'\n                - $ref: '#/components/schemas/PetByType'\n      responses:\n        '200':\n          description: Updated\n\ncomponents:\n  schemas:\n    PetByAge:\n      type: object\n      properties: \n        age: \n          type: integer\n        nickname: \n          type: string\n      required:\n        - age\n          \n    PetByType:\n      type: object\n      properties:\n        pet_type:\n          type: string\n          enum: [Cat, Dog]\n        hunts:\n          type: boolean\n      required: \n        - pet_type",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@e9a7bcc56b8a383668a755ccdca1be18aa99052e/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_anyof_schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zaproxy/zap-extensions/blob/e9a7bcc56b8a383668a755ccdca1be18aa99052e/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_anyof_schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": patch: requestBody: contents: application/json: generate schema: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

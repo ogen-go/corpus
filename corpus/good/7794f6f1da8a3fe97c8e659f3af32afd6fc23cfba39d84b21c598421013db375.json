@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Go-phie/mythra"
+		},
+		"file": {
+			"name": "Mythra.v1.yaml",
+			"size": 0,
+			"path": "reference/Mythra.v1.yaml",
+			"byteSize": 3859,
+			"content": "openapi: 3.0.0\ntags: []\ninfo:\n  title: Mythra\n  version: '1.0'\n  contact:\n    name: Diretnan Domnan\n    url: 'https://diretnan.live'\n    email: diretnandomnan@gmail.com\n  termsOfService: 'https://github.com/deven96/mythra'\n  license:\n    url: 'https://github.com/deven96/mythra/blob/master/LICENSE'\n    name: GNU Affero Public License\n  description: In my bid to learn Rust I turned to an age old friend... web scraping. I built this API to be able to search for songs and return valid details for the songs\nservers:\n  - url: 'https://mythra.gophie.cam'\n    description: Deploy Mythra\npaths:\n  /search:\n    get:\n      summary: Search for songs\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Music'\n              examples:\n                example-1:\n                  value:\n                    - index: 17\n                      artiste: Justin Timberlake\n                      title: Mirrors\n                      collection: ''\n                      picture_link: 'https://i2.wp.com/ytimg.googleusercontent.com/vi/Zqe5NP86OCc/mqdefault.jpg?resize=96,96'\n                      download_link: 'https://mp3.cloud/download/h2dg1NUx8CI'\n                      size: 7.92MB\n                      duration: '08:34'\n                      source: myfreemp3\n                    - index: 18\n                      artiste: Justin Timberlake\n                      title: Mirrors\n                      collection: ''\n                      picture_link: 'https://i2.wp.com/ytimg.googleusercontent.com/vi/Zqe5NP86OCc/mqdefault.jpg?resize=96,96'\n                      download_link: 'https://mp3.cloud/download/h2dg1NUx8CI'\n                      size: 4.34MB\n                      duration: '05:34'\n                      source: myfreemp3\n      operationId: get-list\n      parameters:\n        - schema:\n            type: string\n            default: myfreemp3\n          in: query\n          name: engine\n          description: engine to retrieve mp3 from\n          required: true\n        - schema:\n            type: string\n            default: Mirrors Justin Timberlake\n          in: query\n          name: query\n          description: query terms to use\n          required: true\n      description: Search for music\n    parameters: []\ncomponents:\n  schemas:\n    Music:\n      title: Music\n      type: object\n      properties:\n        index:\n          type: integer\n          description: 'Index of the song, only unique to current search'\n        artiste:\n          type: string\n          description: Name of artiste on mp3\n        title:\n          type: string\n          description: Title of the mp3 song\n        collection:\n          type: string\n          description: Album the song belongs to\n        picture_link:\n          type: string\n          description: Link to cover art of the song\n        download_link:\n          type: string\n          description: Download link of the song\n        size:\n          type: string\n          description: Size of the song\n        duration:\n          type: string\n          description: Total time of the song\n        source:\n          type: string\n          description: Engine the mp3 is gotten from\n      required:\n        - index\n        - title\n        - download_link\n        - source\n      description: Music model for mythra\n      x-examples:\n        example-1:\n          index: 17\n          artiste: Justin Timberlake\n          title: Mirrors\n          collection: null\n          picture_link: 'https://i2.wp.com/ytimg.googleusercontent.com/vi/Zqe5NP86OCc/mqdefault.jpg?resize=96,96'\n          download_link: 'https://mp3.cloud/download/h2dg1NUx8CI'\n          size: 7.92MB\n          duration: '08:34'\n          source: myfreemp3\n\n",
+			"canonicalURL": "/github.com/Go-phie/mythra@fad046cbdb5884ab72c7a2fdc16543c20145d5e2/-/blob/reference/Mythra.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Go-phie/mythra/blob/fad046cbdb5884ab72c7a2fdc16543c20145d5e2/reference/Mythra.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse-dataspaceconnector/DataSpaceConnector"
+		},
+		"file": {
+			"name": "asset.yaml",
+			"size": 0,
+			"path": "resources/openapi/yaml/asset.yaml",
+			"byteSize": 2504,
+			"content": "openapi: 3.0.1\npaths:\n  /assets:\n    get:\n      operationId: getAllAssets\n      parameters:\n      - in: query\n        name: offset\n        schema:\n          type: integer\n          format: int32\n      - in: query\n        name: limit\n        schema:\n          type: integer\n          format: int32\n      - in: query\n        name: filter\n        schema:\n          type: string\n      - in: query\n        name: sort\n        schema:\n          type: string\n          enum:\n          - ASC\n          - DESC\n      - in: query\n        name: sortField\n        schema:\n          type: string\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/AssetDto'\n          description: default response\n      tags:\n      - Asset\n    post:\n      operationId: createAsset\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AssetEntryDto'\n      responses:\n        default:\n          content:\n            application/json: {}\n          description: default response\n      tags:\n      - Asset\n  /assets/{id}:\n    delete:\n      operationId: removeAsset\n      parameters:\n      - in: path\n        name: id\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          content:\n            application/json: {}\n          description: default response\n      tags:\n      - Asset\n    get:\n      operationId: getAsset\n      parameters:\n      - in: path\n        name: id\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AssetDto'\n          description: default response\n      tags:\n      - Asset\ncomponents:\n  schemas:\n    AssetDto:\n      type: object\n      properties:\n        properties:\n          type: object\n          additionalProperties:\n            type: object\n      required:\n      - properties\n    AssetEntryDto:\n      type: object\n      properties:\n        asset:\n          $ref: '#/components/schemas/AssetDto'\n        dataAddress:\n          $ref: '#/components/schemas/DataAddressDto'\n      required:\n      - asset\n      - dataAddress\n    DataAddressDto:\n      type: object\n      properties:\n        properties:\n          type: object\n          additionalProperties:\n            type: string\n",
+			"canonicalURL": "/github.com/eclipse-dataspaceconnector/DataSpaceConnector@fb4dd6757031c256573696e1c63e9ec98f53eb6f/-/blob/resources/openapi/yaml/asset.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/blob/fb4dd6757031c256573696e1c63e9ec98f53eb6f/resources/openapi/yaml/asset.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/assets\": post: responses: default: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

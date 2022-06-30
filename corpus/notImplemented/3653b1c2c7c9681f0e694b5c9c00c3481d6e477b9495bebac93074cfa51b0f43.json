@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anttiviljami/openapi-backend"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "examples/express-ts-mock/openapi.yml",
+			"byteSize": 1243,
+			"content": "openapi: 3.0.1\ninfo:\n  title: My API\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      operationId: getPets\n      responses:\n        '200':\n          $ref: '#/components/responses/ListPetsRes'\n    post:\n      operationId: createPet\n      requestBody:\n        description: Pet object to create\n        content:\n          application/json: {}\n      responses:\n        '201':\n          $ref: '#/components/responses/PetRes'\n  '/pets/{id}':\n    get:\n      operationId: getPetById\n      responses:\n        '200':\n          $ref: '#/components/responses/PetRes'\n    parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: integer\ncomponents:\n  responses:\n    ListPetsRes:\n      description: ok\n      content:\n        application/json:\n          schema:\n            type: array\n            items:\n              type: object\n              properties:\n                id:\n                  type: integer\n                  minimum: 1\n                name:\n                  type: string\n                  example: Odie\n    PetRes:\n      description: ok\n      content:\n        application/json:\n          examples:\n            garfield:\n              value:\n                id: 1\n                name: Garfield\n",
+			"canonicalURL": "/github.com/anttiviljami/openapi-backend@acf5a1e0b2d1c5fa013bf44de7be65fc81d56851/-/blob/examples/express-ts-mock/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anttiviljami/openapi-backend/blob/acf5a1e0b2d1c5fa013bf44de7be65fc81d56851/examples/express-ts-mock/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

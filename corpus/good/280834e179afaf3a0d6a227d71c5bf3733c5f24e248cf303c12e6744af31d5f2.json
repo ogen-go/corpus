@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/geoserver/geoserver"
+		},
+		"file": {
+			"name": "manifests.yaml",
+			"size": 0,
+			"path": "src/community/rest-openapi/openapi/src/main/resources/org/geoserver/rest/openapi/1.0.0/manifests.yaml",
+			"byteSize": 2893,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: GeoServer Manifests API\n  description: GeoServer provides a REST service to expose a listing of all loaded JARs and resources on the running instance. This is useful for bug reports and to keep track of extensions deployed into the application.\nsecurity:\n- basicAuth: [\n    ]\ntags:\n- name: manifests\n  description: Manifests API\npaths:\n  /about/version:\n    get:\n      description: 'This endpoint shows only the details for the high-level components:\n        GeoServer, GeoTools, and GeoWebCache. Use the \"Accept:\" header to specify\n        format or append an extension to the endpoint (example \"/about/manifest.xml\"\n        for XML).'\n      operationId: getComponentVersions\n      tags:\n      - manifests\n      parameters:\n      - name: manifest\n        in: query\n        description: The manifest parameter is used to filter over resulting resource (manifest) names attribute using Java regular expressions.\n        required: false\n        schema:\n          type: string\n      - name: key\n        in: query\n        description: Only return manifest entries with this key in their properties. It can be optionally combined with the value parameter.\n        required: false\n        schema:\n          type: string\n      - name: value\n        in: query\n        description: Only return manifest entries that have this value for the provided key parameter.\n        required: false\n        schema:\n          type: string\n      responses:\n        '200':\n          $ref: '#/components/responses/VersionResponse'\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      description: HTTP Basic Authentication. Works over `HTTP` and `HTTPS`\n      scheme: basic\n  responses:\n    VersionResponse:\n      description: Main components version\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/VersionResponse'\n  schemas:\n    VersionResponse:\n      type: object\n      properties:\n        about:\n          type: object\n          properties:\n            resource:\n              type: array\n              items:\n                $ref: '#/components/schemas/ComponentVersion'\n      example: '{\"about\":{\"resource\":[{\"@name\":\"GeoTools\",\"Build-Timestamp\":\"06-Jun-2019\n        09:18\",\"Version\":\"21-SNAPSHOT\",\"Git-Revision\":\"45911eb56bf9560b442b88ed01bf7f540b9f407d\"},{\"@name\":\"GeoWebCache\",\"Version\":\"1.15-SNAPSHOT\",\"Git-Revision\":\"e9fb27dcc5d0b1256944434a103591755c1423c1\\/e9fb27dcc5d0b1256944434a103591755c1423c1\"}]}}'\n    ComponentVersion:\n      type: object\n      properties:\n        '@name':\n          type: string\n          example: GeoTools\n        Build-Timestamp:\n          type: string\n          example: 06-Jun-2019 09:18\n        Git-Revision:\n          type: string\n          example: 5911eb56bf9560b442b88ed01bf7f540b9f407d\n        Version:\n          type: string\n          example: 21-SNAPSHOT",
+			"canonicalURL": "/github.com/geoserver/geoserver@969c2d59661ae60bea6696fdc33fab4c3c1539b5/-/blob/src/community/rest-openapi/openapi/src/main/resources/org/geoserver/rest/openapi/1.0.0/manifests.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/geoserver/geoserver/blob/969c2d59661ae60bea6696fdc33fab4c3c1539b5/src/community/rest-openapi/openapi/src/main/resources/org/geoserver/rest/openapi/1.0.0/manifests.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

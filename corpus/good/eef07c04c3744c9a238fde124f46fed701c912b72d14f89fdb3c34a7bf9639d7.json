@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "polymorphism.declared-discriminator-no-mapping-schema.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/polymorphism.declared-discriminator-no-mapping-schema.json",
+			"byteSize": 2082,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/pets/{id}\": {\n      \"get\": {\n        \"summary\": \"Returns an AbstractPet with a discriminator declared in the response, no mapping due to undeclared mapping schema\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"oneOf\": [\n                    {\n                      \"$ref\": \"#/components/schemas/Cat\"\n                    },\n                    {\n                      \"$ref\": \"#/components/schemas/Dog\"\n                    },\n                    {\n                      \"$ref\": \"#/components/schemas/Lizard\"\n                    }\n                  ],\n                  \"discriminator\": {\n                    \"propertyName\": \"pet_type\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Cat\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"pet_type\"\n        ],\n        \"properties\": {\n          \"pet_type\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Dog\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"pet_type\"\n        ],\n        \"properties\": {\n          \"pet_type\": {\n            \"type\": \"string\"\n          },\n          \"dog_name\" : {\n            \"type\": \"string\",\n            \"description\": \"An annotated method, no field!\"\n          },\n          \"bark\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Lizard\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"pet_type\"\n        ],\n        \"properties\": {\n          \"pet_type\": {\n            \"type\": \"string\"\n          },\n          \"lovesRocks\": {\n            \"type\": \"boolean\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/polymorphism.declared-discriminator-no-mapping-schema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/polymorphism.declared-discriminator-no-mapping-schema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

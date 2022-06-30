@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_8535.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_8535.yaml",
+			"byteSize": 2938,
+			"content": "openapi: 3.0.1\ninfo:\n  title: toto\n  version: 1.0.0\n  description: desc\nservers:\n  - url: \"/\"\n    description: \"/\"\ntags:\n  - name: verify-default-value\n    description: verify-default-value\npaths:\n  /test-headers:\n    get:\n      tags:\n        - verify-default-value\n      summary: test headers\n      description: desc\n      operationId: headersTest\n      parameters:\n        - name: headerNumber\n          in: header\n          schema:\n            type: number\n            default: 11.2\n        - name: headerString\n          in: header\n          schema:\n            type: string\n            default: qwerty\n        - name: headerStringWrapped\n          in: header\n          schema:\n            type: string\n            default: 'qwerty'\n        - name: headerStringQuotes\n          in: header\n          schema:\n            type: string\n            default: qwerty\"with quotes\" test\n        - name: headerStringQuotesWrapped\n          in: header\n          schema:\n            type: string\n            default: 'qwerty\"with quotes\" test'\n        - name: headerBoolean\n          in: header\n          schema:\n            type: boolean\n            default: true\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\n  /test-query-params:\n    get:\n      tags:\n        - verify-default-value\n      summary: test query params\n      description: desc\n      operationId: queryParamsTest\n      parameters:\n        - name: queryNumber\n          in: query\n          schema:\n            type: number\n            default: 11.2\n        - name: queryString\n          in: query\n          schema:\n            type: string\n            default: qwerty\n        - name: queryStringWrapped\n          in: query\n          schema:\n            type: string\n            default: 'qwerty'\n        - name: queryStringQuotes\n          in: query\n          schema:\n            type: string\n            default: qwerty\"with quotes\" test\n        - name: queryStringQuotesWrapped\n          in: query\n          schema:\n            type: string\n            default: 'qwerty\"with quotes\" test'\n        - name: queryBoolean\n          in: query\n          schema:\n            type: boolean\n            default: true\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\n\ncomponents:\n  schemas:\n    TestResponse:\n      type: object\n      properties:\n        id:\n          type: integer\n        stringField:\n          type: string\n          default: asd\n        numberField:\n          type: number\n          default: 11\n        booleanField:\n          type: boolean\n          default: true\n      required:\n        - id\n        - stringField\n        - numberField\n        - booleanField",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_8535.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue_8535.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

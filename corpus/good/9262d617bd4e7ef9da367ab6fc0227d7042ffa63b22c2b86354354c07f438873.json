@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apigee/apigeecli"
+		},
+		"file": {
+			"name": "md302.yaml",
+			"size": 0,
+			"path": "test/md302.yaml",
+			"byteSize": 2877,
+			"content": "# Copyright 2022 Google LLC\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n\nopenapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: Masterdata microservice\n  description: |\n    Masterdata microservice\nservers: \n  - url: https://my.example.com/md\nsecurity:\n  - ApiKeyAuth: []  \npaths:\n  '/':\n    get:\n      summary: 'List `Masterdata` objects.'\n      description: |\n        Fetches list of masterdata of all items we carry\n      # This is an array of GET operation parameters:\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  persons:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/ListOfMasterdata'\n                  nextPageToken:\n                    description: |\n                      A token which can be sent as `pageToken`\n                      to retrieve the next page.\n                    type: string\n  '/{name}':\n    get:\n      description: 'Retrieve a single Person object.'\n      parameters:\n        - name: name\n          in: path\n          description: |\n            Unique identifier of the desired person object.\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Masterdata'\n        '404':\n          description: 'Item was not found'\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: X-API-KEY\n  schemas:\n    ListOfMasterdata:\n      title: List of Masterdata\n      type: array\n      items:\n        $ref: '#/components/schemas/Masterdata'\n    Masterdata:\n      title: Masterdata\n      type: object\n      properties:\n        name:\n          description: |\n            name of the item\n            Format: `persons/{personId}`\n          type: string\n          example: \"md/a353-x51d\"\n          pattern: 'md\\/[a-z0-9-]+'\n        desc:\n          description: 'the description of the item'\n          type: string\n        imgUrl:\n          description: 'the url to the image'\n          type: string\n        id:\n          description: 'uuid of the item in question'\n          type: string\n",
+			"canonicalURL": "/github.com/apigee/apigeecli@05536eb21f48a2e83f9aa15a061e675746dbe340/-/blob/test/md302.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apigee/apigeecli/blob/05536eb21f48a2e83f9aa15a061e675746dbe340/test/md302.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/barosanuemailtest/ManagerServer"
+		},
+		"file": {
+			"name": "Api-documentation.yml",
+			"size": 0,
+			"path": "doc/Api-documentation.yml",
+			"byteSize": 3416,
+			"content": "openapi: 3.0.0\ninfo:\n  description: User secure server\n  title: User secure server API description\n  version: 1.0.0\nservers:\n  - url: http://localhost:8080\nsecurity:\n  - basicAuth: []\npaths:\n  /login:\n    post:\n      tags:\n        - login\n      summary: generates a session token\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                username:\n                  type: string\n                password:\n                  type: string\n      responses:\n        \"201\":\n          description: session token\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  accessRights:\n                    type: array\n                    items:\n                      type: number\n                  expirationTime:\n                    type: object\n                  username:\n                    type: string\n                  valid:\n                    type: boolean\n                  tokenId:\n                    type: string\n        \"404\":\n          description: user not found\n  /users/{id}:\n    get:\n      tags:\n        - users\n      summary: Returns a user by id\n      security:\n        - basicAuth: []\n      parameters:\n        - in: path\n          name: id\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n        \"401\":\n          description: Forbidden\n    delete:\n      tags:\n        - users\n      summary: Deletes a user by id\n      security:\n        - basicAuth: []\n      parameters:\n        - in: path\n          name: id\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n        \"401\":\n          description: Forbidden\n  /users/{name}:\n    get:\n      tags:\n        - users\n      summary: Returns users by name\n      security:\n        - basicAuth: []\n      parameters:\n        - in: path\n          name: name\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/UsersArray\"\n        \"401\":\n          description: Forbidden\n  /users:\n    post:\n      tags:\n        - users\n      summary: Creates a user\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/User\"\n      responses:\n        \"201\":\n          description: user created\n        \"401\":\n          description: Unauthorized\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: apiKey\n      in: header\n      name: Authorization\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n        age:\n          type: integer\n        email:\n          type: string\n        workingPosition:\n          type: integer\n    UsersArray:\n      type: array\n      items:\n        $ref: \"#/components/schemas/User\"\n",
+			"canonicalURL": "/github.com/barosanuemailtest/ManagerServer@02174f7001d6dfb0820fd180205ba9627faeba67/-/blob/doc/Api-documentation.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/barosanuemailtest/ManagerServer/blob/02174f7001d6dfb0820fd180205ba9627faeba67/doc/Api-documentation.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

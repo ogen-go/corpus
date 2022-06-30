@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stoplightio/vscode-spectral"
+		},
+		"file": {
+			"name": "simple.yaml",
+			"size": 0,
+			"path": "client/src/__tests__/e2e/workspaces/basic_ruleset/valid/simple.yaml",
+			"byteSize": 1727,
+			"content": "openapi: 3.0.2\ninfo:\n  version: 1.0.0\n  title: Example.com\n  termsOfService: \"https://example.com/terms/\"\n  contact:\n    email: contact@example.com\n    url: \"http://example.com/contact\"\n  license:\n    name: Apache 2.0\n    url: \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n  description: \u003e\n    This is an **example** API to demonstrate features of OpenAPI specification\ntags:\n  - name: Minimal\n  - name: Valid\n  - name: pets\nservers:\n  - url: \"https://example.com/api/v1\"\npaths:\n  /pets/{petId}:\n    get:\n      description: \u003e\n        This will provide with a lot of very useful information about a knwown pet.\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/stoplightio/vscode-spectral@e5c7b51d87c9bd503aee32a639bc9686fc3c2fc4/-/blob/client/src/__tests__/e2e/workspaces/basic_ruleset/valid/simple.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stoplightio/vscode-spectral/blob/e5c7b51d87c9bd503aee32a639bc9686fc3c2fc4/client/src/__tests__/e2e/workspaces/basic_ruleset/valid/simple.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

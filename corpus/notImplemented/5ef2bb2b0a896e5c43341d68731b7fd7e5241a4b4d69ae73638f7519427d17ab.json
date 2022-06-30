@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/lbroudoux/chuck-norris-streams"
+		},
+		"file": {
+			"name": "chuck-norris-facts-api.yaml",
+			"size": 0,
+			"path": "chuck-norris-facts-api.yaml",
+			"byteSize": 2052,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  title: Chuck Norris facts API\n  version: 1.0.0\npaths:\n  /api/get:\n    get:\n      summary: Get Chuck Norris facts\n      operationId: GetFacts\n      parameters:\n      - name: data\n        in: query\n        description: Filter params\n        required: false\n        schema:\n          type: string\n      responses:\n        200:\n          description: List of requested facts\n          content:\n            text/html:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Fact'\n              examples:\n                top_facts:\n                  value:\n                  - id: \"1\"\n                    fact: Chuck Norris a d\u0026eacute;j\u0026agrave; compt\u0026eacute; jusqu\u0026#039;\u0026agrave;\n                      l\u0026#039;infini. Deux fois.\n                    date: \"1373297343\"\n                    vote: \"189404\"\n                    points: \"866902\"\n                  - id: \"9355\"\n                    fact: Google, c\u0026#039;est le seul endroit o\u0026ugrave; tu peux taper\n                      Chuck Norris...\n                    date: \"1373297340\"\n                    vote: \"136456\"\n                    points: \"607433\"\n                  - id: \"2\"\n                    fact: Certaines personnes portent un pyjama Superman. Superman\n                      porte un pyjama Chuck Norris.\n                    date: \"1373297346\"\n                    vote: \"128337\"\n                    points: \"551207\"\ncomponents:\n  schemas:\n    Fact:\n      title: Root Type for Fact\n      description: The root of the Fact type's schema.\n      type: object\n      properties:\n        id:\n          type: string\n        fact:\n          type: string\n        date:\n          type: string\n        vote:\n          type: string\n        points:\n          type: string\n      example: |-\n        {\n            \"id\": \"106\",\n            \"fact\": \"Chuck Norris peut gagner une partie de puissance 4 en trois coups.\",\n            \"date\": \"1373297368\",\n            \"vote\": \"107246\",\n            \"points\": \"461431\"\n         }\n",
+			"canonicalURL": "/github.com/lbroudoux/chuck-norris-streams@cd0b44020521365f21b6173d4168fa1e332d2703/-/blob/chuck-norris-facts-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/lbroudoux/chuck-norris-streams/blob/cd0b44020521365f21b6173d4168fa1e332d2703/chuck-norris-facts-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/get\": get: responses: 200: contents: unsupported content types: [text/html]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

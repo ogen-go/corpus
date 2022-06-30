@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/harness/ff-golang-server-sdk"
+		},
+		"file": {
+			"name": "sdk_wrapper-v1.yaml",
+			"size": 0,
+			"path": "test_wrapper/test_wrapper_openapi/sdk_wrapper-v1.yaml",
+			"byteSize": 3014,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Harness SDK Test Wrapper API\n  version: 1.0.0\n  contact:\n    name: Feature Flag - developers\n    url: 'https://www.harness.io'\n    email: cf@harness.io\nservers:\n  - url: /api/1.0\n    description: no host specified\n  - url: 'http://localhost:3001/api/1.0'\n    description: FF Test Wrappers\npaths:\n  /check_flag:\n    post:\n      summary: Check the value of a flag\n      operationId: GetFlagValue\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/FlagCheckResponse'\n        '500':\n          description: Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n        '503':\n          description: Service Unavailable\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/FlagCheckBody'\n  /ping:\n    get:\n      summary: Check the system is up\n      operationId: Ping\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PongResponse'\n        '500':\n          description: Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n        '503':\n          description: Service Unavailable\ncomponents:\n  schemas:\n    FlagCheckBody:\n      type: object\n      description: Request to check flag in SDK\n      properties:\n        flag_key:\n          type: string\n          example: my_flag_key\n        flag_kind:\n          type: string\n          example: json\n        target:\n          type: object\n          properties:\n            target_identifier:\n              type: string\n              example: target_1\n            target_name:\n              type: string\n              example: Target 1\n            attributes:\n              type: object\n              properties:\n                username:\n                  type: string\n                  example: jane\n                email:\n                  type: string\n                  example: jane@example.com\n                region:\n                  type: string\n                  example: Europe\n      required:\n        - flag_key\n        - flag_kind\n    FlagCheckResponse:\n      type: object\n      description: Response to flag check in SDK\n      properties:\n        flag_key:\n          type: string\n        flag_value:\n          type: string\n      required:\n        - flag_key\n        - flag_value\n    PongResponse:\n      type: object\n      description: Response to Ping\n      properties:\n        pong:\n          type: boolean\n      required:\n        - pong\n    ErrorResponse:\n      type: object\n      description: Error Status for wrapper\n      properties:\n        error_message:\n          type: string\n      required:\n        - error_message\n",
+			"canonicalURL": "/github.com/harness/ff-golang-server-sdk@a1a3397d126d9dc383e2e6052c40605a4589ef77/-/blob/test_wrapper/test_wrapper_openapi/sdk_wrapper-v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/harness/ff-golang-server-sdk/blob/a1a3397d126d9dc383e2e6052c40605a4589ef77/test_wrapper/test_wrapper_openapi/sdk_wrapper-v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

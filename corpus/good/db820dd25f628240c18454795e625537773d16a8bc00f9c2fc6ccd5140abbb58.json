@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_9447.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_9447.yaml",
+			"byteSize": 2314,
+			"content": "openapi: 3.0.1\ninfo:\n  title: OpenAPI Petstore\n  description: \"sample to vet integer handling\"\n  license:\n    name: Apache-2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\nservers:\n  - url: http://petstore.swagger.io:80/v2\ntags: []\npaths:\n  /UnboundedInteger:\n    post:\n      operationId: UnboundedInteger\n      parameters:\n        - name: UnboundedInteger\n          in: path\n          required: true\n          schema:\n            type: integer\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: integer\n        required: true\n      responses:\n        200:\n          description: success\n          content:\n            application/json:\n              schema:\n                type: integer\n  /Int64:\n    post:\n      operationId: Int64\n      parameters:\n        - name: Int64\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: integer\n              format: int64\n        required: true\n      responses:\n        200:\n          description: success\n          content:\n            application/json:\n              schema:\n                type: integer\n                format: int64\n  /Int32:\n    post:\n      operationId: Int32\n      parameters:\n        - name: Int32\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int32\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: integer\n              format: int32\n        required: true\n      responses:\n        200:\n          description: success\n          content:\n            application/json:\n              schema:\n                type: integer\n                format: int32\ncomponents:\n  schemas:\n    UnboundedInteger:\n      type: integer\n    Int32:\n      type: integer\n      format: int32\n    Int64:\n      type: integer\n      format: int64\n    ObjectModelWithIntegerProps:\n      type: object\n      properties:\n        UnboundedInteger:\n          type: integer\n        Int32:\n          type: integer\n          format: int32\n        Int64:\n          type: integer\n          format: int64\n  securitySchemes: {}",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_9447.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue_9447.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

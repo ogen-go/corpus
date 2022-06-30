@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "inline-request-body.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/inline-request-body.yaml",
+			"byteSize": 789,
+			"content": "openapi: 3.0.1\ninfo:\n  title: testInlineRequestBody\n  version: 1.0.0\nservers:\n  - url: /testInlineRequestBody\npaths:\n  /user:\n    post:\n      summary: Post operation for the path /user\n      operationId: addUser\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                userName:\n                  description: User Name\n                  type: string\n                userPhone:\n                  description: User Phone Number\n                  type: string\n              required:\n                - userName\n                - userPhone\n      responses:\n        200:\n          description: Successful\n          content:\n            application/json:\n              example: Ok\ncomponents: {}",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/inline-request-body.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/inline-request-body.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/user\": post: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

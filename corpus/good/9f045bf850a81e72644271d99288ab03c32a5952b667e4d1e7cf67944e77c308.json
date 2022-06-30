@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ZupIT/pact-framework-examples"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "examples/node/open-api/provider/doc/swagger.yaml",
+			"byteSize": 2283,
+			"content": "openapi: 3.0.0\ninfo:\n    description: 'A Sample application using Typescipt-rest library'\n    license:\n        name: MIT\n    title: AccountApi\n    version: 0.0.1\npaths:\n    '/account/{accountID}':\n        get:\n            operationId: AccountFindById\n            responses:\n                '200':\n                    description: 'Retrieve an account information'\n                    content:\n                        'application/json; charset=utf-8':\n                            schema:\n                                $ref: '#/components/schemas/Account'\n                '404':\n                    description: 'Account not found'\n            description: \"\"\n            parameters:\n                -\n                    description: \"\"\n                    in: path\n                    name: accountID\n                    required: true\n                    schema:\n                        type: string\n    /account:\n        get:\n            operationId: AccountGetAll\n            responses:\n                '200':\n                    description: Ok\n                    content:\n                        'application/json; charset=utf-8':\n                            schema:\n                                type: array\n                                items:\n                                    $ref: '#/components/schemas/Account'\n            description: \"\"\nservers:\n    -\n        url: 'http://localhost:3334'\ncomponents:\n    securitySchemes:\n        default:\n            type: apiKey\n            in: header\n            name: Authorization\n        secondAuthenticator:\n            type: apiKey\n            in: header\n            name: Authorization\n    schemas:\n        Account:\n            description: 'Account Type Definition'\n            properties:\n                id:\n                    type: integer\n                    format: int32\n                    description: 'The accounts''s id'\n                balance:\n                    type: number\n                    format: float\n                    description: 'Account''s total amount'\n                accountType:\n                    type: string\n                    description: 'Account Type'\n            type: object\n            required:\n                - id\n                - balance\n                - accountType\n",
+			"canonicalURL": "/github.com/ZupIT/pact-framework-examples@a5cc5f2a74eaa365441302dbeca9f99ccaa38627/-/blob/examples/node/open-api/provider/doc/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ZupIT/pact-framework-examples/blob/a5cc5f2a74eaa365441302dbeca9f99ccaa38627/examples/node/open-api/provider/doc/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

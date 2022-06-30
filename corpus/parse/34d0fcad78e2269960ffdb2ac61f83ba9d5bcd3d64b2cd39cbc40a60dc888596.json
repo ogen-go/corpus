@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "pkg/importer/tests/openapi3/special-char-typename.yaml",
 			"byteSize": 790,
-			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\npaths:\n  /test/:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj:WithColon\"\n        500:\n          $ref: \"#/components/responses/500Response\"\ncomponents:\n  schemas:\n    SimpleObj:WithColon:\n      type: object\n      properties:\n        name:\n          type: string\n        namewith:colon:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj:WithColon\n  responses:\n    500Response:\n      description: Internal Server Error\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/SimpleObj:WithColon\"\n"
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\npaths:\n  /test/:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj:WithColon\"\n        500:\n          $ref: \"#/components/responses/500Response\"\ncomponents:\n  schemas:\n    SimpleObj:WithColon:\n      type: object\n      properties:\n        name:\n          type: string\n        namewith:colon:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj:WithColon\n  responses:\n    500Response:\n      description: Internal Server Error\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/SimpleObj:WithColon\"\n",
+			"canonicalURL": "/github.com/anz-bank/sysl@ed832ffbbebdb8970241347dfda3c8d6cf3eb638/-/blob/pkg/importer/tests/openapi3/special-char-typename.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anz-bank/sysl/blob/ed832ffbbebdb8970241347dfda3c8d6cf3eb638/pkg/importer/tests/openapi3/special-char-typename.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse components: schemas: \"SimpleObj2\": parse schema: property \"name\": parse schema: unexpected schema type: \"SimpleObj:WithColon\""

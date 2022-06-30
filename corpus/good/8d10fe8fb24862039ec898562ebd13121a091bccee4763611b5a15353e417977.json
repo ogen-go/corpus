@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-1266.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1266/issue-1266.yaml",
+			"byteSize": 698,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  version: \"1\"\n  title: \"Extension not inherited\"\n\ncomponents:\n  schemas:\n    ResponseModel:\n      x-extension-ref: 1\n      type: object\n      required:\n        - data\n      properties:\n        data:\n          type: \"string\"\n\npaths:\n  /test/extensions/not/inherited:\n    get:\n      responses:\n        200:\n          description: \"A test failing on the merge of extensions in a allOf\"\n          content:\n            application/json:\n              schema:\n                allOf:\n                  - $ref: \"#/components/schemas/ResponseModel\"\n                  - type: \"object\"\n                    properties:\n                      data2:\n                        type: \"string\"",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1266/issue-1266.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue-1266/issue-1266.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

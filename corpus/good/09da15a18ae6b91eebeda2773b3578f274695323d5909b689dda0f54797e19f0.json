@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nextcloud/maps"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "openapi.yml",
+			"byteSize": 2172,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Nextcloud Maps API'\n  version: '1.0'\n  contact:\n    name: Nextcloud Maps Team\n    url: https://github.com/nextcloud/maps/\nexternalDocs:\n  description: 'Based on a loose description in this ticket: https://github.com/nextcloud/maps/issues/92'\n  url: 'https://github.com/nextcloud/maps/issues/92'\nservers: \n  - url: https://{hostname}:{port}/index.php/apps/maps/api/1.0/\n    variables:\n      hostname:\n        default: localhost\n      port:\n        default: '8080'\npaths:\n  /favorites:\n    get:\n      operationId: get-favorites\n      summary: 'Get a list of the favorites'\n      responses:\n        '200':\n          description: Success\n    post:\n      operationId: add-favorites\n      summary: 'Add a favorite'\n      responses:\n        '200':\n          description: Success\n      requestBody:\n        $ref: '#/components/requestBodies/favoriteBody'\n  /favorites/{id}:\n    parameters:\n      - name: id\n        in: path\n        description: ID of favorite to use\n        required: true\n        schema:\n          type: integer\n    put:\n      operationId: edit-favorites\n      summary: 'Edit a favorite.'\n      responses:\n        '200':\n          description: Success\n      requestBody:\n        $ref: '#/components/requestBodies/favoriteBody'\n\n    delete:\n      operationId: delete-favorites\n      summary: 'Deletes a favorite'\n      responses:\n        '200':\n          description: Success\ncomponents:\n  requestBodies:\n    favoriteBody:\n      description: 'favorite data'\n      required: true\n      content:\n        'application/json':\n          schema:\n            $ref: '#/components/schemas/favorite-body'\n  schemas:\n    favorite-body:\n      type: object\n      title: 'Fav body'\n      properties:\n        name:\n          type: string\n          title: 'Favorite name'\n        lat:\n          type: number\n          title: Latitude\n          format: float\n        lng:\n          type: number\n          title: Longitude\n          format: float\n        category:\n          type: string\n          title: Category\n        comment:\n          type: string\n          title: Comment\n        extensions:\n          type: string\n          title: Extensions\n",
+			"canonicalURL": "/github.com/nextcloud/maps@07a7045ffaa3a311a8a676f197db46541065ea36/-/blob/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nextcloud/maps/blob/07a7045ffaa3a311a8a676f197db46541065ea36/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

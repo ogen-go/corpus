@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vwt-digital/openapi3-fuzzer"
+		},
+		"file": {
+			"name": "invalid-openapi.yaml",
+			"size": 0,
+			"path": "test/invalid-openapi.yaml",
+			"byteSize": 1073,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: fuzzer testers\n  description: test fuzzer\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0\n  version: 1.0.0\nx-zally-ignore: ['105']  # No oauth for this API\nservers:\n  - url: /\n    # invalid:\n    get:\n      summary: this is an invalid field\npaths:\n  /positive/plains/{register}:\n    get:\n      summary: Use the testers\n      description: Get the plain positive test\n      operationId: positive_plain\n      parameters:\n        - $ref: \"#/components/parameters/register_id\"\n      responses:\n        '200':\n          description: Successful response.\n        '400':\n          description: Bad request.\n        '404':\n          description: Not found.\n      x-codegen-request-body-name: body\n      x-openapi-router-controller: openapi_server.controllers.register_controller\ncomponents:\n  parameters:\n    register_id:\n      style: simple\n      explode: false\n      name: register\n      schema:\n        type: integer\n        minimum: 1\n        maximum: 9223372036854775807\n      in: path\n      required: true\n",
+			"canonicalURL": "/github.com/vwt-digital/openapi3-fuzzer@1f5d5b48fdda7ed77ebc3bb10c5dc37f300177fb/-/blob/test/invalid-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vwt-digital/openapi3-fuzzer/blob/1f5d5b48fdda7ed77ebc3bb10c5dc37f300177fb/test/invalid-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

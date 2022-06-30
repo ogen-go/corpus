@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-patterns"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "apigw-http-api-eventbridge-java/api.yaml",
+			"byteSize": 551,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"API Gateway HTTP API to EventBridge\"\npaths:\n  /:\n    post:\n      responses:\n        default:\n          description: \"EventBridge response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          Detail: \"$request.body.Detail\"\n          DetailType: MyDetailType\n          Source: WebApp\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"",
+			"canonicalURL": "/github.com/aws-samples/serverless-patterns@bb57be153c9bf8e6805c3cc5778eda3aa2724029/-/blob/apigw-http-api-eventbridge-java/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-patterns/blob/bb57be153c9bf8e6805c3cc5778eda3aa2724029/apigw-http-api-eventbridge-java/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

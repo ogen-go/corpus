@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/samples-is"
+		},
+		"file": {
+			"name": "SwaggerDef.yaml",
+			"size": 0,
+			"path": "etc/backend-service/boot/SwaggerDef.yaml",
+			"byteSize": 2759,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Backend API definition\n  version: 1.0.0\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n\nsecurity :\n  - bearerAuth: []\n  \npaths:\n  /bookings:\n    get:\n      summary: Get all bookings\n      tags: \n        - Booking\n      responses:\n        '200':\n          description: A JSON body with stored booking details\n          content:\n            application/json:\n              schema:\n                type : object\n                properties:\n                  bookings:\n                    type: array\n                    description : Booking detail array\n                    items:\n                      type: object\n                      description : Booking items\n                      properties:\n                        ref-id:\n                          type: string\n                          description : Reference id of the entity\n                        driver:\n                          type: string\n                          description : Name of the dirver\n                        client:\n                          type: string\n                          description : Name of the client\n                        client-phone:\n                          type: string\n                          description : Client phone number\n    post:\n      summary: Insert a booking\n      tags: \n        - Booking\n      requestBody:\n        description: Request body\n        required: true\n        content:\n          application/json:\n            schema:\n              type : object\n              properties:\n                driver:\n                  type: string\n                  description : Name of the dirver\n                client:\n                  type: string\n                  description : Name of the client\n                client-phone:\n                  type: string\n                  description : Client phone number\n      responses:\n        '200':\n          description: A JSON body with stored bookings\n          content:\n            application/json:\n              schema:\n                type : object\n                properties:\n                  status:\n                    type: string\n                    description : Status ok\n                  ref-id:\n                    type: string\n                    description : Reference id of the entity\n        '5XX':\n          description: A JSON body with error details\n          content :\n            application/json:\n              schema:\n                type : object\n                properties:\n                  status:\n                    type: string\n                    description : Status fail\n                  error-code:\n                    type: string\n                    description : Error code from server\n",
+			"canonicalURL": "/github.com/wso2/samples-is@1fb253f1bc5b9e374d4f2cea66ff0861760d5623/-/blob/etc/backend-service/boot/SwaggerDef.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/samples-is/blob/1fb253f1bc5b9e374d4f2cea66ff0861760d5623/etc/backend-service/boot/SwaggerDef.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/bookings\": post: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern"
+	]
+}

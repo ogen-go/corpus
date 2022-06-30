@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rtyler/otto"
+		},
+		"file": {
+			"name": "apispec.yml",
+			"size": 0,
+			"path": "services/local-orchestrator/apispec.yml",
+			"byteSize": 2673,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: Otto Orchestrator Service\n  description: |\n    This specification describes the Local Orchestrator which doesn't really do\n    much other than run an `otto-agent` locally.\n  version: '1.0.0'\n  contact:\n    name: R Tyler Croy\n    email: 'rtyler@brokenco.de'\n    x-twitter: agentdero\n  license:\n    name: 'GNU AGPL 3.0'\n    url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'\nexternalDocs:\n  description: 'Find out more about Otto'\n  url: 'https://github.com/rtyler/otto'\nservers:\n  - url: 'http://localhost:7673'\n    description: 'Local dev server'\npaths:\n  '/health':\n    get:\n      operationId: GetHealth\n      description: |\n        The health endpoint helps indicate whether the service is healthy or not.\n        Any non-200 response is unhealthy.\n      responses:\n        '200':\n          description: 'A successful healthcheck'\n          content:\n            'application/json': {}\n  '/v1/run':\n    post:\n      operationId: RunWorkload\n      description: |\n        The primary interface for the orchestrator which allows external services to\n        provision an agent to run the specified workload.\n\n        This endpoint is not _synchronous_ insofar that it will enqueue the\n        workload. It will not block until the workload has completed execution\n        for hopefully obvious reasons.\n      requestBody:\n        required: true\n        content:\n          'application/json':\n            schema:\n              $ref: '#/components/schemas/RunWorkloadRequest'\n      responses:\n        '200':\n          description: 'Successfully enqueued the workload with the orchestrator'\n\n        '422':\n          description: 'Unprocessable data, usually not JSON or not UTF-6 encoded'\n\ncomponents:\n  schemas:\n    RunWorkloadRequest:\n      description: |\n        The primary APi payload for the orchestrator, which includes the workloads\n        that should be provisioned and executed by the orchestrator.\n\n        THe list of contexts should _only_ those that can be safely executed by one\n        agent in sequence.\n      type: object\n      required:\n        - pipeline\n        - contexts\n      properties:\n        pipeline:\n          type: string\n          format: uuid\n        contexts:\n          type: array\n      example:\n        pipeline: '9edc4483-a78a-480f-8e06-2726db1ddf24'\n        contexts:\n          - uuid: '8109f601-12e8-4621-96c6-11baff409d93'\n            properties:\n              name: 'Build'\n            steps:\n              - uuid: '6193b9b1-c6be-4c18-9bb8-1aeead5e7d14'\n                context: '8109f601-12e8-4621-96c6-11baff409d93'\n                symbol: 'sh'\n                parameters:\n                  - 'ls'\n",
+			"canonicalURL": "/github.com/rtyler/otto@f8dc3af95eae19141ec086f4bcfbdbe28ad7ca14/-/blob/services/local-orchestrator/apispec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rtyler/otto/blob/f8dc3af95eae19141ec086f4bcfbdbe28ad7ca14/services/local-orchestrator/apispec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/health\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

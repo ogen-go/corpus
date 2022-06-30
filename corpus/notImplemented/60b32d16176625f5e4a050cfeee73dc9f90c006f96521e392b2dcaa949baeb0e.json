@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/oauth2_key/1.0.0/openapi.json",
+			"byteSize": 2197,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"OAuth2 Key Service\",\n    \"description\": \"OAuth2 Key Service microservices endpoints.\",\n    \"contact\": {\n      \"email\": \"stevehu@gmail.com\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://oauth2.networknt.com\"\n    }\n  ],\n  \"paths\": {\n    \"/oauth2/key/{keyId}\": {\n      \"get\": {\n        \"description\": \"Get a key by Id\",\n        \"operationId\": \"getKeyById\",\n        \"parameters\": [\n          {\n            \"name\": \"keyId\",\n            \"in\": \"path\",\n            \"description\": \"Key Id\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Key\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid keyId supplied\"\n          },\n          \"404\": {\n            \"description\": \"Key not found\"\n          }\n        },\n        \"security\": [\n          {\n            \"key_auth\": [\n              \"oauth.key.r\",\n              \"oauth.key.w\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"key_auth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"authorizationUrl\": \"http://localhost:8888/oauth2/code\",\n            \"scopes\": {\n              \"oauth.key.w\": \"write key\",\n              \"oauth.key.r\": \"read key\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Key\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"keyId\",\n          \"certificate\"\n        ],\n        \"properties\": {\n          \"keyId\": {\n            \"type\": \"string\",\n            \"description\": \"a unique id\"\n          },\n          \"certificate\": {\n            \"type\": \"string\",\n            \"description\": \"certificate\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/oauth2_key/1.0.0/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/oauth2_key/1.0.0/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/oauth2/key/{keyId}\": get: security: security \"key_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

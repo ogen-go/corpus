@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nginxinc/mra-photouploader"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "app/swagger.yaml",
+			"byteSize": 2025,
+			"content": "openapi: 3.0.0\nservers:\n  - url: /v1\ninfo:\n  description: MRA Uploader API\n  version: \"1.0.0-oas3\"\n  title: MRA Uploader API\n  contact:\n    name: Aidan Carson\n    email: aidan.carson@nginx.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /:\n    get:\n      responses:\n        '200':\n          description: Hello World!\n  /image:\n    post:\n      tags:\n        - image\n      summary: Upload Image\n      description: Calls resizer and album manager to upload image and add it to album\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Image'\n        '500':\n          description: image not uploaded\n      x-tags:\n        - tag: image\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              properties:\n                note:\n                  description: Image data\n                  type: string\n        required: true\n  '/image/uploads/photos/{uuid}':\n    delete:\n      tags:\n        - image\n      summary: Delete single image based off id\n      parameters:\n        - name: uuid\n          in: path\n          description: The id of image to be deleted within S3 bucket\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: successful operation\n        '500':\n          description: image unsuccessfully deleted\ncomponents:\n  schemas:\n    Image:\n      type: object\n      properties:\n        thumb_url:\n          type: string\n        Large_width:\n          type: string\n        Medium_height:\n          type: string\n        Medium_width:\n          type: string\n        Thumb_width:\n          type: string\n        Thumb_height:\n          type: string\n        medium_url:\n          type: string\n        large_url:\n          type: string\n        Large_height:\n          type: string",
+			"canonicalURL": "/github.com/nginxinc/mra-photouploader@a24a1b93d0edbd2a4cf27cd438a09eb320637476/-/blob/app/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nginxinc/mra-photouploader/blob/a24a1b93d0edbd2a4cf27cd438a09eb320637476/app/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

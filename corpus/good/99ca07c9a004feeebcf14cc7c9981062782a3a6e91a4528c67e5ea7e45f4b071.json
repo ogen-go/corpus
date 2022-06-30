@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vanilla/vanilla"
+		},
+		"file": {
+			"name": "site-totals.yml",
+			"size": 0,
+			"path": "applications/dashboard/openapi/site-totals.yml",
+			"byteSize": 2268,
+			"content": "openapi: 3.0.3\ninfo:\npaths:\n    /site-totals:\n        get:\n            summary: Get a list of site-total counts.\n            tags:\n                - Site Totals\n            parameters:\n                - name: siteSectionID\n                  description: Get the counts only for a specific site section (subcommunity).\n                  in: query\n                  schema:\n                      type: string\n                - $ref: \"#/components/parameters/SiteTotalsCounts\"\n            responses:\n                \"200\":\n                    content:\n                        application/json:\n                            schema:\n                                $ref: \"#/components/schemas/SiteTotalsCountsResponseFields\"\n                    description: Success\n\ncomponents:\n    parameters:\n        SiteTotalsCounts:\n            name: counts[]\n            description: Choose the site counts you want by choosing one or more valid field names. Choosing \"all\" will return all available counts.\n            in: query\n            schema:\n                type: array\n                items:\n                    type: string\n                    enum:\n                        - all\n            style: form\n    schemas:\n        Count:\n            type: object\n            properties:\n                count:\n                    type: integer\n                isCalculating:\n                    type: boolean\n                    description: Whether the value is currently being calculated.\n                isFiltered:\n                    type: boolean\n                    description: Indicates whether the count value has been filtered by siteSection\n        SiteTotalsCountsResponseFields:\n            type: object\n            properties:\n                siteSectionID:\n                    type: integer\n                counts:\n                    type: object\n                    properties:\n                        discussion:\n                            $ref: \"#/components/schemas/Count\"\n                        comment:\n                            $ref: \"#/components/schemas/Count\"\n                        category:\n                            $ref: \"#/components/schemas/Count\"\n                        user:\n                            $ref: \"#/components/schemas/Count\"\n",
+			"canonicalURL": "/github.com/vanilla/vanilla@dfe2732ec86d37eed7eec0956151e79f2f414b4f/-/blob/applications/dashboard/openapi/site-totals.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vanilla/vanilla/blob/dfe2732ec86d37eed7eec0956151e79f2f414b4f/applications/dashboard/openapi/site-totals.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "unknown.keywords.yaml",
+			"size": 0,
+			"path": "test/resources/unknown.keywords.yaml",
+			"byteSize": 686,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Keywords\n  version: 1.0.0\nservers:\n- url: /v1\npaths:\n  /persons:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Person'\n      responses:\n        200:\n          description: Invalid ID supplied\n          x-ignored-by-validator: true\n\ncomponents:\n  schemas:\n    Person:\n      required:\n      - id\n      type: object\n      x-custom-keyword: Ignored by validator.\n      properties:\n        id:\n          x-internal-keyword: 123\n          type: integer\n          format: int64\n        name:\n          x-custom-keyword: [Still ignored by validator.]\n          type: string\n",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@6448f4548db32bf5d2ae18e25dd36996ae9500ef/-/blob/test/resources/unknown.keywords.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/6448f4548db32bf5d2ae18e25dd36996ae9500ef/test/resources/unknown.keywords.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

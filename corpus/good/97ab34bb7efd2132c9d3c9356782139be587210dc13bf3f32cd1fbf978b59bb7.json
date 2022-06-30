@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DoclerLabs/api-client-generator"
+		},
+		"file": {
+			"name": "item.yaml",
+			"size": 0,
+			"path": "test/suite/functional/Generator/SchemaMapper/item.yaml",
+			"byteSize": 2565,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example API\npaths:\n  '/v1/items/{itemId}':\n    get:\n      operationId: getItem\n      parameters:\n        - $ref: '#/components/parameters/ItemId'\n      responses:\n        '200':\n          $ref: '#/components/responses/ItemResponse'\ncomponents:\n  responses:\n    ItemResponse:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Item'\n  schemas:\n    Item:\n      type: object\n      properties:\n        mandatoryInteger:\n          type: integer\n        mandatoryString:\n          type: string\n        mandatoryEnum:\n          type: string\n          enum:\n            - 'one option'\n            - 'another option'\n        mandatoryDate:\n          type: string\n          format: 'date-time'\n        mandatoryNullableDate:\n          type: string\n          format: 'date-time'\n          nullable: true\n        mandatoryFloat:\n          type: number\n          format: float\n        mandatoryBoolean:\n          type: boolean\n        mandatoryArray:\n          type: array\n          items:\n            type: string\n        mandatoryObject:\n          $ref: '#/components/schemas/EmbeddedObject'\n        mandatoryNullableObject:\n          $ref: '#/components/schemas/EmbeddedNullableObject'\n        optionalInteger:\n          type: integer\n        optionalString:\n          type: string\n        optionalEnum:\n          type: string\n          enum:\n            - 'one option'\n            - 'another option'\n        optionalDate:\n          type: string\n          format: 'date-time'\n        optionalFloat:\n          type: number\n          format: float\n        optionalBoolean:\n          type: boolean\n        optionalArray:\n          type: array\n          items:\n            type: string\n        optionalObject:\n          $ref: '#/components/schemas/EmbeddedObject'\n      required:\n        - mandatoryInteger\n        - mandatoryString\n        - mandatoryEnum\n        - mandatoryDate\n        - mandatoryNullableDate\n        - mandatoryFloat\n        - mandatoryBoolean\n        - mandatoryArray\n        - mandatoryObject\n        - mandatoryNullableObject\n    EmbeddedObject:\n      type: object\n      properties:\n        string:\n          type: string\n    EmbeddedNullableObject:\n      type: object\n      nullable: true\n      properties:\n        string:\n          type: string\n  parameters:\n    ItemId:\n      in: path\n      description: Id of a item.\n      required: true\n      name: itemId\n      schema:\n        type: integer\n        format: int64\n        minimum: 0\n",
+			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/-/blob/test/suite/functional/Generator/SchemaMapper/item.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DoclerLabs/api-client-generator/blob/bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/test/suite/functional/Generator/SchemaMapper/item.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "RepeatableCallbackResource.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/callbacks/RepeatableCallbackResource.yaml",
+			"byteSize": 759,
+			"content": "openapi: 3.0.1\npaths:\n  /repeatablecallback:\n    get:\n      summary: Simple get operation\n      operationId: getWithNoParameters\n      responses:\n        \"200\":\n          description: voila!\n      callbacks:\n        testCallback:\n          http://$requests.query.url: {}\n        testCallback1:\n          http://www.url.com:\n            get:\n              summary: get all the reviews\n              operationId: getAllReviews\n              responses:\n                \"200\":\n                  description: successful operation\n                  content:\n                    application/json:\n                      schema:\n                        type: integer\n                        format: int32\n        testCallback2:\n          http://$request.query.url: {}\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/callbacks/RepeatableCallbackResource.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/petstore/callbacks/RepeatableCallbackResource.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/academic-resources/stared-repos"
+		},
+		"file": {
+			"name": "6540.yaml",
+			"size": 0,
+			"path": "swagger-ui/test/e2e-cypress/static/documents/bugs/6540.yaml",
+			"byteSize": 1722,
+			"content": "openapi: 3.0.0\ninfo:\n  description: Test API\n  version: v1\n  title: Test API\ntags:\n  - name: Test\n    description: Test API\nservers:\n  - url: /v1\npaths:\n  /test:\n    post:\n      tags:\n        - Test\n      summary: Test endpoint\n      description: Test\n      operationId: postTest\n      responses:\n        '200':\n          description: Returns response\n          content:\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/test'\ncomponents:\n  schemas:\n    test:\n      type: object\n      properties:\n        a:\n          type: string\n        b:\n          type: integer\n        c:\n          type: array\n          items:\n            $ref: '#/components/schemas/Things'\n        d:\n          type: array\n          items:\n            anyOf:\n              - $ref: '#/components/schemas/TextObject'\n              - $ref: '#/components/schemas/ImageObject'\n\n\n    Things:\n      type: object\n      oneOf:\n        - $ref: '#/components/schemas/TextObject'\n        - $ref: '#/components/schemas/ImageObject'\n\n    TextObject:\n      required:\n        - data\n      type: object\n      properties:\n        objectType:\n          type: string\n          example: Text\n          xml:\n            name: ObjectType\n        data:\n          type: string\n          example: This is a text\n          xml:\n            name: Data\n      description: Contains a text\n\n    ImageObject:\n      required:\n        - data\n      type: object\n      properties:\n        objectType:\n          type: string\n          example: image\n          xml:\n            name: ObjectType\n        data:\n          type: string\n          example: This is a image\n          xml:\n            name: Data\n      description: Contains a image\n",
+			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/test/e2e-cypress/static/documents/bugs/6540.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/test/e2e-cypress/static/documents/bugs/6540.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test\": post: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

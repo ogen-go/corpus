@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/JustinFeng/fakeit"
+		},
+		"file": {
+			"name": "schema.json",
+			"size": 0,
+			"path": "spec/fixtures/schema.json",
+			"byteSize": 2893,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Schema\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/response\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"response\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"properties\": {\n            \"string\": {\n              \"type\": \"string\"\n            },\n            \"integer\": {\n              \"type\": \"integer\"\n            },\n            \"number\": {\n              \"type\": \"number\"\n            },\n            \"boolean\": {\n              \"type\": \"boolean\"\n            },\n            \"unknown\": {\n              \"example\": \"you guess\"\n            },\n            \"with_example\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"useless\"\n              ],\n              \"example\": \"provided example\"\n            },\n            \"with_nested_example\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"with_example\": {\n                  \"type\": \"string\",\n                  \"enum\": [\n                    \"useless\"\n                  ],\n                  \"example\": \"provided example\"\n                }\n              }\n            },\n            \"no_example\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"useful\"\n              ]\n            },\n            \"one_of_example\": {\n              \"oneOf\": [\n                {\n                  \"$ref\": \"#/components/schemas/option1\"\n                },\n                {\n                  \"$ref\": \"#/components/schemas/option2\"\n                }\n              ]\n            },\n            \"all_of_example\": {\n              \"allOf\": [\n                {\n                  \"$ref\": \"#/components/schemas/option1\"\n                },\n                {\n                  \"$ref\": \"#/components/schemas/option2\"\n                }\n              ]\n            },\n            \"any_of_example\": {\n              \"anyOf\": [\n                {\n                  \"$ref\": \"#/components/schemas/option1\"\n                },\n                {\n                  \"$ref\": \"#/components/schemas/option2\"\n                }\n              ]\n            }\n          }\n        }\n      },\n      \"option1\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"integer\": {\n            \"type\": \"integer\"\n          },\n          \"number\": {\n            \"type\": \"number\"\n          }\n        }\n      },\n      \"option2\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"string\": {\n            \"type\": \"string\"\n          },\n          \"boolean\": {\n            \"type\": \"boolean\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/JustinFeng/fakeit@642e3ad73c981186adeeffd4100c6ea90e54ee50/-/blob/spec/fixtures/schema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/JustinFeng/fakeit/blob/642e3ad73c981186adeeffd4100c6ea90e54ee50/spec/fixtures/schema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: application/json: generate schema: item: field any_of_example: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

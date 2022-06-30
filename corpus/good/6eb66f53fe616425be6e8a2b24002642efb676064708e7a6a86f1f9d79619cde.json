@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/meeshkan/hmt"
+		},
+		"file": {
+			"name": "index.yaml",
+			"size": 0,
+			"path": "tests/serve/mock/schemas/fails/index.yaml",
+			"byteSize": 553,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 0.0.0\n  title: Bad\n  license:\n    name: MIT\nservers:\n  - url: http://bad.api.io\npaths:\n  /:\n    get:\n      responses:\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/meeshkan/hmt@941e7738b8957f9957996049d4f3f4854ec1983c/-/blob/tests/serve/mock/schemas/fails/index.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/meeshkan/hmt/blob/941e7738b8957f9957996049d4f3f4854ec1983c/tests/serve/mock/schemas/fails/index.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

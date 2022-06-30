@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/vorto"
+		},
+		"file": {
+			"name": "vorto_importer_plugin-2.0.yml",
+			"size": 0,
+			"path": "docs/specs/vorto_importer_plugin-2.0.yml",
+			"byteSize": 3457,
+			"content": "#\n# Copyright (c) 2020 Contributors to the Eclipse Foundation\n#\n# See the NOTICE file(s) distributed with this work for additional\n# information regarding copyright ownership.\n#\n# This program and the accompanying materials are made available under the\n# terms of the Eclipse Public License 2.0 which is available at\n# https://www.eclipse.org/legal/epl-2.0\n#\n# SPDX-License-Identifier: EPL-2.0\n#\n\nopenapi: 3.0.0\ninfo:\n  title: Vorto Importer API\n  description: REST Endpoints for providing a Vorto Importer Plugin for the Eclipse Vorto Repository. Refer to the \u003ca target=\"_blank\" href=\"https://github.com/eclipse/vorto/blob/master/plugin-sdk/plugin-api/Readme.md\"\u003eImporter Plugin SDK Documentation\u003c/a\u003e\n  contact:\n    name: Eclipse Vorto Team\n    url: https://www.eclipse.org/vorto\n    email: vorto-development@bosch-si.com\n  version: '2.0'\nservers:\n- url: /api/2/plugins/importers\n  variables: {}\npaths:\n  /{pluginkey}/file_conversion:\n    post:\n      tags:\n      - Importer Plugin\n      summary: File Conversion\n      description: Performs the actual conversion of the source file to Vorto model(s)\n      operationId: FileConversion\n      parameters:\n      - name: pluginkey\n        in: path\n        description: Plugin key identifying the importer\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                file:\n                  type: string\n                  description: File to be converted\n                  format: binary\n      responses:\n        200:\n          description: ''\n          headers: {}\n          content:\n            application/octet-stream:\n              schema:\n                type: string\n                format: binary\n      deprecated: false\n      servers:\n      - url: /api/2/plugins/importers\n        variables: {}\n  /{pluginkey}/file_validation:\n    post:\n      tags:\n      - Importer Plugin\n      summary: File Validation\n      description: Performs a pre-validation check on the source file\n      operationId: FileValidation\n      parameters:\n      - name: pluginkey\n        in: path\n        description: Plugin Key identifying the importer\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                file:\n                  type: string\n                  description: File to be validated\n                  format: binary\n      responses:\n        200:\n          description: ''\n          headers: {}\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ValidationResult'\n      deprecated: false\n      servers:\n      - url: /api/2/plugins/importers\n        variables: {}\ncomponents:\n  schemas:\n    ValidationResult:\n      title: ValidationResult\n      required:\n      - valid\n      - message\n      type: object\n      properties:\n        valid:\n          type: boolean\n          description: Status whether the validation was successful (true) or unsuccessful (false)\n        message:\n          type: string\n          description: Info Message about the validation\n      description: Validation status of whether the source file is valid or not\ntags: []\n",
+			"canonicalURL": "/github.com/eclipse/vorto@3a7ecc3a425471ba84f89c23cd2f3bb961b802ea/-/blob/docs/specs/vorto_importer_plugin-2.0.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse/vorto/blob/3a7ecc3a425471ba84f89c23cd2f3bb961b802ea/docs/specs/vorto_importer_plugin-2.0.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

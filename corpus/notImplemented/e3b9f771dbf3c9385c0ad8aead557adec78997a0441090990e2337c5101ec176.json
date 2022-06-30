@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wikimedia/restbase"
+		},
+		"file": {
+			"name": "availability.yaml",
+			"size": 0,
+			"path": "v1/availability.yaml",
+			"byteSize": 3465,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.1-beta\n  title: MediaWiki featured feed content availability API\n  description: API for determining availbility of various featured feed content items\n    by wiki language\n  termsOfService: https://www.mediawiki.org/wiki/REST_API#Terms_and_conditions\n  contact:\n    name: Product Infrastructure\n    url: https://www.mediawiki.org/wiki/Wikimedia_Product/Wikimedia_Product_Infrastructure_team\n  license:\n    name: Apache licence, v2\n    url: https://www.apache.org/licenses/LICENSE-2.0\npaths:\n  /availability:\n    get:\n      tags:\n        - Feed content availability\n      summary: Gets availability of featured feed content for the apps by wiki domain.\n      description: |\n        Gets availability of featured feed content for the apps by wiki domain.\n\n        Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n      responses:\n        200:\n          description: JSON containing lists of wiki domains for which feed content\n            is available.\n          content:\n            application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/Availability/1.0.1\":\n              schema:\n                $ref: '#/components/schemas/availability'\n        default:\n          description: Error\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-request-handler:\n        - get_feed_content_availability:\n            request:\n              method: get\n              uri: '{{options.host}}/{domain}/v1/feed/availability'\n            response:\n              status: '{{get_feed_content_availability.status}}'\n              headers: '{{get_feed_content_availability.headers}}'\n              body: '{{get_feed_content_availability.body}}'\n      x-monitor: false\ncomponents:\n  schemas:\n    availability:\n      type: object\n      properties:\n        todays_featured_article:\n          type: array\n          description: domains for wikis with this feature enabled, or [ '*.\u003cproject\u003e.org'\n            ] for all wikis in a project\n          items:\n            type: string\n        most_read:\n          type: array\n          description: domains for wikis with this feature enabled, or [ '*.\u003cproject\u003e.org'\n            ] for all wikis in a project\n          items:\n            type: string\n        picture_of_the_day:\n          type: array\n          description: domains for wikis with this feature enabled, or [ '*.\u003cproject\u003e.org'\n            ] for all wikis in a project\n          items:\n            type: string\n        in_the_news:\n          type: array\n          description: domains for wikis with this feature enabled, or [ '*.\u003cproject\u003e.org'\n            ] for all wikis in a project\n          items:\n            type: string\n        on_this_day:\n          type: array\n          description: domains for wikis with this feature enabled, or [ '*.\u003cproject\u003e.org'\n            ] for all wikis in a project\n          items:\n            type: string\n      required:\n        - in_the_news\n        - most_read\n        - on_this_day\n        - picture_of_the_day\n        - todays_featured_article\n    problem:\n      required:\n        - type\n      type: object\n      properties:\n        status:\n          type: integer\n        type:\n          type: string\n        title:\n          type: string\n        detail:\n          type: string\n        method:\n          type: string\n        uri:\n          type: string\n",
+			"canonicalURL": "/github.com/wikimedia/restbase@d2d75af3f73e783a693a7ef86a2847f0c0e39c1d/-/blob/v1/availability.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wikimedia/restbase/blob/d2d75af3f73e783a693a7ef86a2847f0c0e39c1d/v1/availability.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/availability\": get: responses: default: contents: unsupported content types: [application/problem+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PDIS/swagger_file"
+		},
+		"file": {
+			"name": "EVO2-ARC-ValidationWithToken.yaml",
+			"size": 0,
+			"path": "MOI/EVO2-ARC-ValidationWithToken.yaml",
+			"byteSize": 2052,
+			"content": "openapi: 3.0.0\n# Added by API Auto Mocking Plugin\nservers:\n  - description: VerifyArcInfo\n    url: https://virtserver.swaggerhub.com/EVO2/ARC/1.0.0\ninfo:\n  description: This API is used to verify a person's identity by his/her ARC information\n  version: \"1.0.0\"\n  title: ARC Validation\ntags:\n  - name: admins\n    description: Secured Admin-only calls\npaths:\n  /arc/verify:\n    post:\n      tags:\n        - admins\n      summary: Validate ARC by information provided\n      operationId: validateArc\n      description: Validate ARC by ARC number, correct name on ARC\n      parameters: \n        - name: arcNum\n          in: query\n          required: true\n          description: The ARC number of the person\n          schema:\n            type: string\n        - name: arcName\n          in: query\n          required: true\n          description: The ARC name of the person, all letters must be capitalized.\n          schema:\n            type: string\n        - name: accessKey\n          in: query\n          required: true\n          description: The access key which verifies the accessibility of the request user.\n          schema:\n            type: string\n      responses:\n        '200':\n          description: The ARC information is available.\n        '400':\n          description: The ARC information is correct, but the identity is expired already.\n        '401':\n          description: The ARC information is incorrect.\n        '402':\n          description: The Access Key provided is not available.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ArcInfo'\n        description: Inventory item to add\ncomponents:\n  schemas:\n    ArcInfo:\n      type: object\n      required:\n        - arcNum\n        - arcName\n        - accessKey\n      properties:\n        arcNum:\n          type: string\n          example: AA12345678\n        arcName:\n          type: string\n          example: WANG XIAO MING\n        accessKey:\n          type: string\n          example: 3b98e2dffc6cb06a89dcb0d5c60a0206",
+			"canonicalURL": "/github.com/PDIS/swagger_file@7eefc67f3284da47065c3f33128eea1db1e5e43a/-/blob/MOI/EVO2-ARC-ValidationWithToken.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PDIS/swagger_file/blob/7eefc67f3284da47065c3f33128eea1db1e5e43a/MOI/EVO2-ARC-ValidationWithToken.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

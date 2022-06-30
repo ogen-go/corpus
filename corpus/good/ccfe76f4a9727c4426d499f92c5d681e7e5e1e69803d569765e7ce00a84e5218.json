@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/GSA/open-gsa-redesign"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "_apidocs/gsa-content/v2/openapi.yaml",
+			"byteSize": 1914,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"GSA Content API\"\n  description: \u003e-\n    The GSA.gov content API is an XML feed which supplies the public with a means to extract data out of the GSA.gov website. When the API returns multiple content items, it list them with the newest item(s) first, and oldest last.\n  version: 2.0.0\npaths:\n  /v2/by-type/{contentType}/{page}:\n    get:\n      summary: \"Get content from GSA.gov based on content-type\"\n      description: \"Get content from GSA.gov based on content-type\"\n      parameters:\n      - name: \"contentType\"\n        in: \"path\"\n        description: \"The machine-name of the desired content-type to filter by\"\n        required: true\n        schema:\n          type: string\n          format: string\n      - name: \"page\"\n        in: \"path\"\n        description: \"Pagination controle\"\n        required: true\n        schema:\n          type: integer\n          format: ineger\n      responses:\n        200:\n          description: \"successful operation\"\n  /v2/by-id/{nodeID}/{page}:\n    get:\n      summary: \"Get content from GSA.gov based on Node ID\"\n      description: \"Get content from GSA.gov based on Node ID\"\n      parameters:\n      - name: \"nodeID\"\n        in: \"path\"\n        description: \"Node ID number\"\n        required: true\n        schema:\n          type: integer\n          format: integer\n      - name: \"page\"\n        in: \"path\"\n        description: \"Pagination control\"\n        required: true\n        schema:\n          type: integer\n          format: integer\n      responses:\n        200:\n          description: \"successful operation\"\nservers:\n  - url: 'https://api.gsa.gov/technology/gsa-content'\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:        # arbitrary name for the security scheme\n      type: apiKey\n      in: header       # can be \"header\", \"query\" or \"cookie\"\n      name: X-API-KEY  # name of the header, query parameter or cookie\nsecurity:\n  - ApiKeyAuth: []  \n",
+			"canonicalURL": "/github.com/GSA/open-gsa-redesign@3aafdb8358076ab75e0224c74d0d05b75074516c/-/blob/_apidocs/gsa-content/v2/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/GSA/open-gsa-redesign/blob/3aafdb8358076ab75e0224c74d0d05b75074516c/_apidocs/gsa-content/v2/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

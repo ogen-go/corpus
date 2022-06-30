@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/api-federation/design"
+		},
+		"file": {
+			"name": "001-1_Extendin_OAS_Definition_to_add_rate_limiting_for_an_API.yaml",
+			"size": 0,
+			"path": "spec/examples/001-1_Extendin_OAS_Definition_to_add_rate_limiting_for_an_API.yaml",
+			"byteSize": 2506,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Weather\n  description: Application to know about weather and forecast of a given city\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: vimukthim@wso2.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\nservers:\n- url: https://api.openweathermap.org/data/2.5\n- url: http://api.openweathermap.org/data/2.5\ntags:\n- name: weather\n  description: Todayas Weather\n  externalDocs:\n    description: Find out more\n    url: https://openweathermap.org/current\n- name: forecast\n  description: wether forcast of the cities\n  externalDocs:\n    description: Find out more about our store\n    url: https://openweathermap.org/forecast16\npaths:\n  /weather:\n    get:\n      parameters:\n      - name: id\n        in: query\n        description: ID of the City\n        schema:\n          type: number\n      - name: q\n        in: query\n        description: Name of the city\n        schema:\n          type: string\n      responses:\n        200:\n          description: Wether of The Given City ID\n          content: {}\n        401:\n          description: Invalid API key. Please see http://openweathermap.org/faq#error401\n            for more info\n          content: {}\n        404:\n          description: Unable to find the URL path\n          content: {}\n        429:\n          description: Your account is temporary blocked due to exceeding of requests\n            limitation of your subscription type.\n          content: {}\n  /forecast:\n    get:\n      parameters:\n      - name: id\n        in: query\n        description: ID of the City\n        schema:\n          type: number\n      - name: q\n        in: query\n        description: Name of the city\n        schema:\n          type: string\n      responses:\n        200:\n          description: Fore Cast of the Given city\n          content: {}\n        401:\n          description: Invalid API key. Please see http://openweathermap.org/faq#error401\n            for more info\n          content: {}\n        404:\n          description: Unable to find the URL path\n          content: {}\n        429:\n          description: Your account is temporary blocked due to exceeding of requests\n            limitation of your subscription type.\n          content: {}\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: appid\n      in: header\nx-global-spec :\n  x- global-rateLimiting :\n     enabled   : true\n     Interval    : 1\n     timeunit   : minute\n     quota      : 50000\n",
+			"canonicalURL": "/github.com/api-federation/design@4be3dc2c5d9b40c8f4b7d892692e05d868333cd2/-/blob/spec/examples/001-1_Extendin_OAS_Definition_to_add_rate_limiting_for_an_API.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/api-federation/design/blob/4be3dc2c5d9b40c8f4b7d892692e05d868333cd2/spec/examples/001-1_Extendin_OAS_Definition_to_add_rate_limiting_for_an_API.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

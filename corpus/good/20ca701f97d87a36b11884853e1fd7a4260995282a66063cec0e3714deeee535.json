@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-inflector"
+		},
+		"file": {
+			"name": "issue-300.yaml",
+			"size": 0,
+			"path": "src/test/swagger/issue-300.yaml",
+			"byteSize": 1240,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://petstore.swagger.io/v2'\n  - url: 'http://petstore.swagger.io/v2'\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  '/pet/{petId}':\n    get:\n      summary: Find pet by ID\n      operationId: getPetById\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to return\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/Pet'\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n        '400':\n          description: Invalid ID supplied\n        '404':\n          description: Pet not found\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      properties:\n        name:\n          type: string\n          example: doggie\n        shots:\n          type: array\n          items:\n            type: string\n            example: rabies\n            xml:\n              name: shot\n          xml:\n            name: shots\n            wrapped: true            \n      xml:\n        name: Pet\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-inflector@3112f7e185266616e6df4a9cb30c0874706382f0/-/blob/src/test/swagger/issue-300.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-inflector/blob/3112f7e185266616e6df4a9cb30c0874706382f0/src/test/swagger/issue-300.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

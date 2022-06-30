@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CDCgov/prime-reportstream"
+		},
+		"file": {
+			"name": "admin.yml",
+			"size": 0,
+			"path": "prime-router/docs/api/admin.yml",
+			"byteSize": 3834,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Prime ReportStream\n  description: A router of public health data from multiple senders and receivers\n  contact:\n    name: USDS at Centers for Disease Control and Prevention\n    url: https://reportstream.cdc.gov\n    email: reportstream@cdc.gov\n  version: 0.2.0-oas3\npaths:\n\n  # The amin end-point handles the misc queries and commands PRIME admins\n  #\n  /adm/getsendfailures:\n    get:\n      description: Returns list of recent failed report-forwarding sends.\n      security:\n        - OAuth2: [ system_admin ]\n      parameters:\n        - in: query\n          name: days_to_show\n          description: Number of days back from today include in results\n          schema:\n            type: integer\n          required: false\n          example: days_to_show=3\n      responses:\n        '200':\n          description: OK\n          headers:\n            Last-Modified:\n              description: The date and time any setting was modified in GMT.\n              example: Wed, 21 Oct 2015 07:28:00 GMT\n              required: false\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/ListSendFailures'\n\n# Building\ncomponents:\n  schemas:\n    ListSendFailures:\n      description: An organization connected to data hub\n      type: object\n      required: [ \"name\", \"description\", \"jurisdiction\" ]\n      properties:\n        actionId:\n          description: the unique id for the action\n          type: integer\n          example: 287\n        reportId:\n          description: the uuid for this report\n          type: string\n          format: uuid\n          example: \"d05d17f7-acaa-4f0e-bda1-135dbd81d477\"\n        receiver:\n          description: Org destination name of the receiver that failed\n          example: \"ignore.HL7\"\n        fileName:\n          description: Filename for the data that's prepared for forwarding but failing\n          type: string\n          example: \"covid-19-d05d17f7-acaa-4f0e-bda1-135dbd81d477-20220601224923.hl7\"\n        failedAt:\n          description: the time that the particular error happened\n          type: string\n          format: date-time\n          example: \"2022-06-12T22:22:53.833Z\"\n        actionParams:\n          description: The original action that failed had a url. These are the cgi params.\n          type: string\n          example: \"report\u0026SEND\u0026d05d17f7-acaa-4f0e-bda1-135dbd81d477\u0026false\u00262022-06-12T22:22:52.412762Z\"\n        actionResult:\n          description: The long error message generated when the upload failed.\n          type: string\n          example: \"FAILED Sftp upload of inputReportId d05d17f7-acaa-4f0e-bda1-135dbd81d477 to SFTPTransportType(host=sftp, port=22, filePath=./upload, credentialName=DEFAULT-SFTP) (orgService = ignore.HL7_BATCH_OFFSET_TIME_UTC), Exception: No content to sftp for report d05d17f7-acaa-4f0e-bda1-135dbd81d477, All retries failed.  Manual Intervention Required.  Send Error report for: d05d17f7-acaa-4f0e-bda1-135dbd81d477 to ignore.HL7_BATCH_OFFSET_TIME_UTC\"\n        bodyUrl:\n          description: The body portion of the original action url. Contains the location of the file that failed to forward\n          type: string\n          example: \"http://azurite:10000/devstoreaccount1/reports/ready%2Fignore.HL7_BATCH_OFFSET_TIME_UTC%2Fcovid-19-d05d17f7-acaa-4f0e-bda1-135dbd81d477-20220601224923.hl7\"\n        reportFileReceiver:\n          description: The parsed receiver. It should be the same as receiver field above\n          type: string\n          example: \"ignore.HL7_BATCH_OFFSET_TIME_UTC\"\n  securitySchemes:\n    OAuth2:\n      $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/security_schemes.yml#/OAuth2'\n",
+			"canonicalURL": "/github.com/CDCgov/prime-reportstream@51d8587ca4287484d017e728502eeeec150f05cb/-/blob/prime-router/docs/api/admin.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/CDCgov/prime-reportstream/blob/51d8587ca4287484d017e728502eeeec150f05cb/prime-router/docs/api/admin.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/adm/getsendfailures\": get: security: security \"OAuth2\" (index 0): unknown security type \"\""
+}

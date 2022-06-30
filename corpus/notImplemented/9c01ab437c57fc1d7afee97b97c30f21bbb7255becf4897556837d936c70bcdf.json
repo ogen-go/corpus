@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-docker"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "light-oauth2/sqlserver/config/oauth2-key/openapi.yaml",
+			"byteSize": 1476,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OAuth2 Key Service\n  description: OAuth2 Key Service microservices endpoints.\n  contact:\n    email: stevehu@gmail.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\nservers:\n  - url: 'https://oauth2.networknt.com'    \npaths:\n  '/oauth2/key/{keyId}':\n    get:\n      description: Get a key by Id\n      operationId: getKeyById\n      parameters:\n        - name: keyId\n          in: path\n          description: Key Id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Key'\n        '400':\n          description: Invalid keyId supplied\n        '404':\n          description: Key not found\n      security:\n        - key_auth:\n            - oauth.key.r\n            - oauth.key.w\ncomponents:\n  securitySchemes:\n    key_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: 'http://localhost:8888/oauth2/code'\n          scopes:\n            oauth.key.w: write key\n            oauth.key.r: read key\n  schemas:\n    Key:\n      type: object\n      required:\n        - keyId\n        - certificate\n      properties:\n        keyId:\n          type: string\n          description: a unique id\n        certificate:\n          type: string\n          description: certificate",
+			"canonicalURL": "/github.com/networknt/light-docker@781ec1d6ea78dbd6aa6391f9470936a6d779d4b0/-/blob/light-oauth2/sqlserver/config/oauth2-key/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-docker/blob/781ec1d6ea78dbd6aa6391f9470936a6d779d4b0/light-oauth2/sqlserver/config/oauth2-key/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/oauth2/key/{keyId}\": get: security: security \"key_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

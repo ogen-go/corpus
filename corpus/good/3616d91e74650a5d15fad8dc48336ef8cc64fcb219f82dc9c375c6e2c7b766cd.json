@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/MatthewCYLau/aws-sqs-jobs-processer"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "deploy/api/openapi.yaml",
+			"byteSize": 2790,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"AWS-SQS-Jobs\"\n  version: \"2020-08-20T12:57:36Z\"\npaths:\n  /api/v1/jobs/{jobId}:\n    get:\n      parameters:\n        - name: \"jobId\"\n          in: \"path\"\n          required: true\n          schema:\n            type: \"string\"\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: \"aws\"\n        credentials: \"${apig_role}\"\n        uri: \"arn:aws:apigateway:us-east-1:dynamodb:action/GetItem\"\n        httpMethod: \"POST\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: ${get_job_by_id_response_mapping_template}\n        requestTemplates:\n          application/json: ${get_job_by_id_request_mapping_template}\n        passthroughBehavior: \"when_no_templates\"\n  /api/v1/jobs:\n    get:\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: \"aws\"\n        credentials: \"${apig_role}\"\n        uri: \"arn:aws:apigateway:us-east-1:dynamodb:action/Scan\"\n        httpMethod: \"POST\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: ${get_jobs_response_mapping_template}\n        requestTemplates:\n          application/json: ${get_jobs_request_mapping_template}\n        passthroughBehavior: \"when_no_templates\"\n    post:\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        credentials: \"${apig_role}\"\n        uri: \"${apig_invocation_uri}\"\n        httpMethod: \"POST\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: ${post_jobs_response_mapping_template}\n        requestParameters:\n          integration.request.header.Content-Type: \"'application/x-www-form-urlencoded'\"\n        requestTemplates:\n          application/json: \"Action=SendMessage\u0026MessageBody=$input.body\u0026MessageAttribute.1.Name=foo\u0026MessageAttribute.1.Value.DataType=String\u0026MessageAttribute.1.Value.StringValue=bar\"\n        passthroughBehavior: \"never\"\n        type: \"aws\"\ncomponents:\n  schemas:\n    Empty:\n      title: \"Empty Schema\"\n      type: \"object\"\n  securitySchemes:\n    sigv4:\n      type: \"apiKey\"\n      name: \"Authorization\"\n      in: \"header\"\n      x-amazon-apigateway-authtype: \"awsSigv4\"\n",
+			"canonicalURL": "/github.com/MatthewCYLau/aws-sqs-jobs-processer@4ae231160b03f6844d37ee81b12a91f476428435/-/blob/deploy/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/MatthewCYLau/aws-sqs-jobs-processer/blob/4ae231160b03f6844d37ee81b12a91f476428435/deploy/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

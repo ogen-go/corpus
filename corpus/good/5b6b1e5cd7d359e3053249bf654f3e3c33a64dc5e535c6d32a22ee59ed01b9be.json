@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "samples/openapi3/client/extensions/x-auth-id-alias/go-experimental/api/openapi.yaml",
+			"byteSize": 2475,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This specification shows how to use x-auth-id-alias extension for API\n    keys.\n  license:\n    name: Apache-2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  title: OpenAPI Extension x-auth-id-alias\n  version: 1.0.0\nservers:\n- description: petstore server\n  url: \"http://{server}.swagger.io:{port}/v2\"\n  variables:\n    server:\n      default: petstore\n      enum:\n      - petstore\n      - qa-petstore\n      - dev-petstore\n    port:\n      default: \"80\"\n      enum:\n      - \"80\"\n      - \"8080\"\n- description: The local server\n  url: \"https://localhost:8080/{version}\"\n  variables:\n    version:\n      default: v2\n      enum:\n      - v1\n      - v2\ntags:\n- description: Show usage of x-auth-id-alias\n  name: usage\npaths:\n  /both:\n    get:\n      description: Use both API keys\n      operationId: bothKeys\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: object\n          description: successful operation\n      security:\n      - api_key_query: []\n        api_key: []\n      summary: Use both API keys\n      tags:\n      - usage\n  /any:\n    get:\n      description: Use any API key\n      operationId: anyKey\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: object\n          description: successful operation\n      security:\n      - api_key_query: []\n      - api_key: []\n      summary: Use any API key\n      tags:\n      - usage\n  /query:\n    get:\n      description: Use API key in query\n      operationId: keyInQuery\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: object\n          description: successful operation\n      security:\n      - api_key_query: []\n      summary: Use API key in query\n      tags:\n      - usage\n  /header:\n    get:\n      description: Use API key in header\n      operationId: keyInHeader\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: object\n          description: successful operation\n      security:\n      - api_key: []\n      summary: Use API key in header\n      tags:\n      - usage\ncomponents:\n  schemas: {}\n  securitySchemes:\n    api_key:\n      in: header\n      name: X-Api-Key\n      type: apiKey\n    api_key_query:\n      in: query\n      name: api_key\n      type: apiKey\n      x-auth-id-alias: api_key\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/samples/openapi3/client/extensions/x-auth-id-alias/go-experimental/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/samples/openapi3/client/extensions/x-auth-id-alias/go-experimental/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

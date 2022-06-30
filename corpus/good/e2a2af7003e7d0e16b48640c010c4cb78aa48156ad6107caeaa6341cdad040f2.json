@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "json-schema-fstab.expected.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/definitions/json-schema-fstab.expected.json",
+			"byteSize": 2781,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"components\": {\n    \"schemas\": {\n      \"diskDevice\": {\n        \"properties\": {\n          \"type\": {\n            \"enum\": [\n              \"disk\"\n            ]\n          },\n          \"device\": {\n            \"type\": \"string\",\n            \"pattern\": \"^/dev/[^/]+(/[^/]+)*$\"\n          }\n        },\n        \"required\": [\n          \"type\",\n          \"device\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"diskUUID\": {\n        \"properties\": {\n          \"type\": {\n            \"enum\": [\n              \"disk\"\n            ]\n          },\n          \"label\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$\"\n          }\n        },\n        \"required\": [\n          \"type\",\n          \"label\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"nfs\": {\n        \"properties\": {\n          \"type\": {\n            \"enum\": [\n              \"nfs\"\n            ]\n          },\n          \"remotePath\": {\n            \"type\": \"string\",\n            \"pattern\": \"^(/[^/]+)+$\"\n          },\n          \"server\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"type\",\n          \"server\",\n          \"remotePath\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"tmpfs\": {\n        \"properties\": {\n          \"type\": {\n            \"enum\": [\n              \"tmpfs\"\n            ]\n          },\n          \"sizeInMB\": {\n            \"type\": \"integer\",\n            \"minimum\": 16,\n            \"maximum\": 512\n          }\n        },\n        \"required\": [\n          \"type\",\n          \"sizeInMB\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"Example Schema\": {\n        \"description\": \"schema for an fstab entry\",\n        \"type\": \"object\",\n        \"required\": [\n          \"storage\"\n        ],\n        \"properties\": {\n          \"storage\": {\n            \"type\": \"object\",\n            \"allOf\": [\n              {\n                \"$ref\": \"#/components/schemas/diskDevice\"\n              },\n              {\n                \"$ref\": \"#/components/schemas/diskUUID\"\n              },\n              {\n                \"$ref\": \"#/components/schemas/nfs\"\n              },\n              {\n                \"$ref\": \"#/components/schemas/tmpfs\"\n              }\n            ]\n          },\n          \"fstype\": {\n            \"enum\": [\n              \"ext3\",\n              \"ext4\",\n              \"btrfs\"\n            ]\n          },\n          \"options\": {\n            \"type\": \"array\",\n            \"minItems\": 1,\n            \"maxItems\": 100,\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"uniqueItems\": true\n          },\n          \"readonly\": {\n            \"type\": \"boolean\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/definitions/json-schema-fstab.expected.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/transformation/oai2-oai3/definitions/json-schema-fstab.expected.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

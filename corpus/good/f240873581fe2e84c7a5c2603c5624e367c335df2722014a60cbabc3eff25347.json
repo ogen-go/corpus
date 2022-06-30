@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "error_http_api_def_body_uri.yaml",
+			"size": 0,
+			"path": "tests/translator/input/error_http_api_def_body_uri.yaml",
+			"byteSize": 670,
+			"content": "Resources:\n  MyApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        info:\n          version: '1.0'\n          title:\n            Ref: AWS::StackName\n        paths:\n          \"/basic\":\n            post:\n              x-amazon-apigateway-integration:\n                httpMethod: POST\n                type: aws_proxy\n                uri:\n                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DifferentFunction.Arn}/invocations\n                payloadFormatVersion: '1.0'\n              security: []\n              responses: {}\n        openapi: 3.0.1\n      DefinitionUri: s3://bucket/key",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/tests/translator/input/error_http_api_def_body_uri.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/tests/translator/input/error_http_api_def_body_uri.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

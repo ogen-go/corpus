@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PacktPublishing/Distributed-Computing-with-Go"
+		},
+		"file": {
+			"name": "librarian.yaml",
+			"size": 0,
+			"path": "Chapter05/openapi/librarian.yaml",
+			"byteSize": 2933,
+			"content": "# openapi/librarian.yaml\n\nopenapi: 3.0.0\nservers:\n  - url: /api\ninfo:\n  title: Goophr Librarian API\n  version: '1.0'\n  description: |\n    API responsible for indexing \u0026 communicating with Goophr Concierge.\npaths:\n  /index:\n    post:\n      description: |\n        Add terms to index.\n      responses:\n        '200':\n          description: |\n            Terms were successfully added to the index.\n        '400':\n          description: \u003e\n            Request was not processed because payload was incomplete or\n            incorrect.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/error'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/terms'\n        description: |\n          List of terms to be added to the index.\n        required: true\n  /query:\n    post:\n      description: |\n        Search for all terms in the payload.\n      responses:\n        '200':\n          description: |\n            Returns a list of all the terms along with their frequency,\n            documents the terms appear in and link to the said documents.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/results'\n        '400':\n          description: \u003e\n            Request was not processed because payload was incomplete or\n            incorrect.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/error'\n    parameters: []\ncomponents:\n  schemas:\n    error:\n      type: object\n      properties:\n        msg:\n          type: string\n    term:\n      type: object\n      required:\n        - title\n        - token\n        - doc_id\n        - line_index\n        - token_index\n      properties:\n        title:\n          description: |\n            Title of the document to which the term belongs.\n          type: string\n        token:\n          description: |\n            The term to be added to the index.\n          type: string\n        doc_id:\n          description: |\n            The unique hash for each document.\n          type: string\n        line_index:\n          description: |\n            Line index at which the term occurs in the document.\n          type: integer\n        token_index:\n          description: |\n            Position of the term in the document.\n          type: integer\n    terms:\n      type: object\n      properties:\n        code:\n          type: integer\n        data:\n          type: array\n          items:\n            $ref: '#/components/schemas/term'\n    results:\n      type: object\n      properties:\n        count:\n          type: integer\n        data:\n          type: array\n          items:\n            $ref: '#/components/schemas/result'\n    result:\n      type: object\n      properties:\n        doc_id:\n          type: string\n        score:\n          type: integer\n",
+			"canonicalURL": "/github.com/PacktPublishing/Distributed-Computing-with-Go@df203bca63608cc42fd585484408a19fc4812ba9/-/blob/Chapter05/openapi/librarian.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PacktPublishing/Distributed-Computing-with-Go/blob/df203bca63608cc42fd585484408a19fc4812ba9/Chapter05/openapi/librarian.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

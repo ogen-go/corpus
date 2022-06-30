@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OAI/Talks-and-Workshops"
+		},
+		"file": {
+			"name": "2.1 Path Items (answers).yaml",
+			"size": 0,
+			"path": "OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/2 - Paths and Path Parameters/answers/2.1 Path Items (answers).yaml",
+			"byteSize": 2205,
+			"content": "# OpenAPI v3 Training Exercise\n\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: TaxBlaster API\n  description: |\n    # Answers: Path Items\n    \n    This OpenAPI 2.0 document has a single `/diagnostics` path item.\n    Please use code assist templates to create the following path items: \n    \n    1. Create a path item as follows:\n        * path: `/TaxFilings`\n        * GET method, with a response 200 schema in JSON format:  \n          reference to the reusable `TaxFilings` schema \u003cbr/\u003e\u003cbr/\u003e\n\n    2. Create a path item as follows:\n        * path: `/TaxFilings/{id}`\n        * GET method, with a response 200 schema in JSON format:  \n          reference to the reusable `TaxFiling` schema \u003cbr/\u003e\u003cbr/\u003e\n         \n    3. Add a path parameter to `/TaxFilings/{id}`\n        * name must be \"id\"\n        * located in the path\n        * applicable to all methods defined in this resource.\n\npaths:\n\n  /TaxFilings:\n    get:\n      responses:\n        '200':\n          description: OK response.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/TaxFilings\"\n \n  /TaxFilings/{id}:\n    parameters:\n    - name: id\n      in: path\n      description: Identifier for this pet\n      required: true\n      schema:\n        type: string\n    get:\n      responses:\n        '200':\n          description: OK\n          content: \n            application/json:\n              schema:\n                $ref: \"#/components/schemas/TaxFiling\"\n\n  /diagnostics:\n    get:\n      description: get diagnostic information about the TaxBlaster service\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n                \ncomponents:\n\n  schemas:\n\n    TaxFiling:\n      type: object\n      required:\n        - filingID  \n      properties:\n        filingID:\n          type: string\n        taxpayerID:\n          type: string\n        jurisdiction:\n          type: string\n        fileDate:\n          type: string\n          format: date\n        isJointFiling:\n          type: boolean\n          \n    TaxFilings:\n      type: array\n      items:\n        $ref: \"#/components/schemas/TaxFiling\"\n",
+			"canonicalURL": "/github.com/OAI/Talks-and-Workshops@ed292cacb93ad43e574d8fee6247b9d524b43b34/-/blob/OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/2%20-%20Paths%20and%20Path%20Parameters/answers/2.1%20Path%20Items%20%28answers%29.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OAI/Talks-and-Workshops/blob/ed292cacb93ad43e574d8fee6247b9d524b43b34/OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/2 - Paths and Path Parameters/answers/2.1 Path Items (answers).yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

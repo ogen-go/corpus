@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudavail/snippets"
+		},
+		"file": {
+			"name": "api_gateway_with_openapi_config.yaml",
+			"size": 0,
+			"path": "aws/api_gateway/api_gateway_with_openapi_config/api_gateway_with_openapi_config.yaml",
+			"byteSize": 1364,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple Inventory API\n  description: This is a simple API\n  version: 1.0.0\nservers:\n- url: /\npaths:\n  /inventory:\n    get:\n      summary: searches inventory\n      description: |\n        By passing in the appropriate options, you can search for\n        available inventory in the system\n      operationId: searchInventory\n      parameters:\n      - name: searchString\n        in: query\n        description: pass an optional search string for looking up inventory\n        required: false\n        style: form\n        explode: true\n        schema:\n          type: string\n      responses:\n        \"200\":\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/InventoryItem'\n        \"400\":\n          description: bad input parameter\ncomponents:\n  schemas:\n    InventoryItem:\n      required:\n      - id\n      - name\n      - releaseDate\n      type: object\n      properties:\n        id:\n          type: string\n          format: uuid\n          example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        name:\n          type: string\n          example: Widget Adapter\n        releaseDate:\n          type: string\n          format: date-time\n          example: 2016-08-29T09:12:33.001Z\n",
+			"canonicalURL": "/github.com/cloudavail/snippets@f705a76b3fa123abb4a9222047e1bf4e470fcecd/-/blob/aws/api_gateway/api_gateway_with_openapi_config/api_gateway_with_openapi_config.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudavail/snippets/blob/f705a76b3fa123abb4a9222047e1bf4e470fcecd/aws/api_gateway/api_gateway_with_openapi_config/api_gateway_with_openapi_config.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

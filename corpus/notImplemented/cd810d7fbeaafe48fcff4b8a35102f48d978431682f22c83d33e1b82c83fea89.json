@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "multiPathParam03.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/multiPathParam03.yaml",
+			"byteSize": 959,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Storage Space\n  version: 1.0.0\npaths:\n  /storage-spaces/{storageSpaceName}/keys/{key}:\n    get:\n      summary: Get key value\n      operationId: getKey\n      parameters:\n        - name: storageSpaceName\n          in: path\n          description: name of the storage space\n          required: true\n          schema:\n            type: string\n        - name: key\n          in: path\n          description: name of the key to retrieve the value\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: successful operation\n          content:\n            text/plain:\n              schema:\n                type: string\n        400:\n          description: Invalid key supplied\nsecurity:\n  - authorization: []\ncomponents:\n  securitySchemes:\n    authorization:\n      type: apiKey\n      description: Represents API Key `authorization`\n      name: Authorization\n      in: header\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/service/swagger/multiPathParam03.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/service/swagger/multiPathParam03.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/storage-spaces/{storageSpaceName}/keys/{key}\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

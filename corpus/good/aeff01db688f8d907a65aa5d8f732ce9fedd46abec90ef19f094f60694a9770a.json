@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/arno-di-loreto/supercharged-openapi"
+		},
+		"file": {
+			"name": "motu.yaml",
+			"size": 0,
+			"path": "steps/step-10/motu.yaml",
+			"byteSize": 3202,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Masters of the Universe\n  version: \"1.0\"\n\npaths:\n  /characters:\n    get:\n      summary: Search characters\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/CharactersPaginated'\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n    # TODO: Add \"Add character\" operation\n  /characters/{characterId}:\n    parameters:\n      - $ref: '#/components/parameters/CharacterId'\n    get:\n      summary: Read a character\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Character'\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n    delete:\n      summary: Delete a character\n      responses:\n        '204':\n          description: No Content\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\ncomponents:\n  responses:\n    Unauthorized:\n      description: Unauthorized\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Errors'\n  parameters:\n    CharacterId:\n      name: characterId\n      in: path\n      required: true\n      schema:\n        $ref: '#/components/schemas/CharacterId'\n  schemas:\n    CharactersPaginated:\n      allOf:\n        - $ref: '#/components/schemas/Paginated'\n        - properties:\n            items:\n              type: array\n              maxItems: 3\n              items:\n                $ref: '#/components/schemas/CharacterSummary'\n    Paginated:\n      properties:\n        pagination:\n          required:\n            - page\n            - pageSize\n          properties:\n            page:\n              type: integer\n              minimum: 0\n            pageSize:\n              type: integer\n              minimum: 0\n              maximum: 50\n    Errors:\n      required:\n        - errors\n      properties:\n        errors:\n          type: array\n          minItems: 1\n          items:\n            type: object\n            required:\n              - code\n              - message\n            properties:\n              code:\n                type: string\n              message:\n                type: string\n              location:\n                type: string\n    CharacterId:\n      type: string\n      pattern: ^[a-z]{3,}$\n    CharacterSummary:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          $ref: '#/components/schemas/CharacterId'\n        name:\n          type: string\n          minLength: 3\n          maxLength: 36\n        sideKickId:\n          type: string      \n    Character:\n      allOf:\n        - $ref: '#/components/schemas/CharacterSummary'\n        - type: object\n          properties:\n            birthDate:\n              type: string\n              format: date\n            age:\n              type: integer\n              minimum: 0\n              maximum: 128\n            side:\n              type: string\n              enum:\n                - hero\n                - villain\n                - neutral\n            archEnemyId:\n              type: string",
+			"canonicalURL": "/github.com/arno-di-loreto/supercharged-openapi@a03636fb2b2168672c2546c820c652e0283d6d5a/-/blob/steps/step-10/motu.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/arno-di-loreto/supercharged-openapi/blob/a03636fb2b2168672c2546c820c652e0283d6d5a/steps/step-10/motu.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

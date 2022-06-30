@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dotwebstack/dotwebstack-framework"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "example/example-rml-proxy/src/main/resources/config/openapi.yaml",
+			"byteSize": 3596,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Beer IRI dereferencing\n  version: 1.0.0\n\npaths:\n  /id/beer/{identifier}:\n    description: ID endpoint for beer dereferencing\n    get:\n      parameters:\n        - name: identifier\n          description: Identifier\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        303:\n          description: \"300 response\"\n          headers:\n            Location:\n              schema:\n                type: string\n                x-dws-expr: |\n                  req:accepts(\"text/html\", request) ?\n                    `${env.dotwebstack.baseUrl}/page/beer/${args.identifier}.html` :\n                    `${env.dotwebstack.baseUrl}/doc/beer/${args.identifier}`\n\n  /doc/beer/{identifier}:\n    description: DOC endpoint for beer dereferencing\n    get:\n      parameters:\n        - name: identifier\n          description: Identifier\n          in: path\n          required: true\n          schema:\n            type: string\n      x-dws-query:\n        field: beer\n        selectionSet: |\n          {\n            identifier\n            name\n            abv\n            soldPerYear\n            retired\n            brewery {\n              identifier\n            }\n            ingredients {\n              identifier\n            }\n            taste\n          }\n      x-dws-rml-mapping: beer.rml.ttl\n      responses:\n        200:\n          description: OK\n          content:\n            text/turtle:\n              x-dws-default: true\n            text/html: {}\n            application/ld+json: {}\n            text/n3: {}\n            application/n-quads: {}\n            application/n-triples: {}\n            application/rdf+xml: {}\n            application/trig: {}\n\n  /id/brewery/{id}:\n    description: ID endpoint for brewery dereferencing\n    get:\n      parameters:\n        - name: id\n          description: Identifier\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        303:\n          description: \"300 response\"\n          headers:\n            Location:\n              schema:\n                type: string\n                x-dws-expr: |\n                  req:accepts(\"text/html\", request) ?\n                    `${env.dotwebstack.baseUrl}/page/brewery/${args.identifier}.html` :\n                    `${env.dotwebstack.baseUrl}/doc/brewery/${args.identifier}`\n\n  /doc/brewery/{id}:\n    description: DOC endpoint for brewery dereferencing\n    get:\n      x-dws-query:\n        field: brewery\n        keys:\n          identifier: args.id\n        selectionSet: |\n          {\n            identifier\n            name\n            status\n            geometry {\n              asWKT\n            }\n            postalAddress {\n              identifier\n            }\n            visitAddress {\n              identifier\n            }\n            beers {\n              nodes {\n                identifier\n              }\n            }\n            history {\n              age\n              history\n            }\n          }\n      parameters:\n        - name: id\n          description: Identifier\n          in: path\n          required: true\n          schema:\n            type: string\n      x-dws-rml-mapping:\n        - brewery.rml.ttl\n      responses:\n        200:\n          description: OK\n          content:\n            text/turtle:\n              x-dws-default: true\n            text/html: {}\n            application/ld+json: {}\n            text/n3: {}\n            application/n-quads: {}\n            application/n-triples: {}\n            application/rdf+xml: {}\n            application/trig: {}\n",
+			"canonicalURL": "/github.com/dotwebstack/dotwebstack-framework@0b7b4ac64c4d3503ecda9aff44a79da47d1e2ba8/-/blob/example/example-rml-proxy/src/main/resources/config/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dotwebstack/dotwebstack-framework/blob/0b7b4ac64c4d3503ecda9aff44a79da47d1e2ba8/example/example-rml-proxy/src/main/resources/config/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/doc/beer/{identifier}\": get: responses: 200: contents: unsupported content types: [text/html, text/n3, text/turtle, application/ld+json, application/n-quads, application/n-triples, application/rdf+xml, application/trig]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_7532.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_7532.yaml",
+			"byteSize": 1320,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Test swagger file\npaths:\n  /tree:\n    post:\n      description: Create\n      operationId: createTree\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Tree'\n        description: The tree to create\n        required: true\n      tags:\n        - Test\n      responses:\n        '200':\n          description: Successfully created the tree\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Tree'\n        '400':\n          description: Bad request\ncomponents:\n  schemas:\n    Tree:\n      type: object\n      required:\n        - id\n        - name\n        - children\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        description:\n          type: string\n        children:\n          type: array\n          items:\n            $ref: '#/components/schemas/Tree'\n        parent:\n          $ref: '#/components/schemas/Tree'\n        forest:\n          $ref: '#/components/schemas/Forest'\n        additional:\n          type: object\n          additionalProperties:\n            $ref: '#/components/schemas/Tree'\n    Forest:\n      type: object\n      properties:\n        trees:\n          $ref: '#/components/schemas/Tree'\n\n\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7532.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue_7532.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/tree\": post: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

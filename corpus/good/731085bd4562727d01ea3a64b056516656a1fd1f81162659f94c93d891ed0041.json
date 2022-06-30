@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mediacloud/web-tools"
+		},
+		"file": {
+			"name": "api-spec.yml",
+			"size": 0,
+			"path": "server/static/api-spec.yml",
+			"byteSize": 2855,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://api.mediacloud.org/api/v2'\n    variables: {}\n    description: The Media Cloud API Server\ninfo:\n  description: You can fetch data from Media Cloud via our web-based API.\n  version: 2.0.0\n  title: Media Cloud API\n  termsOfService: ''\n  contact:\n    email: support@mediacloud.org\n    name: Media Cloud Support\n  license:\n    name: MIT\n    url: 'https://opensource.org/licenses/MIT'\ntags:\n  - name: System\n    description: Read-only commands to learn about the state of the Media Cloud system.\n  - name: Stories\n    description: Query story-level information.\n  - name: Media\n    description: Query information about the media sources in our database.\npaths:\n  /stats/list:\n    get:\n      summary: 'Return basic summary stats about total sources, stories, feeds, etc processed by Media Cloud'\n      description: ''\n      parameters: []\n      operationId: getStats\n      responses:\n        200:\n          description: OK\n      tags:\n        - System\n  '/media/single/{media_id}':\n    get:\n      summary: Data about a media source in our system\n      description: ''\n      parameters:\n        - name: media_id\n          schema:\n            type: integer\n          in: path\n          required: true\n          description: ID of media to return\n      responses:\n        200:\n          description: OK\n      operationId: getMediaById\n      tags:\n        - Media\n  /stories_public/count:\n    get:\n      summary: ''\n      description: ''\n      parameters:\n        - name: q\n          in: query\n          required: true\n          schema:\n            type: string\n          description: q (\"query\") parameter which is passed directly to Solr\n        - name: fq\n          in: query\n          required: false\n          schema:\n            type: string\n          description: fq (\"filter query\") parameter which is passed directly to Solr\n          allowEmptyValue: true\n        - name: split\n          in: query\n          required: false\n          schema:\n            type: string\n          description: 'if set to 1 or true, split the counts into date ranges'\n          allowEmptyValue: true\n        - name: split_period\n          in: query\n          required: false\n          schema:\n            type: string\n            enum:\n              - day\n              - week\n              - month\n              - year\n          description: 'return counts for these date periods: day, week, month, year'\n          allowEmptyValue: true\n      operationId: ''\n      responses:\n        200:\n          description: OK\n      tags:\n        - Stories\nexternalDocs:\n  description: ''\n  url: 'https://github.com/berkmancenter/mediacloud/tree/master/doc/api_2_0_spec'\ncomponents:\n  schemas: {}\n  requestBodies: {}\n  securitySchemes:\n    key:\n      type: apiKey\n      name: key\n      in: query\n  links: {}\n  callbacks: {}\nsecurity:\n  - key: []\n",
+			"canonicalURL": "/github.com/mediacloud/web-tools@bd206621f31ab272aed74dc0104ea65a097d0af2/-/blob/server/static/api-spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mediacloud/web-tools/blob/bd206621f31ab272aed74dc0104ea65a097d0af2/server/static/api-spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

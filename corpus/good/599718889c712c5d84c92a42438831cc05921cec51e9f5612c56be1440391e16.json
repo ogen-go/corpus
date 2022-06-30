@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mimicry-tech/mimicry"
+		},
+		"file": {
+			"name": "simple.yaml",
+			"size": 0,
+			"path": "test/fixtures/specs/simple.yaml",
+			"byteSize": 1799,
+			"content": "openapi: 3.0.3\ninfo:\n  title: 'Test YAML'\n  version: '1.0'\n  license:\n    name: MIT\n  description: 'A simple API'\nservers:\n  - url: https://simple-api.testing.com\n    description: production\npaths:\n  '/':\n    get:\n      responses:\n        default:\n          description: 'The default response for this endpoint'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SimpleMessage'\n              examples:\n                simple-reference:\n                  $ref: '#/components/examples/simple-message-example'\n                simple-embedded:\n                  summary: 'An embedded example'\n                  value:\n                    message: 'embedded message example'\n                simple-combined-example:\n                  $ref: '#/components/examples/simple-message-example'\n                  summary: 'simple example with overriden summary'\n        404:\n          description: The response for when something is not found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SimpleError'\n              examples:\n                simple-error:\n                  $ref: '#/components/examples/simple-error'\n\ncomponents:\n  schemas:\n    SimpleMessage:\n      title: 'A simple message'\n      description: 'an example of a simple message'\n      type: object\n      properties:\n        message:\n          type: string\n    SimpleError:\n      title: 'A simple Error'\n      description: 'A simple error model'\n      type: object\n      properties:\n        code:\n          type: integer\n  examples:\n    simple-message-example:\n      summary: 'a simple message'\n      value:\n        message: 'foobar'\n    simple-error:\n      summary: 'a simple error'\n      value:\n        code: 42\n\n",
+			"canonicalURL": "/github.com/mimicry-tech/mimicry@842a79b00efea9a04851b47d1712f7f9484b5120/-/blob/test/fixtures/specs/simple.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mimicry-tech/mimicry/blob/842a79b00efea9a04851b47d1712f7f9484b5120/test/fixtures/specs/simple.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/localstack/localstack"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "tests/integration/files/swagger.yaml",
+			"byteSize": 2130,
+			"content": "openapi: 3.0.1\ninfo:\n  title: test\n  version: '2020-07-23T23:02:57Z'\nservers:\n- url: https://rei6t36l9d.execute-api.us-east-1.amazonaws.com/{basePath}\n  variables:\n    basePath:\n      default: \"/test\"\npaths:\n  \"/test\":\n    get:\n      responses:\n        '200':\n          description: 200 response\n          headers:\n            Access-Control-Allow-Origin:\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        responses:\n          default:\n            statusCode: '200'\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'*'\"\n        requestParameters:\n          integration.request.header.X-Amz-Invocation-Type: \"'Event'\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        passthroughBehavior: when_no_match\n        type: mock\n    options:\n      responses:\n        '200':\n          description: 200 response\n          headers:\n            Access-Control-Allow-Origin:\n              schema:\n                type: string\n            Access-Control-Allow-Methods:\n              schema:\n                type: string\n            Access-Control-Allow-Headers:\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        responses:\n          default:\n            statusCode: '200'\n            responseParameters:\n              method.response.header.Access-Control-Allow-Methods: \"'GET,OPTIONS'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'\"\n              method.response.header.Access-Control-Allow-Origin: \"'*'\"\n        requestTemplates:\n          application/json: '{\"statusCode\": 200}'\n        passthroughBehavior: when_no_match\n        type: mock\ncomponents:\n  schemas:\n    Empty:\n      title: Empty Schema\n      type: object\n",
+			"canonicalURL": "/github.com/localstack/localstack@f3acd6a123a4f368a38b59dc4829e259cbc8615f/-/blob/tests/integration/files/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/localstack/localstack/blob/f3acd6a123a4f368a38b59dc4829e259cbc8615f/tests/integration/files/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

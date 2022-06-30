@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-connectors"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/whohoststhis/openapi.yaml",
+			"byteSize": 2445,
+			"content": "openapi: 3.0.0\ninfo:\n  contact:\n    name: Who Hosts This\n    url: https://www.who-hosts-this.com/Contact\n  description:\n    This is a generated connector for [Who Hosts This API v0.0.1](https://www.who-hosts-this.com/Documentation) OpenAPI specification. \n    \n    The Who Hosts This API provides services to get discover the hosting provider for any web site.\n  x-ballerina-init-description: \u003e\n    The connector initialization requires setting the API credentials.\n\n    Create an [Who Hosts This Account](https://www.who-hosts-this.com/Profile?cmd=RegisterForm) and obtain token by following [this link](https://www.who-hosts-this.com/APIKey).\n  x-ballerina-display:\n    label: Who Hosts This\n    iconPath: \"icon.png\"\n  title: Who Hosts This API\n  version: 0.0.1\n  x-apisguru-categories:\n    - hosting\n    - iot\n    - tools\n  x-logo:\n    backgroundColor: '#2c3e50'\n    url: https://www.who-hosts-this.com/data/_uploaded/image/logo-who-hosts-padded.png\n  x-origin:\n    - format: swagger\n      url: https://www.who-hosts-this.com/APISpecification\n      version: '2.0'\n  x-preferred: null\n  x-providerName: who-hosts-this.com\nexternalDocs:\n  url: https://www.who-hosts-this.com/Documentation\nsecurity:\n  - QueryKey: []\npaths:\n  /Detect:\n    get:\n      operationId: discoverHostingProvider\n      parameters:\n        - description: The url of the page to check\n          in: query\n          name: url\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Status of the detection and list of any found hosting providers\n          content:\n            application/json: {}\n      summary: Discover the hosting provider for a web site\n      tags:\n        - hosting\n  /Status:\n    get:\n      operationId: listHostingProvider\n      responses:\n        '200':\n          description: Status of the detection and list of any found hosting providers\n          content:\n            application/json: {}\n      summary: View usage details for the current billing period\nservers:\n  - url: https://www.who-hosts-this.com/APIEndpoint\ncomponents:\n  securitySchemes:\n    QueryKey:\n      description: All requests on the Who Hosts This API needs to include an API key. The API key can be provided as part of the query string or as a request header. The name of the API key needs to be `key`. API Keys available at https://www.who-hosts-this.com/API\n      in: query\n      name: key\n      type: apiKey\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-connectors@c3641dddbc4e41686ae3d1b9bacf1621b639a019/-/blob/openapi/whohoststhis/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-connectors/blob/c3641dddbc4e41686ae3d1b9bacf1621b639a019/openapi/whohoststhis/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/Detect\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

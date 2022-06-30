@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "converter.yaml",
+			"size": 0,
+			"path": "packages/laminar-cli/test/specs/converter.yaml",
+			"byteSize": 1156,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: PDF Render api\n  version: 1.0.0\nservers:\n  - url: http://localhost:3300\npaths:\n  '/.well-known/docs':\n    get:\n      summary: HTML Docs\n      responses:\n        '200':\n          description: Index route with html docs\n          content:\n            text/html: {}\n\n  '/.well-known/openapi.yaml':\n    get:\n      summary: API\n      responses:\n        '200':\n          description: API Definition\n          content:\n            text/yaml: {}\n\n  '/html':\n    post:\n      requestBody:\n        description: The html content to render\n        required: true\n        content:\n          text/html: {}\n      summary: Generate PDF from html\n      responses:\n        'default': { $ref: '#/components/responses/HttpErrorResponse' }\n        '200':\n          description: PDF REsult\n          content:\n            application/pdf: {}\n\ncomponents:\n  responses:\n    HttpErrorResponse:\n      description: Error Response\n      content:\n        application/json:\n          schema: { $ref: '#/components/schemas/HttpError' }\n\n  schemas:\n    HttpError:\n      properties:\n        message:\n          type: string\n      additionalProperties: false\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-cli/test/specs/converter.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-cli/test/specs/converter.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/.well-known/docs\": get: responses: 200: contents: unsupported content types: [text/html]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "shared_request_body.yaml",
+			"size": 0,
+			"path": "vertx-web-openapi/src/test/resources/specs/shared_request_body.yaml",
+			"byteSize": 1068,
+			"content": "openapi: 3.0.0\ninfo:\n  description: bug repro\n  version: 1.0.0\n  title: bug repro\n\npaths:\n  /v1/working:\n    post:\n      operationId: thisWayWorks\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Bug'\n      responses:\n        '200':\n          $ref: '#/components/responses/200_Bug'\n\n  /v1/notworking:\n    post:\n      operationId: thisWayBroken\n      requestBody:\n        $ref: '#/components/requestBodies/Bug'\n      responses:\n        '200':\n          $ref: '#/components/responses/200_Bug'\n\ncomponents:\n  requestBodies:\n    Bug:\n      required: true\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Bug'\n  responses:\n    200_Bug:\n      description: Bug\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Bug'\n  schemas:\n    Bug:\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n      required:\n        - name\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-openapi/src/test/resources/specs/shared_request_body.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-openapi/src/test/resources/specs/shared_request_body.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

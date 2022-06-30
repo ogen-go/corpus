@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "responseRecordInline.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/response/responseRecordInline.yaml",
+			"byteSize": 1894,
+			"content": "openapi: 3.0.0\ninfo:\n  title: refComponent\n  description: refComponent\n  version: 1.0.0\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n  - url: https://{subdomain}.swagger.io:{port}/{basePath}\n    description: The production API server\n    variables:\n      subdomain:\n        default: petstore\n        description: this value is assigned by the service provider\n      port:\n        enum:\n          - '8443'\n          - '443'\n        default: '443'\n      basePath:\n        default: v2\npaths:\n  /user:\n    post:\n      summary: Creates a new user.\n      responses:\n        '400':\n          description: A User object\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    description: The user ID.\n                  username:\n                    type: string\n                    description: The user name.\n\n\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n    Pet:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n    PetForm:\n      type: object\n      required:\n        - userName\n      properties:\n        userName:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/service/swagger/response/responseRecordInline.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/service/swagger/response/responseRecordInline.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

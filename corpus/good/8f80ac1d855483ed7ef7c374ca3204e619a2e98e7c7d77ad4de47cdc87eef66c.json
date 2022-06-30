@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "b.yaml",
+			"size": 0,
+			"path": "test/golden/common/type-changing/b.yaml",
+			"byteSize": 2352,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Test\nservers:\n  - url: http://localhost/\npaths:\n  /test1:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test1\"\n      responses:\n        \"200\":\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test1\"\n  /test2:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test2\"\n      responses:\n        \"200\":\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test2\"\n  /test3:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test3\"\n      responses:\n        \"200\":\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test3\"\n  /test4:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test4\"\n      responses:\n        \"200\":\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test4\"\n  /test5:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Test5\"\n      responses:\n        \"200\":\n          description: test\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Test5\"\ncomponents:\n  schemas:\n    Test1:\n      type: array\n      minItems: 1\n    Test2:\n      anyOf:\n        - type: number\n          multipleOf: 1\n        - type: array\n          minItems: 1\n        - type: object\n    Test3:\n      anyOf:\n        - type: number\n          multipleOf: 1\n        - type: string\n          minLength: 1\n        - type: object\n    Test4:\n      anyOf:\n        - type: number\n          multipleOf: 1\n        - type: array\n          minItems: 1\n        - type: string\n          minLength: 1\n    Test5:\n      anyOf:\n        - type: number\n          multipleOf: 1\n",
+			"canonicalURL": "/github.com/typeable/compaREST@f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/-/blob/test/golden/common/type-changing/b.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/typeable/compaREST/blob/f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/test/golden/common/type-changing/b.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

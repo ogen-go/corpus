@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/levigo/neverpile-eureka"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "neverpile-eureka-plugin-audit/src/main/resources/com/neverpile/eureka/plugin/audit/openapi.yaml",
+			"byteSize": 3346,
+			"content": "openapi: 3.0.1\n\ninfo:\n  title: Neverpile eureka API\n  contact:\n    name: levigo solutions gmbh\n    url: https://levigo.de\n    email: solutions@levigo.de\n  version: 1.0.0\n\ntags:\n- name: Audit\n  description: Audit-log related APIs\n\npaths:\n  /api/v1/documents/{documentId}/audit:\n    get:\n      tags:\n      - Audit\n      summary: Fetches a document's audit log\n\n      parameters:\n      - name: documentId\n        in: path\n        description: The ID of the document\n        required: true\n        schema:\n          type: string\n\n      responses:\n        200:\n          description: Audit log found\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/AuditEvent'\n        404:\n          description: Document not found\n          \n    post:\n      tags:\n      - Audit\n      summary: Appends an event to a document's audit log\n\n      parameters:\n      - name: documentId\n        in: path\n        description: The ID of the document\n        required: true\n        schema:\n          type: string\n\n      requestBody:\n        description: the audit event to append\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AuditEvent'\n        required: true\n\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuditEvent'\n        201:\n          description: Event logged\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuditEvent'\n        400:\n          description: Invalid input, object invalid\n        404:\n          description: Document not found\n          \n  /api/v1/documents/{documentId}/audit/{auditId}:\n    get:\n      tags:\n      - Audit\n      summary: Fetches a single audit event\n\n      parameters:\n      - name: documentId\n        in: path\n        description: The ID of the document\n        required: true\n        schema:\n          type: string\n      - name: auditId\n        in: path\n        description: The ID of the audit event to be fetched\n        required: true\n        schema:\n          type: string\n\n      responses:\n        200:\n          description: Audit event found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AuditEvent'\n        404:\n          description: AuditEvent not found\n          \ncomponents:\n  schemas:\n    AuditEvent:\n      title: AuditEvent\n      type: object\n      properties:\n        auditId:\n          type: string\n          description: The ID of this event\n        description:\n          type: string\n          description: A textual desription of the event\n        timestamp:\n          type: string\n          description: The time at which the event occurred\n          format: date-time\n        type:\n          type: string\n          description: The type of event\n          enum:\n          - CREATE\n          - UPDATE\n          - DELETE\n          - CUSTOM\n        userID:\n          type: string\n          description: The ID of the used which triggered the event; may be null if\n            the event wasn't triggered by a user\n      description: An audit event associated with a document\n",
+			"canonicalURL": "/github.com/levigo/neverpile-eureka@72e9e3e3f7ec10995802a3269d74345568569ed4/-/blob/neverpile-eureka-plugin-audit/src/main/resources/com/neverpile/eureka/plugin/audit/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/levigo/neverpile-eureka/blob/72e9e3e3f7ec10995802a3269d74345568569ed4/neverpile-eureka-plugin-audit/src/main/resources/com/neverpile/eureka/plugin/audit/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

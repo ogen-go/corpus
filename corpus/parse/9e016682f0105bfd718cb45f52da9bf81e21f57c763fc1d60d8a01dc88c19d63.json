@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "test_files/no_authorizer_on_options.yml",
 			"byteSize": 475,
-			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/:\n    options:\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n      security:\n        - Test-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.some_header: \"context.authorizer.some_variable\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\""
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Test\"\n  version: \"1.0.0\"\npaths:\n  /test/resource/:\n    options:\n      responses:\n        200:\n          description: \"200 response\"\n          content: {}\n      security:\n        - Test-Authorizer: []\n      x-amazon-apigateway-integration:\n        type: \"http\"\n        requestParameters:\n          integration.request.header.some_header: \"context.authorizer.some_variable\"\n        passthroughBehavior: \"when_no_match\"\n        httpMethod: \"GET\"",
+			"canonicalURL": "/github.com/evilmint/aws-openapi-lint@841ac16c060720898d3d887b5575c5eb44f4d3e2/-/blob/test_files/no_authorizer_on_options.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/evilmint/aws-openapi-lint/blob/841ac16c060720898d3d887b5575c5eb44f4d3e2/test_files/no_authorizer_on_options.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /test/resource/: options: security: unknown security schema \"Test-Authorizer\""

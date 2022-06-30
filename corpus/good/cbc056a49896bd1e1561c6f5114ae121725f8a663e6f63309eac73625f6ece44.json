@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-library/OpenAPIValidators"
+		},
+		"file": {
+			"name": "openapi3.yml",
+			"size": 0,
+			"path": "commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec/openapi3.yml",
+			"byteSize": 1324,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Example OpenApi 3 spec\n  description: Has various paths with responses to use in testing\n  version: 0.1.0\npaths:\n  /unused:\n    get:\n      responses:\n        204:\n          description: No response body\ncomponents:\n  schemas:\n    StringSchema:\n      type: string\n    IntegerSchema:\n      type: integer\n    SimpleObjectSchema:\n      type: object\n      required:\n        - property1\n      properties:\n        property1:\n          type: string\n    SimpleObjectSchemaWithDifferentPropertyName:\n      type: object\n      required:\n        - property2\n      properties:\n        property2:\n          type: string\n    SchemaReferencingAnotherSchema:\n      required:\n        - property1\n      properties:\n        property1:\n          $ref: '#/components/schemas/StringSchema'\n    SchemaUsingAllOf:\n      allOf:\n        - $ref: '#/components/schemas/SimpleObjectSchema'\n        - $ref: '#/components/schemas/SimpleObjectSchemaWithDifferentPropertyName'\n    SchemaUsingAnyOf:\n      anyOf:\n        - $ref: '#/components/schemas/SimpleObjectSchema'\n        - $ref: '#/components/schemas/SimpleObjectSchemaWithDifferentPropertyName'\n    SchemaUsingOneOf:\n      oneOf:\n        - $ref: '#/components/schemas/SimpleObjectSchema'\n        - $ref: '#/components/schemas/SimpleObjectSchemaWithDifferentPropertyName'\n",
+			"canonicalURL": "/github.com/openapi-library/OpenAPIValidators@9511b66efb9f03a923caffd86eb66ede015defc3/-/blob/commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec/openapi3.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openapi-library/OpenAPIValidators/blob/9511b66efb9f03a923caffd86eb66ede015defc3/commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec/openapi3.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

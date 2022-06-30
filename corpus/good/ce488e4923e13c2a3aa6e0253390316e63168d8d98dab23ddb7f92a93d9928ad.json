@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/KNowledgeOnWebScale/walder"
+		},
+		"file": {
+			"name": "config-referencing-query-context.yaml",
+			"size": 0,
+			"path": "example/config-referencing-query-context.yaml",
+			"byteSize": 1350,
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: ./\n  views: views\n  pipe-modules: pipeModules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /music/{musician}:\n    get:\n      summary: Returns a list of songs of the given musician.\n      parameters:\n        - in: path\n          name: musician\n          required: true\n          schema:\n            type: string\n          description: The target musician\n      x-walder-query:\n        $ref: './walderQueryInfo/music_musician_info.yaml'\n      responses:\n        200:\n          description: list of songs\n          x-walder-input-text/html: songs.handlebars\n  /movies/{actor}:\n    get:\n      summary: Returns a list of the all movies the given actor stars in\n      parameters:\n        - in: path\n          name: actor\n          required: true\n          schema:\n            type: string\n          description: The target actor\n      x-walder-query:\n        $ref: './walderQueryInfo/movies_actor_info.yaml'\n      responses:\n        200:\n          description: list of movies\n          x-walder-input-text/html: movies.pug\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n",
+			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@dd3aaa9022006d379daac13ea20f49d77ad7f835/-/blob/example/config-referencing-query-context.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/dd3aaa9022006d379daac13ea20f49d77ad7f835/example/config-referencing-query-context.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

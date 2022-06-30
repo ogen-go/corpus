@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cattr-app/backend-application"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "postman/schemas/schema.yaml",
+			"byteSize": 1671,
+			"content": "openapi: 3.1.0\ninfo:\n  version: '3.0.4'\n  title: 'Cattr'\nservers:\n  - url: 'http://localhost:8000'\n    description: 'Local server served by Artisan'\n  - url: 'https://demo.cattr.app/api'\n    description: 'Demo Cattr server'\npaths:\n  /user:\n    get:\n      summary: 'Sample endpoint: Returns details about a particular user'\n      operationId: listUser\n      tags:\n        - user\n      parameters:\n        - name: id\n          in: query\n          description: ID of the user\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: 'Sample response: Details about a user by ID'\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\nsecurity:\n  - bearerAuth: []\n",
+			"canonicalURL": "/github.com/cattr-app/backend-application@0be09cdd02f95e7b0f17ac93e922508107243247/-/blob/postman/schemas/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cattr-app/backend-application/blob/0be09cdd02f95e7b0f17ac93e922508107243247/postman/schemas/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
 			"byteSize": 968,
-			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 0.0.1\n  title: broken API\npaths:\n  /test:\n    put:\n      summary: No description\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MyParameter'\n      responses:\n        200:\n          description: \"OK\"\ncomponents:\n  schemas:\n    MyParameter:\n      type: object\n      properties:\n        text_field:\n          $ref: '#/components/schemas/MyParameterTextField'\n    MyParameterTextField:\n      $ref: '#/components/schemas/TypeAliasToString'\n    TypeAliasToString:\n      type: string\n      minLength: 1\n      maxLength: 50\n    BaseModel:\n      type: object\n      discriminator: className\n      required:\n        - className\n      properties:\n        className:\n          type: string\n    ComposedModel:\n      allOf:\n        - $ref: '#/components/schemas/BaseModel'\n        - type: object\n          properties:\n            testProperty:\n              type: string"
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 0.0.1\n  title: broken API\npaths:\n  /test:\n    put:\n      summary: No description\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MyParameter'\n      responses:\n        200:\n          description: \"OK\"\ncomponents:\n  schemas:\n    MyParameter:\n      type: object\n      properties:\n        text_field:\n          $ref: '#/components/schemas/MyParameterTextField'\n    MyParameterTextField:\n      $ref: '#/components/schemas/TypeAliasToString'\n    TypeAliasToString:\n      type: string\n      minLength: 1\n      maxLength: 50\n    BaseModel:\n      type: object\n      discriminator: className\n      required:\n        - className\n      properties:\n        className:\n          type: string\n    ComposedModel:\n      allOf:\n        - $ref: '#/components/schemas/BaseModel'\n        - type: object\n          properties:\n            testProperty:\n              type: string",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "unmarshal: json: line 1:67: json: cannot unmarshal string into Go struct field Schema.components.schemas.discriminator of type ogen.Discriminator"

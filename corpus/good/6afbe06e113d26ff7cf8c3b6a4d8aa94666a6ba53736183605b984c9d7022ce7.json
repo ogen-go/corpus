@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-codegen-generators"
+		},
+		"file": {
+			"name": "discriminator_order_schemas.yaml",
+			"size": 0,
+			"path": "src/test/resources/3_0_0/discriminator_order_schemas.yaml",
+			"byteSize": 1342,
+			"content": "openapi: 3.0.2\r\ninfo:\r\n  title: OAI Specification example for NPE\r\n  version: 1.0.0\r\npaths:\r\n  /sampleObjectResponse:\r\n    get:\r\n      responses:\r\n        '200':\r\n          description: desc\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: '#/components/schemas/A_Base'\r\ncomponents:\r\n  schemas:\r\n\r\n    A_Base:\r\n      type: object\r\n      properties:\r\n        relations:\r\n          type: string\r\n\r\n    B_Sub_Base:\r\n      allOf:\r\n        - \"$ref\": '#/components/schemas/A_Base'\r\n      type: object\r\n      required:\r\n        - type\r\n      properties:\r\n        type:\r\n          type: string\r\n      discriminator:\r\n        propertyName: type\r\n        mapping:\r\n          aPersonalProperty: '#/components/schemas/APersonalProperty'\r\n\r\n    C_Sub_Sub_Base:\r\n      allOf:\r\n        - \"$ref\": '#/components/schemas/B_Sub_Base'\r\n        - required:\r\n            - type\r\n          type: object\r\n          properties:\r\n            type:\r\n              type: string\r\n          discriminator:\r\n            propertyName: type\r\n            mapping:\r\n              motorVehicle: '#/components/schemas/D_Sub_Sub_Sub_Base'\r\n\r\n    D_Sub_Sub_Sub_Base:\r\n      allOf:\r\n        - \"$ref\": '#/components/schemas/C_Sub_Sub_Base'\r\n        - type: object\r\n          properties:\r\n            bark:\r\n              type: string\r\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-codegen-generators@56bf0942d7510e50f6511ee1eb214038e98611ce/-/blob/src/test/resources/3_0_0/discriminator_order_schemas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-codegen-generators/blob/56bf0942d7510e50f6511ee1eb214038e98611ce/src/test/resources/3_0_0/discriminator_order_schemas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

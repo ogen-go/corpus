@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "CigarUnitOperation.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/CigarUnitOperation.yaml",
+			"byteSize": 3007,
+			"content": "components:\n  schemas:\n    CigarUnitOperation:\n      default: OPERATION_UNSPECIFIED\n      description: |-\n        Describes the different types of CIGAR alignment operations that exist.\n        Used wherever CIGAR alignments are used.\n\n         - OPERATION_UNSPECIFIED: The null operation.\n         - ALIGNMENT_MATCH: An alignment match indicates that a sequence can be aligned to the\n        reference without evidence of an INDEL. Unlike the\n        `SEQUENCE_MATCH` and `SEQUENCE_MISMATCH` operators,\n        the `ALIGNMENT_MATCH` operator does not indicate whether the\n        reference and read sequences are an exact match. This operator is\n        equivalent to SAM's `M`.\n         - INSERT: The insert operator indicates that the read contains evidence of bases\n        being inserted into the reference. This operator is equivalent to SAM's\n        `I`.\n         - DELETE: The delete operator indicates that the read contains evidence of bases\n        being deleted from the reference. This operator is equivalent to SAM's\n        `D`.\n         - SKIP: The skip operator indicates that this read skips a long segment of the\n        reference, but the bases have not been deleted. This operator is commonly\n        used when working with RNA-seq data, where reads may skip long segments\n        of the reference between exons. This operator is equivalent to SAM's\n        `N`.\n         - CLIP_SOFT: The soft clip operator indicates that bases at the start/end of a read\n        have not been considered during alignment. This may occur if the majority\n        of a read maps, except for low quality bases at the start/end of a read.\n        This operator is equivalent to SAM's `S`. Bases that are soft\n        clipped will still be stored in the read.\n         - CLIP_HARD: The hard clip operator indicates that bases at the start/end of a read\n        have been omitted from this alignment. This may occur if this linear\n        alignment is part of a chimeric alignment, or if the read has been\n        trimmed (for example, during error correction or to trim poly-A tails for\n        RNA-seq). This operator is equivalent to SAM's `H`.\n         - PAD: The pad operator indicates that there is padding in an alignment. This\n        operator is equivalent to SAM's `P`.\n         - SEQUENCE_MATCH: This operator indicates that this portion of the aligned sequence exactly\n        matches the reference. This operator is equivalent to SAM's `=`.\n         - SEQUENCE_MISMATCH: This operator indicates that this portion of the aligned sequence is an\n        alignment match to the reference, but a sequence mismatch. This can\n        indicate a SNP or a read error. This operator is equivalent to SAM's\n        `X`.\n      enum:\n      - OPERATION_UNSPECIFIED\n      - ALIGNMENT_MATCH\n      - INSERT\n      - DELETE\n      - SKIP\n      - CLIP_SOFT\n      - CLIP_HARD\n      - PAD\n      - SEQUENCE_MATCH\n      - SEQUENCE_MISMATCH\n      type: string\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@5252d84f331840650fffbca6cb8cece10a65cea6/-/blob/Specification/GA4GH_BrAPI/Reads/Schemas/CigarUnitOperation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/5252d84f331840650fffbca6cb8cece10a65cea6/Specification/GA4GH_BrAPI/Reads/Schemas/CigarUnitOperation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

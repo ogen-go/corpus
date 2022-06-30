@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vanilla/vanilla"
+		},
+		"file": {
+			"name": "basic-schema.yml",
+			"size": 0,
+			"path": "applications/dashboard/openapi/basic-schema.yml",
+			"byteSize": 3276,
+			"content": "openapi: 3.0.2\ninfo:\npaths:\ncomponents:\n    schemas:\n        BasicSchema:\n            description: A basic OpenAPI schema validator so that schemas can be submitted as data.\n            type: object\n            properties:\n                type:\n                    description: Must be an object.\n                    type: string\n                    enum: [\"object\"]\n                properties:\n                    description: A map of property names to property definitions.\n                    type: object\n                    additionalProperties:\n                        $ref: \"#/components/schemas/BasicSchemaProperty\"\n                required:\n                    description: The names of required properties.\n                    type: array\n                    items:\n                        type: string\n            example:\n                type: object\n                properties:\n                    license:\n                        type: string\n                        description: Find your license number in the help menu.\n                    notes:\n                        type: string\n                        x-control: textarea\n        BasicSchemaProperty:\n            type: object\n            properties:\n                type:\n                    description: The data type of the property.\n                    type: string\n                    enum:\n                        - string\n                        - number\n                        - integer\n                        - boolean\n                description:\n                    description: A description to help the user enter the right information.\n                    type: string\n                x-label:\n                    description: The control label.\n                    type: string\n                x-control:\n                    description: The type of control used to collect the input.\n                    type: string\n                    enum:\n                        - textbox\n                        - textarea\n                        - checkbox\n                default:\n                    description: The default value if none is specified.\n                    oneOf:\n                        - type: string\n                        - type: number\n                        - type: integer\n                        - type: boolean\n                    nullable: true\n                enum:\n                    description: Limit input to a set of values.\n                    type: array\n                    items:\n                        oneOf:\n                            - type: string\n                            - type: number\n                            - type: integer\n                            - type: boolean\n                minLength:\n                    description: Minimum string length.\n                    type: integer\n                    minimum: 0\n                maxLength:\n                    description: Maximum string length.\n                    type: integer\n                    minimum: 1\n                minimum:\n                    description: Minimum numeric value.\n                    type: number\n                maximum:\n                    description: Maximum numeric value.\n                    type: number\n            required:\n                - type\n",
+			"canonicalURL": "/github.com/vanilla/vanilla@dfe2732ec86d37eed7eec0956151e79f2f414b4f/-/blob/applications/dashboard/openapi/basic-schema.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vanilla/vanilla/blob/dfe2732ec86d37eed7eec0956151e79f2f414b4f/applications/dashboard/openapi/basic-schema.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

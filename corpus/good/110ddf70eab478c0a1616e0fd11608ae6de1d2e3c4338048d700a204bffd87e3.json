@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "http_api_description.json",
+			"size": 0,
+			"path": "tests/translator/output/aws-cn/http_api_description.json",
+			"byteSize": 3103,
+			"content": "{\n  \"Resources\": {\n    \"Function\": {\n      \"Type\": \"AWS::Lambda::Function\", \n      \"Properties\": {\n        \"Handler\": \"index.handler\", \n        \"Code\": {\n          \"S3Bucket\": \"bucket\", \n          \"S3Key\": \"key\"\n        }, \n        \"Role\": {\n          \"Fn::GetAtt\": [\n            \"FunctionRole\", \n            \"Arn\"\n          ]\n        }, \n        \"Runtime\": \"python3.7\", \n        \"Tags\": [\n          {\n            \"Value\": \"SAM\", \n            \"Key\": \"lambda:createdBy\"\n          }\n        ]\n      }\n    }, \n    \"FunctionApiPermission\": {\n      \"Type\": \"AWS::Lambda::Permission\", \n      \"Properties\": {\n        \"Action\": \"lambda:InvokeFunction\", \n        \"Principal\": \"apigateway.amazonaws.com\", \n        \"FunctionName\": {\n          \"Ref\": \"Function\"\n        }, \n        \"SourceArn\": {\n          \"Fn::Sub\": [\n            \"arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${__ApiId__}/${__Stage__}/*\", \n            {\n              \"__Stage__\": \"*\", \n              \"__ApiId__\": \"HttpApi\"\n            }\n          ]\n        }\n      }\n    },\n    \"FunctionRole\": {\n      \"Type\": \"AWS::IAM::Role\", \n      \"Properties\": {\n        \"AssumeRolePolicyDocument\": {\n          \"Version\": \"2012-10-17\", \n          \"Statement\": [\n            {\n              \"Action\": [\n                \"sts:AssumeRole\"\n              ], \n              \"Effect\": \"Allow\", \n              \"Principal\": {\n                \"Service\": [\n                  \"lambda.amazonaws.com\"\n                ]\n              }\n            }\n          ]\n        }, \n        \"ManagedPolicyArns\": [\n          \"arn:aws-cn:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole\"\n        ], \n        \"Tags\": [\n          {\n            \"Value\": \"SAM\", \n            \"Key\": \"lambda:createdBy\"\n          }\n        ]\n      }\n    }, \n    \"HttpApiApiGatewayDefaultStage\": {\n      \"Type\": \"AWS::ApiGatewayV2::Stage\", \n      \"Properties\": {\n        \"AutoDeploy\": true, \n        \"ApiId\": {\n          \"Ref\": \"HttpApi\"\n        },\n        \"Tags\": {\n          \"httpapi:createdBy\": \"SAM\"\n        },\n        \"StageName\": \"$default\"\n      }\n    }, \n    \"HttpApi\": {\n      \"Type\": \"AWS::ApiGatewayV2::Api\", \n      \"Properties\": {\n        \"Body\": {\n          \"openapi\": \"3.0.1\",\n          \"paths\": {\n            \"/foo\": {},\n            \"$default\": {\n              \"x-amazon-apigateway-any-method\": {\n                \"x-amazon-apigateway-integration\": {\n                  \"type\": \"aws_proxy\",\n                  \"httpMethod\": \"POST\",\n                  \"payloadFormatVersion\": \"2.0\",\n                  \"uri\": {\n                    \"Fn::Sub\": \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Function.Arn}/invocations\"\n                  }\n                },\n                \"isDefaultRoute\": true,\n                \"responses\": {}\n              }\n            }\n          },\n          \"tags\": [\n            {\n              \"name\": \"httpapi:createdBy\",\n              \"x-amazon-apigateway-tag-value\": \"SAM\"\n            }\n          ],\n          \"info\": {\n            \"description\": \"my description\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/tests/translator/output/aws-cn/http_api_description.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/tests/translator/output/aws-cn/http_api_description.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

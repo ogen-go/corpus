@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenNMS/opennms"
+		},
+		"file": {
+			"name": "health-check-api.yaml",
+			"size": 0,
+			"path": "core/health/rest/src/main/resources/openapi/health-check-api.yaml",
+			"byteSize": 2052,
+			"content": "openapi: 3.0.3\ninfo:\n  version: 0.1.0\n  title: OpenNMS Health Check RESTful API\n  description: OpenNMS Health Check RESTful API\n  contact:\n    name: OpenNMS\n    url: 'http://www.opennms.com/'\n  license:\n    name: OpenNMS(R) Licensing\n    url: 'https://github.com/OpenNMS/opennms/blob/develop/LICENSE.md'\nservers:\n  - url: 'http://localhost:8181/minion/rest'\nsecurity:\n  - basicAuth: []\npaths:\n  /health/probe:\n    get:\n      summary: Health check probe for components\n      description: Health check probe for components. Only indicate if the health is good or not\n      operationId: getHealthProbe\n      parameters:\n        - name: t\n          in: query\n          description: Timeout in milliseconds\n          schema:\n            type: integer\n            format: int32\n            default: 5000\n        - name: tag\n          in: query\n          description: \"Use tag to filter Health Check components. A tag could be - local\n, rest, broker, telemetry, dao, minion, elastic, bundle\"\n          schema:\n            type: array\n            items:\n              type: string\n              default: ''\n      responses:\n        default:\n          description: default response\n  /health:\n    get:\n      summary: Health check results for components with details\n      description: Health check results for components. Include health check result details for each element\n      operationId: getHealth\n      parameters:\n        - name: t\n          in: query\n          description: Timeout in milliseconds\n          schema:\n            type: integer\n            format: int32\n            default: 5000\n        - name: tag\n          in: query\n          description: \"Use tag to filter Health Check components. A tag could be - local\n, rest, broker, telemetry, dao, minion, elastic, bundle\"\n          schema:\n            type: array\n            items:\n              type: string\n              default: ''\n      responses:\n        default:\n          description: default response\n\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic",
+			"canonicalURL": "/github.com/OpenNMS/opennms@d5bde31f53f1c3df9e7115b86686d24d6252a16e/-/blob/core/health/rest/src/main/resources/openapi/health-check-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenNMS/opennms/blob/d5bde31f53f1c3df9e7115b86686d24d6252a16e/core/health/rest/src/main/resources/openapi/health-check-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

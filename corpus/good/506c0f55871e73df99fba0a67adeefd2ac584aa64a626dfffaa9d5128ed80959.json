@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "loss.yaml",
+			"size": 0,
+			"path": "packages/laminar-cli/test/api/loss.yaml",
+			"byteSize": 2654,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Loss\n  version: 1.0.0\nservers:\n  - url: http://localhost:8094\npaths:\n  '/accounts/{accountId}/meters':\n    get:\n      summary: Get Meters, associated with an account, and its service start and end dates (SSD...SED)\n      parameters:\n        - { $ref: '#/components/parameters/accountId' }\n      responses:\n        'default': { $ref: '#/components/responses/HttpErrorResponse' }\n        '200':\n          description: An list of meters for an account\n          content:\n            application/json:\n              schema:\n                type: array\n                items: { $ref: '#/components/schemas/AccountMeterBase' }\n\ncomponents:\n  responses:\n    HttpErrorResponse:\n      description: Error Response\n      content:\n        application/json:\n          schema: { $ref: '#/components/schemas/HttpError' }\n\n  parameters:\n    accountId:\n      name: accountId\n      in: path\n      schema:\n        type: string\n      required: true\n\n  schemas:\n    HttpError:\n      additionalProperties: false\n      properties:\n        message:\n          type: string\n\n    # AccountMeter\n    # =======================================\n\n    AccountMeterBase:\n      properties:\n        tariffName:\n          type: string\n        plan:\n          type: string\n        address:\n          type: string\n        postCode:\n          type: string\n        mpxn:\n          type: string\n        msn:\n          type: string\n        startDate:\n          type: string\n          format: date\n        endDate:\n          type: string\n          format: date\n      required:\n        - tariffName\n        - plan\n        - address\n        - postCode\n        - mpxn\n        - msn\n        - startDate\n        - endDate\n\n    AccountMeterElec:\n      allOf:\n        - { $ref: '#/components/schemas/AccountMeterBase' }\n        - properties:\n            meterType:\n              enum: ['elec']\n            profileClassId:\n              type: string\n            meterTimeswitchCode:\n              type: string\n            lineLossFactorClassId:\n              type: string\n          required:\n            - meterType\n            - profileClassId\n            - meterTimeswitchCode\n            - lineLossFactorClassId\n\n    AccountMeterGas:\n      allOf:\n        - { $ref: '#/components/schemas/AccountMeterBase' }\n        - properties:\n            meterType:\n              enum: ['gas']\n            ldz:\n              type: string\n          required: ['meterType', 'ldz']\n\n    AccountMeter:\n      oneOf:\n        - { $ref: '#/components/schemas/AccountMeterElec' }\n        - { $ref: '#/components/schemas/AccountMeterGas' }\n      discriminator:\n        propertyName: meterType\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-cli/test/api/loss.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-cli/test/api/loss.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

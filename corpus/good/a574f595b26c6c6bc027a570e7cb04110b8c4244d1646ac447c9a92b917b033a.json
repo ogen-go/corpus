@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "recursive2.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/recursive2.yaml",
+			"byteSize": 871,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 'minimal'\n  title: 'recursion2'\n  description: 'problem in ResolverFully'\n\npaths:\n  /foo:\n    post:\n      responses:\n        '200':\n          description: Ok\n      requestBody:\n        $ref: '#/components/requestBodies/MyRequestBody'\n\n  /bar:\n    put:\n      responses:\n        '200':\n          description: Ok\n      requestBody:\n        $ref: '#/components/requestBodies/MyRequestBody'\n\ncomponents:\n  schemas:\n    Schema1:\n      type: object\n      properties:\n        prop:\n          $ref: '#/components/schemas/Schema2'\n    Schema2:\n      type: object\n      properties:\n        prop1:\n          $ref: '#/components/schemas/Schema1'\n        prop2:\n          $ref: '#/components/schemas/Schema1'\n\n  requestBodies:\n    MyRequestBody:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Schema2'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/recursive2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/recursive2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

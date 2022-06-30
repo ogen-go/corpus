@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kornicameister/axion"
+		},
+		"file": {
+			"name": "security.yml",
+			"size": 0,
+			"path": "tests/specifications/security.yml",
+			"byteSize": 1035,
+			"content": "---\nopenapi: 3.0.0\nservers:\n  - url: /v1.0\ninfo:\n  title: Schema that shows the security\n  version: \"1.0\"\nsecurity:\n  - oauth:\n      - myscope\n  - basic: []\npaths:\n  \"/greeting/{name}\":\n    post:\n      summary: Generate greeting\n      description: Generates a greeting message.\n      operationId: fakeapi.aiohttp_handlers.aiohttp_post_greeting\n      responses:\n        \"200\":\n          description: greeting response\n          content:\n            \"*/*\":\n              schema:\n                type: object\n      parameters:\n        - name: name\n          in: path\n          description: Name of the person to greet.\n          required: true\n          schema:\n            type: string\ncomponents:\n  securitySchemes:\n    oauth:\n      type: oauth2\n      x-tokenInfoUrl: \"https://oauth.example/token_info\"\n      flows:\n        password:\n          tokenUrl: \"https://oauth.example/token\"\n          scopes:\n            myscope: can do stuff\n    basic:\n      type: http\n      scheme: basic\n      x-basicInfoFunc: fakeapi.auth.fake_basic_auth\n",
+			"canonicalURL": "/github.com/kornicameister/axion@9c6a44d34fb0025041050e35e4653b3c5eff4897/-/blob/tests/specifications/security.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kornicameister/axion/blob/9c6a44d34fb0025041050e35e4653b3c5eff4897/tests/specifications/security.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/greeting/{name}\": post: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

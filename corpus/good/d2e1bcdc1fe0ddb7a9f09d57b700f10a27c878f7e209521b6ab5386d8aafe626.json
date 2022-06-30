@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/lucmichalski/sentiment-analysis-french"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "refs/camembert-as-a-service/docs/swagger.yaml",
+			"byteSize": 2022,
+			"content": "openapi: 3.0.1\ninfo:\n  description: This API will provide some suggestions over a french masked text using BERT\n  version: 1.0.0\n  title: CamemBERT\n  termsOfService: 'https://market-place.ai.ovh.net/#!/cgu-en'\n  contact:\n    name: API Support\n    url: 'https://gitter.im/ovh/ai'\n  license:\n    name: MIT\n    url: 'https://github.com/jqueguiner/camembert-as-a-service/LICENSE'\ntags:\n  - name: camemBERT\n    description: Text Mask Completion for french text using BERT\n    externalDocs:\n      description: Find out more\n      url: 'https://bit.ly/2MEIDoe'\n  - name: process\n    description: Fill your french text mask with suggestions\npaths:\n  /process:\n    post:\n      security:\n        - apikey: []\n      tags:\n        - process\n      summary: Fill your text mask\n      description: Fill your french text mask with suggestions\n      operationId: process\n      responses:\n        '200':\n          description: OK\n          content:\n            image/jpg:\n              schema:\n                type: string\n                format: binary\n        '400':\n          description: 'input error, the text might contain more than 1 mask'\n        '401':\n          description: Unauthorized\n        '500':\n          description: make sure your API request is written correctly espacially with the appropriate double quote escape\n      requestBody:\n        description: Fill your french text mask with suggestions\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Body'\ncomponents:\n  securitySchemes:\n    apikey:\n      type: apiKey\n      name: X-OVH-Api-Key\n      in: header\n  schemas:\n    Body:\n      type: object\n      required:\n        - text\n        - top_k\n      properties:\n        text:\n          type: string\n          description: French masked text to complete\n          example: 'Le camembert est \u003cmask\u003e :)'\n        top_k:\n          type: integer\n          description: top k most relevant suggestions to complet the mask\n          example: 5\n",
+			"canonicalURL": "/github.com/lucmichalski/sentiment-analysis-french@dc908d40b7db09b174e46f6c6813744c8579f4a8/-/blob/refs/camembert-as-a-service/docs/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/lucmichalski/sentiment-analysis-french/blob/dc908d40b7db09b174e46f6c6813744c8579f4a8/refs/camembert-as-a-service/docs/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

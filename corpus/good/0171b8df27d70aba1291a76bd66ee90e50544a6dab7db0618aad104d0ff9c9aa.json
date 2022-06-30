@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/taogilaaa/trace-sandbox"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "api/openapi-spec/swagger.yaml",
+			"byteSize": 2854,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Trace Sandbox\n  description: Trace Sandbox REST API Documentation\n  version: 1.0.0\n\nservers:\n  - url: http://localhost:50042\n    description: Local Server\n\npaths:\n  /saleorders/{saleOrderId}:\n    get:\n      summary: Get SaleOrder By Id\n      description: Get SaleOrder By Id\n      parameters:\n        - in: path\n          name: saleOrderId\n          schema:\n            type: integer\n            example: 1\n          required: true\n          description: Id of sale order\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SaleOrder\"\n\n  /saleorders:\n    get:\n      summary: Returns a list of saleorders.\n      description: Returns all registered saleorders\n      parameters:\n        - in: query\n          name: email\n          description: Filter by exact email\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/SaleOrder\"\n    post:\n      summary: Create SaleOrder\n      description: Create SaleOrder\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                email:\n                  type: string\n                  example: john@doe.com\n                payment_method:\n                  type: string\n                  example: cash\n                products:\n                  type: array\n                  items:\n                    type: object\n                    properties:\n                      name:\n                        type: string\n                        example: Pepsi\n                      quantity:\n                        type: integer\n                        example: 5\n              required:\n                - email\n                - payment_method\n                - products\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n                example: order placed\n\ncomponents:\n  schemas:\n    SaleOrder:\n      type: object\n      properties:\n        id:\n          type: integer\n          example: 1\n        email:\n          type: string\n          example: michaelsuyama@northwind.com\n        payment_method:\n          type: string\n          example: cash\n        products:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Products\"\n\n    Products:\n      type: object\n      properties:\n        name:\n          type: string\n          example: Pepsi\n        quantity:\n          type: integer\n          example: 1\n",
+			"canonicalURL": "/github.com/taogilaaa/trace-sandbox@e5524073409ca56eae41741032c3a168c19217d5/-/blob/api/openapi-spec/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/taogilaaa/trace-sandbox/blob/e5524073409ca56eae41741032c3a168c19217d5/api/openapi-spec/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

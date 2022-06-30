@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-samples"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "apigw-private-custom-domain-name/iac/swagger.yaml",
+			"byteSize": 1174,
+			"content": "openapi: 3.0.1\ninfo:\n  title: apigw-pcdn\n  description: APIGW private custom domain name implementation\n  version: 0.1.0\npaths:\n  /:\n    get:\n      summary: example\n      description: returns list of examples\n      responses:\n        200:\n          description: ok\n        default:\n          description: error\n      x-amazon-apigateway-integration:\n        httpMethod: POST\n        payloadFormatVersion:\n          Fn::Sub: '${pPayloadVersion}'\n        responses:\n          default:\n            statusCode: 200\n        type: AWS_PROXY\n        uri:\n          Fn::Sub: 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Fn.Arn}/invocations'\n    post:\n      summary: example\n      description: create example\n      responses:\n        200:\n          description: ok\n        default:\n          description: error\n      x-amazon-apigateway-integration:\n        httpMethod: POST\n        payloadFormatVersion:\n          Fn::Sub: '${pPayloadVersion}'\n        responses:\n          default:\n            statusCode: 200\n        type: AWS_PROXY\n        uri:\n          Fn::Sub: 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Fn.Arn}/invocations'\n",
+			"canonicalURL": "/github.com/aws-samples/serverless-samples@1105446ba3cf6589632606a546a911541ae7008b/-/blob/apigw-private-custom-domain-name/iac/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-samples/blob/1105446ba3cf6589632606a546a911541ae7008b/apigw-private-custom-domain-name/iac/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

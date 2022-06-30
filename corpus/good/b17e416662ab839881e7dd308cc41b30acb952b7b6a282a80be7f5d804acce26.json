@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bszwej/akka-http-animal-service"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "docs/api.yaml",
+			"byteSize": 3209,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 0.0.1\n  title: Akka Http Animal Service\npaths:\n  /animals:\n    get:\n      description: Returns all animals.\n      responses:\n        200:\n          description: A successful response containing an array of animals.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/AnimalResponseBody'\n    post:\n      description: Creates a new animal.\n      requestBody:\n        description: Animal to be created.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AnimalRequestBody'\n      responses:\n        '201':\n          description: Animal created response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AnimalResponseBody'\n        '400':\n          description: |\n            Bad request. For example, it can occur when request body is wrong, malformed, or headers are missing.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequest'\n  /animals/{id}:\n    get:\n      description: Returns an animal by ID.\n      parameters:\n        - name: id\n          in: path\n          description: ID of an animal to fetch\n          required: true\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Animal response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AnimalResponseBody'\n        '400':\n          description: Animal with given ID not found.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NotFound'\n    delete:\n      description: Deletes a single animal by ID.\n      parameters:\n        - name: id\n          in: path\n          description: ID of an animal to delete.\n          required: true\n          schema:\n            type: integer\n      responses:\n        '204':\n          description: Animal deleted.\ncomponents:\n  schemas:\n    AnimalRequestBody:\n      required:\n        - name\n        - age\n        - kind\n      properties:\n        name:\n          type: string\n        age:\n          type: integer\n        kind:\n          type: string\n      example: {\n        \"name\": \"Charlie\",\n        \"age\": 16,\n        \"kind\": \"Unicorn\"\n      }\n    AnimalResponseBody:\n      required:\n        - id\n        - name\n        - age\n        - kind\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n        age:\n          type: integer\n        kind:\n          type: string\n      example: {\n          \"id\": \"abbf13\",\n          \"name\": \"Charlie\",\n          \"kind\": \"Unicorn\",\n          \"age\": 16\n        }\n    BadRequest:\n      required:\n        - message\n      properties:\n        message:\n          type: string\n      example: {\n        \"message\": \"Bad request.\"\n      }\n    NotFound:\n      required:\n        - message\n      properties:\n        message:\n          type: string\n      example: {\n        \"message\": \"Animal not found.\"\n      }\n",
+			"canonicalURL": "/github.com/bszwej/akka-http-animal-service@c54adffe5688f29b49b943af1a38323b479ddbce/-/blob/docs/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bszwej/akka-http-animal-service/blob/c54adffe5688f29b49b943af1a38323b479ddbce/docs/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

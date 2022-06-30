@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "date-time-parameter-types-for-testing.yml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml",
+			"byteSize": 2715,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Api Documentation\n  description: 'Demo Spring Mvc @DateTimeFormat across the different openapi parameter types'\n  version: '1.0'\npaths:\n  /thingy/{date}:\n    post:\n      description: 'update with form data'\n      operationId: updatePetWithForm\n      parameters:\n        - name: date\n          in: path\n          description: 'A date path parameter'\n          required: true\n          schema:\n            type: string\n            format: date\n            default: '1970-01-01'\n            example: '2021-01-01'\n      responses:\n        '405':\n          description: Invalid input\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              properties:\n                visitDate:\n                  description: Updated last vist timestamp\n                  type: string\n                  default: '1971-12-19T03:39:57-08:00'\n                  format: date-time\n    get:\n      operationId: get\n      parameters:\n        - name: date\n          in: path\n          description: 'A date path parameter'\n          required: true\n          schema:\n            type: string\n            format: date\n            default: '1972-01-01'\n            example: '2021-01-01'\n        - name: dateTime\n          description: 'A date-time query parameter'\n          in: query\n          required: true\n          schema:\n            type: string\n            format: date-time\n            default: '1973-12-19T03:39:57-08:00'\n            example: '1996-12-19T16:39:57-08:00'\n        - name: X-Order-Date\n          in: header\n          description: 'A date header parameter'\n          required: true\n          schema:\n            type: string\n            format: date\n            default: '1974-01-01'\n            example: '2021-01-01'\n        - name: loginDate\n          in: cookie\n          description: 'A date cookie parameter'\n          required: false\n          schema:\n            type: string\n            format: date\n            default: '1975-01-01'\n            example: '2021-01-01'\n      responses:\n        '200':\n          description: OK\n\ncomponents:\n  schemas:\n    'Pet':\n      type: object\n      required:\n        - '@type'\n      properties:\n        '@type':\n          type: string\n          default: 'Pet'\n        age:\n          type: integer\n          default: 4\n        happy:\n          type: boolean\n          default: true\n        price:\n          type: number\n          default: 32000000000\n        lastFeed:\n          type: string\n          format: date-time\n          default: '1973-12-19T03:39:57-08:00'\n        dateOfBirth:\n          type: string\n          format: date\n          default: '2021-01-01'\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: cookie params not implemented",
+	"NotImplemented": [
+		"cookie params"
+	]
+}

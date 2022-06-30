@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alibaba/funcraft"
+		},
+		"file": {
+			"name": "swagger.yml",
+			"size": 0,
+			"path": "examples/wechat/swagger.yml",
+			"byteSize": 1633,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: 'API Gateway \u0026 Function Compute'\n  version: v1\n'/wechat':\n  get:\n    x-aliyun-apigateway-request-config:\n      requestProtocol: \"HTTP\"\n      requestMode: \"MAPPING\"\n      bodyFormat: \"STREAM\"\n    x-aliyun-apigateway-request-parameters:\n      - apiParameterName: 'encrypt_type'\n      - apiParameterName: 'msg_signature'\n      - apiParameterName: 'timestamp'\n        location: 'Query'\n        parameterType: 'String'\n        required: 'REQUIRED'\n      - apiParameterName: 'nonce'\n        location: 'Query'\n        parameterType: 'String'\n      - apiParameterName: 'signature'\n        location: 'Query'\n        parameterType: 'String'\n      - apiParameterName: 'echostr'\n        location: 'Query'\n        parameterType: 'String'\n    x-aliyun-apigateway-fc:\n      arn: acs:fc:::services/${wechat.Arn}/functions/${get.Arn}/\n  post:\n    x-aliyun-apigateway-request-parameters:\n      - apiParameterName: 'timestamp'\n        location: 'Query'\n        parameterType: 'String'\n        required: 'REQUIRED'\n      - apiParameterName: 'nonce'\n        location: 'Query'\n        parameterType: 'String'\n      - apiParameterName: 'signature'\n        location: 'Query'\n        parameterType: 'String'\n      - apiParameterName: 'msg_signature'\n        location: 'Query'\n        parameterType: 'String'\n      - apiParameterName: 'encrypt_type'\n        location: 'Query'\n        parameterType: 'String'\n    x-aliyun-apigateway-request-config:\n      requestProtocol: \"HTTP\"\n      requestMode: \"MAPPING\"\n      bodyFormat: \"STREAM\"\n    x-aliyun-apigateway-fc:\n      arn: acs:fc:::services/${wechat.Arn}/functions/${post.Arn}/",
+			"canonicalURL": "/github.com/alibaba/funcraft@0f3b502f11d751f9e054583bd098ee8c6c7c50bc/-/blob/examples/wechat/swagger.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/alibaba/funcraft/blob/0f3b502f11d751f9e054583bd098ee8c6c7c50bc/examples/wechat/swagger.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

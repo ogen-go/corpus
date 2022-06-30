@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dcsaorg/DCSA-OpenAPI"
+		},
+		"file": {
+			"name": "error_domain_v1.0.0.yaml",
+			"size": 0,
+			"path": "domain/error/error_domain_v1.0.0.yaml",
+			"byteSize": 1812,
+			"content": "# OpenAPI version identifier - required for OpenAPI 3.0 domains\nopenapi: 3.0.3\n\n#######################\n# Optional info section\n#######################\ninfo:\n  title: DCSA Error Domain\n  description: |\n    Common error components for DCSA APIs. Components here are used by all DCSA APIs and Domains.\n  version: '1.0.0'\n\ncomponents:\n  schemas:\n    subErrors:\n      type: array\n      items:\n        type: object\n        properties:\n          reason:\n            description: 'High level error message.'\n            type: string\n            example: 'invalidQuery'\n          message:\n            description: 'Detailed error message.'\n            type: string\n            example: 'The request did not contain one of the three required query parameters.'\n        required:\n         - reason\n         - message\n         \n    error:\n      type: object\n      properties:\n        httpMethod:\n          description: 'The HTTP request method type'\n          type: string\n          example: POST\n        requestUri:\n          description: 'The request URI.'\n          type: string\n          example: 'https://dcsa.org/dcsa/tnt/v1/events'\n        errors:\n          $ref: '#/components/schemas/subErrors'\n        statusCode:\n          description: 'The HTTP status code'\n          type: integer\n          example: 400\n        statusCodeText:\n          description: 'The textual representation of the response status.'\n          type: string\n          example: 'Bad Request'\n        errorDateTime:\n          description: 'The date and time (in ISO 8601 format) the error occurred.'\n          type: string\n          format: $date-time\n          example: '2019-11-12T07:41:00+08:30'\n      required:\n        - httpMethod\n        - requestUri\n        - errors\n        - statusCode\n        - statusCodeText\n        - errorDateTime",
+			"canonicalURL": "/github.com/dcsaorg/DCSA-OpenAPI@18caeb803330d26b2c25aba119a677d79647af54/-/blob/domain/error/error_domain_v1.0.0.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dcsaorg/DCSA-OpenAPI/blob/18caeb803330d26b2c25aba119a677d79647af54/domain/error/error_domain_v1.0.0.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

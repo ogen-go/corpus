@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "openapi-checks/src/test/resources/checks/v3/media-type.yaml",
 			"byteSize": 885,
-			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    get:\n      requestBody:\n        content:\n          'application': {}   # Noncompliant {{Declared media type range should conform to RFC7231.}}\n#         ^^^^^^^^^^^^^\n          'text/*': {}\n      responses:\n        '200':\n          description: some operation\n          content:\n            'application': {} # Noncompliant {{Declared media type range should conform to RFC7231.}}\n      parameters:\n        - name: someParam\n          in: query\n          content:\n            'application': {} # Noncompliant {{Declared mime type should conform to RFC6838.}}\n            'text/plain': {}  # invalid (only 1 content allowed by spec), but should not be caught by this rule\n        - name: otherParam\n          in: path\n    post:\n      responses:\n         '200':\n           description: some operation\n"
+			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\npaths:\n  /pets:\n    get:\n      requestBody:\n        content:\n          'application': {}   # Noncompliant {{Declared media type range should conform to RFC7231.}}\n#         ^^^^^^^^^^^^^\n          'text/*': {}\n      responses:\n        '200':\n          description: some operation\n          content:\n            'application': {} # Noncompliant {{Declared media type range should conform to RFC7231.}}\n      parameters:\n        - name: someParam\n          in: query\n          content:\n            'application': {} # Noncompliant {{Declared mime type should conform to RFC6838.}}\n            'text/plain': {}  # invalid (only 1 content allowed by spec), but should not be caught by this rule\n        - name: otherParam\n          in: path\n    post:\n      responses:\n         '200':\n           description: some operation\n",
+			"canonicalURL": "/github.com/societe-generale/sonar-openapi@8476399c6bb223c42d1e436cefae5d68da949812/-/blob/openapi-checks/src/test/resources/checks/v3/media-type.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/societe-generale/sonar-openapi/blob/8476399c6bb223c42d1e436cefae5d68da949812/openapi-checks/src/test/resources/checks/v3/media-type.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /pets: get: parameters: parse parameter \"someParam\": content: \"content\" map MUST only contain one entry"

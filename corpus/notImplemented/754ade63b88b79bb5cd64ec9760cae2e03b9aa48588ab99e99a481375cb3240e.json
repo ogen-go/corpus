@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "anyOf.yml",
+			"size": 0,
+			"path": "Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/anyOf.yml",
+			"byteSize": 863,
+			"content": "openapi: 3.0.1\r\ninfo:\r\n  title: Example-Combined-AnyOf\r\n  version: 1.0.0\r\nservers:\r\n  - url: /webservice/REST/combined-AnyOf\r\n    variables: {}\r\npaths:\r\n  /pets:\r\n    patch:\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              anyOf:\r\n                - $ref: '#/components/schemas/PetByAge'\r\n                - $ref: '#/components/schemas/PetByType'\r\n      responses:\r\n        '200':\r\n          description: Updated\r\ncomponents:\r\n  schemas:\r\n    PetByAge:\r\n      type: object\r\n      properties:\r\n        age:\r\n          type: integer\r\n        nickname:\r\n          type: string\r\n      required:\r\n        - age\r\n\r\n    PetByType:\r\n      type: object\r\n      properties:\r\n        pet_type:\r\n          type: string\r\n          enum: [Cat, Dog]\r\n        hunts:\r\n          type: boolean\r\n      required:\r\n        - pet_type",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/anyOf.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/anyOf.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": patch: requestBody: contents: application/json: generate schema: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/minvws/nl-covid19-coronacheck-app-coordination"
+		},
+		"file": {
+			"name": "verifier.yaml",
+			"size": 0,
+			"path": "architecture/api/bff/verifier.yaml",
+			"byteSize": 3213,
+			"content": "openapi: 3.0.0\r\nservers:\r\n  - url: 'https://verifier-api.dev.ccappdev.nl'\r\n  - url: 'https://verifier-api.test.coronacheck.nl'\r\n  - url: 'https://verifier-api.acc.coronacheck.nl'\r\n  - url: 'https://verifier-api.coronacheck.nl'\r\ninfo:\r\n  description: \u003e-\r\n    Verifier API (BFF)\r\n  version: 0.0.1\r\n  title: Verifier API - Backend for Frontend\r\npaths:\r\n  /v1/verifier/public_keys:\r\n    get:\r\n      summary: Get all public keys used for signing\r\n      description: Get all public keys used for signing wrapped/signed with our wrapper. The payload is defined by [PublicKeysResponse].\r\n      responses:\r\n        200:\r\n          description: Success\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/SignedResponseWrapper\"\r\n  /v1/verifier/config:\r\n    get:\r\n      summary: Application configuration for the verifier.\r\n      description: Application configuration for the verifier wrapped/signed with our wrapper. The payload is defined by [AppConfig].\r\n      responses:\r\n        200:\r\n          description: Success\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/SignedResponseWrapper\"\r\ncomponents:\r\n  schemas:\r\n    SignedResponseWrapper:\r\n      type: object\r\n      description: Standard response wrapper\r\n      properties:\r\n        payload:\r\n          description: json response encoded as base64 string\r\n          type: string\r\n          format: byte\r\n          nullable: false\r\n        signature:\r\n          description: CMS/PKCS#7 signature over payload bytes\r\n          type: string\r\n          format: byte\r\n          nullable: false\r\n    AppConfig:\r\n      type: object\r\n      properties:\r\n        androidMinimumVersion:\r\n          type: integer\r\n          format: int64\r\n          example: 1\r\n        androidMinimumVersionMessage:\r\n          type: string\r\n          nullable: false\r\n          example:  \"Om de app te gebruiken heb je de laatste versie uit de store nodig.\"\r\n        playStoreURL:\r\n          type: string\r\n          nullable: false\r\n          example: \"https://www.google.com\"\r\n        iosMinimumVersion:\r\n          type: string\r\n          nullable: false\r\n          example: \"1.0.0\"\r\n        iosMinimumVersionMessage:\r\n          type: string\r\n          nullable: false\r\n          example: \"1.0.0\"\r\n        iosAppStoreURL:\r\n          type: string\r\n          nullable: false\r\n          example: \"https://apps.apple.com/nl/app/id1548269870\"\r\n        appDeactivated:\r\n          type: boolean\r\n          example: false\r\n        configTTL:\r\n          type: integer\r\n          example: 864000\r\n        informationURL:\r\n          type: string\r\n          nullable: false\r\n          example: \"https://coronacheck.nl\"\r\n    PublicKeysResponse:\r\n      type: object\r\n      properties:\r\n        cl_keys:\r\n          type: array\r\n          items:\r\n            $ref: '#/components/schemas/ClPublicKey'\r\n    ClPublicKey:\r\n      type: object\r\n      properties:\r\n        id:\r\n          type: string\r\n          example: \"VWS-TEST-0\"\r\n        public_key:\r\n          type: string\r\n          format: byte\r\n          example: \"s057xYcgZ1rKmdKaU25p6m0uDN6tSfgxL1aQIF1h3g=\"\r\n          ",
+			"canonicalURL": "/github.com/minvws/nl-covid19-coronacheck-app-coordination@32b238fef43bda53b229a74ba3cfbd918d82e0a7/-/blob/architecture/api/bff/verifier.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/minvws/nl-covid19-coronacheck-app-coordination/blob/32b238fef43bda53b229a74ba3cfbd918d82e0a7/architecture/api/bff/verifier.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

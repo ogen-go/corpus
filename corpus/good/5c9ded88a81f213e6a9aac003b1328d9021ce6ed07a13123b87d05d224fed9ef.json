@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tomomano/learn-aws-by-coding-source-code"
+		},
+		"file": {
+			"name": "swagger.yml",
+			"size": 0,
+			"path": "handson/neural-style/specs/swagger.yml",
+			"byteSize": 2098,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Deep Art Generator API\n  version: 0.1.0\n\npaths:\n  /job:\n    post:\n      summary: Post a new job\n      description: |\n        The API returns `style_image_url` and `content_image_url` to upload style and content image, respectively. \n      requestBody:\n        required: false\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                style_weight:\n                  type: number\n                content_weight:\n                  type: number\n      responses:\n        201:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  job_id:\n                    type: string\n                  state:\n                    type: string\n                    enum: [\"submitted\", \"processing\", \"completed\", \"failed\"]\n                  style_image_url:\n                    type: string\n                  content_image_url:\n                    type: string\n  /job/{item_id}:\n    parameters:\n      - in: path\n        name: item_id\n        required: true\n        description: ID of the job\n        schema:\n          type: string\n    get:\n      summary: Get the result of the job\n      description: |\n        `generated_image_url` is returned only if the `status` is `completed`.\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  job_id:\n                    type: string\n                  status:\n                    type: string\n                    enum: [\"submitted\", \"processing\", \"completed\", \"failed\"]\n                  style_image_url:\n                    type: string\n                  content_image_url:\n                    type: string\n                  generated_image_url:\n                    type: string\n    delete:\n      summary: Delete the job\n      responses:\n        204:\n          description: Resource deleted successfully\n",
+			"canonicalURL": "/github.com/tomomano/learn-aws-by-coding-source-code@4b2d04f4da721f3ccd2675002fb286123a9baa68/-/blob/handson/neural-style/specs/swagger.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tomomano/learn-aws-by-coding-source-code/blob/4b2d04f4da721f3ccd2675002fb286123a9baa68/handson/neural-style/specs/swagger.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

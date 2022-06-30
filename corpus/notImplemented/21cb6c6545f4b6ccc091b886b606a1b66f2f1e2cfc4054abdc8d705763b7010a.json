@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wapache-org/wapadoc"
+		},
+		"file": {
+			"name": "app44.json",
+			"size": 0,
+			"path": "openapi-spring-webmvc-core/src/test/resources/results/app44.json",
+			"byteSize": 2288,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/helloworld\": {\n      \"post\": {\n        \"operationId\": \"hello_1\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/vnd.v1+json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/RequestV1\"\n              }\n            },\n            \"application/vnd.v2+json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/RequestV2\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"400\": {\n            \"description\": \"Bad name\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ErrorDTO\"\n                }\n              }\n            }\n          },\n          \"200\": {\n            \"description\": \"Successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"oneOf\": [\n                    {\n                      \"$ref\": \"#/components/schemas/HelloDTO2\"\n                    },\n                    {\n                      \"$ref\": \"#/components/schemas/HelloDTO1\"\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"RequestV1\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"nameV1\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"ErrorDTO\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"errorMessage\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"HelloDTO1\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"RequestV2\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"nameV2\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"HelloDTO2\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/wapache-org/wapadoc@ae258cd5d719ce3d5e0a45210bfae7182c229940/-/blob/openapi-spring-webmvc-core/src/test/resources/results/app44.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wapache-org/wapadoc/blob/ae258cd5d719ce3d5e0a45210bfae7182c229940/openapi-spring-webmvc-core/src/test/resources/results/app44.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/helloworld\": post: requestBody: contents: unsupported content types: [application/vnd.v2+json, application/vnd.v1+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

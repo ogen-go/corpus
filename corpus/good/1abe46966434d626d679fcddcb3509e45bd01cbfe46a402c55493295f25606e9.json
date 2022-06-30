@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/biothings/biothings_explorer"
+		},
+		"file": {
+			"name": "litvar.json",
+			"size": 0,
+			"path": "biothings_explorer/smartapi/new_specs/litvar.json",
+			"byteSize": 2556,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n      \"version\": \"1.0.0\",\n      \"title\": \"LitVar API\",\n      \"description\": \"LitVar allows the search and retrieval of variant relevant information from the biomedical literature and shows key biological relations between a variant and its close related entities (e.g. genes, diseases, and drugs). The LitVar results are automatically extracted (with regular updates) from over 27 million PubMed articles as well as applicable full-text articles in PubMed Central.\",\n      \"termsOfService\": \"https://www.ncbi.nlm.nih.gov/home/about/policies/\",\n      \"contact\": {\n        \"name\": \"Zhiyong Lu\",\n        \"email\": \"luzh@ncbi.nlm.nih.gov\"\n      }\n    },\n    \"servers\": [\n      {\n        \"url\": \"https://www.ncbi.nlm.nih.gov/research/bionlp/litvar/api/v1\",\n        \"description\": \"Production server\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"variant\"\n      },\n      {\n        \"name\": \"translator\"\n      }\n    ],\n    \"paths\": {\n      \"/entity/litvar/{variantid}\": {\n        \"get\": {\n          \"summary\": \"Retrieve PMIDs of publications mentioning submitted variants\",\n          \"parameters\": [\n            {\n              \"name\": \"variantid\",\n              \"in\": \"path\",\n              \"example\": \"rs121913527\",\n              \"description\": \"rsid\",\n              \"required\": true,\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          ],\n          \"responses\": {\n            \"200\": {\n              \"description\": \"publications mentioned the submitted variant\"\n            }\n          },\n          \"x-bte-kgs-operations\": [{\n            \"$ref\": \"#/components/x-bte-kgs-operations/variant_located_in_gene\"\n          }]\n        }\n      }\n    },\n    \"components\": {\n      \"x-bte-kgs-operations\": {\n        \"variant_located_in_gene\": [{\n          \"inputs\": [\n            {\n              \"id\": \"DBSNP\",\n              \"semantic\": \"SequenceVariant\"\n            }\n          ],\n          \"outputs\": [\n            {\n              \"id\": \"SYMBOL\",\n              \"semantic\": \"Gene\"\n            }\n          ],\n          \"predicate\": \"located_in\",\n          \"source\": \"dbsnp\",\n          \"parameters\": {\n            \"variantid\": \"{inputs[0]}%23%23\"\n          },\n          \"supportBatch\": false,\n          \"response_mapping\": {\n            \"$ref\": \"#/components/x-bte-response-mapping/variant_located_in_gene\"\n          }\n        }]\n      },\n      \"x-bte-response-mapping\": {\n        \"variant_located_in_gene\": {\n            \"SYMBOL\": \"gene.name\"\n          }\n        }\n      \n    }\n  }",
+			"canonicalURL": "/github.com/biothings/biothings_explorer@133ba83b72831cf0caf228010332d29487a22c3d/-/blob/biothings_explorer/smartapi/new_specs/litvar.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/biothings/biothings_explorer/blob/133ba83b72831cf0caf228010332d29487a22c3d/biothings_explorer/smartapi/new_specs/litvar.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/radiantearth/stac-api-spec"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "fragments/fields/openapi.yaml",
+			"byteSize": 1542,
+			"content": "openapi: 3.0.3\ninfo:\n  title: The SpatioTemporal Asset Catalog API - Fields\n  description: Adds parameter to control which fields are returned in the response.\n  version: 1.0.0-rc.1\npaths: {}\ncomponents:\n  parameters:\n    fields:\n      name: fields\n      x-stac-api-fragment: fields\n      in: query\n      description: |-\n        **Extension:** Fields\n\n        Determines the shape of the features in the response\n      required: false\n      schema:\n        type: string\n        example: 'id,type,-geometry,bbox,properties,-links,-assets'\n      style: form\n      explode: false\n  schemas:\n    searchBody:\n      type: object\n      x-stac-api-fragment: fields\n      description: |-\n        **Extension:** Fields\n\n        Determines the shape of the features in the response\n      properties:\n        fields:\n          $ref: '#/components/schemas/fields'\n    fields:\n      description: |\n        The include and exclude members specify an array of\n        property names that are either included or excluded\n        from the result, respectively. If both include and\n        exclude are specified, include takes precedence.\n        Values should include the full JSON path of the property.\n      type: object\n      properties:\n        include:\n          type: array\n          items:\n            type: string\n        exclude:\n          type: array\n          items:\n            type: string\n      example:\n        include:\n          - id\n          - 'properties.eo:cloud_cover'\n        exclude:\n          - geometry\n          - properties.datetime\n",
+			"canonicalURL": "/github.com/radiantearth/stac-api-spec@738f4837ac6bea041dc226219e6d13b2c577fb19/-/blob/fragments/fields/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/radiantearth/stac-api-spec/blob/738f4837ac6bea041dc226219e6d13b2c577fb19/fragments/fields/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SCADA-LTS/Scada-LTS"
+		},
+		"file": {
+			"name": "ExportConfigAPI.yaml",
+			"size": 0,
+			"path": "doc/ExportConfigAPI.yaml",
+			"byteSize": 1977,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://localhost:8080/ScadaBR/api'\n    description: 'Scada development Server'\n    variables: {}\ninfo:\n  version: 2.5.3\n  title: Scada-LTS API\n  description: 'Scada-LTS OpenAPI Specification. Description contains only export config API'\n  termsOfService: ''\n  contact:\n    name: 'Kamil Jarmusik - SoftQ Developer'\n    email: 'kamil.jarmusik@gmail.com'\n  license:\n    name: 'GPL-2.0'\npaths:\n  /export/config/:\n      get:\n        tags:\n          - ExportConfigAPI\n        summary: 'Get zip file with configuration system'\n        description: 'It enables precise configuration of the export in query. None of the parameters are required.'\n        operationId: 'export'\n        parameters:\n          - name: 'projectName'\n            in: 'query'\n            required: false\n            schema:\n              type: 'string'\n              default: 'From system'\n              nullable: true\n          - name: 'projectDescription'\n            in: 'query'\n            required: false\n            schema:\n              type: 'string'\n              default: ''\n          - name: 'pointValuesMax'\n            in: 'query'\n            required: false\n            schema:\n              type: 'integer'\n              default: 100\n          - name: 'includeUploadFolder'\n            in: 'query'\n            required: false\n            schema:\n              type: 'boolean'\n              default: false\n          - name: 'includeGraphicalFolder'\n            in: 'query'\n            required: false\n            schema:\n              type: 'boolean'\n              default: false\n        responses:\n          '200':\n            description: \"Get successful\"\n            headers: {}\ncomponents:\n  parameters:\n    Authorization:\n      name: Authorization\n      in: header\n      required: true\n      style: simple\n      schema:\n        type: string\n        example: Basic YWRtaW46YWRtaW4=\n      description: ''\nsecurity: []\nexternalDocs:\n  url: ''\n  description: ''",
+			"canonicalURL": "/github.com/SCADA-LTS/Scada-LTS@1885ad51e0c44c629f6f4123c621a16f1b8bcbca/-/blob/doc/ExportConfigAPI.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SCADA-LTS/Scada-LTS/blob/1885ad51e0c44c629f6f4123c621a16f1b8bcbca/doc/ExportConfigAPI.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "allOf_composition_discriminator_recursive.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/allOf_composition_discriminator_recursive.yaml",
+			"byteSize": 1070,
+			"content": "openapi: 3.0.2\ninfo:\n  title: OAI Specification example for Polymorphism\n  version: 1.0.0\npaths:\n  /status:\n    get:\n      responses:\n        '201':\n          description: desc\n\ncomponents:\n  schemas:\n    TokenMetadata:\n      type: object\n      properties:\n        tag1:\n          type: string\n\n    Token:\n      type: object\n      required:\n        - type\n      properties:\n        type:\n          type: string\n        metadata:\n          $ref: '#/components/schemas/TokenMetadata'\n      discriminator:\n        propertyName: type\n        mapping:\n          string: '#/components/schemas/StringToken'\n          expression: '#/components/schemas/ExpressionToken'\n\n    StringToken:\n      allOf:\n        - $ref: '#/components/schemas/Token'\n        - type: object\n          properties:\n            value:\n              type: string\n\n    ExpressionToken:\n      allOf:\n        - $ref: '#/components/schemas/Token'\n        - type: object\n          properties:\n            tokens:\n              type: array\n              items:\n                $ref: '#/components/schemas/Token'",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/allOf_composition_discriminator_recursive.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/allOf_composition_discriminator_recursive.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

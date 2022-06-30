@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/chrusty/openapi2jsonschema"
+		},
+		"file": {
+			"name": "array-of-referenced-object.yaml",
+			"size": 0,
+			"path": "internal/schemaconverter/samples/openapi3/array-of-referenced-object.yaml",
+			"byteSize": 1348,
+			"content": "openapi: 3.0.1\ninfo:\n  description: 'A sample object containing an array of a referenced object'\n  title: 'Sample: array of referenced object'\n  version: 1.3.1\n\ncomponents:\n  schemas:\n\n    ObjectWithArrays:\n      type: object\n      required:\n        - group_id\n        - group_name\n        - contacts_schema\n      properties:\n        group_id:\n          type: integer\n          description: Some ID\n          example: 3\n        group_name:\n          type: string\n          description: Some name\n          example: 'Prawns'\n        remarks:\n          type: array\n          items:\n            type: string\n        crufts:\n          type: array\n          items:\n            type: object\n            required:\n              - id\n            properties:\n              id:\n                type: integer\n              description:\n                type: string\n        contacts_schema:\n          type: array\n          items:\n            $ref: '#/components/schemas/ReferencedArrayObject'\n\n    ReferencedArrayObject:\n      type: object\n      required:\n        - email_address\n      properties:\n        first_name:\n          type: string\n        last_name:\n          type: string\n        email_address:\n          type: string\n        phone_number:\n          type: string\n        spam:\n          type: boolean\n          description: 'Send this person spam?'\n",
+			"canonicalURL": "/github.com/chrusty/openapi2jsonschema@cabb1f283496d7d306dab60cccb5f8a11b386a95/-/blob/internal/schemaconverter/samples/openapi3/array-of-referenced-object.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/chrusty/openapi2jsonschema/blob/cabb1f283496d7d306dab60cccb5f8a11b386a95/internal/schemaconverter/samples/openapi3/array-of-referenced-object.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

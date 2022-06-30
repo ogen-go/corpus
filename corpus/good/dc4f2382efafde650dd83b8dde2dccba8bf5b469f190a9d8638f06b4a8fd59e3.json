@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHatInsights/rhsm-subscriptions"
+		},
+		"file": {
+			"name": "cloudigrade-internal-api-spec.yaml",
+			"size": 0,
+			"path": "clients/cloudigrade-internal-client/cloudigrade-internal-api-spec.yaml",
+			"byteSize": 2121,
+			"content": "# This is a file maintained by the rhsm-subscription project that describes\n# a portion of the Cloudigrade API.\nopenapi: \"3.0.2\"\ninfo:\n  title: \"cloudigrade-api\"\n  description: \"Third-party specification for Cloudigrade API\"\n  version: 1.0.0\n\npaths:\n  /users/:\n    description: \"Operations on users\"\n    parameters:\n      - name: x-rh-cloudigrade-psk\n        required: true\n        in: header\n        description: \"Cloudigrade pre-shared key for authentication\"\n        schema:\n          type: string\n      - name: x-rh-cloudigrade-account-number\n        required: true\n        in: header\n        description: \"Cloudigrade account number\"\n        schema:\n          type: string\n      - name: username\n        required: true\n        in: query\n        description: \"Username to query\"\n        schema:\n          type: string\n    get:\n      summary: \"Fetch user information\"\n      operationId: \"ListCloudigradeUser\"\n      tags:\n        - users\n      responses:\n        '200':\n          description: \"The operation completed successfully\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UserResponse'\ncomponents:\n  schemas:\n    UserResponse:\n      properties:\n        data:\n          type: array\n          items:\n            $ref: \"#/components/schemas/CloudigradeUser\"\n        links:\n          $ref: \"#/components/schemas/CloudigradeUserLinksSection\"\n        meta:\n          $ref: \"#/components/schemas/CloudigradeUserMetaSection\"\n    CloudigradeUser:\n      properties:\n        date_joined:\n          type: string\n          format: date\n        id:\n          type: integer\n        username:\n          type: string\n      required:\n        - date_joined\n        - id\n        - username\n    CloudigradeUserMetaSection:\n      properties:\n        count:\n          type: integer\n    CloudigradeUserLinksSection:\n      properties:\n        first:\n          type: string\n        last:\n          type: string\n        previous:\n          type: string\n        next:\n          type: string\n      required:\n        - first\n        - previous\n        - last\n        - next\n",
+			"canonicalURL": "/github.com/RedHatInsights/rhsm-subscriptions@71bc894e45397955d5759b6af5914e6a8c735113/-/blob/clients/cloudigrade-internal-client/cloudigrade-internal-api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RedHatInsights/rhsm-subscriptions/blob/71bc894e45397955d5759b6af5914e6a8c735113/clients/cloudigrade-internal-client/cloudigrade-internal-api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "openapi/schema.yaml",
 			"byteSize": 986,
-			"content": "openapi: \"3.0.0\"\nservers:\n  - url: http://localhost:8080/api\ninfo:\n  version: 1.0.0\n  title: Gaming News API\npaths:\n  /news:\n    summary: Get list of latest gaming news\n    get:\n      tags:\n        - News\n      summary: Get list of latest gaming news\n      operationId: getNews\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ArticleList\"\n\ncomponents:\n  schemas:\n    ArticleList:\n      type: array\n      items:\n        $ref: \"#/components/schema/Article\"\n    Article:\n      required:\n        - id\n        - title\n        - date\n        - description\n        - imageUrl\n      properties:\n        id:\n          type: string\n          format: uuid\n        title:\n          type: string\n        date:\n          type: string\n          format: date\n        description:\n          type: string\n        imageUrl:\n          type: string"
+			"content": "openapi: \"3.0.0\"\nservers:\n  - url: http://localhost:8080/api\ninfo:\n  version: 1.0.0\n  title: Gaming News API\npaths:\n  /news:\n    summary: Get list of latest gaming news\n    get:\n      tags:\n        - News\n      summary: Get list of latest gaming news\n      operationId: getNews\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ArticleList\"\n\ncomponents:\n  schemas:\n    ArticleList:\n      type: array\n      items:\n        $ref: \"#/components/schema/Article\"\n    Article:\n      required:\n        - id\n        - title\n        - date\n        - description\n        - imageUrl\n      properties:\n        id:\n          type: string\n          format: uuid\n        title:\n          type: string\n        date:\n          type: string\n          format: date\n        description:\n          type: string\n        imageUrl:\n          type: string",
+			"canonicalURL": "/github.com/Mokkapps/openapi-angular-spring-demo@efa4a0bda5a8f9de9058ebc6cc29c3226e87b2e0/-/blob/openapi/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mokkapps/openapi-angular-spring-demo/blob/efa4a0bda5a8f9de9058ebc6cc29c3226e87b2e0/openapi/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse components: schemas: \"ArticleList\": parse schema: item: parse schema: resolve \"#/components/schema/Article\": find schema: resolve \"#/components/schema/Article\": can't find value for \"components/schema/Article\""

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/michaelawyu/api_tutorial"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/getting-started/openapi.yaml",
+			"byteSize": 1434,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Sample OpenAPI Specification\n  description: 'An OpenAPI specification example for Building API services: A Beginners Guide document.'\n  version: 0.0.1\nservers:\n  - url: http://localhost:8080/\n    description: Example API Service\ncomponents:\n  schemas:\n    'User':\n      type: object\n      required:\n        - display_name\n        - email\n      properties:\n        name:\n          type: string\n          readOnly: true\n        display_name:\n          type: string\n          maxLength: 20\n          minLength: 1\n        email:\n          type: string\n          format: email\n    'ErrorMessage':\n      type: object\n      required:\n        - error_code\n        - error_message\n      properties:\n        error_code:\n          type: string\n        error_message:\n          type: string\npaths:\n  /users/{user_id}:\n    parameters:\n      - name: user_id\n        in: path\n        description: ID of a user\n        required: true\n        schema:\n          type: string\n    get:\n      description: Gets a user\n      operationId: get_user\n      responses:\n        '200':\n          description: User found\n          content:\n            'application/json':\n              schema:\n                $ref: '#/components/schemas/User'\n        'default':\n          description: Unexpected error\n          content:\n            'application/json':\n              schema:\n                $ref: '#/components/schemas/ErrorMessage'\n",
+			"canonicalURL": "/github.com/michaelawyu/api_tutorial@d76bcd0d77f18b005ecef2d01c6cba4f42856007/-/blob/openapi/getting-started/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/michaelawyu/api_tutorial/blob/d76bcd0d77f18b005ecef2d01c6cba4f42856007/openapi/getting-started/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/parliament.uk/search/Live/openapi.yaml",
+			"byteSize": 3539,
+			"content": "openapi: 3.0.1\nservers:\n  - url: https://api.parliament.uk/search\ninfo:\n  contact:\n    email: data@parliament.uk\n    name: Data \u0026 Search team at UK Parliament\n    url: https://twitter.com/UKParliData\n  description: Performs search on parliament.uk domain. Implements [OpenSearch specification](https://github.com/dewitt/opensearch). Throttled at 10 requests per second per IP address.\n  license:\n    name: Open Parliament Licence\n    url: https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence\n  title: UK Parliament Search Service\n  version: Live\n  x-TODO-termsOfService: null\n  x-apisguru-categories:\n    - open_data\n  x-origin:\n    - format: openapi\n      url: https://api.parliament.uk/search/openapi.json\n      version: \"3.0\"\n  x-providerName: parliament.uk\n  x-serviceName: search\nexternalDocs:\n  description: OpenSearch github repository\n  url: https://github.com/dewitt/opensearch\npaths:\n  /description:\n    get:\n      externalDocs:\n        description: OpenSearch github repository\n        url: https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-description-document\n      responses:\n        \"200\":\n          content:\n            application/opensearchdescription+xml: {}\n          description: Open Search Description\n      summary: OpenSearch description document\n      tags:\n        - Description\n  /query:\n    get:\n      externalDocs:\n        description: OpenSearch github repository\n        url: https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-response-elements\n      parameters:\n        - $ref: \"#/components/parameters/q\"\n        - $ref: \"#/components/parameters/start\"\n        - $ref: \"#/components/parameters/count\"\n        - $ref: \"#/components/parameters/subdomains\"\n        - $ref: \"#/components/parameters/inUrlPrefixes\"\n      responses:\n        \"200\":\n          $ref: \"#/components/responses/searchResponse\"\n      summary: Search results\n      tags:\n        - Query\n  \"/query.{extension}\":\n    get:\n      externalDocs:\n        description: OpenSearch github repository\n        url: https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-response-elements\n      parameters:\n        - description: extension\n          in: path\n          name: extension\n          required: true\n          schema:\n            enum:\n              - atom\n              - rss\n              - html\n              - json\n            type: string\n        - $ref: \"#/components/parameters/q\"\n        - $ref: \"#/components/parameters/start\"\n        - $ref: \"#/components/parameters/count\"\n        - $ref: \"#/components/parameters/subdomains\"\n        - $ref: \"#/components/parameters/inUrlPrefixes\"\n      responses:\n        \"200\":\n          $ref: \"#/components/responses/searchResponse\"\n      summary: Search results\n      tags:\n        - Query\ncomponents:\n  parameters:\n    count:\n      in: query\n      name: count\n      schema:\n        type: number\n    inUrlPrefixes:\n      in: query\n      name: inUrlPrefixes\n      schema:\n        type: string\n    q:\n      in: query\n      name: q\n      required: true\n      schema:\n        type: string\n    start:\n      in: query\n      name: start\n      schema:\n        type: number\n    subdomains:\n      in: query\n      name: subdomains\n      schema:\n        type: string\n  responses:\n    searchResponse:\n      content:\n        application/atom+xml: {}\n        application/json: {}\n        application/rss+xml: {}\n        text/html: {}\n      description: Search results\n",
+			"canonicalURL": "/github.com/APIs-guru/openapi-directory@47bf2b618e492e31bc62743e9f72c47cb8460229/-/blob/APIs/parliament.uk/search/Live/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/APIs-guru/openapi-directory/blob/47bf2b618e492e31bc62743e9f72c47cb8460229/APIs/parliament.uk/search/Live/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/query.{extension}\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema",
+		"unsupported content types"
+	]
+}

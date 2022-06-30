@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/light-email/openapi.json",
+			"byteSize": 3547,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Email Sender\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://email.networknt.com\"\n    }\n  ],\n  \"paths\": {\n    \"/counter\": {\n      \"get\": {\n        \"summary\": \"Number of email sent since the server started\",\n        \"operationId\": \"getCounter\",\n        \"tags\": [\n          \"counter\"\n        ],\n        \"security\": [\n          {\n            \"email_auth\": [\n              \"email.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A long number that is the number of emails sent\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Counter\"\n                },\n                \"example\": {\n                  \"count\": 100\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/sender\": {\n      \"get\": {\n        \"summary\": \"Number of email sent per senders\",\n        \"operationId\": \"getSender\",\n        \"tags\": [\n          \"sender\"\n        ],\n        \"security\": [\n          {\n            \"email_auth\": [\n              \"email.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A map of sender address and the number of emails sent for the address\",\n            \"content\": {\n              \"application/json\": {\n                \"example\": {\n                  \"noreply@networknt.com\": 1000,\n                  \"noreply@lightapi.net\": 93,\n                  \"noreply@taiji.io\": 19832\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/email\": {\n      \"get\": {\n        \"summary\": \"The last email sent out from this server\",\n        \"operationId\": \"getEmail\",\n        \"tags\": [\n          \"email\"\n        ],\n        \"security\": [\n          {\n            \"email_auth\": [\n              \"email.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Last email sent in json format\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Email\"\n                },\n                \"example\": {\n                  \"from\": \"noreply@networknt.com\",\n                  \"to\": \"stevehu@gmail.com\",\n                  \"body\": \"Hello World\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"email_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"email.r\": \"read service\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Counter\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"count\"\n        ],\n        \"properties\": {\n          \"count\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          }\n        }\n      },\n      \"Email\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"from\",\n          \"to\",\n          \"body\"\n        ],\n        \"properties\": {\n          \"from\": {\n            \"type\": \"string\"\n          },\n          \"to\": {\n            \"type\": \"string\"\n          },\n          \"body\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/openapi/light-email/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/openapi/light-email/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/counter\": get: security: security \"email_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"empty schema",
+		"oauth2 security"
+	]
+}

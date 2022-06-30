@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adobe/target-java-sdk"
+		},
+		"file": {
+			"name": "Option.yaml",
+			"size": 0,
+			"path": "openapi/delivery/components/Option.yaml",
+			"byteSize": 1387,
+			"content": "openapi: \"3.0.0\"\nOption:\n  type: object\n  description: The content from the activitiesc is returned via the option objects.\n  properties:\n    type:\n      $ref: \"./OptionType.yaml#/OptionType\"\n    content:\n      description: |\n        Content that should be applied/displayed/replaced etc, based on the option type. Content can be one of:\n          * html\n          * redirect link\n          * link for a dynamic offer\n          * raw json\n          * one or more actions (json - from offers with templates and visual offers)\n        Actions format is specific for delivery API.\n      oneOf:\n        - type: string\n        - type: object\n        - type: array\n          items:\n            $ref: \"#/components/schemas/Action\"\n    eventToken:\n      description: |\n        Will be present only in response of a prefetch request. After the content is displayed the event token should be\n        sent via notifications to the edge server so that visit/visitor/impression events could be logged.\n      type: string\n    responseTokens:\n      $ref: \"../../common/components/ResponseTokens.yaml#/ResponseTokens\"\n\ncomponents:\n  schemas:\n    Action:\n      type: object\n      properties:\n        type:\n          type: string\n        selector:\n          type: string\n        cssSelector:\n          type: string  \n        content:\n          oneOf:\n            - type: string\n            - type: object\n",
+			"canonicalURL": "/github.com/adobe/target-java-sdk@fce25c43183060ed53d71157ce80c3cf28e12f2f/-/blob/openapi/delivery/components/Option.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adobe/target-java-sdk/blob/fce25c43183060ed53d71157ce80c3cf28e12f2f/openapi/delivery/components/Option.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

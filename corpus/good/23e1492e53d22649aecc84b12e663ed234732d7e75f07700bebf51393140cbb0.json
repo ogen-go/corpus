@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devonfw/cobigen"
+		},
+		"file": {
+			"name": "openAPI.yml",
+			"size": 0,
+			"path": "cobigen-cli/cli-systemtest/src/test/resources/testdata/openAPI.yml",
+			"byteSize": 2769,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://localhost:8081/server/services/rest'\n    description: Just some data\ninfo:\n  title: Devon Example\n  description: Example of a API definition\n  version: 1.0.0\n  x-rootpackage: com.devonfw.angular.test\npaths:\n  /shopmanagement/v1/shop/{shopId}:\n    x-component: shopmanagement\n    get:\n      operationId: findShop\n      parameters:\n        - name: shopId\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 0\n            maximum: 50\n      responses:\n        '200':\n          description: Any\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Shop'\n            text/plain:\n              schema:\n                type: string\n        '404':\n          description: Not found\n  /salemanagement/v1/sale/{saleId}:\n    x-component: salemanagement\n    get:\n      operationId: findSale\n      parameters:\n        - name: saleId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Any\n  /salemanagement/v1/sale/:\n    x-component: salemanagement\n    post:\n      responses:\n        '200':\n          description: Any\n      requestBody:\n        $ref: '#/components/requestBodies/SaleData'\n      tags:\n       - searchCriteria\n  /shopmanagement/v1/shop/new:\n    x-component: shopmanagement\n    post:\n      responses:\n       '200':\n          description: Any\n      requestBody:\n        $ref: '#/components/requestBodies/ShopData'\ncomponents:\n    schemas:\n        Shop:\n          x-component: shopmanagement\n          description: Entity definiton of Shop\n          type: object\n          properties:\n            shopExample:\n              type: string\n              maxLength: 100\n              minLength: 5\n              uniqueItems: true\n            sales:\n              type: array # Many to One relationship\n              items:\n                $ref: '#/components/schemas/Sale'\n        Sale:\n          x-component: salemanagement\n          description: Entity definiton of Shop\n          type: object\n          properties:\n            saleExample:\n              type: number\n              format: int64\n              maximum: 100\n              minimum: 0\n          required:\n            - saleExample\n\n    requestBodies:\n        ShopData:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Shop'\n          required: true\n        SaleData:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Sale'\n          required: true\n \n ",
+			"canonicalURL": "/github.com/devonfw/cobigen@faf3432caec9bff09cfa58dcfb7e7c78df249e8a/-/blob/cobigen-cli/cli-systemtest/src/test/resources/testdata/openAPI.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devonfw/cobigen/blob/faf3432caec9bff09cfa58dcfb7e7c78df249e8a/cobigen-cli/cli-systemtest/src/test/resources/testdata/openAPI.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

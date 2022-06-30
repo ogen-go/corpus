@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adorsys/multibanking"
+		},
+		"file": {
+			"name": "xs2a-adapter-download.json",
+			"size": 0,
+			"path": "onlinebanking-bankinggateway/src/main/resources/xs2a-adapter-download.json",
+			"byteSize": 2022,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"XS2A-Adapter Download Service\"\n  },\n  \"paths\": {\n    \"/v1/download\": {\n      \"get\": {\n        \"tags\": [\n          \"download-controller\"\n        ],\n        \"operationId\": \"download\",\n        \"parameters\": [\n          {\n            \"name\": \"url\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"X-GTW-Bank-Code\",\n            \"in\": \"header\",\n            \"description\": \"Bank code of bank to which the request addressed\",\n            \"schema\": {\n              \"type\": \"string\"\n            },\n            \"required\": false\n          },\n          {\n            \"name\": \"X-Request-ID\",\n            \"in\": \"header\",\n            \"description\": \"ID of the request, unique to the call, as determined by the initiating party.\",\n            \"required\": true,\n            \"example\": \"99391c7e-ad88-49ec-a2ad-99ddcb1f7721\",\n            \"schema\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            }\n          },\n          {\n            \"name\": \"Consent-ID\",\n            \"in\": \"header\",\n            \"description\": \"This data element may be contained, if the payment initiation transaction is part of a session, i.e. combined AIS/PIS service.\\nThis then contains the consentId of the related AIS consent, which was performed prior to this payment initiation.\\n\",\n            \"required\": false,\n            \"schema\": {\n              \"description\": \"ID of the corresponding consent object as returned by an account information consent request.\\n\",\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"default response\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"byte\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/adorsys/multibanking@239953fb8218bd8218469b3b6ea935ce14891874/-/blob/onlinebanking-bankinggateway/src/main/resources/xs2a-adapter-download.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adorsys/multibanking/blob/239953fb8218bd8218469b3b6ea935ce14891874/onlinebanking-bankinggateway/src/main/resources/xs2a-adapter-download.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/download\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

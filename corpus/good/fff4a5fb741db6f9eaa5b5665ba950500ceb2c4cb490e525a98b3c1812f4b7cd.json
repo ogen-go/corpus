@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/MetaCell/cloud-harness"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "applications/common/api/openapi.yaml",
+			"byteSize": 1682,
+			"content": "openapi: 3.0.0\ninfo:\n  description: Cloud Harness Platform - Reference CH service API\n  license:\n    name: UNLICENSED\n  title: CH common service API\n  version: 0.1.0\nservers:\n- description: SwaggerHub API Auto Mocking\n  url: /api\ntags:\n- description: Sentry\n  name: Sentry\npaths:\n  /sentry/getdsn/{appname}:\n    parameters:\n      - in: path\n        name: appname\n        schema:\n          type: string\n        required: true\n    get:\n      tags:\n      - Sentry\n      description: Gets the Sentry DSN for a given application\n      operationId: getdsn\n      responses:\n        '200':\n          description: Sentry DSN for the given application\n          content:\n            application/json:\n              schema:\n                type: string\n      summary: Gets the Sentry DSN for a given application\n      x-openapi-router-controller: common.controllers.sentry_controller\n  /accounts/config:\n    get:\n      tags:\n      - Accounts\n      description: Gets the config for logging in into accounts\n      operationId: get_config\n      responses:\n        '200':\n          description: Config for accounts log in\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  url:\n                    type: string\n                    description: The auth URL.\n                  realm:\n                    type: string\n                    description: The realm.\n                  clientId:\n                    type: string\n                    description: The clientID.\n      summary: Gets the config for logging in into accounts\n      x-openapi-router-controller: common.controllers.accounts_controller\n",
+			"canonicalURL": "/github.com/MetaCell/cloud-harness@1677e55fe23347e0162ef6f34cc1416f62841f8c/-/blob/applications/common/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/MetaCell/cloud-harness/blob/1677e55fe23347e0162ef6f34cc1416f62841f8c/applications/common/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

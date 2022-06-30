@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/fabric8-analytics/fabric8-analytics-server"
+		},
+		"file": {
+			"name": "user.yaml",
+			"size": 0,
+			"path": "api_specs/user.yaml",
+			"byteSize": 2575,
+			"content": "openapi: 3.0.0\nservers:\n    - url: https://f8a-analytics-2445582058137.{environment}.gw.apicast.io/user\n      variables:\n        environment:\n          default: production\n          enum:\n            - production\n            - staging\ninfo:\n  title: User API\n  description: User API\n  version: \"1.0.0\"\npaths:\n  /user:\n    post:\n      tags:\n        - user\n      summary: generate a uuid\n      responses:\n        '200':\n          description: uuid created\n          content:\n            application/json:\n              schema:\n                properties:\n                  user_id:\n                    type: string\n                    format: uuid\n                    example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        '401':\n          description: Request unauthorized\n        '400':\n          description: Bad Request\n    put:\n      tags:\n        - user\n      summary: create or update a user\n      requestBody:\n        content:\n          application/json:\n            schema:\n              required:\n                - user_id\n                - snyk_api_token\n              properties:\n                user_id:\n                  type: string\n                  example: 12jos01\n                snyk_api_token:\n                  type: string\n                  example: f917sksq1\n      responses:\n        '200':\n          description: user details\n          content:\n            application/json:\n              schema:\n                properties:\n                  user_id:\n                    type: string\n                    format: uuid\n                    example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        '401':\n          description: Request unauthorized\n        '400':\n          description: Bad Request\n\n  /user/{user_id}:\n    get:\n      tags:\n        - user\n      summary: search for a user\n      parameters:\n        - in: path\n          name: user_id\n          description: user id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: user details\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UserDetails'\n        '401':\n          description: Request unauthorized\n        '400':\n          description: Bad Request\n\ncomponents:\n  schemas:\n    UserDetails:\n      type: object\n      required:\n        - id\n        - status\n      properties:\n        id:\n          type: string\n          format: uuid\n          example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        status:\n          type: string\n          example: REGISTERED",
+			"canonicalURL": "/github.com/fabric8-analytics/fabric8-analytics-server@034a9246cf51208fb71839ddd6f1a6f427cd27ab/-/blob/api_specs/user.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/fabric8-analytics/fabric8-analytics-server/blob/034a9246cf51208fb71839ddd6f1a6f427cd27ab/api_specs/user.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

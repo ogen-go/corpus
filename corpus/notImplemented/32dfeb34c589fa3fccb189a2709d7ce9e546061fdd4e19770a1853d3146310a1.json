@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anttiviljami/react-openapi-client"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "__tests__/resources/openapi.json",
+			"byteSize": 1899,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"My API\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"operationId\": \"getPets\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/ListPetsRes\"\n          }\n        }\n      },\n      \"post\": {\n        \"operationId\": \"createPet\",\n        \"requestBody\": {\n          \"description\": \"Pet object to create\",\n          \"content\": {\n            \"application/json\": {}\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"$ref\": \"#/components/responses/PetRes\"\n          }\n        }\n      }\n    },\n    \"/pets/{id}\": {\n      \"get\": {\n        \"operationId\": \"getPetById\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/responses/PetRes\"\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"minimum\": 1\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"Odie\"\n          }\n        }\n      }\n    },\n    \"responses\": {\n      \"ListPetsRes\": {\n        \"description\": \"ok\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          }\n        }\n      },\n      \"PetRes\": {\n        \"description\": \"ok\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Pet\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/anttiviljami/react-openapi-client@18593db12618e4024a6b8432d72ba8ef2074cd3c/-/blob/__tests__/resources/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anttiviljami/react-openapi-client/blob/18593db12618e4024a6b8432d72ba8ef2074cd3c/__tests__/resources/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "array_record.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/array_record.yaml",
+			"byteSize": 1463,
+			"content": "openapi: 3.0.1\ninfo:\n  title: PayloadV\n  version: 0.0.0\nservers:\n  - url: \"{server}:{port}/payloadV\"\n    variables:\n      server:\n        default: http://localhost\n      port:\n        default: \"9090\"\npaths:\n  /locations:\n    get:\n      summary: Represents Snowpeak location resource\n      operationId: getLocations\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Location'\ncomponents:\n  schemas:\n    Links:\n      type: object\n      properties:\n        links:\n          type: array\n          items:\n            $ref: '#/components/schemas/Link'\n    Link:\n      type: object\n      properties:\n        mediaTypes:\n          type: array\n          description: link mediatype\n          items:\n            type: string\n        rel:\n          type: string\n          description: linnk rel\n        href:\n          type: string\n          description: link href\n      description: Link details\n    Location:\n      allOf:\n        - $ref: '#/components/schemas/Links'\n        - type: object\n          properties:\n            address:\n              type: string\n              description: Address of the location\n            name:\n              type: string\n              description: Name of the location\n            id:\n              type: string\n              description: Unique identification\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/array_record.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/array_record.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/thombergs/code-examples"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "spring-boot/spring-boot-openapi-impl/specification/src/main/resources/openapi.yml",
+			"byteSize": 4114,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Reflectoring\n  description: \"Tutorials on Spring Boot and Java, thoughts about the Software Craft, and relevant book reviews. Because it's just as important to understand the Why as it is to understand the How. Have fun!\"\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: petros.stergioulas94@gmail.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 0.0.1-SNAPSHOT\nexternalDocs:\n  description: Find out more about Reflectoring\n  url: https://reflectoring.io/about/\nservers:\n- url: https://reflectoring.swagger.io/v2\ntags:\n- name: user\n  description: Operations about user\n  externalDocs:\n    description: Find out more about our store\n    url: http://swagger.io\npaths:\n  /user:\n    post:\n      tags:\n      - user\n      summary: Create user\n      description: Create user functionality\n      operationId: createUser\n      requestBody:\n        description: Created user object\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/User'\n        required: true\n      responses:\n        default:\n          description: successful operation\n          content: {}\n      x-codegen-request-body-name: body\n  /user/{username}:\n    get:\n      tags:\n      - user\n      summary: Get user by user name\n      operationId: getUserByName\n      parameters:\n      - name: username\n        in: path\n        description: 'The name that needs to be fetched. Use user1 for testing. '\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n        404:\n          description: User not found\n          content: {}\n    put:\n      tags:\n      - user\n      summary: Updated user\n      description: This can only be done by the logged in user.\n      operationId: updateUser\n      parameters:\n      - name: username\n        in: path\n        description: name that need to be updated\n        required: true\n        schema:\n          type: string\n      requestBody:\n        description: Updated user object\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/User'\n        required: true\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n        400:\n          description: Invalid user supplied\n          content: {}\n        404:\n          description: User not found\n          content: {}\n      x-codegen-request-body-name: body\n    delete:\n      tags:\n      - user\n      summary: Delete user\n      description: This can only be done by the logged in user.\n      operationId: deleteUser\n      parameters:\n      - name: username\n        in: path\n        description: The name that needs to be deleted\n        required: true\n        schema:\n          type: string\n      responses:\n        201:\n          description: operation successful\n          content: {}\n        400:\n          description: Invalid username supplied\n          content: {}\n        404:\n          description: User not found\n          content: {}\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        username:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        password:\n          type: string\n        phone:\n          type: string\n        userStatus:\n          type: integer\n          description: User Status\n          format: int32\n  securitySchemes:\n    reflectoring_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://reflectoring.swagger.io/oauth/dialog\n          scopes:\n            write:users: modify users\n            read:users: read users\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header",
+			"canonicalURL": "/github.com/thombergs/code-examples@351804a083d3fced44437b912b7fd8f61d9de85a/-/blob/spring-boot/spring-boot-openapi-impl/specification/src/main/resources/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/thombergs/code-examples/blob/351804a083d3fced44437b912b7fd8f61d9de85a/spring-boot/spring-boot-openapi-impl/specification/src/main/resources/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/user\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

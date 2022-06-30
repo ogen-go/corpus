@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/khanhnguyenj/huongdanjava.com"
+		},
+		"file": {
+			"name": "student.yaml",
+			"size": 0,
+			"path": "openapi-generator-spring/src/main/resources/api/student.yaml",
+			"byteSize": 1966,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Student Information Management System\n  version: 1.0.0\nservers:\n  - url: https://localhost:8081/api\npaths:\n  /students:\n    get:\n      operationId: getStudents\n      summary: Get all students\n      responses:\n        200:\n          description: Get all students successfully\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: '#/components/schemas/Student'\n              example: [{ \"id\": 1, \"code\": \"001\", \"name\": \"Khanh\" }, { \"id\": 2, \"code\": \"002\", \"name\": \"Quan\" }]\n  /students/{id}:\n    get:\n      operationId: getStudentById\n      summary: Get a student by id\n      parameters:\n        - name: id\n          in: path\n          description: \"Id of the Student\"\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: Get student information successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Student'\n              example: { \"id\": 1, \"code\": \"001\", \"name\": \"Khanh\" }\n    delete:\n      operationId: deleteStudentById\n      summary: Delete a student by id\n      parameters:\n        - name: id\n          in: path\n          description: \"Id of the Student\"\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: Delete student information successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Response'\n              example: { \"message\": \"Student deleted!\"}\ncomponents:\n  schemas:\n    Student:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        code:\n          type: string\n        name:\n          type: string\n    Response:\n      type: object\n      properties:\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/khanhnguyenj/huongdanjava.com@0205170d1e0540b42b75318cb45404c8cf3d9184/-/blob/openapi-generator-spring/src/main/resources/api/student.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/khanhnguyenj/huongdanjava.com/blob/0205170d1e0540b42b75318cb45404c8cf3d9184/openapi-generator-spring/src/main/resources/api/student.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

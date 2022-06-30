@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/KNowledgeOnWebScale/walder"
+		},
+		"file": {
+			"name": "conf-x-walder-errors-handlebars.yaml",
+			"size": 0,
+			"path": "test/resources/conf-x-walder-errors-handlebars.yaml",
+			"byteSize": 1164,
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: ./\n  views: views\n  pipe-modules: pipeModules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /bad_query:\n    get:\n      summary: Returns a status 500 error page - bad query.\n      x-walder-query:\n        graphql-query: \u003e\n          {\n            id @single\n            ... {  # This will cause an error\n              starring(label: \"Brad Pitt\") @single\n            }\n          }\n        json-ld-context: \u003e\n          {\n            \"@context\": {\n              \"Film\": \"http://dbpedia.org/ontology/Film\",\n              \"label\": { \"@id\": \"http://www.w3.org/2000/01/rdf-schema#label\", \"@language\": \"en\" },\n              \"starring\": \"http://dbpedia.org/ontology/starring\"\n            }\n          }\n      responses:\n        200:\n          description: list of movies\n          x-walder-input-text/html: movies.handlebars\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404alt.handlebars\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500alt.handlebars\n\n",
+			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@dd3aaa9022006d379daac13ea20f49d77ad7f835/-/blob/test/resources/conf-x-walder-errors-handlebars.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/dd3aaa9022006d379daac13ea20f49d77ad7f835/test/resources/conf-x-walder-errors-handlebars.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Kong/insomnia"
+		},
+		"file": {
+			"name": "security.yaml",
+			"size": 0,
+			"path": "packages/openapi-2-kong/src/declarative-config/fixtures/security.yaml",
+			"byteSize": 1849,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Security Example\n  version: 1.0.0\n\nservers:\n  - url: http://backend.com/path\n\npaths:\n  /only/basic:\n    get:\n      security:\n        - really_basic: []\n      responses:\n        '200':\n          description: Saying hello\n\n  /only/key:\n    get:\n      security:\n        - my_api_key: []\n      responses:\n        '200':\n          description: Saying hello\n\n  /only/oath2:\n    get:\n      security:\n        - petstore_oauth2:\n            - read:pets\n      responses:\n        '200':\n          description: Saying hello\n\n  /only/oidc:\n    get:\n      security:\n        - petstore_openid:\n            - write:pets\n      responses:\n        '200':\n          description: Saying hello\n\n  /and/based/auth:\n    get:\n      security:\n        - petstore_oauth2:\n            - read:pets\n          #my_api_key: []\n      responses:\n        '200':\n          description: Saying hello\n\n  /or/based/auth:\n    get:\n      security:\n        - my_api_key: []\n      #- really_basic: []\n      responses:\n        '200':\n          description: Saying hello\n\ncomponents:\n  securitySchemes:\n    really_basic:\n      type: http\n      scheme: basic\n      x-kong-security-basic-auth:\n        tags:\n          - should match\n        config:\n          hide_credentials: true\n    my_api_key:\n      type: apiKey\n      name: api_key_by_me\n      in: header\n      x-kong-security-basic-auth:\n        tags:\n          - should not match\n    your_api_key:\n      type: apiKey\n      name: api_key_by_you\n      in: header\n    petstore_oauth2:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: http://example.org/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n    petstore_openid:\n      type: openIdConnect\n      openIdConnectUrl: http://example.org/oid-discovery\n",
+			"canonicalURL": "/github.com/Kong/insomnia@bbceb6097c855f93f93b69c85af680d85ae0ac57/-/blob/packages/openapi-2-kong/src/declarative-config/fixtures/security.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Kong/insomnia/blob/bbceb6097c855f93f93b69c85af680d85ae0ac57/packages/openapi-2-kong/src/declarative-config/fixtures/security.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/and/based/auth\": get: security: security \"petstore_oauth2\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

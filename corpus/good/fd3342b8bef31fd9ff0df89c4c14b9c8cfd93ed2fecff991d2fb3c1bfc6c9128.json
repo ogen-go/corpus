@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHatInsights/rhsm-subscriptions"
+		},
+		"file": {
+			"name": "user-api-spec.yaml",
+			"size": 0,
+			"path": "clients/user-client/user-api-spec.yaml",
+			"byteSize": 1272,
+			"content": "# This is a file maintained by the rhsm-subscriptions project that describes\n# a portion of the Red Hat IT User API.\nopenapi: 3.0.2\ninfo:\n  title: user-api\n  description: Third-party specification for User API\n  version: 1.0.0\n\npaths:\n  /v2/findAccount:\n    description: Find an account\n    post:\n      summary: Find Account\n      operationId: findAccount\n      tags:\n        - account\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/AccountSearch'\n      responses:\n        '200':\n          description: The operation completed successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Account'\n        '204':\n          description: No account found\n\ncomponents:\n  schemas:\n    Account:\n      required:\n        - ebsAccountNumber\n        - id\n      properties:\n        ebsAccountNumber:\n          type: string\n        id:\n          type: string\n    AccountSearch:\n      required:\n        - by\n      properties:\n        by:\n          $ref: '#/components/schemas/AccountCriteria'\n    AccountCriteria:\n      properties:\n        ebsAccountNumber:\n          type: string\n        id:\n          type: string\n",
+			"canonicalURL": "/github.com/RedHatInsights/rhsm-subscriptions@71bc894e45397955d5759b6af5914e6a8c735113/-/blob/clients/user-client/user-api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RedHatInsights/rhsm-subscriptions/blob/71bc894e45397955d5759b6af5914e6a8c735113/clients/user-client/user-api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

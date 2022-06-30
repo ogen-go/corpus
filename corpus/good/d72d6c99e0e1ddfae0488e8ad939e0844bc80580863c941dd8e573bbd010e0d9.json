@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NCATS-Tangerine/translator-api-registry"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "gene_knockout_correlation/openapi.yml",
+			"byteSize": 1937,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 2019Q2\n  title: Gene-knockout correlation\n  description: This site provides an API access to gene-knockout correlations based\n    on  [Cancer Dependency Map (DepMap)](https://depmap.org/portal/download/)\n    data. By using this site, you agree to DepMap's [Terms and\n    Conditions](https://depmap.org/portal/terms/).\n  termsOfService: https://depmap.org/portal/terms/\n  contact:\n    name: Broad NCATS translator\n    email: translator@broadinstitute.org\npaths:\n  /genes:\n    get:\n      tags:\n        - types\n      summary: Retrieve list of genes\n      responses:\n        \"200\":\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/gene\"\n  \"/correlations/{entrez_gene_id}\":\n    get:\n      tags:\n        - types\n      summary: Retrieve correlations for a gene\n      parameters:\n        - name: entrez_gene_id\n          in: path\n          required: true\n          schema:\n            type: integer\n      responses:\n        \"200\":\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/correlation\"\nservers:\n  - url: http://indigo.ncats.io/gene_knockout_correlation\ncomponents:\n  schemas:\n    gene:\n      type: object\n      properties:\n        gene_symbol:\n          type: string\n        ensembl_gene:\n          type: array\n          items:\n            type: string\n        entrez_gene_id:\n          type: integer\n        synonym:\n          type: array\n          items:\n            type: string\n    correlation:\n      type: object\n      properties:\n        entrez_gene_id_1:\n          type: integer\n        entrez_gene_id_2:\n          type: integer\n        correlation:\n          type: number\n",
+			"canonicalURL": "/github.com/NCATS-Tangerine/translator-api-registry@5925bba6420fb77fa3e54d9258970431e340e092/-/blob/gene_knockout_correlation/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NCATS-Tangerine/translator-api-registry/blob/5925bba6420fb77fa3e54d9258970431e340e092/gene_knockout_correlation/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

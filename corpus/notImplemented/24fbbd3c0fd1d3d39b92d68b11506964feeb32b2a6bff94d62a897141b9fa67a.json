@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "oneOfRequest.yml",
+			"size": 0,
+			"path": "Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/oneOfRequest.yml",
+			"byteSize": 1177,
+			"content": "openapi: 3.0.1\r\ninfo:\r\n  title: Example-Combined-OneOf\r\n  version: 1.0.0\r\nservers:\r\n  - url: /webservice/REST/combined-OneOf\r\n    variables: {}\r\npaths:\r\n  /pets:\r\n    patch:\r\n      requestBody:\r\n        content:\r\n          application/json:\r\n            schema:\r\n              oneOf:\r\n                - $ref: '#/components/schemas/Cat'\r\n                - $ref: '#/components/schemas/Dog'\r\n      responses:\r\n        '200':\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                oneOf:\r\n                  - $ref: '#/components/schemas/CatResponse'\r\n                  - $ref: '#/components/schemas/DogResponse'\r\n\r\ncomponents:\r\n  schemas:\r\n    Dog:\r\n      type: object\r\n      properties:\r\n        bark:\r\n          type: boolean\r\n        breed:\r\n          type: string\r\n          enum: [Dingo, Husky, Retriever, Shepherd]\r\n    Cat:\r\n      type: object\r\n      properties:\r\n        hunts:\r\n          type: boolean\r\n        age:\r\n          type: integer\r\n    CatResponse:\r\n      type: object\r\n      properties:\r\n        customField:\r\n          type: string\r\n    DogResponse:\r\n      type: object\r\n      properties:\r\n        color:\r\n          type: string\r\n",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/oneOfRequest.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/oneOfRequest.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": patch: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

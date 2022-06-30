@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/fchmainy/nginx-aks-demo"
+		},
+		"file": {
+			"name": "oas-animals-v0.1.yaml",
+			"size": 0,
+			"path": "Docker/animals/oas-animals-v0.1.yaml",
+			"byteSize": 2618,
+			"content": "openapi: 3.0.1\ninfo:\n  title: animals\n  description: list of animals\n  version: '0.1'\nservers:\n  - url: 'http://animals:8080'\npaths:\n  /animals:\n    get:\n      description: List all animals\n      operationId: listAnimals\n      responses:\n        '200':\n          description: a list of animals with their index\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Animals\"\n              #examples: {\"adjectives\": [{\"id\":1,\"name\":\"blue\"}]}\n      servers:\n        - url: 'http://animals:8080'\n    post:\n      description: create a animal\n      operationId: createAnimal\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                name:\n                  type: string\n                id:\n                  type: integer\n            examples:\n              '0':\n                value: '{\"name\":\"yellow\"}'\n              '1':\n                value: '{\"id\":4}'\n      responses:\n        '201':\n          description: animal created\n          content:\n            application/json; charset=utf-8:\n              schema:\n                type: string\n              examples: {}\n      servers:\n        - url: 'http://animals:8080'\n    delete:\n      description: delete a animal\n      operationId: deleteAnimal\n      responses:\n        '404':\n          description: Auto generated using Swagger Inspector\n          content:\n            application/json; charset=utf-8:\n              schema:\n                type: string\n              examples: {}\n      servers:\n        - url: 'http://animals:8080'\n    servers:\n      - url: 'http://animals:8080'\n  /animals/{id}:\n    get:\n      description: get a specific animal\n      operationId: showAnimalById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: id of the animal to retrieve\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Successful\n          content:\n            application/json; charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Animal\"\n              # examples: {\"adjectives\": [{\"id\":1,\"name\":\"blue\"}]}\n      servers:\n        - url: 'http://animals:8080'\n        \ncomponents:\n  schemas:\n    Animal:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n  #      tag:\n  #        type: string\n    Animals:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Animal\"\n",
+			"canonicalURL": "/github.com/fchmainy/nginx-aks-demo@4034ab77dd043d3dec0346a04335a6427ee2abd2/-/blob/Docker/animals/oas-animals-v0.1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/fchmainy/nginx-aks-demo/blob/4034ab77dd043d3dec0346a04335a6427ee2abd2/Docker/animals/oas-animals-v0.1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springframeworkguru/spring-cloud-contract-oa3"
+		},
+		"file": {
+			"name": "fraudservice.yaml",
+			"size": 0,
+			"path": "src/test/resources/openapi/fraudservice.yaml",
+			"byteSize": 3319,
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: Example fraud detection service using consumer driven contracts\n  version: \"1.0.0\"\n  title: Fraud Detection Service\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: Fraud Service\n    description: Fraud Service\npaths:\n  /fraudcheck:\n    put:\n      tags:\n        - Fraud Service\n      summary: Checks client id for suspected Fraud\n      operationId: fraudCheck\n      description: For given client id and loan amount, service will examine client profile and determine request is too high\n      # Define Contracts\n      x-contracts:\n        - contractId: 1\n          name: Should Mark Client As Fraud\n        - contractId: 2\n          name: Test Loan Amount okay\n        - contractId: 3\n          name: Test missing loan amount\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/FraudCheckRequest'\n            example: \"{ 'clientId': '123456789', 'loanAmount': 999999 }\"\n        description: Client and Loan Amount to check\n        # Define requests for each contract\n        x-contracts:\n            - contractId: 1\n              body:\n                \"client.id\" : 1452656883\n                loanAmount: 99999\n              matchers:\n                body:\n                  - $ref: '#/components/x-matchers/clientMatcher' # reusable component\n            - contractId: 2\n              body:\n                clientId: 1234567890\n                loanAmount: 500\n              matchers:\n                body:\n                  - $ref: '#/components/x-matchers/clientMatcher'\n            - contractId: 3\n              body:\n                clientId: 1234567890\n                #missing loan amount\n      responses:\n        '200':\n          description: okay\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/FraudCheckResponse'\n              example: \"{ 'fraudCheckStatus': 'FRAUD', 'rejectionReason': 'Amount too high' }\"\n          # Define expected responses for contracts\n          x-contracts:\n            - contractId: 1\n              # Status inferred from OpenAPI\n              # Headers - contentType can be inferred from OpenAPI response object\n              body:\n                fraudCheckStatus: \"FRAUD\"\n                rejectionReason: 'Amount too high'\n            - contractId: 2\n              body:\n                fraudCheckStatus: \"OK\"\n        '400':\n          description: 'invalid input, object invalid'\n          x-contracts:\n            - contractId: 3\ncomponents:\n  schemas:\n    FraudCheckRequest:\n      type: object\n      required:\n        - clientId\n        - loanAmount\n      properties:\n        clientId:\n          type: string\n          pattern: '[0-9]{10}'\n          description: Client Id\n        loanAmount:\n          type: number\n    FraudCheckResponse:\n      type: object\n      required:\n        - fraudCheckStatus\n      properties:\n        fraudCheckStatus:\n          type: string\n          enum: [FRAUD, OKAY]\n        rejectionReason:\n          type: string\n          description: Reason Message\n  x-matchers:\n    clientMatcher:\n      path: $.['clientId']\n      type: by_regex\n      value: \"[0-9]{10}\"",
+			"canonicalURL": "/github.com/springframeworkguru/spring-cloud-contract-oa3@20cec69a6f9b7e37d2a11e6e8b7469e73f513630/-/blob/src/test/resources/openapi/fraudservice.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springframeworkguru/spring-cloud-contract-oa3/blob/20cec69a6f9b7e37d2a11e6e8b7469e73f513630/src/test/resources/openapi/fraudservice.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

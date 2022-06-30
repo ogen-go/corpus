@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "dev/resources/swagger/jsonplaceholder.yaml",
 			"byteSize": 1053,
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: JSONPlaceholder\n  license:\n    name: MIT\nservers:\n  - url: https://jsonplaceholder.typicode.com\npaths:\n  /posts:\n    get:\n      summary: List of all posts\n      operationId: getPosts\n      tags:\n        - posts\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Post'\n  /posts/{id}:\n    get:\n      summary: Get a post\n      operationId: getPost\n      tags:\n        - posts\n      parameters:\n        id:\n          type: integer\n          format: int64\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Post'\n\ncomponents:\n  schemas:\n    Post:\n      properties:\n        id:\n          type: integer\n          format: int64\n        userId:\n          type: integer\n          format: int64\n        title:\n          type: string\n        body:\n          type: string\n"
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: JSONPlaceholder\n  license:\n    name: MIT\nservers:\n  - url: https://jsonplaceholder.typicode.com\npaths:\n  /posts:\n    get:\n      summary: List of all posts\n      operationId: getPosts\n      tags:\n        - posts\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Post'\n  /posts/{id}:\n    get:\n      summary: Get a post\n      operationId: getPost\n      tags:\n        - posts\n      parameters:\n        id:\n          type: integer\n          format: int64\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Post'\n\ncomponents:\n  schemas:\n    Post:\n      properties:\n        id:\n          type: integer\n          format: int64\n        userId:\n          type: integer\n          format: int64\n        title:\n          type: string\n        body:\n          type: string\n",
+			"canonicalURL": "/github.com/kawasima/darzana@4b37c8556f74219b707d23cb2d6dce70509a0c1b/-/blob/dev/resources/swagger/jsonplaceholder.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kawasima/darzana/blob/4b37c8556f74219b707d23cb2d6dce70509a0c1b/dev/resources/swagger/jsonplaceholder.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "unmarshal: json: line 1:572: json: cannot unmarshal object into Go struct field Operation.paths.get.parameters of type []*ogen.Parameter"

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "generic.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/generic.yaml",
+			"byteSize": 1304,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\npaths:\n  /animals:\n    get:\n      summary: Returns all animals.\n      description: Optional extended description in Markdown.\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Animal'\ncomponents:\n  schemas:\n    Dog:\n      allOf:\n        - $ref: '#/components/schemas/Animal'\n        - type: object\n          properties:\n            breed:\n              type: string\n    Cat:\n      allOf:\n        - $ref: '#/components/schemas/Animal'\n        - type: object\n          properties:\n            breed:\n              type: string\n    BigDog:\n      allOf:\n        - $ref: '#/components/schemas/Dog'\n        - type: object\n          discriminator:\n            propertyName: dogType\n            required:\n              - dogType\n          properties:\n            dogType:\n              type: string\n            declawed:\n              type: boolean\n    Animal:\n      type: object\n      discriminator:\n        propertyName: className\n      required:\n        - className\n      properties:\n        className:\n          type: string\n        color:\n          type: string\n          default: red",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/generic.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/generic.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

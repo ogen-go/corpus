@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "STUDIO/org.openl.rules.project.openapi/test-resources/api_serialization/openapi.json",
+			"byteSize": 1910,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Book API\",\n    \"description\": \"Some description\",\n    \"contact\": {\n      \"name\": \"John Doe\",\n      \"email\": \"jdoe@localhost\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"1.0.0\"\n  },\n  \"tags\": [\n    {\n      \"name\": \"book\",\n      \"description\": \"Operations about book\"\n    },\n    {\n      \"name\": \"foo\",\n      \"description\": \"Some other tag\"\n    }\n  ],\n  \"paths\": {\n    \"/books/{id}\": {\n      \"get\": {\n        \"summary\": \"Get a book by its id\",\n        \"operationId\": \"findById\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"description\": \"id of book to be searched\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int64\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Found the book\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Dto\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid id supplied\",\n            \"content\": {\n              \"*/*\": {}\n            }\n          },\n          \"404\": {\n            \"description\": \"Book not found\",\n            \"content\": {\n              \"*/*\": {}\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Dto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"field1\": {\n            \"type\": \"string\"\n          },\n          \"field2\": {\n            \"type\": \"number\",\n            \"format\": \"double\"\n          },\n          \"field3\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/STUDIO/org.openl.rules.project.openapi/test-resources/api_serialization/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/STUDIO/org.openl.rules.project.openapi/test-resources/api_serialization/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/books/{id}\": get: responses: 400: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

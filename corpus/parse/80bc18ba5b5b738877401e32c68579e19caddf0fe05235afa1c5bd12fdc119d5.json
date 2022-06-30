@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "pkg/importer/tests/openapi3/multiple-return-values.yaml",
 			"byteSize": 833,
-			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\npaths:\n  /test:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/pdf:\n              schema:\n                type: string\n                format: binary\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n        400:\n          description: Bad request\n        401:\n          description: Authentication error\n        500:\n          description: Server Error\n        503:\n          description: Service unavailable\n        504:\n          description: Gatewaytimeout error\ncomponents:\n  schemas:\n    SimpleObj:\n      type: object\n      properties:\n        name:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj\n"
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\npaths:\n  /test:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/pdf:\n              schema:\n                type: string\n                format: binary\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n        400:\n          description: Bad request\n        401:\n          description: Authentication error\n        500:\n          description: Server Error\n        503:\n          description: Service unavailable\n        504:\n          description: Gatewaytimeout error\ncomponents:\n  schemas:\n    SimpleObj:\n      type: object\n      properties:\n        name:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj\n",
+			"canonicalURL": "/github.com/anz-bank/sysl@ed832ffbbebdb8970241347dfda3c8d6cf3eb638/-/blob/pkg/importer/tests/openapi3/multiple-return-values.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anz-bank/sysl/blob/ed832ffbbebdb8970241347dfda3c8d6cf3eb638/pkg/importer/tests/openapi3/multiple-return-values.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse components: schemas: \"SimpleObj2\": parse schema: property \"name\": parse schema: unexpected schema type: \"SimpleObj\""

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "components.schemas.inheritance.json",
+			"size": 0,
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.inheritance.json",
+			"byteSize": 1562,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"Lizard\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"color\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        ]\n      },\n      \"Snake\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"length\": {\n                \"format\": \"int32\",\n                \"type\": \"integer\"\n              },\n              \"lengthUnits\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        ]\n      },\n      \"Turtle\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"shellPattern\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        ]\n      },\n      \"Reptile\": {\n        \"required\": [\n          \"type\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": {\n            \"type\": \"string\"\n          }\n        },\n        \"discriminator\": {\n          \"propertyName\": \"type\",\n          \"mapping\": {\n            \"lizard\": \"#/components/schemas/Lizard\",\n            \"snake\": \"#/components/schemas/Snake\",\n            \"turtle\": \"#/components/schemas/Turtle\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.inheritance.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.inheritance.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

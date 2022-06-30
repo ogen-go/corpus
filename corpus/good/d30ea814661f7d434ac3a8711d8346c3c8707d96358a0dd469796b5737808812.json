@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sgutierr/3scaledemo"
+		},
+		"file": {
+			"name": "logAPI.yaml",
+			"size": 0,
+			"path": "swaggers/logAPI.yaml",
+			"byteSize": 3052,
+			"content": "openapi: 3.0.0\r\ninfo:\r\n    title: Log API\r\n    version: v1\r\n    description: Log API for Channel logs\r\nservers:\r\n    -\r\n        url: echo.3scale.net\r\n        \r\n        description: Development Container Gateway URL on the Openshift\r\npaths:\r\n    /channels/technical/logs/v1/log:\r\n        post:\r\n            requestBody:\r\n                content:\r\n                    application/json:\r\n                        schema:\r\n                            type: object\r\n                            properties:\r\n                                timeStamp:\r\n                                    type: string\r\n                                userAgent:\r\n                                    type: string\r\n                                deviceInfo:\r\n                                    type: string\r\n                                originURL:\r\n                                    type: string\r\n                                operationComponent:\r\n                                    type: string\r\n                                logMask:\r\n                                    type: string\r\n                                hostNodeIp:\r\n                                    type: string\r\n                                userName:\r\n                                    type: string\r\n                                auditDescription:\r\n                                    type: string\r\n                                auditDetail:\r\n                                    type: string\r\n                required: true\r\n            parameters:\r\n                -\r\n                    name: channel\r\n                    schema:\r\n                        type: string\r\n                    in: header\r\n                    required: true\r\n                -\r\n                    name: ip\r\n                    schema:\r\n                        type: string\r\n                    in: header\r\n                    required: true\r\n                -\r\n                    name: dialect\r\n                    schema:\r\n                        type: string\r\n                    in: header\r\n                    required: true\r\n                -\r\n                    name: companyId\r\n                    schema:\r\n                        type: string\r\n                    in: header\r\n            responses:\r\n                '200':\r\n                    content:\r\n                        application/json:\r\n                            schema:\r\n                                $ref: '#/components/schemas/result'\r\n                    description: Return operation result.\r\n            summary: Create a log record for Channel\r\n            description: Create a log record for Channel log\r\ncomponents:\r\n    schemas:\r\n        result:\r\n            properties:\r\n                '500':\r\n                    description: Internal Server Error\r\n                returnCode:\r\n                    type: integer\r\n                reasonCode:\r\n                    type: integer\r\n                messageText:\r\n                    type: string\r\n                default:\r\n                    description: Unexpected error\r\n",
+			"canonicalURL": "/github.com/sgutierr/3scaledemo@f47931d9b3771bf71e761d97fea6a7859bc3e853/-/blob/swaggers/logAPI.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/sgutierr/3scaledemo/blob/f47931d9b3771bf71e761d97fea6a7859bc3e853/swaggers/logAPI.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

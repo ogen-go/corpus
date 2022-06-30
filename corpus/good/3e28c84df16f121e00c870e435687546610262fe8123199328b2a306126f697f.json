@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/greenmail-mail-test/greenmail"
+		},
+		"file": {
+			"name": "greenmail-openapi.yml",
+			"size": 0,
+			"path": "greenmail-webapp/src/main/webapp/greenmail-openapi.yml",
+			"byteSize": 2160,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: \"${project.version}\"\n  title: GreenMail OpenAPI\n  description: \u003cp\u003eRESTful API for GreenMail web application\u003c/p\u003e\n  license:\n    name: Apache 2.0\n    url: \"https://www.apache.org/licenses/LICENSE-2.0.html\"\npaths:\n  /api/configuration:\n    get:\n      description: Gets current GreenMail configuration\n      operationId: get_configuration\n      responses:\n        '200':\n          description: Current configuration\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Configuration\"\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorResponse\"\ncomponents:\n  schemas:\n    Configuration:\n      type: object\n      properties:\n        defaultHostname:\n          type: string\n        portOffset:\n          type: integer\n          format: int32\n        users:\n          type: \"array\"\n          description: Configured users for authentication\n          items:\n            $ref: \"#/components/schemas/User\"\n        serviceConfigurations:\n          type: array\n          items:\n            $ref: \"#/components/schemas/ServiceConfiguration\"\n      required:\n        - serviceConfigurations\n    User:\n      type: object\n      required:\n        - login\n        - email\n      properties:\n        login:\n          type: string\n        email:\n          type: string\n    ServiceConfiguration:\n      type: object\n      properties:\n        protocol:\n          description: Service protocol for receiving or sending emails.\n          type: string\n          enum:\n            - pop3\n            - pop3s\n            - imap\n            - imaps\n            - smtp\n            - smtps\n        hostname:\n          description: Service hostname or IP to bind to\n          type: string\n        port:\n          description: Service port\n          type: integer\n          format: int32\n      required:\n        - protocol\n        - hostname\n        - port\n    ErrorResponse:\n      properties:\n        message:\n          type: string\n      required:\n        - message\n",
+			"canonicalURL": "/github.com/greenmail-mail-test/greenmail@b5c92fce954929c72b7e15aa936dae1b4cbfee50/-/blob/greenmail-webapp/src/main/webapp/greenmail-openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/greenmail-mail-test/greenmail/blob/b5c92fce954929c72b7e15aa936dae1b4cbfee50/greenmail-webapp/src/main/webapp/greenmail-openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

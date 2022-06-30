@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rarible/sdk"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "packages/transaction-backend/src/openapi.yml",
+			"byteSize": 3611,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"v0.1\"\n  title: \"Rarible Transaction Backend API\"\nservers:\n  - description: \"Production (mainnet) Environment\"\n    url: \"https://transaction.rarible.org/\"\n  - description: \"Staging Environment\"\n    url: \"https://transaction-staging.rarible.org/\"\n  - description: \"Development Environment\"\n    url: \"https://dev-transaction.rarible.org/\"\npaths:\n  /v0.1/orders/buy-tx:\n    post:\n      operationId: \"buy-tx\"\n      description: \"Get transaction data for NFT purchase\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/FillRequest\"\n        required: true\n      responses:\n        \"200\":\n          description: \"OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/FillResponse\"\n        \"400\":\n          $ref: \"#/components/responses/BadRequest\"\n        \"500\":\n          $ref: \"#/components/responses/ServerError\"\ncomponents:\n  schemas:\n    FillRequest:\n      type: object\n      required:\n        - request\n        - from\n      properties:\n        from:\n          $ref: \"#/components/schemas/UnionAddress\"\n        request:\n          type: object\n          required:\n            - orderId\n            - amount\n          properties:\n            orderId:\n              $ref: \"#/components/schemas/OrderId\"\n            amount:\n              type: number\n              example: 1\n              description: \"Amount of NFT to get from offer order\"\n            originFees:\n              type: array\n              description: \"Additional fees for marketplace\"\n              items:\n                $ref: \"#/components/schemas/Part\"\n            payouts:\n              type: array\n              description: \"Payouts\"\n              items:\n                $ref: \"#/components/schemas/Part\"\n    FillResponse:\n      type: object\n      properties:\n        from:\n          $ref: \"#/components/schemas/EthereumAddress\"\n        to:\n          $ref: \"#/components/schemas/EthereumAddress\"\n        value:\n          $ref: \"#/components/schemas/BigInteger\"\n        data:\n          type: string\n          example: \"0xe99a3f800000081bd4df76e423639f8876010d0a8192bb4...\"\n          description: \"Transaction data for signing\"\n    UnionAddress:\n      type: string\n      description: \"Blockchain address in Union format `${blockchainGroup}:${token}`\"\n      example: \"ETHEREUM:0x0d28e9Bd340e48370475553D21Bd0A95c9a60F92\"\n    OrderId:\n      type: string\n      description: \"Rarible OrderId in Union format `${blockchainGroup}:${orderId}`\"\n      example: \"ETHEREUM:0x3b304559e5975b0b6aa37cecf58808f1426b11a8af9fb37d59282fe65c125e36\"\n    EthereumAddress:\n      type: string\n      example: \"0x4765273c477c2dc484da4f1984639e943adccfeb\"\n    Part:\n      type: object\n      properties:\n        account:\n          $ref: \"#/components/schemas/UnionAddress\"\n        value:\n          type: integer\n      required:\n        - account\n        - value\n    BigInteger:\n      type: string\n      description: \"Big number representation\"\n      example: \"123456\"\n    ApiErrorResponse:\n      required:\n        - \"message\"\n      type: object\n      properties:\n        message:\n          type: string\n          description: \"Error message\"\n  responses:\n    BadRequest:\n      description: \"Bad Request\"\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/ApiErrorResponse\"\n    ServerError:\n      description: \"Internal Server Error\"\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/ApiErrorResponse\"\n",
+			"canonicalURL": "/github.com/rarible/sdk@b1b6308f2f81f2929d953106f42843d915f91d76/-/blob/packages/transaction-backend/src/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rarible/sdk/blob/b1b6308f2f81f2929d953106f42843d915f91d76/packages/transaction-backend/src/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

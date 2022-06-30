@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/redocly-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "__tests__/lint/assertions-error/openapi.yaml",
+			"byteSize": 2101,
+			"content": "openapi: 3.1.0\nservers:\n  - url: http://example.xyz\ninfo:\n  license:\n    name: test licence\n    url: http://example.xyz\n  title: Example OpenAPI 3 definition.\n  description: Example description\n  version: '1.0'\n  contact:\n    name: qa\n    url: https://swagger.io/specification/#definitions\n    email: email@redoc.ly\ntags:\n  - name: test\n    description: Description.\n  - name: about\n    description: Everything about your Pets\n  - name: Without description\npaths:\n  /pet/findByStatus:\n    put:\n      operationId: exampleOne\n      summary: My resource\n      description: summary example\n      externalDocs:\n        description: \"Find more info here\"\n        url: \"https://example.com\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: 'object'\n              properties:\n                updated_at:\n                  type: string\n                name:\n                  type: string\n                  description: hooray\n      responses:\n        '404':\n          description: summary example\n        '201':\n          description: summary example\n          content:\n            application/pdf:\n              schema:\n                type: 'object'\n                properties:\n                  created_at:\n                    type: string\n                  name:\n                    type: string\n                    description: hooray\n    post:\n      operationId: EXAMPLE\n      summary: ''\n      responses:\n        '201':\n          description: Test description\n          content:\n            application/pdf:\n              schema:\n                type: 'object'\n                properties:\n                  status:\n                    type: boolean\n        '404':\n          description: application/json\n          content:\n            application/pdf:\n              schema:\n                type: string\n              examples:\n                credit-file-identity-address:\n                  summary: Credit file with fallback\n      x-code-samples:\n        - lang: 'C#'\n          source: |\n            PetStore.v1.Pet pet = new PetStore.v1.Pet();\n\n",
+			"canonicalURL": "/github.com/Redocly/redocly-cli@70c4d952f5585c17d667dbe53b0ab146fd9156a7/-/blob/__tests__/lint/assertions-error/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Redocly/redocly-cli/blob/70c4d952f5585c17d667dbe53b0ab146fd9156a7/__tests__/lint/assertions-error/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pet/findByStatus\": put: responses: 201: contents: unsupported content types: [application/pdf]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

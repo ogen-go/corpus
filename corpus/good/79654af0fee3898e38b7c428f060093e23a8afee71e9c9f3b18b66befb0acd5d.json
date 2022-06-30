@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aspida/openapi2aspida"
+		},
+		"file": {
+			"name": "array-one-of.yml",
+			"size": 0,
+			"path": "samples/array-one-of.yml",
+			"byteSize": 911,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0.0\"\n  title: \"Sample\"\npaths:\n  /user:\n    get:\n      responses:\n        \"200\":\n          description: \"sample\"\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  user:\n                    nullable: true\n                    anyOf:\n                      - $ref: \"#/components/schemas/User\"\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: string\n        roles:\n          type: array\n          items:\n            oneOf:\n              - $ref: \"#/components/schemas/RoleA\"\n              - $ref: \"#/components/schemas/RoleB\"\n    RoleA:\n      type: object\n      properties:\n        name:\n          type: string\n    RoleB:\n      type: object\n      properties:\n        name:\n          type: string\n        authority:\n          type: string\n",
+			"canonicalURL": "/github.com/aspida/openapi2aspida@0f8c519b45ddd73353b22a59efe1737ddca720c0/-/blob/samples/array-one-of.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aspida/openapi2aspida/blob/0f8c519b45ddd73353b22a59efe1737ddca720c0/samples/array-one-of.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

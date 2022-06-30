@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/uglide/RedisDesktopManager"
+		},
+		"file": {
+			"name": "server_spec.yaml",
+			"size": 0,
+			"path": "docs/server_spec.yaml",
+			"byteSize": 3412,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 2022.0-preview1\n  title: RESP.app Extension server\n  description: RESP.app Extension Server API allows you to extend RESP.app with your custom data formatters\npaths:\n  /data-formatters:\n    get:\n      description: Returns a list of data formatters\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/DataFormatters\"\n  /data-formatters/{id}/decode:\n    post:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of data formatter\n          schema:\n            type: string\n      requestBody:\n        content: \n          'application/json':\n            schema:\n              $ref: '#/components/schemas/DecodePayload'\n      responses:\n        '200':\n          description: Successful response with correct content type. RESP.app supports text/plain, application/json and application/octet-stream\n          content:\n            '*/*' :\n              schema:\n                type: string\n        '400':\n          description: Validation error response\n          content: \n            'application/json':\n              schema:\n                type: object\n                properties:\n                  error:\n                    type: string\n          \n  /data-formatters/{id}/encode:\n    post:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of data formatter\n          schema:\n            type: string\n      requestBody:\n        content: \n          'application/json':\n            schema:\n              $ref: '#/components/schemas/EncodePayload'\n      responses:\n        '200':\n          description: Successful response with content type application/octet-stream\n          content:\n            '*/*' :\n              schema:\n                type: string\n        '400':\n          description: Validation error response\n          content: \n            'application/json':\n              schema:\n                type: object\n                properties:\n                  error:\n                    type: string        \ncomponents:\n  securitySchemes:\n    basic:\n      type: http\n      scheme: basic\n  schemas:\n    DataFormatter:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: string\n          description: Internal formatter ID used in requests to this API\n          example: \"1\"\n        name:\n          type: string\n          description: Name displayed inside RDM app\n          example: \"My .net models decoder\"\n        read-only:\n          type: boolean\n          description: Read-only formatters only receive decode requests\n          \n    DataFormatters:\n      type: array\n      items:\n        $ref: \"#/components/schemas/DataFormatter\"\n        \n    DecodePayload:\n      type: object\n      properties:\n        data: \n          type: string\n          description: Base64 encoded string\n        redis-key-name:\n          type: string\n        redis-key-type:\n          type: string\n          \n    EncodePayload:\n      type: object\n      properties:\n        data:\n          type: string\n          description: Base64 encoded string\n        metadata:\n          type: object\n          description: Metadata from formatter custom ui forms\n\nsecurity:\n  - basic: []\n",
+			"canonicalURL": "/github.com/uglide/RedisDesktopManager@1092fb74182898d9d23ebb847ba406f30c06bb25/-/blob/docs/server_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/uglide/RedisDesktopManager/blob/1092fb74182898d9d23ebb847ba406f30c06bb25/docs/server_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/data-formatters/{id}/decode\": post: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

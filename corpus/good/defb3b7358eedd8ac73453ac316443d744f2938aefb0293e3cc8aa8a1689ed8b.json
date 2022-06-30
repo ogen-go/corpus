@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/koomai/repository-cache-decorator"
+		},
+		"file": {
+			"name": "api-test.yaml",
+			"size": 0,
+			"path": "public/api-test.yaml",
+			"byteSize": 1805,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: AMHS API\n  description: Test API for AMHS\n  version: 1.0.0\npaths:\n  /leads:\n    get:\n      description: Get all Leads\n      responses:\n        200:\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Lead'\n              examples:\n                Lead example:\n                  value: |-\n                    {\n                        \"id\": 1,\n                        \"first_name\": \"John\"\n                        \"middle_name\": \"M\"\n                        \"last_name\": \"Doe\"\n                        \"status\": \"opportunity\"\n                    }\n    post:\n      description: Create new Lead\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Lead'\n        required: true\n      responses:\n        201:\n          content:\n            application/json:\n              schema:\n                type: string\n              examples:\n                Created:\n                  value: '\"Created\"'\ncomponents:\n  schemas:\n    404:\n      title: Root Type for 404\n      description: The root of the 404 type's schema.\n      type: object\n      properties:\n        code:\n          format: int32\n          description: HTTP Status Code\n          type: integer\n        message:\n          description: Error message\n          type: string\n    Lead:\n      title: Root Type for Lead\n      description: The root of the Lead type's schema.\n      type: object\n      properties:\n        id:\n          format: int32\n          type: integer\n        first_name:\n          type: string\n        middle_name:\n          type: string\n        last_name:\n          type: string\n        status:\n          type: string\n",
+			"canonicalURL": "/github.com/koomai/repository-cache-decorator@dae8f0951fa1af2c150b4c5ce407a7ef9e22194f/-/blob/public/api-test.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/koomai/repository-cache-decorator/blob/dae8f0951fa1af2c150b4c5ce407a7ef9e22194f/public/api-test.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

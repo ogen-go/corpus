@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "produces_consumes_test.yaml",
+			"size": 0,
+			"path": "vertx-web-api-contract/src/test/resources/swaggers/produces_consumes_test.yaml",
+			"byteSize": 1420,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Test spec for OpenAPI3RouterFactoryTest consumes and produces tests\n  license:\n    name: Apache 2.0 License\npaths:\n  /consumesTest:\n    post:\n      operationId: consumesTest\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n      responses:\n        default:\n          description: ok\n  /producesTest:\n    get:\n      operationId: producesTest\n      parameters:\n        - name: fail\n          in: query\n          required: false\n          schema:\n            type: boolean\n            default: false\n      responses:\n        default:\n          description: ok\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - name\n                properties:\n                  name:\n                    type: string\n        500:\n          description: Error\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents: {}\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-api-contract/src/test/resources/swaggers/produces_consumes_test.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-api-contract/src/test/resources/swaggers/produces_consumes_test.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/producesTest\": get: responses: 500: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

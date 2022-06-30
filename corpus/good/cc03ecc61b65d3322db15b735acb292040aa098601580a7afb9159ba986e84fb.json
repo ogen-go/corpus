@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "http_api_with_cors.yaml",
+			"size": 0,
+			"path": "tests/translator/input/http_api_with_cors.yaml",
+			"byteSize": 1215,
+			"content": "Conditions:\n  C1:\n    Fn::Equals:\n      - true\n      - true\n\nGlobals:\n  HttpApi:\n    CorsConfiguration:\n      Fn::If:\n        - C1\n        - AllowHeaders:\n            - x-apigateway-header\n          AllowMethods:\n            - GET\n          AllowOrigins:\n            - https://foo.com\n          ExposeHeaders:\n            - x-amzn-header\n        - AWS::NoValue\n\nResources:\n  HttpApiFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      InlineCode: |\n         exports.handler = async (event) =\u003e {\n          console.log(\"Hello from MyAuthFunction\")\n           return {\n           statusCode: 200,\n           body: JSON.stringify(event),\n           headers: {}\n           }\n         }\n      Handler: index.handler\n      Runtime: nodejs12.x\n      Events:\n        SimpleCase:\n          Type: HttpApi\n          Properties:\n            ApiId: !Ref MyApi\n        ImplicitApi:\n          Type: HttpApi\n\n  MyApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        info:\n          version: '1.0'\n          title:\n            Ref: AWS::StackName\n        paths:\n          \"$default\":\n            x-amazon-apigateway-any-method:\n              isDefaultRoute: true\n        openapi: 3.0.1",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/tests/translator/input/http_api_with_cors.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/tests/translator/input/http_api_with_cors.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

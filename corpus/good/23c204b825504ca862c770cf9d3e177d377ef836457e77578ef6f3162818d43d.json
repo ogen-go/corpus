@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apache/camel-k-examples"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "02-serverless-api/openapi.yaml",
+			"byteSize": 1211,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  title: Camel K Object API\n  version: 1.0.0\n  description: A CRUD API for an object store\npaths:\n  /:\n    get:\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n          description: Object list\n      operationId: list\n      summary: List the objects\n  /{name}:\n    get:\n      responses:\n        \"200\":\n          content:\n            application/octet-stream: {}\n          description: The object content\n      operationId: get\n      summary: Get the content of an object\n    put:\n      requestBody:\n        description: The object content\n        content:\n          application/octet-stream: {}\n        required: true\n      responses:\n        \"200\":\n          description: The object has been created\n      operationId: create\n      summary: Save an object\n    delete:\n      responses:\n        \"204\":\n          description: Object has been deleted\n      operationId: delete\n      summary: Delete an object\n    parameters:\n    - name: name\n      description: Name of the object\n      schema:\n        type: string\n      in: path\n      required: true\n",
+			"canonicalURL": "/github.com/apache/camel-k-examples@5a5d6605f31d1dcc74610e2580c23db4aca4c698/-/blob/02-serverless-api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apache/camel-k-examples/blob/5a5d6605f31d1dcc74610e2580c23db4aca4c698/02-serverless-api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

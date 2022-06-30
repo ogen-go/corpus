@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/matt-tyler/simple-node-api-rbac"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "api.yaml",
+			"byteSize": 2582,
+			"content": "openapi: 3.0.0\ninfo:\n  title: simple-node-api\n  description: A simple API for a guestbook application\n  version: 2019-10-13\npaths:\n  /:\n    post:\n      operationId: CreateMessage\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n        required: true\n      responses:\n        \"201\":\n          description: \"Successfully created a message.\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Message\"\n        \"400\":\n          description: \"Bad Request Exception\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/BadRequestException\"\n        \"500\":\n          description: \"Internal Server Error\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/InternalServerErrorException\"\n    get:\n      operationId: ListMessages\n      parameters:\n        - name: maxItems\n          in: query\n          required: false\n          schema:\n            type: number\n        - name: token\n          in: query\n          required: false\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: \"Successfully listed messages.\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/MessageList\"\n        \"400\":\n          description: \"Bad Request Exception\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/BadRequestException\"\n        \"500\":\n          description: \"Internal Server Error\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/InternalServerErrorException\"\ncomponents:\n  schemas:\n    Message:\n      type: object\n      properties:\n        message:\n          type: string\n        author:\n          type: string\n        date:\n          type: string\n          format: date-time\n    MessageList:\n      type: object\n      properties:\n        items: \n          type: array\n          items:\n            $ref: \"#/components/schemas/Message\"\n        nextToken:\n          type: string\n          required:\n            - items\n    BadRequestException:\n      type: object\n      properties:\n        message:\n          type: string\n        errorCode:\n          type: string\n    InternalServerErrorException:\n      type: object\n      properties:\n        message:\n          type: string\n        errorCode:\n          type: string",
+			"canonicalURL": "/github.com/matt-tyler/simple-node-api-rbac@c649b5b1e354932f019857a014d7638f69753be0/-/blob/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/matt-tyler/simple-node-api-rbac/blob/c649b5b1e354932f019857a014d7638f69753be0/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

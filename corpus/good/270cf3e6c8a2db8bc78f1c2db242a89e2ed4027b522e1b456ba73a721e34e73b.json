@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/oas"
+		},
+		"file": {
+			"name": "nested-allof-flattening.json",
+			"size": 0,
+			"path": "__tests__/__datasets__/nested-allof-flattening.json",
+			"byteSize": 2356,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"nested allOf flattening\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"successful operation\",\n            \"content\": {\n              \"application/json;charset=UTF-8\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/extendedAttribute\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"extendedAttribute\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"value\"\n        ],\n        \"properties\": {\n          \"createdOn\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"readOnly\": true\n          },\n          \"lastModifiedOn\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"readOnly\": true\n          },\n          \"application\": {\n            \"allOf\": [\n              {\n                \"$ref\": \"#/components/schemas/link\"\n              }\n            ]\n          },\n          \"value\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"linkBase\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"href\",\n          \"rel\"\n        ],\n        \"properties\": {\n          \"href\": {\n            \"type\": \"string\"\n          },\n          \"title\": {\n            \"type\": \"string\",\n            \"readOnly\": true\n          },\n          \"metadata\": {\n            \"$ref\": \"#/components/schemas/metadata\"\n          }\n        }\n      },\n      \"link\": {\n        \"type\": \"object\",\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/linkBase\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"source\": {\n                \"$ref\": \"#/components/schemas/linkBase\"\n              }\n            }\n          }\n        ]\n      },\n      \"metadata\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createdOn\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"readOnly\": true\n          },\n          \"lastModifiedOn\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"readOnly\": true\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/oas@e398cd99d6ab60f08b65b94de6d2c9a4c9406085/-/blob/__tests__/__datasets__/nested-allof-flattening.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/oas/blob/e398cd99d6ab60f08b65b94de6d2c9a4c9406085/__tests__/__datasets__/nested-allof-flattening.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

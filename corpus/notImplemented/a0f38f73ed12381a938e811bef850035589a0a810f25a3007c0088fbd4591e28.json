@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/input-output-hk/cardano-js-sdk"
+		},
+		"file": {
+			"name": "openApi.json",
+			"size": 0,
+			"path": "packages/cardano-services/src/NetworkInfo/openApi.json",
+			"byteSize": 3951,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Network Info\",\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/network-info/network\": {\n      \"post\": {\n        \"summary\": \"fetch network info\",\n        \"description\": \"Fetch Network Info\",\n        \"operationId\": \"networkInfo\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {}\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"network info fetched\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/NetworkInfoResponse\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"invalid request\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Network\": {\n        \"required\": [\n          \"id\",\n          \"magic\",\n          \"timeSettings\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"number\",\n            \"example\": 1\n          },\n          \"magic\": {\n            \"type\": \"number\",\n            \"example\": 24\n          },\n          \"timeSettings\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/TimeSettings\"\n            }\n          }\n        }\n      },\n      \"Stake\": {\n        \"required\": [\n          \"active\",\n          \"live\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"live\": {\n            \"$ref\": \"#/components/schemas/BigInt\"\n          },\n          \"active\": {\n            \"$ref\": \"#/components/schemas/BigInt\"\n          }\n        }\n      },\n      \"LovelaceSupply\": {\n        \"required\": [\n          \"circulating\",\n          \"max\",\n          \"total\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"circulating\": {\n            \"$ref\": \"#/components/schemas/BigInt\"\n          },\n          \"max\": {\n            \"$ref\": \"#/components/schemas/BigInt\"\n          },\n          \"total\": {\n            \"$ref\": \"#/components/schemas/BigInt\"\n          }\n        }\n      },\n      \"TimeSettings\": {\n        \"required\": [\n          \"epochLength\",\n          \"fromSlotDate\",\n          \"fromSlotNo\",\n          \"slotLength\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"epochLength\": {\n            \"type\": \"number\",\n            \"example\": 21600\n          },\n          \"fromSlotDate\": {\n            \"$ref\": \"#/components/schemas/Date\"\n          },\n          \"fromSlotNo\": {\n            \"type\": \"number\",\n            \"example\": 1200\n          },\n          \"slotLength\": {\n            \"type\": \"number\",\n            \"example\": 1000\n          }\n        }\n      },\n      \"Date\": {\n        \"required\": [\n          \"__type\",\n          \"value\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"number\"\n          },\n          \"__type\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"Date\"\n            ]\n          }\n        }\n      },\n      \"BigInt\": {\n        \"required\": [\n          \"__type\",\n          \"value\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"string\",\n            \"example\": \"112233445566778899\"\n          },\n          \"__type\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"bigint\"\n            ]\n          }\n        }\n      },\n      \"NetworkInfoResponse\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"network\": {\n            \"$ref\": \"#/components/schemas/Network\"\n          },\n          \"stake\": {\n            \"$ref\": \"#/components/schemas/Stake\"\n          },\n          \"lovelaceSupply\": {\n            \"$ref\": \"#/components/schemas/LovelaceSupply\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/input-output-hk/cardano-js-sdk@2a9abffae06fc462e1811430c0dc8dfa4520091c/-/blob/packages/cardano-services/src/NetworkInfo/openApi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/input-output-hk/cardano-js-sdk/blob/2a9abffae06fc462e1811430c0dc8dfa4520091c/packages/cardano-services/src/NetworkInfo/openApi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/network-info/network\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

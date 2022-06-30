@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microcks/microcks"
+		},
+		"file": {
+			"name": "hello-dynamic-openapi.yaml",
+			"size": 0,
+			"path": "webapp/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml",
+			"byteSize": 1688,
+			"content": "---\nopenapi: 3.0.2\ninfo:\n  title: Hello Dynamic API\n  description: Description for Hello Dynamic API\n  contact:\n    name: Laurent Broudoux\n    url: https://github.com/lbroudoux\n    email: laurent.broudoux@gmail.com\n  license:\n    name: MIT License\n    url: https://opensource.org/licenses/MIT\n  version: 1.0.0\npaths:\n  /hello:\n    get:\n      summary: Say hello in a dynamic way\n      description: Use Microcks dynamic template in response\n      operationId: hello\n      requestBody:\n        description: Name\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Name'\n            examples:\n              dynamic:\n                value: |-\n                  { \"name\": \"Laurent\" }\n        required: true\n      responses:\n        200:\n          description: Greeting\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Greeting'\n              examples:\n                dynamic:\n                  value: |-\n                    {\n                      \"id\": \"{{ randomString(64) }}\",\n                      \"date\": \"{{ now(dd/MM/yyyy) }}\",\n                      \"message\": \"Hello {{ request.body/name }}!\"\n                    }\ncomponents:\n  schemas:\n    Name:\n      title: Root type for Name\n      description: The root of the Name type's schema\n      type: object\n      properties:\n        name:\n          type: string\n    Greeting:\n      title: Root type for Greeting\n      description: The root of the Greeting type's schema\n      type: object\n      properties:\n        id:\n          type: string\n        date:\n          type: string\n        message:\n          type: string",
+			"canonicalURL": "/github.com/microcks/microcks@073200620b3f9b1525985cb0492dd8995738119b/-/blob/webapp/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microcks/microcks/blob/073200620b3f9b1525985cb0492dd8995738119b/webapp/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

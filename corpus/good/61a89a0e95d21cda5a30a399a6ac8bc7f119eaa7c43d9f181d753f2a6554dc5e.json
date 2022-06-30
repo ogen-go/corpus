@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-patterns"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "apigw-sfn/api.yaml",
+			"byteSize": 762,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"processFormExample\"\n  version: \"2020-11-06 15:32:29UTC\"\npaths:\n  /:\n    post:\n      responses:\n        default:\n          description: \"Default response for POST /\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"StepFunctions-StartSyncExecution\"\n        credentials:\n          Fn::GetAtt: [HttpApiRole, Arn]\n        requestParameters:\n          Input: \"$request.body\"\n          StateMachineArn: \n            Fn::GetAtt: [StateMachineExpressSync, Arn] \n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\nx-amazon-apigateway-cors:\n  allowMethods:\n  - \"*\"\n  maxAge: 0\n  allowCredentials: false\n  allowOrigins:\n  - \"*\"\nx-amazon-apigateway-importexport-version: \"1.0\"",
+			"canonicalURL": "/github.com/aws-samples/serverless-patterns@bb57be153c9bf8e6805c3cc5778eda3aa2724029/-/blob/apigw-sfn/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-patterns/blob/bb57be153c9bf8e6805c3cc5778eda3aa2724029/apigw-sfn/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

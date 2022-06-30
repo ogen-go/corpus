@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "docs/_static/crypto/v1.yaml",
 			"byteSize": 1130,
-			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Crypto\n  description: API specification for crypto services available within nuts node\n  version: 1.0.0\n  license:\n    name: GPLv3\nservers:\n  - url: http://localhost:1323\npaths:\n  /internal/crypto/v1/sign_jwt:\n    post:\n      summary: \"sign a JWT payload with the private key of the given kid\"\n      description: |\n        Sign a JWT payload with the private key of the given kid\n\n        error returns:\n        * 400 - incorrect input\n      operationId: signJwt\n      tags:\n        - crypto\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SignJwtRequest'\n      responses:\n        '200':\n          description: \"OK response, body holds JWT\"\n          content:\n            text/plain:\n              schema:\n                example: \"aa==.bb==.cc==\"\n        default:\n          $ref: '../common/error_response.yaml'\n\ncomponents:\n  schemas:\n    SignJwtRequest:\n      required:\n        - claims\n        - kid\n      properties:\n        kid:\n          type: string\n        claims:\n          type: object\n"
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Crypto\n  description: API specification for crypto services available within nuts node\n  version: 1.0.0\n  license:\n    name: GPLv3\nservers:\n  - url: http://localhost:1323\npaths:\n  /internal/crypto/v1/sign_jwt:\n    post:\n      summary: \"sign a JWT payload with the private key of the given kid\"\n      description: |\n        Sign a JWT payload with the private key of the given kid\n\n        error returns:\n        * 400 - incorrect input\n      operationId: signJwt\n      tags:\n        - crypto\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SignJwtRequest'\n      responses:\n        '200':\n          description: \"OK response, body holds JWT\"\n          content:\n            text/plain:\n              schema:\n                example: \"aa==.bb==.cc==\"\n        default:\n          $ref: '../common/error_response.yaml'\n\ncomponents:\n  schemas:\n    SignJwtRequest:\n      required:\n        - claims\n        - kid\n      properties:\n        kid:\n          type: string\n        claims:\n          type: object\n",
+			"canonicalURL": "/github.com/nuts-foundation/nuts-node@596c91cab04b00c7b9fb5fc997a6877b572f916f/-/blob/docs/_static/crypto/v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nuts-foundation/nuts-node/blob/596c91cab04b00c7b9fb5fc997a6877b572f916f/docs/_static/crypto/v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /internal/crypto/v1/sign_jwt: post: operation \"signJwt\": responses: default: resolve \"../common/error_response.yaml\" reference: external \"../common/error_response.yaml\": file: local file reference is not allowed"

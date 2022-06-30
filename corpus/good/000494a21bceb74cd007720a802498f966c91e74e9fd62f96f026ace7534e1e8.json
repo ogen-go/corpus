@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/twkrol/vergrabber"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 2243,
+			"content": "openapi: 3.0.0\r\ninfo:\r\n  title: Vergrabber API\r\n  contact:\r\n    name: Tomasz Król\r\n    email: vergrabber@kingu.pl\r\n  version: 1.1.0\r\nservers:\r\n  - url: https://vergrabber.kingu.pl\r\npaths:\r\n  /vergrabber.json:\r\n    get:\r\n      description: 'Returns all version definitions and signature information'\r\n      responses:\r\n        '200':\r\n          description: 'A tree of version definitions'\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: '#/components/schemas/Root'\r\ncomponents:\r\n  schemas:\r\n    Root:\r\n      type: object\r\n      properties:\r\n        signature:\r\n          $ref: '#/components/schemas/Signature'\r\n        server:\r\n          type: array\r\n          items:\r\n            type: object\r\n            $ref: '#/components/schemas/Application'\r\n        client:\r\n          type: array\r\n          items:\r\n            type: array\r\n            $ref: '#/components/schemas/Application'\r\n        latest:\r\n          type: array\r\n          items:\r\n            type: object\r\n            $ref: '#/components/schemas/Latest'\r\n    Signature:\r\n      type: object\r\n      properties:\r\n        app:\r\n          type: string\r\n        version:\r\n          type: string\r\n        author: \r\n          type: string\r\n        notice:\r\n          type: string\r\n        updated:\r\n          type: string\r\n    Version:\r\n      type: object\r\n      properties:\r\n        product:\r\n          type: string\r\n        edition:\r\n          type: string\r\n        version:\r\n          type: string\r\n        stable:\r\n          type: boolean\r\n        latest:\r\n          type: boolean\r\n        released:\r\n          type: string\r\n        ends:\r\n          type: string\r\n        lts:\r\n          type: boolean\r\n    Latest:\r\n        type: object\r\n        properties:\r\n          server:\r\n            type: array\r\n            $ref: '#/components/schemas/Application'    \r\n          client:\r\n            type: array\r\n            $ref: '#/components/schemas/Application'    \r\n    Application:\r\n        type: array\r\n        items:\r\n            type: object\r\n            $ref: '#/components/schemas/Edition' \r\n    Edition:\r\n        type: array\r\n        items:\r\n            type: object\r\n            $ref: '#/components/schemas/Version'             ",
+			"canonicalURL": "/github.com/twkrol/vergrabber@c98f645fbbc619b0a976daaccb35db8b8c58585c/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/twkrol/vergrabber/blob/c98f645fbbc619b0a976daaccb35db8b8c58585c/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

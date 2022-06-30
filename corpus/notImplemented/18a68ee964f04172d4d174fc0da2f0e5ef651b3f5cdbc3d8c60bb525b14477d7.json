@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Dorthu/openapi3"
+		},
+		"file": {
+			"name": "obj-example.yaml",
+			"size": 0,
+			"path": "tests/fixtures/obj-example.yaml",
+			"byteSize": 695,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Object example validations\npaths:\n  /check-dict:\n    get:\n      responses:\n        '200':\n          description: Checking example dict\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  integer:\n                    type: integer\n                  real:\n                    type: number\n                example:\n                  integer: 42\n                  real: 0.5\n  /check-str:\n    get:\n      responses:\n        '200':\n          description: Checking example string\n          content:\n            'text/plain':\n                example: 'Hello'\n",
+			"canonicalURL": "/github.com/Dorthu/openapi3@dc791af2ff58e8170c21c2775df091c421829b48/-/blob/tests/fixtures/obj-example.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Dorthu/openapi3/blob/dc791af2ff58e8170c21c2775df091c421829b48/tests/fixtures/obj-example.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/check-str\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

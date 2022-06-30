@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Jeff-Tian/securing-web-with-wechat-mp"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger-output/swagger.yaml",
+			"byteSize": 3769,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Authenticate with Wechat MP!\n  version: 0.0.1\nservers:\n- url: https://virtserver.swaggerhub.com/UniHeart/wechat-mp/0.0.1\n  description: SwaggerHub API Auto Mocking\n- url: http://localhost:8080\npaths:\n  /mp-qr:\n    get:\n      tags:\n      - mp-qr\n      summary: Gets a temporary qr code with parameter\n      operationId: mp-qr-url\n      responses:\n        \"200\":\n          description: Got the temporary qr code image link\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MpQR'\n              example:\n                expire_seconds: 60\n                imageUrl: https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGT7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycnE3QWw3b3JmazMxb2FMQnh3Y1UAAgTOrmVgAwQ8AAAA\n                sceneId: 66afab27-c8fa-417d-a28a-95d5a977e1d3\n                ticket: gQGT7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycnE3QWw3b3JmazMxb2FMQnh3Y1UAAgTOrmVgAwQ8AAAA\n                url: http://weixin.qq.com/q/02rq7Al7orfk31oaLBxwc\n  /mp-qr-scan-status:\n    get:\n      tags:\n      - mp-qr\n      summary: Get the scanning status of qr code\n      operationId: mp-qr-scan-status\n      parameters:\n      - name: ticket\n        in: query\n        description: the ticket for the qr code to query scanning status\n        required: true\n        style: form\n        explode: true\n        schema:\n          type: string\n          example: gQE48DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyb2U4U2wwb3JmazMxcS1kQ3h3YzgAAgSCjWZgAwQ8AAAA\n      responses:\n        \"200\":\n          description: The scanning stqtus of qr code\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MpQRScanStatus'\n              example:\n                openId: oWFvUw5ryWycy8XoDCy1pV0SiB58\n                status: SCANNED\n  /mp-message:\n    post:\n      tags:\n      - mp-qr\n      summary: Receive xml messages sent from wechat mp server\n      operationId: mp-message\n      requestBody:\n        description: wechat mp messages in xml format\n        content:\n          application/xml:\n            schema:\n              $ref: '#/components/schemas/xml'\n        required: true\n      responses:\n        \"200\":\n          description: the message was well received\ncomponents:\n  schemas:\n    MpQR:\n      type: object\n      properties:\n        expire_seconds:\n          type: integer\n          format: int64\n          example: 60\n        imageUrl:\n          type: string\n          example: https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGT7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycnE3QWw3b3JmazMxb2FMQnh3Y1UAAgTOrmVgAwQ8AAAA\n        sceneId:\n          type: string\n          example: 66afab27-c8fa-417d-a28a-95d5a977e1d3\n        ticket:\n          type: string\n          example: gQGT7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycnE3QWw3b3JmazMxb2FMQnh3Y1UAAgTOrmVgAwQ8AAAA\n        url:\n          type: string\n          example: http://weixin.qq.com/q/02rq7Al7orfk31oaLBxwc\n    MpQRScanStatus:\n      type: object\n      properties:\n        openId:\n          type: string\n          example: oWFvUw5ryWycy8XoDCy1pV0SiB58\n        status:\n          type: string\n          example: SCANNED\n    xml:\n      type: object\n      properties:\n        ToUserName:\n          type: string\n          example: oWfv\n        FromUserName:\n          type: string\n          example: \"1234\"\n        CreateTime:\n          type: number\n          example: 1357290913\n        MsgType:\n          type: string\n          example: Text\n        Event:\n          type: string\n          example: subscribe\n        EventKey:\n          type: string\n          example: qrscene_123123\n        Ticket:\n          type: string\n          example: TICKET\n",
+			"canonicalURL": "/github.com/Jeff-Tian/securing-web-with-wechat-mp@a7924b385eedb1a717a6a0a05190e891dc7f9bba/-/blob/swagger-output/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Jeff-Tian/securing-web-with-wechat-mp/blob/a7924b385eedb1a717a6a0a05190e891dc7f9bba/swagger-output/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/mp-message\": post: requestBody: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

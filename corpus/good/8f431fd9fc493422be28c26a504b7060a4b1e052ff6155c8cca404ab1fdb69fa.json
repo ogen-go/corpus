@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "healthcheck.json",
+			"size": 0,
+			"path": "openapi3_autogen/healthcheck.json",
+			"byteSize": 3212,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"healthcheck\": {\n        \"description\": \"This API allows to retrieve a generic health state of the platform.\\nA return code different from 200 OK means the platform is not operational.\\nThe health check contains the list of observed sub system.\",\n        \"properties\": {\n          \"alerts\": {\n            \"description\": \"A human readable alert list describing the current state of the sub system if\\navailable.\",\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"readOnly\": true,\n            \"type\": \"array\"\n          },\n          \"name\": {\n            \"description\": \"The name of the observed sub system if applicable.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"responseTime\": {\n            \"description\": \"The response time of the observed sub system if applicable.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"status\": {\n            \"description\": \"The current health of the observed sub system.\",\n            \"enum\": [\n              \"Degraded\",\n              \"Offline\",\n              \"Operational\"\n            ],\n            \"readOnly\": true\n          },\n          \"type\": {\n            \"description\": \"The type of the observed sub system.\",\n            \"enum\": [\n              \"Cache\",\n              \"Database\",\n              \"General\",\n              \"MessagingSystem\",\n              \"Service\",\n              \"TSDB\"\n            ],\n            \"readOnly\": true\n          }\n        },\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"healthcheck\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/healthchecks\": {\n      \"get\": {\n        \"description\": \"Retrieve the health of the platform.\",\n        \"operationId\": \"get-all-healthchecks\",\n        \"parameters\": [\n          {\n            \"description\": \"If set to true, the health check endpoint will not return data but will return 200 OK if everything is fine or 218 if the controller is not operational. This is useful when you want to use the health check endpoint as a load balancer health check.\",\n            \"in\": \"query\",\n            \"name\": \"quiet\",\n            \"schema\": {\n              \"type\": \"boolean\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/healthcheck\"\n                  },\n                  \"type\": \"array\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"core/monitoring\",\n          \"ultros\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'core/monitoring'\",\n      \"name\": \"core/monitoring\"\n    },\n    {\n      \"description\": \"This tag is for package 'ultros'\",\n      \"name\": \"ultros\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@135fa774a34971a04dc7232e029f99de005f0e87/-/blob/openapi3_autogen/healthcheck.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/135fa774a34971a04dc7232e029f99de005f0e87/openapi3_autogen/healthcheck.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

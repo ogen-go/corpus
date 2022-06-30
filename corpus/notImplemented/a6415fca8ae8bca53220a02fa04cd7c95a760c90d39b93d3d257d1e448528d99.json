@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Intersec/lib-common"
+		},
+		"file": {
+			"name": "iface_t.yml",
+			"size": 0,
+			"path": "tests/test-data/openapi/iface_t.yml",
+			"byteSize": 990,
+			"content": "openapi: 3.0.2\ninfo:\n  title: yay\n  version: 0.0.1\nservers:\n  - url: /route\npaths:\n  /iface/f:\n    post:\n      tags:\n        - iface\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/tstiop.Iface.fArgs\"\n      responses:\n        '200':\n          description: RPC success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/tstiop.Iface.fRes\"\n        default:\n          description: generic error\n          content:\n            text/html:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    tstiop.Iface.fArgs:\n      type: object\n      required:\n        - i\n      properties:\n        i:\n          type: integer\n          format: int32\n    tstiop.Iface.fRes:\n      type: object\n      required:\n        - i\n      properties:\n        i:\n          type: integer\n          format: int32\ntags:\n  - name: iface\n",
+			"canonicalURL": "/github.com/Intersec/lib-common@0fee6db57775fac1314ee5da5b8946b418a192bf/-/blob/tests/test-data/openapi/iface_t.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Intersec/lib-common/blob/0fee6db57775fac1314ee5da5b8946b418a192bf/tests/test-data/openapi/iface_t.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/iface/f\": post: responses: default: contents: unsupported content types: [text/html]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

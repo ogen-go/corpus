@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "global_security_test.yaml",
+			"size": 0,
+			"path": "vertx-web-api-contract/src/test/resources/swaggers/global_security_test.yaml",
+			"byteSize": 1444,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Test spec for OpenAPI3RouterFactoryTest.requireGlobalSecurityHandler()\n  license:\n    name: Apache 2.0 License\nsecurity:\n  - global_api_key: []\npaths:\n  /petsWithoutSecurity:\n    get:\n      summary: List all pets\n      operationId: listPetsWithoutSecurity\n      security: []\n      responses:\n        default:\n          description: OK\n  /petsWithOverride:\n    get:\n      summary: List all pets\n      operationId: listPetsWithOverride\n      security:\n        - api_key: []\n      responses:\n        default:\n          description: OK\n  /petsWithoutOverride:\n    get:\n      summary: List all pets\n      operationId: listPetsWithoutOverride\n      responses:\n        default:\n          description: OK\n\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    global_api_key:\n      type: apiKey\n      name: global_api_key\n      in: header\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-api-contract/src/test/resources/swaggers/global_security_test.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-api-contract/src/test/resources/swaggers/global_security_test.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/janephp/open-api-3"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "Tests/fixtures/issue-299/swagger.yaml",
+			"byteSize": 1077,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Test\n  version: 0.0.0\nservers:\n  - url: https://example.com/rest/v1\npaths:\n  /users:\n    get:\n      operationId: getUsers\n      summary: List all users\n      description: |\n        Foo bar\n      tags:\n        - Users\n      parameters:\n        - $ref: '#/components/parameters/userState'\n      responses:\n        '200':\n          $ref: '#/components/responses/UserList'\ncomponents:\n  parameters:\n    userState:\n      in: query\n      name: userState\n      required: true\n      description: \"User state\"\n      schema:\n        $ref: \"#/components/schemas/userState\"\n  schemas:\n    userNames:\n      type: string\n      description: username\n      example: 'User name'\n    userState:\n      type: string\n      enum:\n        - ACTIVE\n        - BOTH\n        - INACTIVE\n      description: User state\n      example: ACTIVE\n  responses:\n    UserList:\n      description: Return the response of user names.\n      content:\n        application/json:\n          schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/userNames'\n",
+			"canonicalURL": "/github.com/janephp/open-api-3@e38eb9ca3830f553d80e71c59032955013fa442e/-/blob/Tests/fixtures/issue-299/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/janephp/open-api-3/blob/e38eb9ca3830f553d80e71c59032955013fa442e/Tests/fixtures/issue-299/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

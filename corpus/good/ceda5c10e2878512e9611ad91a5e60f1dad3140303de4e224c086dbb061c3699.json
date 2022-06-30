@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adwhit/hsr"
+		},
+		"file": {
+			"name": "quickstart.yaml",
+			"size": 0,
+			"path": "examples/quickstart/quickstart.yaml",
+			"byteSize": 702,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Quickstart\nservers:\n  - url: http://localhost:8000\n\npaths:\n  /{name}:\n    get:\n      summary: Quickstart\n      operationId: greet\n      parameters:\n        - name: name\n          in: path\n          required: true\n          description: User name\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Hello\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Hello\"\n\ncomponents:\n  schemas:\n    Hello:\n      required:\n        - name\n        - greeting\n      properties:\n        name:\n          type: string\n        greeting:\n          type: string\n",
+			"canonicalURL": "/github.com/adwhit/hsr@5ef78b38050b201acbbae38cbcc66b800d088d17/-/blob/examples/quickstart/quickstart.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adwhit/hsr/blob/5ef78b38050b201acbbae38cbcc66b800d088d17/examples/quickstart/quickstart.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

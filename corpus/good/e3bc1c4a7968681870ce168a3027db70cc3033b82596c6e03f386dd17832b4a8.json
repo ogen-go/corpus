@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vanilla/vanilla"
+		},
+		"file": {
+			"name": "widgets.yml",
+			"size": 0,
+			"path": "applications/vanilla/openapi/widgets.yml",
+			"byteSize": 1726,
+			"content": "openapi: 3.0.2\ninfo:\npaths:\n    /widgets:\n        get:\n            responses:\n                \"200\":\n                    content:\n                        \"application/json\":\n                            schema:\n                                items:\n                                    $ref: \"#/components/schemas/Widget\"\n                                type: array\n                    description: Success\n            tags:\n                - Widgets\n            summary: Get all widgets registered\n    /widgets/{name}:\n        get:\n            parameters:\n                - description: Name of the widget.\n                  name: name\n                  in: path\n                  required: true\n                  schema:\n                      type: string\n            responses:\n                \"200\":\n                    content:\n                        \"application/json\":\n                            schema:\n                                $ref: \"#/components/schemas/Widget\"\n                    description: Success\n            tags:\n                - Widgets\n            summary: Get widget by name.\ncomponents:\n    schemas:\n        Widget:\n            properties:\n                widgetID:\n                    description: The id of the widget.\n                    type: string\n                name:\n                    description: The name of the widget.\n                    type: string\n                widgetClass:\n                    description: The class of the widget.\n                    type: string\n                schema:\n                    description: The widget form schema.\n                    type: object\n            required:\n                - name\n                - schema\n            type: object\n",
+			"canonicalURL": "/github.com/vanilla/vanilla@dfe2732ec86d37eed7eec0956151e79f2f414b4f/-/blob/applications/vanilla/openapi/widgets.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vanilla/vanilla/blob/dfe2732ec86d37eed7eec0956151e79f2f414b4f/applications/vanilla/openapi/widgets.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devpro-br/hackernews-clone"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/mock/server/openapi.yaml",
+			"byteSize": 2031,
+			"content": "openapi: 3.0.2\n\ninfo:\n  version: 0.0.2\n  title: Hackernews Mock API\n  description: Mock API\n\npaths:\n  /api/news:\n    get:\n      operationId: hackernews.api.news.list_news\n      summary: Returns the latest news\n      tags:\n        - News\n\n      responses:\n        200:\n          description: The lastest news\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/News'\n\ncomponents:\n  schemas:\n    Author:\n      type: object\n      properties:\n        id:\n          type: integer\n          example: 1\n        name:\n          type: string\n          example: John Doe\n        username:\n          type: string\n          example: johndoe\n        avatar:\n          type: string\n          example: http://example.com/img/avatar/jose_thumb.png\n          nullable: true\n\n    News:\n      type: object\n      properties:\n        id:\n          type: integer\n          example: 42\n        title:\n          type: string\n          example: Python is a great option for backend and APIs\n        description:\n          type: string\n          example: This is along text within more detailed information about the news\n          nullable: true\n        author:\n          $ref: '#/components/schemas/Author'\n        comments_count:\n          type: integer\n          example: 1\n          nullable: true\n        comments:\n          type: array\n          nullable: true\n          items:\n            $ref: '#/components/schemas/Comment'\n        created_at:\n          type: string\n          format: date-time\n          example: 2021-01-11T11:32:28Z\n\n    Comment:\n      type: object\n      properties:\n        id:\n          type: integer\n          example: 100\n        text:\n          type: string\n          example: This is an awesome news\n        created_at:\n          type: string\n          format: date-time\n          example: 2021-01-11T11:32:28Z\n",
+			"canonicalURL": "/github.com/devpro-br/hackernews-clone@fb84473d95ddaa66bb0fcb1a782c726773c60166/-/blob/api/mock/server/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devpro-br/hackernews-clone/blob/fb84473d95ddaa66bb0fcb1a782c726773c60166/api/mock/server/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}
