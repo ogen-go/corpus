@@ -64,9 +64,8 @@ jobs:
             --filter=${{ github.event.inputs.filter }}
           VERSION: ${{ github.event.inputs.version }}
         run: |
-          mv stats.txt stats.txt.old
           make generate
-          STATS="$(git --no-pager diff --no-index stats.txt.old stats.txt)"
+          STATS="$(cat stats.txt)"
           STATS="${STATS//'%'/'%25'}"
           STATS="${STATS//$'\n'/'%0A'}"
           STATS="${STATS//$'\r'/'%0D'}"
