@@ -70,6 +70,8 @@ jobs:
           STATS="${STATS//$'\n'/'%0A'}"
           STATS="${STATS//$'\r'/'%0D'}"
           echo "::set-output name=stats::$STATS"
+          rm -r ./corpus/notImplemented
+          rm -r ./corpus/good
 
       - name: Upload profiles
         uses: actions/upload-artifact@v3
