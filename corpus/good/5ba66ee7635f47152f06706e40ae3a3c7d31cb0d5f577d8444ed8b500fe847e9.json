@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/thinktecture/blazor-wasm-grpc-code-first"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "basic-demo/GrpcCodeFirst.Client/OpenAPIs/swagger.json",
+			"byteSize": 3403,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"BlazorWASMGrpcCodeFirst\",\n    \"version\": \"v1\"\n  },\n  \"paths\": {\n    \"/api/Conferences\": {\n      \"get\": {\n        \"tags\": [\n          \"Conferences\"\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/ConferenceOverview\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"tags\": [\n          \"Conferences\"\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/ConferenceDetails\"\n              }\n            },\n            \"text/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/ConferenceDetails\"\n              }\n            },\n            \"application/*+json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/ConferenceDetails\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ConferenceDetails\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/api/Conferences/{id}\": {\n      \"get\": {\n        \"tags\": [\n          \"Conferences\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\",\n              \"nullable\": true\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ConferenceDetails\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"ConferenceOverview\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          },\n          \"title\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          }\n        },\n        \"additionalProperties\": false\n      },\n      \"ConferenceDetails\": {\n        \"required\": [\n          \"city\",\n          \"country\",\n          \"dateFrom\",\n          \"dateTo\",\n          \"title\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          },\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"dateFrom\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"dateTo\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"country\": {\n            \"type\": \"string\"\n          },\n          \"city\": {\n            \"type\": \"string\"\n          },\n          \"url\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          }\n        },\n        \"additionalProperties\": false\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/thinktecture/blazor-wasm-grpc-code-first@3b6092cc824baf4f93d925155479222a23cf8837/-/blob/basic-demo/GrpcCodeFirst.Client/OpenAPIs/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/thinktecture/blazor-wasm-grpc-code-first/blob/3b6092cc824baf4f93d925155479222a23cf8837/basic-demo/GrpcCodeFirst.Client/OpenAPIs/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

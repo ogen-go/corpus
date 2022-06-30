@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Azure/azure-powershell"
+		},
+		"file": {
+			"name": "CommonTypes.yml",
+			"size": 0,
+			"path": "src/Resources/OpenApiSpecs/CommonTypes.yml",
+			"byteSize": 1383,
+			"content": "openapi: 3.0.1\ninfo:\n  title: \"common types\"\n  version: v1.0\npaths: {} \ncomponents:\n  schemas:\n    microsoft.graph.entity:\n      title: entity\n      type: object\n      properties:\n        id:\n          type: string\n          readOnly: true\n          description: Read-only.\n    microsoft.graph.directoryObject:\n      allOf:\n        - $ref: '#/components/schemas/microsoft.graph.entity'\n        - title: directoryObject\n          type: object\n          properties:\n            deletedDateTime:\n              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'\n              type: string\n              format: date-time\n              nullable: true\n            displayName:\n              type: string\n              description: 'The name displayed in directory'\n              nullable: true\n            '@odata.type':\n              type: string\n              readOnly: true\n              description: 'The type of object in directory'\n              nullable: true\n            '@odata.id':\n              type: string\n              readOnly: true\n              description: 'The full id of object in directory'\n              nullable: true\n          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.",
+			"canonicalURL": "/github.com/Azure/azure-powershell@cdf75f2ab432a35bc042f6f5ca9af88c325f9d96/-/blob/src/Resources/OpenApiSpecs/CommonTypes.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Azure/azure-powershell/blob/cdf75f2ab432a35bc042f6f5ca9af88c325f9d96/src/Resources/OpenApiSpecs/CommonTypes.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

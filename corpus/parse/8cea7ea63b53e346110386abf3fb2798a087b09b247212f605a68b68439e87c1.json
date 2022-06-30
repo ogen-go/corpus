@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
 			"byteSize": 500,
-			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                type: object\n                properties:\n                  paging:\n                    $ref: 'http://server1/resources/common/paging.yaml#/Paging'\n"
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                type: object\n                properties:\n                  paging:\n                    $ref: 'http://server1/resources/common/paging.yaml#/Paging'\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /events: get: operation \"getEvents\": responses: 200: content: application/json; charset=utf-8: schema: parse schema: property \"paging\": parse schema: resolve \"http://server1/resources/common/paging.yaml#/Paging\": external \"http://server1/resources/common/paging.yaml\": http: do: Get \"http://server1/resources/common/paging.yaml\": host \"server1\" is not allowed"

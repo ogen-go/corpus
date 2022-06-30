@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/minutis-redcall/app"
+		},
+		"file": {
+			"name": "twilio-to-cloud-function-to-task-to-appEngine.yml",
+			"size": 0,
+			"path": "docs/api/twilio-to-cloud-function-to-task-to-appEngine.yml",
+			"byteSize": 1612,
+			"content": "openapi: 3.0.2\ninfo:\n  description: \u003e-\n    This API describes the contract between Tasks and RedCall in the\n    following flow: Webhooks -\u003e Cloud Functions -\u003e Tasks -\u003e RedCall\n  version: 0.0.1\n  title: Controlled RedCall inbound webhooks\n  termsOfService: ''\n  contact:\n    email: minutis@blablacar.com\nservers:\n  - url: 'https://dev.redcall.minutis.croix-rouge.fr'\n    description: Preproduction server\ncomponents:\n  schemas:\n    WebhookRequest:\n      type: \"object\"\n      properties:\n        uri:\n          type: \"string\"\n          description: \"Absolute Cloud Function request URI\"\n        queryParams:\n          type: \"object\"\n          description: \"The parameters passed in the URL\"\n          additionalProperties:\n            type: string\n        headers:\n          type: \"object\"\n          description: \"Headers attached the the Cloud Function request\"\n          additionalProperties:\n            type: string\n        body:\n          type: \"string\"\n          description: \"JSON representation of the Cloud Function request body\"\n        origin:\n          type: \"string\"\n          description: \"The origin of the request (sms status: 'webhook-sms-status', sms response : 'webhook-sms-responses'\"\ntags:\n  - name: endpoints\n    description: Available endpoints\npaths:\n  '/task/webhooks':\n    post:\n      tags:\n        - endpoints\n      summary: 'Forward webhooks to RedCall'\n      description: \"\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/WebhookRequest'\n      responses:\n        '204':\n          description: \"No Content\"\n",
+			"canonicalURL": "/github.com/minutis-redcall/app@52a29ecd49ccd242cb4594c70874ba4406b3d6a8/-/blob/docs/api/twilio-to-cloud-function-to-task-to-appEngine.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/minutis-redcall/app/blob/52a29ecd49ccd242cb4594c70874ba4406b3d6a8/docs/api/twilio-to-cloud-function-to-task-to-appEngine.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

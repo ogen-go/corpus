@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jazzband/django-oauth-toolkit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "docs/rest-framework/openapi.yaml",
+			"byteSize": 1139,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: songs\n  version: v1\ncomponents:\n  securitySchemes:\n    song_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://localhost:8000/o/authorize\n          scopes:\n            read: read about a song\n            create: create a new song\n            update: update an existing song\n            delete: delete a song\n            post: create a new song\n            widget: widget scope\n            scope2: scope too\n            scope3: another scope\npaths:\n  /songs:\n    get:\n      security:\n        - song_auth: [read]\n      responses:\n        '200':\n          description: A list of songs.\n    post:\n      security:\n        - song_auth: [create]\n        - song_auth: [post, widget]\n      responses:\n        '201':\n          description: new song added\n    put:\n      security:\n        - song_auth: [update]\n        - song_auth: [put, widget]\n      responses:\n        '204':\n          description: song updated\n    delete:\n      security:\n        - song_auth: [delete]\n        - song_auth: [scope2, scope3]\n      responses:\n        '200':\n          description: song deleted\n",
+			"canonicalURL": "/github.com/jazzband/django-oauth-toolkit@890657d7a9799554e2e2e9483dadb2c3b176dd38/-/blob/docs/rest-framework/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jazzband/django-oauth-toolkit/blob/890657d7a9799554e2e2e9483dadb2c3b176dd38/docs/rest-framework/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/songs\": get: security: security \"song_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

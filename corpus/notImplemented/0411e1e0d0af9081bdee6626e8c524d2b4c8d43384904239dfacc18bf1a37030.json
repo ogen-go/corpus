@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devonfw/cobigen"
+		},
+		"file": {
+			"name": "componentResponseType.yaml",
+			"size": 0,
+			"path": "cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/componentResponseType.yaml",
+			"byteSize": 1236,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://localhost:8081/devonfw-server/services/rest'\ninfo:\n  title: Devon Example\n  description: Example of a API definition\n  version: 1.0.0\npaths:\n  /sampledatamanagement/v1/sampledata/customSearch/:\n    post:\n      summary: 'Delegates to {@link Moredatamanagement#findMoreDataEtos}.'\n      description: Return SampleData that fits the filter.\n      operationId: findCustomSampleDataEtos\n      responses:\n        '200':\n          description: List of SampleData's.\n          content:\n            image/png:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SampleData'\n      requestBody:\n        $ref: '#/components/requestBodies/SampleData'\n      tags:\n        - searchCriteria\n        - paginated\ncomponents:\n  schemas:\n    SampleData:\n      x-component: sampledatamanagement\n      type: object\n      properties:\n        name:\n          type: string\n          maxLength: 100\n          minLength: 0\n          description: Name string.\n      required:\n        - name\n  requestBodies:\n    SampleData:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/SampleData'\n      required: true",
+			"canonicalURL": "/github.com/devonfw/cobigen@faf3432caec9bff09cfa58dcfb7e7c78df249e8a/-/blob/cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/componentResponseType.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devonfw/cobigen/blob/faf3432caec9bff09cfa58dcfb7e7c78df249e8a/cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/componentResponseType.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/sampledatamanagement/v1/sampledata/customSearch/\": post: responses: 200: contents: unsupported content types: [image/png]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

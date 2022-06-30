@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pytorch/serve"
+		},
+		"file": {
+			"name": "metrics_open_api.json",
+			"size": 0,
+			"path": "frontend/server/src/test/resources/metrics_open_api.json",
+			"byteSize": 2548,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"TorchServe APIs\",\n    \"description\": \"TorchServe is a flexible and easy to use tool for serving deep learning models\",\n    \"version\": \"%s\"\n  },\n  \"paths\": {\n    \"/metrics\": {\n      \"get\": {\n        \"description\": \"Get TorchServe application metrics in prometheus format.\",\n        \"operationId\": \"metrics\",\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"name[]\",\n            \"description\": \"Names of metrics to filter\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"TorchServe application metrics\",\n            \"content\": {\n              \"text/plain; version=0.0.4; charset=utf-8\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"# HELP\",\n                    \"# TYPE\",\n                    \"metric\"\n                  ],\n                  \"properties\": {\n                    \"# HELP\": {\n                      \"type\": \"string\",\n                      \"description\": \"Help text for TorchServe metric.\"\n                    },\n                    \"# TYPE\": {\n                      \"type\": \"string\",\n                      \"description\": \"Type of TorchServe metric.\"\n                    },\n                    \"metric\": {\n                      \"type\": \"string\",\n                      \"description\": \"TorchServe application metric.\"\n                    }\n                  }\n                }\n              }\n            }\n          },\n          \"500\": {\n            \"description\": \"Internal Server Error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"code\",\n                    \"type\",\n                    \"message\"\n                  ],\n                  \"properties\": {\n                    \"code\": {\n                      \"type\": \"integer\",\n                      \"description\": \"Error code.\"\n                    },\n                    \"type\": {\n                      \"type\": \"string\",\n                      \"description\": \"Error type.\"\n                    },\n                    \"message\": {\n                      \"type\": \"string\",\n                      \"description\": \"Error message.\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/pytorch/serve@7e226ea19fdca244f2fb9712d1a62b389442b6a9/-/blob/frontend/server/src/test/resources/metrics_open_api.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pytorch/serve/blob/7e226ea19fdca244f2fb9712d1a62b389442b6a9/frontend/server/src/test/resources/metrics_open_api.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/metrics\": get: responses: 200: contents: unsupported content types: [text/plain; version=0.0.4; charset=utf-8]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

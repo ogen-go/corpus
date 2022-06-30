@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/rama-cli"
+		},
+		"file": {
+			"name": "CustomerSrv-openapi.yaml",
+			"size": 0,
+			"path": "src/test/resources/metrics/WSIC/CustomerSrv-openapi.yaml",
+			"byteSize": 3718,
+			"content": "openapi: 3.0.1\ninfo:\n  title: CustomerSrv\n  description: A service providing CRUD operations for `Customer` entities as well\n    as a credit rating check.\n  version: 1.0.0\npaths:\n  /customers/{customerId}:\n    get:\n      operationId: getCustomerById\n      parameters:\n      - name: customerId\n        in: path\n        required: true\n        schema:\n          $ref: '#/components/schemas/LongParam'\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Customer'\n    put:\n      operationId: updateCustomer\n      parameters:\n      - name: customerId\n        in: path\n        required: true\n        schema:\n          $ref: '#/components/schemas/LongParam'\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/Customer'\n        required: true\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BaseResponse'\n    delete:\n      operationId: deleteCustomer\n      parameters:\n      - name: customerId\n        in: path\n        required: true\n        schema:\n          $ref: '#/components/schemas/LongParam'\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BaseResponse'\n  /customers:\n    get:\n      operationId: getCustomers\n      parameters:\n      - name: limit\n        in: query\n        schema:\n          $ref: '#/components/schemas/IntParam'\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Customer'\n    post:\n      operationId: createCustomer\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/Customer'\n        required: true\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BaseResponse'\n  /customers/{customerId}/credit-rating-check:\n    get:\n      operationId: updateAndCheckCreditRating\n      parameters:\n      - name: customerId\n        in: path\n        required: true\n        schema:\n          $ref: '#/components/schemas/LongParam'\n      responses:\n        default:\n          description: default response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/CreditRatingCheckResponse'\ncomponents:\n  schemas:\n    CreditRatingCheckResponse:\n      type: object\n      properties:\n        customerId:\n          minimum: 1\n          type: integer\n          format: int64\n        acceptable:\n          type: boolean\n    BaseResponse:\n      required:\n      - message\n      - status\n      - statusCode\n      type: object\n      properties:\n        status:\n          type: string\n        statusCode:\n          type: integer\n          format: int32\n        message:\n          type: string\n    IntParam:\n      type: object\n    Customer:\n      required:\n      - creditRating\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        email:\n          type: string\n        creditRating:\n          maximum: 6\n          minimum: 1\n          type: integer\n          format: int32\n    LongParam:\n      type: object\n",
+			"canonicalURL": "/github.com/restful-ma/rama-cli@f7af76ebeb88d323c3be7df22b3d984066a3a903/-/blob/src/test/resources/metrics/WSIC/CustomerSrv-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/rama-cli/blob/f7af76ebeb88d323c3be7df22b3d984066a3a903/src/test/resources/metrics/WSIC/CustomerSrv-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/customers/{customerId}\": put: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

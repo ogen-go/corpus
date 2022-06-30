@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "random-content-types.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/random-content-types.yaml",
+			"byteSize": 886,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Test for \"non-REST\" content types\n  version: 1.0.0\npaths:\n  /foo:\n    post:\n      x-jvm-package: randomContentTypes\n      operationId: doFoo\n      requestBody:\n        required: true\n        content:\n          image/png:\n            schema:\n              type: string\n              format: binary\n      responses:\n        200:\n          description: OK\n          content:\n            application/x-pem-file:\n              schema:\n                type: string\n  /bar:\n    post:\n      x-jvm-package: randomContentTypes\n      operationId: doBar\n      requestBody:\n        required: true\n        content:\n          application/sdp:\n            schema:\n              type: string\n      responses:\n        200:\n          description: OK\n          content:\n            image/jpeg:\n              schema:\n                type: string\n                format: binary\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/random-content-types.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/random-content-types.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/bar\": post: requestBody: contents: unsupported content types: [application/sdp]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

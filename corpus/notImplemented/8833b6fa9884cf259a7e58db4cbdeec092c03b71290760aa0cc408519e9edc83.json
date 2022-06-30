@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bobbui/json-logging-python"
+		},
+		"file": {
+			"name": "helloworld-api.yaml",
+			"size": 0,
+			"path": "example/connexion-example/openapi/helloworld-api.yaml",
+			"byteSize": 1279,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Hello World\n  version: \"1.0\"\nservers:\n  - url: http://localhost:9090/v1.0\n\npaths:\n  /greeting/{name}:\n    get:\n      summary: Generate greeting\n      description: Generates a greeting message.\n      operationId: hello.post_greeting\n      responses:\n        200:\n          description: greeting response\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"hello dave!\"\n      parameters:\n        - name: name\n          in: path\n          description: Name of the person to greet.\n          required: true\n          schema:\n            type: string\n            example: \"dave\"\n  /exclude_from_request_instrumentation:\n    get:\n      summary: Generate greeting\n      description: Generates a greeting message.\n      operationId: hello.exclude_from_request_instrumentation\n      responses:\n        200:\n          description: greeting response\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"hello dave!\"\n      parameters:\n        - name: name\n          in: path\n          description: Name of the person to greet.\n          required: true\n          schema:\n            type: string\n            example: \"dave\"\n",
+			"canonicalURL": "/github.com/bobbui/json-logging-python@5769f5181e6f83067e2ebe5f56d84b98cace5707/-/blob/example/connexion-example/openapi/helloworld-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bobbui/json-logging-python/blob/5769f5181e6f83067e2ebe5f56d84b98cace5707/example/connexion-example/openapi/helloworld-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/exclude_from_request_instrumentation\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

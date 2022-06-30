@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/pan.dev"
+		},
+		"file": {
+			"name": "TenantResources.yaml",
+			"size": 0,
+			"path": "static/sase/spec/mt-monitor/TenantResources.yaml",
+			"byteSize": 2258,
+			"content": "components:\n  schemas:\n    TenantHierarchy:\n      properties:\n        cdlTenantId:\n          description: CDL Tenant Id\n          type: string\n        children:\n          description: List of Child Tenants which are of type Tenant Hierarchy\n          items:\n            $ref: '#/components/schemas/TenantHierarchy'\n          type: array\n        display_name:\n          description: Tenant Display Name\n          type: string\n        hasSELicense:\n          description: SE License Flag\n          type: boolean\n        id:\n          description: TSG Id\n          type: string\n        license_activated:\n          description: License Activation Flag\n          type: boolean\n        region:\n          description: Set of CDL regions which can be any one of  us01, eu01, au01,\n            de01, jp01, ca01, sg01, uk01\n          items:\n            type: string\n          type: array\n          uniqueItems: true\n        tenantLicenseType:\n          description: Tenant License Type which can be any one of PA_ONLY, SDWAN_ONLY,\n            SASE, PA_SDWAN\n          type: string\n        vertical:\n          description: Customer Vertical\n          type: string\n      required:\n      - cdlTenantId\n      - display_name\n      - id\n      - license_activated\n      - tenantLicenseType\n      - vertical\n      type: object\n  securitySchemes:\n    Bearer:\n      scheme: bearer\n      type: http\ninfo:\n  contact: {}\n  description: 'Use the Tenant Resource API to list all tenants in the hierarchy.\n\n    '\n  title: Tenant Resources API\n  version: '1.0'\nopenapi: 3.0.2\npaths:\n  /mt/monitor/v1/agg/custom/tenant/hierarchy:\n    get:\n      description: 'Retrieve an aggregated list of all tenants in the hierarchy.\n\n        '\n      operationId: get-mt-monitor-v1-agg-custom-tenant-hierarchy\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TenantHierarchy'\n          description: Success\n        '400':\n          description: Bad Request\n        '500':\n          description: Server Error\n      security:\n      - Bearer: []\n      summary: List  tenant hierarchy\n      tags:\n      - TenantResources\nservers:\n- url: https://api.sase.paloaltonetworks.com\ntags:\n- name: TenantResources\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/pan.dev@86bd224794bceef941209fae2a07267bcd08d207/-/blob/static/sase/spec/mt-monitor/TenantResources.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/pan.dev/blob/86bd224794bceef941209fae2a07267bcd08d207/static/sase/spec/mt-monitor/TenantResources.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

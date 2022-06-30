@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "yml/publicity_put.yml",
 			"byteSize": 988,
-			"content": "Update publicity for owner of current token\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\nconsumes:\n  \"application/json\"\ntags:\n  - name: \"User\"\nparameters:\n  - in: header\n    name: Authorization\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\n  - name: body\n    in: body\n    required: true\n    schema:\n      properties:\n        publicity:\n          type: boolean\n          required: true\n        \nresponses:\n  200:\n    description: \"Publicity updated.\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Publicity updated.\"\n      example:\n        msg: \"Publicity updated.\"\n  500:\n    description: \"Server Error!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Server Error!\"\n      example:\n        msg: \"Server Error!\"\n"
+			"content": "Update publicity for owner of current token\n---\nopenapi: 3.0.0\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - bearerAuth: []\nconsumes:\n  \"application/json\"\ntags:\n  - name: \"User\"\nparameters:\n  - in: header\n    name: Authorization\n    description: \"Send like this: Bearer [TOKEN]\"\n    type: string\n    required: true\n  - name: body\n    in: body\n    required: true\n    schema:\n      properties:\n        publicity:\n          type: boolean\n          required: true\n        \nresponses:\n  200:\n    description: \"Publicity updated.\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Publicity updated.\"\n      example:\n        msg: \"Publicity updated.\"\n  500:\n    description: \"Server Error!\"\n    schema:\n      type: object\n      properties:\n        msg:\n          type: string\n          description: \"Server Error!\"\n      example:\n        msg: \"Server Error!\"\n",
+			"canonicalURL": "/github.com/Restfulness/Restfulness-core-api@4a6f6900c0b8587aa97d163b1fc0a795f731db32/-/blob/yml/publicity_put.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Restfulness/Restfulness-core-api/blob/4a6f6900c0b8587aa97d163b1fc0a795f731db32/yml/publicity_put.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "unmarshal: json: json: cannot unmarshal string into Go value of type ogen.Alias"

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hpi-schul-cloud/schulcloud-server"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/services/sync/docs/openapi.yaml",
+			"byteSize": 2311,
+			"content": "security:\n  - jwtBearer: []\ninfo:\n  title: Schul-Cloud Sync Service API\n  description:\n    This is the API specification for the Schul-Cloud Sync service.\n    \n  contact:\n    name: support\n    email: info@dbildungscloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    jwtBearer:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n    sync:\n      description: TODO\n    sync_list:\n      description: TODO\n      type: array\n      items:\n        type: object\n        properties:\n          errors:\n            type: array\n            items: \n              type: object\n          success:\n            type: boolean\n        additionalProperties: true\n\npaths:\n  /sync:\n    get:\n      parameters:\n        - description: the syncer to run.\n          in: query\n          name: target\n          schema:\n            type: string\n          example: ldap\n          required: true\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/sync_list'\n        '401':\n          description: not authenticated\n        '500':\n          description: general error\n      description: Trigger a Sync without data.\n      summary: ''\n      tags:\n        - sync\n      security:\n        - jwtBearer: []\n    post:\n      parameters:\n        - description: target syncer\n          in: query\n          name: target\n          schema:\n            type: string\n          example: ldap\n          required: true\n      responses:\n        '201':\n          description: created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/sync_list'\n        '401':\n          description: not authenticated\n        '500':\n          description: general error\n      description: Trigger a Sync with data.\n      summary: ''\n      tags:\n        - sync\n      security:\n        - jwtBearer: []\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              additionalProperties: true\n  \nopenapi: 3.0.2\ntags:\n  - name: sync\n    description: A sync service.\n",
+			"canonicalURL": "/github.com/hpi-schul-cloud/schulcloud-server@4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/-/blob/src/services/sync/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hpi-schul-cloud/schulcloud-server/blob/4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/src/services/sync/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

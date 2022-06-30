@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "sklearn_svm.yaml",
+			"size": 0,
+			"path": "tests/Scikitlearn-experimental/sklearn_svm.yaml",
+			"byteSize": 2171,
+			"content": "openapi: 3.0.0\ninfo:\n  title: PipelineAnovaSVM\n  description: \"A Pipeline Anova SVM model that can train on data and make predictions\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"A Pipeline Anova SVM model that can train on data and make predictions\"\npaths:\n  /PipelineAnovaSVM/make_prediction:\n     get:\n      summary: \"Make a prediction based on training configuration\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: sklearn_svm_upload-enabled.PipelineAnovaSVM.make_prediction\n      parameters:\n        - in: query\n          name: model_name\n          description: \"no description provided in docstring\"\n          schema:\n            type: string\n        - in: query\n          name: params\n          description: \"no description provided in docstring\"\n          schema:\n            type: string\n      responses:\n        '204':\n          description: \"This operation returns no response.\"\n\n  /PipelineAnovaSVM/train:\n     get:\n      summary: \"Given the filename of an uploaded file, train a PipelineAnovaSVM model from the data.\"\n      description: \"Assumption of data is the classifications are in the last column of the data.\n\n                   Returns the classification report of the test split\"\n      operationId: sklearn_svm_upload-enabled.PipelineAnovaSVM.train\n      parameters:\n        - in: query\n          name: filename\n          description: \"no description provided in docstring\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n\n  /upload:\n    post:\n      summary: upload a file\n      operationId: sklearn_svm_upload-enabled.upload\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/Scikitlearn-experimental/sklearn_svm.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/Scikitlearn-experimental/sklearn_svm.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/PipelineAnovaSVM/train\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

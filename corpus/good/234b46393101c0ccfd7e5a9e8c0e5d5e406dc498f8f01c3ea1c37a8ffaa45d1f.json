@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aulvi/builder-bootcamp-nodejs-starter-kit"
+		},
+		"file": {
+			"name": "openapi-batch.yaml",
+			"size": 0,
+			"path": "swagger/openapi-batch.yaml",
+			"byteSize": 2176,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Batch URL Shortener\n  description: Shortens many urls at the same time\n  version: 2.0.0\nservers:\n  - url: /shrink\n    description: Send Links to this URL to Return Shortened URLs and Original URL as JSON (Returns Both to Give Batch Feedback)\npaths:\n  /shrink:\n    post:\n      summary: Shortens a batch of URL's all at once\n      description: This function will take a list of urls to be shortened, pass them all to the URL shortener and return all the shortened links.\n      requestBody:\n        description: The URL to be shortened\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Urls\"\n            example:\n              urls: [\"https:google.com\",\"youtube.com/rlkjsaldkjfl\"]\n        \n      responses:\n        '200':    # status code\n          description: Successfully Added to DynamoDB\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/result\"\n              example:\n                statusCode: 200\n                # Parseable JSON\n                body: \"{ shortURLs : [ localhost:3000/fj3asj3k,localhost:3000/23kjsv-2k3 ],\n                        originalURLs: [ https://www.youtube.com/watch?v=STLkjlkajsdf,https://www.google.com/sldkfjala23oi5 ]\n                        }\"\n        '400':    # status code\n          description: Error in parsing data\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/result\"\n              examples:\n                parseError:\n                  value:\n                    statusCode: 400\n                    body: \"{ message : error in parsing JSON}\"\n                noURLS:\n                  value:\n                    statusCode: 400\n                    body: \"{ message : No urls array found in body }\"\n\n\ncomponents:\n  schemas:\n    Urls:\n      required:\n        - originalURL\n      properties:\n        urls:\n          type: array\n    result:\n      required:\n        - statusCode\n        - body\n      properties:\n        statusCode:\n          type: integer\n        body:\n          type: string\n",
+			"canonicalURL": "/github.com/aulvi/builder-bootcamp-nodejs-starter-kit@78df53ac27bb4daef1f315be2e2b8d7e5e8559a1/-/blob/swagger/openapi-batch.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aulvi/builder-bootcamp-nodejs-starter-kit/blob/78df53ac27bb4daef1f315be2e2b8d7e5e8559a1/swagger/openapi-batch.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

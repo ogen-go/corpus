@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ioggstream/python-course"
+		},
+		"file": {
+			"name": "simple.yaml",
+			"size": 0,
+			"path": "connexion-101/api/simple.yaml",
+			"byteSize": 1369,
+			"content": "openapi: 3.0.1\ninfo: { version: 0.1.1, title: hi}\nservers:\n- url: 'https://localhost:8443/hello/v1'\n#  description: dev\npaths:\n  /echo:\n    get:\n       summary: Just a method\n       operationId: api.get_hello\n       responses:\n         '200':\n           description:  Hi!\n           content:\n              api.ication/json:\n                 schema: {}\n    post:\n      summary: Just a method\n      operationId: api.post_hello\n      requestBody:\n        required: true\n        content:\n          api.ication/json:\n            schema:\n              $ref: '#/components/schemas/Text'\n      responses:\n        '200':\n          description:  Hi!\n          content:\n            api.ication/json:\n              schema:\n                $ref: '#/components/schemas/Text'\n\n  /basic-auth:\n    get:\n       summary: Just a method\n       security:\n       - basic: []\n       operationId: api.get_hello_auth\n       responses:\n         '200':\n           description:  Hi!\n           content:\n              api.ication/json:\n                 schema: {}\ncomponents:\n  schemas:\n    Text:\n      required:\n      - text\n      properties:\n        text:\n          type: string\n  securitySchemes:\n    jwt:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      x-bearerInfoFunc: api.forward_token\n    basic:\n      type: http\n      scheme: basic\n      x-basicInfoFunc: api.basic_auth\n",
+			"canonicalURL": "/github.com/ioggstream/python-course@d5bc268234bd50d8414ce5b2dfb7498390514d49/-/blob/connexion-101/api/simple.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ioggstream/python-course/blob/d5bc268234bd50d8414ce5b2dfb7498390514d49/connexion-101/api/simple.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/basic-auth\": get: responses: 200: contents: unsupported content types: [api.ication/json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

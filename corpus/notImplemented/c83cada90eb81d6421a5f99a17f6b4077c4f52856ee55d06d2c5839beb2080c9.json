@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ivamuno/redoc-asyncapi"
+		},
+		"file": {
+			"name": "discriminator.json",
+			"size": 0,
+			"path": "src/services/__tests__/fixtures/discriminator.json",
+			"byteSize": 1317,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [],\n  \"info\": {\n    \"title\": \"Broken Redoc Discriminator\",\n    \"version\": \"\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/FooTopLevel\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"JsonApiResource\": {\n        \"type\": \"object\",\n        \"description\": \"A related resource.\",\n        \"required\": [\n          \"type\"\n        ],\n        \"discriminator\": {\n          \"propertyName\": \"type\"\n        },\n        \"properties\": {\n          \"type\": {\n            \"type\": \"string\",\n            \"description\": \"The type of object this resource represents.\"\n          }\n        }\n      },\n      \"FooTopLevel\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"data\"\n        ],\n        \"properties\": {\n          \"data\": {\n            \"$ref\": \"#/components/schemas/Foo\"\n          }\n        }\n      },\n      \"Foo\": {\n        \"allOf\": [\n          {\n            \"type\": \"object\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/JsonApiResource\"\n          }\n        ]\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/ivamuno/redoc-asyncapi@02f83c3047244fb0c959d48ccd8667742cc3fd88/-/blob/src/services/__tests__/fixtures/discriminator.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ivamuno/redoc-asyncapi/blob/02f83c3047244fb0c959d48ccd8667742cc3fd88/src/services/__tests__/fixtures/discriminator.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/foo\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

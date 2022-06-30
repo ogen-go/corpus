@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "Swift5CodeGenerationBug2.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/bugs/Swift5CodeGenerationBug2.yaml",
+			"byteSize": 2359,
+			"content": "openapi: 3.0.1\ninfo:\n  title: XXX\n  description: Das ist jetzt der erste OpenAPI 3.0 Endpoint\n  contact:\n    email: XXX.XXX@XXX.de\n  version: \"1.0\"\npaths:\n  /api/v1/petresource/pet:\n    post:\n      tags:\n        - v1/petresource\n      summary: Save a Pet.\n      description: Save a Pet.\n      operationId: savePet\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/Pet'\n      responses:\n        default:\n          description: PetResponse\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n  /api/v1/petresource/petstore:\n    post:\n      tags:\n        - v1/petresource\n      summary: Save a Petstore.\n      description: Save a Petstore.\n      operationId: savePetStore\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/PetStore'\n      responses:\n        default:\n          description: PetStore\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PetStore'\ncomponents:\n  schemas:\n    Cat:\n      required:\n        - type\n      type: object\n      description: Cat\n      allOf:\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          properties:\n            catFood:\n              type: string\n    Dog:\n      required:\n        - type\n      type: object\n      description: Dog\n      allOf:\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          properties:\n            dogFood:\n              type: string\n    Pet:\n      required:\n        - type\n      type: object\n      properties:\n        name:\n          type: string\n          description: Name\n        store:\n          $ref: '#/components/schemas/PetStore'\n        mother:\n          $ref: '#/components/schemas/Pet'\n        father:\n          $ref: '#/components/schemas/Pet'\n        type:\n          type: string\n          description: Type Diskriminator\n      description: Base Pet\n      discriminator:\n        propertyName: type\n        mapping:\n          Dog: '#/components/schemas/Dog'\n          Cat: '#/components/schemas/Cat'\n    PetStore:\n      type: object\n      properties:\n        pets:\n          type: array\n          items:\n            $ref: '#/components/schemas/Pet'\n      description: PetStore\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/bugs/Swift5CodeGenerationBug2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/bugs/Swift5CodeGenerationBug2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/v1/petresource/pet\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

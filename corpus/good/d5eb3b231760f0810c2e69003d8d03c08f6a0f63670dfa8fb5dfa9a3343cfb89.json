@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/datablade-io/daisy"
+		},
+		"file": {
+			"name": "health-check.yaml",
+			"size": 0,
+			"path": "spec/rest-api/health-check.yaml",
+			"byteSize": 1207,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://{host}:{port}/dae'\ninfo:\n  version: 1.0.0\n  title: Daisy status\n  description: \u003e-\n    Check whether the daisy cluster is alive, and to query the packaging\n    information of the current service.\npaths:\n  /ping:\n    get:\n      summary: Check whether the daisy cluster is alive\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/pingResp'\n  /info:\n    get:\n      summary: query the packaging information of the current service\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/infoResp'\ncomponents:\n  schemas:\n    pingResp:\n      type: object\n      properties:\n        status:\n          type: string\n          description: Server status status\n    infoResp:\n      type: object\n      properties:\n        name:\n          type: string\n          description: Server name\n        time:\n          type: string\n          description: Server build time\n        version:\n          type: string\n          description: Current version",
+			"canonicalURL": "/github.com/datablade-io/daisy@b5c9b7b1cc496c1fd45cb5678c273b089d899c63/-/blob/spec/rest-api/health-check.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/datablade-io/daisy/blob/b5c9b7b1cc496c1fd45cb5678c273b089d899c63/spec/rest-api/health-check.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

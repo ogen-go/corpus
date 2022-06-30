@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "generate-alias-as-model.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/features/generate-alias-as-model.yaml",
+			"byteSize": 1563,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This specification shows how to generate aliases to maps and arrays as models.\n  version: 1.0.0\n  title: OpenAPI Extension generating aliases to maps and arrays as models\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: usage\n    description: Show usage of x-generate-alias-as-model extension\nservers:\n  - url: 'http://petstore.swagger.io/v2'\n    description: petstore server\npaths:\n  /map:\n    get:\n      tags:\n        - usage\n      summary: Use alias to map\n      description: Use alias to map\n      operationId: map\n      requestBody:\n        content:\n          \"application/json\":\n            schema:\n              $ref: \"#/components/schemas/MapAlias\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n  /array:\n    get:\n      tags:\n        - usage\n      summary: Use alias to array\n      description: Use alias to array\n      operationId: array\n      requestBody:\n        content:\n          \"application/json\":\n            schema:\n              $ref: \"#/components/schemas/ArrayAlias\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: object\n\ncomponents:\n  schemas:\n    ArrayAlias:\n      type: array\n      items:\n        type: integer\n\n    MapAlias:\n      type: object\n      additionalProperties:\n        type: string",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/features/generate-alias-as-model.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/features/generate-alias-as-model.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

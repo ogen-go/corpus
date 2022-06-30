@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_multiple_media_types_common_schema.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/oneOf/expected_multiple_media_types_common_schema.yml",
+			"byteSize": 1004,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Examples\n  version: '1.0'\npaths:\n  /content-negotiation/organization:\n    get:\n      operationId: getContent-negotiationOrganization\n      parameters:\n        - name: Accept\n          in: header\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Organization'\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/Organization'\n            text/html:\n              schema:\n                $ref: '#/components/schemas/Organization'\n        '400':\n          description: 'Invalid value for: header Accept'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Organization:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/oneOf/expected_multiple_media_types_common_schema.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/oneOf/expected_multiple_media_types_common_schema.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/content-negotiation/organization\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

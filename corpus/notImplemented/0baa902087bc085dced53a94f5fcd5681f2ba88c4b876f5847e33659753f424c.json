@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rhasspy/glow-speak"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "glow_speak/swagger.yaml",
+			"byteSize": 4320,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: 'Glow Speak'\n  version: '1.0'\n  description: 'Glow Speak Text to Speech API'\nschemes:\n  - http\nservers:\n  - url: http://localhost:5000\n    description: Local server\npaths:\n  /api/tts:\n    get:\n      summary: 'Speak text to WAV'\n      parameters:\n        - in: query\n          name: voice\n          required: true\n          description: 'Voice name'\n          schema:\n            type: string\n            example: 'en-us_mary_ann'\n        - in: query\n          name: text\n          required: true\n          description: 'Text to speak'\n          schema:\n            type: string\n            example: 'Welcome to the world of speech synthesis!'\n        - in: query\n          name: quality\n          description: 'Vocoder quality'\n          schema:\n            type: string\n            enum: ['high', 'medium', 'low']\n            example: 'high'\n        - in: query\n          name: denoiserStrength\n          description: 'Strength of vocoder denoiser (0-1, 0 is disabled)'\n          schema:\n            type: number\n            example: 0.002\n        - in: query\n          name: noiseScale\n          description: 'Volatility of speaker (0-1, default: 0.333)'\n          schema:\n            type: number\n            example: 0.333\n        - in: query\n          name: lengthScale\n          description: 'Speed of speaker (default: 1.0, faster \u0026lt; 1 \u0026lt; slower)'\n          schema:\n            type: number\n            example: 0.85\n        - in: query\n          name: textLanguage\n          description: 'Language (eSpeak voice) of text (empty to use voice language)'\n          schema:\n            type: string\n        - in: query\n          name: noCache\n          description: 'Disable WAV cache lookup'\n          schema:\n            type: boolean\n            example: false\n      produces:\n        - audio/wav\n      responses:\n        '200':\n          description: audio\n          schema:\n            type: binary\n    post:\n      summary: 'Speak text to WAV'\n      requestBody:\n        required: true\n        description: 'Text to speak'\n        content:\n          text/plain:\n            schema:\n              type: string\n              example: 'Welcome to the world of speech synthesis!'\n      parameters:\n        - in: query\n          name: voice\n          required: true\n          description: 'Voice name'\n          schema:\n            type: string\n            example: 'en-us_mary_ann'\n        - in: query\n          name: quality\n          description: 'Vocoder quality'\n          schema:\n            type: string\n            enum: ['high', 'medium', 'low']\n            example: 'high'\n        - in: query\n          name: denoiserStrength\n          description: 'Strength of vocoder denoiser (0-1, 0 is disabled)'\n          schema:\n            type: number\n            example: 0.002\n        - in: query\n          name: noiseScale\n          description: 'Volatility of speaker (0-1, default: 0.333)'\n          schema:\n            type: number\n            example: 0.333\n        - in: query\n          name: lengthScale\n          description: 'Speed of speaker (default: 1.0, faster \u0026lt; 1 \u0026lt; slower)'\n          schema:\n            type: number\n            example: 0.85\n        - in: query\n          name: textLanguage\n          description: 'Language (eSpeak voice) of text (empty to use voice language)'\n          schema:\n            type: string\n        - in: query\n          name: noCache\n          description: 'Disable WAV cache lookup'\n          schema:\n            type: boolean\n            example: false\n      produces:\n        - audio/wav\n      responses:\n        '200':\n          description: audio\n          schema:\n            type: binary\n  /api/voices:\n    get:\n      summary: 'Get available voices'\n      produces:\n        - application/json\n      responses:\n        '200':\n          description: voices\n          schema:\n            type: object\n  /api/phonemes:\n    get:\n      summary: 'Get phonemes for voice'\n      parameters:\n        - in: query\n          name: voice\n          required: true\n          description: 'Voice name'\n          schema:\n            type: string\n            example: 'en-us_mary_ann'\n      produces:\n        - application/json\n      responses:\n        '200':\n          description: phonemes\n          schema:\n            type: object\n",
+			"canonicalURL": "/github.com/rhasspy/glow-speak@772df2205fcf147f3477bb8c00c5ce108f7b972c/-/blob/glow_speak/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rhasspy/glow-speak/blob/772df2205fcf147f3477bb8c00c5ce108f7b972c/glow_speak/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/tts\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

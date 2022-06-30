@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "repro_1876.yaml",
+			"size": 0,
+			"path": "vertx-web-openapi/src/test/resources/specs/repro_1876.yaml",
+			"byteSize": 3079,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Reproducer for https://github.com/vert-x3/vertx-web/issues/1876\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /accounts:\n    post:\n      operationId: createAccount\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/CreateAccount\"\n\n      responses:\n        \"202\":\n          description: Request accepted.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ResponseEnvelope\"\n  /members:\n    post:\n      operationId: createAccountMember\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/CreateAccountMember\"\n\n      responses:\n        \"202\":\n          description: Request accepted.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ResponseEnvelope\"\ncomponents:\n  schemas:\n    NewResourceEnvelope:\n      type: object\n      title: NewResourceEnvelope\n      properties:\n        data:\n          $ref: \"#/components/schemas/NewData\"\n      required:\n        - data\n    NewData:\n      type: object\n      properties:\n        type:\n          type: string\n        attributes:\n          $ref: \"#/components/schemas/Attributes\"\n      required:\n        - type\n    Attributes:\n      type: object\n    CreateAccount:\n      title: CreateAccount\n      allOf:\n        - $ref: \"#/components/schemas/NewResourceEnvelope\"\n        - type: object\n          properties:\n            data:\n              $ref: \"#/components/schemas/AccountRegistration\"\n    AccountRegistration:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          nullable: true\n          default: null\n        attributes:\n          $ref: \"#/components/schemas/AccountRegistrationAttributes\"\n      required:\n        - attributes\n    AccountRegistrationAttributes:\n      type: object\n      properties:\n        ownerEmail:\n          type: string\n          format: email\n      required:\n        - ownerEmail\n\n    CreateAccountMember:\n      title: CreateAccountMember\n      allOf:\n        - $ref: \"#/components/schemas/NewResourceEnvelope\"\n        - type: object\n          properties:\n            data:\n              $ref: \"#/components/schemas/AccountMemberRegistration\"\n    AccountMemberRegistration:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          nullable: true\n          default: null\n        attributes:\n          $ref: \"#/components/schemas/AccountMemberRegistrationAttributes\"\n      required:\n        - attributes\n    AccountMemberRegistrationAttributes:\n      type: object\n      properties:\n        email:\n          type: string\n          format: email\n      required:\n        - email\n    ResponseEnvelope:\n      type: object\n      properties:\n        data:\n          type: object\n      required:\n        - data\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-openapi/src/test/resources/specs/repro_1876.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-openapi/src/test/resources/specs/repro_1876.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

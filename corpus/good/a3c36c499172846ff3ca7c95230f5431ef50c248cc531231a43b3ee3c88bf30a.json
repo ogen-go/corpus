@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-1119.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1119.yaml",
+			"byteSize": 2710,
+			"content": "openapi: \"3.0.0\"\r\ninfo:\r\n  version: 1.0.0\r\n  title: Swagger Petstore\r\n  license:\r\n    name: MIT\r\nservers:\r\n  - url: http://petstore.swagger.io/v1\r\npaths:\r\n  /pets:\r\n    get:\r\n      summary: Listado de todas las \r\n      operationId: listPets\r\n      tags:\r\n        - pets\r\n      parameters:\r\n        - name: limit\r\n          in: query\r\n          description: Cu�ntos art�culos devolver al mismo tiempo (m�ximo 100)\r\n          required: false\r\n          schema:\r\n            type: integer\r\n            format: int32\r\n      responses:\r\n        '200':\r\n          description: Una colecci�n paginada de mascotas\r\n          headers:\r\n            x-next:\r\n              description: Un enlace a la siguiente p�gina de respuestas.\r\n              schema:\r\n                type: string\r\n          content:\r\n            application/json:    \r\n              schema:\r\n                $ref: \"#/components/schemas/Pets\"\r\n        default:\r\n          description: Error inesperado\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/Error\"\r\n    post:\r\n      summary: Create a pet\r\n      operationId: createPets\r\n      tags:\r\n        - pets\r\n      responses:\r\n        '201':\r\n          description: respuesta Null\r\n        default:\r\n          description: Error inesperado\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/Error\"\r\n  /pets/{petId}:\r\n    get:\r\n      summary: Informaci�n para una mascota espec�fica\r\n      operationId: showPetById\r\n      tags:\r\n        - pets\r\n      parameters:\r\n        - name: petId\r\n          in: path\r\n          required: true\r\n          description: El id de la mascota a recuperar.\r\n          schema:\r\n            type: string\r\n      responses:\r\n        '200':\r\n          description: Respuesta esperada a una solicitud v�lida\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/Pets\"\r\n        default:\r\n          description: error inesperado\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: \"#/components/schemas/Error\"\r\ncomponents:\r\n  schemas:\r\n    Pet:\r\n      required:\r\n        - id\r\n        - name\r\n      properties:\r\n        id:\r\n          type: integer\r\n          format: int64\r\n        name:\r\n          type: string\r\n        tag:\r\n          type: string\r\n    Pets:\r\n      type: array\r\n      items:\r\n        $ref: \"#/components/schemas/Pet\"\r\n    Error:\r\n      required:\r\n        - code\r\n        - message\r\n      properties:\r\n        code:\r\n          type: integer\r\n          format: int32\r\n        message:\r\n          type: string\r\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1119.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue-1119.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/justindav1s/microservices-on-openshift"
+		},
+		"file": {
+			"name": "product_openapi3.yaml",
+			"size": 0,
+			"path": "api-routing/3Scale/attic/toolbox/product_openapi3.yaml",
+			"byteSize": 2738,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: Product API\n  contact:\n    name: Product API Support\n    url: http://amazin.com/contact\n    email: techsupport@amazin.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.1\ntags:\n- name: app\n  description: product\n- name: architecture\n  description: quarkus\npaths:\n  /config/1:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n  /config/2:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n  /products:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n  /products/all:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Product'\n  /products/health:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n  /products/type/{type}:\n    get:\n      parameters:\n      - name: type\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Product'\n  /products/types:\n    get:\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n  /products/{productId}:\n    get:\n      parameters:\n      - name: productId\n        in: path\n        required: true\n        schema:\n          format: int32\n          type: integer\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\ncomponents:\n  schemas:\n    ProductType:\n      enum:\n      - CLOTHES\n      - FOOD\n      - GADGETS\n      type: string\n    Product:\n      type: object\n      properties:\n        basketIndex:\n          format: int32\n          type: integer\n        id:\n          type: string\n        name:\n          type: string\n        price:\n          format: float\n          type: number\n        type:\n          $ref: '#/components/schemas/ProductType'\n",
+			"canonicalURL": "/github.com/justindav1s/microservices-on-openshift@8b7f0251214624ae77a6a0eca8749329aa442c2c/-/blob/api-routing/3Scale/attic/toolbox/product_openapi3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/justindav1s/microservices-on-openshift/blob/8b7f0251214624ae77a6a0eca8749329aa442c2c/api-routing/3Scale/attic/toolbox/product_openapi3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/products/health\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdkandersson/OpenAlchemy"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/app/api.yaml",
+			"byteSize": 2919,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Test Schema\n  description: API to illustrate OpenAlchemy.\n  version: \"1.0\"\n\npaths:\n  /employee:\n    get:\n      operationId: api.search\n      summary: Used to retrieve all employees.\n      responses:\n        200:\n          description: Return all employees from the database.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Employee\"\n    post:\n      operationId: api.post\n      summary: Used to save an employee to the database.\n      requestBody:\n        description: The employee to save.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Employee\"\n      responses:\n        200:\n          description: Save successful.\n        400:\n          description: The Employee already exists.\n  /employee/{id}:\n    parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        required: true\n    get:\n      operationId: api.get\n      summary: Used to retrieve an Employee from the database.\n      responses:\n        200:\n          description: The Employee.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Employee\"\n        404:\n          description: The Employee was not found.\n    patch:\n      operationId: api.patch\n      summary: Update an Employee in the database.\n      requestBody:\n        description: The employee to save.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Employee\"\n      responses:\n        200:\n          description: The Employee was updated.\n        404:\n          description: The Employee was not found.\n    delete:\n      operationId: api.delete\n      summary: Delete an Employee from the database.\n      responses:\n        200:\n          description: The Employee was deleted.\n        404:\n          description: The Employee was not found.\n\ncomponents:\n  schemas:\n    Employee:\n      description: Person that works for a company.\n      type: object\n      x-tablename: employee\n      properties:\n        id:\n          type: integer\n          description: Unique identifier for the employee.\n          example: 0\n          x-primary-key: true\n          x-autoincrement: true\n        name:\n          type: string\n          description: The name of the employee.\n          example: David Andersson\n          x-index: true\n        division:\n          type: string\n          description: The part of the company the employee works in.\n          example: Engineering\n          x-index: true\n        salary:\n          type: number\n          description: The amount of money the employee is paid.\n          example: 1000000.00\n      required:\n        - id\n        - name\n        - division\n",
+			"canonicalURL": "/github.com/jdkandersson/OpenAlchemy@40f52d003e40ad79e67dcb305aef3dd4debefcc9/-/blob/examples/app/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jdkandersson/OpenAlchemy/blob/40f52d003e40ad79e67dcb305aef3dd4debefcc9/examples/app/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

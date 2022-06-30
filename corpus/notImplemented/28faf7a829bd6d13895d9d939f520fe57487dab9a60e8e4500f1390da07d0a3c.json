@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/qaware/openapi-generator-for-spring"
+		},
+		"file": {
+			"name": "app31.json",
+			"size": 0,
+			"path": "openapi-generator-for-spring-test/src/test/resources/openApiJson/app31.json",
+			"byteSize": 2482,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"API for App31\",\n    \"version\": \"unknown\"\n  },\n  \"paths\": {\n    \"/mapping1\": {\n      \"post\": {\n        \"operationId\": \"mapping1_plain_textHtml\",\n        \"parameters\": [\n          {\n            \"name\": \"sharedParam\",\n            \"in\": \"query\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"param2\",\n            \"in\": \"query\",\n            \"description\": \"Only used by mapping1_plain\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"param1\",\n            \"in\": \"query\",\n            \"description\": \"Only used by mapping1_textHtml\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"description\": \"request body description\",\n          \"content\": {\n            \"*/*\": {},\n            \"text/html\": {\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"some description\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"*/*\": {}\n            }\n          },\n          \"500\": {\n            \"description\": \"Error response\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/App31Controller.ErrorDto\"\n                }\n              },\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/App31Controller.ErrorDto\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"string_0\": {\n        \"type\": \"string\",\n        \"description\": \"Error code, machine-readable\"\n      },\n      \"string_1\": {\n        \"type\": \"string\",\n        \"description\": \"Error description, human-readable\"\n      },\n      \"App31Controller.ErrorDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"errorCode\": {\n            \"$ref\": \"#/components/schemas/string_0\"\n          },\n          \"errorDescription\": {\n            \"$ref\": \"#/components/schemas/string_1\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/qaware/openapi-generator-for-spring@85d684bd14b8d8906fc41ad3c039efc95ab2a912/-/blob/openapi-generator-for-spring-test/src/test/resources/openApiJson/app31.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/qaware/openapi-generator-for-spring/blob/85d684bd14b8d8906fc41ad3c039efc95ab2a912/openapi-generator-for-spring-test/src/test/resources/openApiJson/app31.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/mapping1\": post: requestBody: contents: unsupported content types: [text/html]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

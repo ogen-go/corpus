@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ovotech/laminar"
+		},
+		"file": {
+			"name": "oapi-custom.yaml",
+			"size": 0,
+			"path": "packages/laminar-jwt/examples/oapi-custom.yaml",
+			"byteSize": 2002,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:3333\npaths:\n  '/session':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/x-www-form-urlencoded:\n            schema: { $ref: '#/components/schemas/User' }\n      responses:\n        '200':\n          description: A session object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n          headers:\n            Set-Cookie:\n              schema:\n                type: string\n                example: auth=abcde12345; Path=/; HttpOnly\n  '/test':\n    post:\n      description: Either CookieSecurity or CloudSchedulerSecurity should match, no scopes\n      security:\n        - CookieSecurity: []\n        - CloudSchedulerSecurity: []\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n    get:\n      description: Only CookieSecurity can be used for this route, no scopes, no scopes\n      security:\n        - CookieSecurity: []\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n  '/unauthorized':\n    get:\n      responses:\n        '403':\n          description: Forbidden\n          content:\n            text/plain:\n              schema: { $ref: '#/components/schemas/Text' }\n\ncomponents:\n  securitySchemes:\n    CookieSecurity:\n      description: Security using the `auth` cookie. To be used in the routes.\n      type: apiKey\n      in: cookie\n      name: auth\n    CloudSchedulerSecurity:\n      description: Security using the `X-CloudScheduler` header. To be used in the routes.\n      type: apiKey\n      in: header\n      name: 'x-cloudscheduler'\n\n  schemas:\n    User:\n      properties:\n        email:\n          type: string\n      required:\n        - email\n    Text:\n      type: string\n",
+			"canonicalURL": "/github.com/ovotech/laminar@59657159382d99bfd007c434e7b495a23704a407/-/blob/packages/laminar-jwt/examples/oapi-custom.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ovotech/laminar/blob/59657159382d99bfd007c434e7b495a23704a407/packages/laminar-jwt/examples/oapi-custom.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

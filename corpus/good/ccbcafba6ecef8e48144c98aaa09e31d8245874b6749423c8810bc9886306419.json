@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nordic-institute/X-Road"
+		},
+		"file": {
+			"name": "common-openapi-definition.yaml",
+			"size": 0,
+			"path": "src/common-rest-api/src/main/resources/common-openapi-definition.yaml",
+			"byteSize": 3168,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  description: X-Road Admin API common parts.\n  version: \"1.0.32\"\n  title: X-Road Security Server Admin API common\n  contact:\n    name: Nordic Institute for Interoperability Solutions (NIIS)\n    url: https://github.com/nordic-institute/X-Road-development/#enhancement-requests-and-error-reports\n    email: info@niis.org\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\nservers:\n  - url: /api/v1\n    description: basepath for API v1\ntags:\n  - name: dummy\npaths:\n  /dummy:\n    get:\n      tags:\n        - dummy\n      summary: dummy path to satisfy validator\n      operationId: dummy path\n      description: dummy path\n      responses:\n        '200':\n          description: dummy path\n          content:\n            application/json:\n              schema:\n                type: boolean\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Authorization\n      description: X-Road-ApiKey token=\u003capi key\u003e\n      # https://github.com/nordic-institute/X-Road-REST-UI/blob/XRDDEV-237/doc/Manuals/ug-ss_x-road_6_security_server_user_guide.md#1911-creating-new-api-keys\n  schemas:\n    CodeWithDetails:\n      type: object\n      description: object that contains a code identifier and possibly collection of\n        associated metadata or validation errors. Used to relay error and warning information.\n      required:\n        - code\n      properties:\n        code:\n          type: string\n          format: text\n          description: identifier of the item (for example errorcode)\n          example: adding_services\n        metadata:\n          type: array\n          description: array containing metadata associated with the item. For example names of services\n            were attempted to add, but failed\n          items:\n            type: string\n            format: text\n        validation_errors:\n          description: A dictionary object that contains validation errors bound to their respected fields. The key\n            represents the field where the validation error has happened and the value is a list of validation errors\n          type: object\n          additionalProperties: # https://swagger.io/docs/specification/data-models/dictionaries/\n            type: array\n            description: Array containing the validation errors of a field. The possible validation error values\n              are listed in the X-Road User Guide\n            items:\n              type: string\n              format: text\n          example:\n            clientAdd.client.memberCode: [\"NoPercent\"]\n            clientAdd.client.subsystemCode: [\"NoPercent\", \"NoBackslashes\"]\n    ErrorInfo:\n      type: object\n      description: object returned in error cases\n      required:\n        - status\n      properties:\n        status:\n          type: integer\n          format: int32\n          description: http status code\n          example: 400\n        error:\n          $ref: '#/components/schemas/CodeWithDetails'\n        warnings:\n          type: array\n          description: warnings that could be ignored\n          items:\n            $ref: '#/components/schemas/CodeWithDetails'\nsecurity:\n  - ApiKeyAuth: []\n",
+			"canonicalURL": "/github.com/nordic-institute/X-Road@837335d38f69a634cae6d6ee8b5fe2ac6fceb5da/-/blob/src/common-rest-api/src/main/resources/common-openapi-definition.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nordic-institute/X-Road/blob/837335d38f69a634cae6d6ee8b5fe2ac6fceb5da/src/common-rest-api/src/main/resources/common-openapi-definition.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

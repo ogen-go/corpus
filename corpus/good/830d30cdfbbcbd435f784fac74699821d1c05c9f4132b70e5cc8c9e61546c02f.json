@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vanilla/vanilla"
+		},
+		"file": {
+			"name": "users.yml",
+			"size": 0,
+			"path": "plugins/ProfileExtender/openapi/users.yml",
+			"byteSize": 1027,
+			"content": "openapi: 3.0.2\ninfo: {}\npaths:\n    /users/{id}/extended:\n        patch:\n            summary: Update a user's extended fields.\n            tags:\n                - Users\n            parameters:\n                - description: The user ID.\n                  in: path\n                  name: id\n                  required: true\n                  schema:\n                      type: integer\n            requestBody:\n                content:\n                    application/json:\n                        schema:\n                            $ref: \"#/components/schemas/ExtendedUserFields\"\n                required: true\n            responses:\n                \"200\":\n                    content:\n                        \"application/json\":\n                            schema:\n                                $ref: \"#/components/schemas/ExtendedUserFields\"\n                    description: Success\ncomponents:\n    schemas:\n        ExtendedUserFields:\n            type: object\n            description: The user's profile extender fields.\n",
+			"canonicalURL": "/github.com/vanilla/vanilla@dfe2732ec86d37eed7eec0956151e79f2f414b4f/-/blob/plugins/ProfileExtender/openapi/users.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vanilla/vanilla/blob/dfe2732ec86d37eed7eec0956151e79f2f414b4f/plugins/ProfileExtender/openapi/users.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bijukunjummen/sample-service-to-service"
+		},
+		"file": {
+			"name": "API.yaml",
+			"size": 0,
+			"path": "sample-caller/API.yaml",
+			"byteSize": 1908,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Client to a service which injects faults and delays\n  description: |\n    Client to a service which injects faults and delays\n  version: 1.0.0\nservers:\n  - url: http://localhost:8081\ntags:\n  - name: messages\npaths:\n  /caller/messages:\n    post:\n      tags:\n        - messages\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MessageRequest'\n      responses:\n        200:\n          description: Message Acknowledgement\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MessageAck'\ncomponents:\n  schemas:\n    MessageRequest:\n      type: object\n      properties:\n        id:\n          type: string\n          example: an-id\n        payload:\n          type: string\n        delay:\n          type: integer\n          default: 0\n          description: delay in milliseconds\n        responseCode:\n          type: integer\n          default: 200\n          description: response code to be plugged in by the producer\n\n    MessageAck:\n      type: object\n      properties:\n        id:\n          type: string\n        received:\n          type: string\n        callerHeaders:\n          $ref: '#/components/schemas/Headers'\n        producerHeaders:\n          $ref: '#/components/schemas/Headers'\n        callerMetadata:\n          $ref: '#/components/schemas/ClusterMetadata'\n        producerMetadata:\n          $ref: '#/components/schemas/ClusterMetadata'\n        roundTripTimeMillis:\n          type: number\n          description: Round trip time in milliseconds\n        statusCode:\n          type: number\n          description: http status code of response from the producer\n    ClusterMetadata:\n      type: object\n      properties:\n        clusterName:\n          type: string\n        clusterLocation:\n          type: string\n    Headers:\n      type: object",
+			"canonicalURL": "/github.com/bijukunjummen/sample-service-to-service@353f80289826421266b6479040ee1e4d9507f9ee/-/blob/sample-caller/API.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bijukunjummen/sample-service-to-service/blob/353f80289826421266b6479040ee1e4d9507f9ee/sample-caller/API.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

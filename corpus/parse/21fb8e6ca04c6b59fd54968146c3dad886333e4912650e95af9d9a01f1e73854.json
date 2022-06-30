@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "modules/swagger-parser/src/test/resources/issue-1621/example.openapi.yaml",
 			"byteSize": 554,
-			"content": "openapi: 3.0.1\ninfo:\n  title: Example OpenAPI spec\n  version: 0.0.1\npaths:\n  '/example':\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExamplePost'\n      responses:\n        204:\n          description: No content\ncomponents:\n  schemas:\n    # Renaming this key from `Example` to `ExampleGet` stops the issue from occurring\n    # Removing this key stops the issue from occurring\n    Example:\n      $ref: example.get.yaml\n    ExamplePost:\n      $ref: example.post.yaml"
+			"content": "openapi: 3.0.1\ninfo:\n  title: Example OpenAPI spec\n  version: 0.0.1\npaths:\n  '/example':\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExamplePost'\n      responses:\n        204:\n          description: No content\ncomponents:\n  schemas:\n    # Renaming this key from `Example` to `ExampleGet` stops the issue from occurring\n    # Removing this key stops the issue from occurring\n    Example:\n      $ref: example.get.yaml\n    ExamplePost:\n      $ref: example.post.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser/src/test/resources/issue-1621/example.openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser/src/test/resources/issue-1621/example.openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse components: schemas: \"Example\": parse schema: resolve \"example.get.yaml\": external \"example.get.yaml\": file: local file reference is not allowed"

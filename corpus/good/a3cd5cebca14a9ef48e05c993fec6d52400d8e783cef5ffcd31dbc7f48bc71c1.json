@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "petstore_with_oneOf_response.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/diagnostic_files/petstore_with_oneOf_response.yaml",
+			"byteSize": 1433,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://localhost:9090/petstore/v1\npaths:\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: getPet\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Pet'\n                  - $ref: '#/components/schemas/Dog'\n                  - $ref: '#/components/schemas/Cat'\n\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Dog:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        bark:\n          type: boolean\n    Cat:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        hunt:\n          type: boolean\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/diagnostic_files/petstore_with_oneOf_response.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/diagnostic_files/petstore_with_oneOf_response.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

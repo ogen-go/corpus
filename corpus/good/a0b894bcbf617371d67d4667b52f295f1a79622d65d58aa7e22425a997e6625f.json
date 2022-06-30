@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aulvi/builder-bootcamp-nodejs-starter-kit"
+		},
+		"file": {
+			"name": "openapi-bookmark.yaml",
+			"size": 0,
+			"path": "swagger/openapi-bookmark.yaml",
+			"byteSize": 2582,
+			"content": "openapi: 3.0.1\ninfo:\n  title: bookmark-service\n  description: Lambda-based microservice to store lists of hyperlinks 2\n  version: \"1.0\"\nservers:\n- url: /\npaths:\n  /bookmark:\n    post:\n      summary: Create a new bookmark\n      description: Create a new bookmark\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Bookmark'\n        required: true\n      responses:\n        200:\n          description: Success\n          content: {}\n        400:\n          description: Bad Request\n          content: {}\n        401:\n          description: Unauthorized\n          content: {}\n        500:\n          description: Internal Server Error\n          content: {}\n      x-amazon-apigateway-request-validators:\n        basic:\n          validateRequestParameters: true\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${PostLambdaFunction.Arn}/invocations\n        passthroughBehavior: when_no_match\n        httpMethod: POST\n        type: aws_proxy\n        responses: {}\n  /bookmark/{title}:\n    get:\n      summary: Get a bookmark\n      description: Get a bookmark\n      parameters:\n      - name: title\n        in: path\n        description: Title of bookmark to return\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: Successful Response\n          content:\n            application/json:\n              schema:\n                type: object\n              example:\n              - title: cool-programming-links\n                links:\n                - title: Google home page\n                  link: https://google.com\n                - title: Typescript is cool\n                  link: https://typescript.io\n      x-amazon-apigateway-request-validators:\n        basic:\n          validateRequestParameters: true\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetLambdaFunction.Arn}/invocations\n        passthroughBehavior: when_no_match\n        httpMethod: GET\n        type: aws_proxy\n        responses: {}\ncomponents:\n  schemas:\n    Bookmark:\n      title: Bookmark\n      type: object\n      properties:\n        title:\n          type: string\n        links:\n          type: array\n          items:\n            $ref: '#/components/schemas/Link'\n    Link:\n      title: Link\n      type: object\n      properties:\n        title:\n          type: string\n        url:\n          type: string\n",
+			"canonicalURL": "/github.com/aulvi/builder-bootcamp-nodejs-starter-kit@78df53ac27bb4daef1f315be2e2b8d7e5e8559a1/-/blob/swagger/openapi-bookmark.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aulvi/builder-bootcamp-nodejs-starter-kit/blob/78df53ac27bb4daef1f315be2e2b8d7e5e8559a1/swagger/openapi-bookmark.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

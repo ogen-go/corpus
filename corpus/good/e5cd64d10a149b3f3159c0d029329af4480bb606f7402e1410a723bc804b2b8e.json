@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/thim81/openapi-format"
+		},
+		"file": {
+			"name": "input.yaml",
+			"size": 0,
+			"path": "test/yaml-filter-inverse-operationids-free-form/input.yaml",
+			"byteSize": 3283,
+			"content": "openapi: 3.0.2\ninfo:\n  title: OpenSearch\n  version: '2021-11-23'\npaths:\n  /_cat/indices:\n    get:\n      description: 'Returns information about indices: number of primaries and replicas, document counts, disk size, etc.'\n      operationId: GetCatIndices\n      parameters:\n        - name: bytes\n          in: query\n          schema:\n            type: number\n            nullable: true\n        - name: expand_wildcards\n          in: query\n          schema:\n            $ref: '#/components/schemas/ExpandWildcards'\n        - name: health\n          in: query\n          schema:\n            $ref: '#/components/schemas/HealthStatus'\n        - name: include_unloaded_segments\n          in: query\n          schema:\n            type: boolean\n            nullable: true\n        - name: pri\n          in: query\n          schema:\n            type: boolean\n            nullable: true\n        - name: master_timeout\n          in: query\n          schema:\n            type: string\n            pattern: '^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$'\n        - name: timeout\n          in: query\n          schema:\n            type: string\n            pattern: '^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$'\n      responses:\n        '200':\n          description: GetCatIndices 200 response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetCatIndicesOutputPayload'\n  '/_cat/indices/{index}':\n    get:\n      description: 'Returns information about indices: number of primaries and replicas, document counts, disk size, etc.'\n      operationId: GetCatIndicesWithIndex\n      parameters:\n        - name: index\n          in: path\n          schema:\n            type: string\n            pattern: '^[^+_\\-\\.][^\\\\, /*?\"\u003c\u003e| ,#\\nA-Z]+$'\n          required: true\n          example: books\n        - name: bytes\n          in: query\n          schema:\n            type: number\n            nullable: true\n        - name: expand_wildcards\n          in: query\n          schema:\n            $ref: '#/components/schemas/ExpandWildcards'\n        - name: health\n          in: query\n          schema:\n            $ref: '#/components/schemas/HealthStatus'\n        - name: include_unloaded_segments\n          in: query\n          schema:\n            type: boolean\n            nullable: true\n        - name: pri\n          in: query\n          schema:\n            type: boolean\n            nullable: true\n        - name: master_timeout\n          in: query\n          schema:\n            type: string\n            pattern: '^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$'\n        - name: timeout\n          in: query\n          schema:\n            type: string\n            pattern: '^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$'\n      responses:\n        '200':\n          description: GetCatIndicesWithIndex 200 response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GetCatIndicesWithIndexOutputPayload'\ncomponents:\n  schemas:\n    ExpandWildcards:\n      type: string\n      enum:\n        - all\n        - open\n        - closed\n        - hidden\n        - none\n    GetCatIndicesOutputPayload: {}\n    GetCatIndicesWithIndexOutputPayload: {}\n    HealthStatus:\n      type: string\n      enum:\n        - green\n        - yellow\n        - red\n",
+			"canonicalURL": "/github.com/thim81/openapi-format@00335957b6d98eac9b51e1b5b214363aa5f1ffc6/-/blob/test/yaml-filter-inverse-operationids-free-form/input.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/thim81/openapi-format/blob/00335957b6d98eac9b51e1b5b214363aa5f1ffc6/test/yaml-filter-inverse-operationids-free-form/input.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

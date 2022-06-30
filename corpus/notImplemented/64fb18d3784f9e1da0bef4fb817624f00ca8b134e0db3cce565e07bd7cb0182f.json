@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "schemas-test.yml",
+			"size": 0,
+			"path": "rules/tests/schemas-test.yml",
+			"byteSize": 1756,
+			"content": "openapi: 3.0.1\npaths:\n  /ko-response-not-object:\n    get:\n      description: Test response not object\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                type: string\n  /ok-response-is-object:\n    get:\n      description: Test response is object\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                properties:\n                  foo:\n                    type: string\n        \"201\":\n          description: Created\n          content:\n            application/v.foobar+json:\n              schema:\n                $ref: \"#/components/schemas/JsonObject\"\n          \n  /ko-response-is-string:\n    get:\n      description: Test response is string\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ko_String'\n  /ok-skip-other-mediatypes:\n    get:\n      description: Test skip other mediatypes\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/pdf:\n              schema:\n                type: string\n                format: bytes\n  /ok-skip-patch-mediatype:\n    get:\n      description: Test skip other mediatypes\n      responses:\n        \"200\":\n          description: OK\n          content:\n            \"application/json-patch+json\":\n              schema:\n                type: array\n                maxItems: 10\n                minItems: 1\n                items: {}\ncomponents:\n  schemas:\n    ko_String:\n      type: string\n    JsonObject:\n        properties:\n          foo:\n            type: string\ninfo:\n  title: Test\n  version: 1.0.0",
+			"canonicalURL": "/github.com/italia/api-oas-checker@f6f4e6e360b2ce9816dcca29396571dda1c6027d/-/blob/rules/tests/schemas-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/f6f4e6e360b2ce9816dcca29396571dda1c6027d/rules/tests/schemas-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ok-response-is-object\": get: responses: 201: contents: unsupported content types: [application/v.foobar+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

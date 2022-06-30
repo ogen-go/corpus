@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dukecon/dukecon_mobile"
+		},
+		"file": {
+			"name": "oauth_api.json",
+			"size": 0,
+			"path": "specs/oauth_api.json",
+			"byteSize": 2323,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"Documentation of the DukeCon Keycloak REST API.\",\n    \"version\": \"v1\",\n    \"title\": \"DukeCon Keycloak API\",\n    \"termsOfService\": \"https://dukecon.org/\",\n    \"contact\": {}\n  },\n  \"tags\": [\n    {\n      \"name\": \"oauth\",\n      \"description\": \"Keycloak endpoint\"\n    }\n  ],\n  \"paths\": {\n    \"/token\": {\n      \"post\": {\n        \"summary\": \"submit refresh code to obtain oauth token\",\n        \"description\": \"\",\n        \"operationId\": \"postCode\",\n        \"tags\": [\n          \"oauth\"\n        ],\n        \"responses\": {\n          \"201\": {\n            \"description\": \"successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/OAuthToken\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"application/x-www-form-urlencoded\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/RequestToken\"\n              }\n            }\n          },\n          \"description\": \"Request token\",\n          \"required\": true\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://dukecon.org/rest\"\n    },\n    {\n      \"url\": \"https://dukecon.org/rest\"\n    }\n  ],\n  \"components\": {\n    \"schemas\": {\n      \"OAuthToken\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"access_token\": {\n            \"type\": \"string\"\n          },\n          \"refresh_token\": {\n            \"type\": \"string\"\n          },\n          \"id_token\": {\n            \"type\": \"string\"\n          },\n          \"expires_in\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          }\n        }\n      },\n      \"RequestToken\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"client_id\": {\n            \"description\": \"client id\",\n            \"type\": \"string\"\n          },\n          \"grant_type\": {\n            \"description\": \"grant type\",\n            \"type\": \"string\"\n          },\n          \"redirect_uri\": {\n            \"description\": \"redirect uri\",\n            \"type\": \"string\"\n          },\n          \"code\": {\n            \"description\": \"code\",\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"links\": {},\n    \"callbacks\": {}\n  },\n  \"security\": []\n}",
+			"canonicalURL": "/github.com/dukecon/dukecon_mobile@aa12bd09830c3407635d0bc3e5691ba1ffaeeb2f/-/blob/specs/oauth_api.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dukecon/dukecon_mobile/blob/aa12bd09830c3407635d0bc3e5691ba1ffaeeb2f/specs/oauth_api.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

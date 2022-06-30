@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nuclia/nucliadb"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 3875,
+			"content": "openapi: 3.0.0\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/nuclia/nucliadb/1.0.0\n  - description: SwaggerHub API Auto Mocking\n    url: https://europe1.stashify.cloud/1.0.0\ninfo:\n  version: \"1.0.0\"\n  title: nucliadb Search API\n  description: \u003e-\n    This is an example of using OAuth2 Application Flow in a specification to\n    describe security to your API.\nsecurity:\n  - application:\n      - read\n      - write\npaths:\n  /kb/{kb_uuid}/search:\n    get:\n      parameters:\n        - in: path\n          name: kb_uuid\n          schema:\n            type: string\n          required: true\n          description: UUID of the knowledgebox\n        - in: query\n          name: q\n          schema:\n            type: string\n          required: false\n          description: \u003e-\n            Text query. It can be with quotes to force keyword search on that elements.\n        - in: query\n          name: filter\n          schema:\n            type: string\n          required: false\n          description: \u003e-\n            Filter query. It should be a list of tags to filter. It can be a range query.\n        - in: query\n          name: order\n          schema:\n            type: string\n          required: false\n          description: Order query\n        - in: query\n          name: v\n          schema:\n            type: string\n          required: false\n          description: BASE64 vector encoding\n        - in: query\n          name: rid\n          schema:\n            type: string\n          required: false\n          description: Resource search\n        - in: query\n          name: disable\n          schema:\n            type: array\n            items:\n              type: string\n              enum: [paragraph, semantic, document, relations]\n          required: false\n          description: Disable paragraph, semantic, document, relations\n        - in: query\n          name: enable\n          schema:\n            type: array\n            items:\n              type: string\n              enum: [ask]\n          required: false\n          description: Disable paragraph, semantic, document, relations\n      summary: Main search query\n      description: \u003e-\n        This is an example operation to show how security is applied to the\n        call.\n      responses:\n        \"200\":\n          description: OK\ncomponents:\n  schemas:\n    KnowledgeBox:\n      title: A knowledge box at nucliadb\n      type: object\n      properties:\n        title:\n          type: string\n        slug:\n          type: string\n        icon:\n          type: string\n          description: BASE64 Image\n    Resource:\n      title: A Resource at nucliadb\n      type: object\n      properties:\n        title:\n          type: string\n        description:\n          type: string\n        slug:\n          type: string\n        urls:\n          type: array\n          items:\n            type: object\n            properties:\n              uri:\n                type: string\n              headers:\n                type: object\n        block:\n          type: object\n          additionalProperties:\n            type: object\n            properties:\n              blocks:\n                type: array\n                items:\n                  type: object\n        text:\n          type: object\n          additionalProperties:\n            type: string\n        labels:\n          type: object\n        entities:\n          type: object\n        paragraphs:\n          type: object\n        related:\n          type: object\n  securitySchemes:\n    application:\n      type: oauth2\n      flows:\n        authorizationCode:\n          authorizationUrl: https://auth.stashify.cloud/oauth/token\n          tokenUrl: https://auth.stashify.cloud/oauth/token\n          refreshUrl: https://auth.stashify.cloud/oauth/token\n          scopes:\n            write: allows modifying resources\n            read: allows reading resources\n",
+			"canonicalURL": "/github.com/nuclia/nucliadb@6aece77133d65b2d95bd7e9f9dcf29bf444f9bc2/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nuclia/nucliadb/blob/6aece77133d65b2d95bd7e9f9dcf29bf444f9bc2/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/kb/{kb_uuid}/search\": get: security: security \"application\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

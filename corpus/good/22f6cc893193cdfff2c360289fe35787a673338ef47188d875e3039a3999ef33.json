@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue_277.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue_277.yaml",
+			"byteSize": 1263,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://api.test.com/'\ninfo:\n  title: test\n  version: 1.0.0\n  description: test\npaths:\n  '/buckets/{bucketKey}/details':\n    parameters:\n      - $ref: '#/components/parameters/bucketKey'\n    get:\n      operationId: get_bucket_details\n      description: test\n      responses:\n        default:\n          description: Default response\n    responses:\n      '200':\n        $ref: '#/components/responses/OK'\n  '/buckets/{bucketKey}/objects/{objectName}':\n    parameters:\n      - $ref: '#/components/parameters/bucketKey'\n      - $ref: '#/components/parameters/objectName'\n    put:\n      operationId: upload_object\n      description: test\n      responses:\n        '200':\n          $ref: '#/components/responses/OK'\n    get:\n      operationId: get_object\n      description: test\n      responses:\n        '200':\n          $ref: '#/components/responses/OK'\ncomponents:\n  parameters:\n    bucketKey:\n      name: bucketKey\n      in: path\n      description: URL-encoded bucket key\n      required: true\n      schema:\n        type: string\n    objectName:\n      name: objectName\n      in: path\n      description: URL-encoded object name\n      required: true\n      schema:\n        type: string\n  responses:\n    OK:\n      description: 'OK, Success'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue_277.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue_277.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mollie/Shopware6"
+		},
+		"file": {
+			"name": "mollie-headless.yaml",
+			"size": 0,
+			"path": "tests/Swagger/mollie-headless.yaml",
+			"byteSize": 2590,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: \"Mollie Headless API\"\n  description: \"This is a Swagger Template for all Headless cases of the Mollie plugin.\u003cbr /\u003e\u003cbr /\u003eInstructions:\u003col\u003e\u003cli\u003eConfigure the correct server domain, where your Shopware Store API ist available.\u003c/li\u003e\u003cli\u003eClick on Authorize and fill in the Access Key from your Sales Channel.\u003c/li\u003e\u003cli\u003eThen use the Cart request for Shopware to retrieve an Access-Token\u003c/li\u003e\u003cli\u003eJust copy the Access-Token and use it in the global authorize section too.\u003c/li\u003e\u003c/ol\u003e\u003cbr /\u003eCongratulations, you can now use the API requests.\"\n\nservers:\n  - url: /\n  - url: https://localhost\n  - url: http://localhost\n  - url: '{custom}'\n    variables:\n      custom:\n        default: https://localhost\n\nexternalDocs:\n  description: \"Find out more about Mollie Shopware\"\n  url: \"https://github.com/mollie/Shopware6/wiki\"\n\npaths:\n\n  /store-api/checkout/cart:\n    get:\n      tags:\n        - \"Cart\"\n      summary: \"Get your current cart\"\n      security:\n        - AccessKey: []\n        - AccessToken: []\n      responses:\n        \"200\":\n          description: \"successful operation\"\n\n  /store-api/checkout/cart/line-item:\n    post:\n      tags:\n        - \"Cart\"\n      summary: \"Add a line item to your cart\"\n      security:\n        - AccessKey: []\n        - AccessToken: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                items:\n                  type: array\n                  items:\n                    type: object\n                    properties:\n                      type:\n                        default: \"product\"\n                      referencedId:\n                        default: \"#\"\n                      quantity:\n                        default: \"1\"\n      responses:\n          \"200\":\n            description: \"successful operation\"\n\n  /store-api/payment-method:\n    post:\n      tags:\n        - \"Payment Methods\"\n      summary: \"Loads all available payment methods\"\n      security:\n        - AccessKey: []\n        - AccessToken: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                onlyAvailable:\n                  default: \"true\"\n                associations:\n                  type: array\n      responses:\n        \"200\":\n          description: \"successful operation\"\n\ncomponents:\n  securitySchemes:\n    AccessKey:\n      type: apiKey\n      in: header\n      name: sw-access-key\n    AccessToken:\n      type: apiKey\n      in: header\n      name: sw-context-token\n",
+			"canonicalURL": "/github.com/mollie/Shopware6@c61d6d3486f1ebb1f7d4399f447aa066b30e4572/-/blob/tests/Swagger/mollie-headless.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mollie/Shopware6/blob/c61d6d3486f1ebb1f7d4399f447aa066b30e4572/tests/Swagger/mollie-headless.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

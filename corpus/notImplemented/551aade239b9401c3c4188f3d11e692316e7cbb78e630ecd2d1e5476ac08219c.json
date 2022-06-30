@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/academic-resources/stared-repos"
+		},
+		"file": {
+			"name": "6475.yaml",
+			"size": 0,
+			"path": "swagger-ui/test/e2e-cypress/static/documents/bugs/6475.yaml",
+			"byteSize": 1263,
+			"content": "openapi: 3.0.1\ninfo:\n title: Example Swagger\n version: '1.0'\nservers:\n - url: /api/v1\npaths:\n /xmlTest/examples:\n   post:\n     summary: sample issues\n     operationId: xmlTest_examples\n     parameters: []\n     requestBody:\n       description: Simple Test xml examples\n       content:\n           application/xml:\n              schema:\n               $ref: \"#/components/schemas/Test\"\n              examples:\n                test:\n                  value:\n                    x: should be xml\n     responses:\n       '200':\n         description:  Simple Test xml examples\n         content: {}\n /xmlTest/example:\n   post:\n     summary: sample issues\n     operationId: xmlTest_example\n     parameters: []\n     requestBody:\n       description: Simple Test xml example\n       content:\n           application/xml:\n              schema:\n               $ref: \"#/components/schemas/Test\"\n              example:\n                x: should be xml\n     responses:\n       '200':\n         description: Simple Test xml example\n         content: {}\ncomponents:\n  schemas:\n    Test:\n      type: object\n      xml:\n        name: root\n      properties:\n        x:\n          type: string\n        other:\n          type: string\n          format: email\n      example:\n        x: what the f\n",
+			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/test/e2e-cypress/static/documents/bugs/6475.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/test/e2e-cypress/static/documents/bugs/6475.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/xmlTest/example\": post: requestBody: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

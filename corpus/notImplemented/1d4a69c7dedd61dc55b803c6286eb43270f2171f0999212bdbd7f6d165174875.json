@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nginxinc/mra-photoresizer"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "app/swagger.yaml",
+			"byteSize": 1718,
+			"content": "openapi: 3.0.0\nservers:\n  - url: /v1\ninfo:\n  description: MRA Photo Resizer API\n  version: \"1.0.0-oas3\"\n  title: MRA Photo Resizer API\n  contact:\n    name: Aidan Carson\n    email: aidan.carson@nginx.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /v1/image:\n    get:\n      tags:\n        - image\n      summary: Test S3 link\n      responses:\n        '200':\n          description: Return new image information\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Images'\n        '404':\n          description: Image not found\n      x-tags:\n        - tag: image\n      x-operationId: Images\n    post:\n      tags:\n        - image\n      summary: Resize Image\n      parameters:\n        - name: imageURL\n          in: query\n          description: The id of article to be fetched\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: successful operation\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Images'\n        '404':\n          description: Image not found\n      x-tags:\n        - tag: image\n      x-operationId: NewImage\ncomponents:\n  schemas:\n    Images:\n      type: object\n      properties:\n        thumb_url:\n          type: string\n        Large_width:\n          type: string\n        Medium_height:\n          type: string\n        Medium_width:\n          type: string\n        Thumb_width:\n          type: string\n        Thumb_height:\n          type: string\n        medium_url:\n          type: string\n        large_url:\n          type: string\n        Large_height:\n          type: string",
+			"canonicalURL": "/github.com/nginxinc/mra-photoresizer@7812aa65b16409dd0ba46ac51c89648c87fe2d96/-/blob/app/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nginxinc/mra-photoresizer/blob/7812aa65b16409dd0ba46ac51c89648c87fe2d96/app/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/image\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

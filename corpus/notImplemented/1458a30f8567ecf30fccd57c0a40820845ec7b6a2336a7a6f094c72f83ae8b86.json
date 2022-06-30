@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "responses-6.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/responses-6.json",
+			"byteSize": 3812,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Responses\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/responses\": {\n            \"delete\": {\n                \"responses\": {\n                    \"2XX\": {\n                        \"description\": \"Success\",\n                        \"headers\": {\n                            \"x-standard-header\": {\n                                \"$ref\": \"#/components/headers/standard\"\n                            },\n                            \"x-extra-header\": {\n                                \"$ref\": \"#/components/headers/extra\"\n                            }\n                        },\n                        \"content\": {\n                            \"text/plain\": {\n                                \"schema\": {\n                                    \"type\": \"array\",\n                                    \"items\": {\n                                        \"type\": \"boolean\"\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    \"4XX\": {\n                        \"description\": \"Failure\",\n                        \"content\": {\n                            \"text/plain\": {\n                                \"schema\": {\n                                    \"type\": \"string\",\n                                    \"nullable\": true\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            \"get\": {\n                \"responses\": {\n                    \"default\": {\n                        \"description\": \"Default\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"integer\",\n                                    \"maximum\": 16,\n                                    \"minimum\": 16\n                                }\n                            },\n                            \"text/javascript\": {\n                                \"schema\": {\n                                    \"type\": \"integer\",\n                                    \"nullable\": true\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            \"head\": {\n                \"responses\": {\n                    \"202\": {\n                        \"description\": \"202\",\n                        \"headers\": {\n                            \"x-my-app-header\": {\n                                \"required\": true,\n                                \"schema\": {\n                                    \"type\": \"object\"\n                                }\n                            }\n                        },\n                        \"content\": {\n                            \"text/javascript\": {\n                                \"schema\": {\n                                    \"type\": \"object\"\n                                }\n                            }\n                        }\n                    },\n                    \"default\": {\n                        \"description\": \"Default\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"headers\": {\n            \"standard\": {\n                \"required\": true,\n                \"style\": \"simple\",\n                \"schema\": {\n                    \"type\": \"integer\",\n                    \"enum\": [ 1, 10, 100 ]\n                }\n            },\n            \"extra\": {\n                \"required\": false,\n                \"schema\": {\n                    \"type\": \"integer\",\n                    \"minimum\": 0,\n                    \"exclusiveMinimum\": true\n                }\n            }\n            \n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/Cornutum/tcases@400766111167d08860469c6ee17fc353c586d63f/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/responses-6.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Cornutum/tcases/blob/400766111167d08860469c6ee17fc353c586d63f/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/responses-6.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/responses\": delete: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern",
+		"unsupported content types"
+	]
+}

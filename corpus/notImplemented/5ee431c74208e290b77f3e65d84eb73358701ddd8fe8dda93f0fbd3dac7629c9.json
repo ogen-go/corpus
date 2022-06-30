@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/neondatabase/neon"
+		},
+		"file": {
+			"name": "openapi_spec.yaml",
+			"size": 0,
+			"path": "compute_tools/src/http/openapi_spec.yaml",
+			"byteSize": 3754,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: Compute node control API\n  version: \"1.0\"\n\nservers:\n  - url: \"http://localhost:3080\"\n\npaths:\n  /status:\n    get:\n      tags:\n      - \"info\"\n      summary: Get compute node internal status\n      description: \"\"\n      operationId: getComputeStatus\n      responses:\n        \"200\":\n          description: ComputeState\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ComputeState\"\n\n  /metrics.json:\n    get:\n      tags:\n      - \"info\"\n      summary: Get compute node startup metrics in JSON format\n      description: \"\"\n      operationId: getComputeMetricsJSON\n      responses:\n        \"200\":\n          description: ComputeMetrics\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ComputeMetrics\"\n\n  /ready:\n    get:\n      deprecated: true\n      tags:\n      - \"info\"\n      summary: Check whether compute startup process finished successfully\n      description: \"\"\n      operationId: computeIsReady\n      responses:\n        \"200\":\n          description: Compute is ready ('true') or not ('false')\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"true\"\n\n  /last_activity:\n    get:\n      deprecated: true\n      tags:\n      - \"info\"\n      summary: Get timestamp of the last compute activity\n      description: \"\"\n      operationId: getLastComputeActivityTS\n      responses:\n        \"200\":\n          description: Timestamp of the last compute activity\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"2022-10-12T07:20:50.52Z\"\n\n  /check_writability:\n    get:\n      deprecated: true\n      tags:\n      - \"check\"\n      summary: Check that we can write new data on this compute\n      description: \"\"\n      operationId: checkComputeWritabilityDeprecated\n      responses:\n        \"200\":\n          description: Check result\n          content:\n            text/plain:\n              schema:\n                type: string\n                description: Error text or 'true' if check passed\n                example: \"true\"\n\n    post:\n      tags:\n      - \"check\"\n      summary: Check that we can write new data on this compute\n      description: \"\"\n      operationId: checkComputeWritability\n      responses:\n        \"200\":\n          description: Check result\n          content:\n            text/plain:\n              schema:\n                type: string\n                description: Error text or 'true' if check passed\n                example: \"true\"\n\ncomponents:\n  securitySchemes:\n    JWT:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\n  schemas:\n    ComputeMetrics:\n      type: object\n      description: Compute startup metrics\n      required:\n        - sync_safekeepers_ms\n        - basebackup_ms\n        - config_ms\n        - total_startup_ms\n      properties:\n        sync_safekeepers_ms:\n          type: integer\n        basebackup_ms:\n          type: integer\n        config_ms:\n          type: integer\n        total_startup_ms:\n          type: integer\n\n    ComputeState:\n      type: object\n      required:\n        - status\n        - last_active\n      properties:\n        status:\n          $ref: '#/components/schemas/ComputeStatus'\n        last_active:\n          type: string\n          description: The last detected compute activity timestamp in UTC and RFC3339 format\n          example: \"2022-10-12T07:20:50.52Z\"\n        error:\n          type: string\n          description: Text of the error during compute startup, if any\n\n    ComputeStatus:\n      type: string\n      enum:\n        - init\n        - failed\n        - running\n\nsecurity:\n  - JWT: []\n",
+			"canonicalURL": "/github.com/neondatabase/neon@137291dc2475eefa94be5a17ebe089f1e6e5b2f6/-/blob/compute_tools/src/http/openapi_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/neondatabase/neon/blob/137291dc2475eefa94be5a17ebe089f1e6e5b2f6/compute_tools/src/http/openapi_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/check_writability\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

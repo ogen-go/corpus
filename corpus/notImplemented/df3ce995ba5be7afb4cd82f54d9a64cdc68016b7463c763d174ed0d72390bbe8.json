@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app119.json",
+			"size": 0,
+			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app119.json",
+			"byteSize": 1761,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/multi\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"summary\": \"Multiple files and JSON payloads as multi part request\",\n        \"operationId\": \"multiFilesInMultiPart\",\n        \"requestBody\": {\n          \"content\": {\n            \"multipart/form-data\": {\n              \"schema\": {\n                \"required\": [\n                  \"params\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                  \"file1\": {\n                    \"type\": \"string\",\n                    \"description\": \"This is file1\",\n                    \"format\": \"binary\"\n                  },\n                  \"file2\": {\n                    \"type\": \"string\",\n                    \"description\": \"This is file2\",\n                    \"format\": \"binary\"\n                  },\n                  \"params\": {\n                    \"$ref\": \"#/components/schemas/JsonRequest\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"JsonRequest\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          }\n        },\n        \"description\": \"This is the configuration\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app119.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app119.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/multi\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

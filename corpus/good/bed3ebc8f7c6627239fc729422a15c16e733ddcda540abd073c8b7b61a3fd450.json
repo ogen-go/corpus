@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cristianchaparroa/fama"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/swagger-spec/openapi.yaml",
+			"byteSize": 3235,
+			"content": "openapi: 3.0.0\ninfo:\n  title: FAMA\n  version: \"1.0.0\"\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\nservers:\n  - url: 'https://api.qa.juntosxmexico.mx/'\n  - url: 'https://api.juntosxmexico.mx/'\npaths:\n  /health/:\n    get:\n      operationId: api.jxm.health\n      summary: It verifies if the services is alive.\n      responses:\n        '200':\n          description: This will return a 200 status code while the service is available\n\n  /numbers/{number}/words:\n    get:\n      parameters:\n        - in: path\n          name: number\n          schema:\n            type: integer\n          required: true\n          description: It is the number to generates the words\n\n        - in: query\n          name: lang\n          schema:\n            type: string\n          description: The language in which will be generate the number in words. If is not specified by the default the language will be English.\n           The following are the languages supported en,fr, it, es, se,nl,tr,pt, pl, ru, ir, id,jp\n      operationId: fama.numbers.to.words\n      summary: It generates a number in words\n      responses:\n        '200':\n          description: It generates a number in words\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NumbersToWordsResponse'\n        '422':\n          $ref: '#/components/responses/422'\n        '400':\n          $ref: '#/components/responses/400'\n\ncomponents:\n  parameters:\n    platform:\n      in: header\n      name: platform\n      required: true\n      description: Platform sending the request.\n      schema:\n        type: string\n    language:\n      in: header\n      name: language\n      required: true\n      description: language\n      schema:\n        type: string\n  responses:\n    '400':\n      description: 'Bad request, client error.'\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n    '422':\n      description: Unprocessable Entity\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n\n  schemas:\n    Error:\n      type: object\n      properties:\n        status:\n          type: integer\n          description: 'Error code, usually equivalent to the HTTP status code.'\n          example: 400\n        title:\n          type: string\n          description: 'Human-readable error explanation, if available.'\n          example: 'The number is invalid'\n        invalid_params:\n          type: array\n          description: 'Invalid params'\n          items:\n            $ref: '#/components/schemas/InvalidParam'\n\n    InvalidParam:\n      type: object\n      properties:\n        name:\n          type: string\n          example: 'number'\n        reason:\n          type: string\n          example: 'The number is invalid'\n        code:\n          type: string\n          example: 'invalid-number'\n          enum:\n            - \"ivalid number\"\n\n    NumbersToWordsResponse:\n      type: object\n      properties:\n        status:\n          type: string\n          example: \"ok\"\n        name_in_words:\n          type: string\n          example: 'neuf cent quarante'\n        lang:\n          type: string\n          example: \"fr\"",
+			"canonicalURL": "/github.com/cristianchaparroa/fama@a4bb1ca3eaad2ea6ab502fb0bc45373d915919c4/-/blob/api/swagger-spec/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cristianchaparroa/fama/blob/a4bb1ca3eaad2ea6ab502fb0bc45373d915919c4/api/swagger-spec/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

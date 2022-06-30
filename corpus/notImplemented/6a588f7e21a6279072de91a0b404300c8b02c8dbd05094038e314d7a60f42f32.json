@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "gitlab.com/radix-ai/challenge"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "api.yml",
+			"byteSize": 2952,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: \"1.1.0\"\n  title: \"Movie genres API\"\ntags:\n  - name: Movie genres\n\npaths:\n  /genres/train:\n    post:\n      summary: \"Train a model that predicts a movie's genres\"\n      tags:\n        - Movie genres\n      requestBody:\n        description: |\n          This endpoint receives a CSV with the columns `movie_id`, `year`, `synopsis`, and `genres`. The latter is a space-separated list of at most 5 genres that apply to the movie.\n        required: true\n        content:\n          text/csv:\n            schema:\n              $ref: \"#/components/schemas/Movie\"\n            example: |\n              movie_id,year,synopsis,genres\n              31711,2001,\"Harry Potter is a young wizard.\",Fantasy Drama Adventure Children Mystery\n      responses:\n        \"200\":\n          description: \"The model was trained successfully\"\n  /genres/predict:\n    post:\n      summary: \"Predict genres for one or more movies\"\n      tags:\n        - Movie genres\n      requestBody:\n        description: |\n          This endpoint receives a CSV with the columns `movie_id`, `year` and `synopsis`. It must return a CSV with the columns `movie_id` and `predicted_genres` where the latter is a space-separated list of exactly 5 genres.\n        required: true\n        content:\n          text/csv:\n            schema:\n              $ref: \"#/components/schemas/MovieToPredict\"\n            example: |\n              movie_id,year,synopsis\n              13303,2001,\"Frodo Baggins is a young hobbit.\"\n      responses:\n        \"200\":\n          description: \"The top 5 predicted movie genres\"\n          content:\n            text/csv:\n              schema:\n                $ref: \"#/components/schemas/PredictedGenres\"\n              example: |\n                movie_id,predicted_genres\n                29576,Fantasy Drama Adventure Children Mystery\n\ncomponents:\n  schemas:\n    Movie:\n      required:\n      - year\n      - synopsis\n      - genres\n      properties:\n        year:\n          type: integer\n          description: \"A movie release year.\"\n          example: 2001\n        synopsis:\n          type: string\n          description: \"A movie synopsis.\"\n          example: \"Harry Potter is a young wizard.\"\n        genres:\n          type: string\n          description: \"A list of at most 5 space-delimited movie genres.\"\n          example: \"Adventure Children Fantasy Mystery\"\n    MovieToPredict:\n      required:\n      - year\n      - synopsis\n      properties:\n        year:\n          type: integer\n          description: \"A movie release year.\"\n          example: 2001\n        synopsis:\n          type: string\n          description: \"A movie synopsis.\"\n          example: \"Frodo Baggins is a young hobbit.\"\n    PredictedGenres:\n      required:\n      - predicted_genres\n      properties:\n        predicted_genres:\n          type: string\n          description: \"A list of 5 space-delimited movie genres.\"\n          example: \"Fantasy Drama Adventure Action Mystery\"\n",
+			"canonicalURL": "/gitlab.com/radix-ai/challenge@8acad470cbaa5af2613ed1f60e683db355fc7b9d/-/blob/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://gitlab.com/radix-ai/challenge/blob/8acad470cbaa5af2613ed1f60e683db355fc7b9d/api.yml",
+					"serviceKind": "GITLAB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/genres/predict\": post: requestBody: contents: unsupported content types: [text/csv]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

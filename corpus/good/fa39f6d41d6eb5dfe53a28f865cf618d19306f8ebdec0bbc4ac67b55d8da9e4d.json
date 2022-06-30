@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "string-test.yml",
+			"size": 0,
+			"path": "security/tests/string-test.yml",
+			"byteSize": 951,
+			"content": "components:\n  schemas:\n    # String\n    ko_string_wild:\n      description: lacks everything\n      type: string\n    ko_string_no_pattern: \u0026basestring\n      type: string\n      maxLength: 1\n    ok_empty_string:\n      type: string\n      maxLength: 0\n      pattern: ''\n    ok_string_pattern_format:\n      \u003c\u003c: *basestring\n      pattern: '[a-z]+'\n      format: email\n    ok_string_datetime:\n      type: string\n      format: 'date-time'\n    ok_string_date:\n      type: string\n      format: 'date'\n    ok_pattern:\n      \u003c\u003c: *basestring\n      pattern: '[a-z]+'\n    ok_format:\n      \u003c\u003c: *basestring\n      format: date-time\n    ok_enum:\n      description: |-\n        Enum don't need maxLength/pattern/format\n      type: string\n      enum:\n        - \"one\"\n        - \"two\"\n        - \"three\"\nopenapi: 3.0.1\npaths:\n  /string-ko-params:\n    parameters:\n      - name: ko_1\n        in: query\n        schema:\n          type: string\ninfo:\n  version: 1.0.0\n  title: ciao\n\n\n",
+			"canonicalURL": "/github.com/italia/api-oas-checker@f6f4e6e360b2ce9816dcca29396571dda1c6027d/-/blob/security/tests/string-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/f6f4e6e360b2ce9816dcca29396571dda1c6027d/security/tests/string-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

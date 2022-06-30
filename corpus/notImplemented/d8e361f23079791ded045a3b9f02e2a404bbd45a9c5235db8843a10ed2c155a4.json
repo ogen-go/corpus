@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_auth.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/security/expected_auth.yml",
+			"byteSize": 1317,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /api1/{p1}:\n    get:\n      operationId: getApi1P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - httpAuth: []\n  /api2/{p1}:\n    get:\n      operationId: getApi2P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - httpAuth: []\n  /api3/{p1}:\n    get:\n      operationId: getApi3P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - apiKeyAuth: []\ncomponents:\n  securitySchemes:\n    apiKeyAuth:\n      type: apiKey\n      name: apikey\n      in: header\n    httpAuth:\n      type: http\n      scheme: bearer",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/security/expected_auth.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/security/expected_auth.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api2/{p1}\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

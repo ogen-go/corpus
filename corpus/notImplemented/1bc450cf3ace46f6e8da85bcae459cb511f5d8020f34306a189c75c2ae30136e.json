@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RWTH-ACS/clonemap"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/stub/openapi.yaml",
+			"byteSize": 3494,
+			"content": "# Copyright 2020 Institute for Automation of Complex Power Systems,\n# E.ON Energy Research Center, RWTH Aachen University\n#\n# This project is licensed under either of\n# - Apache License, Version 2.0\n# - MIT License\n# at your option.\n#\n# Apache License, Version 2.0:\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n# MIT License:\n#\n# Permission is hereby granted, free of charge, to any person obtaining a copy\n# of this software and associated documentation files (the \"Software\"), to deal\n# in the Software without restriction, including without limitation the rights\n# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n# copies of the Software, and to permit persons to whom the Software is\n# furnished to do so, subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included in\n# all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n# THE SOFTWARE.\n\nopenapi: \"3.0.0\"\ninfo:\n  version: \"1.0\"\n  title: Local Stub\n  description: API of the local stub for local Kubernetes emulation\nservers:\n  - url: http://localhost:9000\npaths:\n  /api/agencies:\n    get:\n      description: returns basic information about all agencies\n      responses:\n        '200':\n          description: OK - agency information\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/StubAgencyConfig'\n    post:\n      description: create a new agency\n      requestBody:\n        description: configuration of new agency\n        content:\n          applications/json:\n            schema:\n              $ref: '#/components/schemas/StubAgencyConfig'\n        required: true\n      responses:\n        '201':\n          description: Created\ncomponents:\n  schemas:\n    StubAgencyConfig:\n      description: configuration of agency container\n      properties:\n          masid:\n            description: ID of MAS for pod name\n            type: integer\n          agencyid:\n            description: unique ID of agency\n            type: integer\n          imid:\n            description: unique ID of image group\n            type: integer\n          image:\n            description: name of docker image\n            type: string\n          logger:\n            description: switch for logging module\n            type: boolean\n          mqtt:\n            description: switch for MQTT module\n            type: boolean\n          df:\n            description: switch for DF module\n            type: boolean",
+			"canonicalURL": "/github.com/RWTH-ACS/clonemap@baee2c72b39adc0c2d086e61c49912130d2ddb66/-/blob/api/stub/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RWTH-ACS/clonemap/blob/baee2c72b39adc0c2d086e61c49912130d2ddb66/api/stub/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/agencies\": post: requestBody: contents: unsupported content types: [applications/json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

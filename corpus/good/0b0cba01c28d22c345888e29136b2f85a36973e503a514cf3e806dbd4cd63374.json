@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/KNowledgeOnWebScale/walder"
+		},
+		"file": {
+			"name": "config-lenient.yaml",
+			"size": 0,
+			"path": "test/resources/config-lenient.yaml",
+			"byteSize": 1173,
+			"content": "openapi: 3.0.2\ninfo: # OpenAPI metadata\n  title: \"Test lenient\"\n  version: 0.0.1\nx-walder-resources:\n  root: .\n  views: views\n\npaths:\n  /bad-jsonld:\n    get:\n      summary: Returns contact information.\n      x-walder-query:\n        graphql-query: \u003e\n          {\n            id(_:KNOWS)\n            location @single {\n              name @single\n              address @single\n            }\n          }\n        json-ld-context: \u003e\n          {\n            \"@context\": {\n              \"schema\": \"http://schema.org/\",\n              \"location\": \"schema:location\",\n              \"address\": \"schema:address\",\n              \"name\": \"schema:name\",\n              \"KNOWS\": \"https://data.knows.idlab.ugent.be/person/office/#\"\n            }\n          }\n        datasources:\n          sources:\n            - https://data.knows.idlab.ugent.be/person/office/#\n            - https://data.vlaanderen.be/id/adres/20470097\n      responses:\n        200:\n          x-walder-input-text/html: lenient.pug\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n",
+			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@dd3aaa9022006d379daac13ea20f49d77ad7f835/-/blob/test/resources/config-lenient.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/dd3aaa9022006d379daac13ea20f49d77ad7f835/test/resources/config-lenient.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

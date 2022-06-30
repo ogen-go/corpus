@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "petstore-multiple-required-properties-has-same-oneOf-object.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/petstore-multiple-required-properties-has-same-oneOf-object.yaml",
+			"byteSize": 1291,
+			"content": "openapi: 3.0.1\ninfo:\n  title: My title\n  description: API under test\n  version: 1.0.7\nservers:\n  - url: https://localhost:9999/root\npaths:\n  /pet_preference:\n    post:\n      operationId: postPreference\n      tags:\n        - pet\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/petPreference'\n      responses:\n        201:\n          description: OK\ncomponents:\n  schemas:\n    dog:\n      type: object\n      required:\n        - attr\n      properties:\n        attr:\n          type: string\n          enum:\n            - DOG\n    cat:\n      type: object\n      required:\n        - attr\n      properties:\n        attr:\n          type: string\n          enum:\n            - CAT\n\n    pet:\n      oneOf:\n        - $ref: '#/components/schemas/dog'\n        - $ref: '#/components/schemas/cat'\n      discriminator:\n        propertyName: attr\n        mapping:\n          DOG: '#/components/schemas/dog'\n          CAT: '#/components/schemas/cat'\n\n    petPreference:\n      type: object\n      required:\n        - pet1\n        - pet2\n        - pet3\n      properties:\n        pet1:\n          $ref: '#/components/schemas/pet'\n        pet2:\n          $ref: '#/components/schemas/pet'\n        pet3:\n          $ref: '#/components/schemas/pet'\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/petstore-multiple-required-properties-has-same-oneOf-object.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/petstore-multiple-required-properties-has-same-oneOf-object.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

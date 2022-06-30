@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "issue455.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/issues/issue455.yaml",
+			"byteSize": 877,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Server\n  version: \"1.0\"\nservers:\n  - url: 'http://localhost:8000'\npaths:\n  /v1/Boo:\n    post:\n      summary: Test resource\n      operationId: boo\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/RecursiveData\"\n      responses:\n        200:\n          description: Ok\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/RecursiveData\"\n\ncomponents:\n  schemas:\n    RecursiveData:\n      type: object\n      description: Represents a recursive nested object\n      required: [id, display_name]\n      properties:\n        id:\n          type: integer\n          format: int64\n        display_name:\n          type: string\n        nesting:\n          $ref: \"#/components/schemas/RecursiveData\"\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/issues/issue455.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/issues/issue455.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

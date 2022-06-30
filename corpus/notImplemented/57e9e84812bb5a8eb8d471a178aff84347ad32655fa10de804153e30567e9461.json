@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse-dataspaceconnector/DataSpaceConnector"
+		},
+		"file": {
+			"name": "http-provisioner.yaml",
+			"size": 0,
+			"path": "resources/openapi/yaml/http-provisioner.yaml",
+			"byteSize": 1981,
+			"content": "openapi: 3.0.1\npaths:\n  /callback/{processId}/deprovision:\n    post:\n      operationId: callDeprovisionWebhook\n      parameters:\n      - in: path\n        name: processId\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/DeprovisionedResource'\n      responses:\n        default:\n          content:\n            application/json: {}\n          description: default response\n      tags:\n      - HTTP Provisioner Webhook\n  /callback/{processId}/provision:\n    post:\n      operationId: callProvisionWebhook\n      parameters:\n      - in: path\n        name: processId\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProvisionerWebhookRequest'\n      responses:\n        default:\n          content:\n            application/json: {}\n          description: default response\n      tags:\n      - HTTP Provisioner Webhook\ncomponents:\n  schemas:\n    DataAddress:\n      type: object\n      properties:\n        properties:\n          type: object\n          additionalProperties:\n            type: string\n    DeprovisionedResource:\n      type: object\n      properties:\n        error:\n          type: boolean\n        errorMessage:\n          type: string\n        inProcess:\n          type: boolean\n        provisionedResourceId:\n          type: string\n    ProvisionerWebhookRequest:\n      type: object\n      properties:\n        apiToken:\n          type: string\n        assetId:\n          type: string\n        contentDataAddress:\n          $ref: '#/components/schemas/DataAddress'\n        hasToken:\n          type: boolean\n        resourceDefinitionId:\n          type: string\n        resourceName:\n          type: string\n      required:\n      - assetId\n      - contentDataAddress\n      - resourceDefinitionId\n      - resourceName\n",
+			"canonicalURL": "/github.com/eclipse-dataspaceconnector/DataSpaceConnector@fb4dd6757031c256573696e1c63e9ec98f53eb6f/-/blob/resources/openapi/yaml/http-provisioner.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/blob/fb4dd6757031c256573696e1c63e9ec98f53eb6f/resources/openapi/yaml/http-provisioner.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/callback/{processId}/provision\": post: responses: default: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

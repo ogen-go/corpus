@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "cache_config_03.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/response/cache_config_03.yaml",
+			"byteSize": 812,
+			"content": "openapi: 3.0.1\ninfo:\n  title: PayloadV\n  version: 0.0.0\nservers:\n  - url: \"{server}:{port}/payloadV\"\n    variables:\n      server:\n        default: http://localhost\n      port:\n        default: \"9090\"\npaths:\n  /cachingBackEnd:\n    get:\n      operationId: getCachingbackend\n      responses:\n        \"200\":\n          description: Ok\n          headers:\n            Cache-Control:\n              schema:\n                type: string\n                default: \"must-revalidate,no-cache=\\\"field03,fields04\\\",private=\\\"\\\n                  field1,filed2\\\",max-age=5\"\n            ETag:\n              schema:\n                type: string\n            Last-Modified:\n              schema:\n                type: string\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents: {}\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/response/cache_config_03.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/response/cache_config_03.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/cachingBackEnd\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

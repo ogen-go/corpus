@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtron-labs/devtron"
+		},
+		"file": {
+			"name": "environment.yaml",
+			"size": 0,
+			"path": "specs/environment.yaml",
+			"byteSize": 2730,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Devtron Labs\npaths:\n  /orchestrator/env/namespace/autocomplete:\n    get:\n      description: list of namespaces group by clusters\n      parameters:\n        - in: query\n          name: ids\n          example: \"1,2\"\n          description: cluster ids\n          required: true\n          allowEmptyValue: false\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: list response\n          content:\n            application/json:\n              schema:\n                properties:\n                  code:\n                    type: integer\n                    description: status code\n                  status:\n                    type: string\n                    description: status\n                  result:\n                    type: array\n                    description: namespace list group by cluster\n                    items:\n                      $ref: '#/components/schemas/Cluster'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\n# components mentioned below\ncomponents:\n  schemas:\n    Cluster:\n      type: object\n      required:\n        - key\n        - value\n      properties:\n        clusterId:\n          type: integer\n          description: cluster id\n        clusterName:\n          type: string\n          description: cluster name\n        environments:\n          type: array\n          items:\n            $ref: '#/components/schemas/Environment'\n    Environment:\n      type: object\n      properties:\n        environmentId:\n          type: integer\n          description: cluster id\n        environmentName:\n          type: string\n          description: cluster name\n        environmentIdentifier:\n          type: string\n          description: environment identifier\n        namespace:\n          type: string\n          description: namespace\n\n    ErrorResponse:\n      required:\n        - code\n        - status\n      properties:\n        code:\n          type: integer\n          format: int32\n          description: Error code\n        status:\n          type: string\n          description: Error message\n        errors:\n          type: array\n          description: errors\n          items:\n            $ref: '#/components/schemas/Error'\n\n    Error:\n      required:\n        - code\n        - status\n      properties:\n        code:\n          type: integer\n          format: int32\n          description: Error internal code\n        internalMessage:\n          type: string\n          description: Error internal message\n        userMessage:\n          type: string\n          description: Error user message",
+			"canonicalURL": "/github.com/devtron-labs/devtron@62f6101b37819e1ac319a744bbf3438184f0c8d5/-/blob/specs/environment.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtron-labs/devtron/blob/62f6101b37819e1ac319a744bbf3438184f0c8d5/specs/environment.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

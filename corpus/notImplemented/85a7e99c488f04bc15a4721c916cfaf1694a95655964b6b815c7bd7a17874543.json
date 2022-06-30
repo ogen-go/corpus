@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mu-box/core"
+		},
+		"file": {
+			"name": "hoarder-warehouse-api.yaml",
+			"size": 0,
+			"path": "docs/servers/hoarder-warehouse-api.yaml",
+			"byteSize": 2719,
+			"content": "openapi: 3.0.0\n# Added by API Auto Mocking Plugin\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/danhunsaker/hoarder-warehouse/1.0.0\n  - description: Individual application server\n    url: https://{host}:7410\n    variables:\n      host:\n        default: ''\n        description: The host IP of the server\ninfo:\n  version: '1.0.0'\n  title: 'Hoarder Data Warehouse API'\n  description: 'The API spec for the Hoarder data warehouse component.'\npaths:\n  /ping:\n    get:\n      summary: Check Hoarder status\n      security: []\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: |\n                pong\n  /blobs:\n    get:\n      summary: List all blobs\n      tags: [blobs]\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    Name:\n                      type: string\n                    Size:\n                      type: integer\n                    ModTime:\n                      type: string\n              example:\n                - Name: app-Al4eXxxs183nGacj8ITfhaNJn235pM.tgz\n                  Size: 490020874\n                  ModTime: '2020-01-17T04:43:58.319309789Z'\n  /blobs/{name}:\n    parameters:\n      - name: name\n        in: path\n        required: true\n        schema:\n          type: string\n    get:\n      summary: Retrieve a blob\n      tags: [blobs]\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: test\n    post:\n      summary: Publish a new blob\n      tags: [blobs]\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n            example: data\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: \"'test' created!\"\n    put:\n      summary: Update an existing blob\n      tags: [blobs]\n      requestBody:\n        content:\n          text/plain:\n            schema:\n              type: string\n            example: data\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: \"'test' created!\"\n    delete:\n      summary: Remove an existing blob\n      tags: [blobs]\n      responses:\n        200:\n          description: ''\n          content:\n            text/plain:\n              example: \"'test' destroyed!\"\ncomponents:\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: X-Auth-Token\n      in: header\nsecurity:\n - Token: []\n",
+			"canonicalURL": "/github.com/mu-box/core@a66c79bb43fe850bcd6c1ede58051555e1736204/-/blob/docs/servers/hoarder-warehouse-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mu-box/core/blob/a66c79bb43fe850bcd6c1ede58051555e1736204/docs/servers/hoarder-warehouse-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/blobs/{name}\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

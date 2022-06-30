@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/docs-is"
+		},
+		"file": {
+			"name": "permission-management.yaml",
+			"size": 0,
+			"path": "en/docs/apis/restapis/permission-management.yaml",
+			"byteSize": 2388,
+			"content": "openapi: 3.0.0\ninfo:\n  description: \u003e\n    This document specifies a **UI Permission Management RESTful API** for\n    **WSO2 Identity Server** \n  version: \"v1\"\n  title: WSO2 Identity Server - Identity Provider Management API definition\n  contact:\n    name: WSO2\n    url: 'http://wso2.com/products/identity-server/'\n    email: architecture@wso2.org\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\nsecurity:\n  - OAuth2: []\n  - BasicAuth: []\npaths:\n  /permission-management/permissions:\n    get:\n      tags:\n        - permissions\n      summary: |\n        List permissions in the permission tree\n      description: \u003e\n        This API provides the array list of permissions in the UI permission\n        tree.\n      responses:\n        '200':\n          description: Successful Response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PermissionTreeObject'\n        '401':\n          description: Unauthorized\n        '403':\n          description: Forbidden\n        '500':\n          description: Server Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n      x-wso2-request: ''\n      x-wso2-response: |\n        \"HTTP/1.1 200 Ok\"\nservers:\n  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\n    OAuth2:\n      type: oauth2\n      flows:\n        authorizationCode:\n          authorizationUrl: 'https://localhost:9443/oauth2/authorize'\n          tokenUrl: 'https://localhost:9443/oauth2/token'\n          scopes: {}\n  schemas:\n    PermissionTreeObject:\n      type: array\n      items:\n        $ref: '#/components/schemas/Permission'\n\n    Permission:\n      type: object\n      properties:\n        displayName:\n          type: string\n          example: admin permissions\n        resourcePath:\n          type: string\n          example: /permissions\n\n    Error:\n      type: object\n      properties:\n        code:\n          type: string\n          example: AAA-00000\n        message:\n          type: string\n          example: Some Error Message\n        description:\n          type: string\n          example: Some Error Description\n        traceId:\n          type: string\n          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047\n\n",
+			"canonicalURL": "/github.com/wso2/docs-is@f2d50568ff23afffacf786beeec7725e7e41fd60/-/blob/en/docs/apis/restapis/permission-management.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/docs-is/blob/f2d50568ff23afffacf786beeec7725e7e41fd60/en/docs/apis/restapis/permission-management.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/permission-management/permissions\": get: security: security \"OAuth2\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

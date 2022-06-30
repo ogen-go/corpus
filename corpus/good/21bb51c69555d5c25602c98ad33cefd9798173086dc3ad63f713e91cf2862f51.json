@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/GSA/open-gsa-redesign"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "_apidocs/searchgov-suggestions/v1/openapi.yml",
+			"byteSize": 1827,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Search.gov Type-Ahead Search Suggestions API\n  description: \u003e-\n    Search.gov is a service of the General Services Administration, providing search engine capability to federal agencies for their public websites. This API is specific to Search.gov and exposes the type-ahead suggestions that can appear below your search box as searchers enter their search terms.\n  version: \"2.0\"\npaths:\n  /suggestions/:\n    get:\n      summary: Type-Ahead Search Suggestions\n      parameters:\n        - name: name\n          in: query\n          description: 'The value for the `name` parameter is your site handle on the Settings page.'\n          required: true\n          schema:\n            type: string\n            format: string\n        - name: q\n          in: query\n          description: 'The characters entered by the users in the search box send a new call for each additional keystroke.'\n          required: true\n          schema:\n            type: string\n            format: string\n        \n      tags:\n        - search\n      \n      responses:\n        '200':\n            description: You will see an array of suggestions. Suggestions are derived from the searches performed on your website. Up to five suggestions related to your visitors' search term are returned and are updated in near real time. A given term/phrase must be searched 5 times in a 24 hour period to appear as a suggestion.\n            content:\n                application/json:\n                    schema:\n                        type: array\n                        items:\n                            type: string\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: X-API-KEY\n      \nsecurity: \n  - ApiKeyAuth: []\n                \nservers:\n  - url: 'https://api.gsa.gov/technology/searchgov/v1'",
+			"canonicalURL": "/github.com/GSA/open-gsa-redesign@3aafdb8358076ab75e0224c74d0d05b75074516c/-/blob/_apidocs/searchgov-suggestions/v1/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/GSA/open-gsa-redesign/blob/3aafdb8358076ab75e0224c74d0d05b75074516c/_apidocs/searchgov-suggestions/v1/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

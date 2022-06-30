@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tsearch-io/tsearch"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "api.yml",
+			"byteSize": 1907,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 2.0.0\n  title: Tsearch API\n  license:\n    name: MIT\nservers:\n  - url: https://api.tsearch.io\npaths:\n  /v1/search:\n    get:\n      operationId: search\n      summary: Search for TypeScript functions and types\n      parameters:\n        - \"$ref\": \"#/components/parameters/search\"\n      responses:\n        \"200\":\n          description: List of search results\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/SearchResult\"\n\n        \"404\":\n          description: No results found\n\n        \"422\":\n          description: Request is not valid\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/SearchError\"\n\ncomponents:\n  parameters:\n    search:\n      name: q\n      in: query\n      required: true\n      schema:\n        type: string\n        example: \"A =\u003e A[]\"\n  schemas:\n    FunctionOrType:\n      type: string\n      enum:\n        - func\n        - type\n\n    Function:\n      type: object\n      required:\n        - type\n        - name\n      properties:\n        type:\n          \"$ref\": \"#/components/schemas/FunctionOrType\"\n        name:\n          type: string\n          example: toLowerCase\n\n    Type:\n      type: object\n      required:\n        - type\n        - name\n      properties:\n        type:\n          \"$ref\": \"#/components/schemas/FunctionOrType\"\n        name:\n          type: string\n          example: Option\n\n    SearchResult:\n      discriminator:\n        propertyName: type\n        mapping:\n          func: \"#/components/schemas/Function\"\n          type: \"#/components/schemas/Type\"\n      oneOf:\n        - \"$ref\": \"#/components/schemas/Function\"\n        - \"$ref\": \"#/components/schemas/Type\"\n\n    SearchError:\n      type: string\n      enum:\n        - inavlid-query\n        - missing-query\n",
+			"canonicalURL": "/github.com/tsearch-io/tsearch@e8f1bfa98dddb14aa461ebe1331c1144ef4351b6/-/blob/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tsearch-io/tsearch/blob/e8f1bfa98dddb14aa461ebe1331c1144ef4351b6/api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

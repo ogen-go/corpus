@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_enumeration_values.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/expected_enumeration_values.yml",
+			"byteSize": 739,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Numbers\n  version: '1.0'\npaths:\n  /numbers:\n    get:\n      operationId: getNumbers\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Number'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Number:\n      required:\n        - value\n      type: object\n      properties:\n        value:\n          $ref: '#/components/schemas/Numbers'\n    Numbers:\n      type: string\n      enum:\n        - One\n        - Two\n        - Three",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/expected_enumeration_values.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/expected_enumeration_values.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/numbers\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

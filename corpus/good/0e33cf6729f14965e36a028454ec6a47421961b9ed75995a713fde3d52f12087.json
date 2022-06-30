@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kearch/kearch"
+		},
+		"file": {
+			"name": "sp_gateway_spec.yaml",
+			"size": 0,
+			"path": "packages/sp-gateway/sp_gateway_spec.yaml",
+			"byteSize": 3292,
+			"content": "openapi: 3.0.0\ninfo:\n  title: kearch specialist search engine gateway API\n  description: kearch specialist search engine gateway API\n  version: 0.1.0\nservers:\n  - url: '{scheme}://{sp_host}:{port}/v0/sp/gateway'\n    variables:\n      scheme:\n        enum:\n          - http\n          - https\n        default: https\n      sp_host:\n        default: localhost\n      port:\n        default: '32500'\npaths:\n  /get_a_summary:\n    get:\n      summary: Get summary of this specialist server.\n      parameters:\n        - in: query\n          name: me_host\n          schema:\n            type: string\n          description: A host name of the meta server.\n      responses:\n        '200':\n          description: A summary of this specialist server.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Summary'\n  /add_a_connection_request:\n    post:\n      summary: Add a connection request sent from meta server to specialist server.\n      requestBody:\n        description: A connection request.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ConnectionRequestOnSP'\n      responses:\n        '200':\n          description: An info about the meta server that requested the connection.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  me_host:\n                    type: string\n  /delete_a_connection_request:\n    post:\n      summary: Delete a connection request sent from meta server to specialist server.\n      parameters:\n        - in: query\n          name: me_host\n          schema:\n            type: string\n          description: A meta host name of the connection request to delete.\n      responses:\n        '200':\n          description: An info about the meta server that requested the connection.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  me_host:\n                    type: string\n  /retrieve:\n    get:\n      summary: Retrieve search results.\n      parameters:\n        - in: query\n          name: queries\n          schema:\n            type: string\n          description: Space-separated query words\n        - in: query\n          name: max_urls\n          schema:\n            type: integer\n          description: Max number of URLs to retrive from specialist servers\n      responses:\n        '200':\n          description: Search results.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Document'\n\ncomponents:\n  schemas:\n    ConnectionRequestOnSP:\n      properties:\n        me_host:\n          type: string\n        scheme:\n          type: string\n    Summary:\n      properties:\n        sp_host:\n          type: string\n        engine_name:\n          type: string\n        dump:\n          type: object\n          additionalProperties:\n            type: integer\n    Document:\n      properties:\n        url:\n          type: string\n        title:\n          type: string\n        description:\n          type: string\n        score:\n          type: number\n",
+			"canonicalURL": "/github.com/kearch/kearch@5ea5191b467cab34994551ec553b4f24cd8b6eaf/-/blob/packages/sp-gateway/sp_gateway_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kearch/kearch/blob/5ea5191b467cab34994551ec553b4f24cd8b6eaf/packages/sp-gateway/sp_gateway_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

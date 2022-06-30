@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kawasima/bouncr"
+		},
+		"file": {
+			"name": "bouncr-spec.yaml",
+			"size": 0,
+			"path": "bouncr-hook-email/src/main/resources/bouncr-spec.yaml",
+			"byteSize": 1505,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.2.8\n  title: The Specification of the e-mail extension for Bouncr\n  description: |\n    Bouncr is a reverse proxy with authenticate and authorization.\n  license:\n    name: EPL 2.0\nservers:\n- url: http://localhost:3000/bouncr/api\npaths:\n  /verification/{account}/email:\n    parameters:\n    - $ref: '#/components/parameters/BouncrCredential'\n    - name: account\n      in: path\n      required: true\n      schema:\n        type: string\n      example: user1\n    put:\n      summary: Send a verification via e-mail\n      operationId: sendEmailVerification\n      tags:\n        - Verification\n      responses:\n        204:\n          description: Sent a verification mail\ncomponents:\n  parameters:\n    Query:\n      name: q\n      description: Keywords for searching\n      in: query\n      schema:\n        type: string\n    Limit:\n      name: limit\n      description: The limit to restrict the number of entries on a page\n      in: query\n      schema:\n        type: integer\n        format: int64\n    Offset:\n      name: offset\n      description: The numeric offset of the first element on a page\n      in: query\n      schema:\n        type: integer\n        format: int64\n    Embed:\n      name: embed\n      description: To expand or embedded sub-entities\n      in: query\n      schema:\n        type: string\n    BouncrCredential:\n      name: X-Bouncr-Credential\n      description: Bouncr credential\n      in: header\n      schema:\n        type: string\n        x-json-spec: BouncrCredential\n\n\n",
+			"canonicalURL": "/github.com/kawasima/bouncr@d32fea91cb46e577e94fff7dcf7d5733fb36b54d/-/blob/bouncr-hook-email/src/main/resources/bouncr-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kawasima/bouncr/blob/d32fea91cb46e577e94fff7dcf7d5733fb36b54d/bouncr-hook-email/src/main/resources/bouncr-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

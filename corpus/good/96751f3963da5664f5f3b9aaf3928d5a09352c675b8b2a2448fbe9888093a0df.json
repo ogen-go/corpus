@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "valuePropInExample.yaml",
+			"size": 0,
+			"path": "test/data/valid_openapi/valuePropInExample.yaml",
+			"byteSize": 3175,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.1.1'\n  title: 'ExampleYaml'\n  license:\n    name: MIT\nservers:\n  - url: 'localhost:3000'\npaths:\n  /user:\n    get:\n      summary: 'Sample endpoint: Returns details about a particular user'\n      operationId: listUser\n      tags:\n        - user\n      parameters:\n        - name: id\n          in: query\n          description: ID of the user\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: 'Sample response: Details about a user by ID'\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n              example:\n                id: \"5789-6378-6372-6372\"\n                name: Vani\n                tag: true\n                value: QA\n                lastmodifieddate: \"2022-03-30T07:01:46\"\n                lastmodifiedBy: VM\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n  /pet:\n    get:\n      summary: 'Sample endpoint: Returns details about a particular pet'\n      operationId: listPet\n      tags:\n        - pet\n      parameters:\n        - name: id\n          in: query\n          description: ID of the pet\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: 'Sample response: Details about a pet by ID'\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  value:\n                    type: string\n              example:\n                id: \"5789-6378-6372-6372\"\n                value: QA\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - id\n        - name\n        - tag\n        - value\n        - lastmodifieddate\n        - lastmodifiedBy\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n        value:\n          type: string\n        lastmodifieddate:\n          type: integer\n          format: int64\n        lastmodifiedBy:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\nsecurity:\n  - BasicAuth: []\n",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@6df66da0d6b708e51eb3323d0ff917fd2389b2e7/-/blob/test/data/valid_openapi/valuePropInExample.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/6df66da0d6b708e51eb3323d0ff917fd2389b2e7/test/data/valid_openapi/valuePropInExample.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

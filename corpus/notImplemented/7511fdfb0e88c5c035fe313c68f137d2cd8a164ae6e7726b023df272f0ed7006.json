@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Microservice-API-Patterns/MDSL-Specification"
+		},
+		"file": {
+			"name": "http-binding-map-mimetypes.yaml",
+			"size": 0,
+			"path": "dsl-core/io.mdsl.tests/test-data/openapi-generation/http-binding-map-mimetypes.yaml",
+			"byteSize": 3775,
+			"content": "openapi: 3.0.1\ninfo:\n  title: MAPDecoratorAndMIMETest\n  description: PUBLIC_API FRONTEND_INTEGRATION\n  version: \"1.0\"\nservers:\n- url: https://some.sample.domain/mvcEndpoint\ntags:\n- name: FlexibleAndAdaptiveAPIProvider-self\n  externalDocs:\n    description: MultiRepresentationResource contract, Processing Resource role\n    url: https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/ProcessingResource.html\npaths:\n  /self:\n    summary: activity-oriented endpoint\n    put:\n      tags:\n      - FlexibleAndAdaptiveAPIProvider-self\n      summary: testOperation1 (write only method)\n      description: '[State Creation Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/StateCreationOperation.html).'\n      operationId: self-testOperation1\n      requestBody:\n        content:\n          application/xml:\n            schema:\n              $ref: '#/components/schemas/SampleDTOType'\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SampleDTOType'\n      responses:\n        \"200\":\n          description: testOperation1 successful execution\n          content:\n            vnd.application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SampleDTOType'\n            plain/text:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SampleDTOType'\n    post:\n      tags:\n      - FlexibleAndAdaptiveAPIProvider-self\n      summary: testOperation2 (read only method)\n      description: '[Retrieval Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation.html).'\n      operationId: self-testOperation2\n      requestBody:\n        content:\n          vnd.application/json:\n            schema:\n              type: object\n              properties:\n                expecting:\n                  type: integer\n                  description: \u003ca href=\"https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement\"\n                    target=\"_blank\"\u003eData Element\u003c/a\u003e\n                  format: int32\n          vnd.application/xml:\n            schema:\n              type: object\n              properties:\n                expecting:\n                  type: integer\n                  description: \u003ca href=\"https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement\"\n                    target=\"_blank\"\u003eData Element\u003c/a\u003e\n                  format: int32\n      responses:\n        \"200\":\n          description: testOperation2 successful execution\n          content:\n            vnd.application/xml:\n              schema:\n                type: object\n                properties:\n                  deliveringSomeData:\n                    type: string\n                    description: Generic parameter\n            plain/text:\n              schema:\n                type: object\n                properties:\n                  deliveringSomeData:\n                    type: string\n                    description: Generic parameter\ncomponents:\n  schemas:\n    SampleDTOType:\n      type: object\n      properties:\n        data:\n          type: integer\n          description: \u003ca href=\"https://microservice-api-patterns.org/patterns/structure/elementStereotypes/IdElement\"\n            target=\"_blank\"\u003eId Element\u003c/a\u003e\n          format: int32\n          nullable: true\n        formats:\n          minItems: 1\n          type: array\n          description: \u003c\u003cWish_List\u003e\u003e \u003ca href=\"https://microservice-api-patterns.org/patterns/structure/elementStereotypes/MetadataElement\"\n            target=\"_blank\"\u003eMetadata Element\u003c/a\u003e\n          items:\n            type: string\n",
+			"canonicalURL": "/github.com/Microservice-API-Patterns/MDSL-Specification@47e135df5833f4f3f603ed4b906b0d192af4e96a/-/blob/dsl-core/io.mdsl.tests/test-data/openapi-generation/http-binding-map-mimetypes.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Microservice-API-Patterns/MDSL-Specification/blob/47e135df5833f4f3f603ed4b906b0d192af4e96a/dsl-core/io.mdsl.tests/test-data/openapi-generation/http-binding-map-mimetypes.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/self\": put: responses: 200: contents: unsupported content types: [plain/text, vnd.application/json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

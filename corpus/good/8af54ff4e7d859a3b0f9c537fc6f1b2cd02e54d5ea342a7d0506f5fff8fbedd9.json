@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/xuorig/anicca"
+		},
+		"file": {
+			"name": "pet-store.yaml",
+			"size": 0,
+			"path": "fixtures/pet-store.yaml",
+			"byteSize": 2449,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        \"200\":\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  required:\n                    - id\n                    - name\n                  properties:\n                    id:\n                      type: integer\n                      format: int64\n                    name:\n                      type: string\n                    tag:\n                      type: string\n    post:\n      summary: Create a pet\n      operationId: createPets\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                tag_name:\n                  type: string\n                  description: The name of the tag.\n                other:\n                  type: string\n      tags:\n        - pets\n      responses:\n        \"201\":\n          description: Null response\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                type: object\n                required:\n                  - id\n                  - name\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  name:\n                    type: string\n                  tag:\n                    type: string\n",
+			"canonicalURL": "/github.com/xuorig/anicca@16b090874c9714562de846822b0c5868edc89106/-/blob/fixtures/pet-store.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/xuorig/anicca/blob/16b090874c9714562de846822b0c5868edc89106/fixtures/pet-store.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "nullable_string_type.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/schema/swagger/nullable_string_type.yaml",
+			"byteSize": 2246,
+			"content": "openapi: \"3.0.1\"\n\ninfo:\n  title: \"OpenWeather Map API for Query parameter\"\n  description: \"Get current weather, daily forecast for 16 days, and 3-hourly forecast 5 days for your city.\"\n  version: \"2.5.2\"\n  x-ballerina-display:\n    label: Open Weather Client\n\nservers:\n  - url: \"http://api.openweathermap.org/data/2.5/\"\n\npaths:\n  /onecall:\n    get:\n      tags:\n        - Weather Forecast\n      summary: \"Provide weather forecast for any geographical coordinates\"\n      description: \"test\"\n      operationId: getWeatherForecast\n      parameters:\n        - description: \"Latitude\"\n          in: query\n          name: lat\n          required: true\n          schema:\n            $ref: '#/components/schemas/Latitude'\n          x-ballerina-display:\n            label: Latitude\n        - description: \"Longtitude\"\n          in: query\n          name: lon\n          required: true\n          schema:\n            type: string\n          x-ballerina-display:\n            label: Longtitude\n        - description: \"test\"\n          in: query\n          name: exclude\n          required: false\n          schema:\n            type: string\n            default: 'current'\n          x-ballerina-display:\n            label: Exclude\n        - description: 'tests'\n          in: query\n          name: units\n          required: false\n          schema:\n            type: integer\n            default: 12\n          x-ballerina-display:\n            label: Units\n      x-ballerina-display:\n        label: \"Weather Forecast\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema: {}\n        404:\n          description: Not found response\n          content:\n            text/plain:\n              schema:\n                title: Weather not found\n                type: string\n                example: Not found\n\nsecurity:\n  - app_id: []\n\ntags:\n  - name: Current Weather Data\n    description: \"Get current weather details\"\n  - name: Weather Forecast\n    description: \"Get data related to weather forecast\"\ncomponents:\n  schemas:\n    Latitude:\n      type: string\n      nullable: true\n  securitySchemes:\n    app_id:\n      type: apiKey\n      description: API key.\n      name: appid\n      in: query\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/nullable_string_type.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/schema/swagger/nullable_string_type.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/onecall\": get: responses: 404: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

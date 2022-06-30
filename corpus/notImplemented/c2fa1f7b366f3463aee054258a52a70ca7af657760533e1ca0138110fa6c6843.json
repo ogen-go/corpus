@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Intersec/lib-common"
+		},
+		"file": {
+			"name": "iface_a_filtered.yml",
+			"size": 0,
+			"path": "tests/test-data/openapi/iface_a_filtered.yml",
+			"byteSize": 686,
+			"content": "openapi: 3.0.2\ninfo:\n  title: yay\n  version: 0.0.1\nservers:\n  - url: /yay\npaths:\n  /a/funG:\n    post:\n      tags:\n        - a\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Void\"\n      responses:\n        '200':\n          description: RPC success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Void\"\n        default:\n          description: generic error\n          content:\n            text/html:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Void:\n      type: object\ntags:\n  - name: a\n",
+			"canonicalURL": "/github.com/Intersec/lib-common@0fee6db57775fac1314ee5da5b8946b418a192bf/-/blob/tests/test-data/openapi/iface_a_filtered.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Intersec/lib-common/blob/0fee6db57775fac1314ee5da5b8946b418a192bf/tests/test-data/openapi/iface_a_filtered.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/a/funG\": post: responses: default: contents: unsupported content types: [text/html]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

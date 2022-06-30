@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/khanhnguyenj/huongdanjava.com"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi-generator-spring/src/main/resources/openapi.yaml",
+			"byteSize": 2348,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Student Information Management System\n  version: 1.0.0\nservers:\n- url: https://localhost:8081/api\npaths:\n  /students:\n    get:\n      operationId: getStudents\n      responses:\n        \"200\":\n          content:\n            application/json:\n              example:\n              - id: 1\n                code: \"001\"\n                name: Khanh\n              - id: 2\n                code: \"002\"\n                name: Quan\n              schema:\n                items:\n                  $ref: '#/components/schemas/Student'\n                type: array\n          description: Get all students successfully\n      summary: Get all students\n      x-accepts: application/json\n  /students/{id}:\n    delete:\n      operationId: deleteStudentById\n      parameters:\n      - description: Id of the Student\n        explode: false\n        in: path\n        name: id\n        required: true\n        schema:\n          type: string\n        style: simple\n      responses:\n        \"200\":\n          content:\n            application/json:\n              example:\n                message: Student deleted!\n              schema:\n                $ref: '#/components/schemas/Response'\n          description: Delete student information successfully\n      summary: Delete a student by id\n      x-accepts: application/json\n    get:\n      operationId: getStudentById\n      parameters:\n      - description: Id of the Student\n        explode: false\n        in: path\n        name: id\n        required: true\n        schema:\n          type: string\n        style: simple\n      responses:\n        \"200\":\n          content:\n            application/json:\n              example:\n                id: 1\n                code: \"001\"\n                name: Khanh\n              schema:\n                $ref: '#/components/schemas/Student'\n          description: Get student information successfully\n      summary: Get a student by id\n      x-accepts: application/json\ncomponents:\n  schemas:\n    Student:\n      example:\n        code: code\n        name: name\n        id: 0\n      properties:\n        id:\n          format: int64\n          type: integer\n        code:\n          type: string\n        name:\n          type: string\n      type: object\n    Response:\n      example:\n        message: message\n      properties:\n        message:\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/khanhnguyenj/huongdanjava.com@0205170d1e0540b42b75318cb45404c8cf3d9184/-/blob/openapi-generator-spring/src/main/resources/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/khanhnguyenj/huongdanjava.com/blob/0205170d1e0540b42b75318cb45404c8cf3d9184/openapi-generator-spring/src/main/resources/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

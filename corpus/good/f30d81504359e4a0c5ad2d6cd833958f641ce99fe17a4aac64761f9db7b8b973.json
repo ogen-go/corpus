@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/making/spring-socks"
+		},
+		"file": {
+			"name": "doc.yml",
+			"size": 0,
+			"path": "catalog-spec/openapi/doc.yml",
+			"byteSize": 3636,
+			"content": "servers:\n  - description: Local\n    url: 'http://localhost:5001'\n  - url: 'https://sock-catalog.apps.pcfone.io'\n    description: PCF One\n  - url: 'https://sock-catalog.apps.cf.maki.lol'\n    description: CF for K8s\ncomponents:\n  schemas:\n    CountResponse:\n      type: object\n      properties:\n        size:\n          format: int64\n          type: integer\n      x-tags:\n        - Catalog\n    SockResponse:\n      type: object\n      x-tags:\n        - Catalog\n      properties:\n        count:\n          description: Product count\n          format: int32\n          type: integer\n        description:\n          description: Product description\n          type: string\n        id:\n          type: string\n          description: Product identifier\n          format: uuid\n        imageUrl:\n          description: A list of product image URLs\n          type: array\n          items:\n            type: string\n        name:\n          description: Product name\n          type: string\n        price:\n          type: number\n          description: Product price\n        tag:\n          description: Product tags\n          type: array\n          items:\n            type: string\n    TagsResponse:\n      type: object\n      properties:\n        tags:\n          type: array\n          items:\n            type: string\n      x-tags:\n        - Catalog\ninfo:\n  contact: {}\n  description: Catalog API\n  license:\n    name: Apache 2.0\n  title: 'Spring Sock Shop: Catalog API'\n  version: 0.1.0-SNAPSHOT\nopenapi: 3.0.1\npaths:\n  /catalogue:\n    get:\n      parameters:\n        - in: query\n          name: order\n          schema:\n            default: price\n            type: string\n        - in: query\n          name: page\n          schema:\n            default: 1\n            format: int32\n            type: integer\n        - in: query\n          name: size\n          schema:\n            default: 10\n            format: int32\n            type: integer\n        - in: query\n          name: tags\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                items:\n                  $ref: '#/components/schemas/SockResponse'\n                type: array\n          description: OK\n      summary: Return socks\n      operationId: get-socks\n      tags:\n        - Catalog\n  /catalogue/size:\n    get:\n      parameters:\n        - in: query\n          name: tags\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/CountResponse'\n          description: OK\n      summary: Return sock count\n      operationId: get-sock-count\n      tags:\n        - Catalog\n  '/catalogue/{id}':\n    get:\n      responses:\n        '200':\n          description: if socks are found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SockResponse'\n        '404':\n          description: if socks do not exist\n      summary: Return a sock\n      operationId: get-sock\n      tags:\n        - Catalog\n    parameters:\n      - schema:\n          type: string\n          format: uuid\n        name: id\n        in: path\n        required: true\n  /tags:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TagsResponse'\n          description: OK\n      summary: Return all tags\n      operationId: get-tags\n      tags:\n        - Catalog\n",
+			"canonicalURL": "/github.com/making/spring-socks@20ea1d0fa5e6e3bc34a399d8693600ebe7f50607/-/blob/catalog-spec/openapi/doc.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/making/spring-socks/blob/20ea1d0fa5e6e3bc34a399d8693600ebe7f50607/catalog-spec/openapi/doc.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

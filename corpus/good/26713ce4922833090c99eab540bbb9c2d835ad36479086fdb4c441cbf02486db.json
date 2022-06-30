@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hpi-schul-cloud/schulcloud-server"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/components/course/docs/openapi.yaml",
+			"byteSize": 2473,
+			"content": "security:\n  - jwtBearer: []\ninfo:\n  title: Schul-Cloud User Service API\n  description:\n    This is the API specification for the Schul-Cloud User service.\n    \n  contact:\n    name: support\n    email: info@dbildungscloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\nservers:\n  - url: /courses/v2\ncomponents:\n  securitySchemes:\n    jwtBearer:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n    course_details:\n      description: Data Transfer Object containing userdata\n      type: object\n      properties:\n        name:\n          type: string\n        color:\n          type: string\n        times:\n          type: array\n          items:\n            $ref: '#/components/schemas/time_details'\n        itemDetails:\n          type: array\n          items:\n            $ref: '#/components/schemas/item_details'\n    time_details:\n      type: object\n      properties:\n        weekday:\n          type: integer\n          minimum: 0\n          maximum: 6\n        startTime:\n          type: integer\n          description: Time in miliseconds from midnight.\n        duration:\n          description: value in miliseconds\n          type: number\n        eventId:\n          type: string\n        room:\n          type: string\n      required:\n        - weekday\n    item_details:\n      type: object\n      properties:\n        published:\n          type: boolean\n        title:\n          type: string\n        dueDate:\n          type: string\n          format: date-time\n        type:\n          type: string\n          enum: ['document', 'task']\npaths:\n  '/course/{id}':\n    get:\n      parameters:\n        - name: id\n          in: path\n          schema:\n            type: string\n            pattern: '^[0-9a-f]{24}$'\n          description: ID of the course to be returned\n          required: true\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/course_details'\n        '401':\n          description: not authenticated\n        '403':\n          description: Forbidden\n        '404':\n          description: If there is no course with the given id.\n        '500':\n          description: general error\n      description: Retrieves a single resource with the given id from the service.\n      summary: ''\n      tags:\n        - courses\n      security: []\nopenapi: 3.0.2",
+			"canonicalURL": "/github.com/hpi-schul-cloud/schulcloud-server@4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/-/blob/src/components/course/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hpi-schul-cloud/schulcloud-server/blob/4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/src/components/course/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

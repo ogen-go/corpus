@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "test/browser/documents/circular-root.yaml",
 			"byteSize": 528,
-			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 0.0.1\n  description: |\n    testing circular reference\n\ncomponents:\n  schemas:\n    A:\n      $ref: './circular-child.yaml#/definitions/A'\n    B:\n      $ref: './circular-child.yaml#/definitions/B'\n\npaths:\n  '/test':\n    get:\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  A:\n                    $ref: '#/components/schemas/A'\n"
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test\n  version: 0.0.1\n  description: |\n    testing circular reference\n\ncomponents:\n  schemas:\n    A:\n      $ref: './circular-child.yaml#/definitions/A'\n    B:\n      $ref: './circular-child.yaml#/definitions/B'\n\npaths:\n  '/test':\n    get:\n      responses:\n        '200':\n          description: test\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  A:\n                    $ref: '#/components/schemas/A'\n",
+			"canonicalURL": "/github.com/whitlockjc/json-refs@3371c1ee0eaf027314ebc321ac311c586f966dd4/-/blob/test/browser/documents/circular-root.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/whitlockjc/json-refs/blob/3371c1ee0eaf027314ebc321ac311c586f966dd4/test/browser/documents/circular-root.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse components: schemas: \"A\": parse schema: resolve \"./circular-child.yaml#/definitions/A\": external \"./circular-child.yaml\": file: local file reference is not allowed"

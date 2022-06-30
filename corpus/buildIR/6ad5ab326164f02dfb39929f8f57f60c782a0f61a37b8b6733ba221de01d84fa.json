@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CDCgov/prime-reportstream"
+		},
+		"file": {
+			"name": "waters-submissions.yml",
+			"size": 0,
+			"path": "prime-router/docs/api/waters-submissions.yml",
+			"byteSize": 3096,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: ReportStream Submissions API\n  version: \"1.0\"\n  contact:\n    name: USDS at Centers for Disease Control and Prevention\n    url: https://open.cdc.gov\n    email: usds@cdc.gov\npaths:\n  /api/waters/org/{organization}/submissions:\n    get:\n      description: returns a list of simple submissions\n      security:\n        - OAuth2: [ user ]\n      parameters:\n        - name: organization\n          in: path\n          description: sender of the report history we want to look at\n          required: true\n          schema:\n            type: string\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/sortDir'\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/sortCol'\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/cursor'\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/since'\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/until'\n        - $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/sort_and_filter.yml#/pageSize'\n        - name: showFailed\n          in: query\n          description: whether or not to show submissions that failed delivery\n          schema:\n            type: boolean\n      responses:\n        '200':\n          description: a list of submission history objects\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SubmissionHistoryList'\n        '400':\n          description: bad request\n\ncomponents:\n  schemas:\n    SubmissionHistoryList:\n      type: array\n      items:\n        $ref: '#/components/schemas/SubmissionHistory'\n    SubmissionHistory:\n      type: object\n      properties:\n        submissionId:\n          description: the row number for this report's action log\n          type: integer\n        timestamp:\n          description: the timestamp for this report submission\n          type: string\n          format: date-time\n        sender:\n          description: the name of the sender account\n          type: string\n        httpStatus:\n          description: response given to the sender upon submission\n          type: integer\n        id:\n          description: the uuid for this submission\n          type: string\n          format: uuid\n        topic:\n          description: the schema topic (e.g. COVID-19, Flu)\n          type: string\n        reportItemCount:\n          description: total number of individual reports sent to the Hub (in a csv, the number of data lines sent)\n          type: integer\n\n  securitySchemes:\n    OAuth2:\n      $ref: 'https://raw.githubusercontent.com/CDCgov/prime-reportstream/master/prime-router/docs/api/components/security_schemes.yml#/OAuth2'\n",
+			"canonicalURL": "/github.com/CDCgov/prime-reportstream@51d8587ca4287484d017e728502eeeec150f05cb/-/blob/prime-router/docs/api/waters-submissions.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/CDCgov/prime-reportstream/blob/51d8587ca4287484d017e728502eeeec150f05cb/prime-router/docs/api/waters-submissions.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/api/waters/org/{organization}/submissions\": get: security: security \"OAuth2\" (index 0): unknown security type \"\""
+}

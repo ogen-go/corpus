@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue-1015.json",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue-1015.json",
+			"byteSize": 2031,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Testcase\",\n    \"version\": \"1.0\",\n    \"description\": \"This is a testcase to demonstrate the problem with supplying a list as the default value for an array schema.\"\n  },\n  \"paths\": {\n    \"/v1/doc/{document_id}/filter\": {\n      \"post\": {\n        \"operationId\": \"filterDocument\",\n        \"summary\": \"Filter a document by including only the requested headings and subheadings\",\n        \"description\": \"This operation processes the specified stored document by returning a filtered view of the document according to the section heading tags specified in the filter_settings parameter.\",\n        \"parameters\": [\n          {\n            \"name\": \"document_id\",\n            \"in\": \"path\",\n            \"description\": \"The id of the stored document to be filtered.\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/DocFilterSettings\"\n              }\n            }\n          },\n          \"description\": \"An object that defines the filter settings.\",\n          \"required\": true\n        },\n        \"x-codegen-request-body-name\": \"filterSettings\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"It worked.\"\n          },\n          \"default\": {\n            \"description\": \"Rut Roh\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"DocFilterSettings\": {\n        \"type\": \"object\",\n        \"description\": \"This model describes the attributes used to filter a document.\",\n        \"properties\": {\n          \"tag_list\": {\n            \"description\": \"This is the set of tags to include in the output.\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"default\": [\n              \"h1\",\n              \"h2\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1015.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue-1015.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

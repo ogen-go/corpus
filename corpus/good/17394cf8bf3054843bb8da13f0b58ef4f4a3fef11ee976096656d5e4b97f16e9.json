@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "quotacheck.json",
+			"size": 0,
+			"path": "openapi3_autogen/quotacheck.json",
+			"byteSize": 2797,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"quotacheck\": {\n        \"description\": \"Allows you to verify the quota for a given identity in a given namespace\\nwith the given tags.\",\n        \"properties\": {\n          \"quota\": {\n            \"description\": \"Contains the maximum number of matching entities that can be created.\",\n            \"readOnly\": true,\n            \"type\": \"integer\"\n          },\n          \"remaining\": {\n            \"default\": -1,\n            \"description\": \"If the parameter `remaining=true` is passed, this value will be populated with\\nthe number of remaining objects in the quota.\",\n            \"readOnly\": true,\n            \"type\": \"integer\"\n          },\n          \"targetIdentity\": {\n            \"description\": \"The identity name of the object you want to check the quota on.\",\n            \"example\": \"processingunit\",\n            \"type\": \"string\"\n          },\n          \"targetNamespace\": {\n            \"description\": \"The namespace from which you want to check the quota on.\",\n            \"example\": \"/my/namespace\",\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"targetIdentity\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"quotacheck\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/quotacheck\": {\n      \"post\": {\n        \"description\": \"Verifies if the quota is exceeded for a particular object.\",\n        \"operationId\": \"create-a-new-quotacheck\",\n        \"parameters\": [\n          {\n            \"description\": \"Makes the system count how many object are left available in the quota.\",\n            \"in\": \"query\",\n            \"name\": \"remaining\",\n            \"schema\": {\n              \"type\": \"boolean\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/quotacheck\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/quotacheck\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"policy/quota\",\n          \"squall\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'policy/quota'\",\n      \"name\": \"policy/quota\"\n    },\n    {\n      \"description\": \"This tag is for package 'squall'\",\n      \"name\": \"squall\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@135fa774a34971a04dc7232e029f99de005f0e87/-/blob/openapi3_autogen/quotacheck.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/135fa774a34971a04dc7232e029f99de005f0e87/openapi3_autogen/quotacheck.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

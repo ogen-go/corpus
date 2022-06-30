@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_valid_query_tagged.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/validator/expected_valid_query_tagged.yml",
+			"byteSize": 508,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /add/path:\n    get:\n      operationId: getAddPath\n      parameters:\n        - name: fruit\n          in: query\n          required: true\n          schema:\n            type: string\n            pattern: apple|banana\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: query parameter fruit'\n          content:\n            text/plain:\n              schema:\n                type: string\n",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/validator/expected_valid_query_tagged.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/validator/expected_valid_query_tagged.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/add/path\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

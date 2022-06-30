@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app103.json",
+			"size": 0,
+			"path": "springdoc-openapi-javadoc/src/test/resources/results/app103.json",
+			"byteSize": 2065,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"hello-controller\",\n      \"description\": \"The type Hello controller.\"\n    }\n  ],\n  \"paths\": {\n    \"/test/103\": {\n      \"post\": {\n        \"tags\": [\n          \"hello-controller\"\n        ],\n        \"summary\": \"Post my request body string.\",\n        \"description\": \"Post my request body string.\",\n        \"operationId\": \"postMyRequestBody\",\n        \"requestBody\": {\n          \"description\": \"the body\",\n          \"content\": {\n            \"multipart/form-data\": {\n              \"schema\": {\n                \"required\": [\n                  \"body\",\n                  \"file\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                  \"body\": {\n                    \"$ref\": \"#/components/schemas/ExampleBody\"\n                  },\n                  \"file\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              },\n              \"encoding\": {\n                \"body\": {\n                  \"contentType\": \"application/json\"\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the string\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"ExampleBody\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"stringParam\": {\n            \"type\": \"string\",\n            \"description\": \"The String param.\"\n          },\n          \"intParam\": {\n            \"type\": \"integer\",\n            \"description\": \"The Int param.\",\n            \"format\": \"int32\"\n          }\n        },\n        \"description\": \"The type Example body.\"\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-javadoc/src/test/resources/results/app103.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-javadoc/src/test/resources/results/app103.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test/103\": post: requestBody: contents: multipart/form-data: form parameter \"body\": parameter content-type not implemented",
+	"NotImplemented": [
+		"parameter content-type"
+	]
+}

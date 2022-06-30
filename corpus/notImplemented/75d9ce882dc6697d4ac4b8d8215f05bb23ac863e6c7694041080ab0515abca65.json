@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ConsenSys/web3signer"
+		},
+		"file": {
+			"name": "web3signer.yaml",
+			"size": 0,
+			"path": "core/src/main/resources/openapi-specs/filecoin/web3signer.yaml",
+			"byteSize": 1146,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Web3Signer Filecoin'\n  description: 'Upcheck'\n  version: '@VERSION@'\n  license:\n    name: 'Apache 2.0'\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\nservers:\n  - url: /\n  - url: http://localhost:9000/\n\npaths:\n  /reload:\n    post:\n      tags:\n        - 'Reload Signer Keys'\n      summary: 'Reload signer keys asynchronously'\n      description: 'Reload signer keys asynchronously'\n      operationId: 'RELOAD'\n      responses:\n        '200':\n          description: 'Call is successful'\n        '500':\n          description: 'Internal Web3Signer server error'\n  /upcheck:\n    get:\n      tags:\n        - 'Server Status'\n      summary: 'Server Status'\n      description: 'Web3Signer server status'\n      operationId: 'UPCHECK'\n      responses:\n        '200':\n          description: 'OK'\n          content:\n            text/plain; charset=utf-8:\n              schema:\n                type: string\n              example: 'OK'\n        '500':\n          description: 'Internal Web3Signer server error'\n\nexternalDocs:\n  description: 'Web3Signer User Documentation'\n  url: 'https://docs.web3signer.consensys.net/'\n",
+			"canonicalURL": "/github.com/ConsenSys/web3signer@1e4c5fb82eab60a71e2d2cdd496528265b36d2e4/-/blob/core/src/main/resources/openapi-specs/filecoin/web3signer.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ConsenSys/web3signer/blob/1e4c5fb82eab60a71e2d2cdd496528265b36d2e4/core/src/main/resources/openapi-specs/filecoin/web3signer.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/upcheck\": get: responses: 200: contents: unsupported content types: [text/plain; charset=utf-8]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

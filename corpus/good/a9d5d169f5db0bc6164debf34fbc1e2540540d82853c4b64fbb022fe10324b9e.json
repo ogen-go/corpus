@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Azure/autorest.modeler"
+		},
+		"file": {
+			"name": "swagger-additional-properties.yaml",
+			"size": 0,
+			"path": "test/Resource/Swagger/swagger-additional-properties.yaml",
+			"byteSize": 3034,
+			"content": "openapi: 3.0.0\nservers:\n- url: http://petstore-api.herokuapp.com/pet\n- url: https://petstore-api.herokuapp.com/pet\ninfo:\n  version: 1.0.0\n  title: PetStore on Heroku\n  description: |\n    **This example has a working backend hosted in Heroku**\n\n    You can try all HTTP operation described in this Swagger spec.\n\n    Find source code of this API [here](https://github.com/mohsen1/petstore-api)\npaths:\n  \"/\":\n    get:\n      operationId: get_pets\n      parameters:\n      - name: limit\n        in: query\n        description: number of pets to return\n        schema:\n          type: integer\n          minimum: 11\n          maximum: 10000\n          default: 11\n      responses:\n        '200':\n          description: List all pets\n          content:\n            application/json:\n              schema:\n                title: Pets\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Pet\"\n            text/html:\n              schema:\n                title: Pets\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/Pet\"\n    post:\n      operationId: post_pets\n      responses:\n        '200':\n          description: Make a new pet\n      requestBody:\n        \"$ref\": \"#/components/requestBodies/Pet\"\n      x-ms-requestBody-index: 0\n    put:\n      operationId: put_pets\n      responses:\n        '200':\n          description: Updates the pet\n      requestBody:\n        \"$ref\": \"#/components/requestBodies/Pet\"\n      x-ms-requestBody-index: 0\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      additionalProperties:\n        type: object\n        \"$ref\": \"#/components/schemas/Feature\"\n      properties:\n        name:\n          type: string\n        birthday:\n          type: integer\n          format: int32\n        wsd:\n          type: object\n          \"$ref\": \"#/components/schemas/WithStringDictionary\"\n        wud:\n          type: object\n          \"$ref\": \"#/components/schemas/WithUntypedDictionary\"\n        wtd:\n          type: object\n          \"$ref\": \"#/components/schemas/WithTypedDictionary\"\n    Feature:\n      type: object\n      properties:\n        foo:\n          type: string\n        bar:\n          type: integer\n          format: int32\n    WithStringDictionary:\n      type: object\n      properties:\n        abc:\n          type: string\n      additionalProperties:\n        type: string\n    WithUntypedDictionary:\n      properties:\n        abc:\n          type: string\n      type: object\n      additionalProperties:\n        type: object\n    WithTypedDictionary:\n      type: object\n      properties:\n        abc:\n          type: string\n      additionalProperties:\n        type: object\n        \"$ref\": \"#/components/schemas/Feature\"\n  requestBodies:\n    Pet:\n      x-ms-client-name: pet\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/Pet\"\n        text/xml:\n          schema:\n            \"$ref\": \"#/components/schemas/Pet\"\n      description: The pet JSON you want to post\n      required: true\n",
+			"canonicalURL": "/github.com/Azure/autorest.modeler@cd313a2b54e9ab0c8f629c056259daaa0da69b36/-/blob/test/Resource/Swagger/swagger-additional-properties.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Azure/autorest.modeler/blob/cd313a2b54e9ab0c8f629c056259daaa0da69b36/test/Resource/Swagger/swagger-additional-properties.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "http_api_global_iam_auth_enabled_with_existing_conflicting_authorizer.json",
+			"size": 0,
+			"path": "tests/translator/output/aws-us-gov/http_api_global_iam_auth_enabled_with_existing_conflicting_authorizer.json",
+			"byteSize": 1219,
+			"content": "{\n  \"Resources\": {\n    \"MyApi\": {\n      \"Properties\": {\n        \"Body\": {\n          \"components\": {\n            \"securitySchemes\": {\n              \"AWS_IAM\": {\n                \"type\": \"oauth2\",\n                \"x-amazon-apigateway-authorizer\": {\n                  \"identitySource\": \"$request.header.Authorization\",\n                  \"jwtConfiguration\": {\n                    \"audience\": [\"audience1\", \"audience2\"],\n                    \"issuer\": \"https://www.example.com/v1/connect/oidc\"\n                  },\n                  \"type\": \"jwt\"\n                }\n              }\n            }\n          },\n          \"info\": { \"title\": { \"Ref\": \"AWS::StackName\" }, \"version\": \"1.0\" },\n          \"openapi\": \"3.0.1\",\n          \"paths\": {},\n          \"tags\": [\n            {\n              \"name\": \"httpapi:createdBy\",\n              \"x-amazon-apigateway-tag-value\": \"SAM\"\n            }\n          ]\n        }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Api\"\n    },\n    \"MyApiApiGatewayDefaultStage\": {\n      \"Properties\": {\n        \"ApiId\": { \"Ref\": \"MyApi\" },\n        \"AutoDeploy\": true,\n        \"StageName\": \"$default\",\n        \"Tags\": { \"httpapi:createdBy\": \"SAM\" }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Stage\"\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/tests/translator/output/aws-us-gov/http_api_global_iam_auth_enabled_with_existing_conflicting_authorizer.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/tests/translator/output/aws-us-gov/http_api_global_iam_auth_enabled_with_existing_conflicting_authorizer.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

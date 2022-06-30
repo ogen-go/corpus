@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "spec/fixtures/petstore-recursive.yml",
 			"byteSize": 1133,
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: foo@example.com\n    url: http://madskristensen.net\n  license:\n    name: MIT\n    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /owners:\n    get:\n      description: Get an owner\n      operationId: findPets\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Human:\n      type: object\n      properties:\n        name:\n          type: string\n        pets:\n          type: array\n          items:\n            - $ref: '#/components/schemas/Pet'\n    Pet:\n      type: object\n      properties:\n        name:\n          type: string\n        owners:\n          type: array\n          items:\n            - $ref: '#/components/schemas/Human'\n"
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: foo@example.com\n    url: http://madskristensen.net\n  license:\n    name: MIT\n    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /owners:\n    get:\n      description: Get an owner\n      operationId: findPets\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Human:\n      type: object\n      properties:\n        name:\n          type: string\n        pets:\n          type: array\n          items:\n            - $ref: '#/components/schemas/Pet'\n    Pet:\n      type: object\n      properties:\n        name:\n          type: string\n        owners:\n          type: array\n          items:\n            - $ref: '#/components/schemas/Human'\n",
+			"canonicalURL": "/github.com/Nexmo/oas_parser@2d3f445a16daf42ff5c27566406de10794808893/-/blob/spec/fixtures/petstore-recursive.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Nexmo/oas_parser/blob/2d3f445a16daf42ff5c27566406de10794808893/spec/fixtures/petstore-recursive.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "unmarshal: json: line 1:11: callback: json: cannot unmarshal array into Go struct field Schema.items of type ogen.Schema"

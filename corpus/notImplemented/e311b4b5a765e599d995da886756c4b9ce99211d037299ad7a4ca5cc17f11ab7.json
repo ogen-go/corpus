@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/product-microgateway"
+		},
+		"file": {
+			"name": "security_sample.yaml",
+			"size": 0,
+			"path": "samples/openAPI-definitions/security_sample.yaml",
+			"byteSize": 3090,
+			"content": "---\nopenapi: 3.0.0\nservers:\n- url: http://petstore.swagger.io/v2\ninfo:\n  description: 'This example defines different security schemes.'\n  version: 1.0.0\n  title: Swagger Petstore New\n  termsOfService: http://swagger.io/terms/\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\ntags:\n- name: pet\nx-wso2-basePath: /petstore/v1\nx-wso2-production-endpoints:\n  urls:\n  - https://petstore.swagger.io/v2\nsecurity:\n - ApiKeyAuthQuery: []                    # applies API key security in API level\npaths:\n  \"/pet/{petId}\":\n    get:\n      tags:\n      - pet\n      summary: Find pet by ID\n      operationId: getPetById\n      parameters:\n      - name: petId\n        in: path\n        description: ID of pet to return\n        required: true\n        schema:\n          type: integer\n          format: int64\n      security:\n        - OAuth2:\n           - read\n           - write\n        - ApiKeyAuth: []             # adds API key security to the resource\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Pet\"\n        '400':\n          description: Invalid ID supplied\n        '404':\n          description: Pet not found\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n      - name\n      - photoUrls\n      properties:\n        id:\n          type: integer\n          format: int64\n        category:\n          type: string\n        name:\n          type: string\n        photoUrls:\n          type: string\n          items:\n            type: string\n        status:\n          type: string\n          enum:\n          - available\n          - sold\n      xml:\n        name: Pet\n  securitySchemes:\n    OAuth2:                          # defines OAuth2 security scheme\n      type: oauth2\n      flows:\n        authorizationCode:\n          authorizationUrl: https://example.com/oauth/authorize\n          tokenUrl: https://example.com/oauth/token\n          scopes:                    # scopes relevant to the OAuth2 security scheme\n            read: Grants read access\n            write: Grants write access\n            admin: Grants access to admin operations\n    ApiKeyAuth:                      # arbitrary name for the API key security scheme\n      type: apiKey\n      in: header                     # allows using defined ApiKeyAuth as a header value\n      name: X-API-KEY                # name to provide API as a header value\n    ApiKeyAuthQuery:                 # arbitrary name for the API key security scheme\n      type: apiKey\n      in: query                      # allows using defined ApiKeyAuthQuery as a query parameter\n      name: X-API-KEY-Q              # name to provide API key as a query parameter\n  requestBodies:\n    Pet:\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/Pet\"\n        application/xml:\n          schema:\n            \"$ref\": \"#/components/schemas/Pet\"\n      description: Pet object that needs to be added to the store\n      required: true\n",
+			"canonicalURL": "/github.com/wso2/product-microgateway@a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/-/blob/samples/openAPI-definitions/security_sample.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/product-microgateway/blob/a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/samples/openAPI-definitions/security_sample.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pet/{petId}\": get: security: security \"OAuth2\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

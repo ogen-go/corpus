@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_schema_example.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/example/expected_schema_example.yml",
+			"byteSize": 1737,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Examples\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: string\n              format: date-time\n              example: '2021-01-01T01:01:01.000000001Z'\n        required: true\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Book'\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Author:\n      required:\n        - name\n        - country\n      type: object\n      properties:\n        name:\n          type: string\n        country:\n          $ref: '#/components/schemas/Country'\n    Book:\n      required:\n        - title\n        - genre\n        - year\n        - author\n      type: object\n      properties:\n        title:\n          type: string\n        genre:\n          $ref: '#/components/schemas/Genre'\n        year:\n          type: integer\n          format: int32\n        author:\n          $ref: '#/components/schemas/Author'\n      example:\n        title: title\n        genre:\n          name: name\n          description: desc\n        year: 2021\n        author:\n          name: name\n          country:\n            name: country\n    Country:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n    Genre:\n      required:\n        - name\n        - description\n      type: object\n      properties:\n        name:\n          type: string\n        description:\n          type: string\n",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/example/expected_schema_example.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/example/expected_schema_example.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": post: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/k1LoW/runn"
+		},
+		"file": {
+			"name": "openapi3.yml",
+			"size": 0,
+			"path": "testdata/openapi3.yml",
+			"byteSize": 1411,
+			"content": "openapi: 3.0.3\ninfo:\n  title: test spec\n  version: 0.0.1\npaths:\n  /users:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                username:\n                  type: string\n                password:\n                  type: string\n              required:\n                - username\n                - password\n      responses:\n        '200':\n          description: OK\n        '400':\n          description: Error\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error:\n                    type: string\n                required:\n                  - error\n  /users/{id}:\n    get:\n      parameters:\n        - description: ID\n          explode: false\n          in: path\n          name: id\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                properties:\n                  data:\n                    type: object\n                    properties:\n                      username:\n                        type: string\n                    required:\n                      - username\n                      - email\n                required:\n                  - data\n",
+			"canonicalURL": "/github.com/k1LoW/runn@7ba4fe20354c6e2a7fc1022aff9c35af0cdc407e/-/blob/testdata/openapi3.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/k1LoW/runn/blob/7ba4fe20354c6e2a7fc1022aff9c35af0cdc407e/testdata/openapi3.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

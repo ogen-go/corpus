@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtron-labs/devtron"
+		},
+		"file": {
+			"name": "v1.yaml",
+			"size": 0,
+			"path": "specs/modularisation/v1.yaml",
+			"byteSize": 3708,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Modularisation v1 APIs\npaths:\n  /orchestrator/module:\n    get:\n      description: Get module info\n      parameters:\n        - name: name\n          in: query\n          description: module name\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Successfully fetched modules\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/ModuleInfo\"\n    post:\n      description: some action on module (for eg - install/upgrade/etc..)\n      parameters:\n        - name: name\n          in: query\n          description: module name\n          required: true\n          schema:\n            type: string\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/ModuleActionRequest\"\n      responses:\n        \"200\":\n          description: module action response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ActionResponse\"\n  /orchestrator/server:\n    get:\n      description: Get server info\n      responses:\n        \"200\":\n          description: Successfully fetched current server info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ServerInfo\"\n    post:\n      description: some action on server (for eg - install/upgrade/etc..)\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/ServerActionRequest\"\n      responses:\n        \"200\":\n          description: server action response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ActionResponse\"\n\n# Components\ncomponents:\n  schemas:\n    ModuleInfo:\n      type: object\n      properties:\n        name:\n          type: string\n          description: module name\n          example: \"cicd\"\n        status:\n          type: string\n          description: status of the module\n          example: \"notInstalled|installed|installing|installFailed|timeout\"\n    ModuleActionRequest:\n      type: object\n      properties:\n        action:\n          type: string\n          description: action on the module\n          example: \"install\"\n        version:\n          type: string\n          description: version on which module is to be installed\n          example: \"v1.2.3\"\n    ServerInfo:\n      type: object\n      properties:\n        currentVersion:\n          type: string\n          description: current version of the devtron server\n          example: \"v1.2.3\"\n        status:\n          type: string\n          description: status of the server\n          example: \"healthy|upgrading|upgradeFailed|unknown|timeout\"\n        releaseName:\n          type: string\n          description: helm release name of the devtron server\n          example: \"devtron\"\n        installationType:\n          type: string\n          description: devtron installation type\n          example: \"oss_kubectl|oss_helm|enterprise\"\n    ServerActionRequest:\n      type: object\n      properties:\n        action:\n          type: string\n          description: action on the server\n          example: \"upgrade\"\n        version:\n          type: string\n          description: version to which server is to be upgradred\n          example: \"v1.2.3\"\n    ActionResponse:\n      type: object\n      properties:\n        success:\n          type: boolean\n          description: success or failure\n          example: true\n",
+			"canonicalURL": "/github.com/devtron-labs/devtron@62f6101b37819e1ac319a744bbf3438184f0c8d5/-/blob/specs/modularisation/v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtron-labs/devtron/blob/62f6101b37819e1ac319a744bbf3438184f0c8d5/specs/modularisation/v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

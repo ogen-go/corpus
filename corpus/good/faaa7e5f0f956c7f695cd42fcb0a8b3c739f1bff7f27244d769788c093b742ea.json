@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dunossauro/live-de-python"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "codigo/Live178/tarefas_app/spec.yaml",
+			"byteSize": 3327,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Minha Api de tarefas a fazer\n  version: 1.0.0\n  \nservers:\n  - url: http://dunossauro.com/\n  - url: http://dunossauro.com.br\n  - url: http://dunossauro.net\n  - url: 192.168.0.1  \n\ncomponents:\n  parameters:\n    ID:\n      in: path\n      name: id\n      required: true\n      schema:\n        type: integer\n        minimum: 1\n  schemas:\n    Tarefa:\n      type: object\n      required:\n        - todo\n      properties:\n        todo:\n          type: string\n        status:\n          type: string\n    Tarefas:\n      type: object\n      required:\n        - tarefas\n      properties:\n        tarefas: \n          type: array\n          items:\n            $ref: '#/components/schemas/Tarefa'\n    ErrorResponse:\n      type: object\n      properties:\n        message:\n          type: string\n    NotFoundError:\n      type: object\n      properties:\n        message:\n          type: string\n\npaths:\n  /tarefa:\n    post:\n      summary: Cria uma tarefa\n      description: Cria uma tarefa usando o payload xpto, yz. O status default é a fazer\n      parameters:\n        - name: Tarefa\n          in: path\n          required: True\n          schema:\n            $ref: '#/components/schemas/Tarefa'\n      responses:\n        201:\n          description: Deu certo, criado!\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Tarefa'\n              examples:\n                user:\n                  summary: User Example\n                  externalValue: 'https://foo.bar/examples/user-example.json'\n        422:\n          description: Erro no Payload\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n    get:\n      summary: Pega todas as tarefas\n      description: Pega todos as tarefas da API\n      responses:\n        200:\n          description: Deu certo!\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Tarefas'\n  \n  /tarefa/{id}:\n    parameters:\n      - $ref: '#/components/parameters/ID'\n    get:\n      tags: ['com id']\n      description: Pega uma tarefa por ID\n      responses:\n        200:\n          description: Achou\n        404:\n          description: Não achou\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NotFoundError'\n          \n    patch:\n      tags: ['com id']\n      description: Pega uma tarefa por ID\n      parameters:\n        - name: Tarefa\n          in: path\n          required: True\n          schema:\n            $ref: '#/components/schemas/Tarefa'\n      responses:\n        201:\n          description: Alterou\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Tarefas'\n        404:\n          description: Não achou\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NotFoundError'\n          \n    delete:\n      tags: ['com id']\n      description: Remove a tarefa\n      responses:\n        201:\n          description: Achou\n        404:\n          description: Não achou\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NotFoundError'\n",
+			"canonicalURL": "/github.com/dunossauro/live-de-python@1d12adb83f2afe306faf52e47edacef714c50574/-/blob/codigo/Live178/tarefas_app/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dunossauro/live-de-python/blob/1d12adb83f2afe306faf52e47edacef714c50574/codigo/Live178/tarefas_app/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

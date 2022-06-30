@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "nested-defaults.oas.json",
+			"size": 0,
+			"path": "packages/api/test/__fixtures__/nested-defaults.oas.json",
+			"byteSize": 2410,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Nested defaults\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/pet\": {\n      \"post\": {\n        \"tags\": [\"pet\"],\n        \"summary\": \"Add a new pet to the store\",\n        \"description\": \"\",\n        \"operationId\": \"addPet\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          },\n          \"description\": \"Pet object that needs to be added to the store\",\n          \"required\": true\n        },\n        \"responses\": {\n          \"405\": {\n            \"description\": \"Invalid input\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Category\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"default\": \"dog\"\n          }\n        },\n        \"required\": [\"name\"]\n      },\n      \"Tag\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Pet\": {\n        \"type\": \"object\",\n        \"required\": [\"name\", \"photoUrls\", \"category\"],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"readOnly\": true,\n            \"default\": 40,\n            \"example\": 25\n          },\n          \"category\": {\n            \"$ref\": \"#/components/schemas/Category\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"doggie\",\n            \"default\": \"buster\"\n          },\n          \"photoUrls\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\",\n              \"example\": \"https://example.com/photo.png\"\n            }\n          },\n          \"tags\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/Tag\"\n            }\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"description\": \"pet status in the store\",\n            \"enum\": [\"available\", \"pending\", \"sold\"]\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/api@838bc54c24323c29aae272ac43486c3ffed7a9c1/-/blob/packages/api/test/__fixtures__/nested-defaults.oas.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/api/blob/838bc54c24323c29aae272ac43486c3ffed7a9c1/packages/api/test/__fixtures__/nested-defaults.oas.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

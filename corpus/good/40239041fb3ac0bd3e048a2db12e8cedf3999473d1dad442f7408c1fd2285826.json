@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_241.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_241.yaml",
+			"byteSize": 1008,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  description: \"test\"\n  version: \"1.0.0\"\n  title: \"myTest\"\n  contact:\n    email: \"my@mail.com\"\nservers:\n- url: \"http://localhost:9998/v1\"\ntags:\n- name: \"users\"\npaths:\n  /users/create/{username}:\n    post:\n      tags:\n      - \"user\"\n      operationId: \"createUser\"\n      parameters:\n      - name: \"username\"\n        in: \"path\"\n        required: true\n        schema:\n          type: \"string\"\n      responses:\n        200:\n          description: \"The User just created\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\ncomponents:\n  schemas:\n    User:\n      allOf:\n        - $ref: \"#/components/schemas/UserDetail\"\n        - type: \"object\"\n          description: \"The User\"\n          required:\n          - \"userid\"\n          - \"username\"\n    UserDetail:\n      type: \"object\"\n      description: \"Detail of a User\"\n      properties:\n        name:\n          type: \"string\"\n          description: \"the name of the user\"\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_241.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue_241.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

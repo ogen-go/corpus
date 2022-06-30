@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "ExamplesResource.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/example/ExamplesResource.yaml",
+			"byteSize": 2572,
+			"content": "openapi: 3.0.1\npaths:\n  /example:\n    post:\n      description: subscribes a client to updates relevant to the requestor's account\n      operationId: subscribe\n      parameters:\n      - name: subscriptionId\n        in: path\n        required: true\n        style: simple\n        schema:\n          type: string\n          description: Schema\n          example: Subscription example\n        examples:\n          subscriptionId_2:\n            summary: Subscription number 54321\n            description: subscriptionId_2\n            value: 54321\n            externalValue: Subscription external value 2\n          subscriptionId_1:\n            summary: Subscription number 12345\n            description: subscriptionId_1\n            value: 12345\n            externalValue: Subscription external value 1\n        example: example\n      requestBody:\n        description: Created user object\n        content:\n          '*/*':\n            schema:\n              type: string\n              description: the generated UUID\n              format: uuid\n              readOnly: true\n              example: Schema example\n            examples:\n              Default Request:\n                summary: Subscription Request Example\n                description: Default Request\n                value: SubscriptionRequest\n                externalValue: Subscription Request Value\n        required: true\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                type: string\n                description: the generated UUID\n                format: uuid\n                readOnly: true\n                example: Schema example\n              examples:\n                Default Response:\n                  summary: Subscription Response Example\n                  description: Default Response\n                  value: SubscriptionResponse\n                  externalValue: Subscription Response value 1\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        username:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        password:\n          type: string\n        phone:\n          type: string\n        userStatus:\n          type: integer\n          description: User Status\n          format: int32\n      xml:\n        name: User\n    SubscriptionResponse:\n      type: object\n      properties:\n        subscriptionId:\n          type: string\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/example/ExamplesResource.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/petstore/example/ExamplesResource.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/example\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_callbacks.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/expected_callbacks.yml",
+			"byteSize": 2090,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Callbacks\n  version: '1.0'\npaths:\n  /trigger:\n    put:\n      operationId: putTrigger\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/TriggerRequest'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\n      callbacks:\n        my_callback:\n          '{$request.body#/callbackUrl}':\n            put:\n              operationId: putCallback\n              requestBody:\n                content:\n                  application/json:\n                    schema:\n                      $ref: '#/components/schemas/CallbackRequest'\n                required: true\n              responses:\n                '200':\n                  description: ''\n                '400':\n                  description: 'Invalid value for: body'\n                  content:\n                    text/plain:\n                      schema:\n                        type: string\n        my_reusable_callback:\n          $ref: '#/components/callbacks/reusable_callback'\ncomponents:\n  schemas:\n    TriggerRequest:\n      required:\n      - callbackUrl\n      type: object\n      properties:\n        callbackUrl:\n          type: string\n    CallbackRequest:\n      required:\n      - answer\n      type: object\n      properties:\n        answer:\n          type: string\n  callbacks:\n    reusable_callback:\n      '{$request.body#/callbackUrl}':\n        delete:\n          operationId: deleteReusable_callback\n          requestBody:\n            content:\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/CallbackRequest'\n            required: true\n          responses:\n            '200':\n              description: ''\n            '400':\n              description: 'Invalid value for: body'\n              content:\n                text/plain:\n                  schema:\n                    type: string\n",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/expected_callbacks.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/expected_callbacks.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/trigger\": put: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/lobe/flask-server"
+		},
+		"file": {
+			"name": "api-swagger.yaml",
+			"size": 0,
+			"path": "swagger/api-swagger.yaml",
+			"byteSize": 1365,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1'\n  title: InferenceAPI\n  description: API for ML\npaths: \n  /predict:\n    post:\n      description: This is the way to predict\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                input:\n                  type: object\n                  properties:\n                    Image:\n                      type: string\n      responses:\n        '200':\n          description: Successfully returned model prediction\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  output:\n                    type: object\n                    properties:\n                      predictions:\n                        type: array\n                        items:\n                          type: object\n                          properties:\n                            confidence:\n                              type: number\n                            label:\n                              type: string\n\n        '400':\n          description: Invalid request\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:   \n                  message:\n                    type: string\n",
+			"canonicalURL": "/github.com/lobe/flask-server@74c89b697a655324cb523e2c0e2af372e223b4f9/-/blob/swagger/api-swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/lobe/flask-server/blob/74c89b697a655324cb523e2c0e2af372e223b4f9/swagger/api-swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

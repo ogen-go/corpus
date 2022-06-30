@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kearch/kearch"
+		},
+		"file": {
+			"name": "me_front_spec.yaml",
+			"size": 0,
+			"path": "packages/me-front/me_front_spec.yaml",
+			"byteSize": 1091,
+			"content": "openapi: 3.0.0\ninfo:\n  title: kearch meta search engine front API\n  description: kearch meta search engine front API\n  version: 0.1.0\nservers:\n  - url: '{scheme}://{me_host}:{port}/me/front'\n    variables:\n      scheme:\n        enum:\n          - http\n          - https\n        default: http\n      me_host:\n        default: me-front.kearch.svc.cluster.local\n      port:\n        default: '10080'\npaths:\n  /search:\n    get:\n      parameters:\n        - in: query\n          name: query\n          schema:\n            type: string\n          required: true\n        - in: query\n          name: sp\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Search results.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Document'\ncomponents:\n  schemas:\n    Document:\n      properties:\n        url:\n          type: string\n        title:\n          type: string\n        description:\n          type: string\n        score:\n          type: number\n",
+			"canonicalURL": "/github.com/kearch/kearch@5ea5191b467cab34994551ec553b4f24cd8b6eaf/-/blob/packages/me-front/me_front_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kearch/kearch/blob/5ea5191b467cab34994551ec553b4f24cd8b6eaf/packages/me-front/me_front_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

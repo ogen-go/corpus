@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "example/nodejs/src/openapi/resources.yaml",
 			"byteSize": 1093,
-			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/example-nodejs resources'\n  description: resources api specifications\n\ntags:\n  - name: resource\n\npaths:\n  /resources/{resourceName}/downloads:\n    get:\n      operationId: downloadResources\n      tags:\n        - resource\n      summary: download resources\n      description: データダウンロード\n      parameters:\n        - $ref: '#/components/parameters/ResourceNamePathParam'\n        - $ref: '#/components/parameters/FormatQueryParam'\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n            text/csv:\n              schema:\n                type: string\n      security:\n        - jwt: []\n\ncomponents:\n  parameters:\n    ResourceNamePathParam:\n      name: resourceName\n      in: path\n      schema:\n        type: string\n      required: true\n\n    FormatQueryParam:\n      name: format\n      in: query\n      schema:\n        type: string\n        enum:\n          - json\n          - csv\n        default: json\n      required: false"
+			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/example-nodejs resources'\n  description: resources api specifications\n\ntags:\n  - name: resource\n\npaths:\n  /resources/{resourceName}/downloads:\n    get:\n      operationId: downloadResources\n      tags:\n        - resource\n      summary: download resources\n      description: データダウンロード\n      parameters:\n        - $ref: '#/components/parameters/ResourceNamePathParam'\n        - $ref: '#/components/parameters/FormatQueryParam'\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n            text/csv:\n              schema:\n                type: string\n      security:\n        - jwt: []\n\ncomponents:\n  parameters:\n    ResourceNamePathParam:\n      name: resourceName\n      in: path\n      schema:\n        type: string\n      required: true\n\n    FormatQueryParam:\n      name: format\n      in: query\n      schema:\n        type: string\n        enum:\n          - json\n          - csv\n        default: json\n      required: false",
+			"canonicalURL": "/github.com/cam-inc/viron@22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/-/blob/example/nodejs/src/openapi/resources.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cam-inc/viron/blob/22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/example/nodejs/src/openapi/resources.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /resources/{resourceName}/downloads: get: operation \"downloadResources\": security: unknown security schema \"jwt\""

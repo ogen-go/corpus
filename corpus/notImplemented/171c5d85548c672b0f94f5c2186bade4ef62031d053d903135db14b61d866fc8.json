@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "oauth2_authorization_code_without_tokenurl.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/auth/scenarios/oauth2/oauth2_authorization_code_without_tokenurl.yaml",
+			"byteSize": 3494,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Salesforce REST APIs\n  version: 0.1-oas3\nservers:\n  - url: https://{domain}/services/data\n    variables:\n      domain:\n        default: domain\ntags:\n  - name: Account\n    description: Represents an individual account, which is an organization or person involved with your business (such as customers, competitors, and partners).\npaths:\n  /{version}/sobjects/Account/{id}:\n    get:\n      tags:\n        - Account\n      summary: Get account information\n      operationId: getAccountById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n        - name: version\n          in: path\n          description: version\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            default: v48.0\n            enum:\n              - v47.0\n              - v48.0\n      responses:\n        \"200\":\n          description: \"Status Okay\"\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Account_inner'\n        \"400\":\n          description: The request couldn’t be understood, usually because the JSON or XML body contains an error.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/MessagewithErrorCode'\n        \"401\":\n          description: The session ID or OAuth token used has expired or is invalid. The response body contains the message and errorCode.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/MessagewithErrorCode'\n      security:\n        - oAuth2AuthCode: []\ncomponents:\n  schemas:\n    attributes:\n      required:\n        - type\n        - url\n      type: object\n      properties:\n        type:\n          type: string\n          description: the type of object.\n          example: Account\n        url:\n          type: string\n          description: The relative path of the object.\n          example: /services/data/v46.0/sobjects/Account/0010E00000Up3QGQAZ\n    MessagewithErrorCode:\n      properties:\n        code:\n          type: string\n          description: Code\n    Account_inner:\n      required:\n        - Attributes\n        - Id\n        - Name\n      type: object\n      properties:\n        Attributes:\n          $ref: '#/components/schemas/attributes'\n        Id:\n          type: string\n          description: The Salesforce ID of the account\n          example: 0010E00000Up3QGQAZ\n        Name:\n          type: string\n          description: 'Name of the account. Maximum size is 255 characters. If the account has a record type of Person Account: This value is the concatenation of the FirstName, MiddleName, LastName, and Suffix of the associated person contact. You can''t modify this value.'\n          example: Klaas Vaak\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes:\n    oAuth2AuthCode:\n      type: oauth2\n      description: For more information, see https://api.slack.com/docs/oauth\n      flows:\n        authorizationCode:\n          authorizationUrl: https://login.salesforce.com/services/oauth2/autherize\n          tokenUrl: \"\"\n          scopes: {}\n          ",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/auth/scenarios/oauth2/oauth2_authorization_code_without_tokenurl.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/auth/scenarios/oauth2/oauth2_authorization_code_without_tokenurl.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/{version}/sobjects/Account/{id}\": get: security: security \"oAuth2AuthCode\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

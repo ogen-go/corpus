@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/slinkydeveloper/vertx-openapi-demo"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "src/main/resources/spec.yaml",
+			"byteSize": 2768,
+			"content": "openapi: 3.0.0\ninfo:\n   title: \"Transactions API\"\n   version: 1.0.0\n\npaths:\n  /api/transaction/sum:\n    get:\n      operationId: calculateSum\n      parameters:\n        - name: to\n          in: query\n          required: true\n          schema:\n            type: string\n        - name: from\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: sum\n          content:\n            application/json:\n              schema:\n                type: number\n                format: double\n  /api/transactions:\n    get:\n      operationId: getTransactionsList\n      parameters:\n        - name: from\n          in: query\n          description: Matches exactly the email from\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: to\n          in: query\n          description: Matches exactly the email to\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n        - name: message\n          in: query\n          description: Matches exactly or a part of message field\n          style: form\n          explode: false\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        200:\n          description: Ok\n          content:\n            application/json:    \n              schema:\n                type: array\n                items:                \n                  $ref: \"#/components/schemas/Transaction\"\n        500:\n          description: Something wrong happened\n    put:\n      operationId: putTransaction\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              anyOf:\n                - $ref: \"#/components/schemas/Transaction\"\n                - type: object\n                  properties:\n                    batch_name:\n                      type: string\n                    batch:\n                      type: array\n                      items:\n                        $ref: \"#/components/schemas/Transaction\"\n                  required:\n                    - batch\n      responses:\n        200:\n          description: Ok\n        500:\n          description: Something wrong happened\n\ncomponents:\n  schemas:\n    Transaction:\n      type: object\n      properties:\n        message:\n          type: string\n        from:\n          type: string\n          format: email\n        to:\n          type: string\n          format: email\n        value:\n          type: number\n          format: double\n      additionalProperties: false\n      required:\n        - message\n        - from\n        - to\n        - value\n",
+			"canonicalURL": "/github.com/slinkydeveloper/vertx-openapi-demo@7b5b35e62d20e39eab63ec9f286adff87123ac5d/-/blob/src/main/resources/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/slinkydeveloper/vertx-openapi-demo/blob/7b5b35e62d20e39eab63ec9f286adff87123ac5d/src/main/resources/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/transactions\": put: requestBody: contents: application/json: generate schema: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

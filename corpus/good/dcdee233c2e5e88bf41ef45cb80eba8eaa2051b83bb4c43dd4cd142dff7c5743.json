@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/cadl"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/samples/test/output/polymorphism/openapi.json",
+			"byteSize": 2076,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"(title)\",\n    \"version\": \"0000-00-00\"\n  },\n  \"tags\": [],\n  \"paths\": {\n    \"/Pets\": {\n      \"get\": {\n        \"operationId\": \"root_read\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"kind\": {\n            \"type\": \"string\",\n            \"description\": \"Discriminator property for Pet.\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"weight\": {\n            \"type\": \"number\",\n            \"format\": \"float\"\n          }\n        },\n        \"discriminator\": {\n          \"propertyName\": \"kind\",\n          \"mapping\": {\n            \"cat\": \"#/components/schemas/Cat\",\n            \"dog\": \"#/components/schemas/Dog\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ]\n      },\n      \"Cat\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"kind\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"cat\"\n            ]\n          },\n          \"meow\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          }\n        },\n        \"required\": [\n          \"kind\",\n          \"meow\"\n        ],\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Pet\"\n          }\n        ]\n      },\n      \"Dog\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"kind\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"dog\"\n            ]\n          },\n          \"bark\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"kind\",\n          \"bark\"\n        ],\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Pet\"\n          }\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/microsoft/cadl@4fac4d50c3e99c6b61da357a00fe7761acf21090/-/blob/packages/samples/test/output/polymorphism/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/cadl/blob/4fac4d50c3e99c6b61da357a00fe7761acf21090/packages/samples/test/output/polymorphism/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

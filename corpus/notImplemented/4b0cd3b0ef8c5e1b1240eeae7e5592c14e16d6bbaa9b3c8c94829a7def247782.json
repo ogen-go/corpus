@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apache/incubator-milagro-dta"
+		},
+		"file": {
+			"name": "open-api.yaml",
+			"size": 0,
+			"path": "pkg/bitcoinplugin/open-api.yaml",
+			"byteSize": 3983,
+			"content": "# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n\n#   http://www.apache.org/licenses/LICENSE-2.0\n\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n# KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n\nopenapi: 3.0.0\ninfo:\n  title: Apache Milagro D-TA Bitcoin Plugin\n  description: Returns a Bitcoin Address. This specification only shows endpoints that vary from the standard Milagro REST API\n  contact:\n    email: dev@milagro.apache.org\n  license:\n    name: http://www.apache.org/licenses/LICENSE-2.0\n  version: 1.0.0  \npaths:\n  /v1/order:\n    post:\n      summary: Create an order for a new BitCoin Address\n      description: This request will return a Bitcoin Public Address. Coin type 0 = testnet Coint type 1 = Mainnet\n      tags:\n      - order\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                beneficiaryIDDocumentCID:\n                  type: string                                    \n                extension:\n                  type: object\n                  properties:\n                    coin:\n                      type: string                    \n                      example: \"0\"\n      responses:\n        '200':\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderResponse'\n        '400':\n          description: Invalid Request\n          content:\n            text/plain:\n              schema:\n                type: string    \n  /v1/order/secret:\n    post:\n      summary: Returns the Bitcoin secret key that can be used to sign transactions\n      tags:\n        - order\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                orderReference:\n                  type: string                                    \n                beneficiaryIDDocumentCID:\n                  type: string                                    \n      responses:\n        '200':\n          description: Succesful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderSecretResponse'\n        '400':\n          description: Invalid Request\n          content:\n            text/plain:\n             schema:\n              type: string\nservers:\n  - url: 'http://localhost:5556'\n  - url: 'http://localhost:5558' \ncomponents:\n  schemas:\n      OrderResponse:\n        type: object\n        properties:\n          orderReference:\n            type: string\n          commitment:\n            type: string\n          createdAt:\n            type: string\n          extension:\n            type: object\n            properties:\n              address:\n                type: string                               \n      OrderSecretResponse:\n        type: object\n        properties:\n          secret:\n            type: string\n          commitment:\n            type: string\n          orderReference:\n            type: string\n          extension:\n            type: object\n            properties:\n              address:\n                type: string\ntags:\n  - name: order\n    description: Communication between Principals and Master Fiduciaries\n    externalDocs:\n      url: 'https://milagro.apache.org/docs/milagro-intro/'\n      description: Apache Milagro Docs",
+			"canonicalURL": "/github.com/apache/incubator-milagro-dta@2c2efe10124205fee885fffa8f7dbad83fcc1050/-/blob/pkg/bitcoinplugin/open-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apache/incubator-milagro-dta/blob/2c2efe10124205fee885fffa8f7dbad83fcc1050/pkg/bitcoinplugin/open-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/v1/order\": post: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sourmash-bio/wort"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "wort/api.yaml",
+			"byteSize": 3403,
+			"content": "openapi: 3.0.0\n\nservers:\n  - url: /v1/\n\ninfo:\n  title: wort\n  version: 0.0.1\n  description: 'https://github.com/dib-lab/wort'\n  contact:\n    name: Luiz Irber\n    email: wort@luizirber.org\n  license:\n    name: AGPL-3.0-only\n    url: 'https://raw.githubusercontent.com/dib-lab/wort/master/LICENSE'\n\npaths:\n  '/compute/sra/{sra_id}':\n    post:\n      summary: Request to compute a new signature from an SRA dataset\n      operationId: wort.blueprints.compute.views.compute_sra\n      security:\n        - token: []\n      parameters:\n        - $ref: '#/components/parameters/sra_id'\n      responses:\n        '202':\n          description: Compute task accepted\n\n  '/compute/genomes/{assembly_accession}':\n    post:\n      summary: Request to compute a new signature from a GenBank/RefSeq dataset\n      operationId: wort.blueprints.compute.views.compute_genomes\n      security:\n        - token: []\n      parameters:\n        - $ref: '#/components/parameters/assembly_accession'\n      responses:\n        '202':\n          description: Compute task accepted\n\n  '/view/{public_db}/{dataset_id}':\n    get:\n      summary: Return a signature\n      operationId: wort.blueprints.viewer.views.view\n      parameters:\n        - $ref: '#/components/parameters/public_db'\n        - $ref: '#/components/parameters/dataset_id'\n      responses:\n        '200':\n          description: Signature\n        '404':\n          description: Database not supported\n\n  '/auth/tokens':\n    post:\n      summary: Request a new access token for API use\n      operationId: wort.blueprints.auth.auth.get_token\n      responses:\n        '200':\n          description: Access token\n          content:\n            'text/plain':\n              schema:\n                type: string\n      security:\n        - basic: []\n    delete:\n      summary: Deactivate an access token\n      operationId: wort.blueprints.auth.auth.revoke_token\n      security:\n        - basic: []\n        - token: []\n      responses:\n        '200':\n          description: token revoked\n\n  '/submit/{public_db}/{dataset_id}':\n    post:\n      summary: Submit a signature\n      operationId: wort.blueprints.submit.views.submit_sigs\n      security:\n        - token: []\n      parameters:\n        - $ref: '#/components/parameters/public_db'\n        - $ref: '#/components/parameters/dataset_id'\n      responses:\n        '202':\n          description: Signature accepted\n\ncomponents:\n  securitySchemes:\n    token:\n      type: http\n      scheme: bearer\n      x-bearerInfoFunc: wort.blueprints.auth.auth.verify_token\n    basic:\n      type: http\n      scheme: basic\n      x-basicInfoFunc: wort.blueprints.auth.auth.basic_auth\n\n  parameters:\n    sra_id:\n      name: sra_id\n      description: SRA ID for a dataset\n      in: path\n      required: true\n      schema:\n        type: string\n        pattern: '^\\w{3}\\d{6,8}$'\n\n    assembly_accession:\n      name: assembly_accession\n      description: Accession number for a GenBank/RefSeq dataset\n      in: path\n      required: true\n      schema:\n        type: string\n        pattern: '^\\w{3}_\\d{9}\\.\\d{1,2}$'\n\n    public_db:\n      name: public_db\n      description: Public database\n      in: path\n      required: true\n      schema:\n        type: string\n        pattern: \"^sra|^img|^genomes\"\n\n    dataset_id:\n      name: dataset_id\n      description: ID for a dataset in a public database\n      in: path\n      required: true\n      schema:\n        type: string\n",
+			"canonicalURL": "/github.com/sourmash-bio/wort@a9aebed9b2de2d5130ff81f28aa00a0bc5cc495b/-/blob/wort/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/sourmash-bio/wort/blob/a9aebed9b2de2d5130ff81f28aa00a0bc5cc495b/wort/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/auth/tokens\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microcks/microcks"
+		},
+		"file": {
+			"name": "param-refs-openapi.yaml",
+			"size": 0,
+			"path": "webapp/src/test/resources/io/github/microcks/util/openapi/param-refs-openapi.yaml",
+			"byteSize": 1293,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Sample API\n  version: '1.0'\npaths:\n  /accounts/{accountId}:\n    get:\n      parameters:\n        - $ref: \"#/components/parameters/accountId\"\n      responses:\n        200:\n          $ref: \"#/components/responses/OK_200_AccountDetails\"\n\ncomponents:\n  parameters:\n    accountId:\n      name: accountId\n      in: path\n      required: true\n      schema:\n        $ref: \"#/components/schemas/accountId\"\n      examples:\n        \"Example 1\":\n          value: 396be545-e2d4-4497-a5b5-700e89ab99c0\n\n  responses:\n    OK_200_AccountDetails:\n      description: OK\n      content:\n        application/json:\n          schema:\n            type: object\n            required:\n              - account\n            properties:\n              account:\n                $ref: \"#/components/schemas/accountDetails\"\n          examples:\n            \"Example 1\":\n              $ref: \"#/components/examples/accountDetailsRegularAccount\"\n\n  schemas:\n    accountId:\n      type: string\n      format: uuid\n    accountDetails:\n      type: object\n      properties:\n        resourceId:\n          type: string\n\n  examples:\n    accountDetailsRegularAccount:\n      value:\n        {\n          \"account\":\n            {\n              \"resourceId\": \"f377afb3-5c62-40cc-8f07-1f4749a780eb\",\n            }\n        }",
+			"canonicalURL": "/github.com/microcks/microcks@073200620b3f9b1525985cb0492dd8995738119b/-/blob/webapp/src/test/resources/io/github/microcks/util/openapi/param-refs-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microcks/microcks/blob/073200620b3f9b1525985cb0492dd8995738119b/webapp/src/test/resources/io/github/microcks/util/openapi/param-refs-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

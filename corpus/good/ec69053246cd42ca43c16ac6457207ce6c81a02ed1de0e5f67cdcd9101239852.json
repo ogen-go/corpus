@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DynamicGenetics/COVID-19-Community-Response"
+		},
+		"file": {
+			"name": "data_schema.yaml",
+			"size": 0,
+			"path": "docs/data_schema.yaml",
+			"byteSize": 3610,
+			"content": "openapi: 3.0.1\ninfo:\n  title: COVID-19 Community Response\n  version: \"1.0.0\"\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n    /:\n        get:\n            responses:\n                '200':\n                    description: 'Data to initialise the Map'\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/DashboardData'\ncomponents:\n  schemas:  # Reusable Schemas\n    DashboardData:\n      description: Schema for data used on the COVID-19 Community Response dashboard.\n      type: object\n      properties:\n        variables:\n          $ref: '#/components/schemas/Variables'\n        LAs:\n          $ref: '#/components/schemas/LAs'\n        LSOAs:\n          $ref: '#/components/schemas/LSOAs'\n\n\n    Variable:\n      type: object\n      description: Information about each data variable\n      properties:\n        name:\n          type: string\n          description: variable id, same as column name from csv\n        label:\n          type: string\n          description: Human readable label\n        class:\n          type: string\n          enum: ['support', 'challenge']\n          description: The group that the data belongs to\n        lsoa:\n          type: boolean\n          description: Whether this data available at LSOA level, as well as LA.\n\n    Variables:\n      type: array\n      items:\n        $ref: '#/components/schemas/Variable'\n\n    LA:\n      type: object\n      description: Information about each Local Authority\n      properties:\n        lad19nm:\n          type: string\n        lad19cd:\n          type: string\n        population_count:\n          type: number\n        pop_density_persqkm:\n          type: number\n        has_internet_pct:\n          type: number\n        vulnerable_pct:\n          type: number\n        over_65_count:\n          type: number\n        use_internet_daily_percent:\n          type: number\n        wimd:\n          type: number\n        belong_percent:\n          type: number\n        welsh_percent:\n          type: number\n        covid_per100k:\n          type: number\n        groups_count:\n          type: number\n        shielded_percent:\n          type: number\n\n    LAs:\n      type: array\n      items:\n        $ref: '#/components/schemas/LA'\n\n    LSOA:\n      type: object\n      description: Information about each Local Authority\n      properties:\n        LSOA11CD:\n          type: string\n        LSOA11NM:\n          type: string\n        welsh_percent:\n          type: number\n        wimd:\n          type: number\n        population_count:\n          type: number\n        pop_density_persqkm:\n          type: number\n        over_65_count:\n          type: number\n\n    LSOAs:\n      type: array\n      items:\n        $ref: '#/components/schemas/LSOA'\n    \n    GroupData:\n      description: Schema for Community Response point data on the dashboard.\n      type: object\n      properties:\n        groups:\n          $ref: '#/components/schemas/groups'\n\n    group:\n      type: object\n      description: Information about each group point on the map\n      properties:\n        id:\n          type: string\n          description: Unique identifier for the group.\n        name:\n          type: string\n          description: Name of the group\n        platform:\n          type: string\n          description: Which platform the group exists on\n          example: \"Facebook\"\n        lat:\n          type: number\n        long:\n          type: number\n\n    groups:\n      type: array\n      items:\n        $ref: '#/components/schemas/group'\n\n    ",
+			"canonicalURL": "/github.com/DynamicGenetics/COVID-19-Community-Response@add487c137b36c7e4a0d9895214fc0161d22d082/-/blob/docs/data_schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DynamicGenetics/COVID-19-Community-Response/blob/add487c137b36c7e4a0d9895214fc0161d22d082/docs/data_schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

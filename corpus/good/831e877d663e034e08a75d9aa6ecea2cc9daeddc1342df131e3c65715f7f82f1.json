@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cspannos/PRAXIS-Blockchain-API-Maximizer"
+		},
+		"file": {
+			"name": "parameter-exclusive-schema-content.yaml",
+			"size": 0,
+			"path": "praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/parameter-exclusive-schema-content.yaml",
+			"byteSize": 1913,
+			"content": "meta:\n  title: 3.0 Parameter Object schema/content exclusivity\ncases:\n- name: both schema and content defined\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: 1.0.0\n      title: Swagger Petstore\n    paths:\n      /:\n        get:\n          parameters:\n            - name: limit\n              in: query\n              description: How many items to return at one time (max 100)\n              schema:\n                type: string\n              content:\n                application/json:    \n                  schema:\n                    type: string\n          responses:\n            '200':\n              description: ok\n  output:\n    length: 1\n    match:\n    - message: should have either a `schema` or `content` property\n- name: content defined with disallowed siblings also present\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: 1.0.0\n      title: Swagger Petstore\n    paths:\n      /:\n        get:\n          parameters:\n            - name: limit\n              in: query\n              description: How many items to return at one time (max 100)\n              explode: true\n              content:\n                application/json:    \n                  schema:\n                    type: string\n          responses:\n            '200':\n              description: ok\n  output:\n    length: 1\n    match:\n    - message: \"should not have `style`, `explode`, `allowReserved`, `example`, or `examples` when `content` is present\"\n- name: neither schema or content defined\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: 1.0.0\n      title: Swagger Petstore\n    paths:\n      /:\n        get:\n          parameters:\n            - name: limit\n              in: query\n              description: How many items to return at one time (max 100)\n\n          responses:\n            '200':\n              description: ok\n  output:\n    length: 1\n    match:\n    - message: should have either a `schema` or `content` property",
+			"canonicalURL": "/github.com/cspannos/PRAXIS-Blockchain-API-Maximizer@8ee70fc7c85d5bde8da762dbfbefe748d6c89492/-/blob/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/parameter-exclusive-schema-content.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer/blob/8ee70fc7c85d5bde8da762dbfbefe748d6c89492/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/parameter-exclusive-schema-content.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

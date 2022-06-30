@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jiro4989/websh"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "public/swagger.yaml",
+			"byteSize": 3324,
+			"content": "openapi: 3.0.2\n\ninfo:\n  version: \"1.0\"\n  title: Websh API\n\nservers:\n  - url: \"https://websh.jiro4989.com/api\"\n    description: 本番環境\n\npaths:\n  /ping:\n    get:\n      description: |\n        サーバの稼働状態を返す。\n      responses:\n        \"200\":\n          description: サーバが稼働している状態\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/responseStatus\"\n        \"500\":\n          description: サーバが死んでる状態\n\n  /shellgei:\n    post:\n      description: |\n        シェル芸を実行し、結果を取得する。\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/requestShellgei\"\n      responses:\n        \"200\":\n          description: シェル芸を正常に実行し終えた時のレスポンス\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/responseShellgei\"\n        \"500\":\n          description: 何らかの問題が発生してシェル芸を実行できなかった時のレスポンス\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/responseShellgei\"\n\ncomponents:\n  schemas:\n    requestShellgei:\n      type: object\n      properties:\n        code:\n          description: 実行するシェルのコマンド列\n          type: string\n          example: echo 'hello world'\n        images:\n          description: |\n            シェル実行環境に持ち込む画像データ。\n            画像はBase64エンコードされた文字列の配列。\n          type: array\n          items:\n            type: string\n          example: [\"iVBORw0KGgoAAAANSUhEUgAAAG4AAAAWC ...\"]\n      required:\n        - code\n\n    responseStatus:\n      properties:\n        status:\n          description: 稼働状態を返す\n          type: string\n          example: ok\n\n    responseShellgei:\n      properties:\n        status:\n          description: |\n            処理結果のステータス。\n\n            - 正常に処理された場合は 0\n            - タイムアウトした場合は 1\n            - なんらかのエラーが発生した場合は 100\n          type: integer\n          enum: [0, 1, 100]\n          example: 0\n        system_message:\n          description: エラー発生時のメッセージ\n          type: string\n          example: \"System error occured.\"\n        stdout:\n          description: シェル芸実行結果の標準出力\n          type: string\n          example: \"hello world\"\n        stderr:\n          description: シェル芸実行結果の標準エラー出力\n          type: string\n          example: \"x: command not found\"\n        images:\n          description: |\n            シェル芸実行結果の画像ファイルのBase64エンコードされた文字列。\n            画像フォーマットは実行したシェルに依存するため不定。\n          type: array\n          items:\n            type: string\n          example: [\"iVBORw0KGgoAAAANSUhEUgAAAG4AAAAWC ...\"]\n        elapsed_time:\n          description: シェル芸の実行にかかった時間\n          type: string\n          example: \"1000milsec\"\n",
+			"canonicalURL": "/github.com/jiro4989/websh@f9b460ed8fd8af78db421718a2e6a24eb160aa64/-/blob/public/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jiro4989/websh/blob/f9b460ed8fd8af78db421718a2e6a24eb160aa64/public/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

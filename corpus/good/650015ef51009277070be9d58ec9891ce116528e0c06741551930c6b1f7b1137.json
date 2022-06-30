@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "petstore.yaml",
+			"size": 0,
+			"path": "openapi3filter/testdata/petstore.yaml",
+			"byteSize": 2490,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  description: \"This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.\"\n  version: \"1.0.0\"\n  title: \"Swagger Petstore\"\n  termsOfService: \"http://swagger.io/terms/\"\n  contact:\n    email: \"apiteam@swagger.io\"\n  license:\n    name: \"Apache 2.0\"\n    url: \"http://www.apache.org/licenses/LICENSE-2.0.html\"\ntags:\n- name: \"pet\"\n  description: \"Everything about your Pets\"\n  externalDocs:\n    description: \"Find out more\"\n    url: \"http://swagger.io\"\n- name: \"store\"\n  description: \"Access to Petstore orders\"\n- name: \"user\"\n  description: \"Operations about user\"\n  externalDocs:\n    description: \"Find out more about our store\"\n    url: \"http://swagger.io\"\npaths:\n  /pet:\n    post:\n      tags:\n      - \"pet\"\n      summary: \"Add a new pet to the store\"\n      description: \"\"\n      operationId: \"addPet\"\n      requestBody:\n        required: true\n        content: \n          'application/json':\n            schema:\n              $ref: '#/components/schemas/Pet'\n      responses:\n        \"405\":\n          description: \"Invalid input\"\ncomponents:\n  schemas:\n    Category:\n      type: \"object\"\n      properties:\n        id:\n          type: \"integer\"\n          format: \"int64\"\n        name:\n          type: \"string\"\n      xml:\n        name: \"Category\"\n    Tag:\n      type: \"object\"\n      properties:\n        id:\n          type: \"integer\"\n          format: \"int64\"\n        name:\n          type: \"string\"\n      xml:\n        name: \"Tag\"\n    Pet:\n      type: \"object\"\n      required:\n      - \"name\"\n      - \"photoUrls\"\n      properties:\n        id:\n          type: \"integer\"\n          format: \"int64\"\n        category:\n          $ref: \"#/components/schemas/Category\"\n        name:\n          type: \"string\"\n          example: \"doggie\"\n        photoUrls:\n          type: \"array\"\n          xml:\n            name: \"photoUrl\"\n            wrapped: true\n          items:\n            type: \"string\"\n        tags:\n          type: \"array\"\n          xml:\n            name: \"tag\"\n            wrapped: true\n          items:\n            $ref: \"#/components/schemas/Tag\"\n        status:\n          type: \"string\"\n          description: \"pet status in the store\"\n          enum:\n          - \"available\"\n          - \"pending\"\n          - \"sold\"\n      xml:\n        name: \"Pet\"\n",
+			"canonicalURL": "/github.com/getkin/kin-openapi@32445850faa0551385d614e844b344006c0a8f22/-/blob/openapi3filter/testdata/petstore.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getkin/kin-openapi/blob/32445850faa0551385d614e844b344006c0a8f22/openapi3filter/testdata/petstore.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

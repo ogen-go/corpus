@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "with_read_only_keyword.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/with_read_only_keyword.yaml",
+			"byteSize": 1571,
+			"content": "openapi: 3.0.1\ninfo:\n  title: PayloadV\n  version: 0.0.0\nservers:\n  - url: \"{server}:{port}/payloadV\"\n    variables:\n      server:\n        default: http://localhost\n      port:\n        default: port\npaths:\n  /albums:\n    get:\n      operationId: getAlbums\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Album'\n    post:\n      operationId: postAlbums\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Album'\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Album'\n  /albums/{id}:\n    get:\n      operationId: getAlbumsId\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Album'\n        \"404\":\n          description: NotFound\ncomponents:\n  schemas:\n    Album:\n      required:\n        - artist\n        - id\n        - price\n        - title\n      type: object\n      properties:\n        id:\n          type: string\n        title:\n          type: string\n        artist:\n          type: string\n        price:\n          type: number\n          format: double\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/with_read_only_keyword.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/ballerina-to-openapi/expected_gen/record/with_read_only_keyword.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

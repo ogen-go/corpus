@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/academic-resources/stared-repos"
+		},
+		"file": {
+			"name": "swagger-config.yaml",
+			"size": 0,
+			"path": "swagger-ui/docs/samples/webpack-getting-started/src/swagger-config.yaml",
+			"byteSize": 805,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: \"0.0.1\"\n  title: \"Swagger UI Webpack Setup\"\n  description: \"Demonstrates Swagger UI with Webpack including CSS and OAuth\"\nservers:\n  - url: \"https://demo.identityserver.io/api\"\n    description: \"Identity Server test API\"\ncomponents:\n  securitySchemes:\n    # See https://demo.identityserver.io/ for configuration details.\n    identity_server_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: \"https://demo.identityserver.io/connect/authorize\"\n          scopes:\n            api: \"api\"\nsecurity:\n  - identity_server_auth:\n    - api\npaths:\n  /test:\n    get:\n      summary: \"Runs a test request against the Identity Server demo API\"\n      responses:\n        401:\n          description: \"Unauthorized\"\n        200:\n          description: \"OK\"\n",
+			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/docs/samples/webpack-getting-started/src/swagger-config.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/docs/samples/webpack-getting-started/src/swagger-config.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test\": get: security: security \"identity_server_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

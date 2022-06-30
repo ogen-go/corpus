@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devonfw/cobigen"
+		},
+		"file": {
+			"name": "property-ref-many-to-one.yaml",
+			"size": 0,
+			"path": "cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/property-ref-many-to-one.yaml",
+			"byteSize": 922,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://localhost:8081/devonfw-server/services/rest'\ninfo:\n  title: Devon Example\n  description: Example of a API definition\n  version: 1.0.0\npaths:\n  /customMethod:\n    get:\n      operationId: customMethod\n      responses:\n        '200':\n          description: Custom Method\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleData'\ncomponents:\n  schemas:\n    SampleData:\n      x-component: comp\n      type: object\n      properties:\n        mainData:\n          type: array\n          description: a single ref to MoreData (many-to-one)\n          items:\n            $ref: '#/components/schemas/MoreData'\n    MoreData:\n      x-component: comp\n      type: object\n      properties:\n        master:\n          type: object\n          description: master data ref (many-to-one)\n          $ref: '#/components/schemas/SampleData'",
+			"canonicalURL": "/github.com/devonfw/cobigen@faf3432caec9bff09cfa58dcfb7e7c78df249e8a/-/blob/cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/property-ref-many-to-one.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devonfw/cobigen/blob/faf3432caec9bff09cfa58dcfb7e7c78df249e8a/cobigen-plugins/cobigen-openapiplugin-parent/cobigen-openapiplugin/src/test/resources/testdata/unittest/OpenAPIInputReaderTest/property-ref-many-to-one.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

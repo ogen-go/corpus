@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sanddorn/InfrastructureAsMicroservice"
+		},
+		"file": {
+			"name": "hero-api.yml",
+			"size": 0,
+			"path": "demo-ServiceRegistry-Automator/api/hero-api.yml",
+			"byteSize": 2312,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0.0-SNAPSHOT'\n  title: 'Hero API for Consul Demo'\n  description: 'Hero API for Consul Demo'\ntags:\n  - name: hero\n  - name: repository\npaths:\n  '/hero/heros':\n    get:\n      summary: Collect all heros from all repositories\n      operationId: collectAllHeros\n      tags:\n        - hero\n      responses:\n        200:\n          description: successfull operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/hero'\n  '/hero/repositories':\n    get:\n      summary: Get all hero repositories\n      operationId: getHeroRepositoryNames\n      tags:\n        - repository\n      responses:\n        200:\n          description: successfull operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n  '/hero/hero/{repository}':\n    post:\n      summary: Add hero to the repository\n      operationId: addHeroToRepository\n      tags:\n        - hero\n      parameters:\n        - name: repository\n          in: path\n          description: Repository to use\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/hero\"\n      responses:\n        201:\n          description: Successfull created\n        404:\n          description: Repository not found\n        409:\n          description: The hero already exists and the repository cannot handle duplicates.\n\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n  schemas:\n    hero:\n      type: object\n      required:\n        - name\n        - city\n        - universum\n      properties:\n        name:\n          type: string\n          example: \"Batman\"\n        city:\n          type: string\n          example: \"Gotham City\"\n        universum:\n          type: string\n          enum:\n            - \"Marvel\"\n            - \"DC Comics\"\n\nsecurity:\n  - basicAuth: []\n\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/Bermuda/hero-api/1.0.0-SNAPSHOT\n  - description: Integration System\n    url: https://heros.bermuda.de/\n",
+			"canonicalURL": "/github.com/sanddorn/InfrastructureAsMicroservice@3f170bead99600be3448b4a1e08d37960fc0eb26/-/blob/demo-ServiceRegistry-Automator/api/hero-api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/sanddorn/InfrastructureAsMicroservice/blob/3f170bead99600be3448b4a1e08d37960fc0eb26/demo-ServiceRegistry-Automator/api/hero-api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

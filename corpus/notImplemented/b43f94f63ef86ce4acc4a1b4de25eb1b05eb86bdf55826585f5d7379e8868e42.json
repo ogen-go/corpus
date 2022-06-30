@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-example-4j"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/ms-aggregate/aa/generated/src/main/resources/config/openapi.json",
+			"byteSize": 1897,
+			"content": "{\"components\":{\"securitySchemes\":{\"aa_auth\":{\"type\": \"oauth2\",\"flows\":{\"implicit\":{\"authorizationUrl\": \"http://localhost:8080/oauth2/code\",\"scopes\":{\"aa.w\": \"write access\",\"aa.r\": \"read access\",\"server.info.r\":\"read server info\"}}}}}},\"servers\": [\n    {\n      \"url\": \"http://aa.networknt.com/v1\"\n    }\n  ],\"openapi\": \"3.0.0\",\"paths\":{\"/data\": {\n      \"get\": {\n        \"description\": \"Return an array of strings collected from down stream APIs\",\n        \"operationId\": \"listData\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"title\": \"ArrayOfStrings\",\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"examples\": {\n                  \"response\": {\n                    \"value\": [\n                      \"Message 1\",\n                      \"Message 2\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"aa_auth\": [\n              \"aa.w\",\n              \"aa.r\"\n            ]\n          }\n        ]\n      }\n    },\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}},\"/server/info\":{\"get\":{\"security\":[{\"aa_auth\":[\"server.info.r\"]}],\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}}},\"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"API AA for aggregate microservices pattern\",\n    \"description\": \"API AA is called by consumer directly and it will call API AB, API AC and API AD to get data\",\n    \"contact\": {\n      \"email\": \"stevehu@gmail.com\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  }}",
+			"canonicalURL": "/github.com/networknt/light-example-4j@74513c019570e65623b80c1cadc1423e7a18807a/-/blob/rest/openapi/ms-aggregate/aa/generated/src/main/resources/config/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-example-4j/blob/74513c019570e65623b80c1cadc1423e7a18807a/rest/openapi/ms-aggregate/aa/generated/src/main/resources/config/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/data\": get: security: security \"aa_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

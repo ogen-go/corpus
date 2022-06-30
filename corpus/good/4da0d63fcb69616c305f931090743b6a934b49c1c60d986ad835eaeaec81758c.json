@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rstropek/htl-leo-pro-5"
+		},
+		"file": {
+			"name": "api-spec.yaml",
+			"size": 0,
+			"path": "homeworks/0100-expression-evaluator/api-spec.yaml",
+			"byteSize": 2164,
+			"content": "openapi: 3.0.0\ninfo:\n  description: Expression evaluator exam example\n  version: 0.1.0\n  title: Expression Evaluator\npaths:\n  /api/variables:\n    get:\n      summary: Gets a list of variables with their assigned values\n      operationId: getVariables\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Variables'\n    post:\n      summary: Assigns a value to a variable\n      operationId: setVariable\n      requestBody:\n        description: Variable name and value\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Variable'\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Variable'\n  /api/evaluate:\n    post:\n      summary: Evaluates a given expression\n      operationId: evaluate\n      requestBody:\n        description: Expression\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Expression'\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ExpressionWithResult'\n        '400':\n          description: Invalid expression\ncomponents:\n  schemas:\n    Variable:\n      type: object\n      properties:\n        name:\n          type: string\n          description: Variable name\n        value:\n          type: number\n          description: Assigned value\n    Variables:\n      type: array\n      items:\n        $ref: '#/components/schemas/Variable'\n    Expression:\n      type: object\n      properties:\n        expression:\n          type: string\n          description: Expression (e.g. '1+2+x')\n    ExpressionWithResult:\n      type: object\n      properties:\n        expression:\n          type: string\n          description: Expression (e.g. '1+2+x')\n        result:\n          type: number\n          description: Expression (e.g. 10)",
+			"canonicalURL": "/github.com/rstropek/htl-leo-pro-5@4269501cc5aff59af6267af3528392e061869a9d/-/blob/homeworks/0100-expression-evaluator/api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rstropek/htl-leo-pro-5/blob/4269501cc5aff59af6267af3528392e061869a9d/homeworks/0100-expression-evaluator/api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

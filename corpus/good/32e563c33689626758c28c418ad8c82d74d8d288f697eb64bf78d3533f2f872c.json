@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "objects-test.yml",
+			"size": 0,
+			"path": "security/tests/objects-test.yml",
+			"byteSize": 1092,
+			"content": "components:\n  schemas:\n    # String\n    ko_wild: \u0026wild\n      description: lacks everything\n      type: object\n    ko_wild_1:\n      \u003c\u003c: *wild\n      additionalProperties: true\n    ko_wild_2: \u0026wild_2\n      \u003c\u003c: *wild\n      description: |-\n        jsonschema draft-6 supports http://json-schema.org/understanding-json-schema/reference/object.html\n        propertyNames:\n          pattern: \"[a-z]+\"\n      additionalProperties:\n        type: string\n        maxLength: 8\n        format: date\n    ok_wild_3:\n      \u003c\u003c: *wild_2\n      maxProperties: 3\n    ok_object:\n      type: object\n      additionalProperties: false\n      properties:\n        a:\n          type: string\n          maxLength: 8\n          format: date\n    ok_nested_object:\n      type: object\n      maxProperties: 1\n      additionalProperties:\n        type: object\n        maxProperties: 1\n        additionalProperties:\n          type: string\n          maxLength: 8\n\nopenapi: 3.0.1\npaths:\n  /string-ko-params:\n    parameters:\n      - name: ko_1\n        in: query\n        schema:\n          type: string\ninfo:\n  version: 1.0.0\n  title: ciao",
+			"canonicalURL": "/github.com/italia/api-oas-checker@f6f4e6e360b2ce9816dcca29396571dda1c6027d/-/blob/security/tests/objects-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/f6f4e6e360b2ce9816dcca29396571dda1c6027d/security/tests/objects-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

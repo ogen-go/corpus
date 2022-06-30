@@ -9,8 +9,15 @@
 			"size": 0,
 			"path": "spec/data/remote-file-ref.yaml",
 			"byteSize": 543,
-			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /local_file_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: normal.yml#/components/schemas/all_of_base\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\n  /reference_to_path_item_with_path_param:\n    $ref: 'path-item-ref.yaml#/paths/~1sample~1%7Bsample_id%7D'\n"
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: OpenAPI3 Test\npaths:\n  /local_file_reference:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: normal.yml#/components/schemas/all_of_base\n      responses:\n        '200':\n          description: correct\n          content:\n            application/json:\n              schema:\n                type: object\n  /reference_to_path_item_with_path_param:\n    $ref: 'path-item-ref.yaml#/paths/~1sample~1%7Bsample_id%7D'\n",
+			"canonicalURL": "/github.com/ota42y/openapi_parser@b8821c3d4e8c1f072862e6e245b9de2477555e42/-/blob/spec/data/remote-file-ref.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ota42y/openapi_parser/blob/b8821c3d4e8c1f072862e6e245b9de2477555e42/spec/data/remote-file-ref.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /local_file_reference: post: requestBody: content: application/json: schema: parse schema: resolve \"normal.yml#/components/schemas/all_of_base\": external \"normal.yml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: /reference_to_path_item_with_path_param: referenced pathItem not supported"
 }

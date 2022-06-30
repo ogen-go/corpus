@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/schemathesis/schemathesis"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "example/app/openapi.yaml",
+			"byteSize": 1618,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Booking API\n  description: A flights booking system.\n  version: 1.0.0\nservers:\n  - url: http://127.0.0.1:5000/api\npaths:\n  /bookings/{booking_id}:\n    parameters:\n      - description: Booking ID to retrieve\n        in: path\n        name: booking_id\n        required: true\n        schema:\n          format: int32\n          type: integer\n    get:\n      summary: Get a booking by ID\n      operationId: app.views.get_booking_by_id\n      responses:\n        \"200\":\n          description: OK\n  /bookings/:\n    post:\n      summary: Create a new booking\n      operationId: app.views.create_booking\n      responses:\n        \"201\":\n          description: OK\n          links:\n            GetBookingById:\n              operationId: app.views.get_booking_by_id\n              parameters:\n                booking_id: '$response.body#/id'\n      requestBody:\n        $ref: '#/components/requestBodies/Booking'\n    get:\n      summary: Get bookings\n      operationId: app.views.get_bookings\n      parameters:\n        - description: Number of bookings to return\n          in: query\n          name: limit\n          schema:\n            type: integer\n            minimum: 1\n            maximum: 2147483647\n      responses:\n        \"200\":\n          description: OK\ncomponents:\n  requestBodies:\n    Booking:\n      required: true\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Booking'\n  schemas:\n    Booking:\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        is_active:\n          type: boolean\n      type: object\n",
+			"canonicalURL": "/github.com/schemathesis/schemathesis@9e576e4e58173b626c4910247aa279f466a33265/-/blob/example/app/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/schemathesis/schemathesis/blob/9e576e4e58173b626c4910247aa279f466a33265/example/app/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

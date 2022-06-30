@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hotmeteor/spectator"
+		},
+		"file": {
+			"name": "OneOf.v1.yml",
+			"size": 0,
+			"path": "tests/Fixtures/OneOf.v1.yml",
+			"byteSize": 982,
+			"content": "openapi: 3.0.0\ninfo:\n  title: OneOf.v1\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n      responses:\n        '200':\n          description: Updated\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Cat'\n                  - $ref: '#/components/schemas/Dog'\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      properties:\n        bark:\n          type: boolean\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd]\n      additionalProperties: false\n    Cat:\n      type: object\n      properties:\n        hunts:\n          type: boolean\n        age:\n          type: integer\n      additionalProperties: false\n",
+			"canonicalURL": "/github.com/hotmeteor/spectator@06bdf2c95fac4ead0af663a8390ed2b15b19b1e7/-/blob/tests/Fixtures/OneOf.v1.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hotmeteor/spectator/blob/06bdf2c95fac4ead0af663a8390ed2b15b19b1e7/tests/Fixtures/OneOf.v1.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "overriding-server-object.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/overriding-server-object.json",
+			"byteSize": 1091,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic servers\",\n    \"version\": \"0.1\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://api.example.com/v1\",\n      \"description\": \"The production API server\"\n    }\n  ],\n  \"paths\": {\n    \"/with-no-overriding\": {\n      \"get\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"get in files path\"\n          }\n        }\n      }\n    },\n    \"/ping\": {\n      \"servers\": [\n        {\n          \"url\": \"https://ping.example.com\",\n          \"description\": \"Override base path for all operations with the /ping path\"\n        }\n      ],\n      \"post\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"get in files path\"\n          }\n        }\n      },\n      \"get\": {\n        \"responses\": {\n          \"default\": {\n            \"description\": \"get in files path\"\n          }\n        },\n        \"servers\": [\n          {\n            \"url\": \"https://echo.example.com\",\n            \"description\": \"Override base path for the GET /ping operation\"\n          }\n        ]\n      }\n    },\n    \"/only-path\":{\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/-/blob/amf-cli/shared/src/test/resources/upanddown/oas3/overriding-server-object.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/amf-cli/shared/src/test/resources/upanddown/oas3/overriding-server-object.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "mapSchemas.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/mapSchemas.yaml",
+			"byteSize": 1841,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Example API\n  version: \"3.0.0\"\npaths:\n  /:\n    get:\n      summary: Empty Route\n      responses:\n        \"200\":\n          description: Good Request.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/FreeformObjectTypes'\n        \"400\":\n          description: Bad Request.\n        \"403\":\n          description: Forbidden. Access denied.\n\ncomponents:\n  schemas:\n    ExampleModel:\n      type: object\n      properties:\n        id:\n          type: string\n        withAdditinalProperties:\n          $ref: '#/components/schemas/ModelWithAdditionalProperties'\n    ModelWithAdditionalProperties:\n      type: object\n      properties:\n        id:\n          type: string\n      additionalProperties: {}\n    ModelWithStringToStringMapping:\n      type: object\n      additionalProperties:\n        type: string\n    ModelWithStringToModelMapping:\n      type: object\n      additionalProperties:\n        $ref: '#/components/schemas/ComplexModel'\n    ComplexModel:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n      required:\n        - name\n      example:\n        name: Puma\n        id: 1\n    FreeformObjectTypes:\n      type: object\n      properties:\n        ExampleModel:\n          $ref: '#/components/schemas/ExampleModel'\n        ModelWithAdditionalProperties:\n          $ref: '#/components/schemas/ModelWithAdditionalProperties'\n        ModelWithStringToStringMapping:\n          $ref: '#/components/schemas/ModelWithStringToStringMapping'\n        ModelWithStringToModelMapping:\n          $ref: '#/components/schemas/ModelWithStringToModelMapping'\n        ComplexModel:\n          $ref: '#/components/schemas/ComplexModel'\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/mapSchemas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/mapSchemas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

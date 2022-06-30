@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/davidmoten/openapi-to-plantuml"
+		},
+		"file": {
+			"name": "parameter-ref-complex.yml",
+			"size": 0,
+			"path": "src/test/resources/inputs/parameter-ref-complex.yml",
+			"byteSize": 840,
+			"content": "openapi: 3.0.1\ninfo:\n  title: unit test\n  version: 0.0.1\npaths:\n  /customer/expired:\n    get:\n      parameters:\n      - $ref: '#/components/parameters/CustomerId'\n      responses:\n        '200':  \n          content:\n            application/json:\n              schema: \n                type: array\n                items:\n                  $ref: '#/components/schemas/Customer'\ncomponents:\n  schemas:\n    Customer:\n      properties:\n        firstName:\n          type: string\n        lastName:\n          type: string\n  parameters:\n    CustomerId:\n      name: customerId\n      in: query\n      description: Unique identification of customer resource\n      required: true\n      schema:\n        properties:\n          id:\n            type: string\n            pattern: '^([a-zA-Z0-9 /\\-?:\\()\\.,'']{1,35})$'\n          prefix:\n            type: string",
+			"canonicalURL": "/github.com/davidmoten/openapi-to-plantuml@c4984f52cd528d20cbbbcf1439a60df24ec343c3/-/blob/src/test/resources/inputs/parameter-ref-complex.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/davidmoten/openapi-to-plantuml/blob/c4984f52cd528d20cbbbcf1439a60df24ec343c3/src/test/resources/inputs/parameter-ref-complex.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

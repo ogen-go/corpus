@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/widdershins"
+		},
+		"file": {
+			"name": "issue193.yaml",
+			"size": 0,
+			"path": "defs/issue193.yaml",
+			"byteSize": 566,
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: 1.0.0\npaths:\n  /:\n    post:\n      responses:\n        '200':\n          description: OK\n      requestBody:\n        description: A JSON object containing pet information\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n                - $ref: '#/components/schemas/Hamster'\ncomponents:\n  schemas:\n    Cat:\n      type: object\n    Dog:\n      type: object\n    Hamster:\n      type: object\n",
+			"canonicalURL": "/github.com/Mermade/widdershins@53c5c023ca962f61634e5d6b7e09158d64b5d389/-/blob/defs/issue193.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/widdershins/blob/53c5c023ca962f61634e5d6b7e09158d64b5d389/defs/issue193.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": post: requestBody: contents: application/json: generate schema: oneOf: oneOf PostReq: variant Dog: no unique fields, unable to parse without discriminator: discriminator inference not implemented",
+	"NotImplemented": [
+		"discriminator inference"
+	]
+}

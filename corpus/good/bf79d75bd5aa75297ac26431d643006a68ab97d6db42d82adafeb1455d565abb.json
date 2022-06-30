@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/JimmyDqv/gitlab-runners-on-aws"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "Infrastructure/api.yaml",
+			"byteSize": 674,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"GitLab WebHook API\"\npaths:\n  /webhook:\n    post:\n      responses:\n        default:\n          description: \"GitLab WebHook to EventBridge\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n          Fn::GetAtt: [WebhookHttpApiRole, Arn]\n        requestParameters:\n          Detail: \"$request.body\"\n          DetailType: GitLabWebHook\n          Source: GitLab-WebHook\n          EventBusName:\n            Fn::GetAtt: [EventBridge, Name]\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\nx-amazon-apigateway-importexport-version: \"1.0\"\n",
+			"canonicalURL": "/github.com/JimmyDqv/gitlab-runners-on-aws@a584dcaea52dd32bfb9e9ac790cafb4c35090af5/-/blob/Infrastructure/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/JimmyDqv/gitlab-runners-on-aws/blob/a584dcaea52dd32bfb9e9ac790cafb4c35090af5/Infrastructure/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

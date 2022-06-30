@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "basic_api_inline_openapi.yaml",
+			"size": 0,
+			"path": "integration/resources/templates/single/basic_api_inline_openapi.yaml",
+			"byteSize": 823,
+			"content": "Resources:\n  MyApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: MyNewStageName\n      DefinitionBody:\n        # Simple HTTP Proxy API\n        openapi: \"3.0\"\n        info:\n          version: \"2016-09-23T22:23:23Z\"\n          title: \"Simple Api\"\n        basePath: \"/demo\"\n        schemes:\n        - \"https\"\n        paths:\n          /http/{proxy+}:\n            x-amazon-apigateway-any-method:\n              parameters:\n              - name: \"proxy\"\n                in: \"path\"\n              x-amazon-apigateway-integration:\n                type: \"http_proxy\"\n                uri: \"http://httpbin.org/{proxy}\"\n                httpMethod: \"ANY\"\n                passthroughBehavior: \"when_no_match\"\n                requestParameters:\n                  integration.request.path.proxy: \"method.request.path.proxy\"\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/integration/resources/templates/single/basic_api_inline_openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/integration/resources/templates/single/basic_api_inline_openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

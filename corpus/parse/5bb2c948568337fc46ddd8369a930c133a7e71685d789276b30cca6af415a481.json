@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "rules/tests/casing-test.yml",
 			"byteSize": 1141,
-			"content": "openapi: 3.0.1\npaths:\n  /ok-kebab-case/{withParameter}: {}\n  /ok-header:\n    parameters:\n      - name: Pascal-Ok\n        in: header\n    get:\n      responses:\n        default:\n          headers:\n            Another-Pascal-Ok: {}\n  /header:\n    parameters:\n      - name: ko-header\n        in: header\n      - name: KO_REQUEST_HEADER\n        in: header\n    get:\n      responses:\n        \"200\":\n          headers:\n            KO_RESPONSE_HEADER:\n              description: not allowed\n\n          \n  /ok-kebab-case:\n    get:\n      parameters:\n      - name: snake_param\n        in: query\n        schema:\n          type: string\n      - name: camelParam\n        in: query\n        schema:\n          type: string\n  /KO_NON_KEBAB: {}\n  /koNonKebab:\n    get:\n      parameters:\n      - name: KOUPPERPARAM\n        in: query\n        schema:\n          type: string\n      - name: KO_PARAM\n        in: query\n        schema:\n          type: string\ncomponents:\n  schemas:\n    koNonCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    OkCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    Ko-CamelSchema:\n      type: string\n      pattern: '[a-z]+'\n"
+			"content": "openapi: 3.0.1\npaths:\n  /ok-kebab-case/{withParameter}: {}\n  /ok-header:\n    parameters:\n      - name: Pascal-Ok\n        in: header\n    get:\n      responses:\n        default:\n          headers:\n            Another-Pascal-Ok: {}\n  /header:\n    parameters:\n      - name: ko-header\n        in: header\n      - name: KO_REQUEST_HEADER\n        in: header\n    get:\n      responses:\n        \"200\":\n          headers:\n            KO_RESPONSE_HEADER:\n              description: not allowed\n\n          \n  /ok-kebab-case:\n    get:\n      parameters:\n      - name: snake_param\n        in: query\n        schema:\n          type: string\n      - name: camelParam\n        in: query\n        schema:\n          type: string\n  /KO_NON_KEBAB: {}\n  /koNonKebab:\n    get:\n      parameters:\n      - name: KOUPPERPARAM\n        in: query\n        schema:\n          type: string\n      - name: KO_PARAM\n        in: query\n        schema:\n          type: string\ncomponents:\n  schemas:\n    koNonCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    OkCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    Ko-CamelSchema:\n      type: string\n      pattern: '[a-z]+'\n",
+			"canonicalURL": "/github.com/italia/api-oas-checker@f6f4e6e360b2ce9816dcca29396571dda1c6027d/-/blob/rules/tests/casing-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/f6f4e6e360b2ce9816dcca29396571dda1c6027d/rules/tests/casing-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: /header: parameters: parse parameter \"ko-header\": parameter MUST contain either a schema property, or a content property"

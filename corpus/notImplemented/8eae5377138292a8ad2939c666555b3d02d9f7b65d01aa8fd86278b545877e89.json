@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-core"
+		},
+		"file": {
+			"name": "RequestBodyParameterPriorityResource.yaml",
+			"size": 0,
+			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/requestbody/RequestBodyParameterPriorityResource.yaml",
+			"byteSize": 1034,
+			"content": "openapi: 3.0.1\npaths:\n  /requestbodyparameterpriority:\n    post:\n      summary: Create user\n      description: This can only be done by the logged in user.\n      operationId: methodWithRequestBodyAndTwoParameters\n      requestBody:\n        description: Created user object inside Parameter\n        content:\n          '*/*':\n            schema:\n              $ref: '#/components/schemas/User'\n        required: true\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*': {}\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        username:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        password:\n          type: string\n        phone:\n          type: string\n        userStatus:\n          type: integer\n          description: User Status\n          format: int32\n      xml:\n        name: User\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/requestbody/RequestBodyParameterPriorityResource.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/petstore/requestbody/RequestBodyParameterPriorityResource.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/requestbodyparameterpriority\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

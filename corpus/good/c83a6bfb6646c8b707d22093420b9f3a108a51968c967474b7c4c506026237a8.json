@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/generator-express-no-stress-typescript"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "app/templates/server/common/api.yml",
+			"byteSize": 1592,
+			"content": "openapi: 3.0.1\ninfo:\n  title: \u003c%= title %\u003e\n  description: \u003c%= description %\u003e\n  version: \u003c%= version %\u003e\nservers:\n- url: \u003c%= apiRoot %\u003e\ntags:\n- name: Examples\n  description: Simple example endpoints\n- name: Specification\n  description: The swagger API specification\npaths:\n  /examples:\n    get:\n      tags:\n      - Examples\n      description: Fetch all examples\n      responses:\n        200:\n          description: Returns all examples\n          content: {}\n    post:\n      tags:\n      - Examples\n      description: Create a new example\n      requestBody:\n        description: an example\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ExampleBody'\n        required: true\n      responses:\n        200:\n          description: Returns all examples\n          content: {}\n  /examples/{id}:\n    get:\n      tags:\n      - Examples\n      parameters:\n      - name: id\n        in: path\n        description: The id of the example to retrieve\n        required: true\n        schema:\n          type: integer\n      responses:\n        200:\n          description: Return the example with the specified id\n          content: {}\n        404:\n          description: Example not found\n          content: {}\n  /spec:\n    get:\n      tags:\n      - Specification\n      responses:\n        200:\n          description: Return the API specification\n          content: {}\ncomponents:\n  schemas:\n    ExampleBody:\n      title: example\n      required:\n      - name\n      type: object\n      properties:\n        name:\n          type: string\n          example: no_stress\n",
+			"canonicalURL": "/github.com/cdimascio/generator-express-no-stress-typescript@0a0d02bc4d5b61c3960649c24db620f2a9dd93b3/-/blob/app/templates/server/common/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/generator-express-no-stress-typescript/blob/0a0d02bc4d5b61c3960649c24db620f2a9dd93b3/app/templates/server/common/api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

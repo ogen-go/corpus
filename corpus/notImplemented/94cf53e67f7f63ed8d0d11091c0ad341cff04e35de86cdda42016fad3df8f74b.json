@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "xml.yaml",
+			"size": 0,
+			"path": "docs/specs/xml.yaml",
+			"byteSize": 1339,
+			"content": "openapi: 3.0.0\ninfo:\n  description:  Responses as XML \n  version: 1.0.0\n  title: Responses as XML \npaths:\n  /xml-response:\n    get:\n      summary: XML Responses\n      description: When response is returned as `xml`, you can provide your own example as `xml - content`\n      responses:\n        '200':\n          description: Successful operation\n          content:\n            application/xml:\n              examples:\n                example-1:\n                  summary: XML Example\n                  value: |\n                    \u003cperson\u003e \n                      \u003cage\u003e9\u003c/age\u003e \n                      \u003cfullName\u003e \n                        \u003cfirstName\u003eMickey\u003c/firstName\u003e \n                        \u003clastName\u003eMouse\u003c/lastName\u003e \n                      \u003c/fullName\u003e  \n                    \u003c/person\u003e\n              schema:\n                type: object\n                properties:\n                  age:\n                    description: Person Age\n                    type: integer\n                  fullName:\n                    description: Person Full name\n                    type: object\n                    properties:\n                      firstName:\n                        description: First name\n                        type: string\n                      lastName:\n                        description: Last name\n                        type: string\n",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@3cc2bcc742fa84f1207e9b460032750bdada228d/-/blob/docs/specs/xml.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/3cc2bcc742fa84f1207e9b460032750bdada228d/docs/specs/xml.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/xml-response\": get: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

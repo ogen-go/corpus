@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/practicajs/practica"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "src/code-templates/services/order-service/openapi.json",
+			"byteSize": 2993,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Shop\",\n    \"description\": \"This is the API docs of the shop API.\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"1.0.0\"\n  },\n  \"externalDocs\": {\n    \"description\": \"Find out more about Swagger\",\n    \"url\": \"http://swagger.io\"\n  },\n  \"paths\": {\n    \"/order/{orderId}\": {\n      \"get\": {\n        \"summary\": \"Find an Order by ID\",\n        \"description\": \"Returns a single order\",\n        \"operationId\": \"getOrderById\",\n        \"parameters\": [\n          {\n            \"name\": \"orderId\",\n            \"in\": \"path\",\n            \"description\": \"ID of order to return\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"successful\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Order\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid ID\",\n            \"content\": {}\n          },\n          \"404\": {\n            \"description\": \"Order not found\",\n            \"content\": {}\n          }\n        }\n      }\n    },\n    \"/order\": {\n      \"post\": {\n        \"summary\": \"Add a new Order\",\n        \"description\": \"Returns a single order\",\n        \"operationId\": \"addOrder\",\n        \"requestBody\": {\n          \"description\": \"New Order To Add\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Order\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Order\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"User Not Found\",\n            \"content\": {}\n          },\n          \"404\": {\n            \"description\": \"User Not Found\",\n            \"content\": {}\n          },\n          \"500\": {\n            \"description\": \"Unknown error occured\",\n            \"content\": {}\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Order\": {\n        \"type\": \"object\",\n        \"required\": [\"productId\", \"userId\", \"mode\"],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"productId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"userId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"mode\": {\n            \"type\": \"string\",\n            \"format\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/practicajs/practica@b429fe22c9fb5ba18bdb0f2cec74d566c61ef6fa/-/blob/src/code-templates/services/order-service/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/practicajs/practica/blob/b429fe22c9fb5ba18bdb0f2cec74d566c61ef6fa/src/code-templates/services/order-service/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

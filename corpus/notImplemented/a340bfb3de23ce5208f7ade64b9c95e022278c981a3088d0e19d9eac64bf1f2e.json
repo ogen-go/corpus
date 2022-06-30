@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-diff"
+		},
+		"file": {
+			"name": "recursive_model_1.yaml",
+			"size": 0,
+			"path": "core/src/test/resources/recursive_model_1.yaml",
+			"byteSize": 600,
+			"content": "openapi: 3.0.1\ninfo:\n  title: recursive test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /ping:\n    get:\n      operationId: ping\n      responses:\n        '200':\n          description: OK\n          content:\n            text/plain:\n              schema:\n                $ref: '#/components/schemas/B'\ncomponents:\n  schemas:\n    B:\n      type: object\n      required: [\"message2\"]\n      properties:\n        message:\n          type: string\n        message2:\n          type: string\n        details:\n          type: array\n          items:\n            $ref: '#/components/schemas/B'\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@93556416a4b6e7f6f3b1bad38e43c2d19d24aa45/-/blob/core/src/test/resources/recursive_model_1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-diff/blob/93556416a4b6e7f6f3b1bad38e43c2d19d24aa45/core/src/test/resources/recursive_model_1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ping\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

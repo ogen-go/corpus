@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "no_schema.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/no_schema.yaml",
+			"byteSize": 1611,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\n  - url: https://{subdomain}.swagger.io:{port}/{basePath}\n    description: The production API server\n    variables:\n      subdomain:\n        default: petstore\n        description: this value is assigned by the service provider\n      port:\n        enum:\n          - '8443'\n          - '443'\n        default: '443'\n      basePath:\n        default: v2\ntags:\n  - name: pets\n    description: Pets Tag\n  - name: list\n    description: List Tag\n\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      description: Show a list of pets in the system\n      operationId: listPets\n      tags:\n        - pets\n        - list\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: An paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema: {}\n    post:\n      summary: Create a pet\n      operationId: createPet\n      tags:\n        - pets\n      responses:\n        '201':\n          description: Null response\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/no_schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/no_schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

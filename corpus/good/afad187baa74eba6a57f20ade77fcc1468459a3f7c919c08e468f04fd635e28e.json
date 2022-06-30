@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kymmt90/schema_conformist"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/dummy/public/openapi.yaml",
+			"byteSize": 2633,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This is a dummy app\n  version: 1.0.0\n  title: Dummy app\nservers:\n  - url: petstore.swagger.io\npaths:\n  /products:\n    get:\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Product'\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProductRequestParameter'\n      responses:\n        '201':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n  '/products/{productId}':\n    parameters:\n      - name: productId\n        in: path\n        description: ''\n        required: true\n        schema:\n          type: integer\n    get:\n      description: ''\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n    put:\n      description: ''\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProductRequestParameter'\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n    delete:\n      description: ''\n      responses:\n        '204':\n          description: ''\n  /invalid_products:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProductRequestParameter'\n      responses:\n        '201':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\ncomponents:\n  schemas:\n    ProductRequestParameter:\n      type: object\n      required:\n        - product\n      properties:\n        product:\n          $ref: '#/components/schemas/Product'\n    Product:\n      type: object\n      required:\n        - name\n        - price\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        price:\n          type: integer\n        stock_count:\n          type: integer\n          nullable: true\n        created_at:\n          type: string\n          format: date-time\n          nullable: true\n        updated_at:\n          type: string\n          format: date-time\n          nullable: true\n      additionalProperties: false\n",
+			"canonicalURL": "/github.com/kymmt90/schema_conformist@6816b19fb6a328034547acd73dc9bb99075b2fb2/-/blob/test/dummy/public/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kymmt90/schema_conformist/blob/6816b19fb6a328034547acd73dc9bb99075b2fb2/test/dummy/public/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

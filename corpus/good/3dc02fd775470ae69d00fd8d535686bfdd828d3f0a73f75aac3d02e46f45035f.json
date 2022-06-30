@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sherpair/weather4s"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "loader-service/src/main/resources/openapi.yml",
+			"byteSize": 3528,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: Loader-Service API (Weather4s)\n  description: Operates only upon a user request, sent via **Geo**. An architectural choice was to feed ElasticSearch (the engine) with localities only when the user expressly asks to make a specific country available for weather queries. When this happens and as long as the country's localities are not already present in the engine, the service downloads the related CSV file from [geonames](http://download.geonames.org/export/dump/), transforms it and adds all localities resulting from the process to the engine in a 'new country' engine index (e.g. `GB` for United Kingdom, `IT` for Italy, ...).\u003cbr/\u003e\u003cbr/\u003eOnly if the process is successful the `countries` engine index gets updated, with the document of the 'new country' set as *available*. **Geo** is notified that one country is now available only after **Loader** updates the `meta` engine index, which acts as a trigger (ElasticSearch doesn't provide a transaction-like mechanism), and in any case only at the next iteration of the `CacheHandler` in **Geo** which, after noticed the `meta` document was updated, makes the country visible to the user as a last step.\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: ==server-address==\npaths:\n  /country/{id}:\n    put:\n      tags:\n        - (Any role)\n      summary: Make a specific country available for weather queries\n      security:\n        - bearerAuth: []\n      parameters:\n        - name: id\n          in: path\n          description: Country (code or name)\n          required: true\n          schema:\n            type: string\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/country'\n      responses:\n        '204':\n          description: No Content\n        '403':\n          description: Forbidden\n  /health:\n    get:\n      tags:\n        - (Master role only)\n      summary: Engine Health Check\n      security:\n        - bearerAuth: []\n      responses:\n        '200':\n          description: Current status of the engine\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/healthCheck'\n        '403':\n          description: Forbidden\n  /quit:\n    get:\n      tags:\n        - (Master role only)\n      summary: Stop queuing download requests\n      description: Notify the **Loader** to not queue further \"*country download*\" requests. Generally used in case of service update, letting the **Loader** to terminate any running download before stopping it.\n      security:\n        - bearerAuth: []\n      responses:\n        '204':\n          description: No Content\n        '403':\n          description: Forbidden\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n  schemas:\n    country:\n      type: object\n      required:\n        - code\n        - name\n        - analyzer\n        - localities\n        - updated\n      properties:\n        code:\n          type: string\n        name:\n          type: string\n        analyzer:\n          type: string\n        localities:\n          type: integer\n          format: int64\n        updated:\n          type: integer\n          format: int64\n    healthCheck:\n      type: object\n      required:\n        - attempts\n        - engine\n      properties:\n        attempts:\n          type: string\n        engine:\n          type: string\n",
+			"canonicalURL": "/github.com/sherpair/weather4s@411ad0dbcfef8fe2e8c2f3d01576197862be4a47/-/blob/loader-service/src/main/resources/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/sherpair/weather4s/blob/411ad0dbcfef8fe2e8c2f3d01576197862be4a47/loader-service/src/main/resources/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

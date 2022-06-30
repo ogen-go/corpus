@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/up9inc/oas-diff"
+		},
+		"file": {
+			"name": "simple2.json",
+			"size": 0,
+			"path": "examples/simple2.json",
+			"byteSize": 2044,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"simple example\",\n    \"version\": \"1.1.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"HTTP://REFAEL.SHIPPING.SOCK-SHOP\",\n      \"description\": \"REFAEL UP9-DEMO-LINK ALLa\"\n    },\n    {\n      \"url\": \"http://gustavo.shipping.sock-shop\",\n      \"description\": \"gustavo up9-demo-link all\"\n    },\n    {\n      \"url\": \"https://test2.com\",\n      \"description\": \"some description 2\"\n    }\n  ],\n  \"paths\": {\n    \"/users\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"style\": \"simple\",\n          \"schema\": {\n            \"type\": \"string\",\n            \"pattern\": \".+(_|-ABC-|\\\\.).+\"\n          },\n          \"example\": \"some example\"\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"in\": \"header\",\n            \"name\": \"x-custom\",\n            \"required\": false,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A simple string response\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"example\": \"whoa!\"\n                }\n              }\n            },\n            \"headers\": {\n              \"X-Rate-Limit-Limit\": {\n                \"description\": \"The number of allowed requests in the current period\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              },\n              \"X-Rate-Limit-Remaining\": {\n                \"description\": \"The number of remaining requests in the current period\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              },\n              \"X-Rate-Limit-Reset\": {\n                \"description\": \"The number of seconds left in the current period\",\n                \"schema\": {\n                  \"type\": \"integer\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/up9inc/oas-diff@fb8bf545e584388f50bf68ffdd7904b845c9754a/-/blob/examples/simple2.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/up9inc/oas-diff/blob/fb8bf545e584388f50bf68ffdd7904b845c9754a/examples/simple2.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/users\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

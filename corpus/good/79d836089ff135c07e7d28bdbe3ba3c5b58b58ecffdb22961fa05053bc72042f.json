@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "components.schemas.schemaproperty-merge.json",
+			"size": 0,
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.schemaproperty-merge.json",
+			"byteSize": 2372,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"Lizard\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"color\": {\n                \"description\": \"The color of the lizard\",\n                \"default\": \"GREEN\",\n                \"type\": \"string\",\n                \"deprecated\": false\n              }\n            }\n          }\n        ]\n      },\n      \"Snake\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"lengthUnits\": {\n                \"allOf\": [\n                  {\n                    \"$ref\": \"#/components/schemas/LengthUnitsEnum\"\n                  },\n                  {\n                    \"description\": \"The units of measure for length\",\n                    \"default\": \"CM\"\n                  }\n                ]\n              },\n              \"length\": {\n                \"format\": \"double\",\n                \"type\": \"number\",\n                \"multipleOf\": 0.1\n              }\n            }\n          }\n        ]\n      },\n      \"LengthUnitsEnum\": {\n        \"enum\": [\n          \"CM\",\n          \"MM\",\n          \"IN\"\n        ],\n        \"type\": \"string\"\n      },\n      \"SpeedEnum\": {\n        \"enum\": [\n          \"slow\",\n          \"slower\",\n          \"slowest\"\n        ],\n        \"type\": \"string\"\n      },\n      \"Turtle\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Reptile\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"shellPattern\": {\n                \"type\": \"string\"\n              },\n              \"speed\": {\n                \"$ref\": \"#/components/schemas/SpeedEnum\"\n              }\n            }\n          }\n        ]\n      },\n      \"Reptile\": {\n        \"required\": [\n          \"type\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": {\n            \"type\": \"string\"\n          }\n        },\n        \"discriminator\": {\n          \"propertyName\": \"type\",\n          \"mapping\": {\n            \"lizard\": \"#/components/schemas/Lizard\",\n            \"snake\": \"#/components/schemas/Snake\",\n            \"turtle\": \"#/components/schemas/Turtle\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.schemaproperty-merge.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/104d34823cf5ce4e3882eddbaa0df2ec1883bdfe/core/src/test/resources/io/smallrye/openapi/runtime/scanner/components.schemas.schemaproperty-merge.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

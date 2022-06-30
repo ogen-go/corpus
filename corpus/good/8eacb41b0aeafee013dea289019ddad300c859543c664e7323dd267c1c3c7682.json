@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/revaturelabs/rss-inventory-service"
+		},
+		"file": {
+			"name": "P3_inventory_endpoint_documentation.yaml",
+			"size": 0,
+			"path": "src/main/resources/P3_inventory_endpoint_documentation.yaml",
+			"byteSize": 3276,
+			"content": "openapi: 3.0.0\ninfo:\n  title: P3 Inventory System\n  description: \u003e-\n    A simple Java App that allows users and service providers connect to get and provide services. This app allows Add, Delete, Read operations.  \n    system.\n  version: 0.0.1\nservers:\n  - url: 'http://localhost:8989'\n    description: Local dev server\npaths:\n  /product:\n    post:\n      tags: [Product]\n      summary: Creates a new product entry with the given information\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Product'\n      responses:\n        '201':\n          description: A Product object\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n        '400':\n          description: Invalid request syntax.\n        '422':\n          description: Incomplete product information. Some required fields missing.\n    put:\n      tags: [Product]\n      summary: Updates a Product object based on information\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Product'\n      responses:\n        '200':\n          description: Product successfully updated.\n    get:\n      tags: [Product]\n      summary: Retrieves ALL entry in the product list.\n      responses:\n        '200':\n          description: List of all products.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Product'\n  '/product/{id}':\n    get:\n      tags: [Product]\n      summary: Retrieves a product with the give product id.\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: id of the product you would like to retrieve.\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Product object matching given id.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n    delete:\n      tags: [Product]\n      summary: Deletes the entry for the product with the given id.\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: id of the product you would like to delete.\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Product successfully deleted.\ncomponents:\n  schemas:\n    Product:\n      properties:\n        id:\n          type: integer\n        category:\n          type: string\n        brand:\n          type: string\n        name:\n          type: string\n        description:\n          type: string\n        model:\n          type: string\n        image:\n          type: string\n        quantity:\n          type: integer\n        unitPrice:\n          type: integer\n        color:\n          type: string\n      required:\n        - id\n        - name\n        - description\n        - quantity\n        - unitPrice\n    Category:\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n        description:\n          type: string\n      required:\n        - id\n        - name",
+			"canonicalURL": "/github.com/revaturelabs/rss-inventory-service@4e02da2c91d4bc3e53ffa18e5f178f0732b0e6ae/-/blob/src/main/resources/P3_inventory_endpoint_documentation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/revaturelabs/rss-inventory-service/blob/4e02da2c91d4bc3e53ffa18e5f178f0732b0e6ae/src/main/resources/P3_inventory_endpoint_documentation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

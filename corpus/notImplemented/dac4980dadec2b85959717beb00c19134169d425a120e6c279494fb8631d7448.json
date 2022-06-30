@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-inflector"
+		},
+		"file": {
+			"name": "issue252.yaml",
+			"size": 0,
+			"path": "src/test/swagger/issue252.yaml",
+			"byteSize": 960,
+			"content": "openapi: 3.0.0\ninfo:\n  version: v0.1\n  title: KFI quote engine and product listings API\n  description: \"\"\npaths:\n  /products.xml:\n    get:\n      summary: Get a list of public products in XML format\n      operationId: getProductsXML\n      tags:\n        - Product List Service\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/xml:\n              schema:\n                xml:\n                  wrapped: true\n                  name: products\n                type: array\n                items:\n                  $ref: \"#/components/schemas/product\"\ntags:\n  - name: Product List Service\nservers:\n  - url: https://virtserver.swaggerhub.com/ThirdOne/xml_issue/v0.1\ncomponents:\n  schemas:\n    product:\n      type: object\n      xml:\n        name: product\n        wrapped: true\n      properties:\n        id:\n          type: integer\n          example: 1\n        product:\n          type: string\n          example: Lump Sum",
+			"canonicalURL": "/github.com/swagger-api/swagger-inflector@3112f7e185266616e6df4a9cb30c0874706382f0/-/blob/src/test/swagger/issue252.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-inflector/blob/3112f7e185266616e6df4a9cb30c0874706382f0/src/test/swagger/issue252.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/products.xml\": get: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

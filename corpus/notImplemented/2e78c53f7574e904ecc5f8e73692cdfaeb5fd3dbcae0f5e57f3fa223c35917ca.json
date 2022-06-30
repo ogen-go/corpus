@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "kafka/stream-report/openapi.json",
+			"byteSize": 2724,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Kafka Streams User Report microservice\",\n    \"version\": \"1.0.0\",\n    \"description\": \"# Kafka Streams User Report Service\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://kafka.networknt.com\"\n    }\n  ],\n  \"paths\": {\n    \"/report\": {\n      \"get\": {\n        \"operationId\": \"reportUsers\",\n        \"summary\": \"Generate a report based on user contry\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/CountryUserCount\"\n                  }\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Status\"\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"user_auth\": [\n              \"user:r\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"user_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2.0 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"user:w\": \"user write\",\n              \"user:r\": \"user read\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Status\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"statusCode\": {\n            \"description\": \"HTTP response code\",\n            \"type\": \"integer\"\n          },\n          \"code\": {\n            \"description\": \"Code is the machine-readable error code\",\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"description\": \"Error messsage\",\n            \"type\": \"string\"\n          },\n          \"description\": {\n            \"description\": \"The detailed description of the error status\",\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"statusCode\",\n          \"code\"\n        ]\n      },\n      \"CountryUserCount\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"country\": {\n            \"description\": \"User Country\",\n            \"type\": \"string\"\n          },\n          \"count\": {\n            \"description\": \"Number of Users\",\n            \"type\": \"integer\"\n          }\n        },\n        \"required\": [\n          \"country\",\n          \"count\"\n        ]\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/kafka/stream-report/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/kafka/stream-report/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/report\": get: security: security \"user_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

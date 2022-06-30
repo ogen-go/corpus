@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/KNowledgeOnWebScale/walder"
+		},
+		"file": {
+			"name": "config.yaml",
+			"size": 0,
+			"path": "test/resources/query-datasources/single-query/config.yaml",
+			"byteSize": 1622,
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: .\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\n  - graphql-query: \u003e\n      {\n        id @single\n        starring(label: \"Brad Pitt\")  @single\n      }\n    json-ld-context: \u003e\n      {\n        \"label\": { \"@id\": \"http://www.w3.org/2000/01/rdf-schema#label\", \"@language\": \"en\" },\n        \"starring\": \"http://dbpedia.org/ontology/starring\"\n      }\n    postprocessing:\n      getIds:\n        source: getIds.js\n        parameters:\n          - _data\npaths:\n  /test:\n    get:\n      summary: Returns a list of the all movies the given actor stars in\n      parameters:\n        - in: path\n          name: actor\n          required: true\n          schema:\n            type: string\n          description: The target actor\n      x-walder-query:\n        graphql-query: \u003e\n          {\n            id @single\n            ... on Film {\n              starring(label: $actor) @single\n            }\n          }\n        json-ld-context: \u003e\n          {\n            \"Film\": \"http://dbpedia.org/ontology/Film\",\n            \"label\": { \"@id\": \"http://www.w3.org/2000/01/rdf-schema#label\", \"@language\": \"en\" },\n            \"starring\": \"http://dbpedia.org/ontology/starring\"\n          }\n      responses:\n        200:\n          description: list of movies\n          x-walder-input-text/html: movies.pug\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n",
+			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@dd3aaa9022006d379daac13ea20f49d77ad7f835/-/blob/test/resources/query-datasources/single-query/config.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/dd3aaa9022006d379daac13ea20f49d77ad7f835/test/resources/query-datasources/single-query/config.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

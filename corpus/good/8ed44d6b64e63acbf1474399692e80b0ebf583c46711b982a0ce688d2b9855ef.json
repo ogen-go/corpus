@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openclarity/apiclarity"
+		},
+		"file": {
+			"name": "planets.yaml",
+			"size": 0,
+			"path": "backend/pkg/test/provided_spec/planets.yaml",
+			"byteSize": 2060,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Planets and Webhooks Demo API\n  version: 0.0.1\n  description: Simple flask-backed API showing some example API endpoints and with webhook debugging features.\n  contact:\n    name: Lorna Mitchell\n    url: https://github.com/lornajane/flask-planets-and-webhooks\n    email: github@lornajane.net\nservers:\n  - url: http://localhost:5000\n    description: Sample project running locally\nexternalDocs:\n  description: GitHub project for the code and information about this API\n  url: https://github.com/lornajane/flask-planets-and-webhooks\npaths:\n  /planets:\n    get:\n      operationId: allPlanets\n      summary: List all planets\n      description: Returns a list of all the planets that are stored in the system.\n      tags:\n        - planets\n      responses:\n        '200':\n          description: Planets in a list\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/planet\"\n\n  /planets/{planetId}:\n    get:\n      operationId: onePlanet\n      summary: Fetch one planet by position\n      description: Get the data relating to one planet\n      tags:\n        - planets\n      parameters:\n      - name: planetId\n        in: path\n        required: true\n        schema:\n          type: number\n          example: 4\n\n      responses:\n        '200':\n          description: Planets in a list\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/planet\"\n\ncomponents:\n  schemas:\n    planet:\n      type: object\n      description: a planet...\n      properties:\n        name:\n          type: string\n          description: Name of planet\n          example: \"Saturn\"\n        position:\n          type: number\n          description: Order in place from the sun\n          example: 6\n        moons:\n          type: number\n          description: Number of moons, according to NASA\n          example: 62\n\n\ntags:\n  - name: planets\n    description: API containing solar system data\n    ",
+			"canonicalURL": "/github.com/openclarity/apiclarity@28f498c03c42a3e11fc4874838bbabf2f0518a47/-/blob/backend/pkg/test/provided_spec/planets.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openclarity/apiclarity/blob/28f498c03c42a3e11fc4874838bbabf2f0518a47/backend/pkg/test/provided_spec/planets.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

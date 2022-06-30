@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/scy6500/KoGPT2"
+		},
+		"file": {
+			"name": "Swagger.yaml",
+			"size": 0,
+			"path": "Swagger.yaml",
+			"byteSize": 1195,
+			"content": "openapi: 3.0.1\n\ninfo:\n  title: KoGPT2\n  version: 1.0.0\n  contact:\n    name: Changyeop\n  description: |\n    Generate Korean using KoGPT2 model\n    ---\n          How to use:\n\n          * Fill the base text and length.\n          * If length is so big, generate time will be long.\n    ---\n\nservers:\n  - url: https://main-ko-gpt2-scy6500.endpoint.ainize.ai\n\npaths:\n  /generate:\n    post:\n      requestBody:\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                text:\n                  type: string\n                  description: \"The base of korean\"\n                length:\n                  type: string\n                  description: \"The length of text\"\n              required:\n                - text\n                - length\n      responses: # Set response\n        '200':\n          description: \"Successful Response\"\n          content:\n            application/json:\n              schema:\n                type: object\n        '400':\n          description: \"Bad Request Error\"\n        '429':\n          description: \"Too many requests\"\n        '500':\n          description: \"Server-side Error\"",
+			"canonicalURL": "/github.com/scy6500/KoGPT2@5a54b3a71bfff267a91c608c22a4ab1df6ada7cf/-/blob/Swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/scy6500/KoGPT2/blob/5a54b3a71bfff267a91c608c22a4ab1df6ada7cf/Swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

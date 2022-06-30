@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/product-microgateway"
+		},
+		"file": {
+			"name": "trains-openapi.yaml",
+			"size": 0,
+			"path": "samples/istio/service-to-service/trains-openapi.yaml",
+			"byteSize": 2976,
+			"content": "# Copyright (c) 2022, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n\nopenapi: 3.0.1\ninfo:\n  title: Trains\n  description: | \n    This is the API definition for Trains-Service\n  version: 1.0.0\nservers:\n  - url: http://trains/trains-service/v1\npaths:\n  /trains:\n    get:\n      responses:\n        '200':\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TrainList'\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Train'\n        required: true\n      responses:\n        '200':\n          description: ok\n  /trains/{id}:\n    get:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      responses:\n        '200':\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Train'\n    put:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Train'\n      responses:\n        '200':\n          description: ok\n    delete:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      responses:\n        '200':\n          description: ok\ncomponents:\n  schemas:\n    Train:\n      title: Train information\n      type: object\n      properties:\n        trainId:\n          type: string\n          description: Id of the schedule item.\n        numberOfCarriage:\n          type: integer\n          description: Number of train carriages.\n        imageURL:\n          type: string\n          description: Image URL of the train.\n        engineModel:\n          type: string\n          description: Engine model.\n        facilities:\n          type: string\n          description: Facilities provided in the train.\n    TrainList:\n      title: List of trains\n      type: array\n      items:\n        $ref: '#/components/schemas/Train'\n",
+			"canonicalURL": "/github.com/wso2/product-microgateway@a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/-/blob/samples/istio/service-to-service/trains-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/product-microgateway/blob/a2a19350bf2b4f9fb7c5f1f07aa4317ce05b4788/samples/istio/service-to-service/trains-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "raml-security-definitions.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/compatibility/cycled-apis/oas30/raml-security-definitions.json",
+			"byteSize": 3277,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test title\",\n    \"version\": \"1.1\"\n  },\n  \"paths\": {},\n  \"components\": {\n    \"securitySchemes\": {\n      \"digest\": {\n        \"type\": \"http\",\n        \"description\": \"This API supports DigestSecurityScheme Authentication.\\n\",\n        \"scheme\": \"digest\"\n      },\n      \"oauth_2_0\": {\n        \"type\": \"oauth2\",\n        \"description\": \"Dropbox supports OAuth 2.0 for authenticating all API requests.\\n\",\n        \"x-amf-describedBy\": {\n          \"headers\": {\n            \"Authorization\": {\n              \"description\": \"Used to send a valid OAuth 2 access token. Do not use\\nwith the \\\"access_token\\\" query string parameter.\\n\",\n              \"type\": \"string\"\n            }\n          },\n          \"queryParameters\": {\n            \"access_token\": {\n              \"description\": \"Used to send a valid OAuth 2 access token. Do not use with\\nthe \\\"Authorization\\\" header.\\n\",\n              \"type\": \"string\"\n            }\n          },\n          \"responses\": {\n            \"401\": {\n              \"description\": \"Bad or expired token. This can happen if the user or Dropbox\\nrevoked or expired an access token. To fix, re-authenticate\\nthe user.\\n\"\n            },\n            \"403\": {\n              \"description\": \"Bad OAuth request (wrong consumer key, bad nonce, expired\\ntimestamp...). Unfortunately, re-authenticating the user won't help here.\\n\"\n            }\n          }\n        },\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"https://www.dropbox.com/1/oauth2/authorize\",\n            \"tokenUrl\": \"https://api.dropbox.com/1/oauth2/token\",\n            \"scopes\": {\n              \"*\": \"\"\n            }\n          },\n          \"implicit\": {\n            \"authorizationUrl\": \"https://www.dropbox.com/1/oauth2/authorize\",\n            \"scopes\": {\n              \"*\": \"\"\n            }\n          }\n        }\n      },\n      \"basic\": {\n        \"type\": \"http\",\n        \"description\": \"This API supports Basic Authentication.\\n\",\n        \"scheme\": \"basic\"\n      }\n    },\n    \"x-amf-securitySchemes\": {\n      \"api_key\": {\n        \"type\": \"x-amf-apiKey\",\n        \"x-amf-describedBy\": {\n          \"headers\": {\n            \"api_key?\": {\n              \"type\": \"any\"\n            }\n          }\n        },\n        \"name\": \"api_key\",\n        \"in\": \"header\"\n      },\n      \"passthrough\": {\n        \"type\": \"Pass Through\",\n        \"description\": \"This API supports Pass Through Authentication.\\n\",\n        \"x-amf-describedBy\": {\n          \"headers\": {\n            \"api_key\": {\n              \"type\": \"string\"\n            }\n          },\n          \"queryParameters\": {\n            \"query\": {\n              \"type\": \"string\"\n            }\n          }\n        }\n      },\n      \"oauth_1_0\": {\n        \"type\": \"OAuth 1.0\",\n        \"description\": \"OAuth 1.0 continues to be supported for all API requests, but OAuth 2.0 is now preferred.\\n\",\n        \"x-amf-settings\": {\n          \"requestTokenUri\": \"https://api.mysampleapi.com/1/oauth/request_token\",\n          \"authorizationUri\": \"https://api.mysampleapi.com/1/oauth/authorize\",\n          \"tokenCredentialsUri\": \"https://api.mysampleapi.com/1/oauth/access_token\",\n          \"signatures\": [\n            \"HMAC-SHA1\",\n            \"PLAINTEXT\"\n          ]\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/-/blob/amf-cli/shared/src/test/resources/compatibility/cycled-apis/oas30/raml-security-definitions.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/amf-cli/shared/src/test/resources/compatibility/cycled-apis/oas30/raml-security-definitions.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

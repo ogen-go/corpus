@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app163.json",
+			"size": 0,
+			"path": "springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app163.json",
+			"byteSize": 2622,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/{id}\": {\n      \"put\": {\n        \"tags\": [\n          \"commissions-resource\"\n        ],\n        \"summary\": \"Update a commission\",\n        \"description\": \"updateCommission\",\n        \"operationId\": \"updateCommission\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"description\": \"Commission's id\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"description\": \"A commission to update\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/CommissionDto\"\n              },\n              \"examples\": {\n                \"requestExample\": {\n                  \"$ref\": \"#/components/examples/httpPutCommissionRequestBodyExample\"\n                }\n              }\n            }\n          },\n          \"required\": true\n        },\n        \"responses\": {\n          \"202\": {\n            \"description\": \"Commission updated\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/CommissionDto\"\n                },\n                \"examples\": {\n                  \"202\": {\n                    \"$ref\": \"#/components/examples/httpPutCommissionResponseBodyExample\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"CommissionDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"email\": {\n            \"type\": \"string\"\n          },\n          \"firstName\": {\n            \"type\": \"string\"\n          },\n          \"lastName\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"examples\": {\n      \"httpPutCommissionRequestBodyExample\": {\n        \"summary\": \"HTTP 202 JSON Body request example for updateCommission operation\",\n        \"value\": {\n          \"email\": \"esteban@dugueperoux.com\",\n          \"firstName\": \"Esteban\",\n          \"lastName\": \"DUGUEPEROUX\"\n        }\n      },\n      \"httpPutCommissionResponseBodyExample\": {\n        \"summary\": \"HTTP 202 JSON Body response example for updateCommission operation\",\n        \"value\": {\n          \"email\": \"esteban@dugueperoux.com\",\n          \"firstName\": \"Esteban\",\n          \"lastName\": \"DUGUEPEROUX\"\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app163.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-webmvc-core/src/test/resources/results/3.0.1/app163.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/{id}\": put: responses: 202: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

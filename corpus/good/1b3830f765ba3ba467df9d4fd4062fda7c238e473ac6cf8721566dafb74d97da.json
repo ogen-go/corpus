@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/JonArnfred/Spring-Boot-REST"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "api.yaml",
+			"byteSize": 1446,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0.0'\n  title: 'Organisation information'\n  description: 'Fetch organisation information from different databases'\n  #termsOfService: terms url goes here\n  contact:\n    name: developer name\n    #email: email goes here\n    #url: url goes here\n  license:\n    name: Apache 2.0\n\nservers:\n# Added by API Auto Mocking Plugin\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/jon_test/organisation_api/1.0.0\n  - description: 'localhost'\n    url: http://localhost:8083\n\npaths:\n  /organisation/{organisation_name}/{member_name}:\n    get:\n      description: 'Obtain information about members of an organisation'\n      parameters:\n      - name: organisation_name\n        in: path\n        description: 'Name of the organisation'\n        required: true\n        schema:\n          type: string\n          example: Maersk\n      - name: member_name\n        in: path\n        description: 'Name of the member to fetch'\n        required: true\n        schema:\n          type: string\n          example: Pete\n      responses:\n        '200':\n          description: successful fetch of member\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    example: 4\n                  name:\n                    type: string\n                    example: 'pete'",
+			"canonicalURL": "/github.com/JonArnfred/Spring-Boot-REST@2fc4b706dcaf0cd7b7255417687217e1c56e0668/-/blob/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/JonArnfred/Spring-Boot-REST/blob/2fc4b706dcaf0cd7b7255417687217e1c56e0668/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

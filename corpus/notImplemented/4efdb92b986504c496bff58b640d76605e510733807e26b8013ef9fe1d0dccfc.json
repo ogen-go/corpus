@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-example-4j"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/cors/src/main/resources/config/openapi.json",
+			"byteSize": 3739,
+			"content": "{\"components\":{\"securitySchemes\": {\n      \"cors_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"cors.w\": \"write\",\n              \"cors.r\": \"read\"\n            }\n          }\n        }\n      }\n    },\"schemas\":{\"KeyValue\":{\"type\": \"object\",\"required\":[\"key\",\n          \"value\"],\"properties\":{\"value\":{\"type\": \"string\",\"description\": \"value\"},\"key\":{\"type\": \"string\",\"description\": \"key\"}}}}},\"servers\": [\n    {\n      \"url\": \"https://cors.lightapi.net/v1\"\n    }\n  ],\"openapi\": \"3.0.0\",\"paths\": {\n    \"/getData\": {\n      \"get\": {\n        \"description\": \"Return an array of strings\",\n        \"operationId\": \"getData\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/KeyValue\"\n                  }\n                },\n                \"example\": [\n                  {\n                    \"key\": \"key1\",\n                    \"value\": \"value1\"\n                  },\n                  {\n                    \"key\": \"key2\",\n                    \"value\": \"value2\"\n                  }\n                ]\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"cors_auth\": [\n              \"cors.r\"\n            ]\n          }\n        ]\n      }\n    },\n    \"/postData\": {\n      \"post\": {\n        \"description\": \"Return an array of strings\",\n        \"operationId\": \"postData\",\n        \"requestBody\": {\n          \"description\": \"Key value pair\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/KeyValue\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/KeyValue\"\n                },\n                \"example\": {\n                  \"key\": \"key1\",\n                  \"value\": \"value1\"\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"cors_auth\": [\n              \"cors.r\",\n              \"cors.w\"\n            ]\n          }\n        ]\n      }\n    },\n    \"/putData\": {\n      \"post\": {\n        \"description\": \"Return an array of strings\",\n        \"operationId\": \"putData\",\n        \"requestBody\": {\n          \"description\": \"Key value pair\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/KeyValue\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/KeyValue\"\n                },\n                \"example\": {\n                  \"key\": \"key1\",\n                  \"value\": \"value1\"\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"cors_auth\": [\n              \"cors.r\",\n              \"cors.w\"\n            ]\n          }\n        ]\n      }\n    }\n  },\"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"CORS Demo\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  }}",
+			"canonicalURL": "/github.com/networknt/light-example-4j@74513c019570e65623b80c1cadc1423e7a18807a/-/blob/rest/openapi/cors/src/main/resources/config/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-example-4j/blob/74513c019570e65623b80c1cadc1423e7a18807a/rest/openapi/cors/src/main/resources/config/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/getData\": get: security: security \"cors_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

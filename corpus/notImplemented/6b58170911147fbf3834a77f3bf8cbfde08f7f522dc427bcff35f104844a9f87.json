@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OAI/Talks-and-Workshops"
+		},
+		"file": {
+			"name": "petstore.yaml",
+			"size": 0,
+			"path": "OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/XmlExample/models/petstore.yaml",
+			"byteSize": 1619,
+			"content": "# OpenAPI v3 Training Exercise\n\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\n    \nservers:\n- url: http://petstore.swagger.io/v1\n\npaths:\n\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        200:\n          description: Expected response to a valid request\n          content:\n            application/xml:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n              example:\n                \u003cfoo\u003e\n                  \u003cuserID\u003e1234\u003c/userID\u003e\n                  \u003cname\u003eTed Epstein\u003e\u003c/name\u003e\n                  \u003cphone\u003e+1 (914) 648-4822\u003c/phone\u003e\n                \u003c/foo\u003e\n              \n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/OAI/Talks-and-Workshops@ed292cacb93ad43e574d8fee6247b9d524b43b34/-/blob/OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/XmlExample/models/petstore.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OAI/Talks-and-Workshops/blob/ed292cacb93ad43e574d8fee6247b9d524b43b34/OSSNA-OpenAPI-Workshop-2018/OASv3/workspace1/XmlExample/models/petstore.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets/{petId}\": get: responses: 200: contents: unsupported content types: [application/xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

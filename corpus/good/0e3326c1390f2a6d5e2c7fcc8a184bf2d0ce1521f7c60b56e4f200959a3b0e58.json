@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adobe/target-java-sdk"
+		},
+		"file": {
+			"name": "QAMode.yaml",
+			"size": 0,
+			"path": "openapi/common/components/QAMode.yaml",
+			"byteSize": 1732,
+			"content": "openapi: \"3.0.0\"\nQAMode:\n  type: object\n  description: |\n    Use this object to enable the QA mode in the request.\n    Use the QA mode to test the look and feel of your site or application for various activities in isolation or together,\n    with the possibilty to match or not match specified audiences, select a specific experience, count the\n    impressions/visits for the reporting or not.\n\n  properties:\n    token:\n      type: string\n      description: |\n        The encrypted token for the QA mode. It contains the list of the activity ids that are allowed to\n        be executed in QA mode.\n        Validation\n          * After decryption, the client code from the token should match the one from the request.\n          * After decryption, activities with the ids specified in the token should belong to the client.\n    listedActivitiesOnly:\n      type: boolean\n      description: |\n        Specifies whether qa_mode campaigns should be executed in isolation or if they should be evaluated along other\n        active campaigns for current environment.\n    evaluateAsTrueAudienceIds:\n      type: array\n      description: |\n        List of audience ids that should be always evaluated as TRUE in the scope of the delivery request\n      items:\n        type: integer\n        format: int64\n    evaluateAsFalseAudienceIds:\n      type: array\n      description: |\n        List of audience ids that should be always evaluated as FALSE in the scope of the delivery request\n      items:\n        type: integer\n        format: int64\n    previewIndexes:\n      type: array\n      description: |\n        List of preview indexes. If present, the list cannot be empty.\n      items:\n        $ref: \"./QAModePreviewIndex.yaml#/QAModePreviewIndex\"\n",
+			"canonicalURL": "/github.com/adobe/target-java-sdk@fce25c43183060ed53d71157ce80c3cf28e12f2f/-/blob/openapi/common/components/QAMode.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adobe/target-java-sdk/blob/fce25c43183060ed53d71157ce80c3cf28e12f2f/openapi/common/components/QAMode.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

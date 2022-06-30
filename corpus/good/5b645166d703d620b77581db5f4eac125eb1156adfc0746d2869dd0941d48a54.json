@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "api_with_binary_media_types_with_definition_body_openapi.yaml",
+			"size": 0,
+			"path": "integration/resources/templates/combination/api_with_binary_media_types_with_definition_body_openapi.yaml",
+			"byteSize": 1876,
+			"content": "Parameters:\n  Bucket:\n    Type: String\n  CodeKey:\n    Type: String\n  BinaryMediaCodeKey:\n    Type: String\n  SwaggerKey:\n    Type: String\n  ImageType:\n    Type: String\n    Default: image~1gif\nGlobals:\n  Api:\n    # Send/receive binary data through the APIs\n    BinaryMediaTypes:\n      # These are equivalent to image/gif and image/png when deployed\n      - image~1jpg\n      - image~1gif\n      - image~1png\n      - application~1octet-stream\n    OpenApiVersion: 3.0.1\n\nResources:\n  MyApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: Prod\n      DefinitionBody:\n        # Simple HTTP Proxy API\n        openapi: \"3.0.1\"\n        info:\n          version: \"2016-09-23T22:23:23Z\"\n          title: \"Simple Api\"\n        basePath: \"/none\"\n        schemes:\n          - \"https\"\n        paths:\n          \"/none\":\n            get:\n              x-amazon-apigateway-integration:\n                httpMethod: POST\n                type: aws_proxy\n                contentHandling: CONVERT_TO_BINARY\n                passthroughBehavior: NEVER\n                uri:\n                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambda.Arn}/invocations\n              responses: {}\n\n  MyLambda:\n    Type: AWS::Serverless::Function\n    Properties:\n      Handler: index.handler\n      Runtime: nodejs12.x\n      CodeUri:\n        Bucket:\n          Ref: Bucket\n        Key:\n          Ref: BinaryMediaCodeKey\n      Events:\n        None:\n          Type: Api\n          Properties:\n            RestApiId:\n              Ref: MyApi\n            Method: get\n            Path: /none\n\nOutputs:\n  ApiUrl:\n    Description: \"API endpoint URL for Prod environment\"\n    Value:\n      Fn::Sub: 'https://${MyApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/Prod/'\n  MyLambda:\n    Description: MyLambda Function ARN\n    Value:\n      Fn::GetAtt: MyLambda.Arn\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@30f206a677fb8080750de88c255ad09b24071873/-/blob/integration/resources/templates/combination/api_with_binary_media_types_with_definition_body_openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/30f206a677fb8080750de88c255ad09b24071873/integration/resources/templates/combination/api_with_binary_media_types_with_definition_body_openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

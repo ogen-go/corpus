@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/sleddog/methods"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "projects/calculator/bcornett/api.yaml",
+			"byteSize": 1263,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: CornettCalc\n  license:\n    name: Brady R. Cornett\nservers:\n  - url: http://calculatorbrady-env-1.m2bhvtue83.us-west-2.elasticbeanstalk.com\npaths:\n  /:\n    get:\n      summary: Welcome page for web service\n      responses:\n       '200':\n          description: Returns Welcome message\n          content:\n            application/json:\n              schema: \n                type: string\n  /calculator:\n    get:\n      summary: Calculator for web service\n      parameters:\n        - name: op\n          in: query\n          description: Operator variable\n          required: true\n          schema:\n            type: string\n        - name: fn\n          in: query\n          description: Variable one\n          required: true\n          schema:\n            type: integer\n            format: int32\n        - name: ln\n          in: query\n          description: Variable two\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Returns array of strings containing variables and \n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n",
+			"canonicalURL": "/github.com/sleddog/methods@c90f734172e7ca2b1a7094c35664498411b3b165/-/blob/projects/calculator/bcornett/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/sleddog/methods/blob/c90f734172e7ca2b1a7094c35664498411b3b165/projects/calculator/bcornett/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

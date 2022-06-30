@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtron-labs/devtron"
+		},
+		"file": {
+			"name": "deployments.yaml",
+			"size": 0,
+			"path": "specs/deployments.yaml",
+			"byteSize": 3426,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Devtron Labs\npaths:\n  /orchestrator/deployment/template/validate:\n    post:\n      description: upload template file from this api to validate.\n      requestBody:\n        description: form-data as request body\n        required: true\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                binaryFile:\n                  type: object\n                  description: zipped chart template file\n      responses:\n        '200':\n          description: template file upload response\n          content:\n            application/json:\n              schema:\n                properties:\n                  code:\n                    type: integer\n                    description: status code\n                  schema:\n                    $ref: '#/components/schemas/UploadTemplateResponse'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\n  /orchestrator/deployment/template/upload:\n    put:\n      description: upload template file from this api.\n      requestBody:\n        description: form-data as request body\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/UploadTemplateRequest'\n\n      responses:\n        '200':\n          description: template file upload response\n          content:\n            application/json:\n              schema:\n                properties:\n                  code:\n                    type: integer\n                    description: status code\n                  status:\n                    type: string\n                    description: status\n                  result:\n                    type: string\n                    description: result\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\n  /orchestrator/deployment/template/fetch:\n    get:\n      summary: Returns all charts\n      description: all the chart template uploaded by user\n      responses:\n        '200':\n          description: list response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Chart'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\ncomponents:\n  schemas:\n    UploadTemplateRequest:\n      type: object\n      properties:\n        fileId:\n          type: string\n        action:\n          type: string\n    UploadTemplateResponse:\n      type: object\n      properties:\n        chartName:\n          type: string\n        description:\n          type: string\n        fileId:\n          type: string\n        action:\n          type: string\n        message:\n          type: string\n    Chart:\n      type: object\n      properties:\n        name:\n          type: string\n        description:\n          type: string\n        count:\n          type: integer\n    ErrorResponse:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          description: Error code\n        message:\n          type: string\n          description: Error message",
+			"canonicalURL": "/github.com/devtron-labs/devtron@62f6101b37819e1ac319a744bbf3438184f0c8d5/-/blob/specs/deployments.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtron-labs/devtron/blob/62f6101b37819e1ac319a744bbf3438184f0c8d5/specs/deployments.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

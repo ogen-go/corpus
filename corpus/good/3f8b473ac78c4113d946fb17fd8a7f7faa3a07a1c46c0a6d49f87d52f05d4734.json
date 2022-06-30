@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/validator/issue418/openapi.yaml",
+			"byteSize": 959,
+			"content": "openapi: 3.0.0\ninfo:\n  title: A linting bug\n  version: 1.0.0\n  contact:\n    name: vk342\n    email: vk342@example.com\n    url: https://example.com\ntags:\n  - name: transactions\n    description: Endpoints related to transactions\npaths:\n  /transaction/{transactionId}:\n    parameters:\n    - $ref: '#/components/parameters/transactionIdParam'\n    put:\n      operationId: putTransaction\n      description: Update a transaction...\n      tags:\n        - transactions\n      requestBody:\n        content:\n          application/json:\n            schema:\n              #type: object\n              properties:\n                txnId:\n                  type: string\n                  description: Unique transactionID.\n      responses:\n        '201':\n          description: Created\ncomponents:\n  parameters:\n    transactionIdParam:\n      name: transactionId\n      in: path\n      required: true\n      description: An ID for the transaction\n      schema:\n        type: string\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/validator/issue418/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/validator/issue418/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

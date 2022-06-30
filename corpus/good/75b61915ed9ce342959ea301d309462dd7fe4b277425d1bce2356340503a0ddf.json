@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kyma-incubator/compass"
+		},
+		"file": {
+			"name": "order-service-api-spec.yaml",
+			"size": 0,
+			"path": "docs/compass/assets/order-service-api-spec.yaml",
+			"byteSize": 2960,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Order service and Events API\n  version: \"0.0.1\"\npaths:\n  /orders:\n    post:\n      description: Creates a new order.\n      tags:\n        - orders\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Order'\n      responses:\n        '201':\n          description: Order created succesfully.\n        '400':\n          description: Bad request.\n        '409':\n          description: Order ID conflict.\n        '500':\n          description: Internal server error.\n    get:\n      description: Retrieve all orders.\n      tags:\n        - orders\n      responses:\n        '200':\n          description: Orders retrieved succesfully.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderList'\n        '500':\n          description: Internal server error.\n    delete:\n      description: Delete all orders.\n      tags:\n        - orders\n      responses:\n        '204':\n          description: All orders deleted succesfully.\n        '500':\n          description: Internal server error.\n  /namespace/X/orders:\n    get:\n      description: Retrieve all orders.\n      tags:\n        - namespace orders\n      responses:\n        '200':\n          description: Orders retrieved succesfully.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderList'\n        '400':\n          description: Bad request.\n        '500':\n          description: Internal server error.\n    delete:\n      description: Delete all orders in namespace X.\n      tags:\n        - namespace orders\n      responses:\n        '204':\n          description: All orders in namespace X deleted succesfully.\n        '400':\n          description: Bad request.\n        '500':\n          description: Internal server error.\n  /events/order/created:\n    post:\n      description: Handle order created event\n      tags:\n        - events orders\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/OrderCreatedEvent'\n      responses:\n        '200':\n          description: Order created event handled successfully.\n        '400':\n          description: Bad request.\n        '500':\n          description: Internal Server error.\ncomponents:\n  schemas:\n    Order:\n      type: object\n      properties:\n        orderId:\n          type: string\n          example: 11854638GU110615ELIN54ZQ\n        namespace:\n          type: string\n          example: kyma-components\n        total:\n          type: number\n          example: 1234.56\n      required:\n        - orderId\n        - total\n    OrderList:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n    OrderCreatedEvent:\n      type: object\n      properties:\n        orderCode:\n          type: string\n          example: 76272727\n      required:\n        - orderCode",
+			"canonicalURL": "/github.com/kyma-incubator/compass@b67232154215677d5c232b5556f95d585af14923/-/blob/docs/compass/assets/order-service-api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kyma-incubator/compass/blob/b67232154215677d5c232b5556f95d585af14923/docs/compass/assets/order-service-api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

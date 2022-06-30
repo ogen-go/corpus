@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/s2o-test/issue186/openapi.yaml",
+			"byteSize": 1203,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"1.0\"\n  title: Root vendor extensions\n  description: Should be copied over without generating additional schemas\nx-something:\n  one:\n    identifier: \"1\"\n    url: https://one.com\n  another:\n    identifier: Not1\n    url: https://another.com\nx-something-groups:\n  first:\n    - color: green\n      default:\n        backend:\n          $ref: \"#/x-something/one\"\n      options:\n        - backend:\n            $ref: \"#/x-something/another\"\n          criteria:\n            - in: header\n              name: x-value-id\n              value:\n                - 42\n    - color: blue\n      default:\n        backend:\n          $ref: \"#/x-something/one\"\n      options:\n        - backend:\n            $ref: \"#/x-something/another\"\n          criteria:\n            - in: header\n              name: x-value-id\n              value:\n                - 17\npaths:\n  /v1/check:\n    get:\n      operationId: one\n      summary: Gets check\n      description: Cf. summary.\n      x-backends:\n        $ref: \"#/x-something-groups/first\"\n      responses:\n        \"200\":\n          description: Successful request.\n        \"400\":\n          description: Bad request.\nservers:\n  - url: https://example.com/an/api\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/s2o-test/issue186/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/s2o-test/issue186/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

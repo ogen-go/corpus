@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hse-project/hse"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "docs/openapi.yml",
+			"byteSize": 875,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: HSE REST API\n  version: \"2.1\"\n  description: API description for the HSE REST server.\n  license:\n    name: Apache 2.0\n    url: \"http://www.apache.org/licenses/LICENSE-2.0.html\"\npaths:\n  /kvdb/{alias}/home:\n    summary: Get the home directory for a KVDB.\n    description: This is a description.\n    parameters:\n      - $ref: \"#/components/parameters/aliasParam\"\n    get:\n      description: Get KVDB home.\n      tags:\n        - kvdb\n      responses:\n        \"200\":\n          content:\n            application/json:\n              example: /var/lib/hse/kvdb0\n              schema:\n                type: string\n          description: OK\ncomponents:\n  parameters:\n    aliasParam:\n      name: alias\n      in: path\n      required: true\n      description: REST alias for a KVDB\n      example: 0\n      schema:\n        type: integer\n        format: int32\n",
+			"canonicalURL": "/github.com/hse-project/hse@8826fcf165855282bc821852308e74ef3fc12ca0/-/blob/docs/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hse-project/hse/blob/8826fcf165855282bc821852308e74ef3fc12ca0/docs/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

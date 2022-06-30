@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/astoliarov/jackal"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/openapi.yaml",
+			"byteSize": 1700,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Jackal API\n  version: 1.0.0\npaths:\n  /api/v1/crop:\n    get:\n      summary: Fetch image and try to crop it to specified size\n      parameters:\n      - name: url\n        in: query\n        description: url for image to be cropped\n        required: true\n        schema:\n          type: string\n      - name: width\n        in: query\n        description: width of cropped image\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: height\n        in: query\n        description: height of cropped image\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: type\n        in: query\n        description: Type of crop. Allowed choices default and ratio\n        required: false\n        schema:\n          type: string\n      responses:\n        '200':\n          description: Response with cropped image\n          content:\n            image/jpeg:\n              schema:\n                type: string\n                format: binary\n            image/png:\n              schema:\n                type: string\n                format: binary\n            image/gif:\n              schema:\n                type: string\n                format: binary\n        '400':\n          description: Bad request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/CropErrors\"\n\ncomponents:\n  schemas:\n    CropErrors:\n      type: object\n      properties:\n        errors:\n          type: object\n          properties:\n            url:\n              type: string\n            width:\n              type: string\n            height:\n              type: string\n",
+			"canonicalURL": "/github.com/astoliarov/jackal@1c7b42cb2f4d541f0970b80d244e9308a8fbe749/-/blob/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/astoliarov/jackal/blob/1c7b42cb2f4d541f0970b80d244e9308a8fbe749/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

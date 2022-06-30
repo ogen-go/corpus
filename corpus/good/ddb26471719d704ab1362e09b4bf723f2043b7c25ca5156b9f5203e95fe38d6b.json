@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/outofcoffee/imposter"
+		},
+		"file": {
+			"name": "pet-api.yaml",
+			"size": 0,
+			"path": "mock/openapi/src/test/resources/openapi3/base-path/pet-api.yaml",
+			"byteSize": 1828,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: /petstore\npaths:\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n              examples:\n                # the example to return is selected by the config\n                catExample:\n                  value: |-\n                    { \"id\": 1, \"name\": \"Cat\" }\n                dogExample:\n                  value: |-\n                    { \"id\": 2, \"name\": \"Dog\" }\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  requestBodies:\n    Pet:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Pet'\n      description: The pet to add\n      required: true\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/outofcoffee/imposter@2b38378e283363ec34eed3813cbd12f22a689695/-/blob/mock/openapi/src/test/resources/openapi3/base-path/pet-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/outofcoffee/imposter/blob/2b38378e283363ec34eed3813cbd12f22a689695/mock/openapi/src/test/resources/openapi3/base-path/pet-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

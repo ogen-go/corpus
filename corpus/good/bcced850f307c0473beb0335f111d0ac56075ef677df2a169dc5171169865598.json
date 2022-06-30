@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/khilnani/textchart.com"
+		},
+		"file": {
+			"name": "apigateway-proxy.json",
+			"size": 0,
+			"path": "server/apigateway-proxy.json",
+			"byteSize": 1737,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"textchart\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://plantuml.textchart.com\"\n    }\n  ],\n  \"paths\": {\n    \"/img/{id}\": {\n      \"get\": {\n        \"operationId\": \"get-png\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"headers\": {\n              \"Access-Control-Allow-Origin\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"Content-Type\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            },\n            \"content\": {}\n          }\n        },\n        \"x-amazon-apigateway-integration\": {\n          \"uri\": \"http://IP/img/{id}\",\n          \"responses\": {\n            \"default\": {\n              \"statusCode\": \"200\",\n              \"responseParameters\": {\n                \"method.response.header.Content-Type\": \"integration.response.header.Content-Type\",\n                \"method.response.header.Access-Control-Allow-Origin\": \"'*.textchart.com'\"\n              },\n              \"contentHandling\": \"CONVERT_TO_BINARY\"\n            }\n          },\n          \"requestParameters\": {\n            \"integration.request.path.id\": \"method.request.path.id\"\n          },\n          \"passthroughBehavior\": \"when_no_match\",\n          \"httpMethod\": \"GET\",\n          \"type\": \"http\"\n        }\n      }\n    }\n  },\n  \"components\": {},\n  \"x-amazon-apigateway-binary-media-types\": [\n    \"image/png\"\n  ]\n}\n",
+			"canonicalURL": "/github.com/khilnani/textchart.com@97fc0cb9e757ba980c4dbaca28c5f182d3b4abb2/-/blob/server/apigateway-proxy.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/khilnani/textchart.com/blob/97fc0cb9e757ba980c4dbaca28c5f182d3b4abb2/server/apigateway-proxy.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

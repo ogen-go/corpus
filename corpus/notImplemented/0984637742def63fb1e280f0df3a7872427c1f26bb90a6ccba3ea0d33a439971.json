@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "anyOf-2.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-2.json",
+			"byteSize": 1708,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"AnyOf\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/anyOf\": {\n            \"post\": {\n                \"requestBody\": {\n                    \"required\": true,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"maximum\": 100.0,\n                                \"anyOf\": [\n                                    {\n                                        \"type\": \"integer\",\n                                        \"enum\": [ -1, 0, 1]\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"minimum\": 0.0\n                                    },\n                                    {\n                                        \"type\": \"number\",\n                                        \"nullable\": true\n                                    }\n                                ]\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/Cornutum/tcases@400766111167d08860469c6ee17fc353c586d63f/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-2.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Cornutum/tcases/blob/400766111167d08860469c6ee17fc353c586d63f/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/anyOf-2.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/anyOf\": post: requestBody: contents: application/json: generate schema: anyOf: collect variants: AnyOfPostReq: sum types with same names not implemented",
+	"NotImplemented": [
+		"sum types with same names"
+	]
+}

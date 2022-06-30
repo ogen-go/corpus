@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/acacode/swagger-typescript-api"
+		},
+		"file": {
+			"name": "no-definitions-schema.yaml",
+			"size": 0,
+			"path": "tests/schemas/v3.0/no-definitions-schema.yaml",
+			"byteSize": 672,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Empty schema example\n  version: 1.0.0\ncomponents:\n  schemas:\n    BasicErrorModel:\n      type: object\n      required:\n        - message\n        - code\n      properties:\n        message:\n          type: string\n        field:\n          type: string\n          x-nullable: true\n        code:\n          type: integer\n          minimum: 100\n          maximum: 600\n    ExtendedErrorModel:\n      allOf: # Combines the BasicErrorModel and the inline model\n        - $ref: \"#/components/schemas/BasicErrorModel\"\n        - type: object\n          required:\n            - rootCause\n          properties:\n            rootCause:\n              type: string\n",
+			"canonicalURL": "/github.com/acacode/swagger-typescript-api@7df956c236d1e7fc051658cd7012c8ea22286b44/-/blob/tests/schemas/v3.0/no-definitions-schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/acacode/swagger-typescript-api/blob/7df956c236d1e7fc051658cd7012c8ea22286b44/tests/schemas/v3.0/no-definitions-schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

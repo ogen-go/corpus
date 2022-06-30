@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/archfirst/node-es6-rest-template"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/openapi.yaml",
+			"byteSize": 1794,
+			"content": "openapi: 3.0.0\ninfo:\n    version: '1.0.0'\n    title: 'Bookstore API'\n    description: 'An API to access books, publishers and authors'\n\nservers:\n    - description: Dev Server\n      url: http://localhost:8080/api\n\npaths:\n    /books:\n        get:\n            description: Get all the books in the store\n            responses:\n                200:\n                    description: Success\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/Books'\n\n    /books/{id}:\n        get:\n            description: Get a specific book\n            parameters:\n                - in: path\n                  name: id\n                  required: true\n                  description: identifier of the book\n                  schema:\n                      type: string\n                      example: design-patterns\n            responses:\n                200:\n                    description: Success\n                    content:\n                        application/json:\n                            schema:\n                                $ref: '#/components/schemas/Book'\n                404:\n                    description: Book not found\n\ncomponents:\n    schemas:\n        Book:\n            type: object\n            required:\n                - id\n                - name\n            properties:\n                id:\n                    type: string\n                    example: design-patterns\n                name:\n                    type: string\n                    example:\n                        Design Patterns - Elements of Reusable Object-Oriented\n                        Software\n\n        Books:\n            type: array\n            items:\n                $ref: '#/components/schemas/Book'\n",
+			"canonicalURL": "/github.com/archfirst/node-es6-rest-template@9769db7f13aac824692d734bcefa5f69b1a745a8/-/blob/src/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/archfirst/node-es6-rest-template/blob/9769db7f13aac824692d734bcefa5f69b1a745a8/src/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

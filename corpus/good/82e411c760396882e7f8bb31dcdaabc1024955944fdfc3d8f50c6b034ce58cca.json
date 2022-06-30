@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hh-h/aiohttp-swagger3"
+		},
+		"file": {
+			"name": "petstore.yaml",
+			"size": 0,
+			"path": "examples/file_spec/petstore.yaml",
+			"byteSize": 2121,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      tags:\n        - pets\n      responses:\n        '200':\n          description: An array of pets\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/Pets\"\n    post:\n      summary: Create a pet\n      tags:\n        - pets\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n                tag:\n                  type: string\n      responses:\n        '201':\n          description: new pet\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n  /pets/{pet_id}:\n    get:\n      summary: Info for a specific pet\n      tags:\n        - pets\n      parameters:\n        - name: pet_id\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n    delete:\n      summary: Deletes specific pet\n      tags:\n        - pets\n      parameters:\n        - name: pet_id\n          in: path\n          required: true\n          description: The id of the pet to delete\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '204':\n          description: Null response\n\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n",
+			"canonicalURL": "/github.com/hh-h/aiohttp-swagger3@2dff6e34640255674a29f15015992c81ec033263/-/blob/examples/file_spec/petstore.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hh-h/aiohttp-swagger3/blob/2dff6e34640255674a29f15015992c81ec033263/examples/file_spec/petstore.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

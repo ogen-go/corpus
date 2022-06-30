@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/isel-leic-ls/2122-2-common"
+		},
+		"file": {
+			"name": "students.yml",
+			"size": 0,
+			"path": "docs/students.yml",
+			"byteSize": 3646,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Students API\n  description: 'Manage Students'\n  termsOfService: http://swagger.io/terms/\n  version: 1.0.0\ntags:\n  - name: Students\n    description: Students List.\n\npaths:\n  /students:\n    get:\n      tags:\n        - Students\n      summary: Lists all students\n      description: List all students, number and name\n      parameters:\n        - name: limit\n          in: query\n          description: Limits the number of Students returned\n          required: false\n          schema:\n            type: integer\n      responses:\n        200:\n          description: the list of students\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/StudentListResponse'\n    post:\n      tags:\n        - Students\n      summary: Adds a new student to the list\n      requestBody:\n        description: Student information\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Student'\n      responses:\n        200:\n          description: The student was added to the list with success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/StudentAddedResponse'\n        400:\n          description: A student with such number exists\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AppError'\n\n  /students/{number}:\n    get:\n      tags:\n        - Students\n      summary: Returns student details\n      description: Returns a single student\n      parameters:\n        - name: number\n          in: path\n          description: Number of student to return\n          required: true\n          schema:\n            type: integer\n          example: 472349\n      responses:\n        200:\n          description: Student found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Student'\n        404:\n          description: Student not found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AppError'\n\ncomponents:\n  schemas:\n    AppError:\n      type: object\n      description: Application error\n      required:\n        - code\n        - name\n        - message\n      properties:\n        code:\n          type: number\n          format: integer\n          description: Internal error code\n          example: 1000\n        name:\n          type: string\n          description: Internal error name\n          example: FAIL\n        message:\n          type: string\n          description: Error description message\n          example: An error occurred\n    StudentAddedResponse:\n      type: object\n      description: Student successfully added to list\n      required:\n        - number\n      properties:\n        number:\n          type: integer\n    StudentResponse:\n      type: object\n      description: Response with a student\n      properties:\n        student:\n          $ref: '#/components/schemas/Student'\n\n    StudentListResponse:\n      type: object\n      description: Response with a list of students\n      properties:\n        students:\n          type: array\n          items:\n            $ref: '#/components/schemas/Student'\n\n    Student:\n      type: object\n      description: Student data\n      required:\n        - number\n        - name\n        - email\n      properties:\n        number:\n          type: integer\n          description: student number\n          example: 467237\n        name:\n          type: string\n          description: student name\n          example: Filipe\n",
+			"canonicalURL": "/github.com/isel-leic-ls/2122-2-common@dcd69af9ebf11cce4b8692412d6a223af9937932/-/blob/docs/students.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/isel-leic-ls/2122-2-common/blob/dcd69af9ebf11cce4b8692412d6a223af9937932/docs/students.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

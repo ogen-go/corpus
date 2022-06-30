@@ -9,8 +9,15 @@
 			"size": 0,
 			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
 			"byteSize": 1100,
-			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /health:\n    $ref: ./paths/healthPath.yaml\ninfo:\n  version: \"\"\n  title: \"\"\ncomponents:\n  schemas:\n    refInDefinitions:\n      $ref: ./models/example.yaml\n    arrayModel:\n      type: array\n      items:\n        $ref: ./models/foo.yaml\n    composedCat:\n      allOf:\n      - $ref: ./models/pet.yaml\n      - $ref: ./models/conflict.yaml#/foo\n      - properties:\n          huntingSkill:\n            type: string\n            description: The measured skill for hunting\n            default: lazy\n            enum:\n            - clueless\n            - lazy\n            - adventurous\n            - aggressive\n          prop2:\n            $ref: ./models/foo.yaml\n          reflexes:\n            type: array\n            items:\n              $ref: ./models/reflex.yaml\n          reflexMap:\n            type: object\n            additionalProperties:\n              $ref: ./models/reflex.yaml\n        required:\n        - huntingSkill\n    externalArray:\n      $ref: ./models/localreference.yaml#/localArray\n    externalObject:\n      $ref: ./models/localreference.yaml#/localObject\n"
+			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /health:\n    $ref: ./paths/healthPath.yaml\ninfo:\n  version: \"\"\n  title: \"\"\ncomponents:\n  schemas:\n    refInDefinitions:\n      $ref: ./models/example.yaml\n    arrayModel:\n      type: array\n      items:\n        $ref: ./models/foo.yaml\n    composedCat:\n      allOf:\n      - $ref: ./models/pet.yaml\n      - $ref: ./models/conflict.yaml#/foo\n      - properties:\n          huntingSkill:\n            type: string\n            description: The measured skill for hunting\n            default: lazy\n            enum:\n            - clueless\n            - lazy\n            - adventurous\n            - aggressive\n          prop2:\n            $ref: ./models/foo.yaml\n          reflexes:\n            type: array\n            items:\n              $ref: ./models/reflex.yaml\n          reflexMap:\n            type: object\n            additionalProperties:\n              $ref: ./models/reflex.yaml\n        required:\n        - huntingSkill\n    externalArray:\n      $ref: ./models/localreference.yaml#/localArray\n    externalObject:\n      $ref: ./models/localreference.yaml#/localObject\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"externalArray\": parse schema: resolve \"./models/localreference.yaml#/localArray\": external \"./models/localreference.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"arrayModel\": parse schema: item: parse schema: resolve \"./models/foo.yaml\": external \"./models/foo.yaml\": file: local file reference is not allowed"
 }

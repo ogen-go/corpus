@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smartlyio/oats"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "test/name-mapping/api.yml",
+			"byteSize": 856,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: example service\nservers:\n  - url: http://localhost:12000\npaths:\n  /item:\n    get:\n      responses:\n        '200':\n          description: item found\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Item\"\ncomponents:\n  schemas:\n    NullableScalar:\n      type: string\n      nullable: true\n    NullableObject:\n      type: object\n      nullable: true\n    ItemType:\n      type: string\n      enum:\n        - custom\n        - default \n    Item:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n          format: name-format\n          pattern: .*\n        flag:\n          type: boolean\n        type:\n          $ref: \"#/components/schemas/ItemType\"\n\n",
+			"canonicalURL": "/github.com/smartlyio/oats@743a31718a2487b0cf7157ac1b6bc8872af256c1/-/blob/test/name-mapping/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smartlyio/oats/blob/743a31718a2487b0cf7157ac1b6bc8872af256c1/test/name-mapping/api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tfranzel/drf-spectacular"
+		},
+		"file": {
+			"name": "test_versioning_accept_v2.yml",
+			"size": 0,
+			"path": "tests/test_versioning_accept_v2.yml",
+			"byteSize": 1265,
+			"content": "openapi: 3.0.3\ninfo:\n  title: ''\n  version: 0.0.0 (v2)\npaths:\n  /x/:\n    get:\n      operationId: x_list\n      tags:\n      - x\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json; version=v2:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Xv2'\n          description: ''\n  /x/{id}/:\n    get:\n      operationId: x_retrieve\n      parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        description: A unique integer value identifying this simple model.\n        required: true\n      tags:\n      - x\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json; version=v2:\n              schema:\n                $ref: '#/components/schemas/Xv2'\n          description: ''\ncomponents:\n  schemas:\n    Xv2:\n      type: object\n      properties:\n        id:\n          type: string\n          format: uuid\n      required:\n      - id\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: sessionid\n",
+			"canonicalURL": "/github.com/tfranzel/drf-spectacular@df9e115ca9b9a3ec84d60df942be28ce3cda13fa/-/blob/tests/test_versioning_accept_v2.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tfranzel/drf-spectacular/blob/df9e115ca9b9a3ec84d60df942be28ce3cda13fa/tests/test_versioning_accept_v2.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/x/\": get: security: security \"cookieAuth\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

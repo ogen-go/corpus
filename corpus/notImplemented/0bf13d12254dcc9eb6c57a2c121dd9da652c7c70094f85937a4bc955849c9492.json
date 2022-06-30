@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "EPBDS-11042-openapiUnexpecetdError.yaml",
+			"size": 0,
+			"path": "STUDIO/org.openl.rules.webstudio.web/test-resources/openapi/functionality/EPBDS-11042-openapiUnexpecetdError.yaml",
+			"byteSize": 2677,
+			"content": "openapi: 3.0.1\ninfo:\n  title: openApiDtaFailure1_openApiDtaFailure1\n  version: 1.0.0\nservers:\n  - url: /webservice/openApiDtaFailure1/openApiDtaFailure1\n    variables: { }\npaths:\n  /mySpr/{queryParam1}:\n    post:\n      summary: Double mySpr(MyDatatype)\n      description: \"Rules method: java.lang.Double mySpr(org.openl.generated.beans.MyDatatype\\\n        \\ param)\"\n      operationId: id\n      parameters:\n        - name: queryParam1\n          in: path\n          description: Query param 1\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MyDatatype'\n      responses:\n        \"422\":\n          description: Custom user errors in rules or validation errors in input parameters\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/JAXRSErrorResponse'\n              example:\n                message: Some message\n                type: USER_ERROR\n        \"400\":\n          description: \"Invalid request format e.g. missing required field, unparseable\\\n            \\ JSON value, etc.\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/JAXRSErrorResponse'\n              example:\n                message: Cannot parse 'bar' to JSON\n                type: BAD_REQUEST\n        \"500\":\n          description: \"Internal server errors e.g. compilation or parsing errors,\\\n            \\ runtime exceptions, etc.\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/JAXRSErrorResponse'\n              example:\n                message: Failed to load lazy method.\n                type: COMPILATION\n        \"200\":\n          description: Successful operation\n          content:\n            text/plain:\n              schema:\n                type: number\n                format: double\ncomponents:\n  schemas:\n    JAXRSErrorResponse:\n      type: object\n      properties:\n        message:\n          type: string\n        type:\n          type: string\n          enum:\n            - USER_ERROR\n            - RULES_RUNTIME\n            - COMPILATION\n            - SYSTEM\n            - BAD_REQUEST\n            - VALIDATION\n        details:\n          type: array\n          items:\n            type: string\n    MyDatatype:\n      type: object\n      properties:\n        field1:\n          type: string\n          example: field3\n        param2:\n          type: string\n          example: field3\n      xml:\n        name: MyDatatype\n        namespace: http://beans.generated.openl.org\n",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/STUDIO/org.openl.rules.webstudio.web/test-resources/openapi/functionality/EPBDS-11042-openapiUnexpecetdError.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/STUDIO/org.openl.rules.webstudio.web/test-resources/openapi/functionality/EPBDS-11042-openapiUnexpecetdError.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/mySpr/{queryParam1}\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

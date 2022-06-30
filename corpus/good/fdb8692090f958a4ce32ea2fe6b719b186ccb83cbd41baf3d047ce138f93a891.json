@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NLESC-JCER/cpp2wasm"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/openapi.yaml",
+			"byteSize": 1665,
+			"content": "# this yaml snippet is stored as openapi/openapi.yaml\nopenapi: 3.0.0\ninfo:\n  title: Root finder\n  license:\n    name: Apache-2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: 0.1.0\npaths:\n  /api/newtonraphson:\n    post:\n      description: Perform root finding with the Newton Raphson algorithm\n      operationId: api.calculate\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              $ref: '#/components/schemas/NRRequest'\n            example:\n              epsilon: 0.001\n              guess: -20\n      responses:\n        '200':\n          description: The found root\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NRResponse'\ncomponents:\n  schemas:\n    NRRequest:\n      {\n        \"type\": \"object\",\n        \"description\": \"this JSON document is later referred to as \u003c\u003crequest-schema\u003e\u003e\",\n        \"properties\": {\n          \"epsilon\": {\n            \"title\": \"Epsilon\",\n            \"type\": \"number\",\n            \"minimum\": 0\n          },\n          \"guess\": {\n            \"title\": \"Initial guess\",\n            \"type\": \"number\"\n          }\n        },\n        \"required\": [\n          \"epsilon\",\n          \"guess\"\n        ],\n        \"additionalProperties\": false\n      }\n    NRResponse:\n      {\n        \"type\": \"object\",\n        \"description\": \"this JSON document is later referred to as \u003c\u003cresponse-schema\u003e\u003e\",\n        \"properties\": {\n            \"root\": {\n              \"title\": \"Root\",\n              \"type\": \"number\"\n            }\n        },\n        \"required\": [\n            \"root\"\n        ],\n        \"additionalProperties\": false\n      }",
+			"canonicalURL": "/github.com/NLESC-JCER/cpp2wasm@acb88d0bbbe719b29aab3016874f572259186c95/-/blob/openapi/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NLESC-JCER/cpp2wasm/blob/acb88d0bbbe719b29aab3016874f572259186c95/openapi/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

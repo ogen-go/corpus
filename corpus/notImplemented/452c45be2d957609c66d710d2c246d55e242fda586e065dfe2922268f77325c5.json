@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tfranzel/drf-spectacular"
+		},
+		"file": {
+			"name": "test_rest_framework_dataclasses.yml",
+			"size": 0,
+			"path": "tests/contrib/test_rest_framework_dataclasses.yml",
+			"byteSize": 1381,
+			"content": "openapi: 3.0.3\ninfo:\n  title: ''\n  version: 0.0.0\npaths:\n  /anonymous:\n    get:\n      operationId: anonymous_retrieve\n      tags:\n      - anonymous\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Person'\n          description: ''\n  /named:\n    get:\n      operationId: named_retrieve\n      tags:\n      - named\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Group'\n          description: ''\ncomponents:\n  schemas:\n    Group:\n      type: object\n      properties:\n        name:\n          type: string\n        leader:\n          $ref: '#/components/schemas/Person'\n        members:\n          type: array\n          items:\n            $ref: '#/components/schemas/Person'\n      required:\n      - leader\n      - members\n      - name\n    Person:\n      type: object\n      properties:\n        name:\n          type: string\n        length:\n          type: integer\n      required:\n      - length\n      - name\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: sessionid\n",
+			"canonicalURL": "/github.com/tfranzel/drf-spectacular@df9e115ca9b9a3ec84d60df942be28ce3cda13fa/-/blob/tests/contrib/test_rest_framework_dataclasses.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tfranzel/drf-spectacular/blob/df9e115ca9b9a3ec84d60df942be28ce3cda13fa/tests/contrib/test_rest_framework_dataclasses.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/named\": get: security: security \"cookieAuth\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/joolfe/postman-to-openapi"
+		},
+		"file": {
+			"name": "PathParams.yml",
+			"size": 0,
+			"path": "test/resources/output/PathParams.yml",
+			"byteSize": 2896,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Path Params\n  description: Collection to test path parameters\n  version: 1.0.0\nservers:\n  - url: https://api.io\npaths:\n  /users/{user_id}:\n    get:\n      tags:\n        - default\n      summary: Get one users info\n      description: Obtain a list of users that fullfill the conditions of the filters\n      parameters:\n        - name: user_id\n          in: path\n          schema:\n            type: string\n          required: true\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n  /customer/{customer-id}:\n    get:\n      tags:\n        - default\n      summary: Get one customer\n      description: Obtain one customer info\n      parameters:\n        - name: customer-id\n          in: path\n          schema:\n            type: string\n          required: true\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n  /desc/{user_id}:\n    get:\n      tags:\n        - default\n      summary: Get one users with description\n      description: Obtain a list of users descriptions\n      parameters:\n        - name: user_id\n          in: path\n          schema:\n            type: number\n          required: true\n          description: This is just a user identifier\n          example: '476587598'\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n  /desc/{user_id}/{type}:\n    get:\n      tags:\n        - default\n      summary: Get one users with path params with type\n      description: Obtain a list of users descriptions\n      parameters:\n        - name: user_id\n          in: path\n          schema:\n            type: integer\n          required: true\n          description: This is just a user identifier\n          example: '476587598'\n        - name: type\n          in: path\n          schema:\n            type: string\n          required: true\n          description: This is just a user type\n          example: user\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n  /desc/{user_id}/{type}/all:\n    get:\n      tags:\n        - default\n      summary: Get all users with description and params with type\n      description: Obtain a list of users descriptions\n      parameters:\n        - name: user_id\n          in: path\n          schema:\n            type: number\n          required: true\n          description: This is just a user identifier\n          example: '476587598'\n        - name: type\n          in: path\n          schema:\n            type: string\n          required: true\n          description: This is just a user type\n          example: user\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n",
+			"canonicalURL": "/github.com/joolfe/postman-to-openapi@73718f5d77979d163176fac05796dbfa5755dc4e/-/blob/test/resources/output/PathParams.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/joolfe/postman-to-openapi/blob/73718f5d77979d163176fac05796dbfa5755dc4e/test/resources/output/PathParams.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/desc/{user_id}\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

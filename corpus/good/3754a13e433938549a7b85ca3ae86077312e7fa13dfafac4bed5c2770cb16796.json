@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wikimedia/wikibase-termbox"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "openapi.json",
+			"byteSize": 2728,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"wikibase-termbox\",\n    \"description\": \"Server side rendering for vue-based wikibase UI components.\",\n    \"contact\": {\n      \"name\": \"Wikimedia Deutschland - Wikidata Team\"\n    },\n    \"version\": \"0.1.0\"\n  },\n  \"paths\": {\n    \"/_info\": {\n      \"get\": {\n        \"tags\": [\n          \"Service information\"\n        ],\n        \"description\": \"Gets information about the service\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {}\n          }\n        },\n        \"x-amples\": [\n          {\n            \"title\": \"retrieve service info\",\n            \"request\": {},\n            \"response\": {\n              \"status\": 200,\n              \"headers\": {\n                \"content-type\": \"application/json\"\n              },\n              \"body\": {\n                \"name\": \"/.+/\",\n                \"version\": \"/.+/\"\n              }\n            }\n          }\n        ]\n      }\n    },\n    \"/termbox\": {\n      \"get\": {\n        \"description\": \"Gets a rendered termbox\",\n        \"parameters\": [\n          {\n            \"in\": \"query\",\n            \"name\": \"language\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\",\n              \"pattern\": \"^[a-z]{2}[a-z0-9-]*$\"\n            }\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"entity\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\",\n              \"pattern\": \"^(Q|P)[1-9]\\\\d{0,9}$\"\n            }\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"revision\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1\n            }\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"editLink\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"in\": \"query\",\n            \"name\": \"preferredLanguages\",\n            \"required\": true,\n            \"style\": \"pipeDelimited\",\n            \"explode\": false,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"pattern\": \"^[a-z]{2}[a-z0-9-]*$\"\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          },\n          \"400\": {\n            \"description\": \"Bad Request\"\n          },\n          \"404\": {\n            \"description\": \"Entity not found\"\n          },\n          \"500\": {\n            \"description\": \"Technical Problem\"\n          }\n        },\n        \"x-monitor\": false\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/wikimedia/wikibase-termbox@66c8229c7e8d5931b0afa28b1a0fd18d1ea58c78/-/blob/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wikimedia/wikibase-termbox/blob/66c8229c7e8d5931b0afa28b1a0fd18d1ea58c78/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive2.yaml",
+			"size": 0,
+			"path": "assets/queries/openAPI/general/object_using_enum_with_keyword/test/positive2.yaml",
+			"byteSize": 1450,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.com\npaths: {}\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      discriminator:\n        propertyName: petType\n      properties:\n        name:\n          type: string\n        petType:\n          type: string\n      required:\n        - name\n        - petType\n    Cat:\n      description:\n        A representation of a cat. Note that `Cat` will be used as the\n        discriminator value.\n      allOf:\n        - \"$ref\": \"#/components/schemas/Pet\"\n        - type: object\n          properties:\n            huntingSkill:\n              type: string\n              description: The measured skill for hunting\n              default: lazy\n              enum:\n                - clueless\n                - lazy\n                - adventurous\n                - aggressive\n              minLength: 4\n          required:\n            - huntingSkill\n    Dog:\n      description:\n        A representation of a dog. Note that `Dog` will be used as the\n        discriminator value.\n      allOf:\n        - \"$ref\": \"#/components/schemas/Pet\"\n        - type: object\n          properties:\n            packSize:\n              type: integer\n              format: int32\n              description: the size of the pack the dog is from\n              default: 0\n              minimum: 0\n          required:\n            - packSize\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/general/object_using_enum_with_keyword/test/positive2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/general/object_using_enum_with_keyword/test/positive2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

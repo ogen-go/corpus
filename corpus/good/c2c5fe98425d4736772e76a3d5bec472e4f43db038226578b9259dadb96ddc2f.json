@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Gi60s/openapi-enforcer-middleware"
+		},
+		"file": {
+			"name": "openapi-v3.yml",
+			"size": 0,
+			"path": "demo/server/openapi-v3.yml",
+			"byteSize": 2289,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: \"1.0.0\"\n  title: \"To Do List API\"\nx-controller: todo\npaths:\n  /:\n    get:\n      summary: Get a list of tasks\n      x-operation: getList\n      responses:\n        200:\n          description: Get a list of tasks\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TaskList'\n    post:\n      summary: Add a new task\n      x-operation: addTask\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Task\"\n      responses:\n        200:\n          description: Get the added task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Task'\n  /{task_id}:\n    parameters:\n      - in: path\n        name: task_id\n        required: true\n        schema:\n          type: number\n          minimum: 0\n    get:\n      summary: Get a task by ID\n      x-operation: getTask\n      responses:\n        200:\n          description: Get the task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Task'\n        404:\n          description: Not found\n    put:\n      summary: Update a task\n      x-operation: updateTask\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Task\"\n      responses:\n        200:\n          description: Get the updated task\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Task'\n        404:\n          description: Not found\n    delete:\n      summary: Delete a task\n      x-operation: deleteItem\n      responses:\n        204:\n          description: Task deleted\ncomponents:\n  schemas:\n    Task:\n      type: object\n      required:\n        - title\n        - due\n      properties:\n        id:\n          type: integer\n          minimum: 0\n        title:\n          type: string\n          minLength: 1\n        due:\n          type: string\n          format: date-time\n        completed:\n          type: boolean\n          default: false\n    TaskList:\n      type: array\n      items:\n        $ref: '#/components/schemas/Task'",
+			"canonicalURL": "/github.com/Gi60s/openapi-enforcer-middleware@9ca8b12485942174002327f83647f9d4d2ad8bc5/-/blob/demo/server/openapi-v3.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Gi60s/openapi-enforcer-middleware/blob/9ca8b12485942174002327f83647f9d4d2ad8bc5/demo/server/openapi-v3.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

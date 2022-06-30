@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "10167-nullable-set.yml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/spring/10167-nullable-set.yml",
+			"byteSize": 1174,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Api Documentation\n  description: 'Demo Spring Mvc @DateTimeFormat across the different openapi parameter types'\n  version: '1.0'\npaths:\n  /nullable:\n    post:\n      description: nullable test\n      operationId: nullableTest\n      responses:\n        204:\n          description: processed\n        405:\n          description: Invalid input\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ObjectWithUniqueItems'\n\ncomponents:\n  schemas:\n    ObjectWithUniqueItems:\n      properties:\n        nullSet:\n          type: array\n          uniqueItems: true\n          items:\n            type: string\n          nullable: true\n        notNullSet:\n          type: array\n          uniqueItems: true\n          items:\n            type: string\n        nullList:\n          type: array\n          items:\n            type: string\n          nullable: true\n        notNullList:\n          type: array\n          items:\n            type: string\n        notNullDateField:\n          type: string\n          format: date-time\n        nullDateField:\n          type: string\n          format: date-time\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/spring/10167-nullable-set.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/spring/10167-nullable-set.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

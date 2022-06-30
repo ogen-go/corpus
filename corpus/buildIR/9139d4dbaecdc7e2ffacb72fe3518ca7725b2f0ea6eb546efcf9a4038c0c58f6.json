@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "test/golden/common/unguarded-recursive/basic/b.yaml",
 			"byteSize": 373,
-			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      allOf:\n        - $ref: \"#/components/schemas/Bad\"\n"
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Bad\"\ncomponents:\n  schemas:\n    Bad:\n      allOf:\n        - $ref: \"#/components/schemas/Bad\"\n",
+			"canonicalURL": "/github.com/typeable/compaREST@f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/-/blob/test/golden/common/unguarded-recursive/basic/b.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/typeable/compaREST/blob/f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/test/golden/common/unguarded-recursive/basic/b.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "buildIR: make ir: path \"/api/foo\": get: responses: 200: contents: application/json;charset=utf-8: generate schema: allOf: allOf \"#/components/schemas/Bad\" [0]: reference \"#/components/schemas/Bad\" [0] leads to infinite recursion"

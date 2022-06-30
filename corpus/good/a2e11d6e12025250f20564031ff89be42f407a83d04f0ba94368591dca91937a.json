@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/BioKIC/NEON-Biorepository"
+		},
+		"file": {
+			"name": "example-object.yaml",
+			"size": 0,
+			"path": "api/vendor/zircote/swagger-php/Examples/example-object/example-object.yaml",
+			"byteSize": 1824,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Example for response examples value'\n  version: '1.0'\npaths:\n  '/users/{id}':\n    put:\n      summary: 'Updates a user'\n      parameters:\n        -\n          name: id\n          in: path\n          description: 'Parameter with mutliple examples'\n          required: true\n          schema:\n            type: string\n          examples:\n            int:\n              summary: 'An int value.'\n              value: '1'\n            uuid:\n              summary: 'An UUID value.'\n              value: 0006faf6-7a61-426c-9034-579f2cfcfa83\n      responses:\n        '200':\n          description: OK\n  /users:\n    post:\n      summary: 'Adds a new user - with oneOf examples'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                id:\n                  type: string\n                name:\n                  type: string\n                phone:\n                  oneOf: [{ type: string }, { type: integer }]\n              type: object\n              example:\n                id: a3fb6\n                name: 'Jessica Smith'\n                phone: 12345678\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - { $ref: '#/components/schemas/Result' }\n                  - { type: boolean }\n              examples:\n                result:\n                  summary: 'An result object.'\n                  value: { success: true }\n                bool:\n                  summary: 'A boolean value.'\n                  value: false\ncomponents:\n  schemas:\n    Result:\n      title: 'Sample schema for using references'\n      properties:\n        status:\n          type: string\n        error:\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/BioKIC/NEON-Biorepository@4385fb60dcfc237166a02a6d6677d704daaa03ba/-/blob/api/vendor/zircote/swagger-php/Examples/example-object/example-object.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/BioKIC/NEON-Biorepository/blob/4385fb60dcfc237166a02a6d6677d704daaa03ba/api/vendor/zircote/swagger-php/Examples/example-object/example-object.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

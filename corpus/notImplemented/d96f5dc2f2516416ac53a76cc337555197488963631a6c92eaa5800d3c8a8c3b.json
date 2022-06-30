@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RMLio/prov4itdata-web-app"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger.yaml",
+			"byteSize": 3909,
+			"content": "openapi: 3.0.0\ninfo:\n  title: _TODO\n  description: Transfer your personal data from multiple data providers to your Solid Pod.\n  version: _TODO\nservers:\n  - url: http://localhost:4000/\n    description: Optional server description, e.g. Main (production) server\n\npaths:\n  /api-docs:\n    get:\n      summary: Gets these docs\n      responses:\n        \"200\":\n          description: OK\n          content:\n            text/html:\n              schema:\n                type: string\n  /{provider}/callback:\n    get:\n      summary: Updates the provider tokens and redirects back to root\n      responses:\n        \"302\":\n          description: OK\n    parameters:\n      - name: provider\n        in: path\n        description: The provider\n        required: true\n        schema:\n          $ref: \"#/components/schemas/ProviderModel\"\n  /rmlmapper:\n    post:\n      summary: Execute the RMLMapper\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                provider: \n                  $ref: \"#/components/schemas/ProviderModel\"\n                file:\n                  type: string\n      responses:\n        200:\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n            application/json:\n              schema:\n                type: object\n                properties:\n                  rdf:\n                    type: string\n                  prov:\n                    type: object\n        401:\n          description: No credentials\n        500:\n          description: Not OK\n          content:\n            text/plain:\n              schema:\n                type: string\n  /status/{provider}/connected:\n    get:\n      summary: Returns whether the given provider is connected (i.e. whether the backend contains tokens for that provider.\n      parameters:\n        - name: provider\n          in: path\n          description: Data provider (e.g. flickr)\n          required: true\n          schema:\n            $ref: \"#/components/schemas/ProviderModel\"\n      responses:\n        200:\n          description: Returns true or false, depending on whether the given provider is connected.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  provider:\n                    $ref: \"#/components/schemas/ProviderModel\"\n                  connected:\n                    type: boolean\n  /configuration/{provider}/{configKey}:\n    get:\n      summary: Returns the configuration of a provider\n      parameters:\n        - name: provider\n          in: path\n          description: Data provider (e.g. flickr)\n          required: true\n          schema:\n            $ref: \"#/components/schemas/ProviderModel\"\n        - name: configKey\n          in: path\n          description: configuration key\n          required: true\n          schema:\n            $ref: \"#/components/schemas/ConfigurationKey\"\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  url:\n                    type: string\n  /logout:\n    post:\n      summary: Log out. This will destroy the session.\n      responses:\n        200:\n          description: Succesfully logged out from all connected providers.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  success:\n                    type: boolean\n        500:\n          description: Internal Server Error. Something went wrong when logging out.\ncomponents:\n  schemas:\n    ProviderModel:\n      type: string\n      enum:\n        - imgur\n        - flickr\n        - google\n    ConfigurationKey:\n      type: string\n      enum:\n        - connect\n",
+			"canonicalURL": "/github.com/RMLio/prov4itdata-web-app@4a13b190d2b821f0314b9b69dc52851c3b6793ca/-/blob/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RMLio/prov4itdata-web-app/blob/4a13b190d2b821f0314b9b69dc52851c3b6793ca/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/rmlmapper\": post: responses: 500: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

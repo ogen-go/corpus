@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "department.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/department.yaml",
+			"byteSize": 3719,
+			"content": "openapi: 3.0.3\nservers:\n  - url: /v1\ninfo:\n  description: |-\n    department search svc OpenAPI 3.0 specification.\n  version: 1.0.0-SNAPSHOT\n  title: User search svc - OpenAPI 3.0\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    email: xxx@xxx.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: department\n    description: Access to departments\n    externalDocs:\n      description: TODO\n      url: 'http://swagger.io'\npaths:\n  /department/search:\n    get:\n      tags:\n        - department\n      summary: Search departments\n      description: ''\n      operationId: searchDepartments\n      parameters:\n        - name: query\n          description: search query\n          in: query\n          required: false\n          schema:\n            type: string\n          example: search\n        - name: page\n          description: page number\n          in: query\n          required: true\n          schema:\n            type: integer\n            format: int32\n            default: 0\n          example: 0\n        - name: pageSize\n          description: page size\n          in: query\n          required: true\n          schema:\n            type: integer\n            format: int32\n            default: 10\n          example: 10\n        - name: sort\n          description: sort\n          in: query\n          required: false\n          schema:\n            type: array\n            items:\n              type: string\n          example: [ 'name:asc' ]\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/DepartmentSearchResponse'\n        '400':\n          description: failed operation\n          content:\n            application/json:\n              schema:\n                type: string\n\n  '/department/{id}':\n    get:\n      tags:\n        - department\n      summary: Get department by department id\n      description: ''\n      operationId: getDepartment\n      parameters:\n        - name: id\n          in: path\n          description: 'The id that needs to be fetched. Department dep1 for testing. '\n          required: true\n          schema:\n            type: string\n\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Department'\n        '401':\n          description: unauthorized\n        '404':\n          description: department not found\n      security:\n        - bearerAuth: [ ]\n\nexternalDocs:\n  description: Find out more about Swagger\n  url: 'http://swagger.io'\ncomponents:\n  schemas:\n    Department:\n      properties:\n        id:\n          type: string\n          example: d1\n\n        name:\n          type: string\n          example: dep 1\n        description:\n          type: string\n          example: department 1\n      type: object\n      required:\n        - id\n        - name\n        - description\n    DepartmentSearchResponse:\n      description: Department search response\n      properties:\n        items:\n          type: array\n          items:\n            $ref: '#/components/schemas/Department'\n        page:\n          type: integer\n          format: int32\n          example: 0\n        pageSize:\n          type: integer\n          format: int32\n          example: 10\n        count:\n          type: integer\n          format: int32\n          example: 12\n      type: object\n      required:\n        - items\n        - page\n        - pageSize\n        - count\n  securitySchemes:\n    bearerAuth: # arbitrary name for the security scheme\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/department.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/department.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

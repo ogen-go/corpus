@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "composed.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/composed.yaml",
+			"byteSize": 1752,
+			"content": "openapi: 3.0.1\nservers:\n- url: http://petstore.swagger.io/api\n\ninfo:\n  description: 'This is a sample server Petstore'\n  version: 1.0.0\n  title: testing source file\n  termsOfService: http://swagger.io/terms/\n\npaths:\n  \"/withInvalidComposedModel\":\n    post:\n      operationId: withInvalidComposedModel\n      x-swagger-router-controller: TestController\n      requestBody:\n        content:\n          \"application/json\":\n            schema:\n              \"$ref\": \"#/components/schemas/ExtendedAddress\"\n        required: false\n      responses:\n        '200':\n          description: success!\n  \"/withInvalidComposedModelArray\":\n    post:\n      operationId: withInvalidComposedModelArray\n      x-swagger-router-controller: TestController\n      requestBody:\n        content:\n          \"application/json\":\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/ExtendedAddress'\n        required: false\n      responses:\n        '200':\n          description: success!\ncomponents:\n  schemas:\n    ExtendedAddress:\n      type: object\n      x-swagger-router-model: io.swagger.oas.test.models.ExtendedAddress\n      allOf:\n        - $ref: '#/components/schemas/Address'\n        - type: object\n          required:\n          - gps\n          properties:\n            gps:\n              type: string\n    Address:\n      required:\n      - street\n      type: object\n      x-swagger-router-model: io.swagger.oas.test.models.Address\n      properties:\n        street:\n          type: string\n          example: 12345 El Monte Road\n        city:\n          type: string\n          example: Los Altos Hills\n        state:\n          type: string\n          example: CA\n        zip:\n          type: string\n          example: '94022'",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/composed.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/composed.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

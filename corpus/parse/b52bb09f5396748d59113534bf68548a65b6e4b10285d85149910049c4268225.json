@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
 			"byteSize": 471,
-			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: '#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: '#/components/parameters/requestid'\n\ncomponents:\n  parameters:\n    requestid:\n      name: X-requestid\n      in: header\n      required: false\n      schema:\n        type: string\n        format: uuid"
+			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: '#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: '#/components/parameters/requestid'\n\ncomponents:\n  parameters:\n    requestid:\n      name: X-requestid\n      in: header\n      required: false\n      schema:\n        type: string\n        format: uuid",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /bar: delete: responses: 204: headers: X-requestid: resolve \"#/components/parameters/requestid\" reference: component by reference not found"

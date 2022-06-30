@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/httpsnippet-client-api/test/__datasets__/application-json/openapi.json",
+			"byteSize": 2111,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0\",\n    \"title\": \"application-json\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/anything\": {\n      \"post\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"number\": {\n                    \"type\": \"number\"\n                  },\n                  \"string\": {\n                    \"type\": \"string\"\n                  },\n                  \"arr\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"type\": \"number\"\n                    }\n                  },\n                  \"nested\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"a\": {\n                        \"type\": \"string\"\n                      }\n                    }\n                  },\n                  \"arr_mix\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"oneOf\": [\n                        {\n                          \"type\": \"number\"\n                        },\n                        {\n                          \"type\": \"number\"\n                        },\n                        {\n                          \"type\": \"string\"\n                        },\n                        {\n                          \"properties\": {\n                            \"arr_mix_nested\": {\n                              \"type\": \"object\",\n                              \"properties\": {}\n                            }\n                          },\n                          \"type\": \"object\"\n                        }\n                      ]\n                    }\n                  },\n                  \"boolean\": {\n                    \"type\": \"boolean\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"default\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/api@838bc54c24323c29aae272ac43486c3ffed7a9c1/-/blob/packages/httpsnippet-client-api/test/__datasets__/application-json/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/api/blob/838bc54c24323c29aae272ac43486c3ffed7a9c1/packages/httpsnippet-client-api/test/__datasets__/application-json/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/anything\": post: requestBody: contents: application/json: generate schema: field arr_mix: item: oneOf: collect variants: AnythingPostReqArrMixItem: sum types with same names not implemented",
+	"NotImplemented": [
+		"sum types with same names"
+	]
+}

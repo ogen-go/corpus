@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/contiamo/openapi-generator-go"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "pkg/generators/models/testdata/cases/validation/api.yaml",
+			"byteSize": 2406,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.0\n  title: Test\n\ncomponents:\n  schemas:\n    Person:\n      type: object\n      required:\n        - name\n        - gender\n        - favoriteColors\n        - cron\n      properties:\n        cron:\n          type: string\n          pattern: (@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\\d+(ns|us|µs|ms|s|m|h))+)|((((\\d+,)+\\d+|(\\d+(\\/|-)\\d+)|\\d+|\\*) ?){5,7})\n          x-pattern-error: \"must be a valid cron value\"\n        pomodoro:\n          type: string\n          pattern: \"^\\\\d{1,2}m$\"\n        name:\n          type: string\n          minLength: 2\n          maxLength: 32\n        age:\n          type: number\n          minimum: 18\n          maximum: 120\n        gender:\n          $ref: \"#/components/schemas/Gender\"\n        secondGender:\n          nullable: true\n          allOf:\n            - $ref: \"#/components/schemas/Gender\"\n        address:\n          $ref: \"#/components/schemas/Address\"\n        favoriteColors:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Color\"\n          minLength: 1\n        email:\n          type: string\n          format: email\n        date:\n          type: string\n          format: \"date\"\n        datetime:\n          type: string\n          format: \"date-time\"\n        base64:\n          type: string\n          format: \"byte\"\n        email:\n          type: string\n          format: \"email\"\n        uuid:\n          type: string\n          format: \"uuid\"\n        url:\n          type: string\n          format: \"url\"\n        uri:\n          type: string\n          format: \"uri\"\n        requestURI:\n          type: string\n          format: \"request-uri\"\n        hostname:\n          type: string\n          format: \"hostname\"\n        ipv4:\n          type: string\n          format: \"ipv4\"\n        ipv6:\n          type: string\n          format: \"ipv6\"\n        ip:\n          type: string\n          format: \"ip\"\n    Gender:\n      type: string\n      enum:\n        - default\n        - female\n        - male\n    Color:\n      type: string\n      enum:\n        - red\n        - blue\n        - green\n        - yellow\n    Address:\n      type: object\n      required:\n        - street\n        - number\n        - name\n      properties:\n        street:\n          type: string\n          minLength: 2\n        number:\n          type: integer\n        name:\n          type: string\n          nullable: true\n          minLength: 2\n",
+			"canonicalURL": "/github.com/contiamo/openapi-generator-go@bf0225ad6fe0798dffca43f08fe80078956acef3/-/blob/pkg/generators/models/testdata/cases/validation/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/contiamo/openapi-generator-go/blob/bf0225ad6fe0798dffca43f08fe80078956acef3/pkg/generators/models/testdata/cases/validation/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

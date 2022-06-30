@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "servicetoken.json",
+			"size": 0,
+			"path": "openapi3_autogen/servicetoken.json",
+			"byteSize": 2937,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"servicetoken\": {\n        \"description\": \"This API issues a new service token using the namespace certificate that can be\\nused by third-party applications.\",\n        \"properties\": {\n          \"audience\": {\n            \"description\": \"If given, the issued token will only be valid for the audience provided. If\\nempty, the audience will be resolved from the policies. If no audience can be\\nresolved, the request will be rejected with an error.\",\n            \"type\": \"string\"\n          },\n          \"objectID\": {\n            \"description\": \"ID of the object you want to issue a token for.\",\n            \"example\": \"5c83035648675400019ab901\",\n            \"type\": \"string\"\n          },\n          \"sessionID\": {\n            \"description\": \"Provides the session ID of the enforcer when retrieving a datapath certificate.\",\n            \"example\": \"5c83035648675400019ab901\",\n            \"type\": \"string\"\n          },\n          \"token\": {\n            \"description\": \"Token is the signed JWT service token.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"type\": {\n            \"default\": \"Service\",\n            \"description\": \"Type of token request.\",\n            \"enum\": [\n              \"ProcessingUnit\",\n              \"Service\"\n            ]\n          },\n          \"validity\": {\n            \"default\": \"15m\",\n            \"description\": \"Validity configures the max validity time for a token. If it is bigger than the\\nconfigured max validity, it will be capped.\",\n            \"type\": \"string\"\n          }\n        },\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"servicetoken\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/servicetoken\": {\n      \"post\": {\n        \"description\": \"Creates an OAUTH compatible service token.\",\n        \"operationId\": \"create-a-new-servicetoken\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/servicetoken\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/servicetoken\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"policy/token\",\n          \"cactuar\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'policy/token'\",\n      \"name\": \"policy/token\"\n    },\n    {\n      \"description\": \"This tag is for package 'cactuar'\",\n      \"name\": \"cactuar\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@135fa774a34971a04dc7232e029f99de005f0e87/-/blob/openapi3_autogen/servicetoken.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/135fa774a34971a04dc7232e029f99de005f0e87/openapi3_autogen/servicetoken.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/thresholds"
+		},
+		"file": {
+			"name": "nytimes.com-times_tags-1.0.0-swagger.yaml",
+			"size": 0,
+			"path": "benchmark-repository/openapi/nytimes.com-times_tags-1.0.0-swagger.yaml",
+			"byteSize": 2306,
+			"content": "openapi: 3.0.0\ninfo:\n  description: With the TimesTags API, you can mine the riches of the New York Times tag\n    set. The TimesTags service matches your query to the controlled vocabularies\n    that fuel NYTimes.com metadata. You supply a string of characters, and the\n    service returns a ranked list of suggested terms.\n  termsOfService: http://developer.nytimes.com/tou\n  title: TimesTags\n  version: 1.0.0\n  x-apiClientRegistration:\n    url: http://developer.nytimes.com/signup\n  x-apisguru-categories:\n    - media\n    - open_data\n  x-logo:\n    url: https://static01.nyt.com/images/icons/t_logo_291_black.png\n  x-origin:\n    - format: swagger\n      url: https://raw.githubusercontent.com/NYTimes/public_api_specs/master/times_tags/times_tags_v3.json\n      version: \"2.0\"\n  x-providerName: nytimes.com\n  x-serviceName: times_tags\nexternalDocs:\n  url: http://developer.nytimes.com/\nsecurity:\n  - apikey: []\npaths:\n  /timestags:\n    get:\n      parameters:\n        - description: Your search query\n          in: query\n          name: query\n          required: true\n          schema:\n            type: string\n        - description: \u003e\n            If you do not specify a value for filter (see the Optional\n            Parameters), your query will be matched to tags in all four Times\n            dictionaries: subject, geographic location, organization and person.\n            To use more than one, separate with commas.\n          in: query\n          name: filter\n          required: false\n          schema:\n            type: string\n            enum:\n              - Des\n              - Geo\n              - Org\n              - Per\n        - description: Sets the maximum number of results\n          in: query\n          name: max\n          required: false\n          schema:\n            type: integer\n            default: 10\n      responses:\n        \"200\":\n          description: An array of tags\n          content:\n            application/json:\n              schema:\n                items:\n                  items:\n                    type: string\n                  type: array\n                type: array\nservers:\n  - url: http://api.nytimes.com/svc/suggest/v1\n  - url: https://api.nytimes.com/svc/suggest/v1\ncomponents:\n  securitySchemes:\n    apikey:\n      in: query\n      name: api-key\n      type: apiKey\n",
+			"canonicalURL": "/github.com/restful-ma/thresholds@5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/-/blob/benchmark-repository/openapi/nytimes.com-times_tags-1.0.0-swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/thresholds/blob/5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/benchmark-repository/openapi/nytimes.com-times_tags-1.0.0-swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

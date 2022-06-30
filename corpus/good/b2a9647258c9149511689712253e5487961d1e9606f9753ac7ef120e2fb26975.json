@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ahx/openapi_first"
+		},
+		"file": {
+			"name": "content-types.yaml",
+			"size": 0,
+			"path": "spec/data/content-types.yaml",
+			"byteSize": 1801,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets/{petId}:\n    parameters:\n      - name: petId\n        in: path\n        required: true\n        description: The id of the pet to retrieve\n        schema:\n          type: string\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                title: 'Without parameter'\n                type: object\n            application/json; profile=custom:\n              schema:\n                title: 'With profile'\n                type: object\n            text/*:\n              schema:\n                title: 'Text wildcard'\n                type: string\n            '*/*':\n              schema:\n                title: 'Accept everything'\n                type: object\n    patch:\n      summary: Update for a specific pet\n      operationId: updatePetById\n      tags:\n        - pets\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: 'Without parameter'\n                type: object\n      requestBody:\n        content:\n          application/json:\n            schema:\n              title: 'Without parameter'\n              type: object\n          application/json; profile=custom:\n            schema:\n              title: 'With profile'\n              type: object\n          text/*:\n            schema:\n              title: 'Text wildcard'\n              type: string\n          '*/*':\n            schema:\n              title: 'Accept everything'\n              type: object\n",
+			"canonicalURL": "/github.com/ahx/openapi_first@30622e6b29d26edc2e21f9f869f3e8ee23660ec1/-/blob/spec/data/content-types.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ahx/openapi_first/blob/30622e6b29d26edc2e21f9f869f3e8ee23660ec1/spec/data/content-types.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

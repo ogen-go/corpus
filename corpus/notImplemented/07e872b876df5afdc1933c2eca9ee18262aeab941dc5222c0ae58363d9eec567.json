@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Tufin/oasdiff"
+		},
+		"file": {
+			"name": "openapi-test5.yaml",
+			"size": 0,
+			"path": "data/openapi-test5.yaml",
+			"byteSize": 4429,
+			"content": "info:\n  title: Tufin1\n  version: 1.0.1\n  contact:\n    email: support@tufin.com\n    url: www.tufin.com\n  license:\n    name: apache\nopenapi: 3.0.3\npaths:\n  /api/{domain}/{project}/badges/security-score:\n    get:\n      parameters:\n      - in: query\n        name: filter\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                type:\n                  type: string\n                color:\n                  type: string\n              required:\n              - type\n      - in: header\n        name: user\n        schema:\n          type: string\n      - in: cookie\n        name: test\n        content:\n          application/json:\n            schema:\n              type: string\n      - in: query\n        name: image\n        schema:\n          description: alphanumeric \n          example: tufinim/generic-bank:cia-latest\n          format: general string\n          pattern: ^(?:[\\w-./:]+)$\n          type: string\n      - in: query\n        name: token\n        schema:\n          description: RFC 4122 UUID\n          example: 26734565-dbcc-449a-a370-0beaaf04b0e8\n          format: uuid\n          pattern: ^(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12})$\n          type: string\n      - in: header\n        name: X-Auth-Name\n        required: true\n        schema:\n          description: empty string\n          format: empty string\n          pattern: ^(?:)$\n          type: string\n      - in: path\n        name: domain\n        required: true\n        schema:\n          description: Hyphen-separated list of lowercase string\n          example: generic-bank\n          format: hyphen-separated list\n          pattern: ^(?:([a-z]+-)*([a-z]+)?)$\n          type: string\n      - in: path\n        name: project\n        required: true\n        schema:\n          description: Lowercase string\n          example: retail\n          format: lowercase string\n          pattern: ^(?:[a-z]+)$\n          type: string\n      responses:\n        default:\n          description: Tufin\n        '201':\n          description: none\n          content:\n            application/xml:\n              schema:\n                type: object\n      servers: []\n  /api/{domain}/{project}/install-command:\n    get:\n      parameters:\n      - in: header\n        name: X-Auth-Name\n        required: true\n        schema:\n          description: any string\n          example: Joe\n          format: any string\n          pattern: ^(?:.*)$\n          type: string\n      - in: path\n        name: domain\n        required: true\n        schema:\n          enum:\n          - generic-bank\n          - tufin\n          type: string\n      - in: path\n        name: project\n        required: true\n        schema:\n          enum:\n          - retail\n          - my-project\n          - test\n          - eks\n          type: string\n      responses:\n        default:\n          description: Tufin\n      servers:\n        - url: 'https://www.tufin.io/securecloud'\n          description: \"2\"\n          variables:\n            name: \n              default: \"joe\"\n              enum: [\"joe\", \"bill\"]\n            title:\n              default: \"developer\"\n          x-test:\ncomponents:\n  schemas:\n    requests:\n      additionalProperties: false\n      properties:\n        email:\n          description: Email address\n          example: road.runner@acme.com\n          format: email\n          pattern: ^(?:[a-zA-Z0-9.!#$%\u0026'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)$\n          type: string\n      type: object\n    network-policies:\n      additionalProperties: false\n      properties:\n        netpols:\n          type: string\n      type: object\n    rules:\n      additionalProperties: false\n      properties:\n        netpols:\n          type: string\n      type: object      \n  responses:\n    default:\n      description: Tufin\n  headers:\n    test:\n      schema: \n        $ref: '#/components/schemas/network-policies'\n    testc:\n      content: \n        application/json:\n          schema:\n            type: string\n  securitySchemes:\n    bearerAuth:      \n      type: http\n      scheme: bearer\n      bearerFormat: JWT \n    AccessToken:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://example.com/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets\": read your pets\n\n",
+			"canonicalURL": "/github.com/Tufin/oasdiff@873ae63bce3d9b288efee7abebb8fdc476e4a0aa/-/blob/data/openapi-test5.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Tufin/oasdiff/blob/873ae63bce3d9b288efee7abebb8fdc476e4a0aa/data/openapi-test5.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: cookie params not implemented",
+	"NotImplemented": [
+		"cookie params",
+		"unsupported content types"
+	]
+}

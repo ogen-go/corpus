@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "deviceCommand.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/deviceCommand/deviceCommand.yaml",
+			"byteSize": 2519,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Device Management - Command\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths: {}\n\ncomponents:\n  schemas:\n    commandInput:\n      description: An object containing the Command to be executed on a Device\n      type: object\n      properties:\n        command:\n          type: string\n        password:\n          type: string\n          format: password\n        arguments:\n          properties:\n            argument:\n              oneOf:\n                - description: An array of strings containing multiple arguments for the command\n                  type: array\n                  items:\n                    type: string\n                - description: A string containing the argument for the command\n                  type: string\n        timeout:\n          type: integer\n        workingDir:\n          type: string\n        body:\n          type: string\n          format: base64\n        environment:\n          type: array\n          items:\n            type: string\n        runAsynch:\n          type: boolean\n        stdin:\n          type: string\n      example:\n        command: ls\n        arguments:\n          argument: -lisa\n        timeout: 60000\n    commandOutput:\n      description: The output of a Command executed on a Device\n      type: object\n      properties:\n        stderr:\n          type: string\n        stdout:\n          type: string\n        exceptionMessage:\n          type: string\n        exceptionStack:\n          type: string\n        exitCode:\n          type: integer\n        hasTimedout:\n          type: boolean\n      example:\n        type: deviceCommandOutput\n        stderr: \"\"\n        stdout: \"total 40\\n12503707 4 drwxrwxrwt 1 root root 4096 Sep 13 07:44 .\\n12507178 4 drwxr-xr-x 1 root root 4096 Sep 12 08:03 ..\\n61409843 4 drwxrwxrwt 2 root root 4096 Feb 28  2018 .ICE-unix\\n61409845 4 drwxrwxrwt 2 root root 4096 Feb 28  2018 .Test-unix\\n61409838 4 drwxrwxrwt 2 root root 4096 Feb 28  2018 .X11-unix\\n61409844 4 drwxrwxrwt 2 root root 4096 Feb 28  2018 .XIM-unix\\n61409846 4 drwxrwxrwt 2 root root 4096 Feb 28  2018 .font-unix\\n12503708 4 drwxr-xr-x 3 root root 4096 Sep 12 08:03 .kura\\n12507353 4 drwxr-xr-x 2 root root 4096 Sep 12 08:03 hsperfdata_root\\n12507385 4 drwxr-xr-x 3 root root 4096 Sep 12 08:03 kura\\n\"\n        exitCode: 0\n        hasTimedout: false\n",
+			"canonicalURL": "/github.com/eclipse/kapua@ae2c7d65edca9201f36a4514d19f65d4ef97bb40/-/blob/rest-api/resources/src/main/resources/openapi/deviceCommand/deviceCommand.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse/kapua/blob/ae2c7d65edca9201f36a4514d19f65d4ef97bb40/rest-api/resources/src/main/resources/openapi/deviceCommand/deviceCommand.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

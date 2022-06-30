@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "ignore.paths.yaml",
+			"size": 0,
+			"path": "test/resources/ignore.paths.yaml",
+			"byteSize": 1571,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API\n  termsOfService: http://swagger.io/terms/\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: /v1\n\npaths:\n  /hippies:\n    get:\n      description: hippies\n      operationId: hippies\n      parameters:\n        - name: name\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: user response\n\n  /pets/{id}:\n    get:\n      description: Returns a user based on a single ID, if the user does not have access to the pet\n      operationId: find pet by id\n      parameters:\n        - name: id\n          in: path\n          description: ID of pet to fetch\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        \"200\":\n          description: pet response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n\n  /route_defined_in_openapi_only:\n    get:\n      description: defined here only\n      parameters:\n        - name: id\n          in: query\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        \"200\":\n          description: test\n\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@6448f4548db32bf5d2ae18e25dd36996ae9500ef/-/blob/test/resources/ignore.paths.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/6448f4548db32bf5d2ae18e25dd36996ae9500ef/test/resources/ignore.paths.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

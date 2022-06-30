@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/openapi-parser"
+		},
+		"file": {
+			"name": "issue131.yaml",
+			"size": 0,
+			"path": "src/test/resources/models/issue131.yaml",
+			"byteSize": 1046,
+			"content": "openapi: 3.0.0\r\nservers:\r\n  - url: 'https://localhost:8081/devonfw-server/services/rest'\r\ninfo:\r\n  title: Devon Example\r\n  description: Example of a API definition\r\n  version: 1.0.0\r\npaths:\r\n  /sampledatamanagement/v1/sampledata/custom/{id}:\r\n    get:\r\n      operationId: customMethod\r\n      parameters:\r\n        - name: id\r\n          in: path\r\n          required: true\r\n          schema:\r\n            type: integer\r\n            format: int64\r\n            minimum: 0\r\n            maximum: 100\r\n      responses:\r\n        '200':\r\n          description: Custom Method\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: '#/components/schemas/SampleData'\r\ncomponents:\r\n  schemas:\r\n    SampleData:\r\n      x-component: sampledatamanagement\r\n      type: object\r\n      properties:\r\n        mainData:\r\n          $ref: '#/components/schemas/MoreData'\r\n    MoreData:\r\n      x-component: moredatamanagement\r\n      type: object\r\n      properties:\r\n        master:\r\n          $ref: '#/components/schemas/SampleData'",
+			"canonicalURL": "/github.com/networknt/openapi-parser@4a3b0829c40ed70e96071bd6cf0e8133e5fe3a22/-/blob/src/test/resources/models/issue131.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/openapi-parser/blob/4a3b0829c40ed70e96071bd6cf0e8133e5fe3a22/src/test/resources/models/issue131.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

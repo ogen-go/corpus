@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/biothings/biothings_explorer"
+		},
+		"file": {
+			"name": "ontology_lookup_service.json",
+			"size": 0,
+			"path": "biothings_explorer/smartapi/new_specs/ontology_lookup_service.json",
+			"byteSize": 2856,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n      \"version\": \"1.0\",\n      \"title\": \"Ontology Lookup Service API\",\n      \"description\": \"The OLS REST API provides access to key biological data from OLS. The services provide a unified interface to query information about ontology terms from GO (the Gene Ontology) and ECO (the Evidence \u0026 Conclusion Ontology), Gene Ontology annotations from the EBI's GOA database, and gene products (proteins from UniProt, RNA from RNAcentral and complexes from ComplexPortal). \",\n      \"termsOfService\": \"https://www.ebi.ac.uk/OLS/services\",\n      \"contact\": {\n        \"name\": \"pharmgkb help desk\",\n        \"x-role\": \"responsible developer\",\n        \"email\": \"help@pharmgkb.org\"\n      }\n    },\n    \"servers\": [\n      {\n        \"url\": \"https://www.ebi.ac.uk/ols/api\",\n        \"description\": \"Production server\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"ontology\"\n      },\n      {\n        \"name\": \"translator\"\n      }\n    ],\n    \"paths\": {\n      \"/ontologies/doid/children\": {\n        \"get\": {\n          \"summary\": \"retrieve the children of specified ontology terms\",\n          \"parameters\": [\n            {\n              \"name\": \"id\",\n              \"in\": \"query\",\n              \"description\": \"Put Disease Ontology ID here, e.g. DOID:0050686\",\n              \"required\": true,\n              \"example\": \"DOID:0050686\",\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          ],\n          \"responses\": {\n            \"200\": {\n              \"description\": \"A DISEASE ontolgoy annotation object\",\n              \"x-bte-response-mapping\": {\n                \"$ref\": \"#/components/x-bte-response-mapping/hasChildren\"\n              }\n            }\n          },\n          \"x-bte-kgs-operations\": [{\n              \"$ref\": \"#/components/x-bte-kgs-operations/disease_has_subclass_disease\"\n            }]\n          \n        }\n      }\n    },\n    \"components\": {\n      \"x-bte-kgs-operations\": {\n        \"disease_has_subclass_disease\": [{\n          \"inputs\": [\n            {\n              \"id\": \"DOID\",\n              \"semantic\": \"Disease\"\n            }\n          ],\n          \"predicate\": \"has_subclass\",\n          \"source\":  \"disease ontology\",\n          \"outputs\": [\n            {\n              \"id\": \"DOID\",\n              \"semantic\": \"Disease\"\n            }\n          ],\n          \"parameters\": {\n            \"id\": \"{inputs[0]}\"\n          },\n          \"supportBatch\": false,\n          \"response_mapping\": {\n            \"$ref\": \"#/components/x-bte-response-mapping/disease_has_subclass_disease\"\n          }\n        }]\n      },\n      \"x-bte-response-mapping\": {\n        \"disease_has_subclass_disease\": {\n            \"DOID\": \"_embedded.terms.obo_id\",\n            \"name\": \"_embedded.terms.label\",\n            \"description\": \"_embedded.terms.description\"\n          \n        }\n      }\n    }\n  }",
+			"canonicalURL": "/github.com/biothings/biothings_explorer@133ba83b72831cf0caf228010332d29487a22c3d/-/blob/biothings_explorer/smartapi/new_specs/ontology_lookup_service.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/biothings/biothings_explorer/blob/133ba83b72831cf0caf228010332d29487a22c3d/biothings_explorer/smartapi/new_specs/ontology_lookup_service.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

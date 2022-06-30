@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SearchReadGroupSetsRequest.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadGroupSetsRequest.yaml",
+			"byteSize": 1578,
+			"content": "components:\n  schemas:\n    SearchReadGroupSetsRequest:\n      description: |-\n        This request maps to the body of `POST /readgroupsets/search` as JSON.\n\n        TODO: Factor this out to a common API patterns section.\n        - If searching by a resource ID, and that resource is not found, the method\n          will return a `404` HTTP status code (`NOT_FOUND`).\n        - If searching by other attributes, e.g. `name`, and no matches are found, the\n          method will return a `200` HTTP status code (`OK`) with an empty result list.\n      properties:\n        biosample_id:\n          description: |-\n            Specifying the id of a Biosample record will return only readgroups\n             with the given biosampleId.\n          type: string\n        dataset_id:\n          description: The dataset to search.\n          type: string\n        name:\n          description: Only return read group sets with this name (case-sensitive, exact match).\n          type: string\n        page_size:\n          description: |-\n            Specifies the maximum number of results to return in a single page.\n            If unspecified, a system default will be used.\n          format: int32\n          type: integer\n        page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            To get the next page of results, set this parameter to the value of\n            `next_page_token` from the previous response.\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@5252d84f331840650fffbca6cb8cece10a65cea6/-/blob/Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadGroupSetsRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/5252d84f331840650fffbca6cb8cece10a65cea6/Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadGroupSetsRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

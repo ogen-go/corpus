@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/positive1.json",
 			"byteSize": 1014,
-			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/MyObject\"\n          }\n        },\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/MyWrongObjectBody\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"requestBodies\": {\n      \"MyObjectBody\": {\n        \"description\": \"A JSON object containing my object information\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyObject\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/MyObject\"\n          }\n        },\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/MyWrongObjectBody\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"requestBodies\": {\n      \"MyObjectBody\": {\n        \"description\": \"A JSON object containing my object information\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyObject\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/positive1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/positive1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"listVersionsv2\": requestBody: resolve \"#/components/requestBodies/MyWrongObjectBody\" reference: component by reference not found"

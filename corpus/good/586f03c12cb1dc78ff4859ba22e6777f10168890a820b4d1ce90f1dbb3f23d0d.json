@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/templates"
+		},
+		"file": {
+			"name": "customer.json",
+			"size": 0,
+			"path": "galaxy/api-first/customer.json",
+			"byteSize": 3142,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0\",\n    \"title\": \"Customers\",\n    \"description\": \"This is a spec file for Postman Galaxy 2021 API First training! Open the raw file and save it locally. In Postman, navigate to **APIs** and create a new API, giving it the name \\\"Customers\\\", version \\\"1.0\\\" and import your downloaded file.\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://669950d5-2da7-4207-a56c-bfe0825afafb.mock.pstmn.io\"\n    }\n  ],\n  \"paths\": {\n    \"/customer\": {\n      \"get\": {\n        \"summary\": \"Retrieve details for a particular customer\",\n        \"operationId\": \"getCustomer\",\n        \"tags\": [\n          \"customer\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"Customer ID\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Details of the requested customer\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Customer\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"summary\": \"Add a new customer\",\n        \"operationId\": \"addCustomer\",\n        \"tags\": [\n          \"customer\"\n        ],\n        \"requestBody\": {\n          \"description\": \"Details of the new customer\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Customer\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Confirmation of the added customer\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Confirm\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Customer\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"company\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"{{$randomFullName}}\"\n          },\n          \"tag\": {\n            \"type\": \"string\",\n            \"example\": \"{{$randomBsNoun}}\"\n          },\n          \"role\": {\n            \"type\": \"string\",\n            \"example\": \"{{$randomJobTitle}}\"\n          },\n          \"company\": {\n            \"type\": \"string\",\n            \"example\": \"{{$randomCompanyName}}\"\n          },\n          \"vertical\": {\n            \"type\": \"string\",\n            \"example\": \"{{$randomProductName}}\"\n          }\n        }\n      },\n      \"Confirm\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"message\"\n        ],\n        \"properties\": {\n          \"message\": {\n            \"type\": \"string\",\n            \"example\": \"New customer added!\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/postmanlabs/templates@20d2a8e3f7b8a3d4ab499a0c056bdc4a891c5645/-/blob/galaxy/api-first/customer.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/templates/blob/20d2a8e3f7b8a3d4ab499a0c056bdc4a891c5645/galaxy/api-first/customer.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

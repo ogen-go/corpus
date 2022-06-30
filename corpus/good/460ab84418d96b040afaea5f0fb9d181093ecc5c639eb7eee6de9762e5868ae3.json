@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-connectors"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/exchangerates/openapi.yaml",
+			"byteSize": 3234,
+			"content": "openapi: 3.0.2\nservers:\n  - description: Returns latest exchange rates and some metadata.\n    url: https://v6.exchangerate-api.com/v6/\ninfo:\n  x-ballerina-display:\n    label: Exchange Rates\n    iconPath: \"icon.png\"\n  description: \u003e\n    This is a generated connector from [ExchangeRates-API](https://exchangeratesapi.io/documentation/) OpenAPI Specification.\n\n    This is the public REST API for ExchangeRate-API. Fetch the latest currency exchange rates via API.\n  x-ballerina-init-description: \u003e\n    The connector initialization requires setting the API credentials.\n\n    Please create an [ExchangeRate-API account](https://app.exchangerate-api.com/sign-up) and obtain api-key.\n  termsOfService: https://www.exchangerate-api.com/terms\n  title: ExchangeRate-API\n  version: \"6\"\n  x-apisguru-categories:\n    - financial\n  x-logo:\n    backgroundColor: \"#FFFFFF\"\n    url: https://www.exchangerate-api.com/img/logo-cube-135px.png\n  x-origin:\n    - converter:\n        url: https://github.com/mermade/oas-kit\n        version: 7.0.4\n      format: openapi\n      url: https://www.exchangerate-api.com/openapi.yaml\n      version: \"3.0\"\n  x-providerName: exchangerate-api.com\nexternalDocs:\n  description: API Documentation\n  url: https://www.exchangerate-api.com/docs/documentation\npaths:\n  \"/{apikey}/latest/{base_currency}\":\n    get:\n      operationId: getExchangeRateFor\n      parameters:\n        - description: \"**API Key**. Please create an [ExchangeRate-API account](https://app.exchangerate-api.com/sign-up) and obtain api-key.\"\n          in: path\n          name: apikey\n          required: true\n          schema:\n            type: string\n        - description: \"**Base Currency**. *Example: USD*. You an use any of the ISO 4217 currency codes we support. See https://www.exchangerate-api.com/docs/supported-currencies\"\n          in: path\n          name: base_currency\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/CurrencyExchangeInfomation\"\n                type: object\n          description: Successful response\n        \"404\":\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/CurrencyExchangeError\"\n                type: object\n          description: Currency code not supported\n      summary: Returns latest exchange rates in parameter-supplied base currency.\ncomponents:\n  schemas:\n    CurrencyExchangeInfomation:\n      properties:\n        result:\n          type: string\n        documentation:\n          type: string\n        terms_of_use:\n          type: string\n        time_last_update_unix:\n          type: integer\n        time_last_update_utc:\n          type: string\n        time_next_update_unix:\n          type: integer\n        time_next_update_utc:\n          type: string\n        base_code:\n          type: string\n        conversion_rates:\n          type: object\n    CurrencyExchangeError:\n      properties:\n        result:\n          type: string\n        documentation:\n          type: string\n        terms-of-use:\n          type: string\n        error-type:\n          type: string      \n      ",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-connectors@c3641dddbc4e41686ae3d1b9bacf1621b639a019/-/blob/openapi/exchangerates/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-connectors/blob/c3641dddbc4e41686ae3d1b9bacf1621b639a019/openapi/exchangerates/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

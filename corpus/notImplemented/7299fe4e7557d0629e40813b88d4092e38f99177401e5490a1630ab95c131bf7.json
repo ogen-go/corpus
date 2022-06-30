@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/maranemil/howto"
+		},
+		"file": {
+			"name": "swagger3.json",
+			"size": 0,
+			"path": "fullstack/api/swagger/swagger3.json",
+			"byteSize": 2904,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"TheCodeBuzz-Service\",\n    \"version\": \"v1\"\n  },\n  \"paths\": {\n    \"/api/Pay\": {\n      \"post\": {\n        \"description\": \"Get pay\",\n        \"tags\": [\n          \"Pay\"\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {}\n          },\n          \"description\": \"description application\",\n          \"required\": false\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"headers\": {\n              \"Access-Control-Allow-Origin\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"default\": \"*\"\n                }\n              }\n            },\n            \"content\": {\n              \"text/plain\": {\n                \"example\": \"curl -X GET '/api/Pay' -H 'accept: text/plain' -H 'Content-Type: application/json'\",\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Employee\"\n                }\n              },\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Employee\"\n                }\n              },\n              \"text/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Employee\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"$ref\": \"#/components/responses/400\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"400\": {\n        \"description\": \"Bad request\",\n        \"content\": {\n          \"application/json\": {}\n        }\n      }\n    },\n    \"schemas\": {\n      \"Employee\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"nullable\": true,\n            \"readOnly\": true\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"nullable\": true,\n            \"readOnly\": true\n          }\n        },\n        \"additionalProperties\": false\n      },\n      \"Pay\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        },\n        \"xml\": {\n          \"name\": \"Tag\"\n        }\n      }\n    },\n    \"securitySchemes\": {\n      \"basicAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"description\": \"JWT Authorization header using the Bearer scheme.\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"JWT\"\n      },\n      \"apiKeyAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"X-API-Key\",\n        \"description\": \"Authorization header using the X-API-Key scheme.\"\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"bearerAuth\": []\n    },\n    {\n      \"apiKeyAuth\": []\n    },\n    {\n      \"basicAuth\": []\n    }\n  ]\n}",
+			"canonicalURL": "/github.com/maranemil/howto@8fe18ae6c07ac1cdee42ebb5022593e3027fdeb4/-/blob/fullstack/api/swagger/swagger3.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/maranemil/howto/blob/8fe18ae6c07ac1cdee42ebb5022593e3027fdeb4/fullstack/api/swagger/swagger3.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/Pay\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

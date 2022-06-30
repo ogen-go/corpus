@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/tracetest"
+		},
+		"file": {
+			"name": "http.yaml",
+			"size": 0,
+			"path": "api/http.yaml",
+			"byteSize": 1680,
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    HTTPHeader:\n      type: object\n      properties:\n        key:\n          type: string\n        value:\n          type: string\n\n    HTTPRequest:\n      type: object\n      properties:\n        url:\n          type: string\n        method:\n          type: string\n          enum: [GET, PUT, POST, PATCH, DELETE, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE, LOCK, UNLOCK, PROPFIND, VIEW]\n        headers:\n          type: array\n          items:\n            $ref: \"#/components/schemas/HTTPHeader\"\n        body:\n          type: string\n        auth:\n          $ref: \"#/components/schemas/HTTPAuth\"\n        # proxy:\n        #   type: object\n        #   description: TODO\n        # certificate:\n        #   type: object\n        #   description: TODO\n\n    HTTPResponse:\n      type: object\n      properties:\n        status:\n          type: string\n        statusCode:\n          type: integer\n        headers:\n          type: array\n          items:\n            $ref: \"#/components/schemas/HTTPHeader\"\n        body:\n          type: string\n\n    HTTPAuth:\n      type: object\n      properties:\n        type:\n          type: string\n          enum: [apiKey, basic, bearer]\n        apiKey:\n          type: object\n          properties:\n            key:\n              type: string\n            value:\n              type: string\n            in:\n              type: string\n              enum: [query, header]\n        basic:\n          type: object\n          properties:\n            username:\n              type: string\n            password:\n              type: string\n        bearer:\n          type: object\n          properties:\n            token:\n              type: string\n",
+			"canonicalURL": "/github.com/kubeshop/tracetest@7e51b9fcf809d130b660abea9d434969055e78cb/-/blob/api/http.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/tracetest/blob/7e51b9fcf809d130b660abea9d434969055e78cb/api/http.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

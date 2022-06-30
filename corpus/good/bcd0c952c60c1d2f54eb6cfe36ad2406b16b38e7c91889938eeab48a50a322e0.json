@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nocalhost/nocalhost"
+		},
+		"file": {
+			"name": "jwt.gen.json",
+			"size": 0,
+			"path": "vendor/istio.io/api/security/v1beta1/jwt.gen.json",
+			"byteSize": 3607,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Configuration to validate JWT.\",\n    \"version\": \"v1beta1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"istio.security.v1beta1.JWTHeader\": {\n        \"description\": \"This message specifies a header location to extract JWT token.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"description\": \"The HTTP header name.\",\n            \"type\": \"string\"\n          },\n          \"prefix\": {\n            \"description\": \"The prefix that should be stripped before decoding the token. For example, for \\\"Authorization: Bearer \\u003ctoken\\u003e\\\", prefix=\\\"Bearer \\\" with a space at the end. If the header doesn't have this exact prefix, it is considerred invalid.\",\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"istio.security.v1beta1.JWTRule\": {\n        \"description\": \"JSON Web Token (JWT) token format for authentication as defined by [RFC 7519](https://tools.ietf.org/html/rfc7519). See [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and [OIDC 1.0](http://openid.net/connect) for how this is used in the whole authentication flow.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"issuer\": {\n            \"description\": \"Identifies the issuer that issued the JWT. See [issuer](https://tools.ietf.org/html/rfc7519#section-4.1.1) A JWT with different `iss` claim will be rejected.\",\n            \"type\": \"string\"\n          },\n          \"audiences\": {\n            \"description\": \"The list of JWT [audiences](https://tools.ietf.org/html/rfc7519#section-4.1.3). that are allowed to access. A JWT containing any of these audiences will be accepted.\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"jwksUri\": {\n            \"description\": \"URL of the provider's public key set to validate signature of the JWT. See [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata).\",\n            \"type\": \"string\"\n          },\n          \"jwks\": {\n            \"description\": \"JSON Web Key Set of public keys to validate signature of the JWT. See https://auth0.com/docs/jwks.\",\n            \"type\": \"string\"\n          },\n          \"fromHeaders\": {\n            \"description\": \"List of header locations from which JWT is expected. For example, below is the location spec if JWT is expected to be found in `x-jwt-assertion` header, and have \\\"Bearer \\\" prefix: ``` fromHeaders: - name: x-jwt-assertion prefix: \\\"Bearer \\\" ```\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/istio.security.v1beta1.JWTHeader\"\n            }\n          },\n          \"fromParams\": {\n            \"description\": \"List of query parameters from which JWT is expected. For example, if JWT is provided via query parameter `my_token` (e.g /path?my_token=\\u003cJWT\\u003e), the config is: ``` fromParams: - \\\"my_token\\\" ```\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"outputPayloadToHeader\": {\n            \"description\": \"This field specifies the header name to output a successfully verified JWT payload to the backend. The forwarded data is `base64_encoded(jwt_payload_in_JSON)`. If it is not specified, the payload will not be emitted.\",\n            \"type\": \"string\"\n          },\n          \"forwardOriginalToken\": {\n            \"description\": \"If set to true, the orginal token will be kept for the ustream request. Default is false.\",\n            \"type\": \"boolean\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/nocalhost/nocalhost@40c75b5f2428cba8ec4b85a67ee9e1015260b51b/-/blob/vendor/istio.io/api/security/v1beta1/jwt.gen.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nocalhost/nocalhost/blob/40c75b5f2428cba8ec4b85a67ee9e1015260b51b/vendor/istio.io/api/security/v1beta1/jwt.gen.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

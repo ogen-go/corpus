@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/echovue/pet-api-lambda-python"
+		},
+		"file": {
+			"name": "API.json",
+			"size": 0,
+			"path": "API.json",
+			"byteSize": 3468,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Pets API\",\n    \"description\": \"This API supports the creation and retrieval of a Pet Object.\",\n    \"contact\": {\n      \"email\": \"mike@echovue.com\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://virtserver.swaggerhub.com/echovue/Pets/1.0.0\",\n      \"description\": \"SwaggerHub API Auto Mocking\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"admins\",\n      \"description\": \"Secured Admin-only calls\"\n    },\n    {\n      \"name\": \"developers\",\n      \"description\": \"Operations available to regular developers\"\n    }\n  ],\n  \"paths\": {\n    \"/pet\": {\n      \"get\": {\n        \"tags\": [\n          \"developers\"\n        ],\n        \"summary\": \"Find pet by ID\",\n        \"description\": \"Returns the matching pet object\",\n        \"operationId\": \"findPet\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the pet to return\",\n            \"required\": true,\n            \"style\": \"form\",\n            \"explode\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Pet object matching criteria\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid ID supplied\"\n          },\n          \"404\": {\n            \"description\": \"Pet not found\"\n          }\n        }\n      },\n      \"post\": {\n        \"tags\": [\n          \"developers\"\n        ],\n        \"summary\": \"Adds a pet with form data\",\n        \"description\": \"Adds an pet object to the system\",\n        \"operationId\": \"addPet\",\n        \"requestBody\": {\n          \"description\": \"Pet to add\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Pet object created\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"invalid input, object invalid\"\n          },\n          \"409\": {\n            \"description\": \"an existing pet already exists\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"required\": [\n          \"birthday\",\n          \"breed\",\n          \"gender\",\n          \"name\",\n          \"owner\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"Hansie\"\n          },\n          \"breed\": {\n            \"type\": \"string\",\n            \"example\": \"Dachshund\"\n          },\n          \"gender\": {\n            \"type\": \"string\",\n            \"example\": \"Male\"\n          },\n          \"owner\": {\n            \"type\": \"string\",\n            \"example\": \"Mike\"\n          },\n          \"birthday\": {\n            \"type\": \"string\",\n            \"format\": \"date\",\n            \"example\": \"2012-05-15\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/echovue/pet-api-lambda-python@f76769fb1dfb59f45ae3d5e5dbe14d49c144ed4a/-/blob/API.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/echovue/pet-api-lambda-python/blob/f76769fb1dfb59f45ae3d5e5dbe14d49c144ed4a/API.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

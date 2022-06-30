@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Joystream/joystream"
+		},
+		"file": {
+			"name": "operator.yml",
+			"size": 0,
+			"path": "distributor-node/src/api-spec/operator.yml",
+			"byteSize": 3145,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Distributor node operator API\n  description: Distributor node operator API\n  contact:\n    email: info@joystream.org\n  license:\n    name: GPL-3.0-only\n    url: https://spdx.org/licenses/GPL-3.0-only.html\n  version: 0.1.0\nservers:\n  - url: http://localhost:3335/api/v1/\n\npaths:\n  /stop-api:\n    post:\n      operationId: operator.stopApi\n      description: Turns off the public api.\n      responses:\n        200:\n          description: OK\n        401:\n          description: Not authorized\n        409:\n          description: Already stopped\n        500:\n          description: Unexpected server error\n  /start-api:\n    post:\n      operationId: operator.startApi\n      description: Turns on the public api.\n      responses:\n        200:\n          description: OK\n        401:\n          description: Not authorized\n        409:\n          description: Already started\n        500:\n          description: Unexpected server error\n  /shutdown:\n    post:\n      operationId: operator.shutdown\n      description: Shuts down the node.\n      responses:\n        200:\n          description: OK\n        401:\n          description: Not authorized\n        409:\n          description: Already shutting down\n        500:\n          description: Unexpected server error\n  /set-worker:\n    post:\n      operationId: operator.setWorker\n      description: Updates the operator worker id.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SetWorkerOperation'\n      responses:\n        200:\n          description: OK\n        401:\n          description: Not authorized\n        500:\n          description: Unexpected server error\n  /set-buckets:\n    post:\n      operationId: operator.setBuckets\n      description: Updates buckets supported by the node.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SetBucketsOperation'\n      responses:\n        200:\n          description: OK\n        401:\n          description: Not authorized\n        500:\n          description: Unexpected server error\n\ncomponents:\n  securitySchemes:\n    OperatorAuth:\n      type: http\n      scheme: bearer\n      bearerFormat:\n        \"JWT signed with HMAC (HS256) secret key specified in distributor node's `config.operator.hmacSecret`.\n        The payload should include:\n        - `reqBody` - content of the request body\n        - `reqUrl` - request url (only pathname + query string, without origin. For example: `/api/v1/set-buckets`)\"\n  schemas:\n    SetWorkerOperation:\n      type: object\n      required:\n        - workerId\n      properties:\n        workerId:\n          type: integer\n          minimum: 0\n    SetBucketsOperation:\n      type: object\n      properties:\n        buckets:\n          description: 'Set of bucket ids to be distributed by the node.\n            If not provided - all buckets assigned to currently configured worker will be distributed.'\n          type: array\n          minItems: 1\n          items:\n            type: string\n            pattern: ^[0-9]+:[0-9]+$\n\nsecurity:\n  - OperatorAuth: []\n",
+			"canonicalURL": "/github.com/Joystream/joystream@5fbe3b7bbb531cabb9f54480dd5092f19bb272e8/-/blob/distributor-node/src/api-spec/operator.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Joystream/joystream/blob/5fbe3b7bbb531cabb9f54480dd5092f19bb272e8/distributor-node/src/api-spec/operator.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

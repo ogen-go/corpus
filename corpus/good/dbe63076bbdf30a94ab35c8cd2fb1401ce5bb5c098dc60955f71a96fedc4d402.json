@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "samples/openapi3/client/features/mulitple-data-in-forms/api/openapi.yaml",
+			"byteSize": 1913,
+			"content": "openapi: 3.0.0\ninfo:\n  description: This is a sample server with a single endpoint that accepts two files\n    via a multipart/form-data POST request.\n  license:\n    name: Apache-2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  title: Multiple Files via form-data\n  version: 1.0.0\nservers:\n- url: http://example.com\npaths:\n  /uploadFiles:\n    post:\n      operationId: uploadFiles\n      requestBody:\n        $ref: '#/components/requestBodies/inline_object'\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                file:\n                  description: file to upload\n                  format: binary\n                  type: string\n                secondFile:\n                  description: another file to upload\n                  format: binary\n                  type: string\n              type: object\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ApiResponse'\n          description: successful operation\n      summary: uploads two files\ncomponents:\n  requestBodies:\n    inline_object:\n      content:\n        multipart/form-data:\n          schema:\n            $ref: '#/components/schemas/inline_object'\n  schemas:\n    ApiResponse:\n      description: Describes the result of uploading files\n      example:\n        code: 0\n        type: type\n        message: message\n      properties:\n        code:\n          format: int32\n          type: integer\n        type:\n          type: string\n        message:\n          type: string\n      title: An uploaded response\n      type: object\n    inline_object:\n      properties:\n        file:\n          description: file to upload\n          format: binary\n          type: string\n        secondFile:\n          description: another file to upload\n          format: binary\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/samples/openapi3/client/features/mulitple-data-in-forms/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/samples/openapi3/client/features/mulitple-data-in-forms/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

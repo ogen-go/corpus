@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/prajdabre/yanmtt"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "interface/static/swagger.json",
+			"byteSize": 3183,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"Machine translation APIs\",\n    \"version\": \"1.0.0\",\n    \"title\": \"Machine translation\",\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://opensource.org/licenses/MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"/\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"Machine translation\",\n      \"description\": \"API to try out machine translation\"\n    }\n  ],\n  \"paths\": {\n    \"/request\": {\n      \"get\": {\n        \"tags\": [\n          \"Book Request\"\n        ],\n        \"summary\": \"Returns bookRequests\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/bookRequests\"\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"tags\": [\n          \"Book Request\"\n        ],\n        \"summary\": \"Create a new book request system\",\n        \"requestBody\": {\n          \"description\": \"Book Request Post Object\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/bookRequestPostBody\"\n              }\n            }\n          }\n        },\n        \"produces\": [\n          \"application/json\"\n        ],\n        \"responses\": {\n          \"201\": {\n            \"description\": \"OK\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/id\"\n            }\n          },\n          \"400\": {\n            \"description\": \"Failed. Bad post data.\"\n          }\n        }\n      }\n    },\n    \"/translate\":{\n      \"post\": {\n        \"tags\": [\n          \"Translate text\"\n        ],\n        \"summary\": \"Translate text from source to target\",\n        \"requestBody\": {\n          \"description\": \"Machine translation\",\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/translateRequest\"\n              }\n            }\n          }\n        },\n        \"produces\": [\n          \"application/json\"\n        ],\n        \"responses\": {\n          \"201\": {\n            \"description\": \"OK\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/id\"\n            }\n          },\n          \"400\": {\n            \"description\": \"Failed. Bad post data.\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"id\": {\n        \"properties\": {\n          \"uuid\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"bookRequestPostBody\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"title\": {\n            \"type\": \"string\",\n            \"format\": \"string\"\n          },\n          \"email\": {\n            \"type\": \"string\",\n            \"format\": \"email\"\n          }\n        }\n      },\n      \"translateRequest\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"rawtext\": {\n            \"type\": \"string\",\n            \"format\": \"string\"\n          },\n          \"sourcelang\": {\n            \"type\": \"string\",\n            \"format\": \"string\"\n          },\n          \"targetlang\": {\n            \"type\": \"string\",\n            \"format\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/prajdabre/yanmtt@cacb24f4edb0e131c50f623304b202ff41437c4a/-/blob/interface/static/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/prajdabre/yanmtt/blob/cacb24f4edb0e131c50f623304b202ff41437c4a/interface/static/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

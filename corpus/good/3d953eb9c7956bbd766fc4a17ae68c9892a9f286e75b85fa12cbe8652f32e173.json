@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "Test_param_override.yml",
+			"size": 0,
+			"path": "openapi3/testdata/Test_param_override.yml",
+			"byteSize": 895,
+			"content": "openapi: 3.0.0\ninfo:\n  title: customer\n  version: '1.0'\nservers:\n  - url: 'httpbin.kwaf-demo.test'\npaths:\n  '/customers/{customer_id}':\n    parameters:\n      - schema:\n          type: integer\n        name: customer_id\n        in: path\n        required: true\n    get:\n      parameters:\n      - schema:\n          type: integer\n          maximum: 100\n        name: customer_id\n        in: path\n        required: true\n      summary: customer\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  customer_id:\n                    type: integer\n                  customer_name:\n                    type: string\n      operationId: get-customers-customer_id\n      description: Retrieve a specific customer by ID\ncomponents:\n  schemas: {}\n",
+			"canonicalURL": "/github.com/getkin/kin-openapi@32445850faa0551385d614e844b344006c0a8f22/-/blob/openapi3/testdata/Test_param_override.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getkin/kin-openapi/blob/32445850faa0551385d614e844b344006c0a8f22/openapi3/testdata/Test_param_override.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

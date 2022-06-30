@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kyma-project/examples"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "orders-service/docs/openapi.yaml",
+			"byteSize": 3589,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Orders service API\n  version: 0.1.0\ntags:\n  - name: orders\n  - name: webhook\npaths:\n  /orders:\n    get:\n      description: Returns all orders from the system.\n      tags:\n        - orders\n      responses:\n        '200':\n          description: Orders retrieved succesfully.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderList'\n        '500':\n          description: Internal server error.\n    post:\n      description: Creates a new order in the system. Duplicates are not allowed.\n      tags:\n        - orders\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Order'\n      responses:\n        '201':\n          description: Order created succesfully.\n        '400':\n          description: Bad request.\n        '409':\n          description: Order ID conflict.\n        '500':\n          description: Internal server error.\n    delete:\n      description: Delete an orders collection.\n      tags:\n        - orders\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Order'\n      responses:\n        '200':\n          description: Collection cleared succesfully.\n        '500':\n          description: Internal server error.\n  /orders/{id}:\n    get:\n      description: Returns an order with specified ID.\n      tags:\n        - orders\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: ID of the order\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Orders retrieved succesfully.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/OrderList'\n        '404':\n          description: Order not found.\n        '500':\n          description: Internal server error.\n    delete:\n      description: Deletes an order with specified ID.\n      tags:\n        - orders\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: ID of the order\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Order deleted succesfully.\n        '404':\n          description: Order not found.\n        '500':\n          description: Internal server error.\n  /:\n    post:\n      description: Handle order event\n      tags:\n        - webhook\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/OrderEvent'\n      responses:\n        '200':\n          description: Order event handled successfully.\n        '400':\n          description: Bad request.\n        '409':\n          description: Order ID conflict.\n        '500':\n          description: Internal Server error.\ncomponents:\n  schemas:\n    Order:\n      type: object\n      properties:\n        orderCode:\n          type: string\n          example: \"123456789\"\n          description: ID of the order\n        consignmentCode:\n          type: string\n          example: \"123456789\"\n          description: ID of the order consignment code\n        consignmentStatus:\n          type: string\n          example: \"PICKUP_COMPLETE\"\n          description: Order consignment status\n      required:\n        - orderCode\n        - consignmentCode\n        - consignmentStatus\n    OrderList:\n      type: array\n      items:\n        $ref: '#/components/schemas/Order'\n    OrderEvent:\n      $ref: '#/components/schemas/Order'\n",
+			"canonicalURL": "/github.com/kyma-project/examples@4bfc4ff2e94e0861b67c3ffd9a17d79649f714a5/-/blob/orders-service/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kyma-project/examples/blob/4bfc4ff2e94e0861b67c3ffd9a17d79649f714a5/orders-service/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

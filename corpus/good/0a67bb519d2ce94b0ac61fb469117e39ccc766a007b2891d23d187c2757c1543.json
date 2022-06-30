@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "allOfMappingDuplicatedProperties.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/allOfMappingDuplicatedProperties.yaml",
+			"byteSize": 2142,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Example\n  license:\n    name: MIT\nservers:\n  - url: http://api.example.xyz/v1\npaths:\n  /person/display/{personId}:\n    get:\n      parameters:\n        - name: personId\n          in: path\n          required: true\n          description: The id of the person to retrieve\n          schema:\n            type: string\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Person\"\ncomponents:\n  schemas:\n    Person:\n      required:\n        - duplicated_required\n        - person_required\n      type: object\n      discriminator:\n        propertyName: $_type\n        mapping:\n          a: '#/components/schemas/Adult'\n          c: '#/components/schemas/Child'\n      properties:\n        $_type:\n          type: string\n        lastName:\n          type: string\n        firstName:\n          type: string\n        duplicated_optional:\n           type: string\n        duplicated_required:\n           type: string\n        person_required:\n           type: string\n           format: date-time\n    Adult:\n      description: A representation of an adult\n      allOf:\n      - $ref: '#/components/schemas/Person'\n      - type: object\n        required:\n          - duplicated_required\n          - child_required\n        properties:\n          duplicated_optional:\n             type: integer\n          duplicated_required:\n             type: integer\n          children:\n            type: array\n            items:\n              $ref: \"#/components/schemas/Child\"\n          adult_required:\n            type: boolean\n    Child:\n      description: A representation of a child\n      allOf:\n      - type: object\n        properties:\n          age:\n            type: integer\n            format: int32\n          firstName:\n            type: string\n      - $ref: '#/components/schemas/Person'\n    MapOnly:\n      additionalProperties:\n        type: string\n    MapOnlyWithProperties:\n      additionalProperties:\n        type: string\n      properties:\n        firstName:\n          type: string",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/allOfMappingDuplicatedProperties.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/allOfMappingDuplicatedProperties.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

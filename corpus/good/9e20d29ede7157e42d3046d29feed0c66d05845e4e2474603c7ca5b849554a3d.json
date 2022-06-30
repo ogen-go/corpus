@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
+		},
+		"file": {
+			"name": "CallbacksObject.yaml",
+			"size": 0,
+			"path": "com.reprezen.swagedit.openapi3.tests/resources/code-assist/code-templates/CallbacksObject.yaml",
+			"byteSize": 2614,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Callbacks Object\n  version: \"1.0.0\"  \n  \npaths: \n\n  /pets:\n    get:\n      summary: Read\n      description: Provide details for the entire list (for collection resources) or an item (for object resources)\n      responses:\n        201:\n          description: Null response\n      callbacks:\n        #KZOE-template name=\"callbacks in operation\", value=\"callbacks\"\n        \n        myWebhook:\n          #KZOE-template name=\"callback in operation\", value=\"callback\"\n          $ref: \"#/components/callbacks/myWebhook\"\n\ncomponents: \n\n  callbacks:\n    #KZOE-template name=\"callbacks in components/callbacks\", value=\"callbacks\"\n    \n    MyWebhooWithRef:\n      #KZOE-template name=\"callback in components/callback\", value=\"callback\"\n      $ref: \"#/components/callbacks/myWebhook\"\n    myWebhook:\n      '$request.body#/url':\n        post:\n          requestBody:\n            description: Callback payload\n            content: \n              'application/json':\n                schema:\n                  $ref: '#/components/schemas/SomePayload'\n          responses:\n            '200':\n              description: webhook successfully processed and no retries will be performed\n\n    statusCallback:\n      #KZOE-template name=\"1 callbacks in components/callback\", value=\"callback\"\n      /statusUpdate:\n        #KZOE-template name=\"2 operation template\", value=\"pathItem\"\n        post:\n          operationId: StatusUpdateCallback\n          description: |\n            POST method to be implemented by the client. BeamUp will \n            call this method to advise on the status of a requested, in-progress,\n            or completed trip.\n          requestBody:\n            description: content of the status update notification.\n            content: \n              #KZOE-template name=\"3 mediatypes template\", value=\"mediaTypes\"\n              \"application/json\":\n                schema:\n                  #KZOE-template name=\"4 schema template\", value=\"schema\"\n                  type: object\n                  properties:\n                    tripId: \n                      type: string\n                    tripStatusCode:\n                      type: string\n                      enum:\n                      - REQUESTED\n                      - IN_PROGRESS\n                      - COMPLETED\n                      - CANCELLED\n                    eta:\n                      type: string\n                      format: date-time\n          responses:\n            #KZOE-template name=\"7 response\", value=\"responses\"\n            200: \n              description: Normal response to acknowledge a status update.\n",
+			"canonicalURL": "/github.com/RepreZen/KaiZen-OpenAPI-Editor@7c199211d432c4bbd8915f26791282546fa750e5/-/blob/com.reprezen.swagedit.openapi3.tests/resources/code-assist/code-templates/CallbacksObject.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RepreZen/KaiZen-OpenAPI-Editor/blob/7c199211d432c4bbd8915f26791282546fa750e5/com.reprezen.swagedit.openapi3.tests/resources/code-assist/code-templates/CallbacksObject.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

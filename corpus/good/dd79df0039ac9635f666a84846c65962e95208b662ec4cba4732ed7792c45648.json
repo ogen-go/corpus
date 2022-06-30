@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/interuss/dss"
+		},
+		"file": {
+			"name": "dummy-oauth.yaml",
+			"size": 0,
+			"path": "interfaces/dummy-oauth/dummy-oauth.yaml",
+			"byteSize": 2748,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Dummy OAuth Provider\n  version: 1.0.0\n  description: \u003e-\n    This interface exposes the ability to generate OAuth tokens usable by the\n    DSS according to parameters specified by the client.\n\ncomponents:\n  schemas:\n    TokenResponse:\n      type: object\n      required:\n      - access_token\n      properties:\n        access_token:\n          description: JWT that may be used as a Bearer token to authorize operations on an appropriately-configured DSS instance\n          type: string\n    BadRequestResponse:\n      type: object\n      properties:\n        message:\n          description: Human-readable message describing problem with request\n          type: string\n\npaths:\n  /token:\n    get:\n      parameters:\n      - name: intended_audience\n        in: query\n        required: true\n        description: Fully-qualified domain name where the service for which this access token will be used is hosted.  The `aud` claim will be populated with this value.\n        schema:\n          type: string\n        example: uss.example.com\n      - name: scope\n        in: query\n        required: true\n        description: Scope or scopes that should be granted in the access token.  Multiple scopes can be delimited by spaces (%20) in a single value.  The `scope` claim will be populated with all requested scopes.\n        schema:\n          type: string\n        example: dss.read.identification_service_areas\n      - name: issuer\n        in: query\n        required: false\n        description: Identity of the issuer of the token.  The `iss` claim will be populated with this value.\n        schema:\n          type: string\n        example: dummy_oauth\n      - name: expire\n        in: query\n        required: false\n        description: Unix timestamp (seconds since epoch) of the time this access token should expire.  If not specified, defaults to an hour from time of token creation.\n        schema:\n          type: integer\n          format: int64\n        example: 1532714469\n      - name: sub\n        in: query\n        required: true\n        description: Identity of client/subscriber requesting access token.  The `sub` claim will be populated with this value.\n        schema:\n          type: string\n        example: uss1\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TokenResponse'\n          description: \u003e-\n            The requested token was generated successfully\n        '400':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequestResponse'\n          description: \u003e-\n            The request was not properly formed\n      summary: Generate an access token\n",
+			"canonicalURL": "/github.com/interuss/dss@94d0e96aaf3bb24b00a8974417272fa68025637b/-/blob/interfaces/dummy-oauth/dummy-oauth.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/interuss/dss/blob/94d0e96aaf3bb24b00a8974417272fa68025637b/interfaces/dummy-oauth/dummy-oauth.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

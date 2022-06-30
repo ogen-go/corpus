@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/rama-cli"
+		},
+		"file": {
+			"name": "recursiveSchema3.yaml",
+			"size": 0,
+			"path": "src/test/resources/OA3ParserRecursiveSchema/recursiveSchema3.yaml",
+			"byteSize": 1395,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: apiteam@swagger.io\n    url: http://swagger.io\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    get:\n      description: |\n        Sed tempus felis lobortis leo pulvinar rutrum.\n      operationId: findPets\n    \n      responses:\n        \"200\":\n          description: test reponse for parsing \n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ObjA\"\n\n    \n  \ncomponents:\n  schemas:\n    ObjA:\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        tag:\n          $ref: \"#/components/schemas/ObjB\"\n            \n    ObjB:\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        tag:\n          type: array\n          items: \n            $ref: \"#/components/schemas/ObjC\"\n    ObjC:\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        tag:\n          type: array\n          items: \n            $ref: \"#/components/schemas/ObjA\"\n        ",
+			"canonicalURL": "/github.com/restful-ma/rama-cli@f7af76ebeb88d323c3be7df22b3d984066a3a903/-/blob/src/test/resources/OA3ParserRecursiveSchema/recursiveSchema3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/rama-cli/blob/f7af76ebeb88d323c3be7df22b3d984066a3a903/src/test/resources/OA3ParserRecursiveSchema/recursiveSchema3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/dbsystel/Bahn-API"
+		},
+		"file": {
+			"name": "utilizations.v1.yaml",
+			"size": 0,
+			"path": "specs/utilizations.v1.yaml",
+			"byteSize": 1610,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Utilization\n  description: Utilization of trains on a given route\n  version: '1.0'\n\npaths:\n  /utilizations/{trainNum}:\n    get:\n      summary: Returns utilization for given train number\n      tags:\n       - 'Utilization'\n      parameters:\n        - name: trainNum\n          in: path\n          required: true\n          description: Train number\n          schema:\n            type : string\n      responses:\n        '200':\n          description: Utilization for given train\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/utilization'\n                \n        '404':\n          description: Utilization not found\n\n  /utilizations/{routeId}:\n    get:\n      summary: Returns utilization for given route id\n      tags:\n       - 'Utilization'\n      parameters:\n        - name: routeId\n          in: path\n          required: true\n          description: Route ID\n          schema:\n            type : integer\n      responses:\n        '200':\n          description: Utilization for given route\n          content:\n            application/json:\n              schema:\n                type: array\n                items: \n                  $ref: '#/components/schemas/utilization'\n        '404':\n          description: Utilization not found\n\ncomponents:\n  schemas:\n    utilization:\n      type: object\n      properties:\n        train:\n          type: string\n          description: Train Number\n          example: 'ICE372'\n        utilization:\n          type: integer\n          description: Utilization\n          example: 1\n        \n",
+			"canonicalURL": "/github.com/dbsystel/Bahn-API@13dd4adc33e41fa2e2d09077413b18c539642a7c/-/blob/specs/utilizations.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/dbsystel/Bahn-API/blob/13dd4adc33e41fa2e2d09077413b18c539642a7c/specs/utilizations.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zircote/swagger-php"
+		},
+		"file": {
+			"name": "petstore.yaml",
+			"size": 0,
+			"path": "Examples/swagger-spec/petstore/petstore.yaml",
+			"byteSize": 2033,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Swagger Petstore'\n  license:\n    name: MIT\n  version: 1.0.0\nservers:\n  -\n    url: petstore.swagger.io\n    description: 'Api server'\npaths:\n  /pets:\n    get:\n      tags:\n        - pets\n      summary: 'List all pets'\n      operationId: listPets\n      parameters:\n        -\n          name: limit\n          in: query\n          description: 'How many items to return at one time (max 100)'\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: 'An paged array of pets'\n          headers:\n            x-next:\n              description: 'A link to the next page of responses'\n              schema:\n                type: string\n        default:\n          description: 'unexpected error'\n    post:\n      tags:\n        - pets\n      summary: 'Create a pet'\n      operationId: createPets\n      responses:\n        '201':\n          description: 'Null response'\n        default:\n          description: 'unexpected error'\n  '/pets/{petId}':\n    get:\n      tags:\n        - pets\n      summary: 'Info for a specific pet'\n      operationId: showPetById\n      parameters:\n        -\n          name: petId\n          in: path\n          description: 'The id of the pet to retrieve'\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: 'Expected response to a valid request'\n        default:\n          description: 'unexpected error'\ncomponents:\n  schemas:\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n      type: object\n    Pets:\n      type: array\n      items:\n        $ref: '#/components/schemas/Pet'\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/zircote/swagger-php@7a316d962d7b1c4d78de5c95e27b722cb0294b0c/-/blob/Examples/swagger-spec/petstore/petstore.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zircote/swagger-php/blob/7a316d962d7b1c4d78de5c95e27b722cb0294b0c/Examples/swagger-spec/petstore/petstore.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

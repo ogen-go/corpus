@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/xpinjection/test-driven-spring-boot"
+		},
+		"file": {
+			"name": "library-api.yaml",
+			"size": 0,
+			"path": "src/main/resources/api/spec/v1/library-api.yaml",
+			"byteSize": 1322,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Library API\n  description: Library API\n  version: 0.1.0\nservers:\n  - url: 'http://localhost:8080'\npaths:\n  /books:\n    get:\n      tags:\n        - books\n      summary: Find books by author\n      operationId: findBooksByAuthor\n      responses:\n        '200':\n          description: List of found books is returned\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Books\"\n      parameters:\n        - name: author\n          in: query\n          description: Author name filter\n          allowEmptyValue: false\n          required: true\n          example: Josh Bloch\n          schema:\n            type: string\ncomponents:\n  schemas:\n    BookDto:\n      type: object\n      required:\n        - id\n        - name\n        - author\n      properties:\n        id:\n          type: integer\n          format: int64\n          description: Book unique ID\n          readOnly: true\n          example: 101\n        name:\n          type: string\n          description: Book name\n          readOnly: true\n          example: Effective Java\n        author:\n          type: string\n          description: Book author\n          readOnly: true\n          example: Josh Bloch\n    Books:\n      type: array\n      items:\n        $ref: \"#/components/schemas/BookDto\"",
+			"canonicalURL": "/github.com/xpinjection/test-driven-spring-boot@61bdb616bd32009d95dfff41dc600cf25e19910f/-/blob/src/main/resources/api/spec/v1/library-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/xpinjection/test-driven-spring-boot/blob/61bdb616bd32009d95dfff41dc600cf25e19910f/src/main/resources/api/spec/v1/library-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

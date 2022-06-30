@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OAI/OpenAPI-Specification"
+		},
+		"file": {
+			"name": "webhook-example.yaml",
+			"size": 0,
+			"path": "examples/v3.1/webhook-example.yaml",
+			"byteSize": 930,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Webhook Example\n  version: 1.0.0\n# Since OAS 3.1.0 the paths element isn't necessary. Now a valid OpenAPI Document can describe only paths, webhooks, or even only reusable components\nwebhooks:\n  # Each webhook needs a name\n  newPet:\n    # This is a Path Item Object, the only difference is that the request is initiated by the API provider\n    post:\n      requestBody:\n        description: Information about a new pet in the system\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Pet\"\n      responses:\n        \"200\":\n          description: Return a 200 status to indicate that the data was received successfully\n\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n\n",
+			"canonicalURL": "/github.com/OAI/OpenAPI-Specification@aa91a19c43f8a12c02efa42d64794e396473f3b1/-/blob/examples/v3.1/webhook-example.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OAI/OpenAPI-Specification/blob/aa91a19c43f8a12c02efa42d64794e396473f3b1/examples/v3.1/webhook-example.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

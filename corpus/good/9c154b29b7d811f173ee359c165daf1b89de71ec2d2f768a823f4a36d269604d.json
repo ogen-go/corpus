@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/arno-di-loreto/supercharged-openapi"
+		},
+		"file": {
+			"name": "motu.yaml",
+			"size": 0,
+			"path": "steps/step-7/motu.yaml",
+			"byteSize": 1597,
+			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Masters of the Universe\n  version: \"1.0\"\n\npaths:\n  /characters:\n    get:\n      summary: Search characters\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                maxItems: 3\n                items:\n                  $ref: '#/components/schemas/Character'\n\n  /characters/{characterId}:\n    parameters:\n      - $ref: '#/components/parameters/CharacterId'\n    get:\n      summary: Read a character\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Character'\n    delete:\n      summary: Delete a character\n      responses:\n        '204':\n          description: No Content\n\ncomponents:\n  parameters:\n    CharacterId:\n      name: characterId\n      in: path\n      required: true\n      schema:\n        # TODO: Fix that! That's more than just a string\n        type: string\n  schemas:\n    Character:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: string\n          pattern: ^[a-z]{3,}$\n        name:\n          type: string\n          minLength: 3\n          maxLength: 36\n        birthDate:\n          type: string\n          format: date\n        age:\n          type: integer\n          minimum: 0\n          maximum: 128\n        side:\n          type: string\n          enum:\n            - hero\n            - villain\n            - neutral\n        archEnemyId:\n          type: string",
+			"canonicalURL": "/github.com/arno-di-loreto/supercharged-openapi@a03636fb2b2168672c2546c820c652e0283d6d5a/-/blob/steps/step-7/motu.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/arno-di-loreto/supercharged-openapi/blob/a03636fb2b2168672c2546c820c652e0283d6d5a/steps/step-7/motu.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

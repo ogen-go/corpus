@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/CreateAPI/CreateAPI"
+		},
+		"file": {
+			"name": "strip-parent-name-nested-objects.yaml",
+			"size": 0,
+			"path": "Tests/CreateAPITests/Specs/strip-parent-name-nested-objects.yaml",
+			"byteSize": 864,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Strip Parent Name Nested Objects\n\npaths:\n  /container:\n    get:\n      responses:\n        \"200\":\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Container\"\ncomponents:\n  schemas:\n    ContainerA:\n      type: object\n      properties:\n        a:\n          type: string\n    ContainerB:\n      type: object\n      properties:\n        b:\n          type: string\n    ContainerC:\n      type: object\n      properties:\n        c:\n          type: string\n\n    Container:\n      type: object\n      required:\n        - content\n      properties:\n        content:\n          oneOf:\n            - $ref: \"#/components/schemas/ContainerA\"\n            - $ref: \"#/components/schemas/ContainerB\"\n            - $ref: \"#/components/schemas/ContainerC\"\n",
+			"canonicalURL": "/github.com/CreateAPI/CreateAPI@a59c76632f3199ddb016447dc04ceb83102d3f61/-/blob/Tests/CreateAPITests/Specs/strip-parent-name-nested-objects.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/CreateAPI/CreateAPI/blob/a59c76632f3199ddb016447dc04ceb83102d3f61/Tests/CreateAPITests/Specs/strip-parent-name-nested-objects.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

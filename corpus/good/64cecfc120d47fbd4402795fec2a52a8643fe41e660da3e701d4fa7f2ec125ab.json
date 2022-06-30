@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adobe/target-nodejs-sdk"
+		},
+		"file": {
+			"name": "PageLoadResponse.yaml",
+			"size": 0,
+			"path": "openapi/delivery/components/PageLoadResponse.yaml",
+			"byteSize": 1634,
+			"content": "openapi: \"3.0.0\"\nPageLoadResponse:\n  type: object\n  description: |\n    Page load response. Contains the result of prefetching or executing a request that will retrieve content for\n    all selectors not associated with a particular view.\n  properties:\n    options:\n      type: array\n      description: |\n        List of options that should be applied.\n        Note: options that have been set on selectors assigned to views will not be included here.\n      items:\n        $ref: \"./Option.yaml#/Option\"\n    metrics:\n      type: array\n      description: |\n        Click track metrics. Note that click metrics for selectors set with views will not be included here.\n        In case the same activity is serving content for selectors both assinged to a view and selectors without any\n        views, and having click track metrics that are not assotiated with any view within the activity, then:\n          * in case of a prefetch only request, these metrics (tokens) will be set in the Prefetch response's metrics.\n          * in case of an execute only request, the metrics will be set in the page load response's metrics.\n          * in case of a request, with both, execute and prefetch, metrics will be set in the page load response's\n            metrics only.\n      items:\n        $ref: \"./Metric.yaml#/Metric\"\n    analytics:\n      $ref: \"./AnalyticsResponse.yaml#/AnalyticsResponse\"\n    state:\n      type: string\n      description: |\n        View state token that must be sent back with display notification for the view.\n        May only be present for prefetch requests.\n    trace:\n      $ref: \"./TraceResponse.yaml#/TraceResponse\"\n",
+			"canonicalURL": "/github.com/adobe/target-nodejs-sdk@d5c935a8dff76c6e6fa2170232c67a9e70cad87d/-/blob/openapi/delivery/components/PageLoadResponse.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adobe/target-nodejs-sdk/blob/d5c935a8dff76c6e6fa2170232c67a9e70cad87d/openapi/delivery/components/PageLoadResponse.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

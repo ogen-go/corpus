@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/empoa"
+		},
+		"file": {
+			"name": "hello.yaml",
+			"size": 0,
+			"path": "empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/hello.yaml",
+			"byteSize": 1815,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: Hello Specification\n  description: This specification says Hello\n  termsOfService: http://example.com/terms/\n  contact:\n    name: Support\n    url: http://www.example.com/support/\n    email: support@example.com\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: \"1.0\"\nservers:\n- url: http://api.example.com/\n  description: Main server\n- url: http://api.example.io/\n  description: Secondary server\npaths:\n  /hello/{name}:\n    get:\n      summary: Retun an hello object\n      operationId: hello\n      parameters:\n      - name: name\n        in: path\n        required: true\n        schema:\n          type: string\n      - name: language\n        in: query\n        description: Language used to say hello\n        schema:\n          type: string\n          enum:\n          - english\n          - french\n          - german\n          - italian\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/text:\n              schema:\n                type: string\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Hello'\n            application/xml:\n              schema:\n                $ref: '#/components/schemas/Hello'\n        \"4XX\":\n          description: Error\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Hello:\n      type: object\n      properties:\n        timestamp:\n          type: integer\n          format: int32\n          description: Unix timestamp (generation time)\n        message:\n          type: string\n    Error:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/OpenAPITools/empoa@03078bf7c49ad03a175e51a57ede8d730013782e/-/blob/empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/hello.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/empoa/blob/03078bf7c49ad03a175e51a57ede8d730013782e/empoa-jackson-serializer/src/test/resources/jackson-serializer/yaml/hello.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/hello/{name}\": get: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern"
+	]
+}

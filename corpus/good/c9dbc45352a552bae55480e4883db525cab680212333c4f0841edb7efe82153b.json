@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/open-traffic-generator/models"
+		},
+		"file": {
+			"name": "port.yaml",
+			"size": 0,
+			"path": "port/port.yaml",
+			"byteSize": 1514,
+			"content": "openapi: 3.1.0\n\ninfo:\n  title: Port models\n  version: ^0.0.0\n\ncomponents:\n  schemas:\n    Port:\n      x-include: \n      - '../common/common.yaml#/components/schemas/Named.Object'\n      description: \u003e-\n        An abstract test port.\n      type: object\n      properties:\n        location:\n          description: \u003e- \n            The location of a test port. \n            It is the endpoint where packets will emit from.\n\n            Test port locations can be the following:\n              - physical appliance with multiple ports\n              - physical chassis with multiple cards and ports\n              - local interface\n              - virtual machine, docker container, kubernetes cluster\n\n            The test port location format is implementation specific.\n            Use the /results/capabilities API to determine what formats an \n            implementation supports for the location property.\n\n            Get the configured location state by using the /results/port API.\n          type: string\n\n    Port.Options:\n      description: \u003e-\n        Common port options that apply to all configured Port objects. \n      type: object\n      properties:\n        location_preemption:\n          description: \u003e-\n            Preempt all the test port locations as defined by the \n            Port.Port.properties.location.\n            If the test ports defined by their location values are in use and \n            this value is true, the test ports will be preempted.\n          type: boolean\n          default: false\n\n ",
+			"canonicalURL": "/github.com/open-traffic-generator/models@9d319838ffecb6b2ff29f6043a09b2970810ca5a/-/blob/port/port.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/open-traffic-generator/models/blob/9d319838ffecb6b2ff29f6043a09b2970810ca5a/port/port.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

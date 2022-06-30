@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-inflector"
+		},
+		"file": {
+			"name": "issue-171.yaml",
+			"size": 0,
+			"path": "src/test/swagger/issue-171.yaml",
+			"byteSize": 1344,
+			"content": "openapi: \"3.0\"\ninfo:\n  description: test\n  version: \"1.0.0\"\n  title: test\npaths:\n  /test:\n    get:\n      parameters: []\n      responses:\n        200:\n          description: Gets an array of stuff\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Stuff'\n  /anothertest:\n    get:\n      responses:\n        200:\n          description: OK\n          content:\n            \"*/*\":\n              schema:\n                type: array\n                items:\n                  type: string\n  /color:\n    get:\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ColorModel'\ncomponents:\n  schemas:\n    ColorModel:\n      type: object\n      properties:\n        color:\n          type: string\n          enum:\n            - black\n            - white\n      required:\n        - color\n    Stuff:\n      type: object\n      properties:\n        id:\n          type: string\n        nestedArray:\n          type: array\n          items:\n            type: object\n            required:\n            - id\n            - name\n            properties:\n              id:\n                type: string\n              name:\n                type: string\n",
+			"canonicalURL": "/github.com/swagger-api/swagger-inflector@3112f7e185266616e6df4a9cb30c0874706382f0/-/blob/src/test/swagger/issue-171.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-inflector/blob/3112f7e185266616e6df4a9cb30c0874706382f0/src/test/swagger/issue-171.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/anothertest\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

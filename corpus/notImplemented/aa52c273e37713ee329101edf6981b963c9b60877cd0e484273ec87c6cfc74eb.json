@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/cadl"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/samples/test/output/binary/openapi.json",
+			"byteSize": 3036,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"(title)\",\n    \"version\": \"0000-00-00\"\n  },\n  \"tags\": [],\n  \"paths\": {\n    \"/test/base64\": {\n      \"post\": {\n        \"operationId\": \"BytesMethod_jsonWithBase64\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/HasBytes\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/HasBytes\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/test/textPlain\": {\n      \"post\": {\n        \"operationId\": \"BytesMethod_textPlain\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"byte\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"text/plain\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"format\": \"byte\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/test/binaryFile\": {\n      \"post\": {\n        \"operationId\": \"BytesMethod_genericBinaryFile\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"application/octect-stream\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"application/octect-stream\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"format\": \"binary\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/test/imagePng\": {\n      \"post\": {\n        \"operationId\": \"BytesMethod_image\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"image/png\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"image/png\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"format\": \"binary\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"HasBytes\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"bytes\": {\n            \"type\": \"string\",\n            \"format\": \"byte\"\n          }\n        },\n        \"required\": [\n          \"bytes\"\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/microsoft/cadl@4fac4d50c3e99c6b61da357a00fe7761acf21090/-/blob/packages/samples/test/output/binary/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/cadl/blob/4fac4d50c3e99c6b61da357a00fe7761acf21090/packages/samples/test/output/binary/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/test/textPlain\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

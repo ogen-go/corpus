@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "issue_360.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/issue_360.yaml",
+			"byteSize": 1173,
+			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  version: 1.0.0\n  title: API with x-examples in body parameter\npaths:\n  /pets:\n    post:\n      responses:\n        '200':\n          description: Success\n          content:\n            '*/*':\n              schema:\n                type: object\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                foo:\n                  type: string\n        x-examples:\n          application/json:\n            foo: bar\n  /otherPets:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: string\n              format: uuid\n        required: true\n      responses:\n        default:\n          description: Default response\n  /evenMorePets:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pet'\n        required: true\n      responses:\n        default:\n          description: Default response\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      properties:\n        id:\n          type: string\n          format: uuid",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/issue_360.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/issue_360.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/pets\": post: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

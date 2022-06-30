@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stoplightio/prism"
+		},
+		"file": {
+			"name": "payment-service.oas3.yaml",
+			"size": 0,
+			"path": "examples/callbacks/payment-service.oas3.yaml",
+			"byteSize": 1952,
+			"content": "openapi: 3.0.0\npaths:\n  /invoices/{id}/subscribe:\n    parameters:\n    - name: id\n      in: path\n      required: true\n      description: The id of the invoice about which you want to receive notifications\n      schema:\n        $ref: '#/components/schemas/invoiceId'\n    post:\n      summary: Subscription to events about given invoice\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                url:\n                  type: string\n                  format: uri\n                token:\n                  type: string\n              required:\n              - url\n              - token\n      responses:\n        '202':\n          description: 'Successfully subscribed to events about given invoice'\n          content:\n            text/plain:\n              examples:\n                ok:\n                  value: 'ok'\n\n      callbacks:\n        actions:\n          '{$request.body#/url}?token={$request.body#/token}':\n            post:\n              summary: 'Receive notification about certain invoice'\n              requestBody:\n                required: true\n                content:\n                  application/json:\n                    schema:\n                      $ref: '#/components/schemas/notification'\n              responses:\n                200:\n                  description: 'Notification successfully processed'\n                  content:\n                    text/plain:\n                      examples:\n                        ok:\n                          value: 'ok'\ncomponents:\n  schemas:\n    invoiceId:\n      type: integer\n      format: int64\n    notification:\n      type: object\n      properties:\n        invoiceId:\n          $ref: \"#/components/schemas/invoiceId\"\n        action:\n          type: string\n          enum:\n          - paid\n          - expired\n          - failure\n      required:\n      - invoiceId\n      - action\n",
+			"canonicalURL": "/github.com/stoplightio/prism@75ae9116d0e9d0bf04017c44cf27bb5e031e601c/-/blob/examples/callbacks/payment-service.oas3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stoplightio/prism/blob/75ae9116d0e9d0bf04017c44cf27bb5e031e601c/examples/callbacks/payment-service.oas3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/invoices/{id}/subscribe\": post: responses: 202: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/softwaremill/tapir"
+		},
+		"file": {
+			"name": "expected_valid_enumeratum_with_metadata.yml",
+			"size": 0,
+			"path": "docs/openapi-docs/src/test/resources/validator/expected_valid_enumeratum_with_metadata.yml",
+			"byteSize": 898,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Numbers\n  version: '1.0'\npaths:\n  /numbers:\n    get:\n      operationId: getNumbers\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/NumberWithMsg'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    MyNumber:\n      type: integer\n      description: |-\n        * 1 - One\n        * 2 - Two\n        * 3 - Three\n      format: int32\n      enum:\n        - 1\n        - 2\n        - 3\n    NumberWithMsg:\n      required:\n        - number\n        - msg\n      type: object\n      properties:\n        number:\n          $ref: '#/components/schemas/MyNumber'\n        msg:\n          type: string",
+			"canonicalURL": "/github.com/softwaremill/tapir@8cf746492675c01697d983ab023bb01bf737326e/-/blob/docs/openapi-docs/src/test/resources/validator/expected_valid_enumeratum_with_metadata.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/softwaremill/tapir/blob/8cf746492675c01697d983ab023bb01bf737326e/docs/openapi-docs/src/test/resources/validator/expected_valid_enumeratum_with_metadata.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/numbers\": get: responses: 400: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

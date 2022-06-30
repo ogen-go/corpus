@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "b.yaml",
+			"size": 0,
+			"path": "test/golden/common/recursive/b.yaml",
+			"byteSize": 1012,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"\"\n  version: \"\"\nservers:\n  - url: /\npaths:\n  /api/foo:\n    get:\n      requestBody:\n        content:\n          application/json;charset=utf-8:\n            schema:\n              $ref: \"#/components/schemas/Tree\"\n\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json;charset=utf-8:\n              schema:\n                $ref: \"#/components/schemas/Tree\"\ncomponents:\n  schemas:\n    Tree:\n      type: object\n      properties:\n        node:\n          required:\n            - children\n          type: object\n          properties:\n            children:\n              type: array\n              items:\n                $ref: \"#/components/schemas/Tree\"\n        leaf:\n          required:\n            - value\n          type: object\n          properties:\n            value:\n              required:\n                - foo\n              type: object\n              properties:\n                foo:\n                  enum:\n                    - \"a\"\n",
+			"canonicalURL": "/github.com/typeable/compaREST@f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/-/blob/test/golden/common/recursive/b.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/typeable/compaREST/blob/f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/test/golden/common/recursive/b.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

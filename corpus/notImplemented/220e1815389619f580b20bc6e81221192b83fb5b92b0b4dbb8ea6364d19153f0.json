@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/mq-consumer/openapi.json",
+			"byteSize": 3011,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"OpenAPI MQ Receiver\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://nqreceiver.lightapi.net\"\n    }\n  ],\n  \"paths\": {\n    \"/get\": {\n      \"get\": {\n        \"summary\": \"List all key/value pairs received in the put endpoint of the producer\",\n        \"operationId\": \"get\",\n        \"tags\": [\n          \"get\"\n        ],\n        \"security\": [\n          {\n            \"mq_auth\": [\n              \"mq.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A list of ValueObject in JSON\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/ValueObject\"\n                  }\n                },\n                \"example\": [\n                  {\n                    \"key\": \"key1\",\n                    \"value\": \"value1\"\n                  },\n                  {\n                    \"key\": \"key2\",\n                    \"value\": \"value2\"\n                  }\n                ]\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/sub\": {\n      \"get\": {\n        \"summary\": \"List all key/value pairs received in the pub endpoint of the producer\",\n        \"operationId\": \"sub\",\n        \"tags\": [\n          \"sub\"\n        ],\n        \"security\": [\n          {\n            \"mq_auth\": [\n              \"mq.r\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A list of ValueObject in JSON\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/ValueObject\"\n                  }\n                },\n                \"example\": [\n                  {\n                    \"key\": \"key1\",\n                    \"value\": \"value1\"\n                  },\n                  {\n                    \"key\": \"key2\",\n                    \"value\": \"value2\"\n                  }\n                ]\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"mq_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2.0 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"mq.w\": \"write MQ sender\",\n              \"mq.r\": \"read MQ sender\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"ValueObject\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"key\",\n          \"value\"\n        ],\n        \"properties\": {\n          \"key\": {\n            \"type\": \"string\"\n          },\n          \"value\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/openapi/mq-consumer/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/openapi/mq-consumer/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/get\": get: security: security \"mq_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

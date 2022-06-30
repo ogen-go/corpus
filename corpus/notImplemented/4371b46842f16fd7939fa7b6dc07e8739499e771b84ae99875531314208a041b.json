@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/BerkleyTechnologyServices/restdocs-spec"
+		},
+		"file": {
+			"name": "host-with-port.yml",
+			"size": 0,
+			"path": "restdocs-spec-generator/src/test/resources/mock-specs/openapi3/host-with-port.yml",
+			"byteSize": 1098,
+			"content": "openapi: 3.0.1\ninfo:\n  title: API Documentation\n  version: 1.0.0\nservers:\n- url: http://example.com:8080\ntags: []\npaths:\n  /book/{id}:\n    get:\n      tags:\n      - book\n      summary: Get a book by id\n      description: Get a book by id\n      operationId: book-get\n      parameters:\n      - name: id\n        in: path\n        description: The unique identifier for the book.\n        required: true\n        schema:\n          type: number\n      responses:\n        \"200\":\n          description: \"200\"\n          content:\n            application/hal+json:\n              schema:\n                $ref: '#/components/schemas/MyCustomSchemaName'\n              examples:\n                book-get:\n                  value: The example response.\ncomponents:\n  schemas:\n    MyCustomSchemaName:\n      title: MyCustomSchemaName\n      type: object\n      properties:\n        pages:\n          type: number\n          description: Number of pages in the book\n        author:\n          type: string\n          description: Author of the book\n        title:\n          type: string\n          description: Title of the book\n",
+			"canonicalURL": "/github.com/BerkleyTechnologyServices/restdocs-spec@178cf08f8a6b3fee46eae2fecbd6d734c2039668/-/blob/restdocs-spec-generator/src/test/resources/mock-specs/openapi3/host-with-port.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/BerkleyTechnologyServices/restdocs-spec/blob/178cf08f8a6b3fee46eae2fecbd6d734c2039668/restdocs-spec-generator/src/test/resources/mock-specs/openapi3/host-with-port.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/book/{id}\": get: responses: 200: contents: unsupported content types: [application/hal+json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

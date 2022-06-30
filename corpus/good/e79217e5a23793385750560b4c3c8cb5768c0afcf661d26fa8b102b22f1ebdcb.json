@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/schetinnikov-otus/arch-labs"
+		},
+		"file": {
+			"name": "notif-openapi.yaml",
+			"size": 0,
+			"path": "api-spec/event-notifications/notif-openapi.yaml",
+			"byteSize": 2475,
+			"content": "openapi: 3.0.0\ninfo:\n  contact:\n    email: schetinnikov@gmail.com\n  title: Регистрация пользователя/Event Notifications\n  version: 0.1.0\ntags:\n  - name: user\n    description: Сервис работы с пользователем\n  - name: loyalty\n    description: Сервис лояльности\npaths:\n  '/users/{userId}':\n    get:\n      tags:\n        - user\n      summary: Ресурс пользователя по ID\n      description: Вернуть данные пользователя\n      operationId: getUserById\n      parameters:\n        - name: userId\n          in: path\n          description: ID пользователя\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: Успешный запрос\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n        '404':\n          description: Такого пользователя нет\n          \n  '/cards/{cardId}':\n    get:\n      tags:\n        - loyalty\n      summary: Ресурс пользователя по ID\n      description: Вернуть данные пользователя\n      operationId: getCardById\n      parameters:\n        - name: cardId\n          in: path\n          description: ID карты лояльности\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: Успешный запрос\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id: \n                    type: integer\n                    format: int64\n                  cardNumber: \n                    type: string\n                    format: \"XXXX-XXXX\"\n              example:\n                id: 42\n                cardNumber: 2434-2342 \ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        username:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        password:\n          type: string\n        phone:\n          type: string\n        address:\n          type: string\n      required: \n          - username\n          - password\n          - email\n",
+			"canonicalURL": "/github.com/schetinnikov-otus/arch-labs@c99e95d0bb4dde338c6c62a11bf2ea14a515c21e/-/blob/api-spec/event-notifications/notif-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/schetinnikov-otus/arch-labs/blob/c99e95d0bb4dde338c6c62a11bf2ea14a515c21e/api-spec/event-notifications/notif-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

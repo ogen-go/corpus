@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anz-bank/sysl"
+		},
+		"file": {
+			"name": "query-path-var.yaml",
+			"size": 0,
+			"path": "pkg/importer/tests/openapi3/query-path-var.yaml",
+			"byteSize": 1036,
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nhost: api.example.com\nbasePath: /v1\nschemes:\n  - https\npaths:\n  /users/{id}/{id2}:\n    parameters:\n      - in: path\n        name: id\n        schema:\n          type: integer\n        required: true\n        description: The user ID.\n      - in: path\n        name: id2\n        schema:\n          type: string\n          maxLength: 5\n        required: true\n      - in: header\n        name: request-id\n        schema:\n          type: string\n        required: true\n        description: the request ID.\n    # GET/users/{id}?metadata=true\n    get:\n      summary: Gets a user by ID\n      # Note we only define the query parameter, because the {id} is defined at the path level.\n      parameters:\n        - in: query\n          name: metadata\n          schema:\n            type: boolean\n          required: false\n          description: If true, the endpoint returns only the user metadata.\n      responses:\n        '200':\n          description: OK\n",
+			"canonicalURL": "/github.com/anz-bank/sysl@ed832ffbbebdb8970241347dfda3c8d6cf3eb638/-/blob/pkg/importer/tests/openapi3/query-path-var.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anz-bank/sysl/blob/ed832ffbbebdb8970241347dfda3c8d6cf3eb638/pkg/importer/tests/openapi3/query-path-var.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

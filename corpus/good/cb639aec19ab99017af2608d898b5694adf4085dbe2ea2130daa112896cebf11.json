@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rafaelbmateus/go-transactions"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "docs/openapi.yaml",
+			"byteSize": 2588,
+			"content": "openapi: 3.0.1\ninfo:\n  title: go-transactions\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\n    description: localhost\npaths:\n  /accounts:\n    post:\n      tags:\n        - accounts\n      description: Create a new account\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Account\"\n      responses:\n        201:\n          description: Account created with success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Account\"\n        500:\n          description: Internal server error\n  /accounts/{accountId}:\n    get:\n      tags:\n        - accounts\n      description: Get account informations\n      parameters:\n        - in: path\n          name: accountId\n          description: The account identifier\n          required: true\n          schema:\n            type: number\n      responses:\n        200:\n          description: Account got with success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Account\"\n        500:\n          description: Internal server error\n  /transactions:\n    post:\n      tags:\n        - transactions\n      description: Register a new transaction\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Transaction\"\n      responses:\n        201:\n          description: Transaction created with successful\n        400:\n          description: Bad request\n        500:\n          description: Internal server error\n    get:\n      tags:\n        - transactions\n      description: Get all transactions\n      responses:\n        200:\n          description: Account got with success\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Transaction\"\n        500:\n          description: Internal server error\ncomponents:\n  schemas:\n    Account:\n      type: object\n      properties:\n        id:\n          type: number\n          example: 1\n        document_number:\n          type: string\n          example: \"12345678900\"\n        available_credit_limit:\n          type: number\n          example: 1000.00\n    Transaction:\n      type: object\n      properties:\n        account_id:\n          type: number\n          example: 1\n        operation_type_id:\n          type: number\n          example: 4\n        amount:\n          type: number\n          example: 123.45\n",
+			"canonicalURL": "/github.com/rafaelbmateus/go-transactions@49ebf6b8ee56648b18216a8fd1c6e2e54c33ffbb/-/blob/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rafaelbmateus/go-transactions/blob/49ebf6b8ee56648b18216a8fd1c6e2e54c33ffbb/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

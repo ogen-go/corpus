@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jqueguiner/selfie2anime"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "docs/swagger.yaml",
+			"byteSize": 1650,
+			"content": "openapi: 3.0.1\ninfo:\n  description: This API will transform a selfie into a anime manga character\n  version: 1.0.0\n  title: Selfie2Anime\n  termsOfService: 'https://market-place.ai.ovh.net/#!/cgu-en'\n  contact:\n    name: API Support\n    url: 'https://gitter.im/ovh/ai'\n  license:\n    name: MIT\n    url: 'https://github.com/jqueguiner/selfie2anime/blob/master/LICENSE'\nhost: api-market-place.ai.ovh.net\nbasePath: /\ntags:\n  - name: selfie2anime\n    description: Everything you need to transform a selfie into a anime manga character\n    externalDocs:\n      description: Find out more\n      url: 'https://bit.ly/'\n  - name: process\n    description: Transform selfie into anime\npaths:\n  /process:\n    post:\n      security:\n        - apikey: []\n      tags:\n        - process\n      summary: Transform selfie into anime\n      description: Process image\n      operationId: process\n      responses:\n        '200':\n          description: OK\n          content:\n            image/jpg:\n              schema:\n                type: string\n                format: binary\n        '400':\n          description: input error\n        '401':\n          description: Unauthorized\n      requestBody:\n        description: Transform selfie into anime\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Process'\ncomponents:\n  securitySchemes:\n    apikey:\n      type: apiKey\n      name: X-OVH-Api-Key\n      in: header\n  schemas:\n    Process:\n      type: object\n      required:\n        - url\n      properties:\n        url:\n          type: string\n          example: 'https://i.ibb.co/QkqCMXT/input.jpg'\n",
+			"canonicalURL": "/github.com/jqueguiner/selfie2anime@2f1884d2fed67635daa1ac09d581d4691dad1c63/-/blob/docs/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jqueguiner/selfie2anime/blob/2f1884d2fed67635daa1ac09d581d4691dad1c63/docs/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

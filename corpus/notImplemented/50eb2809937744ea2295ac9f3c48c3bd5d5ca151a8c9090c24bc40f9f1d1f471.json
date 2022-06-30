@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "mixed-content-types-3.0.2.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/mixed-content-types-3.0.2.yaml",
+			"byteSize": 545,
+			"content": "openapi: 3.0.2\ninfo:\n  title: 'mixed content types'\n  version: 1.0.0\npaths:\n  /foo:\n    post:\n      operationId: doFoo\n      responses:\n        200:\n          description: OK\n          content:\n            text/plain:\n              schema:\n                type: string\n        400:\n          description: \"Invalid\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        name:\n          type: string\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/mixed-content-types-3.0.2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/mixed-content-types-3.0.2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/foo\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

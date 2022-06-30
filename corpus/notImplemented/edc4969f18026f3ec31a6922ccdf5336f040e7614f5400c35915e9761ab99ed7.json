@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/conduktor/conduktor-coding-challenge"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "frontend-developers/openapi.yaml",
+			"byteSize": 3039,
+			"content": "openapi: 3.0.3\ninfo:\n  title: conduktor-coding-challenge\n  version: 1.0.0\npaths:\n  /clusters:\n    get:\n      operationId: listClusters\n      responses:\n        '200':\n          description: List the clusters available\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Cluster'\n        default:\n          description: ''\n    post:\n      operationId: createCluster\n      requestBody:\n        description: Friendly name of the cluster to create\n        content:\n          text/plain:\n            schema:\n              type: string\n        required: true\n      responses:\n        '200':\n          description: ''\n        default:\n          description: ''\n  /clusters/{id}:\n    delete:\n      operationId: deleteCluster\n      parameters:\n        - name: id\n          in: path\n          description: ID of the cluster to delete\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n        default:\n          description: ''\n  /clusters/{id}/topics:\n    get:\n      operationId: listTopics\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: List of the topics for this cluster\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Topic'\n        default:\n          description: ''\n    post:\n      operationId: createTopic\n      parameters:\n        - name: id\n          in: path\n          description: Cluster ID\n          required: true\n          schema:\n            type: string\n      requestBody:\n        description: Name of the topic to create\n        content:\n          text/plain:\n            schema:\n              type: string\n        required: true\n      responses:\n        '200':\n          description: ''\n        default:\n          description: ''\n  /clusters/{id}/topics/{topic}/data:\n    get:\n      operationId: getData\n      parameters:\n        - name: id\n          in: path\n          description: Cluster ID\n          required: true\n          schema:\n            type: string\n        - name: topic\n          in: path\n          description: Name of the topic to fetch data from\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Data from the topic\n          content:\n            text/event-stream:\n              schema:\n                type: string\n                format: binary\n        default:\n          description: ''\ncomponents:\n  schemas:\n    Cluster:\n      required:\n        - id\n        - name\n      type: object\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n    Topic:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n",
+			"canonicalURL": "/github.com/conduktor/conduktor-coding-challenge@baccf30ea4d7962ad3c5bb01982827045d414552/-/blob/frontend-developers/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/conduktor/conduktor-coding-challenge/blob/baccf30ea4d7962ad3c5bb01982827045d414552/frontend-developers/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/clusters\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

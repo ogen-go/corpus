@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/island-is/island.is"
+		},
+		"file": {
+			"name": "xrd-meta-oas.yaml",
+			"size": 0,
+			"path": "libs/api-catalogue/services/config/xrd-meta-oas.yaml",
+			"byteSize": 1410,
+			"content": "openapi: 3.0.0\ninfo:\n  title: X-Road Service Metadata API\n  version: '2.7'\nservers:\n  - url: 'https://{securityserver}/'\npaths:\n  /listClients:\n    get:\n      tags:\n        - metaservices\n      summary: List clients defined in the X-Road instance\n      operationId: listClients\n      parameters:\n        - name: xRoadInstance\n          in: query\n          schema:\n            type: string\n      responses:\n        '200':\n          description: List of clients\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/clientList'\ncomponents:\n  schemas:\n    clientList:\n      type: object\n      properties:\n        member:\n          type: array\n          items:\n            $ref: '#/components/schemas/xroadIdentifier'\n    xroadIdentifier:\n      type: object\n      properties:\n        name:\n          type: string\n        id:\n          type: object\n          properties:\n            object_type:\n              type: string\n              enum:\n                - MEMBER\n                - SUBSYSTEM\n                - SERVER\n                - GLOBALGROUP\n                - LOCALGROUP\n                - SERVICE\n                - CENTRALSERVICE\n            xroad_instance:\n              type: string\n            member_class:\n              type: string\n            member_code:\n              type: string\n            subsystem_code:\n              type: string\n",
+			"canonicalURL": "/github.com/island-is/island.is@a6d068d9dd034ad332d7c56b861100adcef8673a/-/blob/libs/api-catalogue/services/config/xrd-meta-oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/island-is/island.is/blob/a6d068d9dd034ad332d7c56b861100adcef8673a/libs/api-catalogue/services/config/xrd-meta-oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

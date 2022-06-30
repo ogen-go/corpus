@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DoclerLabs/api-client-generator"
+		},
+		"file": {
+			"name": "getResources.yaml",
+			"size": 0,
+			"path": "test/suite/functional/Generator/Request/getResources.yaml",
+			"byteSize": 2222,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example API\npaths:\n  '/v1/resources':\n    get:\n      description: Get a list of resources\n      operationId: getResources\n      security:\n        - BasicAuth: [ ]\n      parameters:\n        - $ref: '#/components/parameters/FilterById'\n        - $ref: '#/components/parameters/FilterByName'\n        - $ref: '#/components/parameters/FilterByIds'\n        - $ref: '#/components/parameters/ResourceFilter'\n      responses:\n        '200':\n          description: list of resources\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Resource'\n        '400':\n          description: Invalid request parameters.\n  '/v1/resources/sub-resources':\n    get:\n      description: Get a list of sub resources\n      operationId: getSubResources\n      security:\n          - BearerAuth: []\n      parameters:\n        - $ref: '#/components/parameters/SubResourceFilter'\n      responses:\n        '200':\n          description: list of resources\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Resource'\n        '400':\n          description: Invalid request parameters.\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n    BasicAuth:\n      type: http\n      scheme: basic\n  schemas:\n    Resource:\n      type: object\n      properties:\n        id:\n          type: integer\n  parameters:\n    FilterById:\n      name: filterById\n      in: query\n      schema:\n        type: integer\n    FilterByName:\n      name: filterByName\n      in: query\n      schema:\n        type: string\n    FilterByIds:\n      name: filterByIds\n      in: query\n      schema:\n        type: array\n        items:\n          type: integer\n    ResourceFilter:\n      name: filter\n      in: query\n      schema:\n        type: object\n        properties:\n          prop1:\n            type: string\n    SubResourceFilter:\n      name: filter\n      in: query\n      schema:\n        type: object\n        properties:\n          prop1:\n            type: integer\n",
+			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/-/blob/test/suite/functional/Generator/Request/getResources.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DoclerLabs/api-client-generator/blob/bad1bf08613ea2ecaf4c30c502a40cd6da51bc1c/test/suite/functional/Generator/Request/getResources.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

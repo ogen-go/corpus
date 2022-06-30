@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/minvws/nl-covid19-coronacheck-app-coordination"
+		},
+		"file": {
+			"name": "ctp.yaml",
+			"size": 0,
+			"path": "architecture/api/bff/ctp.yaml",
+			"byteSize": 1856,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://ctp-api.dev.ccappdev.nl'\n  - url: 'https://ctp-api.test.coronacheck.nl'\n  - url: 'https://ctp-api.acc.coronacheck.nl'\n  - url: 'https://ctp-api.coronacheck.nl'\ninfo:\n  description: CTP API\n  version: 0.0.1\n  title: CTP API\npaths:\n  /v1/staticproof/paper:\n    post:\n      summary: 'Convert Test Result into a QR Code'\n      description: 'Convert Test Result into a QR code.'\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/StaticProofPaperRequest\"\n      responses:\n        200:\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/StaticProofPaperResponse\"\ncomponents:\n  schemas:\n    StaticProofPaperRequest:\n      type: object\n      properties:\n        payload:\n          description: Payload is the string representation of 'Returning a test Result' part of https://github.com/minvws/nl-covid19-coronatester-app-coordination/blob/main/docs/providing-test-results.md\n          type: string\n          format: byte\n          nullable: false\n        signature:\n          description: CMS/PKCS#7 signature over payload bytes\n          type: string\n          format: byte\n          nullable: false\n    StaticProofPaperResponse:\n      type: object\n      properties:\n        status:\n          type: string\n          nullable: false\n          description: \"Text representation of the status\"\n          example: \"ok\"\n        error:\n          type: integer\n          example: 0\n          description: \"Error code\"\n        qr:\n          properties:\n            data:\n              type: string\n              nullable: false\n              description: \"Raw QR code text\"\n              example: \"274 /:KGE .+R5TV0Z.90BD AO/9F$NS...\"\n",
+			"canonicalURL": "/github.com/minvws/nl-covid19-coronacheck-app-coordination@32b238fef43bda53b229a74ba3cfbd918d82e0a7/-/blob/architecture/api/bff/ctp.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/minvws/nl-covid19-coronacheck-app-coordination/blob/32b238fef43bda53b229a74ba3cfbd918d82e0a7/architecture/api/bff/ctp.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

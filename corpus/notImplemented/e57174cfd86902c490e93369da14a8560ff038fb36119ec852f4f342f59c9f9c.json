@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/imfht/flaskapps"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "connexion-master/examples/openapi3/apikey/openapi.yaml",
+			"byteSize": 497,
+			"content": "openapi: 3.0.0\ninfo:\n  title: API Key Example\n  version: '1.0'\npaths:\n  /secret:\n    get:\n      summary: Return secret string\n      operationId: app.get_secret\n      responses:\n        '200':\n          description: secret response\n          content:\n            '*/*':\n              schema:\n                type: string\n      security:\n        - api_key: []\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: X-Auth\n      in: header\n      x-apikeyInfoFunc: app.apikey_auth\n",
+			"canonicalURL": "/github.com/imfht/flaskapps@d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/-/blob/connexion-master/examples/openapi3/apikey/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/imfht/flaskapps/blob/d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/connexion-master/examples/openapi3/apikey/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/secret\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

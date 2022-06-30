@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/exude-api.herokuapp.com/1.0.0/openapi.yaml",
+			"byteSize": 2931,
+			"content": "openapi: 3.0.0\nservers:\n  - description: Use Heruko deployment for testing/development\n    url: https://exude-api.herokuapp.com\n  - description: Use docker container and deploy on the production environment or locally developmenet\n    url: http://localhost:8080\ninfo:\n  description: Exude API is an Open Source project, It is used for the primary ways for filtering the stopping, stemming words from the text data. This API is in a very basic level of development need to work on for later changes.\n  termsOfService: http://uttesh.com/apis/terms/\n  title: Exude API Service\n  version: 1.0.0\n  x-apisguru-categories:\n    - text\n  x-origin:\n    - format: openapi\n      url: http://uttesh.com/exude-api/exude-service-open-api.json\n      version: \"3.0\"\n  x-providerName: exude-api.herokuapp.com\npaths:\n  \"/exude/{type}/data\":\n    post:\n      operationId: filterStoppings\n      parameters:\n        - description: provide the type of filtering required stopping/swear\n          examples:\n            type:\n              summary: provide the type of filtering required stopping/swear\n              value: stopping\n          in: path\n          name: type\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/ExudeBean\"\n        description: Filter the stopping words from the provided input data or links\n        required: true\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ExudeResponseBean\"\n          description: Exude response\n      summary: Filter the stopping words from the provided input data or links\n      tags:\n        - exude\n  \"/exude/{type}/file\":\n    post:\n      operationId: filterFileDataStoppings\n      parameters:\n        - description: provide the type of filtering required stopping/swear\n          in: path\n          name: type\n          required: true\n          schema:\n            type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                file:\n                  format: binary\n                  type: string\n              type: object\n        description: Filter the stopping words from the provided input file\n        required: true\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ExudeResponseBean\"\n          description: model response\n      summary: Filter the stopping words from the provided input file\n      tags:\n        - exude\ncomponents:\n  schemas:\n    ExudeBean:\n      properties:\n        data:\n          type: string\n        links:\n          items:\n            type: string\n          type: array\n    ExudeResponseBean:\n      properties:\n        data:\n          type: string\n",
+			"canonicalURL": "/github.com/APIs-guru/openapi-directory@47bf2b618e492e31bc62743e9f72c47cb8460229/-/blob/APIs/exude-api.herokuapp.com/1.0.0/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/APIs-guru/openapi-directory/blob/47bf2b618e492e31bc62743e9f72c47cb8460229/APIs/exude-api.herokuapp.com/1.0.0/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

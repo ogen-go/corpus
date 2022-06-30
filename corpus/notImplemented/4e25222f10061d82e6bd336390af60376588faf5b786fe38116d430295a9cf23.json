@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/fornwall/advent-of-code"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "crates/wasm/site/api/openapi.json",
+			"byteSize": 3640,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"tags\": [\n    {\n      \"name\": \"advent-of-code\",\n      \"description\": \"Solve Advent of Code problems\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Advent of Code API\",\n    \"description\": \"An API to solve [Advent of Code](https://adventofcode.com/) problems. See also [the Wasm solver](/).\",\n    \"contact\": {\n      \"name\": \"GitHub repository\",\n      \"url\": \"https://github.com/fornwall/advent-of-code\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://advent.fly.dev\",\n      \"description\": \"Fly deployment\"\n    },\n    {\n      \"url\": \"https://aoc.fornwall.workers.dev\",\n      \"description\": \"Cloudflare Worker\"\n    },\n    {\n      \"url\": \"https://mystifying-blackwell-9e705f.netlify.app\",\n      \"description\": \"Netlify Function\"\n    }\n  ],\n  \"paths\": {\n    \"/solve/{year}/{day}/{part}\": {\n      \"post\": {\n        \"summary\": \"Solve a problem\",\n        \"operationId\": \"solve\",\n        \"tags\": [\"advent-of-code\"],\n        \"description\": \"Solve a specific Advent of Code problem for the input given in the posted request body.\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"year\",\n            \"required\": true,\n            \"description\": \"Year of the problem to solve\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 2015,\n              \"maximum\": 2020,\n              \"enum\": [2021, 2020, 2019, 2018, 2017, 2016, 2015],\n              \"example\": 2020\n            }\n          },\n          {\n            \"in\": \"path\",\n            \"name\": \"day\",\n            \"required\": true,\n            \"description\": \"Day of the problem to solve\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1,\n              \"maximum\": 25,\n              \"enum\": [\n                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,\n                19, 20, 21, 22, 23, 24, 25\n              ],\n              \"example\": 1\n            }\n          },\n          {\n            \"in\": \"path\",\n            \"name\": \"part\",\n            \"required\": true,\n            \"description\": \"Part of the problem to solve\",\n            \"schema\": {\n              \"type\": \"integer\",\n              \"minimum\": 1,\n              \"maximum\": 2,\n              \"enum\": [1, 2],\n              \"example\": 1\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"description\": \"Problem input text. Can be found at https://adventofcode.com/${YEAR}/day/${DAY}/input\",\n          \"required\": true,\n          \"content\": {\n            \"text/plain\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"example\": \"1721\\n979\\n366\\n299\\n675\\n1456\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Problem solved successfully - the answer is returned as the response body text.\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"description\": \"The answer for the specified problem.\",\n                  \"example\": \"2\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Input was bad - the error message is returned as the response body text.\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"description\": \"Description of the problem in the input\",\n                  \"example\": \"Line 1: Invalid digit found in string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/fornwall/advent-of-code@8b37cff9376bd131d82be2cdf7e8573a7cc3665e/-/blob/crates/wasm/site/api/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/fornwall/advent-of-code/blob/8b37cff9376bd131d82be2cdf7e8573a7cc3665e/crates/wasm/site/api/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/solve/{year}/{day}/{part}\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

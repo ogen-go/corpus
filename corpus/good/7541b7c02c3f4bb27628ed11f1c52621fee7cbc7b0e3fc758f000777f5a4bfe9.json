@@ -1,0 +1,17 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/api-spec-converter"
+		},
+		"file": {
+			"name": "param_schema_ref.yml",
+			"size": 0,
+			"path": "test/input/openapi_3/param_schema_ref.yml",
+			"byteSize": 833,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 0.0.1\n  title: testsickle\npaths:\n  /user/account/{accountLevel}:\n    post:\n      parameters:\n        - in: path\n          name: accountLevel\n          required: true\n          schema:\n            $ref: \"#/components/schemas/accountLevel\"\n      responses:\n        200:\n          $ref: \"#/components/responses/defaultResponse\"\n# complex objects have schema definitions\ncomponents:\n  responses:\n    defaultResponse:\n      description: Success\n      content:\n        application/json: \n          schema:\n            $ref: '#/components/schemas/DefaultResponseObject'\n  schemas:\n    accountLevel:\n      type: string\n      enum:\n        - one\n        - two\n        - three\n        - four\n    DefaultResponseObject:\n      required:\n        - message\n      properties:\n        message:\n          type: string\n",
+			"canonicalURL": "/npm/api-spec-converter@c15292a823805817d82c5dee4b6a4c923a76d57a/-/blob/test/input/openapi_3/param_schema_ref.yml",
+			"externalURLs": []
+		}
+	}
+}

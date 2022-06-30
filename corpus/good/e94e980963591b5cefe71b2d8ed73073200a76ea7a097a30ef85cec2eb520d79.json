@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/buwebdev/web-420"
+		},
+		"file": {
+			"name": "fruits.yaml",
+			"size": 0,
+			"path": "docs/fruits.yaml",
+			"byteSize": 1506,
+			"content": "# Describing the Fruit API\nopenapi: \"3.0.0\"\ninfo:\n  title: Fruit API\n  version: 1.0.0\npaths:\n  /fruits:\n    get:\n      tags:\n        - Fruits\n      description: API for returning a list of fruit documents\n      summary: returns a list of fruit documents\n      responses:\n        '200':\n          description: Fruit documents\n        '500':\n          description: Server Exception\n        '501':\n          description: MongoDB Exception\n    post:\n      tags:\n        - Fruits\n      description: API for adding a new fruit document\n      summary: Creates a fruit document\n      requestBody:\n        description: Fruit information\n        content:\n          application/json:\n            schema:\n              required:\n                - type\n              properties:\n                type:\n                  type: string\n      responses:\n        '200':\n          description: Fruit added\n        '500':\n          description: Server Exception\n        '501':\n          description: MongoDB Exception\n  /fruits/{id}:\n    get:\n      tags:\n        - Fruits\n      description: API for returning a fruit document\n      summary: returns a fruit document\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: Fruit document Id\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Fruit document in JSON format\n        '500':\n          description: Server Exception\n        '501':\n          description: MongoDB Exception\n",
+			"canonicalURL": "/github.com/buwebdev/web-420@91310809912cce139995ea7b5017e13633a5e22a/-/blob/docs/fruits.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/buwebdev/web-420/blob/91310809912cce139995ea7b5017e13633a5e22a/docs/fruits.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

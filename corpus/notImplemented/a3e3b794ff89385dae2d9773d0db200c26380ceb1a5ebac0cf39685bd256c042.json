@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app66.json",
+			"size": 0,
+			"path": "springdoc-openapi-webflux-core/src/test/resources/results/app66.json",
+			"byteSize": 1973,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Tweet API\",\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://springdoc.org\"\n    },\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/stream/tweets\": {\n      \"get\": {\n        \"tags\": [\n          \"tweet-controller\"\n        ],\n        \"description\": \"Tweets are Sent to the client as Server Sent Events\",\n        \"operationId\": \"streamAllTweets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"stream All Tweets\",\n            \"content\": {\n              \"text/event-stream\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/TweetDTO\"\n                  }\n                }\n              }\n            }\n          },\n          \"404\": {\n            \"description\": \"Not Found\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"409\": {\n            \"description\": \"Conflict\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"TweetDTO\": {\n        \"required\": [\n          \"createdAt\",\n          \"text\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"text\": {\n            \"maxLength\": 140,\n            \"minLength\": 0,\n            \"type\": \"string\"\n          },\n          \"createdAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        }\n      }\n    },\n    \"securitySchemes\": {\n      \"basicScheme\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-webflux-core/src/test/resources/results/app66.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-webflux-core/src/test/resources/results/app66.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/stream/tweets\": get: responses: 200: contents: unsupported content types: [text/event-stream]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

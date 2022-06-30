@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wso2/samples-apim"
+		},
+		"file": {
+			"name": "railco-employee-openapi.yaml",
+			"size": 0,
+			"path": "apim-tutorial/resources/railco-employee-openapi.yaml",
+			"byteSize": 2580,
+			"content": "openapi: 3.0.1\ninfo:\n  title: RailCoEmployeeAPI\n  description: | \n    This is the API definition for the Employee database operations supported by the Micro Integrator backend\n  version: 1.0.0\nservers:\n  - url: http://backend-service:8290/services/EmployeeDataService/\npaths:\n  /employees:\n    get:\n      responses:\n        '200':\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/EmployeeList'\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EmployeeEntry'\n        required: true\n      responses:\n        '200':\n          description: ok\n  /employees/{id}:\n    get:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      responses:\n        '200':\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/EmployeeEntry'\n    put:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      responses:\n        '200':\n          description: ok\n    delete:\n      parameters:\n        - name: id\n          in: path\n          required: true\n          style: simple\n          explode: false\n          schema:\n            type: string\n            format: string\n      responses:\n        '200':\n          description: ok\ncomponents:\n  schemas:\n    EmployeeEntry:\n      title: Employee information\n      type: object\n      properties:\n        employee:\n          type: object\n          properties:\n            id:\n              type: number\n              description: Id of the Employee entry.\n            firstname:\n              type: string\n              description: First name of the employee.\n            lastname:\n              type: string\n              description: Last name of the employee.\n            email:\n              type: string\n              description: Email of the employee.\n            title:\n              type: string\n              description: Title of the employee.\n    EmployeeList:\n        title: List of employee information \n        type: object\n        properties:\n          employees:\n            type: array\n            items:\n              $ref: '#/components/schemas/EmployeeEntry'\n            ",
+			"canonicalURL": "/github.com/wso2/samples-apim@8bf648c7b912f95bbe5fc13ce0bd7935d44ec2e7/-/blob/apim-tutorial/resources/railco-employee-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wso2/samples-apim/blob/8bf648c7b912f95bbe5fc13ce0bd7935d44ec2e7/apim-tutorial/resources/railco-employee-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

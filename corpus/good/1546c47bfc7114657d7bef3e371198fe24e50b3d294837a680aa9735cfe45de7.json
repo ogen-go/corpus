@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_8052_recursive_model.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_8052_recursive_model.yaml",
+			"byteSize": 2169,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 01.01.00\n  title: APITest API documentation.\n  termsOfService: http://api.apitest.com/party/tos/\nservers:\n  - url: https://api.apitest.com/v1\npaths:\n  /geojson:\n    post:\n      summary: Add a GeoJson Object\n      operationId: post-geojson\n      responses:\n        '201':\n          description: Created\n          content:\n            application/json:\n              schema:\n                type: string\n                description: GeoJson ID\n        '400':\n          description: Bad Request\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/GeoJsonGeometry'\n      parameters: []\ncomponents:\n  schemas:\n    GeoJsonGeometry:\n      title: GeoJsonGeometry\n      description: GeoJSON geometry\n      type: object\n      properties:\n        type:\n          type: string\n          enum:\n            - GeometryCollection\n        geometries:\n          type: array\n          items:\n            $ref: '#/components/schemas/GeoJsonGeometry'\n      externalDocs:\n        url: http://geojson.org/geojson-spec.html#geometry-objects\n    Point:\n      title: Point\n      type: object\n      description: GeoJSON geometry\n      externalDocs:\n        url: http://geojson.org/geojson-spec.html#id2\n      properties:\n        coordinates:\n          title: Point3D\n          type: array\n          description: Point in 3D space\n          externalDocs:\n            url: http://geojson.org/geojson-spec.html#id2\n          minItems: 2\n          maxItems: 3\n          items:\n            type: number\n            format: double\n        type:\n          type: string\n          default: Point\n      required:\n        - type\n    GeometryCollection:\n      title: GeometryCollection\n      type: object\n      description: GeoJSon geometry collection\n      required:\n        - type\n        - geometries\n      externalDocs:\n        url: http://geojson.org/geojson-spec.html#geometrycollection\n      properties:\n        type:\n          type: string\n          default: GeometryCollection\n        geometries:\n          type: array\n          items:\n            $ref: '#/components/schemas/GeoJsonGeometry'\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_8052_recursive_model.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/issue_8052_recursive_model.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

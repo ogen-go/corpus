@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kearch/kearch"
+		},
+		"file": {
+			"name": "sp_classifier_spec.yaml",
+			"size": 0,
+			"path": "packages/sp-classifier/sp_classifier_spec.yaml",
+			"byteSize": 1055,
+			"content": "openapi: 3.0.0\ninfo:\n  title: kearch specialist search engine classifier API\n  description: kearch specialist search engine classifier API\n  version: 0.1.0\nservers:\n  - url: '{scheme}://{sp_host}:{port}/sp/classifier'\n    variables:\n      scheme:\n        enum:\n          - http\n          - https\n        default: http\n      sp_host:\n        default: sp-classifier.kearch.svc.cluster.local\n      port:\n        default: '10080'\npaths:\n  /classify:\n    post:\n      requestBody:\n        description: A connection request.\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                body_words:\n                  type: array\n                  items:\n                    type: string\n                title_words:\n                  type: array\n                  items:\n                    type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                properties:\n                  result:\n                    type: integer",
+			"canonicalURL": "/github.com/kearch/kearch@5ea5191b467cab34994551ec553b4f24cd8b6eaf/-/blob/packages/sp-classifier/sp_classifier_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kearch/kearch/blob/5ea5191b467cab34994551ec553b4f24cd8b6eaf/packages/sp-classifier/sp_classifier_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

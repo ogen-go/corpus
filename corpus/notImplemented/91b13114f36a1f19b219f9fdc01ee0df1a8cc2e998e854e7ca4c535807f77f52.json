@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oneleif/olWebsite"
+		},
+		"file": {
+			"name": "swagger.yml",
+			"size": 0,
+			"path": "Public/docs/swagger.yml",
+			"byteSize": 4101,
+			"content": "openapi: 3.0.0\ninfo:\n  title: oneleif API\n  version: 0.2.0\n  description: |\n    API documentation of oneleif backend.\n\n    You can find this project [here on GitHub](https://github.com/oneleif/olWebsite).\n\n    Find out more on our [Discord](https://discordapp.com/invite/tv9UdJK) server.\n  x-logo:\n    url: ../logo.png\n    altText: oneleif logo\n\nservers:\n  - url: http://ec2-18-222-87-195.us-east-2.compute.amazonaws.com/api\n    description: Main (production) server\n\npaths:\n  # user controller\n  /register:\n    post:\n      tags:\n        - user\n      summary: Register user\n      description: Registers new user in the system\n      operationId: register\n      requestBody:\n        $ref: \"#/components/requestBodies/RegisterUserRequestBody\"\n      responses:\n        \"201\":\n          description: User successfully registered\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n        \"400\":\n          $ref: \"#/components/responses/400BadRequest\"\n  /login:\n    post:\n      tags:\n        - user\n      summary: Login user\n      description: Authenticates the user and creates new session\n      operationId: login\n      requestBody:\n        $ref: \"#/components/requestBodies/LoginRequestBody\"\n      responses:\n        \"200\":\n          description: User successfully authenticated\n        \"401\":\n          $ref: \"#/components/responses/401Unauthorized\"\n        default:\n          $ref: \"#/components/responses/GenericError\"\n  /logout:\n    get:\n      security:\n        - cookieAuth: []\n      tags:\n        - user\n      summary: Logout user\n      description: Ends user session\n      operationId: logout\n      responses:\n        \"204\":\n          description: User successfully logged out\n        default:\n          $ref: \"#/components/responses/GenericError\"\n\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: number\n          readOnly: true\n        email:\n          type: string\n        password:\n          type: string\n          writeOnly: true\n        social:\n          $ref: \"#/components/schemas/SocialInformation\"\n          readOnly: true\n\n    SocialInformation:\n      title: Social Information\n      type: object\n      properties:\n        id:\n          type: number\n          readOnly: true\n        username:\n          type: string\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        discordUsername:\n          type: string\n        githubUsername:\n          type: string\n        tags:\n          type: array\n          items:\n            type: string\n        profileImage:\n          type: string\n        biography:\n          type: string\n        links:\n          type: array\n          items:\n            type: string\n        location:\n          type: string\n\n    Error:\n      type: object\n      properties:\n        error:\n          type: boolean\n        reason:\n          type: string\n\n  requestBodies:\n    RegisterUserRequestBody:\n      required: true\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              email:\n                type: string\n              password:\n                type: string\n\n    LoginRequestBody:\n      required: true\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              email:\n                type: string\n              password:\n                type: string\n\n  responses:\n    400BadRequest:\n      description: Validation error\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\n    401Unauthorized:\n      description: Unauthorized\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\n    GenericError:\n      description: Something went wrong\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\n\n  securitySchemes:\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: session\n",
+			"canonicalURL": "/github.com/oneleif/olWebsite@be7ab49a7b995082db8d1ea223887da3388cd54d/-/blob/Public/docs/swagger.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oneleif/olWebsite/blob/be7ab49a7b995082db8d1ea223887da3388cd54d/Public/docs/swagger.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/logout\": get: security: security \"cookieAuth\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cam-inc/viron"
+		},
+		"file": {
+			"name": "authconfigs.yaml",
+			"size": 0,
+			"path": "packages/nodejs/src/openapi/authconfigs.yaml",
+			"byteSize": 1976,
+			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/lib authconfigs'\n  description: authconfigs api specifications\n\ntags:\n  - name: vironAuthConfig\n\npaths:\n  /viron/authconfigs:\n    get:\n      operationId: listVironAuthconfigs\n      tags:\n        - vironAuthConfig\n      summary: list auth configs\n      description: 認証設定を取得する\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/VironAuthConfigList'\n\ncomponents:\n  schemas:\n    VironAuthConfigList:\n      type: object\n      properties:\n        list:\n          $ref: '#/components/schemas/VironAuthConfigItems'\n        oas:\n          $ref: '#/components/schemas/VironAuthConfigOas'\n      required:\n        - list\n\n    VironAuthConfigItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/VironAuthConfig'\n\n    VironAuthConfig:\n      type: object\n      properties:\n        provider:\n          description: 認証プロバイダ\n          type: string\n          example: google\n        type:\n          description: 認証方式\n          type: string\n          enum:\n            - email\n            - oauth\n            - signout\n          example: oauth\n        operationId:\n          description: クライアントがリクエストするAPIのOperationID\n          type: string\n          example: signinEmail\n        defaultParametersValue:\n          description: クライアントからリクエストする際のパラメータ\n          type: object\n          properties: {}\n        defaultRequestBodyValue:\n          description: クライアントからリクエストする際のリクエストボディ\n          type: object\n          properties: {}\n      required:\n        - provider\n        - type\n        - operationId\n\n    VironAuthConfigOas:\n      description: listで返されるopeation群が定義されたoas\n      type: object\n      properties: {}\n",
+			"canonicalURL": "/github.com/cam-inc/viron@22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/-/blob/packages/nodejs/src/openapi/authconfigs.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cam-inc/viron/blob/22d445d7adfcaf1eb2fd8d4c9a006bc9fb9838dd/packages/nodejs/src/openapi/authconfigs.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

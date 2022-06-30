@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-diff"
+		},
+		"file": {
+			"name": "parameters_overloading.yaml",
+			"size": 0,
+			"path": "core/src/test/resources/parameters_overloading.yaml",
+			"byteSize": 1061,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Projects API\n  version: 1.0.0\npaths:\n  /projects/{id}:\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleResponse'\n  /projects/{uid}:\n    get:\n      parameters:\n        - in: path\n          name: uid\n          required: true\n          schema:\n            type: string\n            format: uuid\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleResponse'\ncomponents:\n  schemas:\n    SampleResponse:\n      type: object\n      properties:\n        id:\n          type: integer\n        uid:\n          type: string\n        name:\n          type: string\n      required:\n        - id\n        - uid\n        - name",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@93556416a4b6e7f6f3b1bad38e43c2d19d24aa45/-/blob/core/src/test/resources/parameters_overloading.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-diff/blob/93556416a4b6e7f6f3b1bad38e43c2d19d24aa45/core/src/test/resources/parameters_overloading.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

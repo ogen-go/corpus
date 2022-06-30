@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "auth-api-none.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/auth-api-none.json",
+			"byteSize": 3035,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Authenticated\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/resource\": {\n            \"get\": {\n                \"security\": [\n                    {\n                        \"opHttpBasic\": []\n                    },\n                    {\n                        \"opKeyCookie\": []\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            },\n\n            \"delete\": {\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"securitySchemes\": {\n            \"apiKeyCookie\": {\n                \"type\": \"apiKey\",\n                \"in\": \"cookie\",\n                \"name\": \"apiKey\"\n            },\n            \"apiKeyHeader\": {\n                \"type\": \"apiKey\",\n                \"in\": \"header\",\n                \"name\": \"X-Api-Key\"\n            },\n            \"apiKeyQuery\": {\n                \"type\": \"apiKey\",\n                \"in\": \"query\",\n                \"name\": \"apiKey\"\n            },\n            \"apiHttpBasic\": {\n                \"type\": \"http\",\n                \"scheme\": \"basic\"\n            },\n            \"apiHttpBearer\": {\n                \"type\": \"http\",\n                \"scheme\": \"bearer\"\n            },\n            \"opKeyCookie\": {\n                \"type\": \"apiKey\",\n                \"in\": \"cookie\",\n                \"name\": \"opKey\"\n            },\n            \"opKeyHeader\": {\n                \"type\": \"apiKey\",\n                \"in\": \"header\",\n                \"name\": \"X-Op-Key\"\n            },\n            \"opKeyQuery\": {\n                \"type\": \"apiKey\",\n                \"in\": \"query\",\n                \"name\": \"opKey\"\n            },\n            \"opHttpBasic\": {\n                \"type\": \"http\",\n                \"scheme\": \"basic\"\n            },\n            \"opHttpBearer\": {\n                \"type\": \"http\",\n                \"scheme\": \"bearer\"\n            }\n        },\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/Cornutum/tcases@400766111167d08860469c6ee17fc353c586d63f/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/auth-api-none.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Cornutum/tcases/blob/400766111167d08860469c6ee17fc353c586d63f/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/auth-api-none.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/resource\": get: security: security \"opKeyCookie\" (index 1): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

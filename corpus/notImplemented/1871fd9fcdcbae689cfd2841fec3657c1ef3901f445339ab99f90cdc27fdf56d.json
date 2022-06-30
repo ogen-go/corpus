@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/opticdev/optic"
+		},
+		"file": {
+			"name": "polymorphic-schemas.json",
+			"size": 0,
+			"path": "projects/openapi-utilities/inputs/openapi3/polymorphic-schemas.json",
+			"byteSize": 2530,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Simple\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"contact\": { \"email\": \"apiteam@swagger.io\" },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    },\n    \"version\": \"0.0.0\"\n  },\n  \"paths\": {\n    \"/example\": {\n      \"get\": {\n        \"operationId\": \"getExamples\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"succesful\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"stringOrNumberOrObject\": {\n                      \"oneOf\": [\n                        { \"type\": \"string\" },\n                        { \"type\": \"number\" },\n                        {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"orderId\": { \"type\": \"string\" }\n                          }\n                        }\n                      ]\n                    },\n                    \"composedObject\": {\n                      \"allOf\": [\n                        {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"orderId\": { \"type\": \"string\" }\n                          }\n                        },\n                        {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"fulfillmentId\": { \"type\": \"string\" }\n                          }\n                        }\n                      ]\n                    },\n                    \"expandableObject\": {\n                      \"anyOf\": [\n                        {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"orderId\": { \"type\": \"string\" }\n                          }\n                        },\n                        {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"order\": {\n                              \"type\": \"object\",\n                              \"properties\": {\n                                \"id\": { \"type\": \"string\" }\n                              }\n                            }\n                          }\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/opticdev/optic@2b0b58095283c6f5d2c3b974d50441e3df453736/-/blob/projects/openapi-utilities/inputs/openapi3/polymorphic-schemas.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/opticdev/optic/blob/2b0b58095283c6f5d2c3b974d50441e3df453736/projects/openapi-utilities/inputs/openapi3/polymorphic-schemas.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/example\": get: responses: 200: contents: application/json: generate schema: field expandableObject: anyOf: complex anyOf not implemented",
+	"NotImplemented": [
+		"complex anyOf"
+	]
+}

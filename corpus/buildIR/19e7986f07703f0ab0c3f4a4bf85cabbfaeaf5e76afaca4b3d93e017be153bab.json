@@ -9,7 +9,14 @@
 			"size": 0,
 			"path": "swagger-brake/src/test/resources/swaggers/v3/request/requestbody/allof/propertydeleted/petstore.yaml",
 			"byteSize": 876,
-			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pet:\n    patch:\n      summary: Create a pet\n      operationId: createPets\n      requestBody:\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: '#/components/schemas/Pet'\n                - $ref: '#/components/schemas/Dog'\n      tags:\n        - pets\n      responses:\n        '201':\n          description: Null response\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      properties:\n        id:\n          type: string\n        bark:\n          type: integer\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd]\n    Pet:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string"
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pet:\n    patch:\n      summary: Create a pet\n      operationId: createPets\n      requestBody:\n        content:\n          application/json:\n            schema:\n              allOf:\n                - $ref: '#/components/schemas/Pet'\n                - $ref: '#/components/schemas/Dog'\n      tags:\n        - pets\n      responses:\n        '201':\n          description: Null response\ncomponents:\n  schemas:\n    Dog:\n      type: object\n      properties:\n        id:\n          type: string\n        bark:\n          type: integer\n        breed:\n          type: string\n          enum: [Dingo, Husky, Retriever, Shepherd]\n    Pet:\n      type: object\n      properties:\n        id:\n          type: integer\n        name:\n          type: string",
+			"canonicalURL": "/github.com/redskap/swagger-brake@b4511975f02e1a42973382c4b9dd10f7f3a9d829/-/blob/swagger-brake/src/test/resources/swaggers/v3/request/requestbody/allof/propertydeleted/petstore.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/redskap/swagger-brake/blob/b4511975f02e1a42973382c4b9dd10f7f3a9d829/swagger-brake/src/test/resources/swaggers/v3/request/requestbody/allof/propertydeleted/petstore.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "buildIR: make ir: path \"/pet\": patch: requestBody: contents: application/json: generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: string and integer"

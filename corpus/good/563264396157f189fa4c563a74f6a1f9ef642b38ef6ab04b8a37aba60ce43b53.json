@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SearchReadsRequest.yaml",
+			"size": 0,
+			"path": "Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadsRequest.yaml",
+			"byteSize": 2133,
+			"content": "components:\n  schemas:\n    SearchReadsRequest:\n      description: |-\n        ******************  /reads  *********************\n        This request maps to the body of `POST /reads/search` as JSON.\n\n        If a reference is specified, all queried `ReadGroup`s must be aligned\n        to `ReferenceSet`s containing that same `Reference`. If no reference is\n        specified, all `ReadGroup`s must be aligned to the same `ReferenceSet`.\n      properties:\n        end:\n          description: |-\n            The end position (0-based, exclusive) of this query.\n            If a reference is specified, this defaults to the\n            reference's length.\n          format: int64\n          type: string\n        page_size:\n          description: |-\n            Specifies the maximum number of results to return in a single page.\n            If unspecified, a system default will be used.\n          format: int32\n          type: integer\n        page_token:\n          description: |-\n            The continuation token, which is used to page through large result sets.\n            To get the next page of results, set this parameter to the value of\n            `next_page_token` from the previous response.\n          type: string\n        read_group_ids:\n          description: The ReadGroups to search. At least one id must be specified.\n          items:\n            type: string\n          type: array\n        reference_id:\n          description: |-\n            The reference to query. Leaving blank returns results from all\n            references, including unmapped reads - this could be very large.\n          type: string\n        start:\n          description: |-\n            The start position (0-based) of this query.\n            If a reference is specified, this defaults to 0.\n            Genomic positions are non-negative integers less than reference length.\n            Requests spanning the join of circular genomes are represented as\n            two requests one on each side of the join (position 0).\n          format: int64\n          type: string\n      type: object\ninfo:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@5252d84f331840650fffbca6cb8cece10a65cea6/-/blob/Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadsRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/5252d84f331840650fffbca6cb8cece10a65cea6/Specification/GA4GH_BrAPI/Reads/Schemas/SearchReadsRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

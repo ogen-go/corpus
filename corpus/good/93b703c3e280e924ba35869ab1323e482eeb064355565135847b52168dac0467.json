@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse/kapua"
+		},
+		"file": {
+			"name": "devicePackage.yaml",
+			"size": 0,
+			"path": "rest-api/resources/src/main/resources/openapi/devicePackage/devicePackage.yaml",
+			"byteSize": 3096,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Device Management - Package\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths: {}\n\ncomponents:\n  schemas:\n    devicePackage:\n      type: object\n      description: A Device Package\n      properties:\n        name:\n          type: string\n        version:\n          type: string\n        bundleInfos:\n          type: object\n          properties:\n            bundleInfo:\n              type: array\n              items:\n                $ref: '#/components/schemas/bundleInfo'\n        installDate:\n          type: string\n          format: 'date-time'\n      example:\n        name: org.eclipse.kura.demo.heater\n        version: 1.0.300\n        bundleInfos:\n          bundleInfo:\n            - name: org.eclipse.kura.demo.heater\n              version: 1.0.300\n    devicePackages:\n      type: object\n      properties:\n        devicePackage:\n          type: array\n          items:\n            $ref: '#/components/schemas/devicePackage'\n      example:\n        type: devicePackages\n        devicePackage:\n          - name: org.eclipse.kura.demo.heater\n            version: 1.0.300\n            bundleInfos:\n              bundleInfo:\n                - name: org.eclipse.kura.demo.heater\n                  version: 1.0.300\n    devicePackageDownloadRequest:\n      type: object\n      properties:\n        uri:\n          type: string\n        name:\n          type: string\n        version:\n          type: string\n        username:\n          type: string\n        password:\n          type: string\n        fileHash:\n          type: string\n        fileType:\n          type: string\n        install:\n          type: boolean\n        reboot:\n          type: boolean\n        rebootDelay:\n          type: integer\n        advancedOptions:\n          type: object\n          properties:\n            restart:\n              type: boolean\n            blockSize:\n              type: integer\n            blockDelay:\n              type: integer\n            blockTimeout:\n              type: integer\n            notifyBlockSize:\n              type: integer\n            installVerifyURI:\n              type: string\n      example:\n        uri: https://download.eclipse.org/kura/releases/4.1.0/org.eclipse.kura.demo.heater_1.0.500.dp\n        name: heater\n        version: 1.0.500\n        username: username\n        password: password\n        fileHash: MD5:0d04154164145cd6b2167fdd457ed28f\n        fileType: DEPLOYMENT_PACKAGE\n        install: true\n        reboot: false\n        rebootDelay: 0\n        advancedOptions:\n          restart: false\n          blockSize: 128\n          blockDelay: 0\n          blockTimeout: 5000\n          notifyBlockSize: 256\n          installVerifyURI: https://download.eclipse.org/kura/releases/4.1.0/org.eclipse.kura.demo.heater_1.0.500.verifier.sh\n    bundleInfo:\n      type: object\n      properties:\n        name:\n          type: string\n        version:\n          type: string\n",
+			"canonicalURL": "/github.com/eclipse/kapua@ae2c7d65edca9201f36a4514d19f65d4ef97bb40/-/blob/rest-api/resources/src/main/resources/openapi/devicePackage/devicePackage.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse/kapua/blob/ae2c7d65edca9201f36a4514d19f65d4ef97bb40/rest-api/resources/src/main/resources/openapi/devicePackage/devicePackage.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

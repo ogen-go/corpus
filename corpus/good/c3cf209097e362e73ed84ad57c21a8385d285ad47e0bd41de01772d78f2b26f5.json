@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pactflow/example-bi-directional-provider-dredd"
+		},
+		"file": {
+			"name": "products.yml",
+			"size": 0,
+			"path": "oas/products.yml",
+			"byteSize": 3395,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Product API\n  description: Pactflow Product API demo\n  version: 1.0.0\npaths:\n  /products:\n    post:\n      summary: Create a product\n      description: Creates a new product\n      operationId: createProduct\n      requestBody:\n        description: Create a new Product\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Product'\n            examples:\n              application/json:\n                value:\n                  id: \"1234\"\n                  type: \"food\"\n                  price: 42\n      responses:\n        \"200\":\n          description: successful operation\n          content:\n            \"application/json; charset=utf-8\":\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/Product'\n              examples:\n                application/json:\n                  value:\n                    id: \"1234\"\n                    type: \"food\"\n                    price: 42\n    get:\n      summary: List all products\n      description: Returns all products\n      operationId: getAllProducts\n      responses:\n        \"200\":\n          description: successful operation\n          content:\n            \"application/json; charset=utf-8\":\n              schema:\n                type: \"array\"\n                items:\n                  $ref: '#/components/schemas/Product'\n              examples:\n                application/json:\n                  value:\n                    - id: \"1234\"\n                      type: \"food\"\n                      price: 42\n                      # name: \"pizza\"\n                      # version: \"1.0.0\"\n                      # see https://github.com/apiaryio/dredd/issues/1430 for why\n        \"400\":\n          description: Invalid ID supplied\n          content: {}\n  /product/{id}:\n    get:\n      summary: Find product by ID\n      description: Returns a single product\n      operationId: getProductByID\n      parameters:\n      - name: id\n        in: path\n        description: ID of product to get\n        schema:\n          type: string\n        required: true\n        example: 10\n      responses:\n        \"200\":\n          description: successful operation\n          content:\n            \"application/json; charset=utf-8\":\n              schema:\n                $ref: '#/components/schemas/Product'\n              examples:\n                application/json:\n                  value:\n                    id: \"1234\"\n                    type: \"food\"\n                    price: 42\n                    # name: \"pizza\"\n                    # version: \"1.0.0\"\n                    # see https://github.com/apiaryio/dredd/issues/1430 for why\n        \"400\":\n          description: Invalid ID supplied\n          content: {}\n        \"404\":\n          description: Product not found\n          content: {}\ncomponents:\n  schemas:\n    Product:\n      type: object\n      required:\n        - id\n        - name\n        - price\n      additionalProperties: false # WARNING! without this, a consumer can add stuff that doesn't exist! See also https://bitbucket.org/atlassian/swagger-mock-validator/issues/84/test-incorrectly-passes-when-mock-expects\n      properties:\n        id:\n          type: string\n        type:\n          type: string\n        name:\n          type: string\n        version:\n          type: string\n        price:\n          type: number\n",
+			"canonicalURL": "/github.com/pactflow/example-bi-directional-provider-dredd@a0649f93341d201680b0804c5c6e52064a29698c/-/blob/oas/products.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pactflow/example-bi-directional-provider-dredd/blob/a0649f93341d201680b0804c5c6e52064a29698c/oas/products.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

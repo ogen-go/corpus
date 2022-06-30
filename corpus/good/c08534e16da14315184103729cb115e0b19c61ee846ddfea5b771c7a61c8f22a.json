@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/goadesign/examples"
+		},
+		"file": {
+			"name": "openapi3.yaml",
+			"size": 0,
+			"path": "basic/gen/http/openapi3.yaml",
+			"byteSize": 2082,
+			"content": "openapi: 3.0.3\ninfo:\n    title: Calculator Service\n    description: HTTP service for multiplying numbers, a goa teaser\n    version: \"1.0\"\nservers:\n    - url: http://localhost:8000/calc\n      description: calc hosts the Calculator Service.\n    - url: https://{version}.goa.design/calc\n      description: calc hosts the Calculator Service.\n      variables:\n        version:\n            default: v1\npaths:\n    /multiply/{a}/{b}:\n        get:\n            tags:\n                - calc\n            summary: multiply calc\n            operationId: calc#multiply\n            parameters:\n                - name: a\n                  in: path\n                  description: Left operand\n                  required: true\n                  schema:\n                    type: integer\n                    description: Left operand\n                    example: 5401762099778430809\n                    format: int64\n                  example: 1918630006328122782\n                - name: b\n                  in: path\n                  description: Right operand\n                  required: true\n                  schema:\n                    type: integer\n                    description: Right operand\n                    example: 4288748512599820841\n                    format: int64\n                  example: 4212629202012168060\n            responses:\n                \"200\":\n                    description: OK response.\n                    content:\n                        application/json:\n                            schema:\n                                type: integer\n                                example: 8803302123552712831\n                                format: int64\n                            example: 1698882017578366363\n    /openapi.json:\n        get:\n            tags:\n                - calc\n            summary: Download openapi3.json\n            operationId: calc#/openapi.json\n            responses:\n                \"200\":\n                    description: File downloaded\ncomponents: {}\ntags:\n    - name: calc\n      description: The calc service performs operations on numbers\n",
+			"canonicalURL": "/github.com/goadesign/examples@ce03fa792214d1ce76a2557ea1336a0d558714df/-/blob/basic/gen/http/openapi3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/goadesign/examples/blob/ce03fa792214d1ce76a2557ea1336a0d558714df/basic/gen/http/openapi3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

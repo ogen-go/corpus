@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openl-tablets/openl-tablets"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "STUDIO/org.openl.rules.project.validation.openapi/test-resources/functionality/wrong_annotataion_template_class/openapi.json",
+			"byteSize": 2724,
+			"content": "{\r\n  \"openapi\": \"3.0.1\",\r\n  \"info\": {\r\n    \"title\": \"single-project\",\r\n    \"version\": \"1.0.0\"\r\n  },\r\n  \"servers\": [\r\n    {\r\n      \"url\": \"/single-project\",\r\n      \"variables\": {}\r\n    }\r\n  ],\r\n  \"paths\": {\r\n    \"/Ping\": {\r\n      \"get\": {\r\n        \"summary\": \"String Ping()\",\r\n        \"description\": \"Rules method: java.lang.String Ping()\",\r\n        \"operationId\": \"Ping\",\r\n        \"responses\": {\r\n          \"422\": {\r\n            \"description\": \"Custom user errors in rules or validation errors in input parameters\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"$ref\": \"#/components/schemas/JAXRSErrorResponse\"\r\n                },\r\n                \"example\": {\r\n                  \"message\": \"Some message\",\r\n                  \"type\": \"USER_ERROR\"\r\n                }\r\n              }\r\n            }\r\n          },\r\n          \"400\": {\r\n            \"description\": \"Invalid request format e.g. missing required field, unparseable JSON value, etc.\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"$ref\": \"#/components/schemas/JAXRSErrorResponse\"\r\n                },\r\n                \"example\": {\r\n                  \"message\": \"Cannot parse 'bar' to JSON\",\r\n                  \"type\": \"BAD_REQUEST\"\r\n                }\r\n              }\r\n            }\r\n          },\r\n          \"500\": {\r\n            \"description\": \"Internal server errors e.g. compilation or parsing errors, runtime exceptions, etc.\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"$ref\": \"#/components/schemas/JAXRSErrorResponse\"\r\n                },\r\n                \"example\": {\r\n                  \"message\": \"Failed to load lazy method.\",\r\n                  \"type\": \"COMPILATION\"\r\n                }\r\n              }\r\n            }\r\n          },\r\n          \"200\": {\r\n            \"description\": \"Successful operation\",\r\n            \"content\": {\r\n              \"text/plain\": {\r\n                \"schema\": {\r\n                  \"type\": \"string\"\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"components\": {\r\n    \"schemas\": {\r\n      \"JAXRSErrorResponse\": {\r\n        \"type\": \"object\",\r\n        \"properties\": {\r\n          \"message\": {\r\n            \"type\": \"string\"\r\n          },\r\n          \"type\": {\r\n            \"type\": \"string\",\r\n            \"enum\": [\"USER_ERROR\", \"RULES_RUNTIME\", \"COMPILATION\", \"SYSTEM\", \"BAD_REQUEST\", \"VALIDATION\"]\r\n          },\r\n          \"details\": {\r\n            \"type\": \"array\",\r\n            \"items\": {\r\n              \"type\": \"string\"\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@ced3429fe2ac07371d46d337c2e43477c07cc096/-/blob/STUDIO/org.openl.rules.project.validation.openapi/test-resources/functionality/wrong_annotataion_template_class/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/ced3429fe2ac07371d46d337c2e43477c07cc096/STUDIO/org.openl.rules.project.validation.openapi/test-resources/functionality/wrong_annotataion_template_class/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/Ping\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

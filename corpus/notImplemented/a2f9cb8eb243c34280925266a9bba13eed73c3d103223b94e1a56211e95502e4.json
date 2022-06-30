@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oxidecomputer/omicron"
+		},
+		"file": {
+			"name": "oximeter.json",
+			"size": 0,
+			"path": "openapi/oximeter.json",
+			"byteSize": 2678,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Oxide Oximeter API\",\n    \"description\": \"API for interacting with oximeter\",\n    \"contact\": {\n      \"url\": \"https://oxide.computer\",\n      \"email\": \"api@oxide.computer\"\n    },\n    \"version\": \"0.0.1\"\n  },\n  \"paths\": {\n    \"/producers\": {\n      \"post\": {\n        \"operationId\": \"producers_post\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/ProducerEndpoint\"\n              }\n            }\n          },\n          \"required\": true\n        },\n        \"responses\": {\n          \"204\": {\n            \"description\": \"resource updated\"\n          },\n          \"4XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          },\n          \"5XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"Error\": {\n        \"description\": \"Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Duration\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"nanos\": {\n            \"type\": \"integer\",\n            \"format\": \"uint32\",\n            \"minimum\": 0\n          },\n          \"secs\": {\n            \"type\": \"integer\",\n            \"format\": \"uint64\",\n            \"minimum\": 0\n          }\n        },\n        \"required\": [\n          \"nanos\",\n          \"secs\"\n        ]\n      },\n      \"Error\": {\n        \"description\": \"Error information from a response.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"error_code\": {\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          },\n          \"request_id\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"message\",\n          \"request_id\"\n        ]\n      },\n      \"ProducerEndpoint\": {\n        \"description\": \"Information announced by a metric server, used so that clients can contact it and collect available metric data from it.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"address\": {\n            \"type\": \"string\"\n          },\n          \"base_route\": {\n            \"type\": \"string\"\n          },\n          \"id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          },\n          \"interval\": {\n            \"$ref\": \"#/components/schemas/Duration\"\n          }\n        },\n        \"required\": [\n          \"address\",\n          \"base_route\",\n          \"id\",\n          \"interval\"\n        ]\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/oxidecomputer/omicron@deab7db73f991301846c42f6099028205b5eecd9/-/blob/openapi/oximeter.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oxidecomputer/omicron/blob/deab7db73f991301846c42f6099028205b5eecd9/openapi/oximeter.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/producers\": post: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern"
+	]
+}

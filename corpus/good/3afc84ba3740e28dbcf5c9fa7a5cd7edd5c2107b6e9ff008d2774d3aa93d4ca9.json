@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/APIs-guru/openapi-directory"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "APIs/interzoid.com/globalpageload/1.0.0/openapi.yaml",
+			"byteSize": 3020,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.interzoid.com\ninfo:\n  contact:\n    email: support@interzoid.com\n    name: API Support\n    url: https://www.interzoid.com\n    x-twitter: interzoid\n  description: This API provides a timed, browser-simulated page load function (or a measured API call) from the specified geography using a server from that geography.\n  license:\n    name: Interzoid license\n    url: https://www.interzoid.com/license\n  termsOfService: https://www.interzoid.com/terms\n  title: Interzoid Global Page Load Performance API\n  version: 1.0.0\n  x-apisguru-categories:\n    - developer_tools\n  x-logo:\n    url: https://twitter.com/interzoid/profile_image?size=original\n  x-origin:\n    - format: openapi\n      url: https://oas.interzoid.com/api/globalpageload.json\n      version: \"3.0\"\n  x-providerName: interzoid.com\n  x-serviceName: globalpageload\nexternalDocs:\n  description: API home page and documentation\n  url: https://www.interzoid.com/services/globalpageload\npaths:\n  /globalpageload:\n    get:\n      description: |\n        Gets page load performance from a specified geography\n      operationId: globalpageload\n      parameters:\n        - description: Your Interzoid license API key. Register at www.interzoid.com/register\n          in: query\n          name: license\n          required: true\n          schema:\n            type: string\n        - description: Geographic location to perform the measurement from (Paris, Hong Kong, Seoul, Mumbai, Sao Paolo, London, etc. see API home page for full list)\n          in: query\n          name: origin\n          required: true\n          schema:\n            type: string\n        - description: specific URL to perform load test time\n          in: query\n          name: url\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                properties:\n                  Code:\n                    type: string\n                  Contents:\n                    type: string\n                  Credits:\n                    type: string\n                  Origin:\n                    type: string\n                  PageResponseStatus:\n                    type: string\n                  Seconds:\n                    type: string\n                type: object\n          description: Page load performance measurement response\n        \"400\":\n          description: bad request - insufficient parameters\n        \"402\":\n          description: credits exhausted\n        \"403\":\n          description: invalid license API key\n        \"404\":\n          description: origin or url note found\n        \"405\":\n          description: method not allowed\n        \"500\":\n          description: internal server error\n      summary: Gets page load (or an API call) performance from a specified global geography such as Paris, Tokyo, Virginia, Mumbai, Frankfurt, London, Seoul, California, Sao Paolo, and many more.\n      tags:\n        - Page Load Performance Time\n",
+			"canonicalURL": "/github.com/APIs-guru/openapi-directory@47bf2b618e492e31bc62743e9f72c47cb8460229/-/blob/APIs/interzoid.com/globalpageload/1.0.0/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/APIs-guru/openapi-directory/blob/47bf2b618e492e31bc62743e9f72c47cb8460229/APIs/interzoid.com/globalpageload/1.0.0/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

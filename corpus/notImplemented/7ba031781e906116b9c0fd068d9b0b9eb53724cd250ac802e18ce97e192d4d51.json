@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "multipart.yaml",
+			"size": 0,
+			"path": "vertx-web-api-contract/src/test/resources/swaggers/multipart.yaml",
+			"byteSize": 1501,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Test API\n  description: 'Test API'\n  version: 1.0.0\n\npaths:\n  /testMultipartMultiple:\n    post:\n      operationId: testMultipartMultiple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              required:\n                - type\n                - file1\n              properties:\n                file1:\n                  type: string\n                  description: File1\n                  format: binary\n                type:\n                  type: string\n                  description: Model type\n            encoding:\n              file1:\n                contentType: application/octet-stream, text/plain\n        required: true\n      responses:\n        200:\n          description: successful operation\n  /testMultipartWildcard:\n    post:\n      operationId: testMultipartWildcard\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              required:\n                - type\n                - file1\n              properties:\n                file1:\n                  type: string\n                  description: File1\n                  format: binary\n                type:\n                  type: string\n                  description: Model type\n            encoding:\n              file1:\n                contentType: text/*\n        required: true\n      responses:\n        200:\n          description: successful operation\ncomponents: {}\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-api-contract/src/test/resources/swaggers/multipart.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-api-contract/src/test/resources/swaggers/multipart.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/testMultipartWildcard\": post: requestBody: contents: multipart/form-data: form parameter \"file1\": parameter content-type not implemented",
+	"NotImplemented": [
+		"parameter content-type"
+	]
+}

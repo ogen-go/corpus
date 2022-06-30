@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/urykhy/stuff"
+		},
+		"file": {
+			"name": "common.v1.yaml",
+			"size": 0,
+			"path": "swagger/api/common.v1.yaml",
+			"byteSize": 1700,
+			"content": "openapi: 3.0.0\ninfo:\n  title: common\n  version: '1.0'\n  contact:\n    name: urykhy\n    email: urykhy@gmail.com\n  x-prometheus: true\nservers:\n  - url: 'http://localhost:3000/api/v1'\npaths:\n  /enum:\n    get:\n      summary: Enumerate server methods\n      tags:\n        - Common\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n      operationId: get-enum\n  /status:\n    get:\n      summary: Get server status\n      tags:\n        - Common\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  status:\n                    type: string\n                  load:\n                    type: number\n              examples:\n                example-1:\n                  value: {}\n      operationId: get-status\n  /profile:\n    get:\n      summary: Create flamegraph profile\n      tags:\n        - Common\n      responses:\n        '200':\n          description: OK\n          content:\n            image/svg+xml:\n              schema:\n                type: string\n      operationId: get-profile\n      parameters:\n        - schema:\n            type: string\n            default: cpu\n            enum:\n              - cpu\n              - 'off'\n          in: query\n          name: type\n        - schema:\n            type: integer\n            minimum: 1\n            maximum: 20\n            default: 5\n          in: query\n          name: duration\n      description: ''\ncomponents:\n  schemas: {}\ntags:\n  - name: Common\n",
+			"canonicalURL": "/github.com/urykhy/stuff@fb601f9505fb493c26b835663cd1e96d15c1aa5c/-/blob/swagger/api/common.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/urykhy/stuff/blob/fb601f9505fb493c26b835663cd1e96d15c1aa5c/swagger/api/common.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/profile\": get: responses: 200: contents: unsupported content types: [image/svg+xml]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

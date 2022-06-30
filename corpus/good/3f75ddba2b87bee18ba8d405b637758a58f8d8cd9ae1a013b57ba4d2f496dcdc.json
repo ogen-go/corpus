@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bcgov/startup-sample-project-aws-containers"
+		},
+		"file": {
+			"name": "openapi-spec.yaml",
+			"size": 0,
+			"path": "server/openapi-spec.yaml",
+			"byteSize": 1069,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Startup Sample Project\n  description: Spec for BC Gov Startup Sample Project Screening API\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\nservers:\n- url: https://startup-sample-project.gov.bc.ca/api/v1\npaths:\n  /form:\n    post:\n      summary: Submit a new form greeting selection\n      requestBody:\n        description: Form data\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Form'\n        required: true\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Response'\n        400:\n          description: Invalid input\ncomponents:\n  schemas:\n    Form:\n      required:\n      - greeting\n      type: object\n      properties:\n        greeting:\n          type: string\n    Response:\n      type: object\n      properties:\n        id:\n          type: string\n        isolationPlanStatus:\n          type: boolean\n",
+			"canonicalURL": "/github.com/bcgov/startup-sample-project-aws-containers@795af9b11ec5def227a0dde413bb45eebb1df929/-/blob/server/openapi-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bcgov/startup-sample-project-aws-containers/blob/795af9b11ec5def227a0dde413bb45eebb1df929/server/openapi-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

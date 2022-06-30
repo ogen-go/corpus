@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jmichaelbrown8/elevator-pitch"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "docs/swagger.yaml",
+			"byteSize": 2017,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Elevator Pitch API\n  description: API Description for the Elevator Pitch API endpoints\n  version: 1.0.0\nservers:\n  - url: http://localhost:3001\n    description: Local development server. Clone, install, and serve the code to test.\n  - url: https://elevator-pitch-space.herokuapp.com\n    description: Live deployed production server running on heroku, connected to JawsDB.\npaths:\n  /api/user/login:\n    post:\n      tags:\n        - User\n      description: POST to log in to the site\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                email:\n                  type: string\n                  example: johndoe@gmail.com\n                password:\n                  type: string\n                  example: password\n      responses:\n        '200':\n          description: OK\n        '400':\n          description: Error\n  /api/space/{space_id}/idea/{idea_id}/abandon:\n    put:\n      tags:\n        - Ideas\n      description: PUT to abandon an owned idea\n      parameters:\n        - name: space_id\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: idea_id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 1\n      responses:\n        '200':\n          description: OK\n        '400':\n          description: Error\n  /api/space/{space_id}/idea/{idea_id}/claim:\n    put:\n      tags:\n        - Ideas\n      description: PUT to claim an abandoned idea\n      parameters:\n        - name: space_id\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: idea_id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 1\n      responses:\n        '200':\n          description: OK\n        '400':\n          description: Error\n",
+			"canonicalURL": "/github.com/jmichaelbrown8/elevator-pitch@4f995cf86c52cbd94f4d364c55892b5671b9df77/-/blob/docs/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jmichaelbrown8/elevator-pitch/blob/4f995cf86c52cbd94f4d364c55892b5671b9df77/docs/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

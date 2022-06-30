@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/localstack/localstack"
+		},
+		"file": {
+			"name": "api_definition.yaml",
+			"size": 0,
+			"path": "tests/integration/files/api_definition.yaml",
+			"byteSize": 2260,
+			"content": "openapi: 3.0.1\ninfo:\n  title: wait-for-seconds\n  description: Test API for asynchronous Lambda invocation\n  version: 2022-04-12T15:36:55Z\npaths:\n  \"/echo/{data}\":\n    x-amazon-apigateway-any-method:\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: mock\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: \u003e\n                {\"data\": $input.params(\\\"data\\\"), \"response\": \"mocked\"}\n        requestTemplates:\n          application/json: '{\"data\", $input.params(\\\"data\\\"), \"statusCode\": 200}'\n        passthroughBehavior: when_no_templates\n  \"/wait/{seconds}\":\n    x-amazon-apigateway-any-method:\n      parameters:\n        - name: seconds\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: aws\n        httpMethod: POST\n        uri: ${lambda_invocation_arn}\n        responses:\n          default:\n            statusCode: \"200\"\n        requestParameters:\n          integration.request.header.X-Amz-Invocation-Type: \"'Event'\"\n        requestTemplates:\n          application/json: \u003e\n            #set($allParams = $input.params())\n\n            {\n              \"params\" : {\n                #foreach($type in $allParams.keySet())\n                  #set($params = $allParams.get($type))\n                  \"$type\" : {\n                    #foreach($paramName in $params.keySet())\n                      \"$paramName\" : \"$util.escapeJavaScript($params.get($paramName))\"\n                      #if($foreach.hasNext),#end\n                    #end\n                  }\n                  #if($foreach.hasNext),#end\n                #end\n              }\n            }\n        passthroughBehavior: when_no_templates\n        contentHandling: CONVERT_TO_TEXT\ncomponents:\n  schemas:\n    Empty:\n      title: Empty Schema\n      type: object\n",
+			"canonicalURL": "/github.com/localstack/localstack@f3acd6a123a4f368a38b59dc4829e259cbc8615f/-/blob/tests/integration/files/api_definition.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/localstack/localstack/blob/f3acd6a123a4f368a38b59dc4829e259cbc8615f/tests/integration/files/api_definition.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

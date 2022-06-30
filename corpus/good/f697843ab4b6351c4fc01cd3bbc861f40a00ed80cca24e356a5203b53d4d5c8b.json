@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apigee/devrel"
+		},
+		"file": {
+			"name": "product-recommendations-v1-oas.yaml",
+			"size": 0,
+			"path": "references/product-recommendations/product-recommendations-v1-oas.yaml",
+			"byteSize": 2667,
+			"content": "# Copyright 2021 Google LLC\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n\n---\nopenapi: 3.0.3\ninfo:\n  version: 0.0.1\n  title: Product Recommendations\n  description: |\n    Provides product recommendations based on user activities on ecommerce site.\nservers:\n  - url: 'https://xapi-test.kurtkanaskie.net/v1/recommendations'\nsecurity:\n  - ApiKeyAuth: []\npaths:\n  /products:\n    get:\n      summary: List `Product` objects.\n      description: Retrieve a List of products recommended for an user\n      operationId: getPersons\n      parameters:\n        - $ref: '#/components/parameters/x-userid'\n        - $ref: '#/components/parameters/cache-control'\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  products:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/ListOfProducts'\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:        # arbitrary name for the security scheme\n      type: apiKey\n      in: header\n      name: X-APIKey\n  parameters:\n    x-userid:\n      in: header\n      name: x-userid\n      description: The user identifier (defaults to 000170187170673177-6)\n      required: false\n      schema:\n        type: string\n    cache-control:\n      in: header\n      name: cache-control\n      description: Control caching (default to allow-cache).\n      required: false\n      schema:\n        type: string\n        enum: [allow-cache, no-cache]\n  schemas:\n    ListOfProducts:\n      title: List of Products\n      type: array\n      items:\n        $ref: '#/components/schemas/Product'\n    Product:\n      title: Product\n      type: object\n      properties:\n        productid:\n          description: Product ID\n          type: string\n        name:\n          description: Product Name\n          type: string\n        description:\n          description: Product Description\n          type: string\n        price:\n          description: Product Price\n          type: number\n        image:\n          description: Product image URL\n          type: string\n",
+			"canonicalURL": "/github.com/apigee/devrel@56ca684536c74e76602c830fbc49f6d08a7e188c/-/blob/references/product-recommendations/product-recommendations-v1-oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apigee/devrel/blob/56ca684536c74e76602c830fbc49f6d08a7e188c/references/product-recommendations/product-recommendations-v1-oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

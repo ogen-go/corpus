@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "uploadexample.yaml",
+			"size": 0,
+			"path": "tests/generator-upload/uploadexample.yaml",
+			"byteSize": 696,
+			"content": "openapi: 3.0.0\ninfo:\n  title: cpu\n  description: A simple service to get cpuinfo as an example of using OpenAPI 3.0\n  license:\n    name: Apache 2.0\n  version: 0.0.1\n\nservers:\n  - url: http://localhost:8080/cloudmesh\n\npaths:\n  /upload:\n    post:\n      summary: upload a file\n      operationId: uploadexample.upload\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/generator-upload/uploadexample.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/generator-upload/uploadexample.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/upload\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

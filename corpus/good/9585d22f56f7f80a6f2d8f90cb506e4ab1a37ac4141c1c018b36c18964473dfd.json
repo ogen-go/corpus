@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/loopDelicious/sparkles"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "postman/schemas/schema.yaml",
+			"byteSize": 1545,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1'\n  title: dummy\nservers:\n  - url: 'https://petstore.swagger.io/v1'\npaths:\n  /user:\n    get:\n      summary: 'Sample endpoint: Returns details about a particular user'\n      operationId: listUser\n      tags:\n        - user\n      parameters:\n        - name: id\n          in: query\n          description: ID of the user\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: 'Sample response: Details about a user by ID'\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/User'\n        default:\n          description: Unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    User:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\nsecurity:\n  - BasicAuth: []",
+			"canonicalURL": "/github.com/loopDelicious/sparkles@2983953161ae68c58b9e8f1f65612581d877e123/-/blob/postman/schemas/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/loopDelicious/sparkles/blob/2983953161ae68c58b9e8f1f65612581d877e123/postman/schemas/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

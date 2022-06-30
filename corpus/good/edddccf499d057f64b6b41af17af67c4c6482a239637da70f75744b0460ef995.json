@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typeable/compaREST"
+		},
+		"file": {
+			"name": "b.yaml",
+			"size": 0,
+			"path": "test/golden/common/random-example/b.yaml",
+			"byteSize": 1131,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.1.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: https://example.com\npaths:\n  /pets:\n    get:\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema:\n            type: integer\n            maximum: 30\n      responses:\n        \"200\":\n          description: \"\"\n          headers:\n            x-next:\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Pet\"\n      responses:\n        \"201\":\n          description: \"\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n        name:\n          type: string\n          minLength: 1\n          maxLength: 15\n        weight:\n          type: integer\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n",
+			"canonicalURL": "/github.com/typeable/compaREST@f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/-/blob/test/golden/common/random-example/b.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/typeable/compaREST/blob/f0f24add42fc9cd76fc8dd5d9116cee3ebae4839/test/golden/common/random-example/b.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

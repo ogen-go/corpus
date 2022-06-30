@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-connectors"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/bintable/openapi.yaml",
+			"byteSize": 3594,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://api.bintable.com/v1\ninfo:\n  x-ballerina-display:\n    label: BINTable\n    iconPath: \"icon.png\"\n  contact:\n    email: hello@bintable.com\n  description: \u003e\n    This is a generated connector from [BINTable API v1](https://bintable.com/get-api) OpenAPI Specification. \n\n    BIN lookup API, the free api service from bintable.com to lookup card information using it's BIN. \n    \n    The service maintains updated database based on the comunity and other third party services to make sure all BINs in the database are accurate and up to date.\n  x-ballerina-init-description: \u003e\n    The connector initialization doesn't require setting the API credentials.\n\n    Create a [BINTable Account](https://bintable.com/get-api) and obtain the API key.\n\n    Some operations may require passing the token as a parameter.\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  title: BIN Lookup API\n  version: 1.0.0-oas3\n  x-apisguru-categories:\n    - financial\n  x-origin:\n    - format: openapi\n      url: https://bintable.com/api-files/openapi.json\n      version: \"3.0\"\n  x-providerName: bintable.com\ntags:\n  - description: Authorized users with API Key can call this service\n    name: Lookup\n  - description: Authorized users with API Key can call endpoints under this tag.\n    name: Balance\npaths:\n  /balance:\n    get:\n      description: Get Account balance and expiry\n      operationId: balanceLookup\n      parameters:\n        - description: The API key, which you can get from bintable.com website.\n          explode: true\n          in: query\n          name: api_key\n          required: true\n          schema:\n            type: string\n          style: form\n      responses:\n        \"200\":\n          content:\n            \"*/*\":\n              schema:\n                $ref: \"#/components/schemas/ResponseItem\"\n          description: Balance reponse\n        \"401\":\n          description: Your balance is exhausted,or package expired\n        \"403\":\n          description: Invalid API Key\n        \"422\":\n          description: API key is missing\n      summary: Check Balance\n      tags:\n        - Balance\n  \"/{bin}\":\n    get:\n      description: |\n        By passing in the appropriate BIN, you can lookup for\n        card meta data in bintable.com API\n      operationId: binLookup\n      parameters:\n        - description: pass the required BIN(Bank Identification Number) code\n          explode: false\n          in: path\n          name: bin\n          required: true\n          schema:\n            type: string\n          style: simple\n        - description: The API key, which you can get from bintable.com website.\n          explode: true\n          in: query\n          name: api_key\n          required: true\n          schema:\n            type: string\n          style: form\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ResponseItem\"\n          description: BIN data response\n        \"401\":\n          description: Your balance is exhausted,or package expired\n        \"403\":\n          description: Invalid API Key\n        \"422\":\n          description: API key is missing\n      summary: Lookup for bin\n      tags:\n        - Lookup\ncomponents:\n  schemas:\n    ResponseItem:\n      properties:\n        data:\n          type: object\n        message:\n          example: SUCCESS\n          type: string\n        result:\n          example: 200\n          type: integer\n      required:\n        - data\n        - message\n        - result\n      type: object\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-connectors@c3641dddbc4e41686ae3d1b9bacf1621b639a019/-/blob/openapi/bintable/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-connectors/blob/c3641dddbc4e41686ae3d1b9bacf1621b639a019/openapi/bintable/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/balance\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

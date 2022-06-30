@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "nullable_primitive_schema.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/schema/swagger/nullable_primitive_schema.yaml",
+			"byteSize": 1734,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Title\n  description: Title\n  version: 1.0.0\nservers:\n  - url: 'https'\npaths:\n  /:\n    get:\n      summary: List all songs\n      operationId: listSong\n      tags:\n        - list\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: An paged array of song\ncomponents:\n  schemas:\n    UserPlayListDetails:\n      externalDocs:\n        description: Find more info on the official Spotify Web API Reference\n        url: https://developer.spotify.com/documentation/web-api/reference/#object-pagingobject\n      properties:\n        href:\n          description: A link to the Web API endpoint returning the full result of the request\n          type: string\n        items:\n          description: The requested data.\n          items:\n            $ref: \"#/components/schemas/ListObject\"\n        limit:\n          description: The maximum number of items in the response (as set in the query or by default).\n          format: int32\n          type: integer\n        next:\n          description: URL to the next page of items. ( `null` if none)\n          type: string\n          nullable: true\n        offset:\n          description: The offset of the items returned (as set in the query or by default)\n          format: int32\n          type: integer\n        previous:\n          description: URL to the previous page of items. ( `null` if none) //anydata\n          nullable: true\n        total:\n          $ref: \"#/components/schemas/ListObject\"\n      type: object\n    ListObject:\n      type: object\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/nullable_primitive_schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/schema/swagger/nullable_primitive_schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

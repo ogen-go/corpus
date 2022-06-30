@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "apikey_with_no_query_param.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/utils/swagger/apikey_with_no_query_param.yaml",
+			"byteSize": 2159,
+			"content": "openapi: \"3.0.1\"\n\ninfo:\n  title: \"OpenWeatherMap API\"\n  description: \"Get current weather, daily forecast for 16 days, and 3-hourly forecast 5 days for your city. Helpful stats, graphics, and this day in history charts are available for your reference. Interactive maps show precipitation, clouds, pressure, wind around your location stations. Data is available in JSON, XML, or HTML format. **Note**: This sample Swagger file covers the `current` endpoint only from the OpenWeatherMap API. \u003cbr/\u003e\u003cbr/\u003e **Note**: All parameters are optional, but you must select at least one parameter. Calling the API by city ID (using the `id` parameter) will provide the most precise location results.\"\n  version: \"2.5.2\"\n  termsOfService: \"https://openweathermap.org/terms\"\n  contact:\n    name: \"OpenWeatherMap API\"\n    url: \"https://openweathermap.org/api\"\n    email: \"some_email@gmail.com\"\n  license:\n    name: \"CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)\"\n    url: \"https://openweathermap.org/price\"\n\nservers:\n  - url: \"http://api.openweathermap.org/data/2.5/\"\n\npaths:\n  /weather:\n    get:\n      tags:\n        - Current Weather Data\n      summary: \"Call current weather data for one location\"\n      description: \"Access current weather data for any location on Earth including over 200,000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations.\"\n      operationId: CurrentWeatherData\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema: {}\n        404:\n          description: Not found response\n          content:\n            text/plain:\n              schema:\n                title: Weather not found\n                type: string\n                example: Not found\nsecurity:\n  - app_id: []\n\ntags:\n  - name: Current Weather Data\n    description: \"Get current weather details\"\n\nexternalDocs:\n  description: API DocCommentsGenerator\n  url: https://openweathermap.org/api\n\ncomponents:\n  securitySchemes:\n    app_id:\n      type: apiKey\n      description: API key to authorize requests.\n      name: appid\n      in: query\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/client/utils/swagger/apikey_with_no_query_param.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/client/utils/swagger/apikey_with_no_query_param.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/weather\": get: responses: 404: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

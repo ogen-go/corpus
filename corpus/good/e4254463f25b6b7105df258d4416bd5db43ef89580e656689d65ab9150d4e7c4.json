@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Sciebo-RDS/Sciebo-RDS"
+		},
+		"file": {
+			"name": "interface_port_token_storage.yml",
+			"size": 0,
+			"path": "RDS/layer3_central_services/interface_port_token_storage.yml",
+			"byteSize": 1442,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0'\n  title: Interface for Ports used by token storage\n  description: This describes the needed specification for circle 3.\n  contact:\n    name: Peter Heiss\n    email: peter.heiss@uni-muenster.de\npaths:\n  /application_token:\n    get:\n      summary: Get application token\n      tags:\n        - token\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ApplicationToken'\n      description: |-\n        Returns everything needed for oauth 2.0 support.\n        https://www.oauth.com/oauth2-servers/server-side-apps/authorization-code/\ncomponents:\n  schemas:\n    ApplicationToken:\n      title: ApplicationToken\n      type: object\n      x-tags:\n        - token\n      description: |-\n        This model describes the object, which represents all needed informations for oauth2.\n        https://www.oauth.com/oauth2-servers/server-side-apps/authorization-code/\n      properties:\n        client_id:\n          type: string\n          description: ''\n        access_token_url:\n          type: string\n          description: ' Access token URL (POST)'\n        authorize_url:\n          type: string\n          description: ' Authorize URL (GET)'\n      required:\n        - client_id\n        - access_token_url\n        - authorize_url\nservers:\n  - url: 'http://port:3000/token-storage'\n    description: ''\n",
+			"canonicalURL": "/github.com/Sciebo-RDS/Sciebo-RDS@5b868aa82ae367fd7f33ebd419ffc7ba255cdd7e/-/blob/RDS/layer3_central_services/interface_port_token_storage.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Sciebo-RDS/Sciebo-RDS/blob/5b868aa82ae367fd7f33ebd419ffc7ba255cdd7e/RDS/layer3_central_services/interface_port_token_storage.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

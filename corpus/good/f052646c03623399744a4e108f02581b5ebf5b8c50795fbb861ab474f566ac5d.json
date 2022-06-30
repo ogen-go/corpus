@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DammyShittu/Blog-App"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger/v1/swagger.yaml",
+			"byteSize": 1008,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: API V1\n  version: v1\npaths:\n  \"/api/v1/posts/{post_id}/comments\":\n    parameters:\n    - name: post_id\n      in: path\n      description: post_id\n      required: true\n      schema:\n        type: integer\n    get:\n      summary: list comments\n      responses:\n        '200':\n          description: successful\n    post:\n      summary: Create a comment\n      tags:\n      - Comments\n      parameters: []\n      responses:\n        '201':\n          description: comment created\n        '422':\n          description: invalid request\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                text:\n                  type: string\n              required:\n              - text\n  \"/api/v1/posts\":\n    get:\n      summary: list posts\n      responses:\n        '200':\n          description: successful\nservers:\n- url: http://{defaultHost}\n  variables:\n    defaultHost:\n      default: localhost:3000\n",
+			"canonicalURL": "/github.com/DammyShittu/Blog-App@d049a5731b18e4b2ff4a2508bc1427a664547892/-/blob/swagger/v1/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DammyShittu/Blog-App/blob/d049a5731b18e4b2ff4a2508bc1427a664547892/swagger/v1/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

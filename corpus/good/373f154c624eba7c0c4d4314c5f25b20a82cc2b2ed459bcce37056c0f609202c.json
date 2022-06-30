@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/syndesisio/syndesis"
+		},
+		"file": {
+			"name": "twitter-api.yaml",
+			"size": 0,
+			"path": "app/connector/rest-swagger/src/test/resources/twitter-api.yaml",
+			"byteSize": 987,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Tweeter API - GET\n  description: some description\n  version: 0.1.9\nservers:\n  - url: https://api.twitter.com\n    description: Optional server description, e.g. Main (production) server\npaths:\n  /labs/2/users/{id}:\n    get:\n      summary: Get types.\n      parameters:\n        - name: id\n          in: path\n          description: User ID\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: A list of types.\n          content:\n            application/json:\n              schema:\n                  $ref: '#/components/schemas/User'\n        '500':\n          description: Error\ncomponents:\n  schemas:\n    User:\n      properties:\n        id:\n          type: string\n        name:\n          type: string\n        username:\n          type: string\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Authorization\nsecurity:\n- ApiKeyAuth: []",
+			"canonicalURL": "/github.com/syndesisio/syndesis@87d50bcebbfc20acb669ee70adb0223f2c5c1b4f/-/blob/app/connector/rest-swagger/src/test/resources/twitter-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/syndesisio/syndesis/blob/87d50bcebbfc20acb669ee70adb0223f2c5c1b4f/app/connector/rest-swagger/src/test/resources/twitter-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hpi-schul-cloud/schulcloud-server"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/services/versionService/docs/openapi.yaml",
+			"byteSize": 1824,
+			"content": "security:\n  - {}\ninfo:\n  title: HPI-Schul-Cloud version Service API\n  description:\n    This is the API specification for the HPI-Schul-Cloud version service.\n    \n  contact:\n    name: support\n    email: info@dbildungscloud.de\n  license:\n    name: GPL-3.0\n    url: 'https://github.com/hpi-schul-cloud/schulcloud-server/blob/master/LICENSE'\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    migration:\n      type: object\n      properties:\n        _id:\n          type: string\n          pattern: '^[0-9a-f]{24}$'\n        state:\n          type: string\n          enum: [up, down]\n        name:\n          type: string\n        createdAt:\n          type: string\n          format: date-time\n        __v:\n          type: integer\n    version:\n      type: object\n      properties:\n        sha:\n          type: string\n          pattern: '^[0-9a-f]{40}$'\n        version:\n          type: string\n        branch:\n          type: string\n        message:\n          type: string\n        birthtime:\n          type: string\n        migrations:\n          type: array\n          items:\n            $ref: '#/components/schemas/migration'\n        age:\n          type: integer\n        startedAt:\n          type: string\n          format: date-time\n\npaths:\n  /version:\n    get:\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/version'\n        '405':\n          description: not allowed - returned if the route is disabled on this server. Commonly the case for dev environments.\n        '500':\n          description: general error\n      description: Retrieves the version of the server.\n      summary: ''\n      tags:\n        - version\n      security: []\n  \nopenapi: 3.0.2\ntags:\n  - name: version\n    description: A version service.\n",
+			"canonicalURL": "/github.com/hpi-schul-cloud/schulcloud-server@4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/-/blob/src/services/versionService/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hpi-schul-cloud/schulcloud-server/blob/4e31cf4d98cb961a0a1143c57607e2e6fc67d71c/src/services/versionService/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

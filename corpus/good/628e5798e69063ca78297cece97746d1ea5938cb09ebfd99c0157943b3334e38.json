@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/opensearch-project/opensearch-api-specification"
+		},
+		"file": {
+			"name": "OpenSearchModel.yaml",
+			"size": 0,
+			"path": "test/models/indices/delete/OpenSearchModel.yaml",
+			"byteSize": 1458,
+			"content": "openapi: 3.0.2\ninfo:\n  title: OpenSearch\n  version: '2021-11-23'\npaths:\n  /{index}:\n    delete:\n      description: Removes a document from the index.\n      operationId: DeleteIndex\n      parameters:\n        - name: index\n          in: path\n          schema:\n            type: string\n            pattern: ^[^+_\\-\\.][^\\\\, /*?\"\u003c\u003e| ,#\\nA-Z]+$\n          required: true\n          example: books\n        - name: expand_wildcards\n          in: query\n          schema:\n            $ref: '#/components/schemas/ExpandWildcards'\n        - name: ignore_unavailable\n          in: query\n          schema:\n            type: boolean\n            nullable: true\n        - name: master_timeout\n          in: query\n          schema:\n            type: string\n            pattern: ^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$\n        - name: timeout\n          in: query\n          schema:\n            type: string\n            pattern: ^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$\n      responses:\n        '200':\n          description: DeleteIndex 200 response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/DeleteIndexResponseContent'\ncomponents:\n  schemas:\n    DeleteIndexResponseContent:\n      type: object\n      properties:\n        acknowledged:\n          type: boolean\n          nullable: true\n    ExpandWildcards:\n      type: string\n      enum:\n        - all\n        - open\n        - closed\n        - hidden\n        - none\n",
+			"canonicalURL": "/github.com/opensearch-project/opensearch-api-specification@564c4a457afda8f623bb4adc5f729baedcb79701/-/blob/test/models/indices/delete/OpenSearchModel.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/opensearch-project/opensearch-api-specification/blob/564c4a457afda8f623bb4adc5f729baedcb79701/test/models/indices/delete/OpenSearchModel.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

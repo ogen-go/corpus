@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-email"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "email-sender/src/main/resources/config/openapi.yaml",
+			"byteSize": 2341,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Email Sender\n  license:\n    name: MIT\nservers:\n  - url: 'http://email.networknt.com'\npaths:\n  '/counter':\n    get:\n      summary: Number of email sent since the server started\n      operationId: getCounter\n      tags:\n        - counter\n      security:\n        - email_auth:\n            - 'email.r'\n      responses:\n        '200':\n          description: A long number that is the number of emails sent\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Counter'\n              example:\n                count: 100\n  '/sender':\n    get:\n      summary: Number of email sent per senders\n      operationId: getSender\n      tags:\n        - sender\n      security:\n        - email_auth:\n            - 'email.r'\n      responses:\n        '200':\n          description: A map of sender address and the number of emails sent for the address\n          content:\n            application/json:\n              example:\n                noreply@networknt.com: 1000\n                noreply@lightapi.net: 93\n                noreply@taiji.io: 19832\n\n  '/email':\n    get:\n      summary: The last email sent out from this server\n      operationId: getEmail\n      tags:\n        - email\n      security:\n        - email_auth:\n            - 'email.r'\n      responses:\n        '200':\n          description: Last email sent in json format\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Email'\n              example:\n                from: noreply@networknt.com\n                to: stevehu@gmail.com\n                body: Hello World\ncomponents:\n  securitySchemes:\n    email_auth:\n      type: oauth2\n      description: This API uses OAuth 2 with the client credential grant flow.\n      flows:\n        clientCredentials:\n          tokenUrl: 'https://localhost:6882/token'\n          scopes:\n            'email.r': read service\n  schemas:\n    Counter:\n      type: object\n      required:\n        - count\n      properties:\n        count:\n          type: integer\n          format: int64\n    Email:\n      type: object\n      required:\n        - from\n        - to\n        - body\n      properties:\n        from:\n          type: string\n        to:\n          type: string\n        body: \n          type: string\n",
+			"canonicalURL": "/github.com/networknt/light-email@7f8b88d0ea2b7cafe866427f9bb45708edcb6066/-/blob/email-sender/src/main/resources/config/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-email/blob/7f8b88d0ea2b7cafe866427f9bb45708edcb6066/email-sender/src/main/resources/config/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/counter\": get: security: security \"email_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"empty schema",
+		"oauth2 security"
+	]
+}

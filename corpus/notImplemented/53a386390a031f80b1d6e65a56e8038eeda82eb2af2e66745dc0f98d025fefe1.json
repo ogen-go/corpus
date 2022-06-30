@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/worldcoin/signup-sequencer"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 1077,
+			"content": "openapi: 3.0.0\ninfo:\n  version: '1.0.0'\n  title: 'semaphore-sequencer'\n  license:\n    name: MIT\nservers:\n  - url: http://localhost:8080\npaths:\n  /metrics:\n    servers:\n      - url: http://localhost:9998\n    get:\n      summary: 'Returns Prometheus application metrics'\n      responses:\n        '200':\n          description: 'Sample response: Details about a user by ID'\n          content:\n            'application/text':\n                example: \"\"\n        default:\n          description: Unexpected error\n  /inclusionProof:\n    post:\n      summary: 'Get Merkle inclusion proof'\n      requestBody:\n        description: user to add to the system\n        content:\n          'application/json':\n            example:\n              groupId: 1\n              identityCommitment: '0x29e6e65081384cf703af5ef3e9708deeb3d7b3c42b6da709d3335b19d224bdce'\n      responses:\n        '200':\n          description: 'Sample response: Details about a user by ID'\n          content:\n            'application/json':\n                example: \"\"\n        default:\n          description: Unexpected error\n",
+			"canonicalURL": "/github.com/worldcoin/signup-sequencer@4ca6793842936b85497e5d38e9899e96593f68f7/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/worldcoin/signup-sequencer/blob/4ca6793842936b85497e5d38e9899e96593f68f7/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/inclusionProof\": post: requestBody: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema",
+		"unsupported content types"
+	]
+}

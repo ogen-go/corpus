@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zevolution/netflix-hexagonal-architecture"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/main/resources/openapi.yaml",
+			"byteSize": 1690,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Softwares API\n  description: API to get software info in cloud git providers\n  termsOfService: https://zevolution.com.br/terms/\n  contact:\n    name: API Support\n    url: https://www.zevolution.com.br/support\n    email: support@zevolution.com.br\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n  version: \"1.0\"\nservers:\n  - url: https://apps-dev.zevolution.com.br/sample\n    description: Development server\n  - url: https://apps-hml.zevolution.com.br/sample\n    description: Staging server\n  - url: https://apps-prd.zevolution.com.br/sample\n    description: Production server\npaths:\n  '/authors/name/{authorName}/softwares':\n    parameters:\n      - schema:\n          type: string\n        name: authorName\n        in: path\n        required: true\n    get:\n      summary: Softwares By Author\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/SoftwareByAuthorResult'\n      operationId: getSoftwaresByAuthor\n      description: Get softwares by author and optional filter values\n      parameters:\n        - schema:\n            type: string\n          in: query\n          name: softwareName\n          description: Name to search software\ncomponents:\n  schemas:\n    SoftwareByAuthorResult:\n      title: SoftwareByAuthorResult\n      type: object\n      properties:\n        name:\n          type: string\n        description:\n          type: string\n        score:\n          type: integer\n        author:\n          type: string\n  responses: {}",
+			"canonicalURL": "/github.com/zevolution/netflix-hexagonal-architecture@c518ea6fe12fdcbd4495a5ad6468e4dde5ce154e/-/blob/src/main/resources/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zevolution/netflix-hexagonal-architecture/blob/c518ea6fe12fdcbd4495a5ad6468e4dde5ce154e/src/main/resources/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

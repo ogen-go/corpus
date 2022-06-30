@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtron-labs/devtron"
+		},
+		"file": {
+			"name": "applisting.yaml",
+			"size": 0,
+			"path": "specs/applisting.yaml",
+			"byteSize": 2331,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Devtron Labs\npaths:\n  /orchestrator/app/autocomplete:\n    get:\n      description: list of namespaces group by clusters\n      parameters:\n        - in: query\n          name: appName\n          example: \"abc\"\n          description: app name, wildcard query\n          required: false\n          allowEmptyValue: true\n          schema:\n            type: string\n        - in: query\n          name: teamId\n          example: \"1\"\n          description: project id\n          required: false\n          allowEmptyValue: false\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: list response\n          content:\n            application/json:\n              schema:\n                properties:\n                  code:\n                    type: integer\n                    description: status code\n                  status:\n                    type: string\n                    description: status\n                  result:\n                    type: array\n                    description: app list\n                    items:\n                      $ref: '#/components/schemas/App'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\n# components mentioned below\ncomponents:\n  schemas:\n    App:\n      type: object\n      properties:\n        id:\n          type: integer\n          description: app id\n        name:\n          type: string\n          description: app name\n    ErrorResponse:\n      required:\n        - code\n        - status\n      properties:\n        code:\n          type: integer\n          format: int32\n          description: Error code\n        status:\n          type: string\n          description: Error message\n        errors:\n          type: array\n          description: errors\n          items:\n            $ref: '#/components/schemas/Error'\n\n    Error:\n      required:\n        - code\n        - status\n      properties:\n        code:\n          type: integer\n          format: int32\n          description: Error internal code\n        internalMessage:\n          type: string\n          description: Error internal message\n        userMessage:\n          type: string\n          description: Error user message",
+			"canonicalURL": "/github.com/devtron-labs/devtron@62f6101b37819e1ac319a744bbf3438184f0c8d5/-/blob/specs/applisting.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtron-labs/devtron/blob/62f6101b37819e1ac319a744bbf3438184f0c8d5/specs/applisting.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

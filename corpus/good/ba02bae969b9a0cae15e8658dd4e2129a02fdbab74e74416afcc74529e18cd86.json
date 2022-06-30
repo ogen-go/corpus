@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/disit/snap4city"
+		},
+		"file": {
+			"name": "snap4city-application-openapiv3.yaml",
+			"size": 0,
+			"path": "swagger/internal/snap4city-application-openapiv3.yaml",
+			"byteSize": 3015,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Snap4City Application API\n  version: 1.0.0\nservers: \n  - url: http://192.168.0.207/snap4city-application-api/v1\npaths:\n  /:\n    get:\n      tags: [Create]\n      summary: Creates, restarts, deletes, or check the healthiness of Node-RED IoT Apps\n      parameters:\n        - name: op\n          in: query\n          description: |\n            The operation to be performed. It is expected to be one of: \n            * _new_nodered_, for creating a new App;\n            * _restart_app_, for restarting an App;\n            * _rm_app_, for deleting an App;\n            * _status_, for checking the current healthiness status of the App.\n          required: true\n          schema:\n            type: string\n            enum: [new_nodered,restart_app,rm_app,status]\n          example: new_nodered\n        - name: name\n          in: query\n          description: The name of the app. It is expected to be submitted for App creation.\n          required: false\n          schema:\n            type: string\n        - name: type\n          in: query \n          description: The type of creation. It is expected to be submitted for App creation.\n          required: false\n          schema:\n            type: string\n            enum: [basic,advanced]\n        - name: accessToken\n          in: query\n          description: The user access token. It is needed for all of the operations.\n          required: true\n          schema:\n            type: string\n        - name: id\n          in: query\n          description: The unique identifier of the App. It is expected to be submitted for restarting, deleting, and checking the current healthiness status of an App. \n          required: false\n          schema:\n            type: string\n      responses:\n        200:\n          description: A JSON whose shape depends of the operation. When a new App is created, the JSON contains the unique identifier, the name and the URL of the newly created App. If the healthiness is requested, a boolean that indicates whether the App is healthy or not is returned instead.\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    description: A unique identifier for the App. It is expected to be returned when a new App is created.\n                    type: string\n                  url:\n                    description: The URL of the App. It is expected to be returned when a new App is created.  \n                    type: string\n                    format: uri\n                  name:\n                    description: The name of the App. It is expected to be returned when a new App is created.\n                    type: string\n                  healthiness: \n                    description: The current healthiness status of the App. It is expected to be returned in response to _status_ operations.\n                    type: boolean\n                    \n                    \n              \n            ",
+			"canonicalURL": "/github.com/disit/snap4city@523488172f08a8e700ea3a777117724aac25eb65/-/blob/swagger/internal/snap4city-application-openapiv3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/disit/snap4city/blob/523488172f08a8e700ea3a777117724aac25eb65/swagger/internal/snap4city-application-openapiv3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

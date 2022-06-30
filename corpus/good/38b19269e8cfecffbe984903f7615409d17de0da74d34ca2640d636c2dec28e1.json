@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hibohiboo/create-now"
+		},
+		"file": {
+			"name": "api.yml",
+			"size": 0,
+			"path": "api-spec/api.yml",
+			"byteSize": 1053,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Create Now API\n  description: 作成したapi\n\nservers:\n  - url: http://192.168.50.10:3000/v1\n\npaths:\n  /pdf:\n    post:\n      description: PDFを作成\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - content\n              properties:\n                content:\n                  type: array\n                  items:\n                    type: object\n      responses:\n        \"200\":\n          description: 成功した場合、PDFファイルを返す\n          content:\n            application/pdf:\n              schema:\n                type: string\n                format: binary\n        \"400\":\n          $ref: \"#/components/responses/400Error\"\n\ncomponents:\n  responses:\n    400Error:\n      description: Invalid request\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              message:\n                type: string\n",
+			"canonicalURL": "/github.com/hibohiboo/create-now@94d77ac00d8ce371f40ce1f73659b42b583fb419/-/blob/api-spec/api.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hibohiboo/create-now/blob/94d77ac00d8ce371f40ce1f73659b42b583fb419/api-spec/api.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

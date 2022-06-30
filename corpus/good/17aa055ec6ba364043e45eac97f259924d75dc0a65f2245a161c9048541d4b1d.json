@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PacktPublishing/Mastering-Object-Oriented-Python-Second-Edition"
+		},
+		"file": {
+			"name": "dominoes_openapi.json",
+			"size": 0,
+			"path": "Chapter_13/dominoes_openapi.json",
+			"byteSize": 2738,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"description\": \"Deals simple hands of dominoes\",\n    \"version\": \"2019.02\",\n    \"title\": \"Chapter 13. Example 2\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"dominoes\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"array\",\n          \"minLength\": 2,\n          \"maxLength\": 2,\n          \"items\": {\n            \"type\": \"number\"\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/cards/{n}\": {\n      \"get\": {\n        \"summary\": \"Get a hand of dominoes\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"n\",\n            \"description\": \"Number of dominoes\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"number\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Hand of dominoes\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"status\": {\n                      \"type\": \"string\"\n                    },\n                    \"cards\": {\n                      \"$ref\": \"#/components/schemas/dominoes\"\n                    }\n                  }\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid input\"\n          }\n        }\n      }\n    },\n    \"/hands/{h}/cards/{c}\": {\n      \"get\": {\n        \"summary\": \"Get several hands of dominoes\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"h\",\n            \"description\": \"Number of Hands\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"number\"\n            }\n          },\n          {\n            \"in\": \"path\",\n            \"name\": \"c\",\n            \"description\": \"Number of dominoes\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"number\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"List of hands of dominoes\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"status\": {\n                      \"type\": \"string\"\n                    },\n                    \"hands\": {\n                      \"type\": \"array\",\n                      \"items\": {\n                        \"$ref\": \"#/components/schemas/dominoes\"\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Invalid input\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/PacktPublishing/Mastering-Object-Oriented-Python-Second-Edition@39ec51e188c6efed8cbdf6bfe3d3ccd95480672d/-/blob/Chapter_13/dominoes_openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PacktPublishing/Mastering-Object-Oriented-Python-Second-Edition/blob/39ec51e188c6efed8cbdf6bfe3d3ccd95480672d/Chapter_13/dominoes_openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

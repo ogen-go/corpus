@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "test_content_path_parameter.yml",
+			"size": 0,
+			"path": "_testdata/positive/test_content_path_parameter.yml",
+			"byteSize": 430,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test schema\n  version: 0.1.0\npaths:\n  /{shortURL}:\n    get:\n      parameters:\n        - name: shortURL\n          in: path\n          required: true\n          content:\n            '*/*':\n              schema:\n                type: string\n      responses:\n        '200':\n          description: Response\n          content:\n            application/json:\n              schema:\n                type: string\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@c32616b6ac950daeea1ef813fadd242a139e147a/-/blob/_testdata/positive/test_content_path_parameter.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/c32616b6ac950daeea1ef813fadd242a139e147a/_testdata/positive/test_content_path_parameter.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: \"shortURL\": \"*/*\": parameter content encoding not implemented",
+	"NotImplemented": [
+		"parameter content encoding"
+	]
+}

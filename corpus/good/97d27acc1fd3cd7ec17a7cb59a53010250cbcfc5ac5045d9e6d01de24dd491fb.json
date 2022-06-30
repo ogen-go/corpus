@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Baeldung/kotlin-tutorials"
+		},
+		"file": {
+			"name": "car-spec.yaml",
+			"size": 0,
+			"path": "kotlin-gradle-openapi/src/main/resources/car-spec.yaml",
+			"byteSize": 3348,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 0.0.1\n  title: Car Repo\nservers:\n  - url: http://localhost:8080\npaths:\n  /v1/cars:\n    get:\n      summary: List of venues.\n      description: Returns the list of all cars\n      operationId: get_cars\n      tags:\n        - Cars\n      responses:\n        '200':\n          description: List of all cars\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": '#/components/schemas/Car'\n    post:\n      summary: Creates a venue.\n      description: Creates a venue using given fields. If woltVenueId is given and it exists on Wolt Side, no need to provide Venue information fields. If any other field is given, that will be the one stored, dismissing the data coming from Wolt.\n      operationId: create_car\n      tags:\n        - Cars\n      requestBody:\n        description: Required information to create a car\n        required: true\n        content:\n          application/json:\n            schema:\n              \"$ref\": '#/components/schemas/CarBody'\n      responses:\n        '200':\n          description: Created car\n          content:\n            application/json:\n              schema:\n                \"$ref\": '#/components/schemas/Car'\n        '400':\n          description: Request was wrong. Some fields in body might be missing or invalid.\n          content:\n            application/json:\n              schema:\n                \"$ref\": '#/components/schemas/Error'\n  /v1/cars/{id}:\n    get:\n      summary: Particular car info\n      description: All the information on a single car\n      operationId: get_car\n      parameters:\n        - name: id\n          schema:\n            type: integer\n          required: true\n          in: path\n      tags:\n        - Cars\n      responses:\n        '200':\n          description: A car object\n          content:\n            application/json:\n              schema:\n                \"$ref\": '#/components/schemas/Car'\n        '404':\n          description: Provided car ID does not correspond to any object in the DB\n          content:\n            application/json:\n              schema:\n                \"$ref\": '#/components/schemas/Error'\ncomponents:\n  parameters:\n    slug:\n      in: path\n      name: slug\n      schema:\n        type: string\n      required: true\n      description: Human readable id of venue\n\n  schemas:\n    Car:\n      required:\n        - id\n        - model\n        - make\n        - year\n      properties:\n        id:\n          type: integer\n          description: \"Database id of the car\"\n        model:\n          type: string\n        make:\n          type: string\n        year:\n          type: integer\n          description: \"Year in which this model was issued\"\n      example:\n        id: 3986238010\n        model: \"Prius\"\n        make: \"Toyota\"\n        year: 2011\n    CarBody:\n      required:\n        - model\n        - make\n        - year\n      properties:\n        model:\n          type: string\n        make:\n          type: string\n        year:\n          type: integer\n          description: \"Year in which this model was issued\"\n      example:\n        model: \"Yaris\"\n        make: \"Toyota\"\n        year: 2019\n    Error:\n      required:\n        - msg\n        - errorCode\n      properties:\n        msg:\n          type: string\n        errorCode:\n          type: integer\n",
+			"canonicalURL": "/github.com/Baeldung/kotlin-tutorials@7e8744f54ef5bd2ab091f820aca4cf233b80a38d/-/blob/kotlin-gradle-openapi/src/main/resources/car-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Baeldung/kotlin-tutorials/blob/7e8744f54ef5bd2ab091f820aca4cf233b80a38d/kotlin-gradle-openapi/src/main/resources/car-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

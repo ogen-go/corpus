@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "cms.yaml",
+			"size": 0,
+			"path": "tests/server-cms/cms.yaml",
+			"byteSize": 2782,
+			"content": "openapi: 3.0.0\ninfo:\n  title: cms\n  description: \"No description provided\"\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8080/cloudmesh\n    description: \"No description provided\"\npaths:\n  /cms/boot:\n     get:\n      summary: \"Boots a VM on the cloud service\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: cms.boot\n      parameters:\n        - in: query\n          name: service\n          description: \"The name of the service\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: array\n                items: {}\n\n  /cms/flavor:\n     get:\n      summary: \"Lists the flavors on the cloud service\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: cms.flavor\n      parameters:\n        - in: query\n          name: service\n          description: \"The name of the service\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: array\n                items: {}\n\n  /cms/image:\n     get:\n      summary: \"Lists the images on teh cloud service\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: cms.image\n      parameters:\n        - in: query\n          name: service\n          description: \"The name of the service\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: array\n                items: {}\n\n  /cms/test:\n     get:\n      summary: \"None\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: cms.test\n      parameters:\n        - in: query\n          name: service\n          description: \"no description provided in docstring\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: object\n                additionalProperties: true\n\n  /cms/vm:\n     get:\n      summary: \"Lists the VMs on the cloud service\"\n      description: \"None (Optional extended description in CommonMark or HTML)\"\n      operationId: cms.vm\n      parameters:\n        - in: query\n          name: service\n          description: \"The name of the service\"\n          schema:\n            type: string\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: array\n                items: {}",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/server-cms/cms.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/server-cms/cms.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/cms/boot\": get: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

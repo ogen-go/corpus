@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/cadl"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/samples/test/output/tags/openapi.json",
+			"byteSize": 3401,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"(title)\",\n    \"version\": \"0000-00-00\"\n  },\n  \"tags\": [\n    {\n      \"name\": \"foo\"\n    },\n    {\n      \"name\": \"tag1\"\n    },\n    {\n      \"name\": \"tag2\"\n    },\n    {\n      \"name\": \"tag3\"\n    },\n    {\n      \"name\": \"outer\"\n    },\n    {\n      \"name\": \"inner\"\n    },\n    {\n      \"name\": \"moreInner\"\n    },\n    {\n      \"name\": \"innerOp\"\n    }\n  ],\n  \"paths\": {\n    \"/foo/{id}\": {\n      \"get\": {\n        \"tags\": [\n          \"foo\",\n          \"tag1\"\n        ],\n        \"operationId\": \"Foo_read\",\n        \"description\": \"includes namespace tag\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No Content\"\n          }\n        }\n      },\n      \"post\": {\n        \"tags\": [\n          \"foo\",\n          \"tag1\",\n          \"tag2\"\n        ],\n        \"operationId\": \"Foo_create\",\n        \"description\": \"includes namespace tag and two operations tags\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No Content\"\n          }\n        }\n      }\n    },\n    \"/bar\": {\n      \"get\": {\n        \"operationId\": \"Bar_list\",\n        \"description\": \"no tags\",\n        \"parameters\": [],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Ok\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Resp\"\n                  },\n                  \"x-cadl-name\": \"Resp[]\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/bar/{id}\": {\n      \"post\": {\n        \"tags\": [\n          \"tag3\"\n        ],\n        \"operationId\": \"Bar_create\",\n        \"description\": \"one operation tag\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No Content\"\n          }\n        }\n      }\n    },\n    \"/nested/{id}\": {\n      \"post\": {\n        \"tags\": [\n          \"outer\",\n          \"inner\",\n          \"moreInner\",\n          \"innerOp\"\n        ],\n        \"operationId\": \"NestedMoreInner_createOther\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"204\": {\n            \"description\": \"No Content\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Resp\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"out\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"out\"\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/microsoft/cadl@4fac4d50c3e99c6b61da357a00fe7761acf21090/-/blob/packages/samples/test/output/tags/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/cadl/blob/4fac4d50c3e99c6b61da357a00fe7761acf21090/packages/samples/test/output/tags/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

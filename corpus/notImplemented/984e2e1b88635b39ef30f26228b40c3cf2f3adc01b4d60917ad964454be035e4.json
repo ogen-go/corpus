@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/eclipse-dataspaceconnector/DataSpaceConnector"
+		},
+		"file": {
+			"name": "selector-api.yaml",
+			"size": 0,
+			"path": "resources/openapi/yaml/selector-api.yaml",
+			"byteSize": 1969,
+			"content": "openapi: 3.0.1\npaths:\n  /instances:\n    get:\n      operationId: getAll\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/DataPlaneInstance'\n          description: default response\n      tags:\n      - Dataplane Selector\n    post:\n      operationId: addEntry\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/DataPlaneInstance'\n      responses:\n        default:\n          content:\n            application/json: {}\n          description: default response\n      tags:\n      - Dataplane Selector\n  /instances/select:\n    post:\n      operationId: find\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SelectionRequest'\n      responses:\n        default:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/DataPlaneInstance'\n          description: default response\n      tags:\n      - Dataplane Selector\ncomponents:\n  schemas:\n    DataAddress:\n      type: object\n      properties:\n        properties:\n          type: object\n          additionalProperties:\n            type: string\n    DataPlaneInstance:\n      type: object\n      properties:\n        id:\n          type: string\n        lastActive:\n          type: integer\n          format: int64\n        properties:\n          type: object\n          additionalProperties:\n            type: object\n        turnCount:\n          type: integer\n          format: int32\n        url:\n          type: string\n          format: url\n    SelectionRequest:\n      type: object\n      properties:\n        destination:\n          $ref: '#/components/schemas/DataAddress'\n        source:\n          $ref: '#/components/schemas/DataAddress'\n        strategy:\n          type: string\n",
+			"canonicalURL": "/github.com/eclipse-dataspaceconnector/DataSpaceConnector@fb4dd6757031c256573696e1c63e9ec98f53eb6f/-/blob/resources/openapi/yaml/selector-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/blob/fb4dd6757031c256573696e1c63e9ec98f53eb6f/resources/openapi/yaml/selector-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/instances\": post: responses: default: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

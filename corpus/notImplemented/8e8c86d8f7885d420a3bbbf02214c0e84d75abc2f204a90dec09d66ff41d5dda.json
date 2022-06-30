@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/HouariZegai/clean-code"
+		},
+		"file": {
+			"name": "open-api-docs.json",
+			"size": 0,
+			"path": "katas/tennis/docs/api/open-api-docs.json",
+			"byteSize": 1857,
+			"content": "{\"openapi\":\"3.0.1\",\"info\":{\"title\":\"Tennis Kata\",\"description\":\"Tennis game kata implementation\",\"contact\":{\"name\":\"Houari ZEGAI\",\"url\":\"https://zegai.netlify.app\",\"email\":\"houarizegai14@gmail.com\"},\"license\":{\"name\":\"Apache 2.0\",\"url\":\"http://www.apache.org/licenses/LICENSE-2.0.html\"},\"version\":\"v0.0.1\"},\"servers\":[{\"url\":\"http://localhost:8080\",\"description\":\"Generated server url\"}],\"paths\":{\"/api/v1/tennis/record\":{\"put\":{\"tags\":[\"tennis-kata-controller\"],\"operationId\":\"recordWin\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/RecordWinDto\"}}},\"required\":true},\"responses\":{\"200\":{\"description\":\"OK\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/GameScoreDto\"}}}}}}},\"/api/v1/tennis/init\":{\"post\":{\"tags\":[\"tennis-kata-controller\"],\"operationId\":\"initGame\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/InitGameDto\"}}},\"required\":true},\"responses\":{\"201\":{\"description\":\"Created\"}}}},\"/api/v1/tennis/score\":{\"get\":{\"tags\":[\"tennis-kata-controller\"],\"operationId\":\"getScore\",\"responses\":{\"200\":{\"description\":\"OK\",\"content\":{\"*/*\":{\"schema\":{\"$ref\":\"#/components/schemas/GameScoreDto\"}}}}}}}},\"components\":{\"schemas\":{\"RecordWinDto\":{\"type\":\"object\",\"properties\":{\"firstPlayerWin\":{\"minimum\":0,\"type\":\"integer\",\"format\":\"int32\"},\"secondPlayerWin\":{\"minimum\":0,\"type\":\"integer\",\"format\":\"int32\"}}},\"GameScoreDto\":{\"type\":\"object\",\"properties\":{\"firstPlayer\":{\"$ref\":\"#/components/schemas/Player\"},\"secondPlayer\":{\"$ref\":\"#/components/schemas/Player\"},\"score\":{\"type\":\"string\"}}},\"Player\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"score\":{\"type\":\"integer\",\"format\":\"int32\"}}},\"InitGameDto\":{\"required\":[\"firstPlayerName\",\"secondPlayerName\"],\"type\":\"object\",\"properties\":{\"firstPlayerName\":{\"type\":\"string\"},\"secondPlayerName\":{\"type\":\"string\"}}}}}}",
+			"canonicalURL": "/github.com/HouariZegai/clean-code@a1232fa18009ef8f14bbbc2d9c67556182b6e1f9/-/blob/katas/tennis/docs/api/open-api-docs.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/HouariZegai/clean-code/blob/a1232fa18009ef8f14bbbc2d9c67556182b6e1f9/katas/tennis/docs/api/open-api-docs.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/v1/tennis/record\": put: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

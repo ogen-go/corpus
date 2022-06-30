@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RepreZen/KaiZen-OpenAPI-Editor"
+		},
+		"file": {
+			"name": "CallbacksObject.yaml",
+			"size": 0,
+			"path": "com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/CallbacksObject.yaml",
+			"byteSize": 1044,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Callbacks Object\n  version: \"1.0.0\"  \n  \npaths: \n\n  /pets:\n    get:\n      summary: Read\n      description: Provide details for the entire list (for collection resources) or an item (for object resources)\n      responses:\n        201:\n          description: Null response\n      callbacks:\n        myWebhook:\n          #KZOE-ref name=\"callback in operation\", value=\"components/callbacks\"\n          $ref: \"#/components/callbacks/myWebhook\"\n\ncomponents: \n\n  callbacks:\n    MyWebhooWithRef:\n      #KZOE-ref name=\"callback in components/callback\", value=\"components/callbacks\"\n      $ref: \"#/components/callbacks/myWebhook\"\n    myWebhook:\n      '$request.body#/url':\n        post:\n          requestBody:\n            description: Callback payload\n            content: \n              'application/json':\n                schema:\n                  $ref: '#/components/schemas/SomePayload'\n          responses:\n            '200':\n              description: webhook successfully processed and no retries will be performed\n\n ",
+			"canonicalURL": "/github.com/RepreZen/KaiZen-OpenAPI-Editor@7c199211d432c4bbd8915f26791282546fa750e5/-/blob/com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/CallbacksObject.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RepreZen/KaiZen-OpenAPI-Editor/blob/7c199211d432c4bbd8915f26791282546fa750e5/com.reprezen.swagedit.openapi3.tests/resources/code-assist/references/CallbacksObject.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

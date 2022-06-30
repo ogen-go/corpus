@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/georgeberar/medium"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/src/main/resources/apidocs/openapi.yaml",
+			"byteSize": 2996,
+			"content": "openapi: 3.0.1\ninfo:\n  title: OpenAPI definition\n  version: v0\nservers:\n- url: http://localhost\n  description: Generated server url\ntags:\n- name: TODOs\n  description: Manage TODOs\npaths:\n  /api/v1/todos:\n    get:\n      tags:\n      - TODOs\n      summary: Get TODOs\n      operationId: getAll\n      responses:\n        \"200\":\n          description: The TODOs are returned successfully\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/ToDoDetailsResponseDto'\n  /api/v1/todos/{id}:\n    get:\n      tags:\n      - TODOs\n      summary: Get TODO by id\n      operationId: getById\n      parameters:\n      - name: id\n        in: path\n        description: The id of the TODO\n        required: true\n        schema:\n          type: string\n          format: uuid\n        example: 00000000-00000000-00000000-00000000\n      responses:\n        \"200\":\n          description: The TODO is returned successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoDetailsResponseDto'\n        \"404\":\n          description: TODO not found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponseDto'\n    delete:\n      tags:\n      - TODOs\n      summary: Delete TODO by id\n      operationId: delete\n      parameters:\n      - name: id\n        in: path\n        description: The id of the TODO\n        required: true\n        schema:\n          type: string\n          format: uuid\n        example: 00000000-00000000-00000000-00000000\n      responses:\n        \"204\":\n          description: The TODO is deleted successfully\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoDetailsResponseDto'\n        \"404\":\n          description: TODO not found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponseDto'\ncomponents:\n  schemas:\n    ToDoDetailsResponseDto:\n      type: object\n      properties:\n        id:\n          type: string\n          description: The id of the TODO\n          format: uuid\n        title:\n          type: string\n          description: The title of the TODO\n          example: Clean House\n        done:\n          type: boolean\n          description: The status of the TODO\n          example: true\n    ErrorResponseDto:\n      type: object\n      properties:\n        code:\n          type: string\n          description: The unique identifier of the error\n        message:\n          type: string\n          description: The detailed description of the error\n        status:\n          type: integer\n          description: The HTTP status associated with the error\n          format: int32\n        timestamp:\n          type: string\n          description: The timestamp when the error occurred\n          format: date-time\n",
+			"canonicalURL": "/github.com/georgeberar/medium@25b58616bb1467018073689f892082570646577f/-/blob/openapi/src/main/resources/apidocs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/georgeberar/medium/blob/25b58616bb1467018073689f892082570646577f/openapi/src/main/resources/apidocs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

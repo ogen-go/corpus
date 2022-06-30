@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/asteasolutions/zod-to-openapi"
+		},
+		"file": {
+			"name": "openapi-docs.yml",
+			"size": 0,
+			"path": "example/openapi-docs.yml",
+			"byteSize": 1007,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: My API\n  description: This is the API\nservers:\n  - url: v1\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: string\n          example: \"1212121\"\n        name:\n          type: string\n          example: John Doe\n        age:\n          type: number\n          example: 42\n      required:\n        - id\n        - name\n        - age\n  parameters:\n    UserId:\n      in: path\n      name: id\n      schema:\n        type: string\n        example: \"1212121\"\n      required: true\npaths:\n  \"/users/{id}\":\n    get:\n      description: Get user data by its id\n      summary: Get a single user\n      parameters:\n        - $ref: \"#/components/parameters/UserId\"\n      responses:\n        \"200\":\n          description: Object with user data.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/User\"\n        \"204\":\n          description: No content - successful operation\n",
+			"canonicalURL": "/github.com/asteasolutions/zod-to-openapi@2251f9e868274e2d40536d87e30c82a6ccb75f94/-/blob/example/openapi-docs.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/asteasolutions/zod-to-openapi/blob/2251f9e868274e2d40536d87e30c82a6ccb75f94/example/openapi-docs.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

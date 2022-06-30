@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-coffee"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "backends/4-order-processing/api.yaml",
+			"byteSize": 671,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"API Gateway HTTP API to Amazon EventBridge\"\n  version: \"1.0.0\"\npaths:\n  /order:\n    post:\n      responses:\n        default:\n          description: \"EventBridge response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          Detail: \"$request.body.detail\"\n          DetailType: OrderProcessor.OrderStarted\n          Source: awsserverlessda.serverlesspresso\n          EventBusName: {Ref: CoreEventBusName}\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"",
+			"canonicalURL": "/github.com/aws-samples/serverless-coffee@a8b9a38985045b468246828e987454d5abe4be8f/-/blob/backends/4-order-processing/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-coffee/blob/a8b9a38985045b468246828e987454d5abe4be8f/backends/4-order-processing/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

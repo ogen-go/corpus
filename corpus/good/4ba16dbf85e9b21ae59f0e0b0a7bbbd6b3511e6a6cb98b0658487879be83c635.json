@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anitechcs/microservices-reference-application"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "promotion-service/promotionservice/openapi/openapi.yaml",
+			"byteSize": 3111,
+			"content": "openapi: 3.0.2\ninfo:\n  contact:\n    email: contact@anitechcs.com\n  description: This API server exposes required endpoints for managing book promotions\n    in Microservices reference application.\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  termsOfService: https://www.anitechcs.com/terms-condition/\n  title: PromotionService API Specification\n  version: v1.0.0\nexternalDocs:\n  description: Find out more about Microservices reference application\n  url: https://github.com/anitechcs/microservices-reference-application\nservers:\n- description: Promotion Service production server\n  url: https://mra-bookstore.tk/v1\ntags:\n- description: Promotion service enpoints required for Microservices reference application\n  name: Promotion-Service\npaths:\n  /promotion/{bookId}:\n    description: Promotion service\n    get:\n      description: Returns promo details for a particulat book\n      operationId: get_book_promotions\n      parameters:\n      - description: Id of book to return promotions\n        explode: false\n        in: path\n        name: bookId\n        required: true\n        schema:\n          format: int64\n          type: integer\n        style: simple\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PromotionSuccessResponse'\n          description: Success response\n        \"400\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PromotionErrorResponse'\n          description: Client error\n        \"404\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PromotionErrorResponse'\n          description: No records found\n        \"500\":\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PromotionErrorResponse'\n          description: Server error\n      tags:\n      - Promotion-Service\n      x-openapi-router-controller: promotionservice.controllers.promotion_service_controller\ncomponents:\n  schemas:\n    Promotion:\n      example:\n        color: '#0D47A1'\n        text: 15% off\n      properties:\n        text:\n          description: Text to show in promotion\n          example: 15% off\n          type: string\n        color:\n          description: Hex code for the Color\n          example: '#0D47A1'\n          type: string\n      type: object\n    PromotionSuccessResponse:\n      example:\n        promotions:\n          color: '#0D47A1'\n          text: 15% off\n        message: message\n        statusCode: 0\n      properties:\n        statusCode:\n          format: int32\n          type: integer\n        message:\n          type: string\n        promotions:\n          $ref: '#/components/schemas/Promotion'\n      type: object\n    PromotionErrorResponse:\n      properties:\n        statusCode:\n          description: Non zero error code\n          format: int32\n          type: integer\n        message:\n          description: Error message\n          type: string\n      type: object\n",
+			"canonicalURL": "/github.com/anitechcs/microservices-reference-application@dec89c32025e93fb3ffbb56b9dbf7488c2b797ed/-/blob/promotion-service/promotionservice/openapi/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anitechcs/microservices-reference-application/blob/dec89c32025e93fb3ffbb56b9dbf7488c2b797ed/promotion-service/promotionservice/openapi/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

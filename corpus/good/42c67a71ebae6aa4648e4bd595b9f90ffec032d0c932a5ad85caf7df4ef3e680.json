@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cnizzardini/cakephp-swagger-bake"
+		},
+		"file": {
+			"name": "openapi-with-nested-objects.yml",
+			"size": 0,
+			"path": "tests/test_app/config/openapi-with-nested-objects.yml",
+			"byteSize": 2108,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Bakery\n  license:\n    name: MIT\npaths:\n  /employee-salaries:\n    get:\n      summary: Index method\n      description: 'phpunit test string'\n      tags:\n        - Employee Salaries\n      operationId: 'employeesalaries:index'\n      parameters:\n        - name: page\n          in: query\n          required: false\n          schema:\n            description: ''\n            type: integer\n          deprecated: false\n          allowEmptyValue: false\n        - name: limit\n          in: query\n          required: false\n          schema:\n            description: ''\n            type: integer\n          deprecated: false\n          allowEmptyValue: false\n        - name: sort\n          in: query\n          required: false\n          schema:\n            description: ''\n            type: string\n          deprecated: false\n          allowEmptyValue: false\n        - name: direction\n          in: query\n          required: false\n          schema:\n            description: ''\n            type: string\n          deprecated: false\n          allowEmptyValue: false\n      responses:\n        '200':\n          description: ''\n      deprecated: false\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n  schemas:\n    Place:\n      description: 'Country object'\n      type: object\n      properties:\n        id:\n          type: integer\n        type:\n          type: string\n          example: 'countries'\n        attributes:\n          type: object\n          properties:\n            yitzo_country_code:\n              type: string\n              example: 'ES'\n            is_active:\n              type: boolean\n              example: true\n        relationships:\n          type: object\n          properties:\n            description:\n              type: array\n              items:\n                $ref: '#/components/schemas/CountryDescription'\n    CountryDescription:\n      type: object\n      properties:\n        id:\n          type: integer\n        description:\n          type: string\n          example: 'a description'\nsecurity:\n  - BearerAuth: []\n",
+			"canonicalURL": "/github.com/cnizzardini/cakephp-swagger-bake@9e2e405966990d67eb2a9cbd8df31faebb4e59e7/-/blob/tests/test_app/config/openapi-with-nested-objects.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cnizzardini/cakephp-swagger-bake/blob/9e2e405966990d67eb2a9cbd8df31faebb4e59e7/tests/test_app/config/openapi-with-nested-objects.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

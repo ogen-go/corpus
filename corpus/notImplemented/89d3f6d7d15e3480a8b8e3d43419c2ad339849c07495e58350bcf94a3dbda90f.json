@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudmesh/cloudmesh-openapi"
+		},
+		"file": {
+			"name": "forecast.yaml",
+			"size": 0,
+			"path": "tests/timeseries-example/forecast.yaml",
+			"byteSize": 4228,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Time Series Forecasting\n  description: AI servies to provide Time Series Forecasting in AWS and Azure using OpenAPI 3.0\n  license:\n    name: Apache 2.0\n  version: 0.0.1\n\nservers:\n  - url: http://localhost:8080/cloudmesh\n\npaths:\n  /forecast/upload:\n    post:\n      summary: upload a file\n      operationId: forecast.upload\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n  /forecast/validate_data:\n    post:\n      summary: validate the data for mandatory columns, fill missing and less than 0 with 0\n      operationId: forecast.validate\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                upload:\n                  type: string\n                  format: binary\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            text/plain:\n              schema:\n                type: string\n  /forecast:\n    get:\n      summary: Returns supported Time Series Forecasting functions of the hosting server\n      operationId: forecast.get_supported_times_series_services\n      responses:\n        '200':\n          description: AI Services info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/forecast\"\n\n  /forecast/{cloudname}:\n    get:\n      summary: Returns supported Time Series Forecasting functions of the hosting server\n      operationId: forecast.init_cloud_param\n      parameters:\n        - name : cloudname\n          in : path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: AI Services info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/initforecast\"\n\n  /forecast/split_data:\n    get:\n      summary: Split the data into test and train based on specified value\n      operationId: forecast.split_data_train_test\n      parameters:\n        - name: split_pct\n          in: query\n          required: true\n          schema:\n            type : number\n      responses:\n        '200':\n          description: AI Services info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/split_test_train\"\n\n  /forecast/create_forecast:\n    get:\n      summary: Split the data into test and train based on specified value\n      operationId: forecast.generate_forecast\n      parameters:\n        - name: country\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: AI Services info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/split_test_train\"\n\n  /forecast/lookupForecast:\n    get:\n      summary: Split the data into test and train based on specified value\n      operationId: forecast.queryGeneratedForecast\n      parameters:\n        - name: countryName\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: AI Services info\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/lookupForecast\"\n\ncomponents:\n  schemas:\n    forecast:\n      type: \"object\"\n      required:\n        - \"model\"\n      properties:\n        model:\n          type: \"string\"\n    initforecast:\n      type: \"object\"\n      required:\n        - \"cloudname\"\n      properties:\n        cloudname:\n          type: \"string\"\n    split_test_train:\n      type: \"object\"\n      required:\n        - \"split_pct\"\n      properties:\n        split_pct:\n          type: \"number\"\n    lookupForecast:\n      type: \"object\"\n      required:\n        - \"countryname\"\n      properties:\n        countryname:\n          type: \"number\"\n",
+			"canonicalURL": "/github.com/cloudmesh/cloudmesh-openapi@c866c4cbdad3adfdf3fe31591906ced8d71352ef/-/blob/tests/timeseries-example/forecast.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudmesh/cloudmesh-openapi/blob/c866c4cbdad3adfdf3fe31591906ced8d71352ef/tests/timeseries-example/forecast.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/forecast/validate_data\": post: responses: 200: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

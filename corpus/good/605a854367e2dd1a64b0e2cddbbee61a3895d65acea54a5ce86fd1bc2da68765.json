@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/slang25/GiraffeDemo"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 1210,
+			"content": "openapi: 3.0.1\ninfo:\n  title: GiraffeDemo\n  version: 1.0.0\npaths:\n  /student:\n    get:\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Student'\ncomponents:\n  schemas:\n    Student:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n          nullable: true\n        age:\n          type: integer\n          format: int32\n        status:\n          type: string\n          enum: [Active, Inactive]\n        courses:\n          type: array\n          items:\n            $ref: '#/components/schemas/Course'\n      required:\n        - id\n        - name\n        - age\n        - stats\n        - course\n    Course:\n      type: object\n      properties:\n        title:\n          type: string\n          nullable: true\n        description:\n          type: string\n          nullable: true\n        credits:\n          type: integer\n          format: int32\n          nullable: true\n        enrolmentDate:\n          type: string\n          format: date-time\n      required:\n        - title\n        - enrolmentDate",
+			"canonicalURL": "/github.com/slang25/GiraffeDemo@8fc272f31133a88699d8e02d4923445ba00d0743/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/slang25/GiraffeDemo/blob/8fc272f31133a88699d8e02d4923445ba00d0743/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

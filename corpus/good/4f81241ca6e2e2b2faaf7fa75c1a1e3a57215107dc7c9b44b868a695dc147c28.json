@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vietj/scalable-open-api-with-vertx"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "src/main/resources/openapi.yaml",
+			"byteSize": 1047,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Users API\n  description: An API for managing users\n  version: 1.0.0\npaths:\n  /users:\n    get:\n      summary: All users\n      operationId: listUsers\n      description: List all users\n      responses:\n        200:\n          description: Returns the list of all users\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/User'\n    post:\n      summary: Creates a user\n      operationId: addUser\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n        required: true\n      responses:\n        200:\n          description: A user was created succesfully\n          content:\n            application/json:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    User:\n      required:\n      - firstName\n      properties:\n        firstName:\n          type: string\n        lastName:\n          type: string\n",
+			"canonicalURL": "/github.com/vietj/scalable-open-api-with-vertx@60b0bf5451f96aa85aff528d75b6820f4aa478e4/-/blob/src/main/resources/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vietj/scalable-open-api-with-vertx/blob/60b0bf5451f96aa85aff528d75b6820f4aa478e4/src/main/resources/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

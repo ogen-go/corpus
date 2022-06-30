@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "oneOf_request_body.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/service/swagger/requestBody/oneOf_request_body.yaml",
+			"byteSize": 3118,
+			"content": "openapi: 3.0.1\ninfo:\n  title:  Storage Space\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\npaths:\n  /storageSpaces01:\n    put:\n      summary: \"Unsupported scenario 01: Customised request body with empty schema\"\n      operationId: putKey\n      requestBody:\n        description: \"Customised request body with empty schema\"\n        content:\n          application/snowflake+json:\n            schema: {}\n      responses:\n        200:\n          description: Successful operation.\n    post:\n      summary: \"Unsupported scenario 02: Customised request body with oneOf schema\"\n      operationId: post\n      requestBody:\n        description: \"Customised request body\"\n        content:\n          application/snowflake+json:\n            schema:\n              oneOf:\n                - $ref: \"#/components/schemas/HandleRequest_RequestBody\"\n                - $ref: \"#/components/schemas/HandleRequest_RequestBody02\"\n      responses:\n        200:\n          description: Successful operation.\n  /storageSpaces02:\n    post:\n      summary: \"Unsupported scenario 03: Request body with oneOf schema\"\n      operationId: postKey\n      requestBody:\n        description: \"Ballerina not support for oneOf data type in request body\"\n        content:\n          application/xml:\n            schema:\n              oneOf:\n                - $ref: \"#/components/schemas/HandleRequest_RequestBody\"\n                - $ref: \"#/components/schemas/HandleRequest_RequestBody02\"\n      responses:\n        200:\n          description: Successful operation.\n    put:\n      summary: \"Unsupported scenario 04: Request body with oneOf schema with integer, number\"\n      operationId: put\n      requestBody:\n        description: \"Ballerina not support for oneOf data type in request body\"\n        content:\n          text/plain:\n            schema:\n              oneOf:\n                - type: string\n                - type: integer\n                - type: number\n      responses:\n        200:\n          description: Successful operation.\n  /storageSpaces/{name}:\n    put:\n      summary: Put key value\n      operationId: key\n      parameters:\n        - name: name\n          in: path\n          description: name of the storage space\n          required: true\n          schema:\n            type: string\n      requestBody:\n        description: Value to be added\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - type: string\n                - type: integer\n                - type: number\n                - type: object\n      responses:\n        200:\n          description: Successful operation.\n        400:\n          description: Invalid storage space name supplied\ncomponents:\n  schemas:\n    HandleRequest_RequestBody:\n      title: Request/Response handler\n      type: object\n      properties:\n        headers:\n          type: string\n        body:\n          type: string\n    HandleRequest_RequestBody02:\n      title: Request/Response handler\n      type: object\n      properties:\n        headers:\n          type: string\n        body:\n          type: string\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@11ae9f6245584cae7e7e7016eff92c0bf0d27bac/-/blob/openapi-cli/src/test/resources/generators/service/swagger/requestBody/oneOf_request_body.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/11ae9f6245584cae7e7e7016eff92c0bf0d27bac/openapi-cli/src/test/resources/generators/service/swagger/requestBody/oneOf_request_body.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/storageSpaces/{name}\": put: requestBody: contents: application/json: generate schema: oneOf: oneOf KeyReq: variant String: no unique fields, unable to parse without discriminator: discriminator inference not implemented",
+	"NotImplemented": [
+		"discriminator inference",
+		"unsupported content types"
+	]
+}

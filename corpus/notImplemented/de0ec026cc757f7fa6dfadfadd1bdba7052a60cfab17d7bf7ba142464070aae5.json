@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/graphaware/fix-your-microservices"
+		},
+		"file": {
+			"name": "api-docs.yml",
+			"size": 0,
+			"path": "test-files/api-docs.yml",
+			"byteSize": 3437,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Piggy bank sample app\n  description: 'a sample documentation for the statistics service'\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\nexternalDocs:\n  description: Find out more on GitHub\n  url: https://github.com/graphaware\ntags:\n  - name: statistics\n    description: Statistics service\n    externalDocs:\n      description: Find out more\n      url: https://github.com/graphaware\npaths:\n  /statistics/{accountName}:\n    put:\n      tags:\n        - statistics\n      summary: Update account stats\n      operationId: saveAccountStatistics\n      parameters:\n        - name: accountName\n          in: path\n          description: Name of the account to update\n          required: true\n          schema:\n            type: string\n      requestBody:\n        description: Account object that needs to be added to the store\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Account'\n        required: true\n      responses:\n        400:\n          description: Invalid content supplied\n          content: {}\n        404:\n          description: Account not found\n          content: {}\n      security:\n        - stats_auth:\n            - write:accounts-stats\n            - read:accounts-stats\n    get:\n      tags:\n        - statistics\n      summary: Get account stats\n      description: Get stats for a specific account\n      operationId: getStatisticsByAccountName\n      parameters:\n        - name: accountName\n          in: path\n          description: Name of the account to update\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/DataPoint'\n        400:\n          description: Invalid tag value\n          content: {}\n      security:\n        - stats_auth:\n            - write:accounts-stats\n            - read:accounts-stats\n  /statistics/current:\n    get:\n      tags:\n        - statistics\n      summary: Finds current account stats\n      description: Get statistics about the currently connected user\n      operationId: getCurrentAccountStatistics\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/DataPoint'\n        400:\n          description: Invalid status value\n          content: {}\ncomponents:\n  schemas:\n    Account:\n      type: object\n      properties:\n        incomes:\n          type: array\n          items:\n            type: string\n        expenses:\n          type: array\n          items:\n            type: string\n        saving:\n          type: string\n    DataPoint:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n  securitySchemes:\n    stats_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://stats/oauth/dialog\n          scopes:\n            write:accounts-stats: modify stats in your account\n            read:accounts-stats: read your stats\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n",
+			"canonicalURL": "/github.com/graphaware/fix-your-microservices@098d436cfe7c021aab9c7214fd1a8e6d2d1ba6dc/-/blob/test-files/api-docs.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/graphaware/fix-your-microservices/blob/098d436cfe7c021aab9c7214fd1a8e6d2d1ba6dc/test-files/api-docs.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/statistics/{accountName}\": get: security: security \"stats_auth\" (index 0): oauth2 security not implemented",
+	"NotImplemented": [
+		"oauth2 security"
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SkillsFundingAgency/das-api-stub-prototype"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "spec.yaml",
+			"byteSize": 3883,
+			"content": "openapi: 3.0.1\ninfo:\n  title: EPAO API\n  version: 1.0.0\nservers:\n  - url: 'https://localhost:5001'\npaths:\n  /health:\n    get:\n      summary: Check Health of API\n      description: Check Health of API\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/healthcheck'\n\n  /ping:\n    get:\n      summary: Check API availability\n      description: Check API availability\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              example:\n                status: OK\n                \n  /api/epao/{id}:\n    get:\n      description: Get single End Point Aessement Oraganisation\n      parameters:\n        - name: id\n          in: path\n          description: ID of EPAO to use\n          required: true\n          schema:\n            type: string\n          style: simple\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/epao-organisation'\n        '401':\n          description: Not authenticated\n          content: {}    \n        '404':\n          description: EPAO does not exist\n          content: {}\n      security:\n        - bearer: []\n      \n  /api/epao:\n    get:\n      description: Get all End Point Aessement Oraganisations,\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/epao-organisation'\n        '401':\n          description: Not authenticated\n          content: {}\n      security:\n        - bearer: []\n\n  /api/courses/{id}/epao:\n    get:\n      description: Get End Point Aessement Oraganisations that provide a course by ID\n      parameters:\n        - name: id\n          in: path\n          description: Course ID to find EPAO's for\n          required: true\n          schema:\n            type: string\n\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/epao-organisation'\n        '401':\n          description: Not authenticated\n          content: {}\n        '404':\n          description: Course not found\n          content: {}\n      security:\n        - bearer: []\n\ncomponents:\n  schemas:\n    epao-address:\n      type: object\n      properties:\n        primary:\n          type: string\n        secondary:\n          type: string\n        street:\n          type: string\n        town:\n          type: string\n        postcode:\n          type: string\n\n    epao-organisation:\n      type: object\n      properties:\n        epaOrganisation:\n          type: string\n        organisationType:\n          type: string\n        websiteLink:\n          type: string\n        epaOrganisationIdentifier:\n          type: string\n        email:\n          type: string\n        phone:\n          type: string\n        ukprn:\n          type: integer\n        address:\n          $ref: '#/components/schemas/epao-address'\n\n    healthcheck:\n      type: object\n      properties:\n        status:\n          type: string\n        results:\n          type: array\n          items:\n            $ref: '#/components/schemas/healthcheck-response'\n\n    healthcheck-response:\n      type: object\n      properties:\n        status: \n          type: string\n        description: \n          type: string\n        data:\n          $ref: '#/components/schemas/healthcheck-data-response'\n\n    healthcheck-data-response:\n      type: object\n      properties:\n        duration:\n          type: string\n\n  securitySchemes:\n    bearer:\n      type: apiKey\n      name: Authorization\n      in: header",
+			"canonicalURL": "/github.com/SkillsFundingAgency/das-api-stub-prototype@5f653cea8b86f368ba023eb06d4b767f34fee17b/-/blob/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SkillsFundingAgency/das-api-stub-prototype/blob/5f653cea8b86f368ba023eb06d4b767f34fee17b/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/ping\": get: responses: 200: contents: application/json: generate schema: empty schema not implemented",
+	"NotImplemented": [
+		"empty schema"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "issue1138.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/issues/issue1138.yaml",
+			"byteSize": 672,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Poly\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    Data:\n      type: object\n      required:\n        - type\n      properties:\n        type:\n          type: string\n      discriminator:\n        propertyName: type\n        mapping:\n          data_no_prop: \"#/components/schemas/DataNoProp\"\n          data_prop: \"#/components/schemas/DataProp\"\n    DataNoProp:\n      allOf:\n        - $ref: '#/components/schemas/Data'\n        - type: object\n    DataProp:\n      allOf:\n        - $ref: '#/components/schemas/Data'\n        - type: object\n          properties:\n            prop:\n              type: string\n          required:\n            - prop\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@e0d182f7e276443b49dd0aa69452d791c9add867/-/blob/modules/sample/src/main/resources/issues/issue1138.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/e0d182f7e276443b49dd0aa69452d791c9add867/modules/sample/src/main/resources/issues/issue1138.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

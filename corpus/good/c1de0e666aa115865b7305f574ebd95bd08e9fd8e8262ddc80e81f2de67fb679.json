@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wuhan2020/api-server"
+		},
+		"file": {
+			"name": "donation.yaml",
+			"size": 0,
+			"path": "src/swagger/archived/donation.yaml",
+			"byteSize": 3677,
+			"content": "openapi: 3.0.2\ninfo:\n  description: This API provides Donation list\n  version: 0.2.0\n  title: Donation List API\n  contact:\n    email: wuhan2020@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: contributors\n    description: Secured write permission calls\n  - name: developers\n    description: Operations available to regular developers\npaths:\n  /donation:\n    get:\n      tags:\n        - developers\n      summary: searches donation\n      operationId: searchDonation\n      description: |\n        By passing in the appropriate options, you can search for\n        available inventory in the system\n      parameters:\n        - in: query\n          name: searchString\n          description: pass an optional search string for looking up inventory\n          required: false\n          schema:\n            type: string\n        - in: query\n          name: skip\n          description: number of records to skip for pagination\n          schema:\n            type: integer\n            format: int32\n            minimum: 0\n        - in: query\n          name: limit\n          description: maximum number of records to return\n          schema:\n            type: integer\n            format: int32\n            minimum: 0\n            maximum: 50\n      responses:\n        '200':\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/DonationItem'\n        '400':\n          description: bad input parameter\n    post:\n      tags:\n        - contributors\n      summary: adds a donation item\n      operationId: addDonation\n      description: Adds an item to the system\n      responses:\n        '201':\n          description: item created\n        '400':\n          description: 'invalid input, object invalid'\n        '409':\n          description: an existing item already exists\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/DonationItem'\n        description: Donation item to add\nservers:\n  - url: 'https://virtserver.swaggerhub.com/wuhan2020/donation/0.2.0'\ncomponents:\n  schemas:\n    DonationItem:\n      type: object\n      required:\n        - id\n        - source\n        - donate_way\n        - offical_link\n        - contact\n        - cur_status\n        - source_link\n        - audit_status\n        - update_time\n      properties:\n        id:\n          type: string\n          format: uuid\n          example: d290f1ee-6c54-4b01-90e6-d701748f0851\n        source:\n          type: string\n          example: 红十字会\n        donate_way:\n          type: string\n          example: 支付宝\n        offical_link:\n          type: string\n          format: uri\n          example: https://mp.weixin.qq.com/s/qGAsMA4hsduP99CaabdQDg\n        contact:\n          type: array\n          items:\n            $ref: '#/components/schemas/ContactItem'\n        cur_status:\n          type: string\n          example: 已捐赠; 筹款中;\n        source_link:\n          type: string\n          format: uri\n          example: https://mp.weixin.qq.com/s/qGAsMA4hsduP99CaabdQDg\n        audit_status:\n          type: string\n          example: 已审计; 审计中;\n        update_time:\n          type: string\n          format: date-time\n          example: '2020-01-23T09:12:33.001Z'\n    ContactItem:\n      type: object\n      required:\n        - name\n        - phone\n      properties:\n        name:\n          type: string\n          example: xxx\n        phone:\n          type: string\n          example: 12315\n",
+			"canonicalURL": "/github.com/wuhan2020/api-server@19b784d5e8f11cdb3cc9ec420b94595f607775fc/-/blob/src/swagger/archived/donation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wuhan2020/api-server/blob/19b784d5e8f11cdb3cc9ec420b94595f607775fc/src/swagger/archived/donation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

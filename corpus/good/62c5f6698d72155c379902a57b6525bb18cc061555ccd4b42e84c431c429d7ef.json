@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/sessions-with-aws-sam"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "http-api-direct-integration/api.yaml",
+			"byteSize": 1538,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"DI All Integrations\"\npaths:\n  /sqs:\n    post:\n      responses:\n        default:\n          description: \"SQS response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"SQS-SendMessage\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          MessageBody: \"$request.body.MessageBody\"\n          QueueUrl:\n            Ref: MyQueue\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\n  /eb:\n    post:\n      responses:\n        default:\n          description: \"EventBridge response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          Detail: \"$request.body.Detail\"\n          DetailType: MyDetailType\n          Source: WebApp\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\n  /kinesis:\n    post:\n      responses:\n        default:\n          description: \"Kinesis response\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"Kinesis-PutRecord\"\n        credentials:\n          Fn::GetAtt: [MyHttpApiRole, Arn]\n        requestParameters:\n          StreamName:\n            Ref: MyStream\n          Data: \"$request.body.Data\"\n          PartitionKey: MyPartition\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\nx-amazon-apigateway-importexport-version: \"1.0\"",
+			"canonicalURL": "/github.com/aws-samples/sessions-with-aws-sam@b57ae6fa954ec05a6dce67f2b03620ad84bbb420/-/blob/http-api-direct-integration/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/sessions-with-aws-sam/blob/b57ae6fa954ec05a6dce67f2b03620ad84bbb420/http-api-direct-integration/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

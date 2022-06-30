@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springfox/springfox"
+		},
+		"file": {
+			"name": "features.json",
+			"size": 0,
+			"path": "oas-contract-tests/src/test/resources/contracts/features.json",
+			"byteSize": 3123,
+			"content": "{\n    \"openapi\": \"3.0.3\",\n    \"info\": {\n        \"title\": \"Api Documentation\",\n        \"description\": \"Api Documentation\",\n        \"termsOfService\": \"urn:tos\",\n        \"contact\": {\n            \n        },\n        \"license\": {\n            \"name\": \"Apache 2.0\",\n            \"url\": \"http://www.apache.org/licenses/LICENSE-2.0\"\n        },\n        \"version\": \"1.0\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://localhost:__PORT__\",\n            \"description\": \"Inferred Url\"\n        }\n    ],\n    \"tags\": [\n        {\n            \"name\": \"feature-demonstration-service\",\n            \"description\": \"Feature Demonstration Service\"\n        }\n    ],\n    \"paths\": {\n        \"/features/2613\": {\n            \"get\": {\n                \"tags\": [\n                    \"feature-demonstration-service\"\n                ],\n                \"summary\": \"getfeature\",\n                \"operationId\": \"getfeatureUsingGET\",\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"OK\",\n                        \"content\": {\n                            \"*/*\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/Feature2613\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        },\n        \"/features/2831\": {\n            \"get\": {\n                \"tags\": [\n                    \"feature-demonstration-service\"\n                ],\n                \"summary\": \"Demo\",\n                \"description\": \"Demo optional header error\",\n                \"operationId\": \"feature2831UsingGET\",\n                \"parameters\": [\n                    {\n                        \"name\": \"foo\",\n                        \"in\": \"header\",\n                        \"description\": \"foo msg\",\n                        \"required\": true,\n                        \"schema\": {\n                            \"type\": \"string\"\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"okey\",\n                        \"content\": {\n                            \"*/*\": {\n                                \"schema\": {\n                                    \"type\": \"object\"\n                                }\n                            }\n                        }\n                    },\n                    \"403\": {\n                        \"description\": \"ko\"\n                    },\n                    \"404\": {\n                        \"description\": \"ko\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Feature2613\": {\n                \"title\": \"Feature2613\",\n                \"type\": \"object\",\n                \"properties\": {\n                    \"prop1\": {\n                        \"type\": \"string\"\n                    },\n                    \"prop2\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int32\"\n                    }\n                }\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/springfox/springfox@ab5868471cdbaf54dac01af12933fe0437cf2b01/-/blob/oas-contract-tests/src/test/resources/contracts/features.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springfox/springfox/blob/ab5868471cdbaf54dac01af12933fe0437cf2b01/oas-contract-tests/src/test/resources/contracts/features.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/features/2613\": get: responses: 200: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

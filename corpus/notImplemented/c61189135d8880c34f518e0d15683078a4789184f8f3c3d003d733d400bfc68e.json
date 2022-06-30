@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ibissource/iaf"
+		},
+		"file": {
+			"name": "Options.json",
+			"size": 0,
+			"path": "core/src/test/resources/OpenApi/Options.json",
+			"byteSize": 2910,
+			"content": "{\n    \"openapi\":\"3.0.0\",\n    \"info\":{\n        \"title\":\"TestConfiguration\",\n        \"description\":\"OpenApi auto-generated at -timestamp- for TestConfiguration (xxx)\",\n        \"version\":\"unknown\"\n    },\n    \"servers\":[\n        {\n            \"url\":\"http://mock-hostname/mock-context-path/mock-servlet-path\"\n        }\n    ],\n    \"paths\":{\n        \"/options\":{\n            \"post\":{\n                \"summary\":\"description4simple-get\",\n                \"requestBody\":{\n                    \"content\":{\n                        \"*/*\":{\n                            \"schema\":{\n                                \"$ref\":\"#/components/schemas/Options\"\n                            }\n                        }\n                    }\n                },\n                \"responses\":{\n                    \"200\":{\n                        \"description\":\"OK\",\n                        \"content\":{\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\":{\n        \"schemas\":{\n            \"Options\":{\n                \"type\":\"object\",\n                \"oneOf\":[\n                    {\n                        \"required\":[\n                            \"Organisation\"\n                        ]\n                    },\n                    {\n                        \"required\":[\n                            \"Person\"\n                        ]\n                    }\n                ],\n                \"additionalProperties\":false,\n                \"properties\":{\n                    \"Organisation\":{\n                        \"type\":\"string\"\n                    },\n                    \"Person\":{\n                        \"$ref\":\"#/components/schemas/PersonType\"\n                    }\n                }\n            },\n            \"PersonDemographicsType\":{\n                \"type\":\"object\",\n                \"additionalProperties\":false,\n                \"properties\":{\n                    \"BirthDate\":{\n                        \"type\":\"string\",\n                        \"format\":\"date\"\n                    },\n                    \"DeathDate\":{\n                        \"type\":\"string\",\n                        \"format\":\"date\"\n                    }\n                }\n            },\n            \"PersonType\":{\n                \"type\":\"object\",\n                \"additionalProperties\":false,\n                \"properties\":{\n                    \"PersonName\":{\n                        \"$ref\":\"#/components/schemas/PersonNameType\"\n                    },\n                    \"Demographics\":{\n                        \"$ref\":\"#/components/schemas/PersonDemographicsType\"\n                    }\n                }\n            },\n            \"PersonNameType\":{\n                \"type\":\"object\",\n                \"additionalProperties\":false,\n                \"properties\":{\n                    \"BasicLastName\":{\n                        \"type\":\"string\"\n                    }\n                }\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/ibissource/iaf@ba29a5f63f168ecfb080b19cce60e45a6b7fdc0b/-/blob/core/src/test/resources/OpenApi/Options.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ibissource/iaf/blob/ba29a5f63f168ecfb080b19cce60e45a6b7fdc0b/core/src/test/resources/OpenApi/Options.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/options\": post: requestBody: contents: unsupported content types: [*/*]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

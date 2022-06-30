@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getlarge/ticketing"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "apps/payments/openapi.json",
+			"byteSize": 2985,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/api/payments\": {\n      \"post\": {\n        \"operationId\": \"PaymentsController_create\",\n        \"summary\": \"Create payment request - Scope : payments:create_one\",\n        \"description\": \"Attempt to charge for a ticket order\",\n        \"parameters\": [],\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/CreatePaymentDto\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Charge created\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/PaymentDto\"\n                }\n              }\n            }\n          }\n        },\n        \"tags\": [\n          \"payments\"\n        ],\n        \"security\": [\n          {\n            \"session\": []\n          },\n          {\n            \"bearer\": []\n          }\n        ]\n      }\n    }\n  },\n  \"info\": {\n    \"title\": \"Payments API\",\n    \"description\": \"Ticketing payments API description\",\n    \"version\": \"0.2.0\",\n    \"contact\": {}\n  },\n  \"tags\": [\n    {\n      \"name\": \"payments\",\n      \"description\": \"\"\n    }\n  ],\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:3040\"\n    },\n    {\n      \"url\": \"http://localhost:80\"\n    },\n    {\n      \"url\": \"http://ticketing.dev\"\n    }\n  ],\n  \"components\": {\n    \"securitySchemes\": {\n      \"session\": {\n        \"type\": \"apiKey\",\n        \"in\": \"cookie\",\n        \"name\": \"session\"\n      },\n      \"bearer\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"JWT\"\n      }\n    },\n    \"schemas\": {\n      \"CreatePaymentDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"orderId\": {\n            \"type\": \"string\",\n            \"description\": \"Order for which payment is attempted\"\n          },\n          \"token\": {\n            \"type\": \"string\",\n            \"description\": \"Stripe token\",\n            \"example\": \"tok_visa\"\n          }\n        },\n        \"required\": [\n          \"orderId\",\n          \"token\"\n        ]\n      },\n      \"PaymentDto\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"description\": \"Charge internal identifier\"\n          },\n          \"orderId\": {\n            \"type\": \"string\",\n            \"description\": \"Reference to the order\"\n          },\n          \"stripeId\": {\n            \"type\": \"string\",\n            \"description\": \"Reference to the stripe charge\"\n          },\n          \"version\": {\n            \"type\": \"number\",\n            \"description\": \"Payment version represented by a number incremented at each updated\"\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"orderId\",\n          \"stripeId\",\n          \"version\"\n        ]\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"session\": []\n    },\n    {\n      \"bearer\": []\n    }\n  ]\n}",
+			"canonicalURL": "/github.com/getlarge/ticketing@3534c252e339e4ce7626731465bd03bd7b2e01e8/-/blob/apps/payments/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getlarge/ticketing/blob/3534c252e339e4ce7626731465bd03bd7b2e01e8/apps/payments/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/payments\": post: security: security \"session\" (index 0): cookie security not implemented",
+	"NotImplemented": [
+		"cookie security"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openclarity/apiclarity"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "backend/pkg/modules/internal/demo/openapi.yaml",
+			"byteSize": 3600,
+			"content": "openapi: 3.0.3\ninfo:\n  title: APIClarity BFLA\n  version: 0.0.1\n  description: APIClarity Plugin API\npaths:\n  /version:\n    get:\n      operationId: getVersion\n      summary: Get the version of this Plugin\n      description: Get the version of this Plugin\n      responses:\n        '200':\n          description: Version of the Plugin\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Version'\n\n  /alert/{eventID}:\n    post:\n      parameters:\n        - name: eventID\n          required: true\n          schema:\n            type: integer\n          in: path\n        - name: type\n          required: true\n          in: query\n          schema:\n            type: string\n            enum:\n              - INFO\n              - WARN\n\n      responses:\n        '200':\n          description: set alert\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n\n  /event/{eventID}/annotation/{annotation}:\n    parameters:\n      - name: eventID\n        required: true\n        schema:\n          type: integer\n        in: path\n      - name: annotation\n        required: true\n        schema:\n          type: string\n        in: path\n\n    get:\n      responses:\n        '200':\n          description: get annotation\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                data:\n                  type: string\n      responses:\n        '200':\n          description: get annotation\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n\n  /api/{apiID}/annotation/{annotation}:\n    parameters:\n      - name: apiID\n        required: true\n        schema:\n          type: integer\n        in: path\n      - name: annotation\n        required: true\n        schema:\n          type: string\n        in: path\n    get:\n      responses:\n        '200':\n          description: get annotation\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n    delete:\n      responses:\n        '200':\n          description: delete annotation\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                data:\n                  type: string\n\n      responses:\n        '200':\n          description: set annotation\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n\n  /events:\n    post:\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              additionalProperties: true\n\n      responses:\n        '200':\n          description: set alert\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n\n  /api/{apiID}:\n    get:\n      parameters:\n        - name: apiID\n          required: true\n          schema:\n            type: integer\n          in: path\n\n      responses:\n        '200':\n          description: set alert\n          content:\n            application/json:\n              schema:\n                additionalProperties: true\n\ncomponents:\n  schemas:\n    Version:\n      type: 'object'\n      required: [version]\n      properties:\n        version:\n          type: 'string'",
+			"canonicalURL": "/github.com/openclarity/apiclarity@28f498c03c42a3e11fc4874838bbabf2f0518a47/-/blob/backend/pkg/modules/internal/demo/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openclarity/apiclarity/blob/28f498c03c42a3e11fc4874838bbabf2f0518a47/backend/pkg/modules/internal/demo/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

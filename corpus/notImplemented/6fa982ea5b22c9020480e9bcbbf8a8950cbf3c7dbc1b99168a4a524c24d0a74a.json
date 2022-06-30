@@ -1,0 +1,27 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/oxidecomputer/crucible"
+		},
+		"file": {
+			"name": "downstairs-repair.json",
+			"size": 0,
+			"path": "openapi/downstairs-repair.json",
+			"byteSize": 3041,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Downstairs Repair\",\n    \"version\": \"0.0.0\"\n  },\n  \"paths\": {\n    \"/extent/{eid}/files\": {\n      \"get\": {\n        \"summary\": \"Get the list of files related to an extent.\",\n        \"description\": \"For a given extent, return a vec of strings representing the names of the files that exist for that extent.\",\n        \"operationId\": \"get_files_for_extent\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"eid\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"uint32\",\n              \"minimum\": 0\n            },\n            \"style\": \"simple\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"title\": \"Array_of_String\",\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          },\n          \"4XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          },\n          \"5XX\": {\n            \"$ref\": \"#/components/responses/Error\"\n          }\n        }\n      }\n    },\n    \"/newextent/{eid}/{file_type}\": {\n      \"get\": {\n        \"operationId\": \"get_extent_file\",\n        \"parameters\": [\n          {\n            \"in\": \"path\",\n            \"name\": \"eid\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"uint32\",\n              \"minimum\": 0\n            },\n            \"style\": \"simple\"\n          },\n          {\n            \"in\": \"path\",\n            \"name\": \"file_type\",\n            \"required\": true,\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/FileType\"\n            },\n            \"style\": \"simple\"\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {}\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"Error\": {\n        \"description\": \"Error\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Error\": {\n        \"description\": \"Error information from a response.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"error_code\": {\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          },\n          \"request_id\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"message\",\n          \"request_id\"\n        ]\n      },\n      \"FileType\": {\n        \"type\": \"string\",\n        \"enum\": [\n          \"data\",\n          \"db\",\n          \"db_shm\",\n          \"db_wal\"\n        ]\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/oxidecomputer/crucible@ac19c824d85f5c7890c2de7960bd469ea533b518/-/blob/openapi/downstairs-repair.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/oxidecomputer/crucible/blob/ac19c824d85f5c7890c2de7960bd469ea533b518/openapi/downstairs-repair.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/extent/{eid}/files\": get: responses: HTTP code pattern not implemented",
+	"NotImplemented": [
+		"HTTP code pattern",
+		"unsupported content types"
+	]
+}

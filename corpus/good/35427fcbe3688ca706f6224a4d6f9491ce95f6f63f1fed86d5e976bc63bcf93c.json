@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/fawkesrobotics/fawkes"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "src/plugins/webview/config-rest-api/api.yaml",
+			"byteSize": 1595,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Configuration\n  version: v1beta1\n  description: |\n    Fawkes Configuration REST API.\n    Retrieve information from the configuration.\n  contact:\n    name:  Tim Niemueller\n    email: niemueller@kbsg.rwth-aachen.de\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\ntags:\n  - name: public\n    description: Configuration public API.\n\npaths:\n  /config:\n    get:\n      tags:\n      - public\n      summary: Get information from the configuration.\n      operationId: get_config\n      description: |\n        Get a list of plugins.\n      parameters:\n        - name: query\n          in: query\n          description: |\n            Search query for configuration values. If no query is\n            given, the full configuration tree will be returned.\n          allowEmptyValue: false\n          schema:\n            type: string\n        - name: pretty\n          in: query\n          description: Request pretty printed reply.\n          allowEmptyValue: true\n          schema:\n            type: boolean\n      responses:\n        '200':\n          description: matching configuration sub-tree.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ConfigTree'\n        '400':\n          description: bad input parameter\n\ncomponents:\n  schemas:\n    ConfigTree:\n      type: object\n      required:\n        - kind\n        - apiVersion\n        - config\n      properties:\n        kind:\n          type: string\n        apiVersion:\n          type: string\n        config:\n          type: object\n",
+			"canonicalURL": "/github.com/fawkesrobotics/fawkes@fd3768278fb3d2dc9d5126b9d11c2fe31545bede/-/blob/src/plugins/webview/config-rest-api/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/fawkesrobotics/fawkes/blob/fd3768278fb3d2dc9d5126b9d11c2fe31545bede/src/plugins/webview/config-rest-api/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bow-swift/nef-editor-client"
+		},
+		"file": {
+			"name": "nef.yaml",
+			"size": 0,
+			"path": "nef.yaml",
+			"byteSize": 1316,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: nef Playgrounds - Server\n  version: \"1.0.0\"\n\npaths:\n  /signin:\n    post:\n      summary: Sign in with Apple.\n      operationId: signin\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/AppleSignInRequest\"\n      responses:\n        '200':\n          description: The request was successful.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/AppleSignInResponse'\n        '500':\n          description: The request was aborted.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NefEditorError'\n\ncomponents:\n  schemas:\n\n    NefEditorError:\n      type: object\n      required:\n        - error\n        - reason\n      properties:\n        error:\n          type: boolean\n        reason:\n          type: string\n\n    AppleSignInRequest:\n      type: object\n      required:\n        - identityToken\n        - authorizationCode\n      properties:\n        identityToken:\n          type: string\n        authorizationCode:\n          type: string\n\n    AppleSignInResponse:\n      type: object\n      required:\n        - token\n      properties:\n        token:\n          type: string\n",
+			"canonicalURL": "/github.com/bow-swift/nef-editor-client@57c03203e5503d1464cb1b1e1c8c3668b27c5d5d/-/blob/nef.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bow-swift/nef-editor-client/blob/57c03203e5503d1464cb1b1e1c8c3668b27c5d5d/nef.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

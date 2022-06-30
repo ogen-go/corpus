@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "allOf_composition.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/allOf_composition.yaml",
+			"byteSize": 1833,
+			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Example\n  license:\n    name: MIT\nservers:\n  - url: http://api.example.xyz/v1\npaths:\n  /person/display/{personId}:\n    get:\n      parameters:\n        - name: personId\n          in: path\n          required: true\n          description: The id of the person to retrieve\n          schema:\n            type: string\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SuperMan\"\ncomponents:\n  schemas:\n    SuperBaby: # to test single ref (Human) only\n      allOf:\n      - $ref: '#/components/schemas/Human'\n      - required: # without type: object\n          - level\n        properties:\n          gender:\n            type: string\n          age:\n            type: integer \n    SuperBoy: # to test single ref (Human) only\n      allOf:\n      - $ref: '#/components/schemas/Human'\n      - type: object\n        required:\n          - level\n        properties:\n          category:\n            type: string\n          level:\n            type: integer \n    SuperMan:\n      allOf:\n      - $ref: '#/components/schemas/Human'\n      - $ref: '#/components/schemas/Hero'\n      - type: object\n        required:\n          - level\n        properties:\n          category:\n            type: string\n          level:\n            type: integer \n    Hero:\n      description: Hero\n      type: object\n      required:\n        - origin\n      properties:\n        reward:\n          type: integer\n          format: int64\n        origin:\n          type: string\n    Human:\n      description: Human\n      type: object\n      required:\n        - id\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n          example: Tom \n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/-/blob/modules/openapi-generator/src/test/resources/3_0/allOf_composition.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a2bbbb8501f7238dba0dc124234e9e0459cdd9e/modules/openapi-generator/src/test/resources/3_0/allOf_composition.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

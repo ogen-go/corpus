@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/restful-ma/thresholds"
+		},
+		"file": {
+			"name": "ip2proxy.com-1.0-openapi.yaml",
+			"size": 0,
+			"path": "benchmark-repository/openapi/ip2proxy.com-1.0-openapi.yaml",
+			"byteSize": 2164,
+			"content": "openapi: 3.0.1\nservers:\n  - url: https://api.ip2proxy.com\ninfo:\n  contact:\n    x-twitter: ip2location\n  description: IP2Proxy allows instant detection of anonymous proxy, VPN and TOR exit nodes\n    and search engine robots (SES) by IP address. Visit\n    https://www.ip2location.com/web-service/ip2proxy for further information.\n  title: IP2Proxy Proxy Detection\n  version: \"1.0\"\n  x-apisguru-categories:\n    - location\n  x-logo:\n    url: https://twitter.com/ip2location/profile_image?size=original\n  x-origin:\n    - converter:\n        url: https://github.com/lucybot/api-spec-converter\n        version: 2.7.31\n      format: openapi\n      url: https://api.swaggerhub.com/apis/ip2location/ip2proxy-proxy-detection/1.0\n      version: \"3.0\"\n  x-providerName: ip2proxy.com\npaths:\n  /:\n    get:\n      description: Check if an IP address is proxy\n      parameters:\n        - description: If not present, the web service will assume the PX1 package query.\n          in: query\n          name: package\n          schema:\n            type: string\n        - description: IP address (IPv4) for lookup purpose. If not present, the server IP\n            address will be used for the lookup.\n          in: query\n          name: ip\n          required: true\n          schema:\n            type: string\n        - description: If not present, json format will be returned as the search result.\n          in: query\n          name: format\n          schema:\n            enum:\n              - json\n              - xml\n            type: string\n        - description: API key.\n          in: query\n          name: key\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          content:\n            text/html; charset=UTF-8:\n              examples:\n                \"0\":\n                  value: '{\"response\": \"\",\"countryCode\": \"\",\"countryName\":\n                    \"\",\"regionName\": \"\",\"cityName\": \"\",\"isp\": \"\",\"domain\":\n                    \"\",\"usageType\":\"\",\"asn\":\"\",\"as\": \"\",\"lastSeen\":\n                    \"\",\"proxyType\":\"\",\"isProxy\": \"\"}'\n              schema:\n                type: string\n          description: Get response from IP2Proxy\n",
+			"canonicalURL": "/github.com/restful-ma/thresholds@5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/-/blob/benchmark-repository/openapi/ip2proxy.com-1.0-openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/restful-ma/thresholds/blob/5b0b2a3322d3b2b7c0e0f2c0c0ad0e524e67bf82/benchmark-repository/openapi/ip2proxy.com-1.0-openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/\": get: responses: 200: contents: unsupported content types: [text/html; charset=UTF-8]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

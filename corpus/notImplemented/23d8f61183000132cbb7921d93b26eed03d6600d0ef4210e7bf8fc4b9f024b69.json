@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rstropek/golang-samples"
+		},
+		"file": {
+			"name": "api-spec.yaml",
+			"size": 0,
+			"path": "labs/todo-api/api-spec.yaml",
+			"byteSize": 2352,
+			"content": "openapi: 3.0.0\ninfo:\n  description: ToDo list example\n  version: 0.1.0\n  title: ToDo list\npaths:\n  /api/toDoItems:\n    get:\n      summary: Gets a list of ToDo items\n      operationId: getItems\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoItems'\n    post:\n      summary: Adds a new ToDo item\n      operationId: addItem\n      requestBody:\n        description: Description of the ToDo item\n        required: true\n        content:\n          text/plain:\n            schema:\n              type: string\n      responses:\n        '201':\n          description: Created\n          headers:\n            Location:\n              description: URL where to retrieve the created ToDo item\n              schema: \n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoItem'\n  /api/toDoItems/{id}:\n    get:\n      summary: Gets a ToDo item\n      operationId: getItem\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the ToDo item\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoItem'\n        '404':\n          description: ToDo item with specified id does not exist\n  /api/toDoItems/{id}/setDone:\n    post:\n      summary: Sets ToDo item to \"done\"\n      operationId: setItemDone\n      parameters:\n        - name: id\n          in: path\n          required: true\n          description: The id of the ToDo item\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ToDoItem'\n        '404':\n          description: ToDo item with specified id does not exist\ncomponents:\n  schemas:\n    ToDoItem:\n      type: object\n      properties:\n        _id:\n          type: string\n        description:\n          type: string\n        done:\n          type: boolean\n    ToDoItems:\n      type: array\n      items:\n        $ref: '#/components/schemas/ToDoItem'\n",
+			"canonicalURL": "/github.com/rstropek/golang-samples@2fed6b88065c03255aade6f89bb2530d168b2aca/-/blob/labs/todo-api/api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rstropek/golang-samples/blob/2fed6b88065c03255aade6f89bb2530d168b2aca/labs/todo-api/api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/toDoItems\": post: requestBody: contents: unsupported content types: [text/plain]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

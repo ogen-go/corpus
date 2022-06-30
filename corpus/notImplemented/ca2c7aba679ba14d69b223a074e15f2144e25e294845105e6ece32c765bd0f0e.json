@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Dorthu/openapi3"
+		},
+		"file": {
+			"name": "with-broken-links.yaml",
+			"size": 0,
+			"path": "tests/fixtures/with-broken-links.yaml",
+			"byteSize": 1178,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Example spec with valid links\npaths:\n  /with-links:\n    get:\n      operationId: withLinks\n      responses:\n        '200':\n          description: This has links\n          content:\n            applicaton/json:\n              schema:\n                type: object\n                properties:\n                  test:\n                    type: string\n                    description: A test response fields\n                    example: foobar\n          links:\n            exampleWithBoth:\n              operationId: withLinksTwo\n              operationRef: \"/with-links\"\n              parameters:\n                param: baz\n  /with-links-two:\n    get:\n      operationId: withLinksTwo\n      responses:\n        '200':\n          description: This has links too\n          content:\n            applicaton/json:\n              schema:\n                type: object\n                properties:\n                  test:\n                    type: string\n                    description: A test response fields\n                    example: foobar\n          links:\n            exampleWithNeither:\n              parameters:\n                param: baz\n",
+			"canonicalURL": "/github.com/Dorthu/openapi3@dc791af2ff58e8170c21c2775df091c421829b48/-/blob/tests/fixtures/with-broken-links.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Dorthu/openapi3/blob/dc791af2ff58e8170c21c2775df091c421829b48/tests/fixtures/with-broken-links.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/with-links\": get: responses: 200: contents: unsupported content types: [applicaton/json]",
+	"NotImplemented": [
+		"unsupported content types"
+	]
+}

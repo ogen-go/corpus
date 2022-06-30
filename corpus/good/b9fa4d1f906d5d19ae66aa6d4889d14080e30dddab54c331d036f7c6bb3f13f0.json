@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hotmeteor/spectator"
+		},
+		"file": {
+			"name": "Arrays.v1.yaml",
+			"size": 0,
+			"path": "tests/Fixtures/Arrays.v1.yaml",
+			"byteSize": 2297,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Arrays.v1\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /orgs/{orgUuid}:\n    get:\n      summary: Get org\n      tags: []\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: string\n                    format: uuid\n                  name:\n                    type: string\n                  orders:\n                    type: array\n                    items:\n                      type: object\n                      properties:\n                        id:\n                          type: string\n                          format: uuid\n                          example: 53f7bd7b-2ee2-4be4-a15b-e09c76a150f9\n                        receivedOn:\n                          type: string\n                          format: date-time\n                          example: '2021-11-22T16:37:15.000Z'\n                        fulfilledOn:\n                          type: string\n                          format: date-time\n                        isFulfilled:\n                          type: boolean\n                          default: false\n                        orderedTrees:\n                          type: string\n                          example: '1000'\n                        plantedTrees:\n                          type: string\n                          example: '700'\n                        href:\n                          type: string\n                          format: url\n                          example: 'http://localhost:3000/orders/53f7bd7b-2ee2-4be4-a15b-e09c76a150f9.json'\n                      required:\n                        - id\n                        - receivedOn\n                        - fulfilledOn\n                        - isFulfilled\n                        - orderedTrees\n                        - plantedTrees\n                        - href\n                required:\n                  - id\n                  - name\n                  - orders\n      operationId: get-org\n      parameters:\n        - schema:\n            type: string\n            format: uuid\n          name: orgUuid\n          in: path\n          required: true\ncomponents:\n  schemas: {}\n",
+			"canonicalURL": "/github.com/hotmeteor/spectator@06bdf2c95fac4ead0af663a8390ed2b15b19b1e7/-/blob/tests/Fixtures/Arrays.v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hotmeteor/spectator/blob/06bdf2c95fac4ead0af663a8390ed2b15b19b1e7/tests/Fixtures/Arrays.v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

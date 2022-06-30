@@ -1,0 +1,22 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/s2o-test/issue229/openapi.yaml",
+			"byteSize": 1754,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: swagger2openapi bug\n  description: Swagger doc that reproduces a bug in swagger2openapi\npaths:\n  \"/cloud_directory/resend/{templateName}\":\n    post:\n      security:\n        - Token: []\n      operationId: resendNotification\n      summary: Resend user notifications\n      description: Resend user email notifications\n      parameters:\n        - $ref: \"#/components/parameters/templateName\"\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              properties:\n                uuid:\n                  description: The Cloud Directory unique user Id.\n                  type: string\n              required:\n                - uuid\n        required: true\n      responses:\n        \"202\":\n          description: The notification will be send\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  message:\n                    type: string\n                example:\n                  message: Email is queued to be delivered.\n        \"400\":\n          description: The tenantId or request body is missing or invalid.\n          content:\n            application/json:\n              schema:\n                type: string\ncomponents:\n  parameters:\n    templateName:\n      name: templateName\n      in: path\n      description: The type of email template.\n      required: true\n      schema:\n        type: string\n        enum:\n          - USER_VERIFICATION\n          - RESET_PASSWORD\n          - WELCOME\n          - PASSWORD_CHANGED\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: Authorization\n      in: header\n      description: Security\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/s2o-test/issue229/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/s2o-test/issue229/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	}
+}

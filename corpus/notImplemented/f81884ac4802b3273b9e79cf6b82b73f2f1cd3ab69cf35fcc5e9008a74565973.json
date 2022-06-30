@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/erda-project/erda"
+		},
+		"file": {
+			"name": "dop-all.yaml",
+			"size": 0,
+			"path": "pkg/swagger/oas3/testdata/dop-all.yaml",
+			"byteSize": 1952,
+			"content": "openapi: 3.0.0\n\ninfo:\n  description: \"\"\n  title: erda-trantor\n  version: \"1.0\"\n\npaths:\n  /api/applications:\n    post:\n      operationId: 创建应用\n      requestBody:\n        content:\n          application/json:\n            schema:\n              properties:\n                isExternalRepo:\n                  description: 是否使用外置仓库\n                  example: true\n                  type: boolean\n                  x-dice-name: isExternalRepo\n                  x-dice-required: true\n              type: object\n              x-dice-media: application/json\n              x-dice-name: schema\n      responses:\n        \"200\":\n          content:\n            application/json:\n              schema:\n                allOf:\n                  - $ref: '#/components/schemas/StandardResult'\n                example:\n                  err:\n                    msg: failed\n                  success: true\n                type: object\n                x-dice-media: application/json\n                x-dice-name: schema\n          description: \"\"\n      summary: 创建应用\n      tags:\n        - 应用管理\n\ncomponents:\n  schemas:\n    StandardResult:\n      example:\n        err:\n          msg: failed\n        success: true\n      properties:\n        err:\n          example:\n            msg: failed\n          properties:\n            msg:\n              description: 错误具体原因\n              example: failed\n              type: string\n              x-dice-name: msg\n              x-dice-required: true\n          required:\n            - msg\n          type: object\n          x-dice-name: err\n          x-dice-required: true\n        success:\n          description: 接口是否成功\n          example: true\n          type: boolean\n          x-dice-name: success\n          x-dice-required: true\n      required:\n        - success\n        - err\n      type: object\n      x-dice-forbidden-types:\n        - StandardResult\n      x-dice-name: StandardResult\n",
+			"canonicalURL": "/github.com/erda-project/erda@5e505934e5d0c52fb9928f2a5690b6ae98eeae57/-/blob/pkg/swagger/oas3/testdata/dop-all.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/erda-project/erda/blob/5e505934e5d0c52fb9928f2a5690b6ae98eeae57/pkg/swagger/oas3/testdata/dop-all.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "notImplemented: path \"/api/applications\": post: operation name: can't generate valid name: [    ]: crypticName not implemented",
+	"NotImplemented": [
+		"crypticName"
+	]
+}
