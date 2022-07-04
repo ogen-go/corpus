@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ImageSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/Images/Schemas/ImageSearchRequest.yaml",
+			"byteSize": 3389,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ImageSearchRequest:\n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'\n      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'\n      - $ref: '#/components/schemas/SearchRequestParametersPrograms'\n      - type: object\n        properties:\n          descriptiveOntologyTerms:\n            description: A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.\n            type: array\n            items:\n              type: string\n            example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] \n          imageFileNames:\n            description: Image file names to search for.\n            items:\n              type: string\n            type: array\n            example: ['image_01032019.jpg', 'picture_field_1234.jpg'] \n          imageFileSizeMax:\n            description: A maximum image file size to search for.\n            type: integer\n            example: 20000000\n          imageFileSizeMin:\n            description: A minimum image file size to search for.\n            type: integer\n            example: 1000\n          imageHeightMax:\n            description: A maximum image height to search for.\n            type: integer\n            example: 1080\n          imageHeightMin:\n            description: A minimum image height to search for.\n            type: integer\n            example: 720\n          imageLocation:\n            $ref: '#/components/schemas/geoJSONSearchArea'\n          imageNames:\n            description: Human readable names to search for.\n            items:\n              type: string\n            type: array\n            example: ['Image 43', 'Tractor in field']\n          imageTimeStampRangeEnd:\n            description: The latest timestamp to search for.\n            format: date-time\n            type: string\n          imageTimeStampRangeStart:\n            description: The earliest timestamp to search for.\n            format: date-time\n            type: string\n          imageWidthMax:\n            description: A maximum image width to search for.\n            type: integer\n            example: 1920\n          imageWidthMin:\n            description: A minimum image width to search for.\n            type: integer\n            example: 1280\n          mimeTypes:\n            description: A set of image file types to search for.\n            items:\n              pattern: image/.*\n              type: string\n            type: array\n            example: ['image/jpg', 'image/jpeg', 'image/gif']\n          observationDbIds:\n            description: A list of observation Ids this image is associated with to search for\n            items:\n              type: string\n            type: array\n            example: ['47326456', 'fc9823ac']\n          imageDbIds: \n            description: A list of image Ids to search for\n            items:\n              type: string\n            type: array\n            example: ['564b64a6', '0d122d1d']\n          observationUnitDbIds:\n            description: A set of observation unit identifiers to search for.\n            items:\n              type: string\n            type: array\n            example: ['f5e4b273', '328c9424']\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Phenotyping/Images/Schemas/ImageSearchRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Phenotyping/Images/Schemas/ImageSearchRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ImageSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

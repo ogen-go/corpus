@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VariantSets_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VariantSets/VariantSets_GET.yaml",
+			"byteSize": 2642,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variantsets:\n    get:\n      summary: Gets a filtered list of `VariantSets`.\n      description: Will return a filtered list of `VariantSet`.\n      parameters:\n        - name: variantSetDbId\n          description: The ID of the `VariantSet` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: variantDbId\n          description: The ID of the `Variant` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: callSetDbId\n          description: The ID of the `CallSet` to be retrieved.\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: referenceSetDbId\n          description: The ID of the reference set that describes the sequences used by the variants in this set.\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/commonCropName'\n        - $ref: '#/components/parameters/programDbId'\n        - $ref: '#/components/parameters/studyDbId'\n        - $ref: '#/components/parameters/studyName'\n        - $ref: '#/components/parameters/externalReferenceId'\n        - $ref: '#/components/parameters/externalReferenceSource'\n        - $ref: '#/components/parameters/page'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/VariantSetsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Variant Sets\ncomponents:\n  responses:\n    VariantSetsListResponse:\n      description: OK\n      headers: {}\n      content:\n        application/json:\n          schema:\n            title: VariantSetsListResponse\n            type: object\n            required:\n            - metadata\n            - result\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                title: VariantSetsListResponseResult\n                type: object\n                required:\n                - data\n                properties:\n                  data:\n                    items:\n                      $ref: '#/components/schemas/VariantSet'\n                    type: array",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/VariantSets/VariantSets_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/VariantSets/VariantSets_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"VariantSetsListResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: resolve \"#/components/schemas/Context\": find schema: resolve \"#/components/schemas/Context\": can't find value for \"components/schemas/Context\""
+}

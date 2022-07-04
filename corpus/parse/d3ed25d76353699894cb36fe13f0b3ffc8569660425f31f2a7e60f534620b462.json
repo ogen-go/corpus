@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ScaleBaseClass.yaml",
+			"size": 0,
+			"path": "Specification/Components/Schemas/ScaleBaseClass.yaml",
+			"byteSize": 3373,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ScaleBaseClass:\n      type: object\n      description: Scale metadata\n      required:\n      - scaleName\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: Additional arbitrary info\n          type: object\n        dataType:\n          $ref: '#/components/schemas/TraitDataType'\n        decimalPlaces:\n          description: For numerical, number of decimal places to be reported\n          type: integer\n          example: 2\n        ontologyReference:\n          $ref: '#/components/schemas/OntologyReference'\n        scaleName:\n          description: |- \n            Name of the scale\n            \u003cbr/\u003eMIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable\n          type: string\n          example: Meters\n        scalePUI:\n          description: The Permanent Unique Identifier of a Scale, usually in the form of a URI\n          type: string\n          example: http://my-traits.com/trait/CO_123:0000112\n        units:\n          description: |-\n            This field can be used to describe the units used for this scale. This should be the abbreviated \n            form of the units, intended to be displayed with every value using this scale. Usually this only \n            applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.\n          type: string\n          example: m\n        validValues:\n          type: object\n          properties:\n            categories: \n              description: List of possible values with optional labels\n              items:\n                type: object\n                properties:\n                  label:\n                    type: string \n                    description: A text label for a category\n                  value:\n                    type: string\n                    description: The actual value for a category\n              type: array\n              example: \n                - value: \"0\"\n                  label: \"low\"\n                - value: \"5\"\n                  label: \"medium\"\n                - value: \"10\"\n                  label: \"high\"\n            max:\n              description: |-\n                **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 \n                \u003cbr\u003eMaximum value for numerical scales. Typically used for data capture control and QC.\n              type: integer\n              example: 9999\n              deprecated: true\n            min:\n              description: |-\n                **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 \n                \u003cbr\u003eMinimum value for numerical scales. Typically used for data capture control and QC.\n              type: integer\n              example: 2\n              deprecated: true\n            maximumValue:\n              description: Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.\n              type: string\n              example: '9999'\n            minimumValue:\n              description: Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.\n              type: string\n              example: '2'\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/Components/Schemas/ScaleBaseClass.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/Components/Schemas/ScaleBaseClass.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ScaleBaseClass\": parse schema: property \"dataType\": parse schema: resolve \"#/components/schemas/TraitDataType\": find schema: resolve \"#/components/schemas/TraitDataType\": can't find value for \"components/schemas/TraitDataType\""
+}

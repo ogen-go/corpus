@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-example-4j"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/openapi/ms-aggregate/ad/generated/src/main/resources/config/openapi.json",
+			"byteSize": 1868,
+			"content": "{\"components\":{\"securitySchemes\":{\"ad_auth\":{\"type\": \"oauth2\",\"flows\":{\"clientCredentials\":{\"authorizationUrl\": \"http://localhost:8080/oauth2/code\",\"scopes\":{\"ad.w\": \"write access\",\"ad.r\": \"read access\",\"server.info.r\":\"read server info\"}}}}}},\"servers\": [\n    {\n      \"url\": \"http://ad.networknt.com/v1\"\n    }\n  ],\"openapi\": \"3.0.0\",\"paths\":{\"/data\": {\n      \"get\": {\n        \"description\": \"Return an array of strings collected from down stream APIs\",\n        \"operationId\": \"listData\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"title\": \"ArrayOfStrings\",\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"examples\": {\n                  \"response\": {\n                    \"value\": [\n                      \"Message 1\",\n                      \"Message 2\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"ad_auth\": [\n              \"ad.w\",\n              \"ad.r\"\n            ]\n          }\n        ]\n      }\n    },\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}},\"/server/info\":{\"get\":{\"security\":[{\"ad_auth\":[\"server.info.r\"]}],\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}}},\"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"API AD for aggregate microservices pattern\",\n    \"description\": \"API AD is called by API AA along with another two APIs\",\n    \"contact\": {\n      \"email\": \"stevehu@gmail.com\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  }}",
+			"canonicalURL": "/github.com/networknt/light-example-4j@74513c019570e65623b80c1cadc1423e7a18807a/-/blob/rest/openapi/ms-aggregate/ad/generated/src/main/resources/config/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-example-4j/blob/74513c019570e65623b80c1cadc1423e7a18807a/rest/openapi/ms-aggregate/ad/generated/src/main/resources/config/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /data: get: operation \"listData\": security: parse security scheme \"ad_auth\": oauth2: flow \"clientCredentials\": \"tokenUrl\" MUST be in the form of a URL: parse \"\": empty url"
+}

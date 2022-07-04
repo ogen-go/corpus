@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Delete_Images_POST.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/Images/Delete_Images_POST.yaml",
+			"byteSize": 1637,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /delete/images:\n    post:\n      summary: Submit a delete request for `Images`\n      description: |-\n        Submit a delete request for `Images`\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ImageSearchRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/ImageDeleteResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Images\n\ncomponents:\n  responses:\n    ImageDeleteResponse:\n      content:\n        application/json:\n          schema:\n            title: ImageDeleteResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                properties:\n                  imageDbIds:\n                    description: The unique ids of the Image records which have been successfully deleted\n                    items:\n                      type: string\n                    type: array\n                    example: ['6a4a59d8', '3ff067e0']\n                required:\n                - imageDbIds\n                type: object\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Phenotyping/Images/Delete_Images_POST.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Phenotyping/Images/Delete_Images_POST.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"ImageDeleteResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: resolve \"#/components/schemas/Context\": find schema: resolve \"#/components/schemas/Context\": can't find value for \"components/schemas/Context\""
+}

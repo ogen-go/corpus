@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/elierotenberg/typed-react-openapi"
+		},
+		"file": {
+			"name": "spec.yml",
+			"size": 0,
+			"path": "src/example/spec.yml",
+			"byteSize": 3104,
+			"content": "openapi: \"3.0.0\"\nservers:\n  - url: http://localhost:8080\n\npaths:\n  /auth:\n    post:\n      operationId: postAuth\n      tags:\n        - TodoList\n      summary: Get a bearer token\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n  /item:\n    get:\n      operationId: getItems\n      security:\n        - bearerToken: []\n      tags:\n        - TodoList\n      summary: List all items\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Item\"\n    post:\n      operationId: postItem\n      security:\n        - bearerToken: []\n      tags:\n        - TodoList\n      summary: Create a new todo list item\n      requestBody:\n        description: New item\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Item\"\n      responses:\n        \"201\":\n          description: Created\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Item\"\n\n  /item/{item_id}:\n    get:\n      operationId: getItem\n      security:\n        - bearerToken: []\n      tags:\n        - TodoList\n      parameters:\n        - in: path\n          name: item_id\n          schema:\n            type: string\n          required: true\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Item\"\n    put:\n      operationId: putItem\n      security:\n        - bearerToken: []\n      tags:\n        - TodoList\n      parameters:\n        - in: path\n          name: item_id\n          schema:\n            type: string\n          required: true\n      requestBody:\n        description: Updated item\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Item\"\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Item\"\n    delete:\n      operationId: deleteItem\n      security:\n        - bearerToken: []\n      tags:\n        - TodoList\n      parameters:\n        - in: path\n          name: item_id\n          schema:\n            type: string\n          required: true\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Item\"\n\ncomponents:\n  securitySchemes:\n    bearerToken:\n      type: http\n      scheme:\n      bearerFormat: jwt\n  schemas:\n    Item:\n      type: object\n      properties:\n        id:\n          type: string\n        title:\n          type: string\n        description:\n          type: string\n        done:\n          type: boolean\n      required:\n        - id\n        - title\n        - description\n        - done\n",
+			"canonicalURL": "/github.com/elierotenberg/typed-react-openapi@6f229d6dcadeb6ab70ce61d46f38e30d574c8259/-/blob/src/example/spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/elierotenberg/typed-react-openapi/blob/6f229d6dcadeb6ab70ce61d46f38e30d574c8259/src/example/spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /item: get: operation \"getItems\": security: parse security scheme \"bearerToken\": http: invalid \"scheme\": \"\""
+}

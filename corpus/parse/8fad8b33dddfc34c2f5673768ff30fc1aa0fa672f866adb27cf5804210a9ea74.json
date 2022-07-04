@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TimesysGit/board-farm-rest-api"
+		},
+		"file": {
+			"name": "hotplug_on.yaml",
+			"size": 0,
+			"path": "spec/hotplug/hotplug_on.yaml",
+			"byteSize": 1443,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/hotplug/{hotplug_num}/on/:\n    put:\n      tags:\n      - api\n      operationId: api_devices_hotplug_hotplug_on\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      - name: hotplug_num\n        in: path\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                interface:\n                  type: string\n                device_num: \n                  type: string\n                command: \n                  type: string\n        required: true\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: string\n                  message:\n                    type: string\n                  data:\n                    type: string\n                required:\n                  - result\n      x-codegen-request-body-name: data",
+			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@57a558a86e35ed348bff7d90b730a6671d662379/-/blob/spec/hotplug/hotplug_on.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/57a558a86e35ed348bff7d90b730a6671d662379/spec/hotplug/hotplug_on.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /api/v0.2/devices/{DeviceName}/hotplug/{hotplug_num}/on/: put: operation \"api_devices_hotplug_hotplug_on\": security: parse security scheme \"tokenAuth\": http: invalid \"scheme\": \"token\""
+}
