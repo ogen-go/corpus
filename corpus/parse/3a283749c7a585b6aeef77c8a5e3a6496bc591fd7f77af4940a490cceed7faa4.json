@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_7193.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
+			"byteSize": 1081,
+			"content": "openapi: 3.0.0\ninfo:\n  title: test api\n  version: 0.0.1\npaths:\n  /imports:\n    post:\n      summary: Creates import\n      operationId: createImport\n      responses:\n        201:\n          description: created\n      security:\n        - oauth_auth:\n            - import:create\n  /imports/{importId}/state:\n    put:\n      summary: Changes import state\n      operationId: changeImportState\n      parameters:\n        - name: importId\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: State changed\n      security:\n        - oauth_auth:\n            - import:process\ncomponents:\n  securitySchemes:\n    oauth_auth:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            import:create: create import\n        clientCredentials:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            import:create: create import\n            import:process: process import",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4cf58f5886afd3af15f95e247b0183356b7c9773/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4cf58f5886afd3af15f95e247b0183356b7c9773/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /imports: post: operation \"createImport\": security: parse security scheme \"oauth_auth\": oauth2: flow \"password\": \"tokenUrl\" MUST be in the form of a URL: parse \"../auth/realms/master/protocol/openid-connect/token\": invalid URI for request"
+}

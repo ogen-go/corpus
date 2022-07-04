@@ -10,14 +10,14 @@
 			"path": "spec/daemon/spec.yml",
 			"byteSize": 1482,
 			"content": "openapi: \"3.0.2\"\ninfo:\n  title: SCION Daemon API\n  description: Service API for the SCION Daemon\n  version: \"0.0.1\"\nservers:\n  - url: http://{host}:{port}/api/v1\n    variables:\n      host:\n        default: \"localhost\"\n      port:\n        default: \"31152\"\ntags:\n  - name: common\n    description: Common API exposed by SCION services.\n  - name: segment\n    description: Everything related to SCION path segments.\n  - name: cppki\n    description: Everything related to SCION CPPKI material.\npaths:\n  /info:\n    $ref: \"../common/process.yml#/paths/~1info\"\n  /log/level:\n    $ref: \"../common/process.yml#/paths/~1log~1level\"\n  /config:\n    $ref: \"../common/process.yml#/paths/~1config\"\n  /segments:\n    $ref: \"../segments/spec.yml#/paths/~1segments\"\n  /segments/{segment-id}:\n    $ref: \"../segments/spec.yml#/paths/~1segments~1{segment-id}\"\n  /segments/{segment-id}/blob:\n    $ref: \"../segments/spec.yml#/paths/~1segments~1{segment-id}~1blob\"\n  /trcs:\n    $ref: \"../cppki/spec.yml#/paths/~1trcs\"\n  /trcs/isd{isd}-b{base}-s{serial}:\n    $ref: \"../cppki/spec.yml#/paths/~1trcs~1isd{isd}-b{base}-s{serial}\"\n  /trcs/isd{isd}-b{base}-s{serial}/blob:\n    $ref: \"../cppki/spec.yml#/paths/~1trcs~1isd{isd}-b{base}-s{serial}~1blob\"\n  /certificates:\n    $ref: \"../cppki/spec.yml#/paths/~1certificates\"\n  /certificates/{chain-id}:\n    $ref: \"../cppki/spec.yml#/paths/~1certificates~1{chain-id}\"\n  /certificates/{chain-id}/blob:\n    $ref: \"../cppki/spec.yml#/paths/~1certificates~1{chain-id}~1blob\"\n",
-			"canonicalURL": "/github.com/scionproto/scion@93f69bdb1527af31965c1bc312abba21091bfc80/-/blob/spec/daemon/spec.yml",
+			"canonicalURL": "/github.com/scionproto/scion@6ed6b84abdb549e6356750401d056ecc5265b9dc/-/blob/spec/daemon/spec.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/scionproto/scion/blob/93f69bdb1527af31965c1bc312abba21091bfc80/spec/daemon/spec.yml",
+					"url": "https://github.com/scionproto/scion/blob/6ed6b84abdb549e6356750401d056ecc5265b9dc/spec/daemon/spec.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /certificates: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: /segments/{segment-id}: referenced pathItem not supported"
 }

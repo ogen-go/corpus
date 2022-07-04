@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ProgramSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Programs/Schemas/ProgramSearchRequest.yaml",
+			"byteSize": 1823,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ProgramSearchRequest:\n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'\n      - $ref: '#/components/schemas/SearchRequestParametersPrograms'\n      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'\n      - type: object\n        properties:\n          abbreviations:\n            description: An abbreviation of a program to search for\n            items:\n              type: string\n            type: array\n            example: ['P1', 'P2']\n          leadPersonDbIds:\n            description: The person DbIds of the program leader to search for\n            items:\n              type: string\n            type: array\n            example: ['d8bd96c7', 'a2b9c8e7']\n          leadPersonNames:\n            description: The names of the program leader to search for\n            items:\n              type: string\n            type: array\n            example: ['Bob Robertson', 'Rob Robertson']\n          objectives:\n            description: A program objective to search for\n            items:\n              type: string\n            type: array\n            example: ['Objective Code One', 'This is a longer objective search query']\n          programTypes:\n            description: |-\n              The type of program entity this object represents\n              \u003cbr/\u003e 'STANARD' represents a standard, permenant breeding program\n              \u003cbr/\u003e 'PROJECT' represents a short term project, usually with a set time limit based on funding \n            items:\n              type: string\n              enum:\n              - STANARD\n              - PROJECT\n            type: array\n            example: ['STANARD', 'PROJECT']\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Core/Programs/Schemas/ProgramSearchRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Core/Programs/Schemas/ProgramSearchRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ProgramSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

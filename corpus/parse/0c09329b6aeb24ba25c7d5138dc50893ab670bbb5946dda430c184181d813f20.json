@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "LocationSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Locations/Schemas/LocationSearchRequest.yaml",
+			"byteSize": 3208,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    LocationSearchRequest:\n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'\n      - $ref: '#/components/schemas/SearchRequestParametersLocations'\n      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'\n      - $ref: '#/components/schemas/SearchRequestParametersPrograms'\n      - type: object\n        properties:\n          abbreviations:\n            description: An abbreviation which represents this location\n            type: array\n            items:\n              type: string\n            example: ['L1', 'LHC']\n          altitudeMin:\n            description: The minimum altitude to search for\n            type: number\n            example: 20\n          altitudeMax:\n            description: The maximum altitude to search for\n            type: number\n            example: 200\n          countryCodes:\n            description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'\n            type: array\n            items:\n              type: string\n            example: ['USA', 'PER']\n          countryNames:\n            description: The full name of the country to search for\n            type: array\n            items:\n              type: string\n            example: ['United States of America', 'Peru']\n          coordinates: \n            $ref: '#/components/schemas/geoJSONSearchArea'\n          instituteAddresses:\n            description: The street address of the institute to search for\n            type: array\n            items:\n              type: string\n            example: ['123 Main Street', '456 Side Street']\n          instituteNames:\n            description: The name of the institute to search for\n            type: array\n            items:\n              type: string\n            example: ['The Institute', 'The Other Institute']\n          locationTypes: \n            description: The type of location this represents (ex. Breeding Location, Storage Location, etc)\n            type: array\n            items:\n              type: string\n            example: ['Nursery', 'Storage Location']\n          parentLocationDbIds:\n            description: |-\n              The unique identifier for a Location\n              \u003cbr/\u003e The Parent Location defines the encompassing location that this location belongs to. \n              For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.\n            type: array\n            items:\n              type: string\n            example: ['b28911cf', '5071d1e4']\n          parentLocationNames:\n            description: |-\n              A human readable name for a location\n              \u003cbr/\u003e The Parent Location defines the encompassing location that this location belongs to. \n              For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.\n            type: array\n            items:\n              type: string\n            example: ['Location Alpha', 'The Large Hadron Collider']\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Core/Locations/Schemas/LocationSearchRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Core/Locations/Schemas/LocationSearchRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"LocationSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

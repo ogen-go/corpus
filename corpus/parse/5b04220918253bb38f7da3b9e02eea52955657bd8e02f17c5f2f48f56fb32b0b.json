@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TimesysGit/board-farm-rest-api"
+		},
+		"file": {
+			"name": "serial_download.yaml",
+			"size": 0,
+			"path": "spec/serial/serial_download.yaml",
+			"byteSize": 1069,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/download/serial/:\n    get:\n      tags:\n      - api\n      operationId: api_devices_download_device_download_serial\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      - name: path\n        in: query\n        description: Download File path. Default /\n        required: true\n        schema:\n          type: string\n      - name: compress\n        in: query\n        description: compress files on Device before downloading\n        required: false\n        schema:\n          type: boolean\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/vnd.ms-excel:\n              schema:\n                type: string\n                format: binary",
+			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@57a558a86e35ed348bff7d90b730a6671d662379/-/blob/spec/serial/serial_download.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/57a558a86e35ed348bff7d90b730a6671d662379/spec/serial/serial_download.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /api/v0.2/devices/{DeviceName}/download/serial/: get: operation \"api_devices_download_device_download_serial\": security: parse security scheme \"tokenAuth\": http: invalid \"scheme\": \"token\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "form-duplicated-parameter.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+			"byteSize": 1167,
+			"content": "openapi: 3.0.1\ninfo:\n  title: FormData Test Api Documentation\n  description: Minimal OpenAPI spec file to showcase duplicated params for formData.\n  version: 0.0.1\nservers:\n  - url: /backend/rest\ntags:\n  - name: form-param-poc\n    description: File storage resource for Fiscalization France standard\npaths:\n  '/form-param-poc/{id}':\n    put:\n      tags:\n        - form-param-poc\n      summary: fullUpdate\n      operationId: form-param-poc_update\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/FormParameters'\n      responses:\n        '200':\n          description: OK.\n      security:\n        - oAuthConfig: []\ncomponents:\n  schemas:\n    FormParameters:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          readOnly: true\n  securitySchemes:\n    oAuthConfig:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: ../backend/login/openid\n          scopes: {}\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4cf58f5886afd3af15f95e247b0183356b7c9773/-/blob/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4cf58f5886afd3af15f95e247b0183356b7c9773/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /form-param-poc/{id}: put: operation \"form-param-poc_update\": security: parse security scheme \"oAuthConfig\": oauth2: flow \"implicit\": \"authorizationUrl\" MUST be in the form of a URL: parse \"../backend/login/openid\": invalid URI for request"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ProgenyNodeDEP.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/Germplasm/Schemas/ProgenyNodeDEP.yaml",
+			"byteSize": 1495,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ProgenyNodeDEP:\n      type: object\n      required:\n      - germplasmDbId\n      - progeny\n      properties:\n        germplasmName:\n          description: A human readable name for a germplasm\n          type: string\n          example: A0021004\n        germplasmDbId:\n          description: The ID which uniquely identifies a germplasm\n          type: string\n          example: 01b974dc\n        progeny:\n          description: List of germplasm entities which are direct children of this germplasm\n          items:\n            required: \n            - germplasmDbId\n            - parentType\n            properties:\n              germplasmName:\n                description: The human readable name of a progeny germplasm\n                type: string\n                example: A0021011\n              germplasmDbId:\n                description: The unique identifier of a progeny germplasm\n                type: string\n                example: e8d5dad7\n              parentType: \n                $ref: '#/components/schemas/ParentTypeDEP'\n            type: object\n          type: array\n          example:\n          - germplasmName: A0021011\n            germplasmDbId: e8d5dad7\n            parentType: FEMALE\n          - germplasmName: A0021012\n            germplasmDbId: ac07fbd8\n            parentType: FEMALE\n          - germplasmName: A0021013\n            germplasmDbId: 07f45f67\n            parentType: FEMALE\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Germplasm/Germplasm/Schemas/ProgenyNodeDEP.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Germplasm/Germplasm/Schemas/ProgenyNodeDEP.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ProgenyNodeDEP\": parse schema: property \"progeny\": parse schema: item: parse schema: property \"parentType\": parse schema: resolve \"#/components/schemas/ParentTypeDEP\": find schema: resolve \"#/components/schemas/ParentTypeDEP\": can't find value for \"components/schemas/ParentTypeDEP\""
+}

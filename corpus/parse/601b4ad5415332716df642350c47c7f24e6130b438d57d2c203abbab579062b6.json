@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "AlleleMatrix_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/AlleleMatrix/AlleleMatrix_GET.yaml",
+			"byteSize": 3316,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /allelematrix:\n    get:\n      summary: Use this endpoint to retrieve a two dimensional matrix of genotype data\n      description: |-\n        Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF file format, \n        but the search and filter parameters give the ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, \n        without having to download the entire genotype file.\n        \u003cbr/\u003eEach row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet.    \n      parameters:\n        - name: dimensionVariantPage\n          description: The requested page number for the Variant dimension of the matrix\n          in: query\n          required: false\n          schema:\n            type: integer\n        - name: dimensionVariantPageSize\n          description: The requested page size for the Variant dimension of the matrix\n          in: query\n          required: false\n          schema:\n            type: integer\n        - name: dimensionCallSetPage\n          description: The requested page number for the CallSet dimension of the matrix\n          in: query\n          required: false\n          schema:\n            type: integer\n        - name: dimensionCallSetPageSize\n          description: The requested page size for the CallSet dimension of the matrix\n          in: query\n          required: false\n          schema:\n            type: integer\n        - $ref: '#/components/parameters/preview'\n        - $ref: '#/components/parameters/dataMatrixNames'\n        - $ref: '#/components/parameters/dataMatrixAbbreviations'\n        - $ref: '#/components/parameters/positionRange'\n        - $ref: '#/components/parameters/germplasmDbId'\n        - $ref: '#/components/parameters/germplasmName'\n        - $ref: '#/components/parameters/germplasmPUI'\n        - $ref: '#/components/parameters/callSetDbId'\n        - $ref: '#/components/parameters/variantDbId'\n        - $ref: '#/components/parameters/variantSetDbId'\n        - $ref: '#/components/parameters/expandHomozygotes'\n        - $ref: '#/components/parameters/unknownString'\n        - $ref: '#/components/parameters/sepPhased'\n        - $ref: '#/components/parameters/sepUnphased'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/AlleleMatrixResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Allele Matrix\n\ncomponents:\n  responses:\n    AlleleMatrixResponse: \n      description: OK\n      headers: {}\n      content:\n        application/json:\n          schema:\n            title: AlleleMatrixResponse\n            required:\n            - metadata\n            - result\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/AlleleMatrix'\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/AlleleMatrix/AlleleMatrix_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/AlleleMatrix/AlleleMatrix_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"AlleleMatrixResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: resolve \"#/components/schemas/Context\": find schema: resolve \"#/components/schemas/Context\": can't find value for \"components/schemas/Context\""
+}

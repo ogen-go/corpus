@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ReferencesSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/References/Schemas/ReferencesSearchRequest.yaml",
+			"byteSize": 2494,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ReferencesSearchRequest: \n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'\n      - $ref: '#/components/schemas/SearchRequestParametersPrograms'\n      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'\n      - $ref: '#/components/schemas/SearchRequestParametersTrials'\n      - $ref: '#/components/schemas/SearchRequestParametersStudies'\n      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'\n      - type: object\n        properties:\n          accessions:\n            type: array\n            description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).\n            items: \n              type: string\n            example: ['A0009283','A0006657'] \n          md5checksums:\n            type: array\n            description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).\n            items: \n              type: string\n            example: ['c2365e900c81a89cf74d83dab60df146']\n          referenceDbIds:\n            type: array\n            description: A list of IDs which uniquely identify `References` within the given database server \n            items: \n              type: string\n            example: ['04c83ea7', 'd0998a34']\n          referenceSetDbIds:\n            type: array\n            description: A list of IDs which uniquely identify `ReferenceSets` within the given database server \n            items: \n              type: string\n            example: ['32a19dd7', '2c182c18']\n          isDerived:\n            description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.\n            format: boolean\n            type: boolean\n          minLength:\n            description: The minimum length of this `References` sequence.\n            type: integer\n            example: 4000\n          maxLength:\n            description: The minimum length of this `References` sequence.\n            type: integer\n            example: 90000\n            \n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/References/Schemas/ReferencesSearchRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/References/Schemas/ReferencesSearchRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ReferencesSearchRequest\": parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": find schema: resolve \"#/components/schemas/SearchRequestParametersPaging\": can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "VariantSets_VariantSetId_Calls_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/VariantSets/VariantSets_VariantSetId_Calls_GET.yaml",
+			"byteSize": 1834,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variantsets/{variantSetDbId}/calls:\n    get:\n      summary:  Gets a list of `Calls` associated with a `VariantSet`.\n      description: |-\n        Gets a list of `Calls` associated with a `VariantSet`.\n      parameters:\n        - name: variantSetDbId\n          description: The ID of the `VariantSet` to be retrieved.\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: expandHomozygotes\n          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)\n          in: query\n          required: false\n          schema:\n            type: boolean\n        - name: unknownString\n          description: The string to use as a representation for missing data\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepPhased\n          description: The string to use as a separator for phased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepUnphased\n          description: The string to use as a separator for unphased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/page'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/CallsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Variant Sets",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/VariantSets/VariantSets_VariantSetId_Calls_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/VariantSets/VariantSets_VariantSetId_Calls_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: paths: /variantsets/{variantSetDbId}/calls: get: parameters: parse parameter \"\": resolve \"#/components/parameters/pageToken\" reference: can't find value for \"components/parameters/pageToken\""
+}

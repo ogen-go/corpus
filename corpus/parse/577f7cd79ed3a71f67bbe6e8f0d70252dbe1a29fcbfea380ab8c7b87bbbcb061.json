@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "CallsListResponse.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/Calls/Schemas/CallsListResponse.yaml",
+			"byteSize": 1600,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  responses:\n    CallsListResponse: \n      description: OK\n      headers: {}\n      content:\n        application/json:\n          schema:\n            title: CallsListResponse\n            required:\n            - metadata\n            - result\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadataTokenPagination'\n              result:\n                type: object\n                required:\n                - data\n                properties:\n                  data:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/Call'\n                  expandHomozygotes: \n                    description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)\n                    type: boolean\n                    example: true\n                  sepPhased:\n                    description: The string used as a separator for phased allele calls.\n                    type: string\n                    example: '|'\n                  sepUnphased:\n                    description: The string used as a separator for unphased allele calls.\n                    type: string\n                    example: '/'\n                  unknownString:\n                    description: The string used as a representation for missing data.\n                    type: string\n                    example: '.'\n                    ",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/Calls/Schemas/CallsListResponse.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/Calls/Schemas/CallsListResponse.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"CallsListResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: resolve \"#/components/schemas/Context\": find schema: resolve \"#/components/schemas/Context\": can't find value for \"components/schemas/Context\""
+}

@@ -10,10 +10,10 @@
 			"path": "rest-api/resources/src/main/resources/openapi/jobEngine/jobEngine-scopeId.yaml",
 			"byteSize": 1541,
 			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Job Engine\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/jobs/_isRunning:\n    post:\n      tags:\n        - Job Engine\n      summary: Check if multiple Jobs are running\n      operationId: multipleJobIsRunning\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: './jobEngine.yaml#/components/schemas/multipleJobIdRequest'\n      responses:\n        200:\n          description: |\n            An object representing the running status of multiple Jobs.\n            Please note that an items that only contains the `jobId` property\n            but not the `isRunning` property means that an error occurred while\n            retrieving the status of that specific job.\n          content:\n            application/json:\n              schema:\n                $ref: './jobEngine.yaml#/components/schemas/multipleIsJobRunning'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        404:\n          $ref: '../openapi.yaml#/components/responses/entityNotFound'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n",
-			"canonicalURL": "/github.com/eclipse/kapua@ae2c7d65edca9201f36a4514d19f65d4ef97bb40/-/blob/rest-api/resources/src/main/resources/openapi/jobEngine/jobEngine-scopeId.yaml",
+			"canonicalURL": "/github.com/eclipse/kapua@f07cd53ecb271c305963937965745e7f9a903c7d/-/blob/rest-api/resources/src/main/resources/openapi/jobEngine/jobEngine-scopeId.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/eclipse/kapua/blob/ae2c7d65edca9201f36a4514d19f65d4ef97bb40/rest-api/resources/src/main/resources/openapi/jobEngine/jobEngine-scopeId.yaml",
+					"url": "https://github.com/eclipse/kapua/blob/f07cd53ecb271c305963937965745e7f9a903c7d/rest-api/resources/src/main/resources/openapi/jobEngine/jobEngine-scopeId.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
