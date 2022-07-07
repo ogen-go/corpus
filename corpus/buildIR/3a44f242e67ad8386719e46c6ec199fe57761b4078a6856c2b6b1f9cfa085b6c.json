@@ -10,10 +10,10 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 			"byteSize": 976,
 			"content": "openapi: 3.0.0\ninfo:\n  title: TestApi\n  version: 1.0.0\npaths:\n  /test:\n    get:\n      summary: Test\n      operationId: testApi\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ModelC\"\ncomponents:\n  schemas:\n    ModelA:\n      required:\n        - duplicated_required\n      properties:\n        foo:\n          type: string\n        duplicated_optional:\n           type: string\n        duplicated_required:\n           type: string\n    ModelB:\n      required:\n        - duplicated_required\n      properties:\n        bar:\n          type: string\n        duplicated_optional:\n           type: integer\n        duplicated_required:\n           type: integer\n    ModelC:\n      allOf:\n        - $ref: \"#/components/schemas/ModelA\"\n        - $ref: \"#/components/schemas/ModelB\"\n        - type: object\n          properties:\n            baz:\n              type: string\n\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4cf58f5886afd3af15f95e247b0183356b7c9773/-/blob/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@cfebd14c2bb1da219aa75d841658108fb5e14edb/-/blob/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4cf58f5886afd3af15f95e247b0183356b7c9773/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/cfebd14c2bb1da219aa75d841658108fb5e14edb/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

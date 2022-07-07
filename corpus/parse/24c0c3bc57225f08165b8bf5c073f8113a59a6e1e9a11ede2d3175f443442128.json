@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
 			"byteSize": 978,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                allOf:\n                  - \"$ref\": \"#/components/schemas/ErrorModel\"\n                  - type: object\n                    required:\n                      - rootCause\n                    properties:\n                      rootCause:\n                        type: string\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/negative4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"listVersionsv2\": responses: 200: content: application/json: schema: parse schema: allOf: [0]: parse schema: resolve \"#/components/schemas/ErrorModel\": find schema: resolve \"#/components/schemas/ErrorModel\": can't find value for \"components/schemas/ErrorModel\""
+	"Error": "parse: parse spec: parse operations: path \"/\": at 1:174: get: operation \"listVersionsv2\": at 1:181: responses: 200: at 1:232: content: application/json: at 1:263: schema: at 1:273: parse schema: allOf: [0]: at 1:283: parse schema: resolve \"#/components/schemas/ErrorModel\": find schema: resolve \"#/components/schemas/ErrorModel\": can't find value for \"components/schemas/ErrorModel\""
 }

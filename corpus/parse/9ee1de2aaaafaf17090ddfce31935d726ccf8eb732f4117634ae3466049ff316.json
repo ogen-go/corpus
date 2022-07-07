@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/response_code_missing/test/negative4.yaml",
 			"byteSize": 773,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\npaths:\n  \"/item\":\n    put:\n      operationId: putItem\n      summary: Put item\n      responses:\n        \"500\":\n          description: 500 response\n        \"429\":\n          description: 429 response\n        \"400\":\n          description: 400 response\n        \"404\":\n          description: 404 response\n        \"415\":\n          description: 415 response\n        \"401\":\n          description: 401 response\n        \"403\":\n          description: 403 response\ncomponents:\n  schemas:\n    Error:\n      type: object\n      properties:\n        code:\n          type: string\n        message:\n          type: string\n      required:\n        - code\n        - message\nsecurity:\n  - petstore_auth:\n      - write:pets\n      - read:pets\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/general/response_code_missing/test/negative4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/general/response_code_missing/test/negative4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/general/response_code_missing/test/negative4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/general/response_code_missing/test/negative4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /item: put: operation \"putItem\": security: unknown security schema \"petstore_auth\""
+	"Error": "parse: parse spec: parse operations: path \"/item\": at 1:236: put: operation \"putItem\": at 1:243: security: unknown security schema \"petstore_auth\""
 }

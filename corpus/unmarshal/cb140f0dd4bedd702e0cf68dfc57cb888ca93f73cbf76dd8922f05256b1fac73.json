@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/additional_properties_too_restrective/test/negative2.yaml",
 			"byteSize": 720,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        '200':\n          schema:\n            allOf:\n            - type: object\n              properties:\n                id:\n                  type: string\n                name:\n                  type: string\n              additionalProperties: 'true'\n            - type: string\ncomponents:\n  schemas:\n    MyObject:\n      oneOf:\n      - type: object\n        properties:\n          id:\n            type: string\n          name:\n            type: string\n        additionalProperties: 'true'\n      - type: string\n        additionalProperties: 'false'\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/additional_properties_too_restrective/test/negative2.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/additional_properties_too_restrective/test/negative2.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/additional_properties_too_restrective/test/negative2.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/additional_properties_too_restrective/test/negative2.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: unexpected type string"
+	"Error": "unmarshal: json: line 1:72: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal Go value of type ogen.AdditionalProperties: json: unable to handle JSON string with Go value of type *ogen.AdditionalProperties within JSON value at \"/components/schemas/MyObject/oneOf/0/additionalProperties\": unexpected type string"
 }

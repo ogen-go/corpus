@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
 			"byteSize": 1408,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersions\n      summary: List versions\n      servers:\n        - url: http://myapi.com/\n          description: server URL\n      security:\n        - OAuth2:\n            - write\n            - read\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\n      requestBody:\n        description: A JSON object containing my object information\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/MyObject\"\ncomponents:\n  requestBodies:\n    MyObjectBody:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n    MyObjectBody_2:\n      description: A JSON object containing my object information\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/MyObject\"\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/object_without_required_property/test/negative6.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: requestBodies: \"MyObjectBody\": content: application/json: schema: parse schema: resolve \"#/components/schemas/MyObject\": find schema: resolve \"#/components/schemas/MyObject\": can't find value for \"components/schemas/MyObject\""
+	"Error": "parse: parse spec: parse components: at 1:15: requestBodies: \"MyObjectBody\": at 1:48: content: application/json: at 1:79: schema: at 1:89: parse schema: resolve \"#/components/schemas/MyObject\": find schema: resolve \"#/components/schemas/MyObject\": can't find value for \"components/schemas/MyObject\""
 }

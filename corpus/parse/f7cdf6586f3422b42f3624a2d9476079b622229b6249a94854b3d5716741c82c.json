@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 			"byteSize": 919,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/pets\":\n    get:\n      description: Returns all pets from the system that the user has access to\n      responses:\n        \"200\":\n          description: A list of pets.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/pet\"\n      security:\n        - api_key:\n            - write:pets\n            - read:pets\n        - petstore_auth:\n            - write:pets\n            - read:pets\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n    petstore_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://example.org/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pets: get: responses: 200: content: application/json: schema: parse schema: item: parse schema: resolve \"#/components/schemas/pet\": find schema: resolve \"#/components/schemas/pet\": can't find value for \"components/schemas/pet\""
+	"Error": "parse: parse spec: parse operations: path \"/pets\": at 1:385: get: at 1:392: responses: 200: at 1:489: content: application/json: at 1:520: schema: at 1:530: parse schema: item: at 1:539: parse schema: resolve \"#/components/schemas/pet\": find schema: resolve \"#/components/schemas/pet\": can't find value for \"components/schemas/pet\""
 }
