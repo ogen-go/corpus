@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative1.json",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/property_allow_reserved_encoding_object_ignored/test/negative1.json",
+			"byteSize": 1886,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ],\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\"\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"NewItem\": {\n        \"description\": \"A JSON object containing item data\",\n        \"required\": true,\n        \"content\": {\n          \"application/x-www-form-urlencoded\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"code\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            },\n            \"examples\": {\n              \"tshirt\": {\n                \"$ref\": \"#/components/examples/tshirt\"\n              }\n            },\n            \"encoding\": {\n              \"code\": {\n                \"contentType\": \"image/png, image/jpeg\",\n                \"allowReserved\": true\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/property_allow_reserved_encoding_object_ignored/test/negative1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/property_allow_reserved_encoding_object_ignored/test/negative1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 43:17: requestBodies: \"NewItem\": at 45:18: content: application/x-www-form-urlencoded: at 49:48: examples: \"tshirt\": resolve \"#/components/examples/tshirt\": can't find value for \"components/examples/tshirt\""
+}

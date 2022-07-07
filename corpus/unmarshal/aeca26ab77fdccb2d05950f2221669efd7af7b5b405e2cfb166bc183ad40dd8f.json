@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "additional-items.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/additional-items.json",
+			"byteSize": 1223,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"some title\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"invalid-tuple-array-additional-items-boolean\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": false,\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"invalid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          },\n          {\n            \"type\": \"string\",\n            \"enum\": [\"NW\"]\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"NW\",\n          4\n        ]\n      },\n      \"valid-tuple-array-additional-items-object\": {\n        \"type\": \"array\",\n        \"items\": [\n          {\n            \"type\": \"number\"\n          }\n        ],\n        \"additionalItems\": {\n          \"type\": \"string\"\n        },\n        \"example\": [\n          5,\n          \"lala\",\n          \"other\"\n        ]\n      }\n    }\n  },\n  \"paths\": {\n  }\n}",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/validations/oas3/additional-items.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/validations/oas3/additional-items.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: json: line 11:18: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal JSON array into Go value of type ogen.Schema"
+}

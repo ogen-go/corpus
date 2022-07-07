@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/EOSIO/eos"
+			"name": "github.com/cc32d9/wax2.1"
 		},
 		"file": {
 			"name": "trace_api.swagger.yaml",
@@ -10,10 +10,10 @@
 			"path": "plugins/trace_api_plugin/trace_api.swagger.yaml",
 			"byteSize": 1552,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Trace API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /trace_api/get_block:\n    post:\n      description: Returns a block trace object containing retired actions and related metadata.\n      operationId: get_block\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - block_num\n              properties:\n                block_num:\n                  type: integer\n                  description: Provide a `block number`\n      responses:\n        \"200\":\n          description: OK - valid response payload\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: \"https://eosio.github.io/schemata/v2.1/oas/BlockTraceV0.yaml\"\n                  - $ref: \"https://eosio.github.io/schemata/v2.1/oas/BlockTraceV1.yaml\"\n        \"400\":\n          description: Error - requested block number is invalid (not a number, larger than max int)\n        \"404\":\n          description: Error - requested data not present on node\n        \"500\":\n          description: Error - exceptional condition while processing get_block; e.g. corrupt files\n",
-			"canonicalURL": "/github.com/EOSIO/eos@11d35f0f934402321853119d36caeb7022813743/-/blob/plugins/trace_api_plugin/trace_api.swagger.yaml",
+			"canonicalURL": "/github.com/cc32d9/wax2.1@6671dfd2ab45419ab0f11d7cc895ecd11fcf0b8f/-/blob/plugins/trace_api_plugin/trace_api.swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/EOSIO/eos/blob/11d35f0f934402321853119d36caeb7022813743/plugins/trace_api_plugin/trace_api.swagger.yaml",
+					"url": "https://github.com/cc32d9/wax2.1/blob/6671dfd2ab45419ab0f11d7cc895ecd11fcf0b8f/plugins/trace_api_plugin/trace_api.swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

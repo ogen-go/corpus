@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "positive1.json",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/positive1.json",
+			"byteSize": 1919,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the user being returned\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"uuid\": {\n                      \"type\": \"string\",\n                      \"format\": \"uuid\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/users/{userid}/address\": {\n      \"parameters\": [\n        {\n          \"name\": \"userid\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"the user identifier, as userId\",\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"operationId\": \"getUserAddress\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"the user's address\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"200\": {\n        \"description\": \"the user being returned\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"uuid\": {\n                  \"type\": \"string\",\n                  \"format\": \"uuid\"\n                }\n              }\n            }\n          }\n        },\n        \"links\": {\n          \"address\": {\n            \"operationId\": \"getUser2Address\",\n            \"parameters\": {\n              \"userId\": \"$request.path.id\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"Pet\": {\n        \"$ref\": \"../models/pet.yaml\"\n      },\n      \"User\": {\n        \"$ref\": \"https://api.example.com/v2/openapi.yaml#/components/schemas/User\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/positive1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/positive1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 52:17: schemas: \"Pet\": parse schema: resolve \"../models/pet.yaml\": external \"../models/pet.yaml\": file: local file reference is not allowed"
+}

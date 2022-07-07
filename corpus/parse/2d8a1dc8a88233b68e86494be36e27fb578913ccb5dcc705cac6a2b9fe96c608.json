@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/icanbwell/fhir-server"
+		},
+		"file": {
+			"name": "swagger_local.json",
+			"size": 0,
+			"path": "src/swagger_local.json",
+			"byteSize": 2675,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"b.Well FHIR Server API\",\n    \"description\": \"b.Well FHIR Server API documentation\",\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://opensource.org/licenses/MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:3000\",\n      \"description\": \"Local environment\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"Patient\",\n      \"description\": \"API for Patient information\"\n    }\n  ],\n  \"schemes\": [\n    \"http\"\n  ],\n  \"components\": {\n    \"securitySchemes\": {\n      \"OAuth2\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API supports OAuth 2\",\n        \"in\": \"header\",\n        \"scheme\": \"bearer\",\n        \"bearerFormat\": \"jwt\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"https://bwell-dev.auth.us-east-1.amazoncognito.com/oauth2/authorize\",\n            \"tokenUrl\": \"https://bwell-dev.auth.us-east-1.amazoncognito.com/oauth2/token\",\n            \"scopes\": {}\n          }\n        }\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"OAuth2\": []\n    }\n  ],\n  \"consumes\": [\n    \"application/json\"\n  ],\n  \"produces\": [\n    \"application/json\"\n  ],\n  \"paths\": {\n    \"/4_0_0/Patient/{id}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"ID of patient that we want to find\",\n          \"type\": \"string\"\n        }\n      ],\n      \"get\": {\n          \"tags\": [\n            \"Patient\"\n          ],\n          \"summary\": \"Get R4 Patient\",\n          \"responses\": {\n            \"200\": {\n              \"description\": \"OK\"\n            }\n          }\n        }\n    },\n    \"/4_0_0/ExplanationOfBenefit/{id}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"ID of EOB that we want to find\",\n          \"type\": \"string\"\n        }\n      ],\n      \"get\": {\n          \"tags\": [\n            \"Explanation Of Benefit\"\n          ],\n          \"summary\": \"Get R4 Explanation Of Benefit\",\n          \"responses\": {\n            \"200\": {\n              \"description\": \"OK\"\n            }\n          }\n        }\n    },\n    \"/4_0_0/Coverage/{id}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"description\": \"ID of Coverage that we want to find\",\n          \"type\": \"string\"\n        }\n      ],\n      \"get\": {\n          \"tags\": [\n            \"Coverage\"\n          ],\n          \"summary\": \"Get R4 Coverage\",\n          \"responses\": {\n            \"200\": {\n              \"description\": \"OK\"\n            }\n          }\n        }\n    }\n  }\n}\n\n",
+			"canonicalURL": "/github.com/icanbwell/fhir-server@de3f8692ce1c4978ec840b5e3f519d1bc82b881e/-/blob/src/swagger_local.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/icanbwell/fhir-server/blob/de3f8692ce1c4978ec840b5e3f519d1bc82b881e/src/swagger_local.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/4_0_0/ExplanationOfBenefit/{id}\": at 79:41: parameters: parse parameter \"id\": at 81:9: parameter MUST contain either a schema property, or a content property"
+}

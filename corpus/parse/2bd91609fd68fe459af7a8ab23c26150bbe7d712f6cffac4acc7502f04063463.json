@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "policyrenderer.json",
+			"size": 0,
+			"path": "openapi3_autogen/policyrenderer.json",
+			"byteSize": 3108,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"policyrenderer\": {\n        \"description\": \"Allows you to render policies of a given type for a given set of tags.\",\n        \"properties\": {\n          \"policies\": {\n            \"description\": \"List of policies rendered for the given set of tags.\",\n            \"items\": {\n              \"$ref\": \"./policyrule#/components/schemas/policyrule\"\n            },\n            \"readOnly\": true,\n            \"type\": \"array\"\n          },\n          \"processMode\": {\n            \"default\": \"Subject\",\n            \"description\": \"`Subject` (default): Set if the `processMode` should use the subject. `Object`:\\nSet if\\nthe `processMode` should use the object. This only has effect when rendering an\\nSSH\\nauthorization for now.\",\n            \"enum\": [\n              \"Subject\",\n              \"Object\"\n            ]\n          },\n          \"tags\": {\n            \"description\": \"List of tags of the object to render the hook for.\",\n            \"example\": [\n              \"a=a\",\n              \"b=b\"\n            ],\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"type\": \"array\"\n          },\n          \"type\": {\n            \"description\": \"Type of policy to render.\",\n            \"enum\": [\n              \"APIAuthorization\",\n              \"EnforcerProfile\",\n              \"File\",\n              \"Hook\",\n              \"Infrastructure\",\n              \"NamespaceMapping\",\n              \"Network\",\n              \"ProcessingUnit\",\n              \"Quota\",\n              \"Syscall\",\n              \"TokenScope\",\n              \"SSHAuthorization\",\n              \"UserAccess\"\n            ],\n            \"example\": \"APIAuthorization\"\n          }\n        },\n        \"required\": [\n          \"tags\",\n          \"type\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"policyrenderer\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/policyrenderers\": {\n      \"post\": {\n        \"description\": \"Render a policy of a given type for a given set of tags.\",\n        \"operationId\": \"create-a-new-policyrenderer\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/policyrenderer\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/policyrenderer\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"core\",\n          \"squall\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'core'\",\n      \"name\": \"core\"\n    },\n    {\n      \"description\": \"This tag is for package 'squall'\",\n      \"name\": \"squall\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@93d86b9b01f4f120f5e24620aca5107d28f430f0/-/blob/openapi3_autogen/policyrenderer.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/93d86b9b01f4f120f5e24620aca5107d28f430f0/openapi3_autogen/policyrenderer.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"policyrenderer\": parse schema: property \"policies\": at 8:23: parse schema: item: at 10:22: parse schema: resolve \"./policyrule#/components/schemas/policyrule\": external \"./policyrule\": file: local file reference is not allowed"
+}

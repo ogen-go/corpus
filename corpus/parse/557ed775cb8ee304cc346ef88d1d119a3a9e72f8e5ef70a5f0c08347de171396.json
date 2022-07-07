@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/koumoul-dev/vue-openapi"
+		},
+		"file": {
+			"name": "multipart.json",
+			"size": 0,
+			"path": "test/multipart.json",
+			"byteSize": 2988,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Upload de fichiers et autres contenus multipart/form-data\",\n    \"version\": \"0.2.0\",\n    \"contact\": {\n      \"name\": \"Koumoul\",\n      \"url\": \"https://koumoul.com\",\n      \"email\": \"support@koumoul.com\"\n    }\n  },\n  \"servers\": [{\n    \"url\": \"http://localhost:5600/api/v1/datasets\"\n  }],\n  \"components\": {\n    \"securitySchemes\": {\n      \"apiKey\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"x-apiKey\"\n      },\n      \"sdCookie\": {\n        \"type\": \"apiKey\",\n        \"in\": \"cookie\",\n        \"name\": \"id_token\"\n      }\n    }\n  },\n  \"security\": [{\"apiKey\": []}, {\"sdCookie\": []}],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"summary\": \"Lister les jeux de données.\",\n        \"operationId\": \"listDatasets\",\n        \"tags\": [\"Jeux de données\"],\n        \"parameters\": [{\n          \"name\": \"filter\",\n          \"in\": \"query\"\n        }],\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"summary\": \"Charger un jeu de données\",\n        \"operationId\": \"postDataset\",\n        \"tags\": [\"Jeux de données\"],\n        \"requestBody\": {\n          \"description\": \"Fichier à charger et métadonnées\",\n          \"required\": true,\n          \"content\": {\n            \"multipart/form-data\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"title\": \"Dataset\",\n                \"properties\": {\n                  \"id\": {\n                    \"type\": \"string\",\n                    \"description\": \"Identifier of the dataset\"\n                  },\n                  \"title\": {\n                    \"type\": \"string\",\n                    \"description\": \"Short title of the dataset\"\n                  },\n                  \"description\": {\n                    \"type\": \"string\",\n                    \"description\": \"Detailed description of the dataset\"\n                  },\n                  \"schema\": {\n                    \"type\": \"array\",\n                    \"description\": \"JSON schema of the dataset\",\n                    \"items\": {\n                      \"type\": \"object\"\n                    }\n                  },\n                  \"file\": {\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Les informations du jeu de données.\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"title\": \"Dataset\",\n                  \"type\": \"object\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"externalDocs\": {\n    \"description\": \"Documentation sur Github\",\n    \"url\": \"https://koumoul-dev.github.io/data-fair/\"\n  }\n}\n",
+			"canonicalURL": "/github.com/koumoul-dev/vue-openapi@bea91cb2da7fd704372557d7ddab5957234ec894/-/blob/test/multipart.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/koumoul-dev/vue-openapi/blob/bea91cb2da7fd704372557d7ddab5957234ec894/test/multipart.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/\": at 31:10: get: operation \"listDatasets\": at 32:14: parameters: parse parameter \"filter\": at 36:24: parameter MUST contain either a schema property, or a content property"
+}

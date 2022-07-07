@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/springdoc/springdoc-openapi"
+		},
+		"file": {
+			"name": "app83.json",
+			"size": 0,
+			"path": "springdoc-openapi-webflux-core/src/test/resources/results/app83.json",
+			"byteSize": 2613,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI definition\",\n    \"version\": \"v0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"\",\n      \"description\": \"Generated server url\"\n    }\n  ],\n  \"paths\": {\n    \"/coffees\": {\n      \"get\": {\n        \"tags\": [\n          \"coffee-service\"\n        ],\n        \"operationId\": \"getAllCoffees\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/Coffee\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/coffees/{id}\": {\n      \"get\": {\n        \"tags\": [\n          \"coffee-service\"\n        ],\n        \"operationId\": \"getCoffeeById\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Coffee\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/coffees/{id}/orders\": {\n      \"get\": {\n        \"tags\": [\n          \"coffee-service\"\n        ],\n        \"operationId\": \"getOrdersForCoffeeById\",\n        \"parameters\": [\n          {\n            \"name\": \"coffeeId\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"*/*\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/CoffeeOrder\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Coffee\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"CoffeeOrder\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"coffeeId\": {\n            \"type\": \"string\"\n          },\n          \"whenOrdered\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/springdoc/springdoc-openapi@5580464a293433cf1ef11b9f306831bc67ece17b/-/blob/springdoc-openapi-webflux-core/src/test/resources/results/app83.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/springdoc/springdoc-openapi/blob/5580464a293433cf1ef11b9f306831bc67ece17b/springdoc-openapi-webflux-core/src/test/resources/results/app83.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/coffees/{id}/orders\": at 67:29: get: operation \"getOrdersForCoffeeById\": at 68:14: parse path \"/coffees/{id}/orders\": path parameter not specified: \"id\""
+}

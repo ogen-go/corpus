@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.param-name-override.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.param-name-override.json",
+			"byteSize": 1630,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/override/{p1}\": {\n      \"parameters\": [\n        {\n          \"name\": \"query1\",\n          \"in\": \"query\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"description\": \"A JSON query parameter\"\n              }\n            },\n            \"text/plain\": {\n              \"schema\": {\n                \"type\": \"string\",\n                \"description\": \"A plain text query parameter\"\n              }\n            }\n          }\n        },\n        {\n          \"name\": \"X-Header1\",\n          \"in\": \"header\",\n          \"content\": {\n            \"*/*\": {\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        },\n        {\n          \"name\": \"Cookie1\",\n          \"in\": \"cookie\",\n          \"content\": {\n            \"text/plain\": {\n              \"schema\": {\n                \"type\": \"string\"\n              }\n            }\n          }\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"p1\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"description\": \"The name 'Path1' will not be used instead of 'p1'\",\n            \"style\": \"simple\",\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@df966861d9b34dd339411e794a366408aae425c2/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.param-name-override.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/df966861d9b34dd339411e794a366408aae425c2/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.param-name-override.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/override/{p1}\": at 4:23: parameters: parse parameter \"query1\": at 6:9: content: \"content\" map MUST only contain one entry"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/redoc"
+		},
+		"file": {
+			"name": "conditionalSchema.json",
+			"size": 0,
+			"path": "src/services/__tests__/fixtures/3.1/conditionalSchema.json",
+			"byteSize": 834,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Schema definition with conditional operators\",\n    \"version\": \"1.0.0\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Test\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"test\": {\n            \"description\": \"The list of URL to a cute photos featuring pet\",\n            \"type\": [\"string\", \"integer\", \"null\"],\n            \"minItems\": 1,\n            \"maxItems\": 20,\n            \"items\": {\n              \"type\": \"string\",\n              \"format\": \"url\"\n            }\n          }\n        },\n        \"if\": {\n          \"title\": \"=== 10\",\n          \"properties\": {\n            \"test\": {\n              \"enum\": [10]\n            }\n          }\n        },\n        \"then\": {\n          \"maxItems\": 2\n        },\n        \"else\": {\n          \"maxItems\": 20\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Redocly/redoc@4fc6aa0859c94e25fd30c4a4250455e44cc76488/-/blob/src/services/__tests__/fixtures/3.1/conditionalSchema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Redocly/redoc/blob/4fc6aa0859c94e25fd30c4a4250455e44cc76488/src/services/__tests__/fixtures/3.1/conditionalSchema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: json: line 14:21: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal Go value of type ogen.Properties: json: cannot unmarshal JSON array into Go value of type string"
+}

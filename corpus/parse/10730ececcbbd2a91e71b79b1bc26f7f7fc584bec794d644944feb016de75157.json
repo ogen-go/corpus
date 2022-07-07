@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "networkrule.json",
+			"size": 0,
+			"path": "openapi3_autogen/networkrule.json",
+			"byteSize": 2846,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"networkrule\": {\n        \"description\": \"Represents an ingress or egress network rule.\",\n        \"properties\": {\n          \"action\": {\n            \"default\": \"Allow\",\n            \"description\": \"Defines the action to apply to a flow.\\n- `Allow`: allows the defined traffic.\\n- `Reject`: rejects the defined traffic; useful in conjunction with an allow all\\npolicy.\",\n            \"enum\": [\n              \"Allow\",\n              \"Reject\"\n            ]\n          },\n          \"logsDisabled\": {\n            \"description\": \"If `true`, the relevant flows will not be reported to the Microsegmentation\\nConsole.\\nUnder some advanced scenarios you may wish to set this to `true`, such as to\\nsave space or improve performance.\",\n            \"type\": \"boolean\"\n          },\n          \"name\": {\n            \"description\": \"A user defined name to keep track of the rule in the reporting.\",\n            \"type\": \"string\"\n          },\n          \"networks\": {\n            \"description\": \"A list of IP CIDRS or FQDNS that identify remote endpoints.\",\n            \"items\": {\n              \"$ref\": \"./networkrulenet#/components/schemas/networkrulenet\"\n            },\n            \"readOnly\": true,\n            \"type\": \"array\"\n          },\n          \"object\": {\n            \"description\": \"Identifies the set of remote workloads that the rule relates to. The selector\\nwill identify both processing units as well as external networks that match the\\nselector.\",\n            \"items\": {\n              \"items\": {\n                \"type\": \"string\"\n              },\n              \"type\": \"array\"\n            },\n            \"type\": \"array\"\n          },\n          \"observationEnabled\": {\n            \"default\": false,\n            \"description\": \"If set to `true`, the flow will be in observation mode.\",\n            \"type\": \"boolean\"\n          },\n          \"protocolPorts\": {\n            \"description\": \"Represents the ports and protocols this policy applies to. Protocol/ports are\\ndefined as tcp/80, udp/22. For protocols that do not have ports, the port\\ndesignation\\nis not allowed.\",\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"type\": \"array\"\n          }\n        },\n        \"required\": [\n          \"action\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"networkrule\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {},\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'core/policy'\",\n      \"name\": \"core/policy\"\n    },\n    {\n      \"description\": \"This tag is for package 'squall'\",\n      \"name\": \"squall\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@93d86b9b01f4f120f5e24620aca5107d28f430f0/-/blob/openapi3_autogen/networkrule.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/93d86b9b01f4f120f5e24620aca5107d28f430f0/openapi3_autogen/networkrule.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"networkrule\": parse schema: property \"networks\": at 24:23: parse schema: item: at 26:22: parse schema: resolve \"./networkrulenet#/components/schemas/networkrulenet\": external \"./networkrulenet\": file: local file reference is not allowed"
+}

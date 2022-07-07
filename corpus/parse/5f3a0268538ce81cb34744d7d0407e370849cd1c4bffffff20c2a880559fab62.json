@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "unknown_encoding_style.json",
+			"size": 0,
+			"path": "_testdata/negative/requestBody/unknown_encoding_style.json",
+			"byteSize": 729,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/x-www-form-urlencoded\": {\n              \"encoding\": {\n                \"foobar\": {\n                  \"style\": \"matrix\"\n                }\n              },\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"foobar\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@8ace62d46bae1091473c11a332d8001ec93422ea/-/blob/_testdata/negative/requestBody/unknown_encoding_style.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/8ace62d46bae1091473c11a332d8001ec93422ea/_testdata/negative/requestBody/unknown_encoding_style.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/foo\": at 8:13: post: at 9:15: requestBody: at 10:24: content: application/x-www-form-urlencoded: at 12:50: encoding property \"foobar\": at 14:27: param style: invalid style explode combination \"matrix\", explode:true"
+}

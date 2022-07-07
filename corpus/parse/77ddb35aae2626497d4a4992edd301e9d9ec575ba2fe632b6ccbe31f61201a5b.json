@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative1.json",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/undefined_security_scope_security_operations/test/negative1.json",
+			"byteSize": 1319,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"security\": [\n          {\n            \"oAuth2AuthCodeNeg2\": [\n              \"read:api\",\n              \"write:api\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": null\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"oAuth2AuthCodeNeg2\": {\n        \"type\": \"oauth2\",\n        \"description\": \"For more information, see https://api.my.company.com/docs/oauth\",\n        \"flows\": {\n          \"authorizationCode\": {\n            \"authorizationUrl\": \"https://api.my.company.com/oauth/authorize\",\n            \"tokenUrl\": \"https://api.my.company.com/oauth/token\",\n            \"scopes\": {\n              \"read:api\": \"read your apis\",\n              \"admin:api\": \"admin scope\"\n            }\n          },\n          \"password\": {\n            \"tokenUrl\": \"https://api.my.company.com/oauth/token\",\n            \"scopes\": {\n              \"write:api\": \"write your apis\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/undefined_security_scope_security_operations/test/negative1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/undefined_security_scope_security_operations/test/negative1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/\": at 8:10: get: operation \"listVersionsv2\": at 9:14: security: parse security scheme \"oAuth2AuthCodeNeg2\": at 33:29: oauth2: at 36:18: flow \"password\": at 45:23: unknown scope \"read:api\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_request_body.json",
+			"size": 0,
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_request_body.json",
+			"byteSize": 249,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pathA\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Foo\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"<caret>Foo\": {}\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/zalando/intellij-swagger@205ed842a930adc663869f4a335fc65fd20a42d6/-/blob/src/test/resources/testing/rename/openapi/json/rename_component_request_body.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zalando/intellij-swagger/blob/205ed842a930adc663869f4a335fc65fd20a42d6/src/test/resources/testing/rename/openapi/json/rename_component_request_body.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 12:17: requestBodies: \"<caret>Foo\": at 14:21: content must have at least one entry"
+}

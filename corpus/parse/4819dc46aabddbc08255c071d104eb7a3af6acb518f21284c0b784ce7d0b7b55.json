@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/light-example-4j"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "tram/light-tram-todolist/multi-module/tram-todo-view/src/main/resources/config/openapi.json",
+			"byteSize": 2913,
+			"content": "{\"components\":{\"securitySchemes\":{\"todo_auth\":{\"type\": \"oauth2\",\"description\": \"This API uses OAuth 2 with the client credential grant flow.\",\"flows\":{\"clientCredentials\":{\"tokenUrl\": \"https://localhost:6882/token\",\"scopes\":{\"write:todos\": \"modify todo in your task list\",\"read:todos\": \"read your todo from your task list\",\"server.info.r\":\"read server info\"}}}}},\"schemas\": {\n      \"TodoView\": {\n        \"required\": [\n          \"id\",\n          \"title\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"completed\": {\n            \"type\": \"boolean\"\n          },\n          \"executionOrder\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          }\n        }\n      },\n      \"Error\": {\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }},\"servers\": [\n    {\n      \"url\": \"http://light-tram.swagger.io/v1\"\n    }\n  ],\"openapi\": \"3.0.0\",\"paths\":{\"/todoviews\": {\n      \"get\": {\n        \"summary\": \"List of todo task by search\",\n        \"operationId\": \"listTodos\",\n        \"tags\": [\n          \"todos\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"searchValue\",\n            \"in\": \"query\",\n            \"description\": \"search critiria\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"security\": [\n          {\n            \"todo_auth\": [\n              \"read:todo\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"List of todos\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/TodoView\"\n                  }\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}},\"/server/info\":{\"get\":{\"security\":[{\"todo_auth\":[\"server.info.r\"]}],\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}},\"/prometheus\":{\"get\":{\"responses\":{\"200\":{\"description\":\"successful operation\"}},\"parameters\":[]}}},\"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"TODO list tram example view side service API\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  }}",
+			"canonicalURL": "/github.com/networknt/light-example-4j@74513c019570e65623b80c1cadc1423e7a18807a/-/blob/tram/light-tram-todolist/multi-module/tram-todo-view/src/main/resources/config/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/light-example-4j/blob/74513c019570e65623b80c1cadc1423e7a18807a/tram/light-tram-todolist/multi-module/tram-todo-view/src/main/resources/config/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/todoviews\": at 42:47: get: operation \"listTodos\": at 43:14: security: parse security scheme \"todo_auth\": at 1:47: oauth2: at 1:151: flow \"clientCredentials\": at 1:172: unknown scope \"read:todo\""
+}

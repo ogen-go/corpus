@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.char-sequence-arrays.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.char-sequence-arrays.json",
+			"byteSize": 1531,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/char/sequence\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"val\",\n            \"in\": \"query\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/plain\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/EchoResult\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"EchoResult\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"resultWithSchema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          },\n          \"resultNoSchema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@df966861d9b34dd339411e794a366408aae425c2/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.char-sequence-arrays.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/df966861d9b34dd339411e794a366408aae425c2/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.char-sequence-arrays.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/char/sequence\": get: parameters: fail: \"val\": nested arrays not allowed"
+}
