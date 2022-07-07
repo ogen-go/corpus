@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "src/test/resources/testing/rename/openapi/yaml/rename_file_reference.yaml",
 			"byteSize": 181,
-			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: \u003ccaret\u003epet.yaml\n",
+			"content": "openapi: 3.0.0\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: <caret>pet.yaml\n",
 			"canonicalURL": "/github.com/zalando/intellij-swagger@205ed842a930adc663869f4a335fc65fd20a42d6/-/blob/src/test/resources/testing/rename/openapi/yaml/rename_file_reference.yaml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pets: get: responses: 200: content: application/json: schema: parse schema: resolve \"\u003ccaret\u003epet.yaml\": external \"%3Ccaret%3Epet.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/pets\": at 1:37: get: at 1:44: responses: 200: at 1:64: content: application/json: at 1:95: schema: at 1:105: parse schema: resolve \"<caret>pet.yaml\": external \"%3Ccaret%3Epet.yaml\": file: local file reference is not allowed"
 }

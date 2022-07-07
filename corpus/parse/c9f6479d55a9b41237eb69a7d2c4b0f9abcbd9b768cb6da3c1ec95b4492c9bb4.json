@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/academic-resources/stared-repos"
+			"name": "github.com/BioKIC/NEON-Biorepository"
 		},
 		"file": {
 			"name": "schema-form-missing-values.yaml",
 			"size": 0,
-			"path": "swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
+			"path": "api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
 			"byteSize": 2731,
 			"content": "openapi: 3.0.0\ninfo:\n  description: No type for schema\n  version: \"1\"\n  title: \"No type\"\npaths:\n  /case-one-no-schema:\n    parameters:\n      - name: namespace\n        description: The custom resource's namespace\n        # schema:\n        in: path\n        required: true\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n  /case-one-no-type-or-format:\n    parameters:\n      - name: namespace\n        description: The custom resource's namespace\n        schema:\n        in: path\n        required: true\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n  /case-one-type-only-no-format:\n    parameters:\n      - name: namespace\n        description: The custom resource's namespace\n        schema:\n          type: integer\n        in: path\n        required: true\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n  /case-one-format-only-no-type:\n    parameters:\n      - name: namespace\n        description: The custom resource's namespace\n        schema:\n          format: int64\n        in: path\n        required: true\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n  /case-two-no-schema:\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n      parameters:\n        - name: namespace\n          in: path\n          description: The custom resource's namespace\n          required: true\n          # schema:\n  /case-two-no-type-or-format:\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n      parameters:\n        - name: namespace\n          in: path\n          description: The custom resource's namespace\n          required: true\n          schema:\n  /case-two-type-only-no-format:\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n      parameters:\n        - name: namespace\n          in: path\n          description: The custom resource's namespace\n          required: true\n          schema:\n            type: integer\n  /case-two-format-only-no-type:\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n      parameters:\n        - name: namespace\n          in: path\n          description: The custom resource's namespace\n          required: true\n          schema:\n            format: int64\n  /case-two-not-a-real-type:\n    get:\n      description: sf\n      responses:\n        default:\n          description: one\n      parameters:\n        - name: namespace\n          in: path\n          description: The custom resource's namespace\n          required: true\n          schema:\n            type: \"NotARealType\"\n",
-			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
+			"canonicalURL": "/github.com/BioKIC/NEON-Biorepository@18e44b4cdbf2329a48a8ec0755a3dfc8f943eb32/-/blob/api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
+					"url": "https://github.com/BioKIC/NEON-Biorepository/blob/18e44b4cdbf2329a48a8ec0755a3dfc8f943eb32/api/vendor/swagger-api/swagger-ui/test/e2e-cypress/static/documents/features/schema-form-missing-values.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: /case-one-format-only-no-type: parameters: parse parameter \"namespace\": invalid schema:style:explode combination: (\"\":\"simple\":false)"
+	"Error": "parse: parse spec: parse operations: path \"/case-one-format-only-no-type\": at 1:137: parameters: parse parameter \"namespace\": at 1:225: invalid schema:style:explode combination: (\"\":\"simple\":false)"
 }

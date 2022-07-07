@@ -10,14 +10,14 @@
 			"path": "docs/specs/multiple-security-schemes.yaml",
 			"byteSize": 1594,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Different default and per-operation security schemes\n  description: Spec with multiple security schemes, not all of which are default\n  version: \"1.0\"\nservers:\n- url: https://api.bitbucket.org/2.0\nsecurity:\n- api_key1: []\n- api_key2: []\npaths:\n  /users/{username}/repositories:\n    get:\n      tags:\n      - Repo\n      description: |-\n        All repositories.\n      parameters:\n      - name: username\n        in: path\n        description: |\n          This can either be the username or the UUID of the account.\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          description: Unexpected error.\n      security:\n      - basic: []\n\n  /users/{username}/repositories-2:\n    get:\n      tags:\n      - Repo\n      description: |-\n        All repositories owned by a user/team. \n      parameters:\n      - name: username\n        in: path\n        description: |\n          This can either be the username or the UUID of the account.\n        required: true\n        schema:\n          type: string\n      responses:\n        default:\n          description: Unexpected error.\n\n  /no-security:\n    get:\n      tags:\n      - Repo\n      description: |-\n        An open endpoint. \n      parameters:\n      security:\n      - []\n      responses:\n        default:\n          description: Unexpected error.\n\ncomponents:\n  securitySchemes:\n    api_key1:\n      type: apiKey\n      name: Authorization\n      in: header\n    api_key2:\n      type: apiKey\n      name: specialKey\n      in: header\n    basic:\n      type: http\n      scheme: basic\n    ",
-			"canonicalURL": "/github.com/rapi-doc/RapiDoc@0d215b888c5a2555d415f192b1b1abae9ae8093f/-/blob/docs/specs/multiple-security-schemes.yaml",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@f1eea3a35ccddac47afdb027e2c42afddb087ef2/-/blob/docs/specs/multiple-security-schemes.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/rapi-doc/RapiDoc/blob/0d215b888c5a2555d415f192b1b1abae9ae8093f/docs/specs/multiple-security-schemes.yaml",
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/f1eea3a35ccddac47afdb027e2c42afddb087ef2/docs/specs/multiple-security-schemes.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:553: json: cannot unmarshal array into Go struct field Operation.paths.get.security of type map[string][]string"
+	"Error": "unmarshal: json: line 1:552: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal JSON array into Go value of type map[string][]string"
 }

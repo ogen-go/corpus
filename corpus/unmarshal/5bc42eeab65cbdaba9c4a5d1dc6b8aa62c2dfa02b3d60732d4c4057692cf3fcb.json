@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
 			"byteSize": 818,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths: {}\ncomponents:\n  schemas:\n    ErrorModel:\n      type: object\n      required:\n        - message\n        - code\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          minimum: 100\n          maximum: 600\n      allOf:\n        - \"$ref\": \"#/components/schemas/ErrorModel\"\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: integer\n              minimum: 100\n              maximum: 600\n      additionalProperties:\n        - type: object\n          required:\n            - code\n          properties:\n            code:\n              type: string\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive2.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: unexpected type array"
+	"Error": "unmarshal: json: line 1:64: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal Go value of type ogen.AdditionalProperties: json: cannot handle JSON array with Go value of type *ogen.AdditionalProperties within JSON value at \"/components/schemas/ErrorModel/additionalProperties\": unexpected type ["
 }

@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/imfht/flaskapps"
+			"name": "github.com/spec-first/connexion"
 		},
 		"file": {
 			"name": "openapi.yaml",
 			"size": 0,
-			"path": "repos/connexion-master/tests/fixtures/default_param_error/openapi.yaml",
+			"path": "tests/fixtures/default_param_error/openapi.yaml",
 			"byteSize": 492,
 			"content": "openapi: 3.0.0\ninfo:\n  title: '{{title}}'\n  version: '1.0'\npaths:\n  /default-param-query-does-not-match-type:\n    get:\n      summary: Default value does not match the param type\n      operationId: fakeapi.hello.test_default_missmatch_definition\n      responses:\n        '200':\n          description: OK\n      parameters:\n        - name: age\n          in: query\n          description: Simple age\n          schema:\n            type: integer\n            default: 'error'\nservers:\n  - url: /v1.0\n",
-			"canonicalURL": "/github.com/imfht/flaskapps@d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/-/blob/repos/connexion-master/tests/fixtures/default_param_error/openapi.yaml",
+			"canonicalURL": "/github.com/spec-first/connexion@1aa05674578808ded5bcc764fda8a65f20e6bfb8/-/blob/tests/fixtures/default_param_error/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/imfht/flaskapps/blob/d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/repos/connexion-master/tests/fixtures/default_param_error/openapi.yaml",
+					"url": "https://github.com/spec-first/connexion/blob/1aa05674578808ded5bcc764fda8a65f20e6bfb8/tests/fixtures/default_param_error/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /default-param-query-does-not-match-type: get: operation \"fakeapi.hello.test_default_missmatch_definition\": parameters: parse parameter \"age\": schema: parse default: expected type \"integer\", got \"string\""
+	"Error": "parse: parse spec: parse operations: path \"/default-param-query-does-not-match-type\": at 1:117: get: operation \"fakeapi.hello.test_default_missmatch_definition\": at 1:124: parameters: parse parameter \"age\": at 1:203: schema: at 1:266: parse default: expected type \"integer\", got \"string\""
 }

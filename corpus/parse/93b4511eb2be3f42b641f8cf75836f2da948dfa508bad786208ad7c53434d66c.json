@@ -10,14 +10,14 @@
 			"path": "docs/specs/auth-test1.yaml",
 			"byteSize": 748,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Authentication Test Case\n  description: Demonstrate various authentication methods supported by RapiDoc\nservers:\n  - url: https://reqres.in/api/\npaths:\n  /users/{userId}:\n    get:\n      description: Uses HTTP Basic Auth\n      parameters:\n        - in: path\n          name: userId\n          schema:\n            type: integer\n            example: 3\n          required: true\n          description: Numeric ID of the user to get\n      security:\n      - http-basic: []\n\n  /users:\n    get:\n      description: Uses API Key Auth\n      security:\n      - api_key1: []\ncomponents:\n  securitySchemes:\n    http-basic:\n      type: http\n      scheme: basic\n    api_key1:\n      type: apiKey\n      name: Authorization\n      in: header\n",
-			"canonicalURL": "/github.com/rapi-doc/RapiDoc@0d215b888c5a2555d415f192b1b1abae9ae8093f/-/blob/docs/specs/auth-test1.yaml",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@f1eea3a35ccddac47afdb027e2c42afddb087ef2/-/blob/docs/specs/auth-test1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/rapi-doc/RapiDoc/blob/0d215b888c5a2555d415f192b1b1abae9ae8093f/docs/specs/auth-test1.yaml",
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/f1eea3a35ccddac47afdb027e2c42afddb087ef2/docs/specs/auth-test1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /users: get: responses: no responses"
+	"Error": "parse: parse spec: parse operations: path \"/users\": at 1:309: get: at 1:316: responses: no responses"
 }

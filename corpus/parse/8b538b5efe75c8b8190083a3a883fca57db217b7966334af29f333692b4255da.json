@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/property_explode_encoding_object_ignored/test/positive4.yaml",
 			"byteSize": 1053,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  code:\n                    type: string\n                    format: binary\n                  message:\n                    type: string\n              encoding:\n                code:\n                  contentType: image/png, image/jpeg\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: string\n              format: binary\n              properties:\n                code:\n                  type: string\n                  format: binary\n            encoding:\n              code:\n                contentType: image/png, image/jpeg\n                explode: true\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@4cec72697e179aeb5320e7ac60e3d28753098f88/-/blob/assets/queries/openAPI/3.0/property_explode_encoding_object_ignored/test/positive4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/property_explode_encoding_object_ignored/test/positive4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/4cec72697e179aeb5320e7ac60e3d28753098f88/assets/queries/openAPI/3.0/property_explode_encoding_object_ignored/test/positive4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/property_explode_encoding_object_ignored/test/positive4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /: get: operation \"listVersionsv2\": requestBody: content: multipart/form-data: encoding property \"code\": unknown prop"
+	"Error": "parse: parse spec: parse operations: path \"/\": at 1:90: get: operation \"listVersionsv2\": at 1:97: requestBody: at 1:143: content: multipart/form-data: at 1:177: encoding property \"code\": at 1:197: unknown property \"code\""
 }

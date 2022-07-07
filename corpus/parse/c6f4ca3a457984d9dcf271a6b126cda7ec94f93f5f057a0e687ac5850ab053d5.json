@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "src/test/resources/testing/rename/openapi/yaml/rename_component_schema_after.yaml",
 			"byteSize": 243,
-			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/NewPet\"\ncomponents:\n  schemas:\n    \u003ccaret\u003eNewPet:\n",
+			"content": "openapi: \"3.0.0\"\npaths:\n  /pets:\n    get:\n      responses:\n        '200':\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/NewPet\"\ncomponents:\n  schemas:\n    <caret>NewPet:\n",
 			"canonicalURL": "/github.com/zalando/intellij-swagger@205ed842a930adc663869f4a335fc65fd20a42d6/-/blob/src/test/resources/testing/rename/openapi/yaml/rename_component_schema_after.yaml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pets: get: responses: 200: content: application/json: schema: parse schema: resolve \"#/components/schemas/NewPet\": find schema: resolve \"#/components/schemas/NewPet\": can't find value for \"components/schemas/NewPet\""
+	"Error": "parse: parse spec: parse operations: path \"/pets\": at 1:95: get: at 1:102: responses: 200: at 1:122: content: application/json: at 1:153: schema: at 1:163: parse schema: resolve \"#/components/schemas/NewPet\": find schema: resolve \"#/components/schemas/NewPet\": can't find value for \"components/schemas/NewPet\""
 }

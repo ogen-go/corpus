@@ -10,14 +10,14 @@
 			"path": "amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
 			"byteSize": 1064,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  version: undefined\npaths:\n  /resource1:\n    get:\n      responses:\n        '200':\n          description: 'Resource 1'\n          content:\n            application/json:\n              example:\n                name: a Name\n                length: 2999\n              schema:\n                $ref: 'complexType.json'\n      operationId: GET_resource1\n  /resource2:\n    get:\n      responses:\n        '200':\n          description: 'Resource 2'\n          content:\n            application/json:\n              example:\n                id: an id\n                field1:\n                  id: an id\n                  name: a Name\n              schema:\n                $ref: 'complexType.yaml'\n      operationId: GET_resource2\n  /resource3:\n    get:\n      responses:\n        '200':\n          description: 'Resource 3'\n          content:\n            application/json:\n              example:\n                id: an id\n                name: a Name\n              schema:\n                $ref: 'baseType.yaml'\n      operationId: GET_resource3",
-			"canonicalURL": "/github.com/aml-org/amf@bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/-/blob/amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aml-org/amf/blob/bd7510b536bde2f5691c4e95f215fc9c4ec5c91a/amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/validations/oas3/nested-yaml-refs/api.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /resource2: get: operation \"GET_resource2\": responses: 200: content: application/json: schema: parse schema: resolve \"complexType.yaml\": external \"complexType.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/resource1\": at 1:94: get: operation \"GET_resource1\": at 1:101: responses: 200: at 1:151: content: application/json: at 1:182: schema: at 1:234: parse schema: resolve \"complexType.json\": external \"complexType.json\": file: local file reference is not allowed"
 }

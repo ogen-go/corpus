@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "3.0/fail/gluecon/example5_from_._Different_parameters.md.yaml",
 			"byteSize": 502,
-			"content": "openapi: 3.0.0\ninfo:\n  title: A map of parameter values\n  version: 1.0.0\npaths:\n  /customers:      # https://api.example.org/customers?active=true\u0026country=Canada\u0026category=first\n    parameters:\n    - name: complexQuery\n      in: query\n      content:\n        application/sparql-query:\n        schema:\n          type: string\n        example: |- \n          SELECT ?title\n          WHERE\n          {\n            \u003chttp://example.org/book/book1\u003e \u003chttp://purl.org/dc/elements/1.1/title\u003e ?title .\n          }  \n",
+			"content": "openapi: 3.0.0\ninfo:\n  title: A map of parameter values\n  version: 1.0.0\npaths:\n  /customers:      # https://api.example.org/customers?active=true&country=Canada&category=first\n    parameters:\n    - name: complexQuery\n      in: query\n      content:\n        application/sparql-query:\n        schema:\n          type: string\n        example: |- \n          SELECT ?title\n          WHERE\n          {\n            <http://example.org/book/book1> <http://purl.org/dc/elements/1.1/title> ?title .\n          }  \n",
 			"canonicalURL": "/github.com/Mermade/openapi3-examples@9c2997e1a25919a8182080cc43a4db06d2dc775d/-/blob/3.0/fail/gluecon/example5_from_._Different_parameters.md.yaml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:308: json: cannot unmarshal string into Go struct field Parameter.paths.parameters.content of type ogen.Media"
+	"Error": "unmarshal: json: line 1:174: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal JSON string into Go value of type ogen.Media"
 }

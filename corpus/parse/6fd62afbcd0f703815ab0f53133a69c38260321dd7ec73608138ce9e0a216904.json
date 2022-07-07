@@ -10,14 +10,14 @@
 			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
 			"byteSize": 632,
 			"content": "openapi: 3.0.1\npaths:\n  /links:\n    get:\n      operationId: getUserWithAddress\n      parameters:\n      - name: userId\n        in: query\n        schema:\n          type: string\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/User'\n          links:\n            address:\n              operationId: getAddress\n              parameters:\n                userId: $request.query.userId\n            user:\n              operationId: getUser\n              parameters:\n                userId: $request.query.userId\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-core@9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@259355ab5088fe15e1c790aa36b53994e17639a1/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-core/blob/9e2593efd184e5f4e409ff0e549dc8aeda0e19ac/modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
+					"url": "https://github.com/swagger-api/swagger-core/blob/259355ab5088fe15e1c790aa36b53994e17639a1/modules/swagger-jaxrs2/src/test/resources/petstore/links/LinksResource.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /links: get: operation \"getUserWithAddress\": responses: default: content: */*: schema: parse schema: resolve \"#/components/schemas/User\": find schema: resolve \"#/components/schemas/User\": can't find value for \"components/schemas/User\""
+	"Error": "parse: parse spec: parse operations: path \"/links\": at 1:38: get: operation \"getUserWithAddress\": at 1:45: responses: default: at 1:177: content: */*: at 1:195: schema: at 1:205: parse schema: resolve \"#/components/schemas/User\": find schema: resolve \"#/components/schemas/User\": can't find value for \"components/schemas/User\""
 }

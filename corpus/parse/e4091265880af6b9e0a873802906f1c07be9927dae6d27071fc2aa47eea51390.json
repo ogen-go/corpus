@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "src/test/resources/testing/documentation/openapi/yaml/header_ref.yaml",
 			"byteSize": 234,
-			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      responses:\n        200:\n          headers:\n            x-next:\n              $ref: '\u003ccaret\u003e#/components/headers/Header'\ncomponents:\n  headers:\n    Header:\n      description: Description\n\n",
+			"content": "openapi: 3.0.0\npaths:\n  /pathA:\n    get:\n      responses:\n        200:\n          headers:\n            x-next:\n              $ref: '<caret>#/components/headers/Header'\ncomponents:\n  headers:\n    Header:\n      description: Description\n\n",
 			"canonicalURL": "/github.com/zalando/intellij-swagger@205ed842a930adc663869f4a335fc65fd20a42d6/-/blob/src/test/resources/testing/documentation/openapi/yaml/header_ref.yaml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /pathA: get: responses: 200: headers: x-next: resolve \"\u003ccaret\u003e#/components/headers/Header\" reference: external \"%3Ccaret%3E\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/pathA\": at 1:104: get: at 1:111: responses: 200: at 1:131: headers: header \"x-next\": at 1:152: resolve \"<caret>#/components/headers/Header\" reference: external \"%3Ccaret%3E\": file: local file reference is not allowed"
 }

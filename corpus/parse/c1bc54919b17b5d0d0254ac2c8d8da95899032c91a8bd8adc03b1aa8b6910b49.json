@@ -10,14 +10,14 @@
 			"path": "Units/parser-openapi.r/openapi.d/input.yaml",
 			"byteSize": 1320,
 			"content": "openapi: 3.0.0\ninfo:\n    title: test\n    description: test\n    version: '1.0'\n\nservers:\n  - url: http://example.com\n    description: production\n\npaths:\n    /sample/path:\n        get:\n            summary: simple handler\n            responses: {}\n\n    /sample/other/path:\n        get:\n            responses: {}\n        post:\n            summary: xxx\n            responses: {}\n\ncomponents:\n    schemas:\n        NullableField:\n            type: object\n            properties: {}\n        NullableFieldStringEnum:\n            type: object\n            properties: {}\n\n    parameters:\n        CustomHeader:\n            in: header\n            name: X-Custom-Header\n            required: false\n            schema:\n                type: string\n\n    responses:\n        Response1:\n            description: Payment Required\n            content:\n                application/json:\n                    schema:\n                        type: object\n                        properties: {}\n        Response2:\n            description: smth 2\n            content:\n                application/json:\n                    schema:\n                        type: object\n                        properties: {}\n\ntags:\n  - name: android_handler\n    description: Handler for Android clients\n  - name: ios_handler\n    description: Handler for iOS clients\n",
-			"canonicalURL": "/github.com/universal-ctags/ctags@787811b6eac03ab81ccf5b6957432d893eb982cb/-/blob/Units/parser-openapi.r/openapi.d/input.yaml",
+			"canonicalURL": "/github.com/universal-ctags/ctags@33a926c670a4fa9db85da1ae19aadf33091f95b5/-/blob/Units/parser-openapi.r/openapi.d/input.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/universal-ctags/ctags/blob/787811b6eac03ab81ccf5b6957432d893eb982cb/Units/parser-openapi.r/openapi.d/input.yaml",
+					"url": "https://github.com/universal-ctags/ctags/blob/33a926c670a4fa9db85da1ae19aadf33091f95b5/Units/parser-openapi.r/openapi.d/input.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /sample/other/path: get: responses: no responses"
+	"Error": "parse: parse spec: parse operations: path \"/sample/other/path\": at 1:613: get: at 1:620: responses: no responses"
 }

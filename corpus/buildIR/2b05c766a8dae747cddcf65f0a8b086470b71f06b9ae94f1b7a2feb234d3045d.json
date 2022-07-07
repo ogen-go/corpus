@@ -10,10 +10,10 @@
 			"path": "vertx-web-api-contract/src/test/resources/swaggers/scenario_with_array_parameter.yaml",
 			"byteSize": 963,
 			"content": "# https://swagger.io/docs/specification/using-ref/\nopenapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: JSON Schemas test spec\n  license:\n    name: MIT\npaths:\n  /things:\n    x-vertx-event-bus:\n     address: test.admin\n     timeout: 1000\n\n    get:\n      operationId: getThings\n      responses:\n        default:\n          description: \"OK\"\n      parameters:\n        - $ref: \"#/components/parameters/ParamQ_FilterByString\" \n\ncomponents:\n  \n  parameters:\n\n    ParamQ_FilterByString:\n      in: query\n      name: filter\n      required: false\n      schema:\n        $ref: \"#/components/schemas/FilterPredicates\"\n\n  schemas:\n           \n    FilterPredicates:\n      type: array\n      items:\n        $ref: \"#/components/schemas/FilterPredicate\"            \n      \n    FilterPredicate:\n      type: object\n      properties:\n        field:\n          type: string\n        operator:\n          type: string\n        value:\n          type: string\n      title: filter_predicate\n           ",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@1ebfc97006f94c80f58f779780f9589e5e91a618/-/blob/vertx-web-api-contract/src/test/resources/swaggers/scenario_with_array_parameter.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@5d585d93b960a7d851236b7007d1d152230f32da/-/blob/vertx-web-api-contract/src/test/resources/swaggers/scenario_with_array_parameter.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/1ebfc97006f94c80f58f779780f9589e5e91a618/vertx-web-api-contract/src/test/resources/swaggers/scenario_with_array_parameter.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/5d585d93b960a7d851236b7007d1d152230f32da/vertx-web-api-contract/src/test/resources/swaggers/scenario_with_array_parameter.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

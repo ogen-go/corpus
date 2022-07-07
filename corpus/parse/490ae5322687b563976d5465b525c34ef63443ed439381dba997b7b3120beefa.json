@@ -7,17 +7,17 @@
 		"file": {
 			"name": "definition.yaml",
 			"size": 0,
-			"path": "tests/integration/testdata/sync/infra/after/Python/apigateway2/definition.yaml",
+			"path": "tests/integration/testdata/sync/infra/before/Python/apigateway2/definition.yaml",
 			"byteSize": 465,
 			"content": "openapi: 3.0.1\ninfo:\n  title: HelloWorldExample2\n  version: 1.0.0\nservers:\n  - url: /v1\npaths:\n  /hello:\n    get:\n      responses:\n        '200':\n          description: OK\n          content: {}\n      security:\n        - api_key: []\n      x-amazon-apigateway-auth:\n        type: none\n      x-amazon-apigateway-integration:\n        type: aws_proxy\n        uri: \n          Fn::Sub: ${HelloWorldFunction.Arn}\n        httpMethod : POST\n        payloadFormatVersion: 2.0\n",
-			"canonicalURL": "/github.com/aws/aws-sam-cli@6110cb948f3291ed1ffe064c3b7b8da1c8b9ceee/-/blob/tests/integration/testdata/sync/infra/after/Python/apigateway2/definition.yaml",
+			"canonicalURL": "/github.com/aws/aws-sam-cli@6110cb948f3291ed1ffe064c3b7b8da1c8b9ceee/-/blob/tests/integration/testdata/sync/infra/before/Python/apigateway2/definition.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aws/aws-sam-cli/blob/6110cb948f3291ed1ffe064c3b7b8da1c8b9ceee/tests/integration/testdata/sync/infra/after/Python/apigateway2/definition.yaml",
+					"url": "https://github.com/aws/aws-sam-cli/blob/6110cb948f3291ed1ffe064c3b7b8da1c8b9ceee/tests/integration/testdata/sync/infra/before/Python/apigateway2/definition.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: paths: /hello: get: security: unknown security schema \"api_key\""
+	"Error": "parse: parse spec: parse operations: path \"/hello\": at 1:94: get: at 1:101: security: unknown security schema \"api_key\""
 }
