@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "data-type-reference.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/validation/openapi/3.0/data-type-reference.json",
+			"byteSize": 2444,
+			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n        \"title\": \"Simple Data Type Reference Test\",\n        \"version\": \"1.0.0\"\n    },\n    \"paths\": {\n        \"/\": {\n            \"get\": {\n                \"responses\": {\n                    \"404\": {\n                        \"$ref\": \"#/components/responses/ExternalNotFoundRef\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"Widget\": {\n                \"title\": \"Root Type for Widget\",\n                \"description\": \"The widget.\",\n                \"type\": \"object\",\n                \"properties\": {\n                    \"name\": {\n                        \"type\": \"string\"\n                    }\n                },\n                \"example\": {\n                    \"name\": \"Foo\"\n                }\n            },\n            \"WidgetRef\": {\n                \"$ref\": \"#/components/schemas/Widget\"\n            },\n            \"ExternalWidgetRef\": {\n                \"$ref\": \"test:_external-types.json#/components/schemas/Widget\"\n            },\n            \"WidgetRefRef\": {\n                \"$ref\": \"#/components/schemas/WidgetRef\"\n            },\n            \"RefConsumer\": {\n                \"title\": \"Root Type for RefConsumer\",\n                \"description\": \"Uses all the data types in several properties.\",\n                \"type\": \"object\",\n                \"properties\": {\n                    \"widget\": {\n                        \"$ref\": \"#/components/schemas/Widget\"\n                    },\n                    \"widget-ref\": {\n                        \"$ref\": \"#/components/schemas/WidgetRef\"\n                    },\n                    \"external-widget-ref\": {\n                        \"$ref\": \"#/components/schemas/ExternalWidgetRef\"\n                    },\n                    \"widget-ref-ref\": {\n                        \"$ref\": \"#/components/schemas/WidgetRefRef\"\n                    }\n                },\n                \"example\": {}\n            }\n        },\n        \"responses\": {\n            \"NotFound\": {\n                \"description\": \"Re-usable 404 response.\"\n            },\n            \"ExternalNotFoundRef\": {\n                \"$ref\": \"test:_external-types.json#/components/responses/NotFound\"\n            },\n            \"NotFoundRef\": {\n                \"$ref\": \"#/components/responses/NotFound\"\n            },\n            \"NotFoundRefRef\": {\n                \"$ref\": \"#/components/responses/NotFoundRef\"\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/validation/openapi/3.0/data-type-reference.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/validation/openapi/3.0/data-type-reference.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 18:19: schemas: \"ExternalWidgetRef\": parse schema: resolve \"test:_external-types.json#/components/schemas/Widget\": external \"test:_external-types.json\": unsupported scheme \"test\""
+}

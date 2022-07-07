@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ndsev/zswag"
+		},
+		"file": {
+			"name": "config-with-auth.json",
+			"size": 0,
+			"path": "libs/zswagcl/test/testdata/config-with-auth.json",
+			"byteSize": 2367,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"OpenAPI Testdata Template\",\n    \"description\": \"OpenAPI Testdata Template\",\n    \"version\": \"2021.01\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://my.server.com/api\"\n    }\n  ],\n  \"paths\": {\n    \"/generic\": {\n      \"post\": {\n        \"operationId\": \"generic\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}}\n      }\n    },\n    \"/api-key-auth\": {\n      \"post\": {\n        \"operationId\": \"api-key-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}}\n      }\n    },\n    \"/bad-auth\": {\n      \"post\": {\n        \"operationId\": \"bad-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}},\n        \"security\": [{\"QueryAuth\":  [], \"BearerAuth\":  []}]\n      }\n    },\n    \"/cookie-and-basic-auth\": {\n      \"post\": {\n        \"operationId\": \"cookie-and-basic-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}},\n        \"security\": [{\"BasicAuth\":  [], \"CookieAuth\":  []}]\n      }\n    },\n    \"/bearer-auth\": {\n      \"post\": {\n        \"operationId\": \"bearer-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}},\n        \"security\": [{\"QueryAuth\":  []}, {\"BearerAuth\":  []}]\n      }\n    },\n    \"/basic-auth\": {\n      \"post\": {\n        \"operationId\": \"basic-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}},\n        \"security\": [{\"BasicAuth\":  []}]\n      }\n    },\n    \"/query-auth\": {\n      \"post\": {\n        \"operationId\": \"query-auth\",\n        \"requestBody\": {\"content\": {\"application/x-zserio-object\": {}}},\n        \"security\": [{\"QueryAuth\":  []}]\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"binary\": {\n        \"type\": \"string\",\n        \"format\": \"binary\"\n      }\n    },\n    \"securitySchemes\": {\n      \"BasicAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"BearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\"\n      },\n      \"CookieAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"cookie\",\n        \"name\": \"api-cookie\"\n      },\n      \"GenericHeaderAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"X-Generic-Token\"\n      },\n      \"QueryAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"query\",\n        \"name\": \"api-key\"\n      }\n    }\n  },\n  \"security\": [\n    {\"GenericHeaderAuth\": []}\n  ]\n}\n",
+			"canonicalURL": "/github.com/ndsev/zswag@2a6505a33d1fd71afe0def47ea855f60d1ed224d/-/blob/libs/zswagcl/test/testdata/config-with-auth.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ndsev/zswag/blob/2a6505a33d1fd71afe0def47ea855f60d1ed224d/libs/zswagcl/test/testdata/config-with-auth.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/generic\": at 14:17: post: operation \"generic\": at 15:15: responses: no responses"
+}

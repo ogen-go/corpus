@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Azure/autorest"
+		},
+		"file": {
+			"name": "default-response.json",
+			"size": 0,
+			"path": "packages/libs/oai2-to-oai3/test/resources/conversion/oai3/default-response.json",
+			"byteSize": 1947,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:3000/\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"AutoRest Swagger BAT Header Service\",\n    \"description\": \"Test Infrastructure for AutoRest\"\n  },\n  \"paths\": {},\n  \"components\": {\n    \"schemas\": {\n      \"ErrorDetails\": {\n        \"properties\": {\n          \"code\": {\n            \"description\": \"Status code for the error.\",\n            \"type\": \"string\",\n            \"readOnly\": true\n          },\n          \"message\": {\n            \"description\": \"Error message describing the error in detail.\",\n            \"type\": \"string\",\n            \"readOnly\": true\n          },\n          \"target\": {\n            \"description\": \"The target of the particular error.\",\n            \"type\": \"string\",\n            \"readOnly\": true\n          }\n        }\n      },\n      \"ErrorResponse\": {\n        \"description\": \"Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.\",\n        \"properties\": {\n          \"error\": {\n            \"$ref\": \"#/components/schemas/ErrorDetails\",\n            \"description\": \"The details of the error.\"\n          }\n        }\n      }\n    },\n    \"responses\": {\n      \"200\": {\n        \"description\": \"The request was successful. Code was downloaded.\",\n        \"content\": {\n          \"*/*\": {\n            \"schema\": {\n              \"type\": \"file\"\n            }\n          }\n        }\n      },\n      \"401\": {\n        \"description\": \"The caller failed authentication\"\n      },\n      \"403\": {\n        \"description\": \"The caller does not have proper access to this API\"\n      },\n      \"default\": {\n        \"description\": \"Error response describing the reason for operation failure. The request failed.\",\n        \"content\": {\n          \"*/*\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/ErrorResponse\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Azure/autorest@4efc62b3a0a494edd65a158073f2a8631c843e67/-/blob/packages/libs/oai2-to-oai3/test/resources/conversion/oai3/default-response.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Azure/autorest/blob/4efc62b3a0a494edd65a158073f2a8631c843e67/packages/libs/oai2-to-oai3/test/resources/conversion/oai3/default-response.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 14:17: responses: \"200\": at 46:14: content: */*: at 49:18: schema: at 50:23: parse schema: unexpected schema type: \"file\""
+}

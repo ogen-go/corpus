@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "paths-get-callbacks.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
+			"byteSize": 888,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/io/openapi/3.0/paths/paths-get-callbacks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/foo\": at 4:13: get: at 5:14: responses: no responses"
+}

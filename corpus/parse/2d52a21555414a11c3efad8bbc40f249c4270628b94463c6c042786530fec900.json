@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "file-param.expected.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/transformation/oai2-oai3/parameters/file-param.expected.json",
+			"byteSize": 1904,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Super Cool Pet Store 2.0\",\n    \"description\": \"This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"{scheme}://petstore.swagger.io/v2\",\n      \"variables\": {\n        \"scheme\": {\n          \"enum\": [\n            \"https\",\n            \"http\"\n          ],\n          \"default\": \"https\",\n          \"description\": \"The supported protocol schemes.\"\n        }\n      }\n    }\n  ],\n  \"paths\": {\n    \"/pet/{petId}/uploadImage\": {\n      \"post\": {\n        \"tags\": [\n          \"pet\"\n        ],\n        \"summary\": \"uploads an image\",\n        \"description\": \"\",\n        \"operationId\": \"uploadFile\",\n        \"parameters\": [\n          {\n            \"name\": \"petId\",\n            \"in\": \"path\",\n            \"description\": \"ID of pet to update\",\n            \"required\": true,\n            \"schema\": {\n              \"format\": \"int64\",\n              \"type\": \"integer\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"multipart/form-data\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"additionalMetadata\": {\n                    \"description\": \"Additional data to pass to server\",\n                    \"type\": \"string\"\n                  },\n                  \"file\": {\n                    \"description\": \"file to upload\",\n                    \"type\": \"string\",\n                    \"format\": \"binary\"\n                  }\n                }\n              }\n            }\n          },\n          \"required\": true\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/parameters/file-param.expected.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/transformation/oai2-oai3/parameters/file-param.expected.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/pet/{petId}/uploadImage\": at 25:33: post: operation \"uploadFile\": at 26:15: responses: no responses"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "sandbox.json",
+			"size": 0,
+			"path": "openapi3_autogen/sandbox.json",
+			"byteSize": 2295,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"sandbox\": {\n        \"description\": \"This APIs allows to create a temporary namespace to experiment with\\nMicrosegmentation.\\nThis API is not authenticated, and contains small quotas. After one hour,\\neverything will be deleted.\",\n        \"properties\": {\n          \"URL\": {\n            \"description\": \"Contains a link to directly connect the UI to your API sandbox.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"credentials\": {\n            \"$ref\": \"./credential#/components/schemas/credential\"\n          },\n          \"lifetime\": {\n            \"description\": \"Contains the lifetime of the sandbox namespace.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          },\n          \"namespace\": {\n            \"description\": \"Contains the name of the sandbox namespace that has been created.\",\n            \"readOnly\": true,\n            \"type\": \"string\"\n          }\n        },\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"sandbox\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/sandboxes\": {\n      \"post\": {\n        \"description\": \"Creates a temporary api sandbox.\",\n        \"operationId\": \"create-a-new-sandbox\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/sandbox\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/sandbox\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"ext/documentation\",\n          \"service\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'ext/documentation'\",\n      \"name\": \"ext/documentation\"\n    },\n    {\n      \"description\": \"This tag is for package 'service'\",\n      \"name\": \"service\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@93d86b9b01f4f120f5e24620aca5107d28f430f0/-/blob/openapi3_autogen/sandbox.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/93d86b9b01f4f120f5e24620aca5107d28f430f0/openapi3_autogen/sandbox.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"sandbox\": parse schema: property \"credentials\": at 13:26: parse schema: resolve \"./credential#/components/schemas/credential\": external \"./credential\": file: local file reference is not allowed"
+}

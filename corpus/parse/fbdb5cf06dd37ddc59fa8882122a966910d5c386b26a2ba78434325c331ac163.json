@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "examples-31.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/examples-31.json",
+			"byteSize": 2596,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"examples\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/examples\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"cookie\",\n                        \"required\": false,\n                        \"schema\": {\n                            \"type\": \"object\",\n                            \"minProperties\": 1,\n                            \"maxProperties\": 2,\n                            \"properties\": {\n                                \"alpha\": {\n                                    \"type\": \"array\",\n                                    \"items\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"enum\": [ [ \"X\", \"Y\", \"Z\"], [\"empty\"] ]\n                                },\n                                \"bravo\": {\n                                    \"type\": \"number\",\n                                    \"default\": 3.14156\n                                },\n                                \"charlie\": {\n                                    \"type\": \"integer\",\n                                    \"example\": 42\n                                }\n                            },\n                            \"additionalProperties\": {\n                                \"type\": \"string\",\n                                \"enum\": [ \"A\", \"B\", \"C\" ]\n                            },\n                            \"nullable\": true\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"200\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    },\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/failure\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            },\n            \"failure\": {\n                \"description\": \"Error\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/Cornutum/tcases@400766111167d08860469c6ee17fc353c586d63f/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/examples-31.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Cornutum/tcases/blob/400766111167d08860469c6ee17fc353c586d63f/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/examples-31.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/examples\": at 8:22: post: at 9:21: parameters: parse parameter \"param0\": at 11:21: schema: at 15:35: parse schema: property \"alpha\": at 20:42: parse enum values: parse value \"[ \\\"X\\\", \\\"Y\\\", \\\"Z\\\"]\": can't validate untyped array item"
+}

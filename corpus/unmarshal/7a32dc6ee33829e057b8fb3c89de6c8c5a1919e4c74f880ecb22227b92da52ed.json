@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative1.json",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_response/test/negative1.json",
+			"byteSize": 957,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"404\": {\n            \"$ref\": \"#/components/responses/NotFound\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Error\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"code\": {\n            \"type\": \"string\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          },\n          \"required\": [\n            \"code\",\n            \"message\"\n          ]\n        }\n      }\n    },\n    \"responses\": {\n      \"NotFound\": {\n        \"description\": \"Resource not found\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/json_reference_does_not_exists_response/test/negative1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/json_reference_does_not_exists_response/test/negative1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: json: line 31:23: json: cannot unmarshal Go value of type ogen.Spec: spec: json: unable to unmarshal Go value of type ogen.Properties: json: cannot unmarshal JSON array into Go value of type ogen.Schema"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Apicurio/apicurio-data-models"
+		},
+		"file": {
+			"name": "components-ref-loops.json",
+			"size": 0,
+			"path": "src/test/resources/fixtures/io/openapi/3.0/components/components-ref-loops.json",
+			"byteSize": 225,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"components\": {\n    \"responses\": {\n      \"PetResponse1\": {\n        \"$ref\": \"#/components/PetResponse2\"\n      },\n      \"PetResponse2\": {\n        \"$ref\": \"#/components/PetResponse1\"\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/io/openapi/3.0/components/components-ref-loops.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/io/openapi/3.0/components/components-ref-loops.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 3:17: responses: \"PetResponse1\": at 5:23: resolve \"#/components/PetResponse2\" reference: can't find value for \"components/PetResponse2\""
+}

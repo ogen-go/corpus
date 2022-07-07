@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "parameter-definitions.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/cycle/oas30/parameter/parameter-definitions.json",
+			"byteSize": 2648,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"components\": {\n    \"parameters\": {\n      \"simple-header\": {\n        \"name\": \"token\",\n        \"in\": \"header\",\n        \"description\": \"token to be passed as a header\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          }\n        },\n        \"examples\": {\n          \"a\": {\n            \"summary\": \"simple example\",\n            \"description\": \"description of the example\",\n            \"value\": [1,2,3,4],\n            \"externalValue\": \"http://test.com/external_doc\"\n          }\n        },\n        \"explode\": true,\n        \"style\": \"simple\"\n      },\n      \"query-with-content\": {\n        \"in\": \"query\",\n        \"name\": \"coordinates\",\n        \"deprecated\": true,\n        \"allowEmptyValue\": true,\n        \"allowReserved\": true,\n        \"example\": {\n          \"lat\": 5,\n          \"long\": 4\n        },\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"lat\",\n                \"long\"\n              ],\n              \"properties\": {\n                \"lat\": {\n                  \"type\": \"number\"\n                },\n                \"long\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"path-param\": {\n        \"name\": \"username\",\n        \"in\": \"path\",\n        \"description\": \"username to fetch\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      },\n      \"cookie-param\": {\n        \"in\": \"cookie\",\n        \"name\": \"aCookie\",\n        \"description\": \"description of cookie that will be overridden\",\n        \"required\": true,\n        \"deprecated\": true,\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      },\n      \"external-ref\": {\n        \"$ref\": \"external-param.json#/external-cookie-param\"\n      }\n    },\n    \"headers\": {\n      \"Other-Header\": {\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"lat\",\n                \"long\"\n              ],\n              \"properties\": {\n                \"lat\": {\n                  \"type\": \"number\"\n                },\n                \"long\": {\n                  \"type\": \"number\"\n                }\n              }\n            }\n          }\n        },\n        \"example\": {\n          \"lat\": 5,\n          \"long\": 4.6,\n          \"booleanFacet\": true\n        }\n      }\n    }\n  },\n  \"paths\": {}\n\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/cycle/oas30/parameter/parameter-definitions.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/cycle/oas30/parameter/parameter-definitions.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 7:17: parameters: \"external-ref\": at 81:23: resolve \"external-param.json#/external-cookie-param\" reference: external \"external-param.json\": file: local file reference is not allowed"
+}

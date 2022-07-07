@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/gaia"
+		},
+		"file": {
+			"name": "reputation.json",
+			"size": 0,
+			"path": "openapi3_autogen/reputation.json",
+			"byteSize": 2105,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"reputation\": {\n        \"description\": \"Represents the reputation information from PANDB.\",\n        \"properties\": {\n          \"URLReputations\": {\n            \"description\": \"List of URL reputations.\",\n            \"items\": {\n              \"$ref\": \"./urlreputation#/components/schemas/urlreputation\"\n            },\n            \"readOnly\": true,\n            \"type\": \"array\"\n          },\n          \"URLs\": {\n            \"description\": \"The IP addresses and/or FQDNs to look up.\",\n            \"example\": [\n              \"1.2.3.4\",\n              \"google.com\"\n            ],\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"type\": \"array\"\n          }\n        },\n        \"required\": [\n          \"URLs\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"reputation\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/reputations\": {\n      \"post\": {\n        \"description\": \"Get reputation information of IP/FQDN from PANDB.\",\n        \"operationId\": \"create-a-new-reputation\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/reputation\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/reputation\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"pc/pandb\",\n          \"karl\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'pc/pandb'\",\n      \"name\": \"pc/pandb\"\n    },\n    {\n      \"description\": \"This tag is for package 'karl'\",\n      \"name\": \"karl\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@93d86b9b01f4f120f5e24620aca5107d28f430f0/-/blob/openapi3_autogen/reputation.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/93d86b9b01f4f120f5e24620aca5107d28f430f0/openapi3_autogen/reputation.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"reputation\": parse schema: property \"URLReputations\": at 8:29: parse schema: item: at 10:22: parse schema: resolve \"./urlreputation#/components/schemas/urlreputation\": external \"./urlreputation\": file: local file reference is not allowed"
+}

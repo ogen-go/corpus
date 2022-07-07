@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/networknt/model-config"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "rest/tram-todo/multi-module/view-service/openapi.json",
+			"byteSize": 2729,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"TODO list tram example view side service API\",\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://light-tram.swagger.io/v1\"\n    }\n  ],\n  \"paths\": {\n    \"/todoviews\": {\n      \"get\": {\n        \"summary\": \"List of todo task by search\",\n        \"operationId\": \"listTodos\",\n        \"tags\": [\n          \"todos\"\n        ],\n        \"parameters\": [\n          {\n            \"name\": \"searchValue\",\n            \"in\": \"query\",\n            \"description\": \"search critiria\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"security\": [\n          {\n            \"todo_auth\": [\n              \"read:todo\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"List of todos\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/TodoView\"\n                  }\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"todo_auth\": {\n        \"type\": \"oauth2\",\n        \"description\": \"This API uses OAuth 2 with the client credential grant flow.\",\n        \"flows\": {\n          \"clientCredentials\": {\n            \"tokenUrl\": \"https://localhost:6882/token\",\n            \"scopes\": {\n              \"write:todos\": \"modify todo in your task list\",\n              \"read:todos\": \"read your todo from your task list\"\n            }\n          }\n        }\n      }\n    },\n    \"schemas\": {\n      \"TodoView\": {\n        \"required\": [\n          \"id\",\n          \"title\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"completed\": {\n            \"type\": \"boolean\"\n          },\n          \"executionOrder\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          }\n        }\n      },\n      \"Error\": {\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/tram-todo/multi-module/view-service/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/tram-todo/multi-module/view-service/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/todoviews\": at 16:19: get: operation \"listTodos\": at 17:14: security: parse security scheme \"todo_auth\": at 71:20: oauth2: at 74:18: flow \"clientCredentials\": at 75:32: unknown scope \"read:todo\""
+}

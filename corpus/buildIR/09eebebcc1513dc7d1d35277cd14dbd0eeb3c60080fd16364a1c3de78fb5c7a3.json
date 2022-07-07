@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "anyOf_single.json",
+			"size": 0,
+			"path": "_testdata/negative/cyclic/anyOf_single.json",
+			"byteSize": 611,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Test\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Test\": {\n        \"anyOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Test\"\n          }\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@8ace62d46bae1091473c11a332d8001ec93422ea/-/blob/_testdata/negative/cyclic/anyOf_single.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/8ace62d46bae1091473c11a332d8001ec93422ea/_testdata/negative/cyclic/anyOf_single.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/test\": get: responses: 200: contents: application/json: generate schema: anyOf: anyOf \"#/components/schemas/Test\" [0]: reference \"#/components/schemas/Test\" [0] leads to infinite recursion"
+}

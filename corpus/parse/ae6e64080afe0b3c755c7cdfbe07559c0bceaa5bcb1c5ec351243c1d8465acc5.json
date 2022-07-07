@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "unresolved-ref-in-schema.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+			"byteSize": 693,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Backlog API\",\n    \"version\": \"1.0.0-oas3\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"user\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"The response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/invalid reference in the document\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/test\": at 22:14: get: at 23:14: responses: 200: at 25:18: content: application/json: at 28:35: schema: at 29:27: parse schema: resolve \"#/invalid reference in the document\": find schema: resolve \"#/invalid reference in the document\": can't find value for \"invalid reference in the document\""
+}

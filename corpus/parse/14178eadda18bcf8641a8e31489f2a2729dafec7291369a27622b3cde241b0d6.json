@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zalando/intellij-swagger"
+		},
+		"file": {
+			"name": "rename_component_with_dot_in_key.json",
+			"size": 0,
+			"path": "src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key.json",
+			"byteSize": 416,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/V1.Pet\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"<caret>V1.Pet\": {}\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/zalando/intellij-swagger@205ed842a930adc663869f4a335fc65fd20a42d6/-/blob/src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zalando/intellij-swagger/blob/205ed842a930adc663869f4a335fc65fd20a42d6/src/test/resources/testing/rename/openapi/json/rename_component_with_dot_in_key.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/pets\": at 4:14: get: at 5:14: responses: 200: at 7:18: content: application/json: at 9:35: schema: at 10:27: parse schema: resolve \"#/components/schemas/V1.Pet\": find schema: resolve \"#/components/schemas/V1.Pet\": can't find value for \"components/schemas/V1.Pet\""
+}
