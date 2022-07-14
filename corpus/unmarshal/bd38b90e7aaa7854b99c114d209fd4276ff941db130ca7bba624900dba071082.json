@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "spec/api.yaml",
 			"byteSize": 774,
-			"content": "openapi: 3.0.1\ninfo:\n  title: NodeJS API Seed\n  description: >-\n   API Seed with NodeJs and OpenAPI\n  version: 1.0.0\nservers:\n  - url: \"http://localhost:9000/\"\ntags:\n  - name: article\n    description: Everything concerning articles, comments \n  - name: user\n    description: Operations about users\n\npaths:\n  /article:\n    $ref: \"./article/article.yaml\"\n  /article/{id}:\n    $ref: \"./article/article-id.yaml\"\n  /user:\n    $ref: \"./user/user.yaml\"\n  /user/{id}:\n    $ref: \"./user/user-id.yaml\"\n  /data:\n    $ref: \"./data/data.yaml\"\n  /data/{id}:\n    $ref: \"./data/data-id.yaml\"\n  \n\ncomponents:\n  schemas:\n    $ref: \"./schemas/_index.yaml\"\n  securitySchemes:\n    auth:\n      type: openIdConnect\n      openIdConnectUrl: https://seed.eu.auth0.com/.well-known/openid-configuration",
+			"content": "openapi: 3.0.1\ninfo:\n  title: NodeJS API Seed\n  description: \u003e-\n   API Seed with NodeJs and OpenAPI\n  version: 1.0.0\nservers:\n  - url: \"http://localhost:9000/\"\ntags:\n  - name: article\n    description: Everything concerning articles, comments \n  - name: user\n    description: Operations about users\n\npaths:\n  /article:\n    $ref: \"./article/article.yaml\"\n  /article/{id}:\n    $ref: \"./article/article-id.yaml\"\n  /user:\n    $ref: \"./user/user.yaml\"\n  /user/{id}:\n    $ref: \"./user/user-id.yaml\"\n  /data:\n    $ref: \"./data/data.yaml\"\n  /data/{id}:\n    $ref: \"./data/data-id.yaml\"\n  \n\ncomponents:\n  schemas:\n    $ref: \"./schemas/_index.yaml\"\n  securitySchemes:\n    auth:\n      type: openIdConnect\n      openIdConnectUrl: https://seed.eu.auth0.com/.well-known/openid-configuration",
 			"canonicalURL": "/github.com/app-generator/fullstack-openapi-generator@dcd46363929801116764c3b427a30a25e49e39aa/-/blob/spec/api.yaml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:34: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal JSON string into Go value of type ogen.Schema"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `./schem...` into ogen.Schema"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "invalid_oauth2_implicit_authorizationUrl.json",
+			"size": 0,
+			"path": "_testdata/negative/securityScheme/invalid_oauth2_implicit_authorizationUrl.json",
+			"byteSize": 647,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"api_key\": [\n              \"read\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"default\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"api_key\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"authorizationUrl\": \"-\",\n            \"scopes\": {\n              \"read\": \"read\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@eb50828751163511162464ee712b55000d9e4a23/-/blob/_testdata/negative/securityScheme/invalid_oauth2_implicit_authorizationUrl.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/eb50828751163511162464ee712b55000d9e4a23/_testdata/negative/securityScheme/invalid_oauth2_implicit_authorizationUrl.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/foo\": at 8:13: get: at 9:14: at 10:21: security: parse security scheme \"api_key\": at 27:18: oauth2: at 29:18: flow \"implicit\": at 30:23: at 31:33: \"authorizationUrl\" MUST be in the form of a URL: parse \"-\": invalid URI for request"
+}

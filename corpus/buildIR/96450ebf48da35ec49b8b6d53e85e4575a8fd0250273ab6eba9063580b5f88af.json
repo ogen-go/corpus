@@ -10,10 +10,10 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
 			"byteSize": 1434,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Test Regex generation for parameter validation\n  version: 1.0.0\ncomponents:\n  headers:\n\n  responses:\n    OK_200:\n      description: OK\n\npaths:\n  /ping:\n    get:\n      summary: Get Payment Information\n      description: Returns the content of a payment object\n      parameters:\n        - name: pattern_no_forward_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern$'\n        - name: pattern_two_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern$/'\n        - name: pattern_dont_escape_backslash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\d{3}$'\n        - name: pattern_dont_escape_escaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\/\\d{3}$'\n        - name: pattern_escape_unescaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern/\\d{3}$'\n        - name: pattern_with_modifiers\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern\\d{3}$/i'\n        - name: pattern_with_backslash_after_bracket\n          in: header\n          schema:\n            type: string\n            pattern: '/^[\\pattern\\d{3}$/i'\n\n      responses:\n        '200':\n          $ref: \"#/components/responses/OK_200\"",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@cfebd14c2bb1da219aa75d841658108fb5e14edb/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@5aa0e0a45632d88ab378ca02401e2e94aa9135f0/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/cfebd14c2bb1da219aa75d841658108fb5e14edb/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/5aa0e0a45632d88ab378ca02401e2e94aa9135f0/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/tracetest"
+		},
+		"file": {
+			"name": "triggers.yaml",
+			"size": 0,
+			"path": "api/triggers.yaml",
+			"byteSize": 775,
+			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    Trigger:\n      type: object\n      properties:\n        triggerType:\n          type: string\n          enum: [\"http\", \"grpc\"]\n        triggerSettings:\n          type: object\n          properties:\n            http:\n              $ref: \"./http.yaml#/components/schemas/HTTPRequest\"\n            grpc:\n              $ref: \"./grpc.yaml#/components/schemas/GRPCRequest\"\n\n    TriggerResult:\n      type: object\n      properties:\n        triggerType:\n          type: string\n          enum: [\"http\", \"grpc\"]\n        triggerResult:\n          type: object\n          properties:\n            http:\n              $ref: \"./http.yaml#/components/schemas/HTTPResponse\"\n            grpc:\n              $ref: \"./grpc.yaml#/components/schemas/GRPCResponse\"\n",
+			"canonicalURL": "/github.com/kubeshop/tracetest@85d7e31c7df6caff0f2cd5e618b5af1394775c62/-/blob/api/triggers.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/tracetest/blob/85d7e31c7df6caff0f2cd5e618b5af1394775c62/api/triggers.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Trigger\": parse schema: property \"triggerSettings\": at 1:70: parse schema: property \"grpc\": at 1:92: parse schema: resolve \"./grpc.yaml#/components/schemas/GRPCRequest\": external \"./grpc.yaml\": get: file: local file reference is not allowed"
+}

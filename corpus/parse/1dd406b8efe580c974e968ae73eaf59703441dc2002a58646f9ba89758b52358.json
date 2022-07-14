@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
 			"byteSize": 898,
 			"content": "openapi: \"3.0.1\"\ninfo:\n  title: test\n  version: \"1.0\"\n\npaths:\n\n  /api/v1/test/{id}:\n    get:\n      tags: [Test v1]\n      operationId: test1\n      parameters:\n        - name: id\n          in: path\n          schema:\n            type: string\n      responses:\n        200:\n          description: OK\n\n  /api/v2/test:\n    get:\n      tags: [Test v2]\n      operationId: test2\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: string\n\n  /api/v3/test:\n    post:\n      tags: [Test v3]\n      operationId: test3\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                format: int64\n                type: integer\n      responses:\n        202:\n          description: OK\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@cfebd14c2bb1da219aa75d841658108fb5e14edb/-/blob/modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@5aa0e0a45632d88ab378ca02401e2e94aa9135f0/-/blob/modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/cfebd14c2bb1da219aa75d841658108fb5e14edb/modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/5aa0e0a45632d88ab378ca02401e2e94aa9135f0/modules/openapi-generator/src/test/resources/3_0/kotlin/issue7325-use-delegate-reactive-tags-kotlin.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/api/v1/test/{id}\": at 1:89: get: operation \"test1\": at 1:96: parameters: parse parameter \"id\": at 1:133: path parameters must be required"
+	"Error": "parse: parse spec: parse operations: path \"/api/v1/test/{id}\": at 1:89: get: operation \"test1\": at 1:96: parameters: parse parameter \"id\": at 1:133: at 1:133: path parameters must be required"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "simple_spec.yaml",
+			"size": 0,
+			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/simple_spec.yaml",
+			"byteSize": 675,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Simple invalid spec no $refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                fileName:\n                  type: 1\n                  format: binary\n            encoding:\n              fileName:\n                contentType: text/plain\n      responses:\n        201:\n          description: Created\n        default:\n          description: unexpected error\n          content:\n            text/plain:\n              schema:\n                type: string\n",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@050da4a8c04873257cee25d25b0813df6f200c19/-/blob/vertx-web-openapi/src/test/resources/yaml/invalid/simple_spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/050da4a8c04873257cee25d25b0813df6f200c19/vertx-web-openapi/src/test/resources/yaml/invalid/simple_spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/simple\": at 1:105: post: operation \"simple\": at 1:113: requestBody: at 1:151: at 1:162: parse content: multipart/form-data: at 1:185: schema: at 1:248: parse schema: property \"fileName\": at 1:274: parse schema: unexpected schema type: \"1\""
+}

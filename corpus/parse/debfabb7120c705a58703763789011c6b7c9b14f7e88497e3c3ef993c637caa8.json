@@ -7,17 +7,17 @@
 		"file": {
 			"name": "openapi-invalid-singleerror.json",
 			"size": 0,
-			"path": "schema-util/util-provider/src/test/resources/io/apicurio/registry/rules/validity/openapi-invalid-singleerror.json",
+			"path": "app/src/test/resources/io/apicurio/registry/noprofile/rest/v1/openapi-invalid-singleerror.json",
 			"byteSize": 2127,
 			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"info\": {\n        \"title\": \"Empty API\",\n        \"version\": \"1.0.0\",\n        \"description\": \"An example API design using OpenAPI.\"\n    },\n    \"paths\": {\n        \"/widgets\": {\n            \"summary\": \"Path used to manage the list of widgets.\",\n            \"description\": \"The REST endpoint/path used to list and create zero or more `Widget` entities.  This path contains a `GET` and `POST` operation to perform the list and create tasks, respectively.\",\n            \"get\": {\n                \"responses\": {\n                    \"200\": {\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"array\",\n                                    \"items\": {\n                                        \"$ref\": \"#/components/schemas/Widget\"\n                                    }\n                                }\n                            }\n                        },\n                        \"description\": \"Successful response - returns an array of `Widget` entities.\"\n                    }\n                },\n                \"operationId\": \"getwidgets\",\n                \"summary\": \"List All widgets\",\n                \"description\": \"Gets a list of all `Widget` entities.\"\n            },\n            \"post\": {\n                \"requestBody\": {\n                    \"description\": \"A new `Widget` to be created.\",\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"type\": \"string\"\n                            }\n                        }\n                    },\n                    \"required\": true\n                },\n                \"responses\": {\n                    \"201\": {\n                        \"description\": \"Successful response.\"\n                    }\n                },\n                \"operationId\": \"createWidget\",\n                \"summary\": \"Create a Widget\",\n                \"description\": \"Creates a new instance of a `Widget`.\"\n            }\n        }\n    },\n    \"components\": {}\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-registry@d0df02ec3ce0d62ec71ba71a9e5f861f15c26348/-/blob/schema-util/util-provider/src/test/resources/io/apicurio/registry/rules/validity/openapi-invalid-singleerror.json",
+			"canonicalURL": "/github.com/Apicurio/apicurio-registry@4d1782b2b49e279f1bca26cb7b8cf9f5e07c8857/-/blob/app/src/test/resources/io/apicurio/registry/noprofile/rest/v1/openapi-invalid-singleerror.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-registry/blob/d0df02ec3ce0d62ec71ba71a9e5f861f15c26348/schema-util/util-provider/src/test/resources/io/apicurio/registry/rules/validity/openapi-invalid-singleerror.json",
+					"url": "https://github.com/Apicurio/apicurio-registry/blob/4d1782b2b49e279f1bca26cb7b8cf9f5e07c8857/app/src/test/resources/io/apicurio/registry/noprofile/rest/v1/openapi-invalid-singleerror.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/widgets\": at 9:21: get: operation \"getwidgets\": at 12:20: responses: 200: at 14:28: content: application/json: at 16:49: schema: at 17:43: parse schema: item: at 19:46: parse schema: resolve \"#/components/schemas/Widget\": find schema: resolve \"#/components/schemas/Widget\": can't find value for \"components/schemas/Widget\""
+	"Error": "parse: parse spec: parse operations: path \"/widgets\": at 9:21: get: operation \"getwidgets\": at 12:20: responses: 200: at 14:28: at 15:36: content: application/json: at 16:49: schema: at 17:43: parse schema: item: at 19:46: parse schema: resolve \"#/components/schemas/Widget\": find schema: resolve: can't find value for \"components/schemas/Widget\""
 }

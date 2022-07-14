@@ -10,14 +10,14 @@
 			"path": "Vehicle/swagger.yaml",
 			"byteSize": 1530,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    Vehicle: \n      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml#/Vehicle\"\ninfo:\n  description:  |\n    This entity models a particular vehicle model, including all properties which are common to multiple vehicle instances belonging to such model.\n  title: Vehicle\n  version: \"0.2.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - Vehicle\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.Transportation@99d905b244c7b7d610a60c3c78f9522e05effc20/-/blob/Vehicle/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Transportation@f7fa2fb0db693f1b1f1f6b1d6bfe4038771fcfa8/-/blob/Vehicle/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.Transportation/blob/99d905b244c7b7d610a60c3c78f9522e05effc20/Vehicle/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.Transportation/blob/f7fa2fb0db693f1b1f1f6b1d6bfe4038771fcfa8/Vehicle/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Vehicle\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml#/Vehicle\": external \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Vehicle\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml#/Vehicle\": external \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Transportation/Vehicle/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

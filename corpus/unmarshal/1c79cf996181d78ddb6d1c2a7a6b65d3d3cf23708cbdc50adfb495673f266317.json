@@ -10,14 +10,14 @@
 			"path": "docs/openapi-docs/src/test/resources/expected_default_and_example_on_nested_option_field.yml",
 			"byteSize": 889,
 			"content": "openapi: 3.0.3\ninfo:\n  title: ClassWithNestedOptionalField\n  version: '1.0'\npaths:\n  /:\n    get:\n      operationId: getRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ClassWithNestedOptionalField'\n              required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    ClassWithNestedOptionalField:\n      type: object\n      properties:\n        value:\n          $ref: '#/components/schemas/Nested'\n    Nested:\n      required:\n      - nestedValue\n      type: object\n      properties:\n        nestedValue:\n          type: string\n      default:\n        nestedValue: foo\n      example:\n        nestedValue: foo\n",
-			"canonicalURL": "/github.com/softwaremill/tapir@ab92c28eb910770482951723cb032197fb913b1b/-/blob/docs/openapi-docs/src/test/resources/expected_default_and_example_on_nested_option_field.yml",
+			"canonicalURL": "/github.com/softwaremill/tapir@a6dc627920b6a4905e63b34a7ecf5f47309dc5e0/-/blob/docs/openapi-docs/src/test/resources/expected_default_and_example_on_nested_option_field.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/softwaremill/tapir/blob/ab92c28eb910770482951723cb032197fb913b1b/docs/openapi-docs/src/test/resources/expected_default_and_example_on_nested_option_field.yml",
+					"url": "https://github.com/softwaremill/tapir/blob/a6dc627920b6a4905e63b34a7ecf5f47309dc5e0/docs/openapi-docs/src/test/resources/expected_default_and_example_on_nested_option_field.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:558: json: unable to unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal JSON boolean into Go value of type []string"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!bool `true` into []string"
 }

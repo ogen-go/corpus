@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/FlattenComposedSchemasAtComponents.yaml",
 			"byteSize": 1709,
 			"content": "openapi: 3.0.2\ninfo:\n  title: CC-20272 test - OAS3\n  version: 1.0.0\npaths:\n  /something:\n    get:\n      responses:\n        200:\n          description: ok\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Bar'\ncomponents:\n  schemas:\n    Foo:\n      type: object\n      properties:\n        foo:\n          type: string\n    Bar:\n      type: object\n      properties:\n        foo1:\n          description: An instance of Foo\n          allOf:\n            - $ref: '#/components/schemas/Foo'\n        foo2:\n          $ref: '#/components/schemas/Foo'\n    Test:\n      oneOf:\n        - $ref: \"#/components/schemas/Foo\"\n        - type: object\n          properties:\n            foo:\n              type: string\n    contact-base-model:\n      allOf:\n        - type: object\n          required:\n            - lastName\n            - email\n          properties:\n            contactId:\n              type: string\n              readOnly: true\n            fullName:\n              type: string\n              readOnly: true\n            firstName:\n              type: string\n            lastName:\n              type: string\n            title:\n              type: string\n            email:\n              type: string\n              format: email\n            passCode:\n              type: string\n              format: password\n            indivId:\n              type: string\n            addresses:\n              type: array\n              items:\n                $ref: '#/components/schemas/address-model'\n            phones:\n              type: array\n              items:\n                $ref: '#/components/schemas/phone-model'\n        - $ref: '#/components/schemas/audit-model'",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/FlattenComposedSchemasAtComponents.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/FlattenComposedSchemasAtComponents.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/FlattenComposedSchemasAtComponents.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/FlattenComposedSchemasAtComponents.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"contact-base-model\": parse schema: allOf: [0]: at 1:405: parse schema: property \"addresses\": at 1:432: parse schema: item: at 1:441: parse schema: resolve \"#/components/schemas/address-model\": find schema: resolve \"#/components/schemas/address-model\": can't find value for \"components/schemas/address-model\""
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"contact-base-model\": parse schema: allOf: [0]: at 1:405: parse schema: property \"addresses\": at 1:432: parse schema: item: at 1:441: parse schema: resolve \"#/components/schemas/address-model\": find schema: resolve: can't find value for \"components/schemas/address-model\""
 }

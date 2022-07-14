@@ -10,14 +10,14 @@
 			"path": "openapi3_autogen/import.json",
 			"byteSize": 2025,
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"components\": {\n    \"schemas\": {\n      \"import\": {\n        \"description\": \"Imports an export of policies and related objects into the namespace.\",\n        \"properties\": {\n          \"data\": {\n            \"$ref\": \"./export#/components/schemas/export\"\n          },\n          \"mode\": {\n            \"default\": \"Import\",\n            \"description\": \"How to import the data: `ReplacePartial`, `Import` (default), or `Remove`.\\n`ReplacePartial`\\nis deprecated. Use `Import` instead. While you can use `ReplacePartial` it will\\nbe interpreted\\nas `Import`.\",\n            \"enum\": [\n              \"ReplacePartial\",\n              \"Import\",\n              \"Remove\"\n            ]\n          }\n        },\n        \"required\": [\n          \"data\"\n        ],\n        \"type\": \"object\"\n      }\n    }\n  },\n  \"info\": {\n    \"contact\": {\n      \"email\": \"dev@aporeto.com\",\n      \"name\": \"Aporeto Inc.\",\n      \"url\": \"go.aporeto.io/api\"\n    },\n    \"license\": {\n      \"name\": \"TODO\"\n    },\n    \"termsOfService\": \"https://localhost/TODO\",\n    \"title\": \"import\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/import\": {\n      \"post\": {\n        \"description\": \"Imports data from a previous export.\",\n        \"operationId\": \"create-a-new-import\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/import\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/import\"\n                }\n              }\n            },\n            \"description\": \"n/a\"\n          }\n        },\n        \"tags\": [\n          \"core\",\n          \"squall\"\n        ]\n      }\n    }\n  },\n  \"tags\": [\n    {\n      \"description\": \"This tag is for group 'core'\",\n      \"name\": \"core\"\n    },\n    {\n      \"description\": \"This tag is for package 'squall'\",\n      \"name\": \"squall\"\n    }\n  ]\n}\n",
-			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@93d86b9b01f4f120f5e24620aca5107d28f430f0/-/blob/openapi3_autogen/import.json",
+			"canonicalURL": "/github.com/PaloAltoNetworks/gaia@99a3e24f867c657c6c790ff5eb7ff5dc377dbad4/-/blob/openapi3_autogen/import.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/PaloAltoNetworks/gaia/blob/93d86b9b01f4f120f5e24620aca5107d28f430f0/openapi3_autogen/import.json",
+					"url": "https://github.com/PaloAltoNetworks/gaia/blob/99a3e24f867c657c6c790ff5eb7ff5dc377dbad4/openapi3_autogen/import.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"import\": parse schema: property \"data\": at 8:19: parse schema: resolve \"./export#/components/schemas/export\": external \"./export\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"import\": parse schema: property \"data\": at 8:19: parse schema: resolve \"./export#/components/schemas/export\": external \"./export\": get: file: local file reference is not allowed"
 }

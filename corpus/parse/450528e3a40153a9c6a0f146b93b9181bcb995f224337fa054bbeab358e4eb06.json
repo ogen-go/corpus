@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/deepmap/oapi-codegen"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "internal/test/issues/issue-illegal_enum_names/spec.yaml",
+			"byteSize": 585,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: ...\n  version: 0.0.0\n\npaths:\n  /foo:\n    get:\n      responses:\n        200:\n          description: ...\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Bar'\n\ncomponents:\n  schemas:\n    Bar:\n      type: string\n      enum:\n        - Foo\n        - Bar\n        - Foo Bar\n        - Foo-Bar\n        - 1Foo\n        - Bar  # A swagger validator would catch this duplicate value\n        - ' Foo'\n        - ' Foo '\n        - _Foo_\n        - \"1\"\n",
+			"canonicalURL": "/github.com/deepmap/oapi-codegen@2cf7fcf5b26d1a4362e7c300bd65c20f4f6c4298/-/blob/internal/test/issues/issue-illegal_enum_names/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/deepmap/oapi-codegen/blob/2cf7fcf5b26d1a4362e7c300bd65c20f4f6c4298/internal/test/issues/issue-illegal_enum_names/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Bar\": parse enum values: duplicate enum value: 'Bar'"
+}
