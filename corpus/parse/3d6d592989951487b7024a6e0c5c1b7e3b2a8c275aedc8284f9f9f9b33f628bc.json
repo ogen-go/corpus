@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 			"byteSize": 752,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"empty\": null\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BaseEntityDto\": {\n        \"$ref\": \"./issue-304_parent.json#/components/schemas/BaseEntity\"\n      },\n      \"InheritanceDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Inheritance\"\n      },\n      \"CompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Composition\"\n      },\n      \"InheritanceAndCompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/InheritanceAndComposition\"\n      },\n      \"ReferenceToTheSameFile\": {\n        \"$ref\": \"./issue-304.json#/components/schemas/InheritanceAndCompositionDto\"\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 10:17: schemas: \"InheritanceDto\": parse schema: resolve \"./issue-304_child.json#/components/schemas/Inheritance\": external \"./issue-304_child.json\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 10:17: schemas: \"BaseEntityDto\": parse schema: resolve \"./issue-304_parent.json#/components/schemas/BaseEntity\": external \"./issue-304_parent.json\": get: file: local file reference is not allowed"
 }

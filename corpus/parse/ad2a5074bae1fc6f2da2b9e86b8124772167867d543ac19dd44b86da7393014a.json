@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloudtrust/keycloak-bridge"
+		},
+		"file": {
+			"name": "swagger-api_register.yaml",
+			"size": 0,
+			"path": "api/register/swagger-api_register.yaml",
+			"byteSize": 3765,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Cloudtrust Register\n  description: 'Self-register API for Cloudtrust.'\n  version: 1.0.0\nservers:\n- url: http://localhost:8855\ntags:\n- name: Register\n  description: Self registering of a user\npaths:\n  /register/user:\n    post:\n      tags:\n      - Register\n      summary: Creates a user in the configured realm (register-realm)\n      security:\n        - BasicAuth: [recaptcha]\n      parameters:\n      - name: realm\n        in: query\n        description: realm name (not id!) of a realm configured with a redirect URL for the end of the process\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n      responses:\n        204:\n          description: Successful operation\n        400:\n          description: Invalid information provided\n        403:\n          description: Invalid RECAPTCHA token\n  /register/realms/{realm}/user:\n    post:\n      tags:\n      - Register\n      summary: Creates a user in the realm specified in URL path\n      security:\n        - BasicAuth: [recaptcha]\n      parameters:\n      - name: realm\n        in: path\n        description: realm name (not id!)\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/User'\n      responses:\n        204:\n          description: Successful operation\n        400:\n          description: Invalid information provided\n        403:\n          description: Invalid RECAPTCHA token\n  /register/config:\n    get:\n      tags:\n      - Configuration\n      summary: Get configuration\n      parameters:\n      - name: realm\n        in: query\n        description: realm name (not id!)\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: successful operation. Returns the configuration\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Configuration'\ncomponents:\n  schemas:\n    User:\n      type: object\n      required: [gender, firstName, lastName, email, phoneNumber]\n      properties:\n        gender:\n          type: string\n          enum: [M,F,U]\n          description: Male, Female or Undefined\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n        phoneNumber:\n          type: string\n        birthDate:\n          type: string\n          description: format is DD.MM.YYYY\n        birthLocation:\n          type: string\n        nationality:\n          type: string\n          description: ISO 3166 Alpha-2 country code\n        idDocumentType:\n          type: string\n          enum: [ID_CARD, PASSPORT, RESIDENCE_PERMIT]\n        idDocumentNumber:\n          type: string\n        idDocumentExpiration:\n          type: string\n        idDocumentCountry:\n          type: string\n          description: ISO 3166 Alpha-2 country code\n        locale:\n          type: string\n        businessId:\n          type: string\n          description: Business identifier (can be GLN)\n    Configuration:\n      type: object\n      properties:\n        cancelUrl:\n          type: string\n        mode:\n          type: string\n          description: is the register API used for corporate or social mode\n        theme:\n          type: string\n        supportedLocales:\n          type: array\n          items:\n            type: string\n        selfRegisterEnabled:\n          type: boolean\n          description: true if self register is enabled for the specified realm\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic",
+			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@9d9d16f3faebda3347ef0c7270e8b79f60df3006/-/blob/api/register/swagger-api_register.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/9d9d16f3faebda3347ef0c7270e8b79f60df3006/api/register/swagger-api_register.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/register/realms/{realm}/user\": at 1:1873: post: at 1:1881: at 1:2272: security: list of scopes MUST be empty for \"type\" \"http\""
+}

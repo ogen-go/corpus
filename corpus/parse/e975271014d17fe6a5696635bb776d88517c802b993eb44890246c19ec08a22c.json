@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
 			"byteSize": 1167,
 			"content": "openapi: 3.0.1\ninfo:\n  title: FormData Test Api Documentation\n  description: Minimal OpenAPI spec file to showcase duplicated params for formData.\n  version: 0.0.1\nservers:\n  - url: /backend/rest\ntags:\n  - name: form-param-poc\n    description: File storage resource for Fiscalization France standard\npaths:\n  '/form-param-poc/{id}':\n    put:\n      tags:\n        - form-param-poc\n      summary: fullUpdate\n      operationId: form-param-poc_update\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: '#/components/schemas/FormParameters'\n      responses:\n        '200':\n          description: OK.\n      security:\n        - oAuthConfig: []\ncomponents:\n  schemas:\n    FormParameters:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          readOnly: true\n  securitySchemes:\n    oAuthConfig:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: ../backend/login/openid\n          scopes: {}\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@cfebd14c2bb1da219aa75d841658108fb5e14edb/-/blob/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@5aa0e0a45632d88ab378ca02401e2e94aa9135f0/-/blob/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/cfebd14c2bb1da219aa75d841658108fb5e14edb/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/5aa0e0a45632d88ab378ca02401e2e94aa9135f0/modules/openapi-generator/src/test/resources/3_0/form-duplicated-parameter.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/form-param-poc/{id}\": at 1:473: put: operation \"form-param-poc_update\": at 1:480: security: parse security scheme \"oAuthConfig\": at 1:168: oauth2: at 1:177: flow \"implicit\": at 1:189: \"authorizationUrl\" MUST be in the form of a URL: parse \"../backend/login/openid\": invalid URI for request"
+	"Error": "parse: parse spec: parse operations: path \"/form-param-poc/{id}\": at 1:473: put: operation \"form-param-poc_update\": at 1:480: at 1:782: security: parse security scheme \"oAuthConfig\": at 1:168: oauth2: at 1:177: flow \"implicit\": at 1:189: at 1:209: \"authorizationUrl\" MUST be in the form of a URL: parse \"../backend/login/openid\": invalid URI for request"
 }

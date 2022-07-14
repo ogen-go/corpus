@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-340.json",
 			"byteSize": 782,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"https://api.foo.com/\"\n    }\n  ],\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"FooAPI\",\n    \"description\": \"API for all accesses to the Foo server system\",\n    \"termsOfService\": \"TBD\",\n    \"contact\": {\n      \"name\": \"Foo API Team\"\n    },\n    \"license\": {\n      \"name\": \"MIT\"\n    }\n  },\n  \"paths\": {\n    \"/bar\": {\n      \"$ref\": \"./issue-340-Bar.json#/bar\"\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BarSettingsRequest\": {\n        \"$ref\": \"./issue-340-Bar.json#/components/schemas/BarSettingsRequest\"\n      },\n      \"BarData\": {\n        \"$ref\": \"./issue-340-Bar.json#/components/schemas/BarData\"\n      },\n      \"BazData\": {\n        \"$ref\": \"./issue-340-Bar.json#/components/schemas/BazData\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-340.json",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-340.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-340.json",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-340.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 25:17: schemas: \"BarSettingsRequest\": parse schema: resolve \"./issue-340-Bar.json#/components/schemas/BarSettingsRequest\": external \"./issue-340-Bar.json\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 25:17: schemas: \"BazData\": parse schema: resolve \"./issue-340-Bar.json#/components/schemas/BazData\": external \"./issue-340-Bar.json\": get: file: local file reference is not allowed"
 }

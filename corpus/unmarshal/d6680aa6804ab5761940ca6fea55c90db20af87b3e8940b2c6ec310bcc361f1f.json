@@ -10,14 +10,14 @@
 			"path": "src/services/__tests__/fixtures/3.1/conditionalField.json",
 			"byteSize": 907,
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Schema definition field with conditional operators\",\n    \"version\": \"1.0.0\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Test\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"test\": {\n            \"type\": [\"string\", \"integer\", \"null\"],\n            \"minItems\": 1,\n            \"maxItems\": 20,\n            \"items\": {\n              \"type\": \"string\",\n              \"format\": \"url\"\n            },\n            \"if\": {\n              \"x-displayName\": \"isString\",\n              \"type\": \"string\"\n            },\n            \"then\": {\n              \"type\": \"string\",\n              \"minItems\": 1,\n              \"maxItems\": 20\n            },\n            \"else\": {\n              \"x-displayName\": \"notString\",\n              \"minItems\": 1,\n              \"maxItems\": 10,\n              \"pattern\": \"\\\\d+\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Redocly/redoc@4fc6aa0859c94e25fd30c4a4250455e44cc76488/-/blob/src/services/__tests__/fixtures/3.1/conditionalField.json",
+			"canonicalURL": "/github.com/Redocly/redoc@99209910806b85289a89fb3131049ed79118bc72/-/blob/src/services/__tests__/fixtures/3.1/conditionalField.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Redocly/redoc/blob/4fc6aa0859c94e25fd30c4a4250455e44cc76488/src/services/__tests__/fixtures/3.1/conditionalField.json",
+					"url": "https://github.com/Redocly/redoc/blob/99209910806b85289a89fb3131049ed79118bc72/src/services/__tests__/fixtures/3.1/conditionalField.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 13:21: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal Go value of type ogen.Properties: json: cannot unmarshal JSON array into Go value of type string"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 13: cannot unmarshal !!seq into string"
 }

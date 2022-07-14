@@ -9,7 +9,7 @@
 			"size": 0,
 			"path": "typesafety/test_not_oas_handler.yml",
 			"byteSize": 1216,
-			"content": "---\n- case: not_oas_handler_single\n  disable_cache: true\n  oas_spec: |\n    openapi: 3.0.1\n    info:\n      title: not_oas_handler\n      version: 1.0.0\n    servers:\n      - url: /\n    paths:\n      /:\n        get:\n          operationId: main.oas_op\n          responses:\n            default:\n              description: unexpected error\n  main: |\n    from axion import oas_endpoint\n    from axion import pipeline\n\n    @oas_endpoint\n    async def not_oas() -> pipeline.Response:\n      return {}\n  out: |\n    main:5: error: not_oas is not OAS operation  [axion-no-op]\n- case: not_oas_handler_multiple\n  disable_cache: true\n  oas_spec: |\n    openapi: 3.0.1\n    info:\n      title: not_oas_handler\n      version: 1.0.0\n    servers:\n      - url: /\n    paths:\n      /:\n        get:\n          operationId: main.oas_op\n          responses:\n            default:\n              description: unexpected error\n  main: |\n    from axion import oas_endpoint\n    from axion import pipeline\n\n    @oas_endpoint\n    async def oas_op() -> pipeline.Response:\n      return {'http_code': 204}\n\n    @oas_endpoint\n    async def not_oas() -> pipeline.Response:\n      return {}\n  out: |\n    main:9: error: not_oas is not OAS operation  [axion-no-op]\n",
+			"content": "---\n- case: not_oas_handler_single\n  disable_cache: true\n  oas_spec: |\n    openapi: 3.0.1\n    info:\n      title: not_oas_handler\n      version: 1.0.0\n    servers:\n      - url: /\n    paths:\n      /:\n        get:\n          operationId: main.oas_op\n          responses:\n            default:\n              description: unexpected error\n  main: |\n    from axion import oas_endpoint\n    from axion import pipeline\n\n    @oas_endpoint\n    async def not_oas() -\u003e pipeline.Response:\n      return {}\n  out: |\n    main:5: error: not_oas is not OAS operation  [axion-no-op]\n- case: not_oas_handler_multiple\n  disable_cache: true\n  oas_spec: |\n    openapi: 3.0.1\n    info:\n      title: not_oas_handler\n      version: 1.0.0\n    servers:\n      - url: /\n    paths:\n      /:\n        get:\n          operationId: main.oas_op\n          responses:\n            default:\n              description: unexpected error\n  main: |\n    from axion import oas_endpoint\n    from axion import pipeline\n\n    @oas_endpoint\n    async def oas_op() -\u003e pipeline.Response:\n      return {'http_code': 204}\n\n    @oas_endpoint\n    async def not_oas() -\u003e pipeline.Response:\n      return {}\n  out: |\n    main:9: error: not_oas is not OAS operation  [axion-no-op]\n",
 			"canonicalURL": "/github.com/kornicameister/axion@9c6a44d34fb0025041050e35e4653b3c5eff4897/-/blob/typesafety/test_not_oas_handler.yml",
 			"externalURLs": [
 				{
@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:1: json: cannot unmarshal Go value of type ogen.Spec: spec: json: unable to unmarshal JSON array into Go value of type ogen.Alias"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!seq into ogen.Alias"
 }

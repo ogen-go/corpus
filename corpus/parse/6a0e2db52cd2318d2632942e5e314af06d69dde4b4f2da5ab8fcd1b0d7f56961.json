@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser/src/test/resources/issue768-main.yaml",
 			"byteSize": 365,
 			"content": "openapi: 3.0.0\ninfo:\n  title: ref test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  /user/login:\n    post:\n      summary: Login\n      operationId: loginUser\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"issue768-reference.yaml#/User\"\ncomponents:\n  schemas: {}",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@ff232fc7428d584c08410544f33f7ce8eb6a77a3/-/blob/modules/swagger-parser/src/test/resources/issue768-main.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser/src/test/resources/issue768-main.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/ff232fc7428d584c08410544f33f7ce8eb6a77a3/modules/swagger-parser/src/test/resources/issue768-main.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser/src/test/resources/issue768-main.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/user/login\": at 1:115: post: operation \"loginUser\": at 1:123: requestBody: at 1:164: content: application/json: at 1:195: schema: at 1:205: parse schema: resolve \"issue768-reference.yaml#/User\": external \"issue768-reference.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/user/login\": at 1:115: post: operation \"loginUser\": at 1:123: requestBody: at 1:164: at 1:175: parse content: application/json: at 1:195: schema: at 1:205: parse schema: resolve \"issue768-reference.yaml#/User\": external \"issue768-reference.yaml\": get: file: local file reference is not allowed"
 }

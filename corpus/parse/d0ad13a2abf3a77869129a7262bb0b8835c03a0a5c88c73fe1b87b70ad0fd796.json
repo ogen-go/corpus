@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/guardrail-dev/guardrail"
+		},
+		"file": {
+			"name": "authentication-override.yaml",
+			"size": 0,
+			"path": "modules/sample/src/main/resources/authentication-override.yaml",
+			"byteSize": 937,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Test for security support\n  version: 1.0.0\npaths:\n  /foo:\n    post:\n      x-jvm-package: auth\n      operationId: doFoo\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: string\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                type: string\n      security: []\n\n  /bar:\n    post:\n      x-jvm-package: auth\n      operationId: doBar\n      requestBody:\n        required: true\n        content:\n          application/sdp:\n            schema:\n              type: string\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                type: string\n\nsecurity:\n  - basic:\n    - \"bar:basic\"\n\ncomponents:\n  securitySchemes:\n    basic:\n      type: http\n      scheme: basic\n",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@96e35f7450d9b132d4eba491eba97600b15025d3/-/blob/modules/sample/src/main/resources/authentication-override.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/guardrail-dev/guardrail/blob/96e35f7450d9b132d4eba491eba97600b15025d3/modules/sample/src/main/resources/authentication-override.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/bar\": at 1:175: post: operation \"doBar\": at 1:183: at 1:701: security: list of scopes MUST be empty for \"type\" \"http\""
+}

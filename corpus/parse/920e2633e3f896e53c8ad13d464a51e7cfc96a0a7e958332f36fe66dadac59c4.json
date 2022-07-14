@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/imfht/flaskapps"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "connexion-master/examples/openapi3/basicauth/openapi.yaml",
+			"byteSize": 484,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Basic Auth Example\n  version: '1.0'\npaths:\n  /secret:\n    get:\n      summary: Return secret string\n      operationId: app.get_secret\n      responses:\n        '200':\n          description: secret response\n          content:\n            '*/*':\n              schema:\n                type: string\n      security:\n        - basic: ['secret']\ncomponents:\n  securitySchemes:\n    basic:\n      type: http\n      scheme: basic\n      x-basicInfoFunc: app.basic_auth\n",
+			"canonicalURL": "/github.com/imfht/flaskapps@d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/-/blob/connexion-master/examples/openapi3/basicauth/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/imfht/flaskapps/blob/d6fc9b7e32d7dc6b493c269b8ccbaa6ee2d690c1/connexion-master/examples/openapi3/basicauth/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/secret\": at 1:204: get: operation \"app.get_secret\": at 1:211: at 1:355: security: list of scopes MUST be empty for \"type\" \"http\""
+}

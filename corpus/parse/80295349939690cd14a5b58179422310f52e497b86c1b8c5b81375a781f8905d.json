@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/object_without_required_property/test/negative7.json",
 			"byteSize": 2048,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersions\",\n        \"summary\": \"List versions\",\n        \"servers\": [\n          {\n            \"url\": \"http://myapi.com/\",\n            \"description\": \"server URL\"\n          }\n        ],\n        \"security\": [\n          {\n            \"OAuth2\": [\n              \"write\",\n              \"read\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\",\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ]\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"description\": \"ID of pet to use\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\"\n              }\n            },\n            \"style\": \"simple\"\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"IdParam\": {\n        \"name\": \"id\",\n        \"in\": \"path\",\n        \"description\": \"ID of pet to use\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\"\n          }\n        },\n        \"style\": \"simple\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/object_without_required_property/test/negative7.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/-/blob/assets/queries/openAPI/3.0/object_without_required_property/test/negative7.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/object_without_required_property/test/negative7.json",
+					"url": "https://github.com/Checkmarx/kics/blob/b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/assets/queries/openAPI/3.0/object_without_required_property/test/negative7.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/\": at 8:10: get: operation \"listVersions\": at 9:14: security: unknown security schema \"OAuth2\""
+	"Error": "parse: parse spec: parse operations: path \"/\": at 8:10: get: operation \"listVersions\": at 9:14: at 18:21: security: unknown security schema \"OAuth2\""
 }

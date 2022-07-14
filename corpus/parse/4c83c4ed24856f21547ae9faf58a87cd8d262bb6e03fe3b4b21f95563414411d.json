@@ -10,14 +10,14 @@
 			"path": "vertx-web-openapi/src/test/resources/specs/security_test.yaml",
 			"byteSize": 2230,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Test spec for RouterBuilderSecurityTest\n  license:\n    name: Apache 2.0 License\npaths:\n  /pets_single_security:\n    get:\n      operationId: listPetsSingleSecurity\n      tags:\n        - pets\n      security:\n        - api_key: []\n      responses:\n        200:\n          description: Something\n  /pets_and_security:\n    get:\n      operationId: listPetsAndSecurity\n      tags:\n        - pets\n      security:\n        - api_key: []\n          second_api_key: []\n          third_api_key: []\n      responses:\n        200:\n          description: Something\n  /pets_or_security:\n    get:\n      operationId: listPetsOrSecurity\n      tags:\n        - pets\n      security:\n        - api_key: []\n        - second_api_key: []\n        - third_api_key: []\n      responses:\n        200:\n          description: Something\n  /pets_or_and_security:\n    get:\n      operationId: listPetsOrAndSecurity\n      tags:\n        - pets\n      security:\n        - api_key: []\n        - second_api_key: []\n          sibling_second_api_key: []\n        - third_api_key: []\n      responses:\n        200:\n          description: Something\n  /pets_oauth2:\n    get:\n      operationId: listPetsOauth2\n      tags:\n        - pets\n      security:\n        - oauth2: [\n          \"write:pets\",\n          \"read:pets\"\n        ]\n      responses:\n        200:\n          description: Something\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n    second_api_key:\n      type: apiKey\n      name: second_api_key\n      in: header\n    sibling_second_api_key:\n      type: apiKey\n      name: second_api_key\n      in: header\n    third_api_key:\n      type: apiKey\n      name: third_api_key\n      in: header\n    oauth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: https://example.com/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n        authorizationCode:\n          authorizationUrl: https://example.com/api/oauth/dialog\n          tokenUrl: https://example.com/api/oauth/token\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n\n",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@5d585d93b960a7d851236b7007d1d152230f32da/-/blob/vertx-web-openapi/src/test/resources/specs/security_test.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@050da4a8c04873257cee25d25b0813df6f200c19/-/blob/vertx-web-openapi/src/test/resources/specs/security_test.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/5d585d93b960a7d851236b7007d1d152230f32da/vertx-web-openapi/src/test/resources/specs/security_test.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/050da4a8c04873257cee25d25b0813df6f200c19/vertx-web-openapi/src/test/resources/specs/security_test.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/pets_oauth2\": at 1:1080: get: operation \"listPetsOauth2\": at 1:1087: security: unknown security schema \"oauth2\""
+	"Error": "parse: parse spec: parse operations: path \"/pets_oauth2\": at 1:1080: get: operation \"listPetsOauth2\": at 1:1087: at 1:1178: security: unknown security schema \"oauth2\""
 }

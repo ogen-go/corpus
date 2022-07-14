@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive3.yaml",
 			"byteSize": 910,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      responses:\n        \"200\":\n          description: the user being returned\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  uuid:\n                    type: string\n                    format: uuid\ncomponents:\n  schemas:\n    Pet:\n      $ref: \"../models/pet.yaml\"\n    User:\n      $ref: \"https://api.example.com/v2/openapi.yaml#/components/schemas/User\"\n  responses:\n    NotFound:\n      description: The specified resource was not found\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\n      links:\n        l:\n          $ref: \"#components/linfks/address\"\n  links:\n    address:\n      operationId: getUssssserAddress\n      parameters:\n        userId: $request.path.id\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive3.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/-/blob/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive3.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive3.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive3.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Pet\": parse schema: resolve \"../models/pet.yaml\": external \"../models/pet.yaml\": file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"Pet\": parse schema: resolve \"../models/pet.yaml\": external \"../models/pet.yaml\": get: file: local file reference is not allowed"
 }

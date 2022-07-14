@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
 			"byteSize": 1207,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\n  contact:\n    name: contact\n    url: https://www.google.com/\n    email: user@gmail.c\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              schema:\n                type: object\n                discriminator:\n                  propertyName: petType\n                properties:\n                  message:\n                    type: string\n                  code:\n                    type: integer\n                    minimum: 100\n                    maximum: 600\n                allOf:\n                  - \"$ref\": \"#/components/schemas/ErrorModel\"\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n                additionalProperties:\n                  - type: object\n                    required:\n                      - message\n                    properties:\n                      message:\n                        type: string\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@2b586d541f221ca0c51bd6b5048251389be099dc/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/-/blob/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/2b586d541f221ca0c51bd6b5048251389be099dc/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/assets/queries/openAPI/general/schema_object_properties_with_duplicated_keys/test/positive4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: json: line 1:297: json: cannot unmarshal Go value of type ogen.Spec: spec: json: cannot unmarshal Go value of type ogen.AdditionalProperties: json: unable to handle JSON array with Go value of type *ogen.AdditionalProperties within JSON value at \"/paths/~1/get/responses/200/content/application~1json/schema/additionalProperties\": unexpected type ["
+	"Error": "unmarshal: unexpected YAML kind 2"
 }

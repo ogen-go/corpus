@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/EMResearch/EvoMaster"
+		},
+		"file": {
+			"name": "openapi-enum.yml",
+			"size": 0,
+			"path": "e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-enum.yml",
+			"byteSize": 656,
+			"content": "openapi: 3.0.0\nhost: localhost:8080\npaths:\n  /api/enum:\n    get:\n      parameters:\n        - in: query\n          name: x\n          schema:\n            type: string\n            enum: [foo, bar]\n        - in: query\n          name: y\n          schema:\n            type: integer\n            enum: [42, 1234567]\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/EnumDto'\ncomponents:\n  schemas:\n    EnumDto:\n      type: Object\n      properties:\n        values:\n          type: array\n          items:\n            type: string\n            enum: [foo, bar]",
+			"canonicalURL": "/github.com/EMResearch/EvoMaster@cbb92f7799ea2c7adf345e7d496c5a48cda1a6d1/-/blob/e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-enum.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/EMResearch/EvoMaster/blob/cbb92f7799ea2c7adf345e7d496c5a48cda1a6d1/e2e-tests/spring-rest-openapi-v3/src/main/resources/static/openapi-enum.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"EnumDto\": parse schema: unexpected schema type: \"Object\""
+}
