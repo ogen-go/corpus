@@ -70,13 +70,22 @@ jobs:
           VERSION: ${{ github.event.inputs.version }}
         run: |
           make generate
-          STATS="$(cat stats.txt)"
-          STATS="${STATS//'%'/'%25'}"
-          STATS="${STATS//$'\n'/'%0A'}"
-          STATS="${STATS//$'\r'/'%0D'}"
-          echo "::set-output name=stats::$STATS"
           rm -r ./corpus/notImplemented
           rm -r ./corpus/good
+
+          echo "Re-generate corpus." >> summary.txt
+          echo "" >> summary.txt
+          echo "\`\`\`diff" >> summary.txt
+          cat stats.txt >> summary.txt
+          echo "\`\`\`" >> summary.txt
+
+          cat summary.txt >> $GITHUB_STEP_SUMMARY
+
+          SUMMARY="$(cat summary.txt)"
+          SUMMARY="${SUMMARY//'%'/'%25'}"
+          SUMMARY="${SUMMARY//$'\n'/'%0A'}"
+          SUMMARY="${SUMMARY//$'\r'/'%0D'}"
+          echo "::set-output name=summary::$SUMMARY"
 
       - name: Upload profiles
         uses: actions/upload-artifact@v3
@@ -103,5 +112,5 @@ jobs:
           body: |
             Re-generate corpus.
             ```diff
-            ${{ steps.generate.outputs.stats }}
+            ${{ steps.generate.outputs.summary }}
             ```
