@@ -17,16 +17,6 @@ on:
         description: 'Query YAML schemas'
         required: false
         default: true
-      query:
-        type: string
-        description: 'Query to use'
-        required: false
-        default: ''
-      send-pr:
-        type: boolean
-        description: 'Send PR with generated corpus'
-        required: false
-        default: true
 
 permissions:
   contents: write
@@ -65,8 +55,7 @@ jobs:
           GOPROXY: direct
           COLLECTOR_FLAGS: >-
             --yaml=${{ github.event.inputs.yaml }}
-            --query=${{ toJSON(github.event.inputs.query) }}
-            --filter=${{ toJSON(github.event.inputs.filter) }}
+            --filter=${{ github.event.inputs.filter }}
           VERSION: ${{ github.event.inputs.version }}
         run: |
           make generate
@@ -95,7 +84,6 @@ jobs:
           retention-days: 1
 
       - name: Create PR
-        if: ${{ github.event.inputs.send-pr }}
         uses: peter-evans/create-pull-request@v4
         with:
           author: GitHub <actions@github.com>
