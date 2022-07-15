@@ -98,8 +98,8 @@ jobs:
             ./stats.txt
             ./corpus
           title: Re-generate corpus
-          assignees: tdakkota
-          reviewers: tdakkota
+          assignees: ${{ github.event.sender.login || 'tdakkota' }}
+          reviewers: ${{ github.event.sender.login || 'tdakkota' }}
           body: |
             Re-generate corpus.
             ```diff
