@@ -10,10 +10,10 @@
 			"path": "docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_not_adding_default_when_no_encoded_value_specified.yml",
 			"byteSize": 1147,
 			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref:'#/components/schemas/FruitQuery'\n        required: true\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/FruitWithEnum'\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    FruitQuery:\n      type: object\n      properties:\n        fruitType:\n          $ref: '#/components/schemas/FruitType'\n    FruitType:\n      type: string\n      enum:\n        - APPLE\n        - PEAR\n    FruitWithEnum:\n      required:\n        - fruit\n        - amount\n      type: object\n      properties:\n        fruit:\n          type: string\n        amount:\n          type: integer\n          format: int32\n        fruitType:\n          type: array\n          items:\n            $ref: '#/components/schemas/FruitType'\n",
-			"canonicalURL": "/github.com/softwaremill/tapir@a6dc627920b6a4905e63b34a7ecf5f47309dc5e0/-/blob/docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_not_adding_default_when_no_encoded_value_specified.yml",
+			"canonicalURL": "/github.com/softwaremill/tapir@a57689dd1e27a95a2b46e00778f23f133d82600c/-/blob/docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_not_adding_default_when_no_encoded_value_specified.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/softwaremill/tapir/blob/a6dc627920b6a4905e63b34a7ecf5f47309dc5e0/docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_not_adding_default_when_no_encoded_value_specified.yml",
+					"url": "https://github.com/softwaremill/tapir/blob/a57689dd1e27a95a2b46e00778f23f133d82600c/docs/openapi-docs/src/test/resources/enum/expected_enumeratum_enum_not_adding_default_when_no_encoded_value_specified.yml",
 					"serviceKind": "GITHUB"
 				}
 			]

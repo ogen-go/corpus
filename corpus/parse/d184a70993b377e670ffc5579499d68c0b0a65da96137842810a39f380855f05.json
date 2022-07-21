@@ -10,14 +10,14 @@
 			"path": "examples/callbacks/client-service.oas3.yaml",
 			"byteSize": 632,
 			"content": "openapi: 3.0.0\npaths:\n  /notify:\n    post:\n      summary: 'Receive notification about certain invoice'\n      security:\n        - Token: []\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'payment-service.oas3.yaml#/components/schemas/notification'\n      responses:\n        '200':\n          description: 'Notification successfully processed'\n          content:\n            text/plain:\n              examples:\n                ok:\n                  value: 'ok'\ncomponents:\n  securitySchemes:\n    Token:\n      type: apiKey\n      name: token\n      in: query\n",
-			"canonicalURL": "/github.com/stoplightio/prism@af3b8a3c64654a1f87dca94d0486a807daa91f59/-/blob/examples/callbacks/client-service.oas3.yaml",
+			"canonicalURL": "/github.com/stoplightio/prism@ed08bb8fcc6310a767f8a5bd73e93918ab9a9793/-/blob/examples/callbacks/client-service.oas3.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/stoplightio/prism/blob/af3b8a3c64654a1f87dca94d0486a807daa91f59/examples/callbacks/client-service.oas3.yaml",
+					"url": "https://github.com/stoplightio/prism/blob/ed08bb8fcc6310a767f8a5bd73e93918ab9a9793/examples/callbacks/client-service.oas3.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/notify\": at 1:128: post: at 1:136: requestBody: at 1:151: at 1:162: parse content: application/json: at 1:182: schema: at 1:192: parse schema: resolve \"payment-service.oas3.yaml#/components/schemas/notification\": external \"payment-service.oas3.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/notify\": post: requestBody: parse content: application/json: schema: at 1:192: parse schema: resolve \"payment-service.oas3.yaml#/components/schemas/notification\": external \"payment-service.oas3.yaml\": get: file: local file reference is not allowed"
 }

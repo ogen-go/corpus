@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
 			"byteSize": 1407,
 			"content": "openapi: 3.0.0\ninfo:\n  description: issue2137\n  version: 1.0.1\n  title: issue2137\npaths:\n  '/users/{user_id}/description':\n    get:\n      operationId: description\n      parameters:\n        - $ref: '#/components/parameters/UserId'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/goraUrl'\n  '/gora/{gora_id}/test':\n    get:\n      operationId: test\n      parameters:\n        - name: gora_id\n          description: issue-2137\n          in: path\n          required: false\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/goraUrl'\ncomponents:\n  parameters:\n    UserId:\n      name: user_id\n      description: Unique identifier of a user\n      in: path\n      required: false\n      schema:\n        type: string\n  schemas:\n    gora:\n      type: object\n      description: Information about de product\n      properties:\n        text:\n          type: string\n    goraUrl:\n      allOf:\n        - type: object\n          required:\n            - url\n          properties:\n            url:\n              type: string\n              description: Url with information or picture of the product\n        - $ref: '#/components/schemas/gora'",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@03733f8e20bea437df69d7523f44df68866d26a9/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/03733f8e20bea437df69d7523f44df68866d26a9/modules/swagger-parser-v3/src/test/resources/issue-1319.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: parameters: \"UserId\": at 1:39: at 1:124: path parameters must be required"
+	"Error": "parse: parse spec: parse components: schemas: \"UserId\": at 1:124: path parameters must be required"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Mermade/oas-kit"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "test/validator/speccy21/openapi.yaml",
+			"byteSize": 1495,
+			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://127.0.0.1:8080'\ninfo:\n  title: 'Callback'\n  version: '1'\n  description: 'Callback test'\n  contact:\n    name: Test User\n    url: https://example.com\n    email: test@example.com\ntags:\n  - name: callbackEx\n    description: Callback Example\npaths:\n  /hooks:\n    post:\n      operationId: postHook\n      summary: POST to hooks\n      tags:\n      - callbackEx\n      requestBody:\n        $ref: '#/components/requestBodies/HooksPost'\n      responses:\n        '201':\n          description: 'Successfully registered'\n      callbacks:\n        data_event:\n          $ref: '#/components/callbacks/DataEvent'\ncomponents:\n  callbacks:\n    DataEvent:\n      '{$request.body#/callbackUrl}':\n        post:\n          operationId: callbackPost\n          summary: Callback POST operation\n          requestBody:\n            $ref: '#/components/requestBodies/CallBackBody'\n          responses:\n            '200':\n              description: 'Your callback should answer with 200'\n  requestBodies:\n    HooksPost:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n               - callbackUrl\n              properties:\n                callbackUrl:\n                  type: string\n    CallBackBody:\n      content:\n        application/json:\n          schema:\n            required:\n              - subscriptionId\n            type: object\n            properties:\n              subscriptionId:\n                type: string\n",
+			"canonicalURL": "/github.com/Mermade/oas-kit@b1bba3fc5007e96a991bf2a015cf0534ac36b88b/-/blob/test/validator/speccy21/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Mermade/oas-kit/blob/b1bba3fc5007e96a991bf2a015cf0534ac36b88b/test/validator/speccy21/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `#/compo...` into ogen.PathItem"
+}

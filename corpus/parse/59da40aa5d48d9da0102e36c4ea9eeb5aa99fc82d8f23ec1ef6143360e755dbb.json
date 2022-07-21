@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/corunet/scc-multiapi-converter"
+		},
+		"file": {
+			"name": "testExternalRef.yml",
+			"size": 0,
+			"path": "src/test/resources/openapi/testExternalRef.yml",
+			"byteSize": 417,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Schema Registry Mangement\n  version: \"1.0\"\nservers:\n- url: https://localhost/v1\npaths:\n  /schema_generator:\n    post:\n      tags:\n      - generator\n      responses:\n        200:\n          description: Test File for SCC MultiApi Plugin.\n          content:\n            application/json:\n              schema:\n                $ref: \"test-config/components.yml#/components/schema/generator\"\n",
+			"canonicalURL": "/github.com/corunet/scc-multiapi-converter@96c22f825143e8d547c2ddc81f44ad5271ecf580/-/blob/src/test/resources/openapi/testExternalRef.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/corunet/scc-multiapi-converter/blob/96c22f825143e8d547c2ddc81f44ad5271ecf580/src/test/resources/openapi/testExternalRef.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/schema_generator\": post: responses: 200: content: application/json: schema: at 1:179: parse schema: resolve \"test-config/components.yml#/components/schema/generator\": external \"test-config/components.yml\": get: file: local file reference is not allowed"
+}

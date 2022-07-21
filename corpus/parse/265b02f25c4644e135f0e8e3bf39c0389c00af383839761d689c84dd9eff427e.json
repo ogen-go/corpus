@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
 			"byteSize": 1227,
 			"content": "info: \n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    VendorOrderSubmissionRequest:\n      allOf:\n      - $ref: '#/components/schemas/VendorPlateSubmissionRequest'\n      - description: Request object structure to submit plate data to a vendor\n        type: object\n        required:\n        - serviceIds\n        properties:\n          requiredServiceInfo: \n            additionalProperties:\n              type: string\n            description: A map of additional data required by the requested service. This includes things like Volume and Concentration.\n            type: object\n            example:\n              genus: Zea\n              species: mays\n              volumePerWell: 2.3 ml\n              extractDNA: true\n          serviceIds:\n            description: |-\n              A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. \n              A Vendor Service defines what platform, technology, and markers will be used. \n              A list of available service IDs can be retrieved from the Vendor Specs.\n            items:\n              type: string\n            type: array\n            example: ['e8f60f64', '05bd925a', 'b698fb5e']\n\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/VendorSamples/Schemas/VendorOrderSubmissionRequest.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"VendorOrderSubmissionRequest\": parse schema: allOf: [0]: at 1:68: parse schema: resolve \"#/components/schemas/VendorPlateSubmissionRequest\": find schema: resolve: can't find value for \"components/schemas/VendorPlateSubmissionRequest\""
+	"Error": "parse: parse spec: parse components: schemas: \"VendorOrderSubmissionRequest\": parse schema: allOf: [0]: at 1:68: parse schema: resolve \"#/components/schemas/VendorPlateSubmissionRequest\": find schema: resolve: can't find value for \"components/schemas/VendorPlateSubmissionRequest\""
 }

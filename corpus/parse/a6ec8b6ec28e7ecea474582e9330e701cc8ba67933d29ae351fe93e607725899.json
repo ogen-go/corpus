@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/CallSets/CallSets_GET.yaml",
 			"byteSize": 1785,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /callsets:\n    get:\n      summary: Gets a filtered list of `CallSet` JSON objects.\n      description: Gets a filtered list of `CallSet` JSON objects.\n      parameters:\n      - name: callSetDbId\n        description: The ID which uniquely identifies a `CallSet` within the given database server \n        in: query\n        required: false\n        schema:\n          type: string\n      - name: callSetName\n        description: The human readable name of a `CallSet`.\n        in: query\n        required: false\n        schema:\n          type: string\n      - name: variantSetDbId\n        description: The ID which uniquely identifies a `VariantSet` within the given database server \n        in: query\n        required: false\n        schema:\n          type: string\n      - name: sampleDbId\n        description: |-\n          The ID which uniquely identifies a `Sample` within the given database server\n          \u003cbr\u003eFilter results to only include `CallSets` generated from this `Sample`\n        in: query\n        required: false\n        schema:\n          type: string\n      - $ref: '#/components/parameters/germplasmDbId'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/externalReferenceId'\n      - $ref: '#/components/parameters/externalReferenceSource'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/CallSetsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Call Sets",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/CallSets/CallSets_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/CallSets/CallSets_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/CallSets/CallSets_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/CallSets/CallSets_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/callsets\": at 1:79: get: at 1:86: parameters: parse parameter \"\": at 1:913: resolve \"#/components/parameters/germplasmDbId\" reference: can't find value for \"components/parameters/germplasmDbId\""
+	"Error": "parse: parse spec: parse operations: path \"/callsets\": get: parameters: parse parameter \"\": at 1:913: resolve \"#/components/parameters/germplasmDbId\" reference: can't find value for \"components/parameters/germplasmDbId\""
 }

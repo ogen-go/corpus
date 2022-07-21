@@ -10,14 +10,14 @@
 			"path": "swagger/4258_p1_swagger.yaml",
 			"byteSize": 860,
 			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':\n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: './api2.yaml#/components/schemas/Api2Prop'",
-			"canonicalURL": "/github.com/heldersepu/hs-scripts@3ef99e958af8f73a8339f089ae685a0cb6fe20f2/-/blob/swagger/4258_p1_swagger.yaml",
+			"canonicalURL": "/github.com/heldersepu/hs-scripts@dc300061ee868ae7c47b99f8bcf47009a82f9a35/-/blob/swagger/4258_p1_swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/heldersepu/hs-scripts/blob/3ef99e958af8f73a8339f089ae685a0cb6fe20f2/swagger/4258_p1_swagger.yaml",
+					"url": "https://github.com/heldersepu/hs-scripts/blob/dc300061ee868ae7c47b99f8bcf47009a82f9a35/swagger/4258_p1_swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"TestResponse\": parse schema: property \"api2prop\": at 1:176: parse schema: resolve \"./api2.yaml#/components/schemas/Api2Prop\": external \"./api2.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"TestResponse\": parse schema: property \"api2prop\": at 1:176: parse schema: resolve \"./api2.yaml#/components/schemas/Api2Prop\": external \"./api2.yaml\": get: file: local file reference is not allowed"
 }

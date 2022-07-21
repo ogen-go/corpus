@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
 			"byteSize": 1850,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /callsets/{callSetDbId}/calls:\n    get:\n      summary: Gets a list of `Calls` associated with a `CallSet`.\n      description: |-\n        Gets a list of `Calls` associated with a `CallSet`.\n      parameters:\n        - name: callSetDbId\n          description: The ID which uniquely identifies a `CallSet` within the given database server \n          in: path\n          required: true\n          schema:\n            type: string\n        - name: expandHomozygotes\n          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)\n          in: query\n          required: false\n          schema:\n            type: boolean\n        - name: unknownString\n          description: The string to use as a representation for missing data\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepPhased\n          description: The string to use as a separator for phased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepUnphased\n          description: The string to use as a separator for unphased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/page'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/CallsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Call Sets",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/CallSets/CallSets_CallSetId_Calls_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/callsets/{callSetDbId}/calls\": at 1:99: get: at 1:106: parameters: parse parameter \"\": at 1:1007: resolve \"#/components/parameters/pageToken\" reference: can't find value for \"components/parameters/pageToken\""
+	"Error": "parse: parse spec: parse operations: path \"/callsets/{callSetDbId}/calls\": get: parameters: parse parameter \"\": at 1:1007: resolve \"#/components/parameters/pageToken\" reference: can't find value for \"components/parameters/pageToken\""
 }

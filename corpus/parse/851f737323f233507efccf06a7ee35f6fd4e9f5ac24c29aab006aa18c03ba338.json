@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/haiku/haikudepotserver"
+		},
+		"file": {
+			"name": "authorization-job.yaml",
+			"size": 0,
+			"path": "haikudepotserver-api2/src/main/resources/api2/authorization-job.yaml",
+			"byteSize": 1361,
+			"content": "# Copyright 2022, Andrew Lindesay\n# Distributed under the terms of the MIT License.\n\nopenapi: 3.0.3\ninfo:\n  title: HDS Authorization Job API\n  version: \"2.0\"\ntags:\n  - name: authorization-job\npaths:\n  /__api/v2/authorization-job/queue-authorization-rules-spreadsheet:\n    post:\n      tags:\n        - authorization-job\n      operationId: queueAuthorizationRulesSpreadsheet\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/queueAuthorizationRulesSpreadsheetRequestEnvelope\"\n      responses:\n        200:\n          description: \u003e\n            The results of initiating the queuing of an authorization rules spreadsheet\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/queueAuthorizationRulesSpreadsheetResponseEnvelope\"\n\ncomponents:\n  schemas:\n    queueAuthorizationRulesSpreadsheetRequestEnvelope:\n      type: object\n    queueAuthorizationRulesSpreadsheetResponseEnvelope:\n      type: object\n      properties:\n        result:\n          $ref: \"#/components/schemas/queueAuthorizationRulesSpreadsheetResult\"\n        error:\n          $ref: \"./error.yaml#/components/schemas/error\"\n    queueAuthorizationRulesSpreadsheetResult:\n      type: object\n      properties:\n        guid:\n          type: string\n",
+			"canonicalURL": "/github.com/haiku/haikudepotserver@1913e126b64d3ae2ae32422e4d41c212eb2fcfd6/-/blob/haikudepotserver-api2/src/main/resources/api2/authorization-job.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/haiku/haikudepotserver/blob/1913e126b64d3ae2ae32422e4d41c212eb2fcfd6/haikudepotserver-api2/src/main/resources/api2/authorization-job.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"queueAuthorizationRulesSpreadsheetResponseEnvelope\": parse schema: property \"error\": at 1:173: parse schema: resolve \"./error.yaml#/components/schemas/error\": external \"./error.yaml\": get: file: local file reference is not allowed"
+}

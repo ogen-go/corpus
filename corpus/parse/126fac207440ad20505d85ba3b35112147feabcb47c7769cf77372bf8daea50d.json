@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Core/Lists/Lists_ListDbId_Items_POST.yaml",
 			"byteSize": 1668,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /lists/{listDbId}/items:\n    post:\n      deprecated: true\n      description: |-\n        **Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`. Github issue number #444 \n        \u003cbr/\u003e Add new data to a specific generic lists\n      parameters:\n      - description: The unique ID of this generic list\n        in: path\n        name: listDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              items:\n                type: string\n              type: array\n              example: ['758a78c0', '2c78f9ee']\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/ListDetails'\n                required:\n                - metadata\n                - result\n                title: listResponse\n                type: object\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      summary: Add Items to a specific List\n      tags:\n      - Lists\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Core/Lists/Lists_ListDbId_Items_POST.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Core/Lists/Lists_ListDbId_Items_POST.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Core/Lists/Lists_ListDbId_Items_POST.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Core/Lists/Lists_ListDbId_Items_POST.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/lists/{listDbId}/items\": at 1:93: post: at 1:101: parameters: parse parameter \"\": at 1:425: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
+	"Error": "parse: parse spec: parse operations: path \"/lists/{listDbId}/items\": post: parameters: parse parameter \"\": at 1:425: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
 }

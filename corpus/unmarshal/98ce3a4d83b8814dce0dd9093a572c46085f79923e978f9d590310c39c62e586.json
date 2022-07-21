@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anz-bank/sysl"
+		},
+		"file": {
+			"name": "min-max.yaml",
+			"size": 0,
+			"path": "pkg/importer/tests/openapi3/min-max.yaml",
+			"byteSize": 871,
+			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\ncomponents:\n  schemas:\n    toRefWithLength:\n      type: string\n      minLength: 1\n      maxLength: 2\n    type:\n      properties:\n        a:\n          type: integer\n          maximum: 100\n          minimum: 10\n        b:\n          type: integer\n          minimum: 10\n        c:\n          type: integer\n          maximum: 100\n        d:\n          type: integer\n          exclusiveMaximum: 100\n          exclusiveMinimum: 10\n        e:\n          type: integer\n          exclusiveMinimum: 10\n        f:\n          type: integer\n          exclusiveMaximum: 100\n        g:\n          type: integer\n          exclusiveMaximum: 100\n          minimum: 10\n        h:\n          type: integer\n          maximum: 100\n          exclusiveMinimum: 10\n        i:\n          type: integer\n        j:\n          $ref: '#/components/schemas/toRefWithLength'\n",
+			"canonicalURL": "/github.com/anz-bank/sysl@f0bae51df10806fd7dcc010228b33ab3fb9eea0c/-/blob/pkg/importer/tests/openapi3/min-max.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anz-bank/sysl/blob/f0bae51df10806fd7dcc010228b33ab3fb9eea0c/pkg/importer/tests/openapi3/min-max.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!int `100` into bool; yaml: line 1: cannot unmarshal !!int `10` into bool"
+}

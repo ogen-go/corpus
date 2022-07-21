@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "one-subscription-multiple-callbacks.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/upanddown/oas3/one-subscription-multiple-callbacks.json",
+			"byteSize": 1739,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/subscribe\": {\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"inProgressUrl\": {\n                    \"type\": \"string\"\n                  },\n                  \"failedUrl\": {\n                    \"type\": \"string\"\n                  },\n                  \"successUrl\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        },\n        \"callbacks\": {\n          \"inProgress\": {\n            \"$ref\": \"#/components/callbacks/inProgress\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"callbacks\": {\n      \"inProgress\": {\n        \"{$request.body#/inProgressUrl}\": {\n          \"post\": {\n            \"responses\": {\n              \"200\": {\n                \"description\": \"OK\"\n              }\n            }\n          },\n          \"get\": {\n            \"responses\": {\n              \"200\": {\n                \"description\": \"Other\"\n              }\n            }\n          }\n        },\n        \"{$request.body#/failedUrl}\": {\n          \"post\": {\n            \"responses\": {\n              \"200\": {\n                \"description\": \"OK\"\n              }\n            }\n          }\n        },\n        \"{$request.body#/successUrl}\": {\n          \"post\": {\n            \"responses\": {\n              \"200\": {\n                \"description\": \"OK\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/upanddown/oas3/one-subscription-multiple-callbacks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/upanddown/oas3/one-subscription-multiple-callbacks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 37: cannot unmarshal !!str `#/compo...` into ogen.PathItem"
+}
