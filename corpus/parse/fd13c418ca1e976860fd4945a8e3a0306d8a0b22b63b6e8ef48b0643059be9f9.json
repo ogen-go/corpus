@@ -10,14 +10,14 @@
 			"path": "vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
 			"byteSize": 338,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local circular relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"refs/Circular.yaml\"\n      responses:\n        201:\n          description: Created\n",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@050da4a8c04873257cee25d25b0813df6f200c19/-/blob/vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@b0a7dc840cc69ea7eef838cf4ab5910400e54f7d/-/blob/vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/050da4a8c04873257cee25d25b0813df6f200c19/vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/b0a7dc840cc69ea7eef838cf4ab5910400e54f7d/vertx-web-openapi/src/test/resources/yaml/valid/local_circular_refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/simple\": at 1:105: post: operation \"simple\": at 1:113: requestBody: at 1:151: at 1:162: parse content: application/json: at 1:182: schema: at 1:192: parse schema: resolve \"refs/Circular.yaml\": external \"refs/Circular.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/simple\": post: operation \"simple\": requestBody: parse content: application/json: schema: at 1:192: parse schema: resolve \"refs/Circular.yaml\": external \"refs/Circular.yaml\": get: file: local file reference is not allowed"
 }

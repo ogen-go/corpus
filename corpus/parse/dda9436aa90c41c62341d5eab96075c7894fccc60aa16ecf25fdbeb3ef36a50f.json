@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
 			"byteSize": 1431,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /breedingmethods/{breedingMethodDbId}:\n    get:\n      summary: Get the details of a specific Breeding Method\n      description: Get the details of a specific Breeding Method used to produce Germplasm\n      parameters:\n      - description: Internal database identifier for a breeding method\n        in: path\n        name: breedingMethodDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: BreedingMethodSingleResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/BreedingMethod'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Germplasm\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Germplasm/Germplasm/BreedingMethods_BreedingMethodDbId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/breedingmethods/{breedingMethodDbId}\": at 1:107: get: at 1:114: parameters: parse parameter \"\": at 1:369: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
+	"Error": "parse: parse spec: parse operations: path \"/breedingmethods/{breedingMethodDbId}\": get: parameters: parse parameter \"\": at 1:369: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
 }

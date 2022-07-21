@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "discriminator.json",
+			"name": "schemas-discriminator.json",
 			"size": 0,
-			"path": "src/test/resources/fixtures/io/openapi/3.0/schemas/discriminator.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-discriminator.json",
 			"byteSize": 693,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"MyResponseType\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Cat\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Dog\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/Lizard\"\n          },\n          {\n            \"$ref\": \"https://gigantic-server.com/schemas/Monster/schema.json\"\n          }\n        ],\n        \"discriminator\": {\n          \"propertyName\": \"pet_type\",\n          \"mapping\": {\n            \"dog\": \"#/components/schemas/Dog\",\n            \"monster\": \"https://gigantic-server.com/schemas/Monster/schema.json\"\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/io/openapi/3.0/schemas/discriminator.json",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@df966861d9b34dd339411e794a366408aae425c2/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-discriminator.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/io/openapi/3.0/schemas/discriminator.json",
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/df966861d9b34dd339411e794a366408aae425c2/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-discriminator.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"MyResponseType\": parse schema: oneOf: [0]: at 7:11: parse schema: resolve \"#/components/schemas/Cat\": find schema: resolve: can't find value for \"components/schemas/Cat\""
+	"Error": "parse: parse spec: parse components: schemas: \"MyResponseType\": parse schema: oneOf: [0]: at 7:11: parse schema: resolve \"#/components/schemas/Cat\": find schema: resolve: can't find value for \"components/schemas/Cat\""
 }

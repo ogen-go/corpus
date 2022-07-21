@@ -10,14 +10,14 @@
 			"path": "_testdata/negative/allOf/conflicting_property.json",
 			"byteSize": 994,
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"operationId\": \"test\",\n        \"description\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"allOf\": [\n                    {\n                      \"type\": \"object\",\n                      \"properties\": {\n                        \"foo\": {\n                          \"type\": \"string\"\n                        }\n                      }\n                    },\n                    {\n                      \"type\": \"object\",\n                      \"properties\": {\n                        \"foo\": {\n                          \"type\": \"integer\"\n                        }\n                      }\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/ogen-go/ogen@eb50828751163511162464ee712b55000d9e4a23/-/blob/_testdata/negative/allOf/conflicting_property.json",
+			"canonicalURL": "/github.com/ogen-go/ogen@cfeeb108cb27d7fdd7e0eda11a8852beb175181d/-/blob/_testdata/negative/allOf/conflicting_property.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ogen-go/ogen/blob/eb50828751163511162464ee712b55000d9e4a23/_testdata/negative/allOf/conflicting_property.json",
+					"url": "https://github.com/ogen-go/ogen/blob/cfeeb108cb27d7fdd7e0eda11a8852beb175181d/_testdata/negative/allOf/conflicting_property.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: responses: 200: contents: application/json: generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: integer and string"
+	"Error": "buildIR: make ir: path \"/test\": get: responses: code 200: contents: application/json: generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: integer and string"
 }

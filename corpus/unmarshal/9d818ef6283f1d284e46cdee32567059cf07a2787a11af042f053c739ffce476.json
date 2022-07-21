@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Checkmarx/kics"
+		},
+		"file": {
+			"name": "negative1.json",
+			"size": 0,
+			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_link/test/negative1.json",
+			"byteSize": 1068,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"success\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/MyObject\"\n                  }\n                }\n              }\n            },\n            \"links\": {\n              \"$ref\": \"#/components/links/APIRepository\"\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"links\": {\n      \"APIRepository\": {\n        \"operationId\": \"listVersionsv2\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Checkmarx/kics@b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/-/blob/assets/queries/openAPI/3.0/json_reference_does_not_exists_link/test/negative1.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Checkmarx/kics/blob/b61dbe4b13a23f1c6fdff6daac12c718038d3fe4/assets/queries/openAPI/3.0/json_reference_does_not_exists_link/test/negative1.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 26: cannot unmarshal !!str `#/compo...` into ogen.Link"
+}

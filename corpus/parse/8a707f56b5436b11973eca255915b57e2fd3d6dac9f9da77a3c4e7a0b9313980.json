@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Apicurio/apicurio-data-models"
+			"name": "github.com/smallrye/smallrye-open-api"
 		},
 		"file": {
-			"name": "new-schema-definition-with-description.before.json",
+			"name": "components-schemas.json",
 			"size": 0,
-			"path": "src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-description.before.json",
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/components-schemas.json",
 			"byteSize": 618,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"MySchema1\" : {\n        \"type\": \"object\",\n        \"required\": [\n          \"name\"\n        ],\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"address\": {\n            \"$ref\": \"#/components/schemas/Address\"\n          },\n          \"age\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"minimum\": 0\n          }\n        }\n      },\n      \"MySchema2\": {\n        \"type\": \"string\",\n        \"format\": \"email\"\n      },\n      \"RefSchema\":{\n        \"$ref\": \"#/other/Ref\"\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/-/blob/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-description.before.json",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@df966861d9b34dd339411e794a366408aae425c2/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/io/components-schemas.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/8ccd810dddfed5b05801b9f5aab69a7e8bca3b68/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-description.before.json",
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/df966861d9b34dd339411e794a366408aae425c2/core/src/test/resources/io/smallrye/openapi/runtime/io/components-schemas.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 3:17: schemas: \"MySchema1\": parse schema: property \"address\": at 14:22: parse schema: resolve \"#/components/schemas/Address\": find schema: resolve: can't find value for \"components/schemas/Address\""
+	"Error": "parse: parse spec: parse components: schemas: \"MySchema1\": parse schema: property \"address\": at 14:22: parse schema: resolve \"#/components/schemas/Address\": find schema: resolve: can't find value for \"components/schemas/Address\""
 }

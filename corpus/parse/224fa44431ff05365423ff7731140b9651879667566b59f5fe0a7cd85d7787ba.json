@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Germplasm/SeedLots/SeedLots_SeedLotDbId_Transactions_GET.yaml",
 			"byteSize": 1559,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /seedlots/{seedLotDbId}/transactions:\n    get:\n      summary: Get all Transactions related to a specific Seed Lot\n      description: Get all Transactions related to a specific Seed Lot\n      parameters:\n      - name: seedLotDbId\n        description: Unique id for a seed lot on this server\n        in: path\n        required: true\n        schema:\n          type: string\n      - name: transactionDbId\n        description: Unique id for a Transaction that has occurred\n        in: query\n        required: false\n        schema:\n          type: string\n      - name: transactionDirection\n        description: Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH\n        in: query\n        required: false\n        schema:\n          type: string\n          enum:\n          - TO\n          - FROM\n          - BOTH\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/SeedLotTransactionListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Seed Lots",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Germplasm/SeedLots/SeedLots_SeedLotDbId_Transactions_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Germplasm/SeedLots/SeedLots_SeedLotDbId_Transactions_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Germplasm/SeedLots/SeedLots_SeedLotDbId_Transactions_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Germplasm/SeedLots/SeedLots_SeedLotDbId_Transactions_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/seedlots/{seedLotDbId}/transactions\": at 1:106: get: at 1:113: parameters: parse parameter \"\": at 1:794: resolve \"#/components/parameters/page\" reference: can't find value for \"components/parameters/page\""
+	"Error": "parse: parse spec: parse operations: path \"/seedlots/{seedLotDbId}/transactions\": get: parameters: parse parameter \"\": at 1:794: resolve \"#/components/parameters/page\" reference: can't find value for \"components/parameters/page\""
 }

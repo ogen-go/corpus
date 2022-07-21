@@ -10,14 +10,14 @@
 			"path": "rest/openapi/ad/1.0.0/openapi.yaml",
 			"byteSize": 1192,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'http://ad.networknt.com/v1'\ninfo:\n  version: 1.0.0\n  title: API AD for aggregate microservices pattern\n  description: API AD is called by API AA along with another two APIs\n  contact:\n    email: stevehu@gmail.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /data:\n    get:\n      description: Return an array of strings collected from down stream APIs\n      operationId: listData\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                title: ArrayOfStrings\n                type: array\n                items:\n                  type: string\n              examples:\n                response:\n                  value:\n                    - Message 1\n                    - Message 2\n      security:\n        - ad_auth:\n            - ad.w\n            - ad.r\ncomponents:\n  securitySchemes:\n    ad_auth:\n      type: oauth2\n      flows:\n        clientCredentials:\n          authorizationUrl: 'http://localhost:8080/oauth2/code'\n          scopes:\n            ad.w: write access\n            ad.r: read access",
-			"canonicalURL": "/github.com/networknt/model-config@3fea561d7982c217c1d5d35c1193eac78a7fdcef/-/blob/rest/openapi/ad/1.0.0/openapi.yaml",
+			"canonicalURL": "/github.com/networknt/model-config@10a41ddeac049c293eb19dc9120cbf163402501a/-/blob/rest/openapi/ad/1.0.0/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/networknt/model-config/blob/3fea561d7982c217c1d5d35c1193eac78a7fdcef/rest/openapi/ad/1.0.0/openapi.yaml",
+					"url": "https://github.com/networknt/model-config/blob/10a41ddeac049c293eb19dc9120cbf163402501a/rest/openapi/ad/1.0.0/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/data\": at 1:520: get: operation \"listData\": at 1:527: at 1:867: security: parse security scheme \"ad_auth\": at 1:45: oauth2: at 1:54: flow \"clientCredentials\": at 1:75: at 1:75: \"tokenUrl\" MUST be in the form of a URL: parse \"\": empty url"
+	"Error": "parse: parse spec: parse operations: path \"/data\": get: operation \"listData\": security: parse security scheme \"ad_auth\": oauth2: flow \"clientCredentials\": at 1:75: \"tokenUrl\" MUST be in the form of a URL: parse \"\": empty url"
 }

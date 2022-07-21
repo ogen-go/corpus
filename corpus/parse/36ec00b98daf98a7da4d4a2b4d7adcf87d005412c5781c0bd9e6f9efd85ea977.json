@@ -10,14 +10,14 @@
 			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/multi-file/api.yaml",
 			"byteSize": 1682,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Petstore\n  description: 'This is a sample server Petstore server.  You can find out more about     Swagger\n    at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For\n    this sample, you can use the api key `special-key` to test the authorization filters.'\n  termsOfService: http://swagger.io/terms/\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\nexternalDocs:\n  description: Find out more about Swagger\n  url: http://swagger.io\nservers:\n  - url: http://localhost:@@@PORT@@@\ntags:\n  - name: pet\n    description: Everything about your Pets\n    externalDocs:\n      description: Find out more\n      url: http://swagger.io\n  - name: store\n    description: Access to Petstore orders\n  - name: user\n    description: Operations about user\n    externalDocs:\n      description: Find out more about our store\n      url: http://swagger.io\npaths:\n  /pet:\n    $ref: 'pet.api.yaml#/pet'\n  /pet/findByTags:\n    $ref: 'pet.api.yaml#/pet-findByTags'\n  /pet/{petId}:\n    $ref: 'pet.api.yaml#/pet-petId'\n\ncomponents:\n  schemas:\n    Tag:\n      $ref: 'pet.model.yaml#/Tag'\n    Pet:\n      $ref: 'pet.model.yaml#/Pet'\n    ApiResponse:\n      $ref: 'pet.model.yaml#/ApiResponse'\n\n  securitySchemes:\n    petstore_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://petstore.swagger.io/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n",
-			"canonicalURL": "/github.com/zaproxy/zap-extensions@9bf0285550a110bb8dc03bb7be7b219d16dca6ca/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/multi-file/api.yaml",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@855c173eddb2c6cd8e3ed6c7e0632e913c1ea6f9/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/multi-file/api.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/zaproxy/zap-extensions/blob/9bf0285550a110bb8dc03bb7be7b219d16dca6ca/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/multi-file/api.yaml",
+					"url": "https://github.com/zaproxy/zap-extensions/blob/855c173eddb2c6cd8e3ed6c7e0632e913c1ea6f9/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/multi-file/api.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:15: schemas: \"ApiResponse\": parse schema: resolve \"pet.model.yaml#/ApiResponse\": external \"pet.model.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 1:41: schemas: \"ApiResponse\": parse schema: resolve \"pet.model.yaml#/ApiResponse\": external \"pet.model.yaml\": get: file: local file reference is not allowed"
 }

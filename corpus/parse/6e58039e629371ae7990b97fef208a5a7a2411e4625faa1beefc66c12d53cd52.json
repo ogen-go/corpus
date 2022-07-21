@@ -10,14 +10,14 @@
 			"path": "packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-body-refs/swagger.json",
 			"byteSize": 799,
 			"content": "{\n  \"servers\": [],\n  \"$schema\": \"https://github.com/OAI/OpenAPI-Specification/blob/master/schemas/v2.0/schema.json\",\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"x-ms-metadata\": {\n      \"apiVersions\": [\n        \"test-0.1\"\n      ]\n    },\n    \"title\": \"Test\",\n    \"description\": \"test\",\n    \"version\": \"test-0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"operationId\": \"test\",\n        \"requestBody\": {\n          \"required\": true,\n          \"x-ms-requestBody-name\": \"MyBodyParam\",\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/MyBodySchema\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK.\"\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/Azure/autorest@4efc62b3a0a494edd65a158073f2a8631c843e67/-/blob/packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-body-refs/swagger.json",
+			"canonicalURL": "/github.com/Azure/autorest@fd3bca3ac39574de90518781051d999069d0c54f/-/blob/packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-body-refs/swagger.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Azure/autorest/blob/4efc62b3a0a494edd65a158073f2a8631c843e67/packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-body-refs/swagger.json",
+					"url": "https://github.com/Azure/autorest/blob/fd3bca3ac39574de90518781051d999069d0c54f/packages/libs/oai2-to-oai3/test/scenarios/expected/cross-file-body-refs/swagger.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/test\": at 16:14: get: operation \"test\": at 17:14: requestBody: at 19:24: at 22:22: parse content: application/json: at 23:33: schema: at 24:25: parse schema: resolve \"#/components/schemas/MyBodySchema\": find schema: resolve: can't find value for \"components/schemas/MyBodySchema\""
+	"Error": "parse: parse spec: parse operations: path \"/test\": get: operation \"test\": requestBody: parse content: application/json: schema: at 24:25: parse schema: resolve \"#/components/schemas/MyBodySchema\": find schema: resolve: can't find value for \"components/schemas/MyBodySchema\""
 }

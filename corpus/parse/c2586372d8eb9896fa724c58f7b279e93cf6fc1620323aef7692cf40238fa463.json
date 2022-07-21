@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
 			"byteSize": 1368,
 			"content": "{\n\t\"openapi\": \"3.0.0\",\n\t\"servers\": [],\n\t\"paths\": {\n\t\t\"/health\": {\n\t\t\t\"$ref\": \"./paths/healthPath.json\"\n\t\t}\n\t},\n\t\"info\": {\n\t\t\"version\": \"\",\n\t\t\"title\": \"\"\n\t},\n\t\"components\": {\n\t\t\"schemas\": {\n\t\t\t\"refInDefinitions\": {\n\t\t\t\t\"$ref\": \"./models/example.json\"\n\t\t\t},\n\t\t\t\"arrayModel\": {\n\t\t\t\t\"type\": \"array\",\n\t\t\t\t\"items\": {\n\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"composedCat\": {\n\t\t\t\t\"allOf\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/pet.json\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"$ref\": \"./models/conflict.json#/foo\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"huntingSkill\": {\n\t\t\t\t\t\t\t\t\"type\": \"string\",\n\t\t\t\t\t\t\t\t\"description\": \"The measured skill for hunting\",\n\t\t\t\t\t\t\t\t\"default\": \"lazy\",\n\t\t\t\t\t\t\t\t\"enum\": [\n\t\t\t\t\t\t\t\t\t\"clueless\",\n\t\t\t\t\t\t\t\t\t\"lazy\",\n\t\t\t\t\t\t\t\t\t\"adventurous\",\n\t\t\t\t\t\t\t\t\t\"aggressive\"\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"prop2\": {\n\t\t\t\t\t\t\t\t\"$ref\": \"./models/foo.json\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexes\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"reflexMap\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"additionalProperties\": {\n\t\t\t\t\t\t\t\t\t\"$ref\": \"./models/reflex.json\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"required\": [\n\t\t\t\t\t\t\t\"huntingSkill\"\n\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"externalArray\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localArray\"\n\t\t\t},\n\t\t\t\"externalObject\": {\n\t\t\t\t\"$ref\": \"./models/localreference.json#/localObject\"\n\t\t\t}\n\t\t}\n\t}\n}",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@03733f8e20bea437df69d7523f44df68866d26a9/-/blob/modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/03733f8e20bea437df69d7523f44df68866d26a9/modules/swagger-parser-v3/src/test/resources/relative-file-references/json/parent.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 13:16: schemas: \"refInDefinitions\": parse schema: resolve \"./models/example.json\": external \"./models/example.json\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: at 67:21: schemas: \"externalArray\": parse schema: resolve \"./models/localreference.json#/localArray\": external \"./models/localreference.json\": get: file: local file reference is not allowed"
 }

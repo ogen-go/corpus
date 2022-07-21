@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "paths-get-callbacks.json",
+			"size": 0,
+			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
+			"byteSize": 888,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"callbacks\": {\n          \"myRefCallback\": {\n            \"$ref\": \"#/components/callbacks/SomeCallback\"\n          },\n          \"myWebhook\": {\n            \"$request.body#/url\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"description\": \"Callback payload\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/SomePayload\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@df966861d9b34dd339411e794a366408aae425c2/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/df966861d9b34dd339411e794a366408aae425c2/core/src/test/resources/io/smallrye/openapi/runtime/io/paths-get-callbacks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 8: cannot unmarshal !!str `#/compo...` into ogen.PathItem"
+}

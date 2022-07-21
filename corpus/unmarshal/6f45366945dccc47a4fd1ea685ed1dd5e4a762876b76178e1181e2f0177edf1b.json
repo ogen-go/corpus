@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "callback-external-reference.json",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/cycle/oas30/callback/callback-external-reference.json",
+			"byteSize": 734,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"description\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        },\n        \"callbacks\": {\n          \"myWebhook\": {\n            \"$ref\": \"external-callback.json\"\n          }\n        }\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://test.com/\",\n      \"description\": \"The production API server\"\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/cycle/oas30/callback/callback-external-reference.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/cycle/oas30/callback/callback-external-reference.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 26: cannot unmarshal !!str `externa...` into ogen.PathItem"
+}

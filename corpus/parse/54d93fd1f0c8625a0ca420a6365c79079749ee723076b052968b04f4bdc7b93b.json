@@ -10,14 +10,14 @@
 			"path": "connectors/api/policymanager.spec.yaml",
 			"byteSize": 1105,
 			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Policy Manager Service\n  license:\n    name: Apache 2.0\nservers:\n  - url: https://localhost:8080\npaths:\n  /getPoliciesDecisions:\n    post:\n      summary: This REST API gets data governance decisions for the data sets indicated in FybrikApplication yaml based on the context indicated\n      operationId: getPoliciesDecisions\n      parameters:\n        - in: header\n          name: X-Request-Cred\n          schema:\n            type: string\n          required: true\n      requestBody:\n        description: Policy Manager Request Object.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\"\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsResponse\"\n        '400':\n          description: Invalid status value",
-			"canonicalURL": "/github.com/fybrik/fybrik@cd3a6d74ed4db4dac83ed3fab672521f4c129280/-/blob/connectors/api/policymanager.spec.yaml",
+			"canonicalURL": "/github.com/fybrik/fybrik@930ca7ba96232f6820e22da47556a3e941681339/-/blob/connectors/api/policymanager.spec.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/fybrik/fybrik/blob/cd3a6d74ed4db4dac83ed3fab672521f4c129280/connectors/api/policymanager.spec.yaml",
+					"url": "https://github.com/fybrik/fybrik/blob/930ca7ba96232f6820e22da47556a3e941681339/connectors/api/policymanager.spec.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/getPoliciesDecisions\": at 1:145: post: operation \"getPoliciesDecisions\": at 1:153: requestBody: at 1:303: at 1:314: parse content: application/json: at 1:334: schema: at 1:344: parse schema: resolve \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": external \"../../charts/fybrik/files/taxonomy/policymanager.json\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/getPoliciesDecisions\": post: operation \"getPoliciesDecisions\": requestBody: parse content: application/json: schema: at 1:344: parse schema: resolve \"../../charts/fybrik/files/taxonomy/policymanager.json#/definitions/GetPolicyDecisionsRequest\": external \"../../charts/fybrik/files/taxonomy/policymanager.json\": get: file: local file reference is not allowed"
 }

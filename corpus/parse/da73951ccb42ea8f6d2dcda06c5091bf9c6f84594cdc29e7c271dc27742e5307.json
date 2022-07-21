@@ -10,14 +10,14 @@
 			"path": "documentation/files/devonfw_employee.yml",
 			"byteSize": 2380,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://localhost:8081/server/services/rest'\n    description: Just some data\ninfo:\n  title: devonfw Example\n  description: Example of a API definition\n  version: 1.0.0\n  x-rootpackage: com.devonfw.poc.jwtsample\npaths:\n  /employeemanagement/v1/employee/{employeeId}:\n    get:\n      operationId: findEmployee\n      parameters:\n        - name: employeeId\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 0\n            maximum: 50\n      responses:\n        '200':\n          description: Any\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Employee'\n            text/plain:\n              schema:\n                type: string\n        '404':\n          description: Not found\n  /employeemanagement/v1/employee/{example}:\n    get:\n      operationId: findEmployee\n      parameters:\n        - name: example\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int64\n            minimum: 10\n            maximum: 200\n      responses:\n        '200':\n          description: Any\n  /employeemanagement/v1/employee/:\n    post:\n      responses:\n        '200':\n          description: Any\n      requestBody:\n        $ref: '#/components/requestBodies/EmployeeData'\n      tags:\n       - searchCriteria\ncomponents:\n    schemas:\n        Employee:\n          x-component: employeemanagement\n          description: Entity definiton of Employee\n          type: object\n          properties:\n            employeeId:\n              type: integer\n              format: int64\n              uniqueItems: true            \n            name:\n              type: string\n              maxLength: 30\n              minLength: 3\n              uniqueItems: true\n            surname :\n              type: string\n              maxLength: 100\n              minLength: 3\n              uniqueItems: true\n            email:\n              type: string\n              maxLength: 100\n              minLength: 3\n              uniqueItems: true              \n          required:\n            - employeeId\n    requestBodies:\n        EmployeeData:\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Employee'\n          required: true\n ",
-			"canonicalURL": "/github.com/devonfw/cobigen@faf3432caec9bff09cfa58dcfb7e7c78df249e8a/-/blob/documentation/files/devonfw_employee.yml",
+			"canonicalURL": "/github.com/devonfw/cobigen@46bb19406003198ab2ad50db6a9ad2120c21b9e4/-/blob/documentation/files/devonfw_employee.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/devonfw/cobigen/blob/faf3432caec9bff09cfa58dcfb7e7c78df249e8a/documentation/files/devonfw_employee.yml",
+					"url": "https://github.com/devonfw/cobigen/blob/46bb19406003198ab2ad50db6a9ad2120c21b9e4/documentation/files/devonfw_employee.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/employeemanagement/v1/employee/{example}\": at 1:1375: duplicate path: \"/employeemanagement/v1/employee/{example}\""
+	"Error": "parse: parse spec: parse operations: at 1:1375: duplicate path: \"/employeemanagement/v1/employee/{example}\""
 }

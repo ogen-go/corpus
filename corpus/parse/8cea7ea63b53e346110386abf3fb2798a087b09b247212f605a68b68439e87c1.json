@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
 			"byteSize": 500,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                type: object\n                properties:\n                  paging:\n                    $ref: 'http://server1/resources/common/paging.yaml#/Paging'\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/-/blob/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@03733f8e20bea437df69d7523f44df68866d26a9/-/blob/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/065fa61ee74d42cbe62ebd53d1c7fedbfb6edf1e/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/03733f8e20bea437df69d7523f44df68866d26a9/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-330.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/events\": at 1:81: get: operation \"getEvents\": at 1:88: responses: 200: at 1:167: at 1:178: content: application/json; charset=utf-8: at 1:213: schema: at 1:223: parse schema: property \"paging\": at 1:247: parse schema: resolve \"http://server1/resources/common/paging.yaml#/Paging\": external \"http://server1/resources/common/paging.yaml\": get: http: do: Get \"http://server1/resources/common/paging.yaml\": host \"server1\" is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/events\": get: operation \"getEvents\": responses: 200: content: application/json; charset=utf-8: schema: parse schema: property \"paging\": at 1:247: parse schema: resolve \"http://server1/resources/common/paging.yaml#/Paging\": external \"http://server1/resources/common/paging.yaml\": get: http: do: Get \"http://server1/resources/common/paging.yaml\": host \"server1\" is not allowed"
 }

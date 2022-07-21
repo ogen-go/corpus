@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
 			"byteSize": 1470,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /vendor/plates/{submissionId}:\n    get:\n      summary: Get the data for a submitted set of plates\n      description: Get data for a submitted set of plates\n      parameters:\n      - description: The submission id returned by the vendor when a set of plates was successfully submitted. From response of \"POST /vendor/plates\"\n        in: path\n        name: submissionId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: VendorPlateSubmissionSingleResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/VendorPlateSubmission'\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Vendor\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/-/blob/Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/a45723dba8753a1c1177ec8f7759d57ebcf5f5b1/Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/VendorSamples/Vendor_Plates_SubmissionId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/vendor/plates/{submissionId}\": at 1:99: get: at 1:106: parameters: parse parameter \"\": at 1:402: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
+	"Error": "parse: parse spec: parse operations: path \"/vendor/plates/{submissionId}\": get: parameters: parse parameter \"\": at 1:402: resolve \"#/components/parameters/authorizationHeader\" reference: can't find value for \"components/parameters/authorizationHeader\""
 }
