@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Tufin/oasdiff"
+		},
+		"file": {
+			"name": "two-refs-both-changed-revision.yaml",
+			"size": 0,
+			"path": "data/x-of/two-refs-both-changed-revision.yaml",
+			"byteSize": 1550,
+			"content": "openapi: 3.0.0\ninfo:\n  title: ACME\n  version: 1.0.0\n\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n              discriminator:\n                propertyName: pet_type\n      responses:\n        '200':\n          description: Updated\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - pet_type\n      properties:\n        pet_type:\n          type: string\n      discriminator:\n        propertyName: pet_type\n    Dog:     # \"Dog\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Dog`-specific properties \n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Dog`\n          properties:\n            bark:\n              type: boolean\n            breed:\n              type: string\n              enum: [Dingo, Husky, Retriever, Shepherd]\n            guard:\n              type: boolean\n    Cat:     # \"Cat\" is a value for the pet_type property (the discriminator value)\n      allOf: # Combines the main `Pet` schema with `Cat`-specific properties \n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          # all other properties specific to a `Cat`\n          properties:\n            hunts:\n              type: boolean\n            age:\n              type: integer\n            miao:\n              type: bool",
+			"canonicalURL": "/github.com/Tufin/oasdiff@b5301d5b727e9395ab7a6b453dd546ee913b53f0/-/blob/data/x-of/two-refs-both-changed-revision.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Tufin/oasdiff/blob/b5301d5b727e9395ab7a6b453dd546ee913b53f0/data/x-of/two-refs-both-changed-revision.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Cat\": parse schema: parse schema: property \"miao\": parse schema: at 1:161: unexpected schema type: \"bool\""
+}

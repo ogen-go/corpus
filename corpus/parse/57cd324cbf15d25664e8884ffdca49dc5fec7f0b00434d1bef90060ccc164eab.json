@@ -10,14 +10,14 @@
 			"path": "src/legacy.yml",
 			"byteSize": 1632,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Influx Legacy API\n  version: 2.0.1\nservers:\n  - url: \"\"\npaths:\n  /query:\n    $ref: \"./legacy/paths/query.yml\"\n  /write:\n    $ref: \"./legacy/paths/write.yml\"\n  /legacy/authorizations:\n    servers:\n      - url: \"/private\"\n    $ref: \"./legacy/paths/legacy_authorizations.yml\"\n  /legacy/authorizations/{authID}:\n    servers:\n      - url: \"/private\"\n    $ref: \"./legacy/paths/legacy_authorizations_authID.yml\"\n  /legacy/authorizations/{authID}/password:\n    servers:\n      - url: \"/private\"\n    $ref: \"./legacy/paths/legacy_authorizations_authID_password.yml\"\ncomponents:\n  parameters:\n    TraceSpan:\n      $ref: \"./common/parameters/TraceSpan.yml\"\n  schemas:\n    LegacyAuthorizationPostRequest:\n      $ref: \"./legacy/schemas/LegacyAuthorizationPostRequest.yml\"\n    InfluxqlJsonResponse:\n      $ref: \"./legacy/schemas/InfluxqlJsonResponse.yml\"\n    InfluxqlCsvResponse:\n      $ref: \"./legacy/schemas/InfluxqlCsvResponse.yml\"\n    Authorization:\n      $ref: \"./common/schemas/Authorization.yml\"\n    AuthorizationUpdateRequest:\n      $ref: \"./common/schemas/AuthorizationUpdateRequest.yml\"\n    Permission:\n      $ref: \"./common/schemas/Permission.yml\"\n    Links:\n      $ref: \"./common/schemas/Links.yml\"\n    Link:\n      $ref: \"./common/schemas/Link.yml\"\n    LineProtocolError:\n      $ref: \"./common/schemas/LineProtocolError.yml\"\n    LineProtocolLengthError:\n      $ref: \"./common/schemas/LineProtocolLengthError.yml\"\n    Error:\n      $ref: \"./common/schemas/Error.yml\"\n    ErrorCode:\n      $ref: \"./common/schemas/ErrorCode.yml\"\n  responses:\n    ServerError:\n      $ref: \"./common/responses/ServerError.yml\"\n",
-			"canonicalURL": "/github.com/influxdata/openapi@4923d26b3b1bf1d0e056f01ba4ba57f8664bec38/-/blob/src/legacy.yml",
+			"canonicalURL": "/github.com/influxdata/openapi@ae3233433d81f3af9d28400b6ace5d4e3290cdf8/-/blob/src/legacy.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/influxdata/openapi/blob/4923d26b3b1bf1d0e056f01ba4ba57f8664bec38/src/legacy.yml",
+					"url": "https://github.com/influxdata/openapi/blob/ae3233433d81f3af9d28400b6ace5d4e3290cdf8/src/legacy.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:873: schemas: \"Links\": parse schema: resolve \"./common/schemas/Links.yml\": external \"./common/schemas/Links.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"InfluxqlJsonResponse\": parse schema: at 1:528: external \"./legacy/schemas/InfluxqlJsonResponse.yml\": get: file: local file reference is not allowed"
 }

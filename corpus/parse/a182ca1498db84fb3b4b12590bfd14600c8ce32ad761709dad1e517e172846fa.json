@@ -10,14 +10,14 @@
 			"path": "PositionPoint/swagger.yaml",
 			"byteSize": 1922,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    PositionPoint: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml#/PositionPoint\"\ninfo:\n  description:  |\n    Adapted from CIM data models. Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to desribe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).\n  title: PositionPoint\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - PositionPoint\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@7994731d9ed8252aee5670ad81ad95c711d7283a/-/blob/PositionPoint/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@a05230265633a6412b8d8aaf9987a149ab5947f6/-/blob/PositionPoint/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/7994731d9ed8252aee5670ad81ad95c711d7283a/PositionPoint/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/a05230265633a6412b8d8aaf9987a149ab5947f6/PositionPoint/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:43: schemas: \"PositionPoint\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml#/PositionPoint\": external \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"PositionPoint\": parse schema: at 1:51: external \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/PositionPoint/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

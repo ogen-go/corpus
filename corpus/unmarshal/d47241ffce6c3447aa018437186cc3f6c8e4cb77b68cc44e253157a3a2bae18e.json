@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vectordotdev/vrl-web"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "vrl-web-server-warp/api/openapi.yaml",
+			"byteSize": 2406,
+			"content": "openapi: 3.0.3\ninfo:\n  version: 0.1.0\n  title: Vector Remap Language web server\n  description: |\n    An HTTP server for running Vector Remap Language (VRL) programs against observability events.\n  license: MPL-2.0\npaths:\n  /resolve:\n    post:\n      summary: Run VRL program against an event\n      description: Compute the outcome of an observability event against against a VRL program\n      requestBody:\n        description: Program plus event\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Input'\n      responses:\n        '200':\n          description: Event and program successfully resolved\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Result'\n  /functions:\n    get:\n      summary: Display VRL functions\n      description: |\n        Fetch a list of currently available VRL functions.\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/FunctionList'\ncomponents:\n  schemas:\n    Error:\n      description: Failed resolution\n      type: object\n      properties:\n        error:\n          schema:\n            type: string\n      required:\n        - error\n    Event:\n      description: The input observability event (as a JSON object)\n      type: object\n    FunctionList:\n      description: The listing of available VRL functions\n      type: array\n      items:\n        type: string\n    Program:\n      description: The VRL program to run against the supplied event\n      type: string\n    Input:\n      description: The full payload (Vector event plus VRL program) to resolve\n      type: object\n      properties:\n        event:\n          schema:\n            $ref: '#/components/schemas/Event'\n        program:\n          schema:\n            $ref: '#/components/schemas/Program'\n      required:\n        - event\n        - program\n    Result:\n      description: Event plus program resolution result\n      oneOf:\n        - $ref: '#/components/schemas/Error'\n        - $ref: '#/components/schemas/Success'\n    Success:\n      description: Successful resolution\n      type: object\n      properties:\n        output:\n          schema:\n            type: string\n        result:\n          schema:\n            type: object\n      required:\n        - output\n        - result",
+			"canonicalURL": "/github.com/vectordotdev/vrl-web@56659da1f9bae95a1c3811a6e2e62f468b5394ab/-/blob/vrl-web-server-warp/api/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vectordotdev/vrl-web/blob/56659da1f9bae95a1c3811a6e2e62f468b5394ab/vrl-web-server-warp/api/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `MPL-2.0` into ogen.License"
+}

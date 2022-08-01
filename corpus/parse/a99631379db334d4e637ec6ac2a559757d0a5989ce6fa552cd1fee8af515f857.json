@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Device"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "Camera/swagger.yaml",
+			"byteSize": 1404,
+			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    Camera: \n      $ref: \"https://smart-data-models.github.io/dataModel.Device/Camera/model.yaml#/Camera\"\ninfo:\n  description:  |\n    A Data Model for camera installations in a city.\n  title: Camera\n  version: \"0.1.1\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - Camera\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Device/Camera/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Device/Camera/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Device@5f6817be99daab47e47732a202a41d2e0ddd6ff4/-/blob/Camera/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Device/blob/5f6817be99daab47e47732a202a41d2e0ddd6ff4/Camera/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Camera\": parse schema: at 1:44: external \"https://smart-data-models.github.io/dataModel.Device/Camera/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Device/Camera/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

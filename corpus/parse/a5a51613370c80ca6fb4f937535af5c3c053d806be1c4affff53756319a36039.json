@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "root.yaml",
+			"size": 0,
+			"path": "test/data/toBundleExamples/schema_collision_w_root_components/root.yaml",
+			"byteSize": 1067,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.\n  version: 0.1.9\n\nservers:\n  - url: http://api.example.com/v1\n    description: Optional server description, e.g. Main (production) server\n  - url: http://staging-api.example.com\n    description: Optional server description, e.g. Internal staging server for testing\n\npaths:\n  /users/{userId}:\n    get:\n      summary: Get a user by ID\n      responses:\n        200:\n          description: A single user.\n          content:\n            application/json:\n              schema:\n                $ref: \"./schemas/user.yaml\"\n  /users/other:\n    get:\n      summary: Get a user by ID\n      responses:\n        200:\n          description: A single user.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/_schemas_user.yaml\"\ncomponents:\n  schemas:\n    \"_schemas_user.yaml\":\n      type: object\n      properties:\n        componentInRootId:\n          type: string",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/-/blob/test/data/toBundleExamples/schema_collision_w_root_components/root.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/test/data/toBundleExamples/schema_collision_w_root_components/root.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/users/{userId}\": get: at 1:537: parse path \"/users/{userId}\": path parameter not specified: \"userId\""
+}

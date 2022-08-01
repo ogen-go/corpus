@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/elena-kolevska/redis-product-catalogue-service"
+		},
+		"file": {
+			"name": "index.yaml",
+			"size": 0,
+			"path": "docs/index.yaml",
+			"byteSize": 1226,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Redis Product Catalogue Service\n  description: |\n    A simple REST API providing a way to manage and browse products\n\n    # Auth\n    To be implemented\n\n    # Errors\n    All errors are returned in the following format:\n\n    ```json\n    {\n        \"title\": \"Error title\",\n        \"description\": \"Error description\",\n    }\n    ```\n\n    # Pagination\n    Paginated data is returned in the following format\n\n    ```json\n    {\n        \"data\": [],\n        \"current_page\": 1,\n        \"per_page\": 20,\n    }\n    ```\n\n    You can move through pages by adding the `page=X` parameter in the query (described in more details in the \"Get Products\" endpoint).\n\n    NOTE: Work not complete\n\n  x-logo:\n    url: \"https://i.ibb.co/VS6VZLV/logo.png\"\n    altText: Petstore logo\n\nservers:\n  - description: Staging\n    url: http://ec2-3-122-233-203.eu-central-1.compute.amazonaws.com/api\n\ntags:\n  - name: Products\n  - name: Images\nx-tagGroups:\n  - name: Resources\n    tags:\n      - Products\n      - Images\n\npaths:\n  /products:\n    $ref: ./paths/Products.yaml\n  /products/{id}:\n    $ref: ./paths/Product.yaml\n  /products/{id}/images:\n    $ref: ./paths/Images.yaml\n  /images/{id}:\n    $ref: ./paths/Image.yaml\n\ncomponents:\n",
+			"canonicalURL": "/github.com/elena-kolevska/redis-product-catalogue-service@c95e8ac52427150861850cd2ec4ddd37347c3222/-/blob/docs/index.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/elena-kolevska/redis-product-catalogue-service/blob/c95e8ac52427150861850cd2ec4ddd37347c3222/docs/index.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/images/{id}\": at 1:796: external \"./paths/Image.yaml\": get: file: local file reference is not allowed"
+}

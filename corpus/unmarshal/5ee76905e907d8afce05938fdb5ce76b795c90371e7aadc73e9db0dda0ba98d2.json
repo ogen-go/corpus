@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/blst-security/cherrybomb"
+		},
+		"file": {
+			"name": "mega_oas.yaml",
+			"size": 0,
+			"path": "cli/mega_oas.yaml",
+			"byteSize": 1237,
+			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n",
+			"canonicalURL": "/github.com/blst-security/cherrybomb@c5007eb76d77de77a71beae4881dd51dda53f3c3/-/blob/cli/mega_oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/blst-security/cherrybomb/blob/c5007eb76d77de77a71beae4881dd51dda53f3c3/cli/mega_oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!seq into string"
+}

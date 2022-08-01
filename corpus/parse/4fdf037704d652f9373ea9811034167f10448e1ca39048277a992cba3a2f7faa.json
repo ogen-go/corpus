@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/algolia/api-clients-automation"
+		},
+		"file": {
+			"name": "spec.yml",
+			"size": 0,
+			"path": "specs/predict/spec.yml",
+			"byteSize": 841,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Predict API\n  description: API powering the Predict feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://predict-api-432xa6wemq-{region}.a.run.app\n    variables:\n      region:\n        enum:\n          - ue\n          - ew\n        default: ew\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: profiles\n    x-displayName: Profiles\n    description: Manage users' profiles.\nx-tagGroups:\n  - name: General\n    tags:\n      - profiles\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  /1/users/{userID}/fetch:\n    $ref: 'paths/fetchUserProfile.yml'\n",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@e53e145f69089dedcda5d63066e9cdae23142044/-/blob/specs/predict/spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/algolia/api-clients-automation/blob/e53e145f69089dedcda5d63066e9cdae23142044/specs/predict/spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/1/users/{userID}/fetch\": at 1:322: external \"paths/fetchUserProfile.yml\": get: file: local file reference is not allowed"
+}

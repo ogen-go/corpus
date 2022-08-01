@@ -10,10 +10,10 @@
 			"path": "spec/ssh/ssh_download.yaml",
 			"byteSize": 1488,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/download/ssh/:\n    get:\n      tags:\n      - api\n      operationId: api_devices_download_device_download_ssh_formdata\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                device_ip:\n                  type: string\n                  description: Device IP address\n                username:\n                  type: string\n                  description: SSH username\n                path:\n                  type: string\n                  description: Download File path. Default /\n                  default: /\n                compress:\n                  type: boolean\n                  description: compress files on Device before downloading\n                  default: false\n              required:\n                - username\n                - device_ip\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/vnd.ms-excel:\n              schema:\n                type: string\n                format: binary",
-			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@57a558a86e35ed348bff7d90b730a6671d662379/-/blob/spec/ssh/ssh_download.yaml",
+			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@39b7c0b6962beae1b63198154fcaf0d90c36ff34/-/blob/spec/ssh/ssh_download.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/57a558a86e35ed348bff7d90b730a6671d662379/spec/ssh/ssh_download.yaml",
+					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/39b7c0b6962beae1b63198154fcaf0d90c36ff34/spec/ssh/ssh_download.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

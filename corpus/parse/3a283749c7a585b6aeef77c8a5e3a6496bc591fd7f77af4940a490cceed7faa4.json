@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
 			"byteSize": 1081,
 			"content": "openapi: 3.0.0\ninfo:\n  title: test api\n  version: 0.0.1\npaths:\n  /imports:\n    post:\n      summary: Creates import\n      operationId: createImport\n      responses:\n        201:\n          description: created\n      security:\n        - oauth_auth:\n            - import:create\n  /imports/{importId}/state:\n    put:\n      summary: Changes import state\n      operationId: changeImportState\n      parameters:\n        - name: importId\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: State changed\n      security:\n        - oauth_auth:\n            - import:process\ncomponents:\n  securitySchemes:\n    oauth_auth:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            import:create: create import\n        clientCredentials:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            import:create: create import\n            import:process: process import",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@6d44f97d6cc4bcd11752ca6556075232dc4e5fdb/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4635dda5181fd34d50643d2b9dcfcaaef64db418/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/6d44f97d6cc4bcd11752ca6556075232dc4e5fdb/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4635dda5181fd34d50643d2b9dcfcaaef64db418/modules/openapi-generator/src/test/resources/3_0/issue_7193.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/imports\": post: operation \"createImport\": security: parse security scheme \"oauth_auth\": oauth2: flow \"clientCredentials\": at 1:167: \"tokenUrl\" MUST be in the form of a URL: parse \"../auth/realms/master/protocol/openid-connect/token\": invalid URI for request"
+	"Error": "parse: parse spec: parse operations: path \"/imports\": post: operation \"createImport\": security: parse security scheme \"oauth_auth\": oauth2: flow \"password\": at 1:288: \"tokenUrl\" MUST be in the form of a URL: parse \"../auth/realms/master/protocol/openid-connect/token\": invalid URI for request"
 }

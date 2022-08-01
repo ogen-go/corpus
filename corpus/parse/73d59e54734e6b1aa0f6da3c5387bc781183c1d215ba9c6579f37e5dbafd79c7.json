@@ -10,14 +10,14 @@
 			"path": "test/cyclical-dependencies/second.yaml",
 			"byteSize": 240,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: fixtures for runtime test\npaths: {}\ncomponents:\n  schemas:\n    SecondObject:\n      type: object\n      properties:\n        target:\n          $ref: './first.yaml#/components/schemas/FirstObject'\n",
-			"canonicalURL": "/github.com/smartlyio/oats@743a31718a2487b0cf7157ac1b6bc8872af256c1/-/blob/test/cyclical-dependencies/second.yaml",
+			"canonicalURL": "/github.com/smartlyio/oats@4435ca6c009e17d76408d41ed47301065ddcead5/-/blob/test/cyclical-dependencies/second.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smartlyio/oats/blob/743a31718a2487b0cf7157ac1b6bc8872af256c1/test/cyclical-dependencies/second.yaml",
+					"url": "https://github.com/smartlyio/oats/blob/4435ca6c009e17d76408d41ed47301065ddcead5/test/cyclical-dependencies/second.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"SecondObject\": parse schema: property \"target\": at 1:66: parse schema: resolve \"./first.yaml#/components/schemas/FirstObject\": external \"./first.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"SecondObject\": parse schema: property \"target\": parse schema: at 1:74: external \"./first.yaml\": get: file: local file reference is not allowed"
 }

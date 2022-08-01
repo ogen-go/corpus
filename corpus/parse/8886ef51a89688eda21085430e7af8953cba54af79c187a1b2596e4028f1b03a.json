@@ -10,14 +10,14 @@
 			"path": "test/specs/3.0/openapi-3.0.yaml",
 			"byteSize": 940,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Link Example\n  version: 1.0.0\npaths:\n  /local:\n    get:\n      operationId: localReference\n      responses:\n        '200':\n          description: Local reference\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Local'\n  /local-file-reference:\n    get:\n      operationId: localFileReference\n      responses:\n        '200':\n          description: Local file reference\n          content:\n            application/json:\n              schema:\n                $ref: 'petstore.yaml#/components/schemas/Pet'\n  /remote-reference:\n    get:\n      operationId: remoteReference\n      responses:\n        '200':\n          description: Remote reference\n          content:\n            application/json:\n              schema:\n                $ref: 'https://petstore.swagger.io/v2/swagger.json#/definitions/Pet'\ncomponents:\n  schemas:\n    Local:\n      type: string\n",
-			"canonicalURL": "/github.com/devexperts/swagger-codegen-ts@45957d30dc7a8345c5ce53fbd7fe8daaa87926ee/-/blob/test/specs/3.0/openapi-3.0.yaml",
+			"canonicalURL": "/github.com/devexperts/swagger-codegen-ts@bef6860786f878d83bdfae30c1bb9af03fbb36f0/-/blob/test/specs/3.0/openapi-3.0.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/devexperts/swagger-codegen-ts/blob/45957d30dc7a8345c5ce53fbd7fe8daaa87926ee/test/specs/3.0/openapi-3.0.yaml",
+					"url": "https://github.com/devexperts/swagger-codegen-ts/blob/bef6860786f878d83bdfae30c1bb9af03fbb36f0/test/specs/3.0/openapi-3.0.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/local-file-reference\": get: operation \"localFileReference\": responses: 200: content: application/json: schema: at 1:443: parse schema: resolve \"petstore.yaml#/components/schemas/Pet\": external \"petstore.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/local-file-reference\": get: operation \"localFileReference\": responses: 200: content: application/json: schema: parse schema: at 1:451: external \"petstore.yaml\": get: file: local file reference is not allowed"
 }

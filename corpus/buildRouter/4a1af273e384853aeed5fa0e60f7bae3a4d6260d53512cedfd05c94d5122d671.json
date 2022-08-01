@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "two_parameter_in_a_row.json",
+			"size": 0,
+			"path": "_testdata/negative/router/two_parameter_in_a_row.json",
+			"byteSize": 644,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/root/{a}{b}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"a\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          },\n          {\n            \"name\": \"b\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@3c78ef470e9474d28419d81ab4d6d2f7eba39bab/-/blob/_testdata/negative/router/two_parameter_in_a_row.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/3c78ef470e9474d28419d81ab4d6d2f7eba39bab/_testdata/negative/router/two_parameter_in_a_row.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildRouter: build router: add route \"/root/{a}{b}\" (op \"RootABGet\"): can't handle two parameters in a row (\"a\" and \"b\")"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-processor/openapi-processor-core"
+		},
+		"file": {
+			"name": "openapi31.yaml",
+			"size": 0,
+			"path": "src/testInt/resources/tests/ref-parameter-with-primitive-mapping/inputs/openapi31.yaml",
+			"byteSize": 420,
+			"content": "openapi: 3.1.0\ninfo:\n  title: API\n  version: 1.0.0\n\npaths:\n  /uuid:\n    get:\n      parameters:\n        - in: query\n          name:  uuid\n          schema:\n            $ref: '#/components/schemas/UUID'\n        - in: query\n          name:  uuidex\n          schema:\n            $ref: 'primitive.yaml#/UUID_EX'\n      responses:\n        '204':\n          description: none\n\ncomponents:\n  schemas:\n    UUID:\n      type: string\n",
+			"canonicalURL": "/github.com/openapi-processor/openapi-processor-core@be37467b991cb8098bc134b1312ec8df67465415/-/blob/src/testInt/resources/tests/ref-parameter-with-primitive-mapping/inputs/openapi31.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openapi-processor/openapi-processor-core/blob/be37467b991cb8098bc134b1312ec8df67465415/src/testInt/resources/tests/ref-parameter-with-primitive-mapping/inputs/openapi31.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/uuid\": get: parameters: parse parameter \"uuidex\": schema: parse schema: at 1:274: external \"primitive.yaml\": get: file: local file reference is not allowed"
+}

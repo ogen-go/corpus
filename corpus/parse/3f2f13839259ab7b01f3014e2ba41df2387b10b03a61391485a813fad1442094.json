@@ -10,14 +10,14 @@
 			"path": "api/grpc.yaml",
 			"byteSize": 852,
 			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    GRPCHeader:\n      type: object\n      properties:\n        key:\n          type: string\n        value:\n          type: string\n\n    GRPCRequest:\n      type: object\n      properties:\n        protobufFile:\n          type: string\n        address:\n          type: string\n        service:\n          type: string\n        method:\n          type: string\n        metadata:\n          type: array\n          items:\n            $ref: \"#/components/schemas/GRPCHeader\"\n        auth:\n          $ref: \"./http.yaml#/components/schemas/HTTPAuth\"\n        request:\n          type: string\n\n    GRPCResponse:\n      type: object\n      properties:\n        statusCode:\n          type: integer\n        metadata:\n          type: array\n          items:\n            $ref: \"#/components/schemas/GRPCHeader\"\n        body:\n          type: string\n",
-			"canonicalURL": "/github.com/kubeshop/tracetest@fcd1ae04e5589ec7c2a9fdc675ff6c62d53af1a7/-/blob/api/grpc.yaml",
+			"canonicalURL": "/github.com/kubeshop/tracetest@b7d0debca20733079077949c4bd0cdfbe5256b93/-/blob/api/grpc.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/kubeshop/tracetest/blob/fcd1ae04e5589ec7c2a9fdc675ff6c62d53af1a7/api/grpc.yaml",
+					"url": "https://github.com/kubeshop/tracetest/blob/b7d0debca20733079077949c4bd0cdfbe5256b93/api/grpc.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"GRPCRequest\": parse schema: property \"auth\": at 1:187: parse schema: resolve \"./http.yaml#/components/schemas/HTTPAuth\": external \"./http.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"GRPCRequest\": parse schema: property \"auth\": parse schema: at 1:195: external \"./http.yaml\": get: file: local file reference is not allowed"
 }

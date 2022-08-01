@@ -2,22 +2,17 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "npm/ibm-openapi-validator"
 		},
 		"file": {
 			"name": "schema.yaml",
 			"size": 0,
-			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/schema.yaml",
+			"path": "test/cli-validator/mock-files/multi-file-spec/schema.yaml",
 			"byteSize": 224,
 			"content": "openapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    SchemaDef:\n      type: object\n    CircularSchema:\n      type: object\n      properties:\n        id:\n          type: string\n        city:\n          $ref: ./city.yaml#/schema\n",
-			"canonicalURL": "/github.com/IBM/openapi-validator@9e842152e087da146c8d66c3c4c92e242ee00c02/-/blob/packages/validator/test/cli-validator/mock-files/multi-file-spec/schema.yaml",
-			"externalURLs": [
-				{
-					"url": "https://github.com/IBM/openapi-validator/blob/9e842152e087da146c8d66c3c4c92e242ee00c02/packages/validator/test/cli-validator/mock-files/multi-file-spec/schema.yaml",
-					"serviceKind": "GITHUB"
-				}
-			]
+			"canonicalURL": "/npm/ibm-openapi-validator@f17570d355a248ab922829208a59a2c4f850c401/-/blob/test/cli-validator/mock-files/multi-file-spec/schema.yaml",
+			"externalURLs": []
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"CircularSchema\": parse schema: property \"city\": at 1:66: parse schema: resolve \"./city.yaml#/schema\": external \"./city.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"CircularSchema\": parse schema: property \"city\": parse schema: at 1:74: external \"./city.yaml\": get: file: local file reference is not allowed"
 }

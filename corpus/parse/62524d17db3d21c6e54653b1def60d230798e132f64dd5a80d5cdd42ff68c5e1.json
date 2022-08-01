@@ -10,14 +10,14 @@
 			"path": "openapi3/testdata/issue235.spec0.yml",
 			"byteSize": 497,
 			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec1.yml#/components/schemas/ObjectD'\n",
-			"canonicalURL": "/github.com/getkin/kin-openapi@32445850faa0551385d614e844b344006c0a8f22/-/blob/openapi3/testdata/issue235.spec0.yml",
+			"canonicalURL": "/github.com/getkin/kin-openapi@fd4bae81cff0aae76fbea0f57ee8be5b1d9ec4f0/-/blob/openapi3/testdata/issue235.spec0.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/getkin/kin-openapi/blob/32445850faa0551385d614e844b344006c0a8f22/openapi3/testdata/issue235.spec0.yml",
+					"url": "https://github.com/getkin/kin-openapi/blob/fd4bae81cff0aae76fbea0f57ee8be5b1d9ec4f0/openapi3/testdata/issue235.spec0.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": parse schema: property \"object_b\": at 1:192: parse schema: resolve \"issue235.spec1.yml#/components/schemas/ObjectD\": external \"issue235.spec1.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": parse schema: property \"object_b\": parse schema: at 1:200: external \"issue235.spec1.yml\": get: file: local file reference is not allowed"
 }

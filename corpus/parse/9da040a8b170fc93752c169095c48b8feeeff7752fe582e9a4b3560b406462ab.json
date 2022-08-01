@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jshmrtn/openapi-compiler"
+		},
+		"file": {
+			"name": "internal.yaml",
+			"size": 0,
+			"path": "priv/examples/internal.yaml",
+			"byteSize": 2510,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: \"https://{env}.localhost:{port}\"\n    variables:\n      env:\n        default: dev\n        enum: ['dev', 'test', 'prod']\n      port:\n        default: \"8080\"\npaths:\n  /:\n    get:\n      tags: [\"foo\", \"foo-bar\"]\n      operationId: list\n      parameters:\n        - in: header\n          name: X-Callback-Url\n          required: true\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              schema: \n                type: string\n  /test:\n    get:\n      tags: [\"foo\", \"foo-bar\"]\n      operationId: getTest\n      parameters:\n        - in: header\n          name: X-Callback-Url\n          required: true\n      responses:\n        '200':\n          description: 200 response\n          content:\n            application/json:\n              schema: \n                type: string\n  /{id}:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Address\"\n      responses:\n        200:\n          description: 200 response\n          content:\n            application/json:\n              schema: \n                type: string\ncomponents:\n  schemas:\n    Test:\n      description: \"Bla Bla\"\n      type: integer\n      nullable: true\n    Test2:\n      allOf:\n        - $ref: \"#/components/schemas/Test\"\n        - nullable: false\n    Address:\n      type: object\n      required:\n        - city\n        - zip\n        - street\n        - lineOne\n        - lineTwo\n      properties:\n        country:\n          type: string\n          nullable: true\n        city:\n          type: string\n        street:\n          type: string\n          writeOnly: true\n        lineOne:\n          type: string\n          readOnly: true\n        lineTwo:\n          type: string\n          readOnly: true\n    OneOfDiscriminatedNormal:\n      oneOf:\n        - $ref: \"#/components/schemas/Address\"\n        - $ref: \"#/components/schemas/Test2\"\n      discriminator:\n        propertyName: type\n    OneOfDiscriminatedDefined:\n      oneOf:\n        - $ref: \"#/components/schemas/Address\"\n        - $ref: \"#/components/schemas/Test2\"\n      discriminator:\n        propertyName: type\n        mapping:\n          one: '#/components/schemas/Address'\n          two: '#/components/schemas/Test2'\n    OneOfUndiscriminated:\n      oneOf:\n        - $ref: \"#/components/schemas/Address\"\n        - $ref: \"#/components/schemas/Test2\"",
+			"canonicalURL": "/github.com/jshmrtn/openapi-compiler@f868ca7d1d62cdcc457b2ffc9d7f35025a6f51bc/-/blob/priv/examples/internal.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jshmrtn/openapi-compiler/blob/f868ca7d1d62cdcc457b2ffc9d7f35025a6f51bc/priv/examples/internal.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/\": get: operation \"list\": parameters: parse parameter \"X-Callback-Url\": at 1:1135: parameter MUST contain either a schema property, or a content property"
+}

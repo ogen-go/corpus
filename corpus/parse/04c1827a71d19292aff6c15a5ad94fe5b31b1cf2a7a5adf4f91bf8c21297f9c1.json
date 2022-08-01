@@ -2,22 +2,17 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/IBM/openapi-validator"
+			"name": "npm/ibm-openapi-validator"
 		},
 		"file": {
 			"name": "main.yaml",
 			"size": 0,
-			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+			"path": "test/cli-validator/mock-files/multi-file-spec/main.yaml",
 			"byteSize": 563,
 			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n",
-			"canonicalURL": "/github.com/IBM/openapi-validator@9e842152e087da146c8d66c3c4c92e242ee00c02/-/blob/packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
-			"externalURLs": [
-				{
-					"url": "https://github.com/IBM/openapi-validator/blob/9e842152e087da146c8d66c3c4c92e242ee00c02/packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
-					"serviceKind": "GITHUB"
-				}
-			]
+			"canonicalURL": "/npm/ibm-openapi-validator@f17570d355a248ab922829208a59a2c4f850c401/-/blob/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+			"externalURLs": []
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/circular_example\": get: responses: 200: content: application/json: schema: at 1:117: parse schema: resolve \"./schema.yaml#/components/schemas/CircularSchema\": external \"./schema.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/circular_example\": get: responses: 200: content: application/json: schema: parse schema: at 1:125: external \"./schema.yaml\": get: file: local file reference is not allowed"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "expected.json",
+			"size": 0,
+			"path": "test/data/toBundleExamples/referenced_callback/expected.json",
+			"byteSize": 3056,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"description\": \"A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"contact\": {\n      \"name\": \"Swagger API Team\",\n      \"email\": \"apiteam@swagger.io\",\n      \"url\": \"http://swagger.io\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"tags\": [\n          \"Authorization\"\n        ],\n        \"description\": \"Returns all pets alesuada ac...\",\n        \"operationId\": \"findPets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"pet response\",\n            \"schema\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"$ref\": \"#/components/schemas/Pet\"\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"unexpected error\",\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/Error\"\n            }\n          }\n        },\n        \"callbacks\": {\n          \"onData\": {\n            \"$ref\": \"#/components/callbacks/_callback.yaml\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"required\": [\n          \"id\",\n          \"name\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"tag\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Error\": {\n        \"required\": [\n          \"code\",\n          \"message\"\n        ],\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"callbacks\": {\n      \"_callback.yaml\": {\n        \"{$request.query.callbackUrl}/data\": {\n          \"post\": {\n            \"requestBody\": {\n              \"description\": \"subscription payload\",\n              \"content\": {\n                \"application/json\": {\n                  \"schema\": {\n                    \"properties\": {\n                      \"timestamp\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\"\n                      },\n                      \"userData\": {\n                        \"type\": \"string\"\n                      }\n                    }\n                  }\n                }\n              }\n            },\n            \"responses\": {\n              \"202\": {\n                \"description\": \"Your server implementation should return this HTTP status code\\nif the data was received successfully\\n\"\n              },\n              \"204\": {\n                \"description\": \"Your server should return this HTTP status code if no longer interested\\nin further updates\\n\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/-/blob/test/data/toBundleExamples/referenced_callback/expected.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/test/data/toBundleExamples/referenced_callback/expected.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 45: cannot unmarshal !!str `#/compo...` into ogen.PathItem"
+}

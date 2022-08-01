@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "params.matrix-params-on-resource-method-custom-name.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.matrix-params-on-resource-method-custom-name.json",
+			"byteSize": 1491,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"paths\": {\n    \"/matrix-params-on-resource-method-custom-name/{id}{idMatrix}\": {\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"path\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\",\n            \"maxLength\": 10\n          }\n        }\n      ],\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"idMatrix\",\n            \"in\": \"path\",\n            \"style\": \"matrix\",\n            \"required\": true,\n            \"description\": \"Additional information for id2\",\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"m1\": {\n                  \"type\": \"string\",\n                  \"default\": \"default-m1\"\n                },\n                \"m2\": {\n                  \"type\": \"string\",\n                  \"minLength\": 20\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Widget\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@f76f21d0ec08580bfeed1b120a3af21779ddfd86/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.matrix-params-on-resource-method-custom-name.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/f76f21d0ec08580bfeed1b120a3af21779ddfd86/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/params.matrix-params-on-resource-method-custom-name.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildRouter: build router: add route \"/matrix-params-on-resource-method-custom-name/{id}{idMatrix}\" (op \"MatrixParamsOnResourceMethodCustomNameIDIdMatrixGet\"): can't handle two parameters in a row (\"id\" and \"idMatrix\")"
+}

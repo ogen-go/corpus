@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaloAltoNetworks/panos.pan.dev"
+		},
+		"file": {
+			"name": "atp.yaml",
+			"size": 0,
+			"path": "static/oas/tp/atp.yaml",
+			"byteSize": 2758,
+			"content": "info:\n  description: |\n    The Advanced Threat Prevention API endpoints require an active subscription to the Advanced Threat Prevention security service. These endpoints can only be accessed using the API key associated with the account that holds the subscription. Attempting to view an unauthorized report ID will not return any results.\n\n    List of Advanced Threat Prevention API endpoints:\n    1. Link to [Retrieve Advanced Threat Prevention cloud analysis report](advanced-threat-prevention-api-endpoints#operation/post_atp_reports_batch_mode)\n    2. Link to [Retrieve the Advanced Threat Prevention cloud analysis report PCAP](advanced-threat-prevention-api-endpoints#operation/get_atp_pcaps)\n  title: Advanced Threat Prevention API Overview\n  version: v1.0 BETA\n  contact:\n    email: tp-infra@paloaltonetworks.com\nopenapi: 3.0.1\nservers:\n  - url: 'https://api.threatvault.paloaltonetworks.com/service/v1'\n    description: The base URI \ntags:\n- description: Advanced Threat Prevention API endpoints are listed below. These APIs are currently in BETA. Please contact your Palo Alto Networks salesperson for more information.\n  name: Advanced Threat Prevention API Endpoints\n\npaths:\n  /atp/reports:\n    post:\n      operationId: post_atp_reports_batch_mode\n      description: A POST request to retrieve a single (or multiple) unique, automatically generated report, based on the analysis details provided by Advanced Threat Prevention for a specific threat. This includes contextual data specific to your network by providing various session data, transaction info, and malware details. User must provide **one or more** report IDs in request body.\n      security:\n        - X-TV-API-KEY: []\n      summary: Get ATP reports\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                id:\n                  type: array\n                  items:\n                    type: string\n              example:\n                id: [\"c25b5d86d8ac77e10376000517491157a07ac008bfc799f08795d59c57e23a50\", \"a23b5d46d6ac77e70376080517991187a07ac008bfc799f08795d59c57e23a50\"]\n      responses:\n        $ref: 'api/responses/post-atp-batch-mode.yaml#/responses'\n  \n  /atp/reports/pcaps:\n    get:\n      operationId: get_atp_pcaps\n      description: A GET request to retrieve the raw payload associated with the report ID as a PCAP.\n      security:\n        - X-TV-API-KEY: []\n      summary: Get ATP cloud report PCAP\n      parameters:\n        $ref: 'api/requests/get-atp-pcap.yaml#/parameters'\n      responses:\n        $ref: 'api/responses/get-atp-pcap.yaml#/responses'\n\n\ncomponents:\n  securitySchemes:\n    $ref: 'components/securitySchemes.yaml#/securitySchemes'",
+			"canonicalURL": "/github.com/PaloAltoNetworks/panos.pan.dev@8ab33b9bd8ab4d8c17b44d07058d0bdc0edabf4d/-/blob/static/oas/tp/atp.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaloAltoNetworks/panos.pan.dev/blob/8ab33b9bd8ab4d8c17b44d07058d0bdc0edabf4d/static/oas/tp/atp.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `compone...` into ogen.SecurityScheme; yaml: line 1: cannot unmarshal !!str `api/res...` into ogen.Response; yaml: line 1: cannot unmarshal !!map into []*ogen.Parameter; yaml: line 1: cannot unmarshal !!str `api/res...` into ogen.Response"
+}

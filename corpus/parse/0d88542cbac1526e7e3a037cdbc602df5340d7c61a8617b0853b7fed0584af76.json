@@ -10,14 +10,14 @@
 			"path": "api/support/swagger-api_support.yaml",
 			"byteSize": 960,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Cloudtrust Management\n  description: 'Tasks API for Cloudtrust.'\n  version: 1.0.0\nservers:\n- url: http://localhost:8888\ntags:\n- name: Support\n  description: Support helpers\npaths:\n  /support/accounts:\n    get:\n      tags:\n      - Support\n      summary: Get account information according to a given email\n      parameters:\n      - name: email\n        in: query\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/EmailInfo'\ncomponents:\n  schemas:\n    EmailInfo:\n      type: object\n      properties:\n        realm:\n          type: string\n        creationDate:\n          type: int\n          description: creation date in seconds since epoch\nsecurity:\n  - openId:\n    - todo",
-			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@9d9d16f3faebda3347ef0c7270e8b79f60df3006/-/blob/api/support/swagger-api_support.yaml",
+			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@c8b4b33666a957ed0955dc1952da53b0152a579c/-/blob/api/support/swagger-api_support.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/9d9d16f3faebda3347ef0c7270e8b79f60df3006/api/support/swagger-api_support.yaml",
+					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/c8b4b33666a957ed0955dc1952da53b0152a579c/api/support/swagger-api_support.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"EmailInfo\": parse schema: property \"creationDate\": at 1:69: parse schema: unexpected schema type: \"int\""
+	"Error": "parse: parse spec: parse components: schemas: \"EmailInfo\": parse schema: property \"creationDate\": parse schema: at 1:130: unexpected schema type: \"int\""
 }
