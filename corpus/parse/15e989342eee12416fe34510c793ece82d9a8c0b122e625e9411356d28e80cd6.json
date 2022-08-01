@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/NeuraLegion/har-sdk"
+		},
+		"file": {
+			"name": "params-header.oas.yaml",
+			"size": 0,
+			"path": "packages/oas/tests/fixtures/params-header.oas.yaml",
+			"byteSize": 1481,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Header Parameters Test\n  version: 1.0.0\nservers:\n  - url: https://petstore.swagger.io/v1\npaths:\n  /dummy1:\n    get:\n      parameters:\n        - in: header\n          name: X-Request-DateTime\n          schema:\n            type: 'string'\n            format: 'date-time'\n        - in: header\n          name: X-Request-Array\n          schema:\n            type: 'array'\n            minItems: 2\n            items:\n              type: integer\n        - in: header\n          name: X-Request-Array-Exploded\n          explode: true\n          schema:\n            type: 'array'\n            minItems: 2\n            items:\n              type: integer\n        - in: header\n          name: X-Request-Object\n          schema:\n            type: object\n            properties:\n              x:\n                type: string\n              y:\n                type: number\n        - in: header\n          name: X-Request-Object-Exploded\n          explode: true\n          schema:\n            type: object\n            properties:\n              x:\n                type: string\n              y:\n                type: number\n        - in: header\n          name: X-Request-Object-Exploded-Default\n          explode: true\n          schema:\n            type: object\n            default:\n              a: dummy\n              b: 42\n\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              example:\n                ok: true\n",
+			"canonicalURL": "/github.com/NeuraLegion/har-sdk@6a423cdffe7e687727a5599c6bd98cdd7a36e0ec/-/blob/packages/oas/tests/fixtures/params-header.oas.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/NeuraLegion/har-sdk/blob/6a423cdffe7e687727a5599c6bd98cdd7a36e0ec/packages/oas/tests/fixtures/params-header.oas.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/dummy1\": get: parameters: parse parameter \"X-Request-Object-Exploded-Default\": schema: at 1:830: parse default: unexpected type: \"object\""
+}

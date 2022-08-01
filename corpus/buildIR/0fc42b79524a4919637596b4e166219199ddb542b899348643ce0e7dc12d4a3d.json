@@ -10,10 +10,10 @@
 			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 			"byteSize": 869,
 			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Clause'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Clause:\n      oneOf:\n        - $ref: '#/components/schemas/Expression'\n        - $ref: '#/components/schemas/Not'\n    Expression:\n      required:\n        - v\n      type: object\n      properties:\n        v:\n          type: string\n    Not:\n      required:\n        - not\n      type: object\n      properties:\n        not:\n          $ref: '#/components/schemas/Clause'",
-			"canonicalURL": "/github.com/softwaremill/tapir@a57689dd1e27a95a2b46e00778f23f133d82600c/-/blob/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
+			"canonicalURL": "/github.com/softwaremill/tapir@87afe168a512782341f3c2f98fb94de958a0d718/-/blob/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/softwaremill/tapir/blob/a57689dd1e27a95a2b46e00778f23f133d82600c/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
+					"url": "https://github.com/softwaremill/tapir/blob/87afe168a512782341f3c2f98fb94de958a0d718/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 					"serviceKind": "GITHUB"
 				}
 			]

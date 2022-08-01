@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cognitedata/cognite-sdk-js"
+		},
+		"file": {
+			"name": "cyclic-references.json",
+			"size": 0,
+			"path": "packages/codegen/src/__tests__/testdata/cyclic-references.json",
+			"byteSize": 1137,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Cognite APIs\",\n    \"description\": \"description.\",\n    \"version\": \"custom\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://api.cognitedata.com\"\n    }\n  ],\n  \"paths\": {\n    \"/api/custom/projects/{project}/cyclicService\": {\n      \"get\": {\n        \"tags\": [\n          \"cyclic\"\n        ],\n        \"summary\": \"Summary\",\n        \"operationId\": \"cyclic\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/CyclicResponse\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"CyclicResponse\": {\n        \"type\": \"object\",\n        \"description\": \"A response with cyclic references\",\n        \"oneOf\": [\n          {\"$ref\": \"#/components/schemas/Filter\"}\n        ]\n      },\n      \"Filter\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"filter\": {\n            \"$ref\": \"#/components/schemas/FilterOption\"\n          }\n        }\n      },\n      \"FilterOption\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"option\": {\n            \"$ref\": \"#/components/schemas/Filter\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/cognitedata/cognite-sdk-js@34904a129f58236efd9d12a058bd3c174e1bc84f/-/blob/packages/codegen/src/__tests__/testdata/cyclic-references.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cognitedata/cognite-sdk-js/blob/34904a129f58236efd9d12a058bd3c174e1bc84f/packages/codegen/src/__tests__/testdata/cyclic-references.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/api/custom/projects/{project}/cyclicService\": get: operation \"cyclic\": at 15:14: parse path \"/api/custom/projects/{project}/cyclicService\": path parameter not specified: \"project\""
+}

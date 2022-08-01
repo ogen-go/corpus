@@ -10,14 +10,14 @@
 			"path": "rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
 			"byteSize": 1356,
 			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Roles\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/roles/{roleId}/users:\n    get:\n      tags:\n        - Role\n      summary: Get all the Users for the given Role\n      operationId: roleListUsers\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - $ref: './role.yaml#/components/parameters/roleId'\n        - $ref: '../openapi.yaml#/components/parameters/sortParam'\n        - $ref: '../openapi.yaml#/components/parameters/sortDir'\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The list of the Users assigned to the given Role\n          content:\n            application/json:\n              schema:\n                $ref: '../user/user.yaml#/components/schemas/userListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n",
-			"canonicalURL": "/github.com/eclipse/kapua@f07cd53ecb271c305963937965745e7f9a903c7d/-/blob/rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
+			"canonicalURL": "/github.com/eclipse/kapua@670050ccb8a95c2fe89871881566f1c8501a50c4/-/blob/rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/eclipse/kapua/blob/f07cd53ecb271c305963937965745e7f9a903c7d/rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
+					"url": "https://github.com/eclipse/kapua/blob/670050ccb8a95c2fe89871881566f1c8501a50c4/rest-api/resources/src/main/resources/openapi/role/role-scopeId-roleId-users.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/{scopeId}/roles/{roleId}/users\": get: operation \"roleListUsers\": parameters: parse parameter \"\": at 1:385: resolve \"../openapi.yaml#/components/parameters/scopeId\" reference: external \"../openapi.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/{scopeId}/roles/{roleId}/users\": get: operation \"roleListUsers\": parameters: parse parameter \"\": at 1:393: external \"../openapi.yaml\": get: file: local file reference is not allowed"
 }

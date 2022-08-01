@@ -10,14 +10,14 @@
 			"path": "schemas/v3/5-external-refs.yaml",
 			"byteSize": 993,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Test API 5 - External references\n  version: 1.0.0\ncomponents:\n  schemas:\n    Error:\n      $ref: \"../refs/refs-schemas.yaml#/Error\"\n  responses:\n    error:\n      description: Default error response with error object\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\npaths:\n  /echo:\n    post:\n      description: Echo input back\n      operationId: echo\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                input:\n                  type: string\n              required:\n                - input\n      responses:\n        \"200\":\n          description: Echoed input\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  output:\n                    type: string\n        default:\n          $ref: \"#/components/responses/error\"",
-			"canonicalURL": "/github.com/EXXETA/openapi-cop@bc1f5cd98a9037efee4b8dfa127912b2e8ba50d8/-/blob/schemas/v3/5-external-refs.yaml",
+			"canonicalURL": "/github.com/EXXETA/openapi-cop@7c303a5108b7e5d430fd66874721ced286e8a929/-/blob/schemas/v3/5-external-refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/EXXETA/openapi-cop/blob/bc1f5cd98a9037efee4b8dfa127912b2e8ba50d8/schemas/v3/5-external-refs.yaml",
+					"url": "https://github.com/EXXETA/openapi-cop/blob/7c303a5108b7e5d430fd66874721ced286e8a929/schemas/v3/5-external-refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:196: schemas: \"Error\": parse schema: resolve \"../refs/refs-schemas.yaml#/Error\": external \"../refs/refs-schemas.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Error\": parse schema: at 1:204: external \"../refs/refs-schemas.yaml\": get: file: local file reference is not allowed"
 }

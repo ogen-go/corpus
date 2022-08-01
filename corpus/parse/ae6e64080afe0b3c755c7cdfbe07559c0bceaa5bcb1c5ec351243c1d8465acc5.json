@@ -10,14 +10,14 @@
 			"path": "amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
 			"byteSize": 693,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Backlog API\",\n    \"version\": \"1.0.0-oas3\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"user\": {\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"The response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/invalid reference in the document\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/aml-org/amf@dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/-/blob/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+			"canonicalURL": "/github.com/aml-org/amf@61977684c2455156e2f4adab95cea9252070ca33/-/blob/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aml-org/amf/blob/dc7765b3fa613d17bf7d3d21058c09ccb4a707bf/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
+					"url": "https://github.com/aml-org/amf/blob/61977684c2455156e2f4adab95cea9252070ca33/amf-cli/shared/src/test/resources/validations/oas3/unresolved-ref-in-schema.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/test\": get: responses: 200: content: application/json: schema: at 29:27: parse schema: resolve \"#/invalid reference in the document\": find schema: resolve: can't find value for \"invalid reference in the document\""
+	"Error": "parse: parse spec: parse operations: path \"/test\": get: responses: 200: content: application/json: schema: parse schema: at 30:27: find schema: resolve: can't find value for \"invalid reference in the document\""
 }

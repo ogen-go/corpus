@@ -10,10 +10,10 @@
 			"path": "test/data/valid_openapi/petstoreParamExample.yaml",
 			"byteSize": 1482,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: object\n            properties:\n              value:\n                type:\n                  - integer\n          example:\n            value: 1\n        - name: user\n          in: query\n          required: true\n          style: deepObject\n          schema:\n            type:\n              - object\n            properties:\n              id:\n                type:\n                  - integer\n              value:\n                type:\n                  - string\n          example:\n            id: 1\n            value: Vani\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n",
-			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@6df66da0d6b708e51eb3323d0ff917fd2389b2e7/-/blob/test/data/valid_openapi/petstoreParamExample.yaml",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/-/blob/test/data/valid_openapi/petstoreParamExample.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/6df66da0d6b708e51eb3323d0ff917fd2389b2e7/test/data/valid_openapi/petstoreParamExample.yaml",
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/test/data/valid_openapi/petstoreParamExample.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

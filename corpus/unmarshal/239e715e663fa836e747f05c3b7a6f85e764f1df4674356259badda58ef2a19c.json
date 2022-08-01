@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-processor/openapi-processor-core"
+		},
+		"file": {
+			"name": "openapi31.yaml",
+			"size": 0,
+			"path": "src/testInt/resources/tests/object-nullable-properties/inputs/openapi31.yaml",
+			"byteSize": 806,
+			"content": "openapi: 3.1.0\ninfo:\n  title: nullable wrapper\n  version: 1.0.0\n\npaths:\n  /foo:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Foo'\n      responses:\n        '204':\n          description: empty\n\n  /foo2:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Foo2'\n      responses:\n        '204':\n          description: empty\n\ncomponents:\n  schemas:\n\n    Foo:\n      description: a Foo\n      type: object\n      properties:\n        bar:\n          type:\n            - string\n            - null\n\n    Foo2:\n      description: a Foo 2\n      type: object\n      properties:\n        bar:\n          type:\n            - string\n            - null\n",
+			"canonicalURL": "/github.com/openapi-processor/openapi-processor-core@be37467b991cb8098bc134b1312ec8df67465415/-/blob/src/testInt/resources/tests/object-nullable-properties/inputs/openapi31.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openapi-processor/openapi-processor-core/blob/be37467b991cb8098bc134b1312ec8df67465415/src/testInt/resources/tests/object-nullable-properties/inputs/openapi31.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!seq into string; yaml: line 1: cannot unmarshal !!seq into string"
+}

@@ -5,19 +5,19 @@
 			"name": "github.com/ogen-go/ogen"
 		},
 		"file": {
-			"name": "request.json",
+			"name": "requestBody.json",
 			"size": 0,
-			"path": "_testdata/negative/cyclic/request.json",
+			"path": "openapi/parser/_testdata/negative/cyclic/requestBody.json",
 			"byteSize": 475,
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/Request\"\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"Request\": {\n        \"$ref\": \"#/components/requestBodies/Request\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/ogen-go/ogen@cfeeb108cb27d7fdd7e0eda11a8852beb175181d/-/blob/_testdata/negative/cyclic/request.json",
+			"canonicalURL": "/github.com/ogen-go/ogen@3c78ef470e9474d28419d81ab4d6d2f7eba39bab/-/blob/openapi/parser/_testdata/negative/cyclic/requestBody.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ogen-go/ogen/blob/cfeeb108cb27d7fdd7e0eda11a8852beb175181d/_testdata/negative/cyclic/request.json",
+					"url": "https://github.com/ogen-go/ogen/blob/3c78ef470e9474d28419d81ab4d6d2f7eba39bab/openapi/parser/_testdata/negative/cyclic/requestBody.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Request\": at 23:18: resolve \"#/components/requestBodies/Request\" reference: infinite recursion"
+	"Error": "parse: parse spec: parse components: schemas: \"Request\": at 24:17: infinite recursion"
 }

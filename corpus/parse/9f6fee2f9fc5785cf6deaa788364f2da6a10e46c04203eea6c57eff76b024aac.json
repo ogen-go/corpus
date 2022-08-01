@@ -10,10 +10,10 @@
 			"path": "tests/data/openapi/default_template/content_in_parameters.yaml",
 			"byteSize": 1421,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\n  description: |\n    This description is for testing\n    multi-line\n    description\n\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /{supiOrSuci}/security-information-rg:\n    get:\n      summary: Get authentication data for the FN-RG\n      operationId: GetRgAuthData\n      tags:\n        - Get Auth Data for FN-RG\n      responses:\n        '200':\n          description: Null response\n      parameters:\n        - name: plmn-id\n          in: query\n          description: serving PLMN ID\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  parameters:\n    MyParam:\n      name: foo\n      in: query\n      schema:\n        type: string\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n    PetForm:\n      title: PetForm\n      type: object\n      properties:\n        name:\n          type: string\n        age:\n          type: integer",
-			"canonicalURL": "/github.com/koxudaxi/fastapi-code-generator@408a2adc2da230a9b8d25ceea09830b4fc833ee2/-/blob/tests/data/openapi/default_template/content_in_parameters.yaml",
+			"canonicalURL": "/github.com/koxudaxi/fastapi-code-generator@2df5bc13bc3fd3d69b3ec47955a9dff5c971fb75/-/blob/tests/data/openapi/default_template/content_in_parameters.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/koxudaxi/fastapi-code-generator/blob/408a2adc2da230a9b8d25ceea09830b4fc833ee2/tests/data/openapi/default_template/content_in_parameters.yaml",
+					"url": "https://github.com/koxudaxi/fastapi-code-generator/blob/2df5bc13bc3fd3d69b3ec47955a9dff5c971fb75/tests/data/openapi/default_template/content_in_parameters.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

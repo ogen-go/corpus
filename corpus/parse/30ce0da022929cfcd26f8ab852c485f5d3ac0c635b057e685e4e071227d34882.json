@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/issue_7614.yaml",
 			"byteSize": 1531,
 			"content": "openapi: 3.0.0\ninfo:\n  title: test api\n  version: 0.0.1\ntags:\n  - name: examples\n    description: examples tag\npaths:\n  /examples/onlybasicauth:\n    get:\n      tags:\n        - examples\n      summary: Get with basic auth\n      operationId: getWithBasicAuth\n      responses:\n        200:\n          description: some result\n      security:\n        - basic_auth: []\n  /examples/basicauthwithoauth:\n    get:\n      tags:\n        - examples\n      summary: get with basic auth and oauth\n      operationId: getWithBasicAuthAndOauth\n      responses:\n        200:\n          description: some result\n      security:\n        - basic_auth: []\n        - oauth_auth:\n            - something:create\n  /examples/onlyoauthauth:\n    get:\n      tags:\n        - examples\n      summary: get with oauth\n      operationId: getWithOauthAuth\n      responses:\n        200:\n          description: some result\n      security:\n        - oauth_auth:\n            - something:create\n            - something:process\ncomponents:\n  securitySchemes:\n    oauth_auth:\n      type: oauth2\n      flows:\n        password:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            something:create: create from password flow\n        clientCredentials:\n          tokenUrl: \"../auth/realms/master/protocol/openid-connect/token\"\n          scopes:\n            something:create: create from client credentials flow\n            something:process: process from client credentials flow\n    basic_auth:\n      type: http\n      scheme: basic",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@6d44f97d6cc4bcd11752ca6556075232dc4e5fdb/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7614.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4635dda5181fd34d50643d2b9dcfcaaef64db418/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_7614.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/6d44f97d6cc4bcd11752ca6556075232dc4e5fdb/modules/openapi-generator/src/test/resources/3_0/issue_7614.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4635dda5181fd34d50643d2b9dcfcaaef64db418/modules/openapi-generator/src/test/resources/3_0/issue_7614.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/examples/basicauthwithoauth\": get: operation \"getWithBasicAuthAndOauth\": security: parse security scheme \"oauth_auth\": oauth2: flow \"clientCredentials\": at 1:263: \"tokenUrl\" MUST be in the form of a URL: parse \"../auth/realms/master/protocol/openid-connect/token\": invalid URI for request"
+	"Error": "parse: parse spec: parse operations: path \"/examples/basicauthwithoauth\": get: operation \"getWithBasicAuthAndOauth\": security: parse security scheme \"oauth_auth\": oauth2: flow \"password\": at 1:399: \"tokenUrl\" MUST be in the form of a URL: parse \"../auth/realms/master/protocol/openid-connect/token\": invalid URI for request"
 }

@@ -10,14 +10,14 @@
 			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 			"byteSize": 624,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      $ref: \"refs/Simple.yaml\"\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@b0a7dc840cc69ea7eef838cf4ab5910400e54f7d/-/blob/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@2b7c705faf60b9b670549d25b06479308b358289/-/blob/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/b0a7dc840cc69ea7eef838cf4ab5910400e54f7d/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/2b7c705faf60b9b670549d25b06479308b358289/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:154: schemas: \"Simple\": parse schema: resolve \"refs/Simple.yaml\": external \"refs/Simple.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Simple\": parse schema: at 1:162: external \"refs/Simple.yaml\": get: file: local file reference is not allowed"
 }

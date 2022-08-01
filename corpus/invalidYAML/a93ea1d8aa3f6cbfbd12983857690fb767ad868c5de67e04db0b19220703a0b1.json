@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/stoplightio/spectral"
+		},
+		"file": {
+			"name": "URIError.yaml",
+			"size": 0,
+			"path": "packages/core/src/__tests__/__fixtures__/gh-658/URIError.yaml",
+			"byteSize": 1011,
+			"content": "%YAML 1.2\n---\nopenapi: 3.0.0\n\ninfo:\n  title: Hey Mum! I'm on GitHub!\n  description: Resource definition.\n  version: 1.0.0\n\nservers:\n  - url: https://boom.com\n\npaths:\n  \"/test\":\n    get:\n      summary: Dummy endpoint.\n      description: Cf. summary\n      responses:\n        \"200\":\n          description: All is good.\n          content:\n            application/json:\n              schema:\n                type: string\n        \"400\":\n          description: Bad Request.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n        \"404\":\n          $ref: './lib.yaml#/components/responses/NotFoundResponse'\n        \"500\":\n          description: No Bueno.\n          content:\n            application/json:\n              schema:\n                $ref: \"./lib.yaml#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Error:\n      $ref: \"#/components/schemas/Baz\"\n    Baz:\n      $ref: ./lib.yaml#/components/schemas/Error\n    Foo:\n      type: string\n",
+			"canonicalURL": "/github.com/stoplightio/spectral@bb732aec6f5cc0459e3120a7a644b50cee6f4bc0/-/blob/packages/core/src/__tests__/__fixtures__/gh-658/URIError.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/stoplightio/spectral/blob/bb732aec6f5cc0459e3120a7a644b50cee6f4bc0/packages/core/src/__tests__/__fixtures__/gh-658/URIError.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "invalidYAML: yaml: found incompatible YAML document"
+}

@@ -10,10 +10,10 @@
 			"path": "core/src/test/resources/openapi/petstore-post.yaml",
 			"byteSize": 1667,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: apiteam@swagger.io\n    url: http://swagger.io\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: http://petstore.swagger.io/api\npaths:\n  /pets:\n    post:\n      description: Creates a new pet in the store. Duplicates are allowed\n      operationId: addPet\n      requestBody:\n        description: Pet to add to the store\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/NewPet'\n      responses:\n        '201':\n          description: pet response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n        - id\n        - parent\n      properties:\n        name:\n          type: string\n        tag:\n          type: string\n        id:\n          type: integer\n          format: int64\n        parent:\n          $ref: '#/components/schemas/Pet'\n\n    NewPet:\n      type: object\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        tag:\n          type: string\n\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string",
-			"canonicalURL": "/github.com/znsio/specmatic@6198d62d3e3156670f3fb420ca55b680d7a59d13/-/blob/core/src/test/resources/openapi/petstore-post.yaml",
+			"canonicalURL": "/github.com/znsio/specmatic@f5865f5940445018380adef4a3102e1eecdaf89e/-/blob/core/src/test/resources/openapi/petstore-post.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/znsio/specmatic/blob/6198d62d3e3156670f3fb420ca55b680d7a59d13/core/src/test/resources/openapi/petstore-post.yaml",
+					"url": "https://github.com/znsio/specmatic/blob/f5865f5940445018380adef4a3102e1eecdaf89e/core/src/test/resources/openapi/petstore-post.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

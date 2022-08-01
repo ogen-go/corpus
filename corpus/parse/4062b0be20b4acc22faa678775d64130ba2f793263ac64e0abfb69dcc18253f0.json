@@ -10,14 +10,14 @@
 			"path": "test/resources/multiple-config-files/config-with-refs.yaml",
 			"byteSize": 769,
 			"content": "openapi: 3.0.2\ninfo:\n  title: 'Example site'\n  version: 0.1.0\nx-walder-resources:\n  root: .\n  views: views\n  pipe-modules: pipe-modules\n  public: public\nx-walder-datasources:\n  - http://fragments.dbpedia.org/2016-04/en\npaths:\n  /movies/{actor}:\n    $ref: './paths/movies-actor.yaml'\n  /more_movies/{actor}:\n    $ref: './paths/more-movies-actor.yaml'\n  /artist/{artist}:\n    $ref: './paths/artist-artist.yaml'\n  /music/{musician}/sorted:\n    $ref: './paths/music-musician-sorted.yaml'\n  /music/{musician}/no_duplicates:\n    $ref: './paths/music-musician-no-duplicates.yaml'\nx-walder-errors:\n  404:\n    description: page not found error\n    x-walder-input-text/html: error404.html\n  500:\n    description: internal server error\n    x-walder-input-text/html: error500.html\n",
-			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@dd3aaa9022006d379daac13ea20f49d77ad7f835/-/blob/test/resources/multiple-config-files/config-with-refs.yaml",
+			"canonicalURL": "/github.com/KNowledgeOnWebScale/walder@c475dfdac38716f2a21912b8262dacd9ea15afba/-/blob/test/resources/multiple-config-files/config-with-refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/dd3aaa9022006d379daac13ea20f49d77ad7f835/test/resources/multiple-config-files/config-with-refs.yaml",
+					"url": "https://github.com/KNowledgeOnWebScale/walder/blob/c475dfdac38716f2a21912b8262dacd9ea15afba/test/resources/multiple-config-files/config-with-refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/artist/{artist}\": at 1:98: referenced pathItem not supported"
+	"Error": "parse: parse spec: parse operations: path \"/artist/{artist}\": at 1:106: external \"./paths/artist-artist.yaml\": get: file: local file reference is not allowed"
 }

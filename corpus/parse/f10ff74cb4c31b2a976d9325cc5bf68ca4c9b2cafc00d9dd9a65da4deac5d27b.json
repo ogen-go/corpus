@@ -10,14 +10,14 @@
 			"path": "pkg/importer/tests/openapi3/ext-ref-1.yaml",
 			"byteSize": 1024,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: ExtRef1\n  version: 1.2.3\ncomponents:\n  schemas:\n    test1:\n      $ref: \"./ext-ref-2.yaml#/components/schemas/test1\"\n    test2:\n      properties:\n        field1:\n          $ref: \"./ext-ref-2.yaml#/components/schemas/test1\"\n        field2:\n          $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n    test3:\n      allOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test4:\n      anyOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test5:\n      oneOf:\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test2\"\n        - $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test6:\n      items:\n        $ref: \"./ext-ref-2.yaml#/components/schemas/test3\"\n    test7:\n      $ref: \"./external-ref-test/ext-ref-4.yaml#/components/schemas/test1\"\n    test8:\n      type: string\n    test9:\n      $ref: './external-ref-test/asset.json'\n",
-			"canonicalURL": "/github.com/anz-bank/sysl@f0bae51df10806fd7dcc010228b33ab3fb9eea0c/-/blob/pkg/importer/tests/openapi3/ext-ref-1.yaml",
+			"canonicalURL": "/github.com/anz-bank/sysl@3eadd8780c4aed4433c111193285a7d164ca6386/-/blob/pkg/importer/tests/openapi3/ext-ref-1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anz-bank/sysl/blob/f0bae51df10806fd7dcc010228b33ab3fb9eea0c/pkg/importer/tests/openapi3/ext-ref-1.yaml",
+					"url": "https://github.com/anz-bank/sysl/blob/3eadd8780c4aed4433c111193285a7d164ca6386/pkg/importer/tests/openapi3/ext-ref-1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"test2\": parse schema: property \"field1\": at 1:121: parse schema: resolve \"./ext-ref-2.yaml#/components/schemas/test1\": external \"./ext-ref-2.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"test6\": parse schema: parse schema: at 1:649: external \"./ext-ref-2.yaml\": get: file: local file reference is not allowed"
 }

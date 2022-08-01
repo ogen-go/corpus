@@ -10,14 +10,14 @@
 			"path": "pkg/importer/tests/openapi3/ext-ref-2.yaml",
 			"byteSize": 434,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: ExtRef2\n  version: 1.2.3\ncomponents:\n  schemas:\n    test1:\n      type: string\n    test2:\n      properties:\n        x:\n          type: number\n    test3:\n      properties:\n        x:\n          $ref: \"./ext-ref-3.yaml#/components/schemas/test1\"\n        \"y\":\n          $ref: \"./ext-ref-3.yaml#/components/schemas/test2\"\n        z:\n          $ref: \"#/components/schemas/test1\"\n    test4:\n      type: number\n",
-			"canonicalURL": "/github.com/anz-bank/sysl@f0bae51df10806fd7dcc010228b33ab3fb9eea0c/-/blob/pkg/importer/tests/openapi3/ext-ref-2.yaml",
+			"canonicalURL": "/github.com/anz-bank/sysl@3eadd8780c4aed4433c111193285a7d164ca6386/-/blob/pkg/importer/tests/openapi3/ext-ref-2.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anz-bank/sysl/blob/f0bae51df10806fd7dcc010228b33ab3fb9eea0c/pkg/importer/tests/openapi3/ext-ref-2.yaml",
+					"url": "https://github.com/anz-bank/sysl/blob/3eadd8780c4aed4433c111193285a7d164ca6386/pkg/importer/tests/openapi3/ext-ref-2.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"test3\": parse schema: property \"x\": at 1:127: parse schema: resolve \"./ext-ref-3.yaml#/components/schemas/test1\": external \"./ext-ref-3.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"test3\": parse schema: property \"x\": parse schema: at 1:135: external \"./ext-ref-3.yaml\": get: file: local file reference is not allowed"
 }

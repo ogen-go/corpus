@@ -10,14 +10,14 @@
 			"path": "pkg/importer/tests/openapi3/simple_with_special_char_endpoint.yaml",
 			"byteSize": 1813,
 			"content": "openapi: \"3.0\"\ninfo:\n  title: Simple\npaths:\n  /test.stuff:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n  /test:colon:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n  /test+plus:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n  /deep/deeeeeeep/test.stuff:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/*:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj2\"\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n  /withHeaders:andSpecialChars:\n    get:\n      responses:\n        200:\n          description: \"200 OK\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/SimpleObj\"\n        404:\n          description: \"Not Found\"\n          headers:\n            content-type:\n              type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    SimpleObj:\n      type: object\n      properties:\n        name:\n          type: string\n    SimpleObj2:\n      type: object\n      properties:\n        name:\n          type: SimpleObj\n    Error:\n      type: object\n      properties:\n        description:\n          type: string\n        code:\n          type: int\n",
-			"canonicalURL": "/github.com/anz-bank/sysl@f0bae51df10806fd7dcc010228b33ab3fb9eea0c/-/blob/pkg/importer/tests/openapi3/simple_with_special_char_endpoint.yaml",
+			"canonicalURL": "/github.com/anz-bank/sysl@3eadd8780c4aed4433c111193285a7d164ca6386/-/blob/pkg/importer/tests/openapi3/simple_with_special_char_endpoint.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anz-bank/sysl/blob/f0bae51df10806fd7dcc010228b33ab3fb9eea0c/pkg/importer/tests/openapi3/simple_with_special_char_endpoint.yaml",
+					"url": "https://github.com/anz-bank/sysl/blob/3eadd8780c4aed4433c111193285a7d164ca6386/pkg/importer/tests/openapi3/simple_with_special_char_endpoint.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Error\": parse schema: property \"code\": at 1:57: parse schema: unexpected schema type: \"int\""
+	"Error": "parse: parse spec: parse components: schemas: \"SimpleObj2\": parse schema: property \"name\": parse schema: at 1:235: unexpected schema type: \"SimpleObj\""
 }

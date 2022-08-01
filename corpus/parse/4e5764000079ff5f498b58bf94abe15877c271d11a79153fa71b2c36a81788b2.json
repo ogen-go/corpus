@@ -10,14 +10,14 @@
 			"path": "SvInjection/swagger.yaml",
 			"byteSize": 1741,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    SvInjection: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml#/SvInjection\"\ninfo:\n  description:  |\n    Adapted from CIM data models. The SvInjection is reporting the calculated bus injection minus the sum of the terminal flows. The terminal flow is positive out from the bus (load sign convention) and bus injection has positive flow into the bus. SvInjection may have the remainder after state estimation or slack after power flow calculation.\n  title: SvInjection\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - SvInjection\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@7994731d9ed8252aee5670ad81ad95c711d7283a/-/blob/SvInjection/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@a05230265633a6412b8d8aaf9987a149ab5947f6/-/blob/SvInjection/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/7994731d9ed8252aee5670ad81ad95c711d7283a/SvInjection/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/a05230265633a6412b8d8aaf9987a149ab5947f6/SvInjection/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:41: schemas: \"SvInjection\": parse schema: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml#/SvInjection\": external \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"SvInjection\": parse schema: at 1:49: external \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/SvInjection/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

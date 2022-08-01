@@ -10,14 +10,14 @@
 			"path": "core/src/test/resources/add-prop-put-1.yaml",
 			"byteSize": 1931,
 			"content": "openapi: 3.0.0\nservers:\n  - description: SwaggerHub API Auto Mocking\n    url: https://virtserver.swaggerhub.com/anshul10s/pet-store/1.0.0\ninfo:\n  description: |\n    This is a sample Petstore server.  You can find\n    out more about Swagger at\n    [http://swagger.io](http://swagger.io) or on\n    [irc.freenode.net, #swagger](http://swagger.io/irc/).\n  version: \"1.0.0\"\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  contact:\n    email: apiteam@swagger.io\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: pet\n    description: Everything about your Pets\n    externalDocs:\n      description: Find out more\n      url: 'http://swagger.io'\n  - name: store\n    description: Access to Petstore orders\n  - name: user\n    description: Operations about user\n    externalDocs:\n      description: Find out more about our store\n      url: 'http://swagger.io'\npaths:\n  /store/inventory/{id}:\n    put:\n      tags:\n        - store\n      summary: Updates the inventory with the given id\n      description: Updates the inventory with the given id and returns it\n      operationId: putInventory\n      parameters:\n        - name: id\n          in: path\n          description: Unique Id of the inventory\n          required: true\n          example: a-b-c-d\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Inventory'\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Inventory'\nexternalDocs:\n  description: Find out more about Swagger\n  url: 'http://swagger.io'\ncomponents:\n  schemas:\n    Inventory:\n      type: object\n      properties:\n        id:\n          type: string\n        details:\n          type: count",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@4ce75ff53067e6e1774961de846ca313b794d162/-/blob/core/src/test/resources/add-prop-put-1.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@bcf06160f47dc2b742ad58324c58704648c4b96e/-/blob/core/src/test/resources/add-prop-put-1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-diff/blob/4ce75ff53067e6e1774961de846ca313b794d162/core/src/test/resources/add-prop-put-1.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-diff/blob/bcf06160f47dc2b742ad58324c58704648c4b96e/core/src/test/resources/add-prop-put-1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Inventory\": parse schema: property \"details\": at 1:64: parse schema: unexpected schema type: \"count\""
+	"Error": "parse: parse spec: parse components: schemas: \"Inventory\": parse schema: property \"details\": parse schema: at 1:72: unexpected schema type: \"count\""
 }

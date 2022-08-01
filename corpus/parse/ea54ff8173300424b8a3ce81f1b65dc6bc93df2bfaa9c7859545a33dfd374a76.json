@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/Azure/apim-landing-zone-accelerator"
+			"name": "github.com/cykreng/Enterprise-Scale-APIM"
 		},
 		"file": {
 			"name": "todo-openapi.yaml",
@@ -10,14 +10,14 @@
 			"path": "src/definitions/todo-openapi.yaml",
 			"byteSize": 1539,
 			"content": "openapi: 3.0.1\ninfo:\n  title: apim-todo\n  version: '1.0'\npaths:\n  /todo:\n    post:\n      summary: CreateTodo\n      operationId: createtodo\n      responses:\n        '200':\n          description: \n    get:\n      summary: GetTodos\n      operationId: gettodos\n      responses:\n        '200':\n          description: \n  '/todo/{id}':\n    get:\n      summary: GetTodoById\n      operationId: gettodobyid\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: ''\n      responses:\n        '200':\n          description: \n    put:\n      summary: UpdateTodo\n      operationId: updatetodo\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: ''\n      responses:\n        '200':\n          description: \n    delete:\n      summary: DeleteTodo\n      operationId: deletetodo\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: ''\n      responses:\n        '200':\n          description: \ncomponents:\n  schemas:\n    Todo:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: string\n        taskDescription:\n          type: string\n        isCompleted:\n          type: bool\n    Todos:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Todo\"\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string",
-			"canonicalURL": "/github.com/Azure/apim-landing-zone-accelerator@362a5004f187525670015055120531043d14f7f4/-/blob/src/definitions/todo-openapi.yaml",
+			"canonicalURL": "/github.com/cykreng/Enterprise-Scale-APIM@d234717e7aaea29d8d5d51401652935d34330e7c/-/blob/src/definitions/todo-openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Azure/apim-landing-zone-accelerator/blob/362a5004f187525670015055120531043d14f7f4/src/definitions/todo-openapi.yaml",
+					"url": "https://github.com/cykreng/Enterprise-Scale-APIM/blob/d234717e7aaea29d8d5d51401652935d34330e7c/src/definitions/todo-openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Todo\": parse schema: property \"isCompleted\": at 1:212: parse schema: unexpected schema type: \"bool\""
+	"Error": "parse: parse spec: parse components: schemas: \"Todos\": parse schema: parse schema: parse schema: property \"isCompleted\": parse schema: at 1:220: unexpected schema type: \"bool\""
 }

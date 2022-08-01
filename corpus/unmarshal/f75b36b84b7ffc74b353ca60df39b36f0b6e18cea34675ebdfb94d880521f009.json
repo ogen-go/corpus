@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vrchatapi/specification"
+		},
+		"file": {
+			"name": "instances.yaml",
+			"size": 0,
+			"path": "openapi/components/paths/instances.yaml",
+			"byteSize": 2387,
+			"content": "openapi: 3.0.3\ninfo:\n  title: instances\n  version: '1.0'\n  description: Instances Docs Here\npaths:\n  '/instances/{worldId}:{instanceId}':\n    parameters:\n      - $ref: ../parameters.yaml#/worldId\n      - $ref: ../parameters.yaml#/instanceId\n    get:\n      summary: Get Instance\n      tags:\n        - instances\n      operationId: getInstance\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      description: |-\n        Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.\n\n        If an invalid instanceId is provided, this endpoint will simply return \"null\"!\n      x-codeSamples:\n        $ref: \"../codeSamples/instances.yaml#/~1intances~1{worldId}:{instanceId}/get\"\n      responses:\n        '200':\n          $ref: ../responses/instances/InstanceResponse.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n  '/instances/{worldId}:{instanceId}/shortName':\n    parameters:\n      - $ref: ../parameters.yaml#/worldId\n      - $ref: ../parameters.yaml#/instanceId\n    get:\n      summary: Get Instance Short Name\n      tags:\n        - instances\n      operationId: getShortName\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      description: Returns an instance short name.\n      x-codeSamples:\n        $ref: \"../codeSamples/instances.yaml#/~1instance~1{worldId}:{instanceId}~1shortName/get\"\n      responses:\n        '200':\n          $ref: ../responses/instances/InstanceShortNameResponse.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n  '/instances/{worldId}:{instanceId}/invite':\n    parameters:\n      - $ref: ../parameters.yaml#/worldId\n      - $ref: ../parameters.yaml#/instanceId\n    post:\n      summary: Send Self Invite\n      tags:\n        - instances\n      operationId: sendSelfInvite\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      description: Sends an invite to the instance to yourself.\n      x-codeSamples:\n        $ref: \"../codeSamples/instances.yaml#/~1instance~1{worldId}:{instanceId}~1invite/post\"\n      responses:\n        '200':\n          $ref: ../responses/instances/InstanceSelfInviteSuccess.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\ntags:\n  $ref: ../tags.yaml\ncomponents:\n  securitySchemes:\n    $ref: ../securitySchemes.yaml\n",
+			"canonicalURL": "/github.com/vrchatapi/specification@1a2a4afbfad496a5b0ead6684fa47d01d02387bc/-/blob/openapi/components/paths/instances.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vrchatapi/specification/blob/1a2a4afbfad496a5b0ead6684fa47d01d02387bc/openapi/components/paths/instances.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `../secu...` into ogen.SecurityScheme; yaml: line 1: cannot unmarshal !!map into []ogen.Tag"
+}

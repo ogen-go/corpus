@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/corunet/scs-multiapi-plugin"
+		},
+		"file": {
+			"name": "api-test.yml",
+			"size": 0,
+			"path": "src/test/resources/net/coru/api/generator/openapi/integration/test/OpenApiGenerationTest/testExternalRefsGeneration/api-test.yml",
+			"byteSize": 662,
+			"content": "---\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Corunet Test Api\n  license:\n    name: MIT\nservers:\n  - url: http://localhost:8080/v1\npaths:\n  /test:\n    summary: available test\n    get:\n      summary: List all available test\n      operationId: listTest\n      tags:\n      - test\n      responses:\n        '200':\n          description: A paged array of tests\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"test-config/components.yml#/components/schemas/Test\"\n",
+			"canonicalURL": "/github.com/corunet/scs-multiapi-plugin@790f53766b0196932a34d114e0b328821a1eb6c0/-/blob/src/test/resources/net/coru/api/generator/openapi/integration/test/OpenApiGenerationTest/testExternalRefsGeneration/api-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/corunet/scs-multiapi-plugin/blob/790f53766b0196932a34d114e0b328821a1eb6c0/src/test/resources/net/coru/api/generator/openapi/integration/test/OpenApiGenerationTest/testExternalRefsGeneration/api-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/test\": get: operation \"listTest\": responses: 200: content: application/json: schema: parse schema: at 1:217: external \"test-config/components.yml\": get: file: local file reference is not allowed"
+}

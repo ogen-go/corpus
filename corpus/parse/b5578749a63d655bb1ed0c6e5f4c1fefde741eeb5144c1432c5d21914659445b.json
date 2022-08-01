@@ -10,10 +10,10 @@
 			"path": "pkg/gin-middleware/test_spec.yaml",
 			"byteSize": 1596,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: TestServer\nservers:\n  - url: http://deepmap.ai/\npaths:\n  /resource:\n    get:\n      operationId: getResource\n      parameters:\n        - name: id\n          in: query\n          schema:\n            type: integer\n            minimum: 10\n            maximum: 100\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                properties:\n                  name:\n                    type: string\n                  id:\n                    type: integer\n    post:\n      operationId: createResource\n      responses:\n        '204':\n          description: No content\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              properties:\n                name:\n                  type: string\n  /protected_resource:\n    get:\n      operationId: getProtectedResource\n      security:\n        - BearerAuth:\n            - someScope\n      responses:\n        '204':\n          description: no content\n  /protected_resource2:\n    get:\n      operationId: getProtectedResource\n      security:\n        - BearerAuth:\n            - otherScope\n      responses:\n        '204':\n          description: no content\n  /protected_resource_401:\n    get:\n      operationId: getProtectedResource\n      security:\n        - BearerAuth:\n            - unauthorized\n      responses:\n        '401':\n          description: no content\ncomponents:\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n",
-			"canonicalURL": "/github.com/deepmap/oapi-codegen@2cf7fcf5b26d1a4362e7c300bd65c20f4f6c4298/-/blob/pkg/gin-middleware/test_spec.yaml",
+			"canonicalURL": "/github.com/deepmap/oapi-codegen@b9782fb00949eec06d88a779fc326dc6324e3a73/-/blob/pkg/gin-middleware/test_spec.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/deepmap/oapi-codegen/blob/2cf7fcf5b26d1a4362e7c300bd65c20f4f6c4298/pkg/gin-middleware/test_spec.yaml",
+					"url": "https://github.com/deepmap/oapi-codegen/blob/b9782fb00949eec06d88a779fc326dc6324e3a73/pkg/gin-middleware/test_spec.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

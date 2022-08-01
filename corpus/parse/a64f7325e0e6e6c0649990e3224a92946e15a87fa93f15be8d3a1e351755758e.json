@@ -10,14 +10,14 @@
 			"path": "spec/data/petstore.yaml",
 			"byteSize": 2225,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n    post:\n      summary: Create a pet\n      operationId: createPets\n      tags:\n        - pets\n      responses:\n        '201':\n          description: Null response\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\ncomponents:\n  schemas:\n    Pets:\n      type: array\n      title: Pets\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Pet:\n      $ref: \"./components/schemas/pet.yaml#/Pet\"\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/ahx/openapi_first@30622e6b29d26edc2e21f9f869f3e8ee23660ec1/-/blob/spec/data/petstore.yaml",
+			"canonicalURL": "/github.com/ahx/openapi_first@e54fa885463a339878e0c87bc09c40cee44983ba/-/blob/spec/data/petstore.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ahx/openapi_first/blob/30622e6b29d26edc2e21f9f869f3e8ee23660ec1/spec/data/petstore.yaml",
+					"url": "https://github.com/ahx/openapi_first/blob/e54fa885463a339878e0c87bc09c40cee44983ba/spec/data/petstore.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: at 1:159: schemas: \"Pet\": parse schema: resolve \"./components/schemas/pet.yaml#/Pet\": external \"./components/schemas/pet.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse schema: at 1:167: external \"./components/schemas/pet.yaml\": get: file: local file reference is not allowed"
 }

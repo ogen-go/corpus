@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vrchatapi/specification"
+		},
+		"file": {
+			"name": "friends.yaml",
+			"size": 0,
+			"path": "openapi/components/paths/friends.yaml",
+			"byteSize": 3725,
+			"content": "openapi: 3.0.3\ninfo:\n  title: friends\n  version: '1.0'\n  description: Friends Docs Here\npaths:\n  /auth/user/friends:\n    get:\n      summary: List Friends\n      tags:\n        - friends\n      x-codeSamples:\n        $ref: \"../codeSamples/friends.yaml#/~1auth~1user~1friends/get\"\n      responses:\n        '200':\n          $ref: ../responses/users/LimitedUserListResponse.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n      operationId: getFriends\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      parameters:\n        - $ref: ../parameters.yaml#/offset\n        - $ref: ../parameters.yaml#/number\n        - $ref: ../parameters.yaml#/offline\n      description: List information about friends.\n  '/user/{userId}/friendStatus':\n    parameters:\n      - $ref: ../parameters.yaml#/userId\n    get:\n      summary: Check Friend Status\n      tags:\n        - friends\n      x-codeSamples:\n        $ref: \"../codeSamples/friends.yaml#/~1user~1{userId}~1friendStatus/get\"\n      responses:\n        '200':\n          $ref: ../responses/friends/FriendStatusResponse.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n      operationId: getFriendStatus\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      description: 'Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming `Notification` of type `friendRequest`, and then accepting that notification.'\n  '/user/{userId}/friendRequest':\n    parameters:\n      - $ref: ../parameters.yaml#/userId\n    post:\n      summary: Send Friend Request\n      tags:\n        - friends\n      operationId: friend\n      description: Send a friend request to another user.\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      x-codeSamples:\n        $ref: \"../codeSamples/friends.yaml#/~1user~1{userId}~1friendRequest/post\"\n      responses:\n        '200':\n          $ref: ../responses/notifications/NotificationResponse.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n        '404':\n          $ref: ../responses/friends/UserDoesntExistError.yaml\n    delete:\n      summary: Delete Friend Request\n      tags:\n        - friends\n      operationId: deleteFriendRequest\n      description: 'Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the `deleteNotification` endpoint instead.'\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      x-codeSamples:\n        $ref: \"../codeSamples/friends.yaml#/~1user~1{userId}~1friendRequest/delete\"\n      responses:\n        '200':\n          $ref: ../responses/friends/DeleteFriendSuccess.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n        '404':\n          $ref: ../responses/friends/DeleteFriendRequestError.yaml\n  '/auth/user/friends/{userId}':\n    parameters:\n      - $ref: ../parameters.yaml#/userId\n    delete:\n      summary: Unfriend\n      operationId: unfriend\n      x-codeSamples:\n        $ref: \"../codeSamples/friends.yaml#/~1auth~1user~1friends~1{userId}/delete\"\n      responses:\n        '200':\n          $ref: ../responses/friends/UnfriendSuccess.yaml\n        '400':\n          $ref: ../responses/friends/NotFriendsError.yaml\n        '401':\n          $ref: ../responses/MissingCredentialsError.yaml\n      description: Unfriend a user by ID.\n      security:\n        - apiKeyCookie: []\n          authCookie: []\n      tags:\n        - friends\ntags:\n  $ref: ../tags.yaml\ncomponents:\n  securitySchemes:\n    $ref: ../securitySchemes.yaml",
+			"canonicalURL": "/github.com/vrchatapi/specification@1a2a4afbfad496a5b0ead6684fa47d01d02387bc/-/blob/openapi/components/paths/friends.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vrchatapi/specification/blob/1a2a4afbfad496a5b0ead6684fa47d01d02387bc/openapi/components/paths/friends.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `../secu...` into ogen.SecurityScheme; yaml: line 1: cannot unmarshal !!map into []ogen.Tag"
+}

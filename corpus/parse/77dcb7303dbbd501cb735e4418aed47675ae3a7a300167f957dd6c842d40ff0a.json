@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apiaddicts/apigen"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "apigen-examples/multifile-definition/api.yaml",
+			"byteSize": 2700,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Apigen Pets\n\npaths:\n  /owners:\n    $ref: \"./owner_api.yaml#/paths/all\"\n  /owners/{id}:\n    $ref: \"./owner_api.yaml#/paths/byId\"\n\n  /tags:\n    $ref: \"./tag_api.yaml#/paths/all\"\n\n  /pets:\n    $ref: \"./pet_api.yaml#/paths/all\"\n  /pets/{id}:\n    $ref: \"./pet_api.yaml#/paths/byId\"\n  /pets/search:\n    $ref: \"./pet_api.yaml#/paths/search\"\n\ncomponents:\n  x-apigen-models:\n    Owner:\n      relational-persistence:\n        table: owners\n      attributes:\n        - name: id\n          type: String\n          relational-persistence:\n            column: id\n            primary-key: true\n          validations:\n            - type: NotNull\n        - name: name\n          type: String\n          relational-persistence:\n            column: name\n        - name: pets\n          type: Array\n          items-type: Pet\n          relational-persistence:\n            foreign-column: owner_id\n\n    Pet:\n      relational-persistence:\n        table: pets\n      attributes:\n        - name: id\n          type: Long\n          relational-persistence:\n            column: id\n            primary-key: true\n          validations:\n            - type: NotNull\n        - name: name\n          type: String\n          relational-persistence:\n            column: name\n        - name: owner\n          type: Owner\n          relational-persistence:\n            column: owner_id\n        - name: tags\n          type: Array\n          items-type: Tag\n          relational-persistence:\n            column: pet_id\n            foreign-column: tag_id\n            intermediate-table: pet_tags\n            owner: true\n        - name: parent\n          type: Pet\n          relational-persistence:\n            column: parent_id\n        - name: children\n          type: Array\n          items-type: Pet\n          relational-persistence:\n            foreign-column: parent_id\n        - name: mainTag\n          type: Tag\n          relational-persistence:\n            column: tag_id\n\n    Tag:\n      relational-persistence:\n        table: tags\n      attributes:\n        - name: id\n          type: Long\n          relational-persistence:\n            column: id\n            primary-key: true\n          validations:\n            - type: NotNull\n        - name: name\n          type: String\n          relational-persistence:\n            column: name\n          validations:\n            - type: Size\n              min: 2\n              max: 10\n        - name: pets\n          type: Array\n          items-type: Pet\n          relational-persistence:\n            foreign-column: tag_id\n\n\nx-apigen-project:\n  name: name\n  description: description\n  version: 1.0.0\n  java-properties:\n    group-id: the.group\n    artifact-id: app",
+			"canonicalURL": "/github.com/apiaddicts/apigen@c906ef588570ff23b6ec2926180f765b85505e5b/-/blob/apigen-examples/multifile-definition/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apiaddicts/apigen/blob/c906ef588570ff23b6ec2926180f765b85505e5b/apigen-examples/multifile-definition/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/owners\": at 1:1694: external \"./owner_api.yaml\": get: file: local file reference is not allowed"
+}

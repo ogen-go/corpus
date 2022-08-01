@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "unknown_ref_apiKey_in.json",
+			"size": 0,
+			"path": "openapi/parser/_testdata/negative/securityScheme/unknown_ref_apiKey_in.json",
+			"byteSize": 561,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"api_key\": []\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"default\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"api_key\": {\n        \"$ref\": \"#/components/securitySchemes/real_api_key\"\n      },\n      \"real_api_key\": {\n        \"type\": \"apiKey\",\n        \"in\": \"amongus\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@3c78ef470e9474d28419d81ab4d6d2f7eba39bab/-/blob/openapi/parser/_testdata/negative/securityScheme/unknown_ref_apiKey_in.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/3c78ef470e9474d28419d81ab4d6d2f7eba39bab/openapi/parser/_testdata/negative/securityScheme/unknown_ref_apiKey_in.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/foo\": get: security: parse security scheme \"api_key\": apiKey: at 30:15: invalid \"in\": \"amongus\""
+}

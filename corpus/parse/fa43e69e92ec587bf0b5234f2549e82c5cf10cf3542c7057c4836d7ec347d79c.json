@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ballerina-platform/openapi-tools"
+		},
+		"file": {
+			"name": "pathParameters.yaml",
+			"size": 0,
+			"path": "openapi-cli/src/test/resources/generators/client/resource/swagger/pathParameters.yaml",
+			"byteSize": 3047,
+			"content": "openapi: 3.0.1\ninfo:\n  title: 'payloadV'\n  version: 1.0.0\nservers:\n  - url: localhost:9090/payloadV\npaths:\n  /:\n    get:\n      operationId: operationId01\n      description: \"op1\"\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n    post:\n      operationId: operationId02\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /v1/{id}:\n    get:\n      operationId: operationId03\n      description: \"op2\"\n      parameters:\n        - name: id\n          description: \"id value\"\n          in: path\n          required: true\n          schema:\n            type: integer\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /v1/{version}/v2/{name}:\n    get:\n      operationId: operationId04\n      parameters:\n        - name: version\n          in: path\n          required: true\n          schema:\n            type: integer\n        - name: name\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /v1/{version}/v2/{limit}:\n    get:\n      operationId: operationId05\n      parameters:\n        - name: version\n          in: path\n          required: true\n          schema:\n            type: integer\n        - name: limit\n          in: path\n          required: true\n          schema:\n            type: integer\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /v1/{age}/v2/{name}:\n    get:\n      operationId: operationId06\n      parameters:\n        - name: age\n          in: path\n          required: true\n          schema:\n            type: integer\n        - name: name\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            text/plain:\n              schema:\n                type: string\n  /admin/api/2021-10/customers/{customer_id}.json:\n    get:\n      summary: \"Retrieves a single customer.\"\n      description: \"https://shopify.dev/docs/admin-api/rest/reference/customers/customer#show-2021-10\"\n      parameters:\n        - in: \"path\"\n          name: \"customer_id\"\n          description: \"Customer ID\"\n          schema:\n            type: string\n          required: true\n        - in: \"query\"\n          name: \"fields\"\n          description: \"Show only certain fields, specified by a comma-separated list of field names.\"\n          schema:\n            type: string\n          required: false\n      tags:\n        - \"customers\"\n      responses:\n        200:\n          description: \"Requested customer\"\n      operationId: \"get_customer\"\ncomponents: {}\n",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@0d024122b5c87997811ccf934b7844990264d79a/-/blob/openapi-cli/src/test/resources/generators/client/resource/swagger/pathParameters.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/0d024122b5c87997811ccf934b7844990264d79a/openapi-cli/src/test/resources/generators/client/resource/swagger/pathParameters.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: at 1:1570: duplicate path: \"/v1/{version}/v2/{limit}\""
+}

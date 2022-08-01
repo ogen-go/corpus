@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "expected.json",
+			"size": 0,
+			"path": "test/data/toBundleExamples/with_parameters/expected.json",
+			"byteSize": 2019,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Sample API\",\n    \"description\": \"Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.\",\n    \"version\": \"0.1.9\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://api.example.com/v1\",\n      \"description\": \"Optional server description, e.g. Main (production) server\"\n    },\n    {\n      \"url\": \"http://staging-api.example.com\",\n      \"description\": \"Optional server description, e.g. Internal staging server for testing\"\n    }\n  ],\n  \"paths\": {\n    \"/users/{userId}\": {\n      \"get\": {\n        \"summary\": \"Get a user by ID\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/_parameters_index.yaml-tagsParam\"\n          },\n          {\n            \"$ref\": \"#/components/parameters/_parameters_index.yaml-limitsParam\"\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A single user.\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/_schemas_user.yaml\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"parameters\": {\n      \"_parameters_index.yaml-tagsParam\": {\n        \"name\": \"tags\",\n        \"in\": \"query\",\n        \"description\": \"tags to filter by\",\n        \"required\": false,\n        \"type\": \"array\",\n        \"collectionFormat\": \"csv\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"_parameters_index.yaml-limitsParam\": {\n        \"name\": \"limit\",\n        \"in\": \"query\",\n        \"description\": \"maximum number of results to return\",\n        \"required\": false,\n        \"type\": \"integer\",\n        \"format\": \"int32\"\n      }\n    },\n    \"schemas\": {\n      \"_schemas_user.yaml\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\"\n          },\n          \"userName\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/-/blob/test/data/toBundleExamples/with_parameters/expected.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/4836bd5f4e6be1462a8b0a912a1445d1bde6ccbb/test/data/toBundleExamples/with_parameters/expected.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"_parameters_index.yaml-limitsParam\": at 58:45: parameter MUST contain either a schema property, or a content property"
+}

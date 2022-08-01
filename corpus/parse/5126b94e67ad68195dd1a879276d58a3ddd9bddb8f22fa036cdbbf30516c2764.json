@@ -10,10 +10,10 @@
 			"path": "tests/specs/menu.yaml",
 			"byteSize": 1699,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Menu prototype for test migrations\n  license:\n    name: MIT\nservers:\n  - url: http://menu.dummy.io/v1\npaths:\n  /:\n    get:\n      summary: List all\n      operationId: listAll\n      tags:\n        - all\n      responses:\n        '200':\n          description: A paged array of menu items\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/Menu\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Menu:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n          readOnly: True\n        name:\n          type: string\n          maxLength: 100\n          minLength: 3\n        parent:\n          $ref: '#/components/schemas/Menu/properties/id'\n        childes:\n          type: array\n          items:\n             $ref: '#/components/schemas/Menu/properties/parent'\n        args:\n          type: array\n          x-db-type: text[]\n          default:\n            - foo\n            - bar\n            - baz\n        kwargs:\n          type: string\n          x-db-type: json\n          default:\n            - foo: bar\n            - buzz: fizz\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/cebe/yii2-openapi@d58b20675b5feaddc2bac2ab0ba1a3a2f41ffff3/-/blob/tests/specs/menu.yaml",
+			"canonicalURL": "/github.com/cebe/yii2-openapi@51853d5fa95f7239e14ecf1911122ff6e11f7401/-/blob/tests/specs/menu.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/cebe/yii2-openapi/blob/d58b20675b5feaddc2bac2ab0ba1a3a2f41ffff3/tests/specs/menu.yaml",
+					"url": "https://github.com/cebe/yii2-openapi/blob/51853d5fa95f7239e14ecf1911122ff6e11f7401/tests/specs/menu.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

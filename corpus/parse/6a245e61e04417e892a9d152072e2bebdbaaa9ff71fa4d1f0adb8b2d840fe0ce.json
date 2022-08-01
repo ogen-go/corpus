@@ -10,14 +10,14 @@
 			"path": "tests/integration/data/v3.0/parent-reference/openapi.yaml",
 			"byteSize": 938,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenAPI Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - $ref: \"recursive.yaml#/parameters/RecursiveReference\"\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"spec/components.yaml#/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"common.yaml#/schemas/Error\"\n",
-			"canonicalURL": "/github.com/p1c2u/openapi-spec-validator@ce49ffe0e6fe9ed0ec5ad392ca52329c0f81d7b2/-/blob/tests/integration/data/v3.0/parent-reference/openapi.yaml",
+			"canonicalURL": "/github.com/p1c2u/openapi-spec-validator@a29b4f9dd64eed13e2f1c1e046d7b6cfe89a5b0c/-/blob/tests/integration/data/v3.0/parent-reference/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/p1c2u/openapi-spec-validator/blob/ce49ffe0e6fe9ed0ec5ad392ca52329c0f81d7b2/tests/integration/data/v3.0/parent-reference/openapi.yaml",
+					"url": "https://github.com/p1c2u/openapi-spec-validator/blob/a29b4f9dd64eed13e2f1c1e046d7b6cfe89a5b0c/tests/integration/data/v3.0/parent-reference/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/pets\": get: operation \"listPets\": parameters: parse parameter \"\": at 1:163: resolve \"recursive.yaml#/parameters/RecursiveReference\" reference: external \"recursive.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse operations: path \"/pets\": get: operation \"listPets\": parameters: parse parameter \"\": at 1:171: external \"recursive.yaml\": get: file: local file reference is not allowed"
 }
