@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anttiviljami/openapi-backend"
+		},
+		"file": {
+			"name": "refs.openapi.json",
+			"size": 0,
+			"path": "__tests__/resources/refs.openapi.json",
+			"byteSize": 1331,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Circular References\",\n    \"description\": \"API with circular references\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/trees\": {\n\t\t\t\"post\": {\n\t\t\t\t\"operationId\": \"createTree\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"description\": \"ok\" \n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"requestBody\": { \n\t\t\t\t\t\"$ref\": \"#/components/requestBodies/CreateTree\" \n\t\t\t\t}\n\t\t\t},\n\t\t\t\"get\": {\n\t\t\t\t\"operationId\": \"getTrees\",\n\t\t\t\t\"responses\": { \n\t\t\t\t\t\"200\": { \n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t} \n\t\t\t\t},\n\t\t\t\t\"parameters\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"subtree\",\n\t\t\t\t\t\t\"in\": \"query\",\n\t\t\t\t\t\t\"description\": \"Filter trees by existance of a subtree\",\n\t\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\t\"$ref\": \"#/components/schemas/BinTree\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n\t\t\t\"BinTree\": {\n\t\t\t\t\"title\": \"BinTree\",\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"nullable\": true,\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"left\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"right\": { \n\t\t\t\t\t\t\"allOf\": [{ \"$ref\": \"#/components/schemas/BinTree\" }]\n\t\t\t\t\t},\n\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\"type\": \"number\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"requestBodies\": {\n\t\t\t\"CreateTree\": {\n\t\t\t\t\"content\": {\n\t\t\t\t\t\"application/json\": {\n\t\t\t\t\t\t\"schema\": { \"$ref\": \"#/components/schemas/BinTree\" }\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n  }\n}",
+			"canonicalURL": "/github.com/anttiviljami/openapi-backend@0aacfbf635b96521feb649c5ca5a6435eecd1259/-/blob/__tests__/resources/refs.openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anttiviljami/openapi-backend/blob/0aacfbf635b96521feb649c5ca5a6435eecd1259/__tests__/resources/refs.openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/trees\": get: responses: code 200: save type: schema name conflict: \"BinTree\""
+}

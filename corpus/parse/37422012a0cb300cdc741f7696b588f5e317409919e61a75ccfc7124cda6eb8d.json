@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/algolia/api-clients-automation"
+		},
+		"file": {
+			"name": "spec.yml",
+			"size": 0,
+			"path": "specs/predict/spec.yml",
+			"byteSize": 2025,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Predict API\n  description: API powering the Predict feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://predict.{region}.algolia.com\n    variables:\n      region:\n        enum:\n          - eu\n          - us\n        default: eu\n        description: \u003e\n          Region where your Predict data is stored and processed:\n            * `eu` - Europe\n            * `us` - United States.\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: models\n    x-displayName: Models\n    description: Manage models.\n  - name: profiles\n    x-displayName: Profiles\n    description: Manage users' profiles.\n  - name: segments\n    x-displayName: Segments\n    description: Manage segments.\nx-tagGroups:\n  - name: General\n    tags:\n      - profiles\n      - models\n      - segments\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  # ######################\n  # ### Users request ###\n  # ######################\n  /1/users/{userID}/fetch:\n    $ref: 'paths/users/fetch.yml'\n\n  /1/users/{userID}:\n    $ref: 'paths/users/delete.yml'\n\n  /1/users:\n    $ref: 'paths/users/fetchAll.yml'\n\n  # ######################\n  # ### Model request ###\n  # ######################\n  /1/predict/modeltypes:\n    $ref: 'paths/models/getAvailableModelTypes.yml'\n\n  /1/predict/models/{modelID}:\n    $ref: 'paths/models/modelInstances.yml'\n\n  /1/predict/models:\n    $ref: 'paths/models/models.yml'\n\n  /1/predict/models/{modelID}/metrics:\n    $ref: 'paths/models/getModelMetrics.yml'\n\n  # ########################\n  # ### Segments request ###\n  # ########################\n  /1/segments/{segmentID}/users:\n    $ref: 'paths/segments/segmentUsers.yml'\n\n  /1/segments/{segmentID}:\n    $ref: 'paths/segments/singleSegment.yml'\n\n  /1/segments:\n    $ref: 'paths/segments/allSegments.yml'\n",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@9d762cd75564327adbddf6a602baebe2a3e2e3c0/-/blob/specs/predict/spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/algolia/api-clients-automation/blob/9d762cd75564327adbddf6a602baebe2a3e2e3c0/specs/predict/spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/1/predict/models\": at 1:316: external \"paths/models/models.yml\": get: file: local file reference is not allowed"
+}

@@ -10,10 +10,10 @@
 			"path": "projects/openapi-cli/src/tests/inputs/invalid-refs.yml",
 			"byteSize": 1692,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Petstore\n  version: 1.0.0\npaths:\n  /pet/findByStatus:\n    get:\n      responses:\n        '200':\n          description: automatically documented through Optic\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    id:\n                      type: number\n                    category:\n                      $ref: '#/components/schemas/Category'\n                    user:\n                      $ref: '#/components/schemas/User' # doesn't exist yet\n                    name:\n                      type: string\n                    photoUrls:\n                      type: array\n                      items:\n                        type: string\n                    tags:\n                      type: array\n                      items:\n                        type: object\n                        properties:\n                          id:\n                            type: number\n                          name:\n                            type: string\n                        required:\n                          - id\n                          - name\n                    status:\n                      type: string\n                  required:\n                    - id\n                    - photoUrls\n                    - tags\n                    - status\nservers:\n  - url: http://petstore.swagger.io/v2\n  - url: https://petstore.swagger.io/v2\ncomponents:\n  schemas:\n    Category:\n      type: object\n      properties:\n        id:\n          type: number\n        name:\n          type: string\n      required:\n        - id\n",
-			"canonicalURL": "/github.com/opticdev/optic@03ead21e7ecf59631587df1929520b095618cfd9/-/blob/projects/openapi-cli/src/tests/inputs/invalid-refs.yml",
+			"canonicalURL": "/github.com/opticdev/optic@e49dec30b5d76f0f8fe627f2bf2b5fa25392e2d9/-/blob/projects/openapi-cli/src/tests/inputs/invalid-refs.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/opticdev/optic/blob/03ead21e7ecf59631587df1929520b095618cfd9/projects/openapi-cli/src/tests/inputs/invalid-refs.yml",
+					"url": "https://github.com/opticdev/optic/blob/e49dec30b5d76f0f8fe627f2bf2b5fa25392e2d9/projects/openapi-cli/src/tests/inputs/invalid-refs.yml",
 					"serviceKind": "GITHUB"
 				}
 			]

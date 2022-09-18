@@ -10,10 +10,10 @@
 			"path": "metrics/docs/openapi/metrics/index.yaml",
 			"byteSize": 1467,
 			"content": "# Orchestrator API base spec\nopenapi: 3.0.0\ninfo:\n  title: \"Metrics API\"\n  version: 1.0.0\n  description: \"API for metrics and metadata for the Piipan system.\"\ntags:\n  - name: \"Metrics\"\nservers:\n  - url: \"/v1\"\npaths:\n  /participant_uploads:\n    get:\n      tags:\n        - \"Participant Uploads\"\n      summary: \"participant uploads index\"\n      description: \"Queries metrics database to show which states are uploading participants and when\"\n      parameters:\n        - $ref: '../schemas/participant-uploads.yaml#/components/parameters/State'\n      responses:\n        '200':\n          description: \"List of participant upload events\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ParticipantUploadsResponse'\n  /getlastupload:\n    get:\n      tags:\n        - \"Participant Uploads\"\n      summary: \"get last upload\"\n      description: \"Gets the last upload from each state, ordered by least recent upload first\"\n      responses:\n        '200':\n          description: \"List of participant upload events\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ParticipantUploadsResponse'\nsecurity:\n  - BearerAuth: []\ncomponents:\n  schemas:\n    ParticipantUploadsResponse:\n      $ref: '../schemas/participant-uploads.yaml#/ParticipantUploadsResponse'\n  securitySchemes:\n    BearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n",
-			"canonicalURL": "/github.com/18F/piipan@855e344b80ca7ad2cc7c40e7b48ae9db1029b575/-/blob/metrics/docs/openapi/metrics/index.yaml",
+			"canonicalURL": "/github.com/18F/piipan@753a7b6f00b1d0b90fdcaea881d53ee1a1b3e3d7/-/blob/metrics/docs/openapi/metrics/index.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/18F/piipan/blob/855e344b80ca7ad2cc7c40e7b48ae9db1029b575/metrics/docs/openapi/metrics/index.yaml",
+					"url": "https://github.com/18F/piipan/blob/753a7b6f00b1d0b90fdcaea881d53ee1a1b3e3d7/metrics/docs/openapi/metrics/index.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

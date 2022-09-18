@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Environment"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "NoisePollution/swagger.yaml",
+			"byteSize": 1679,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    NoisePollution: \n      $ref: \"https://smart-data-models.github.io/dataModel.Environment/NoisePollution/model.yaml#/NoisePollution\"\ninfo:\n  description:  |\n    Noise Pollution data model merges specific and punctual noise measurements (coming, e.g. from NoiseLevelObservation entities) into average parameters referred to city areas, providing a more city-related data about noise pollution status and evolution.\n  title: NoisePollution\n  version: \"0.0.2\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - NoisePollution\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/NoisePollution/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/NoisePollution/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Environment@25be9dcebce4dc8428220655523a91cb74179bd4/-/blob/NoisePollution/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Environment/blob/25be9dcebce4dc8428220655523a91cb74179bd4/NoisePollution/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"NoisePollution\": parse schema: at 1:52: external \"https://smart-data-models.github.io/dataModel.Environment/NoisePollution/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Environment/NoisePollution/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

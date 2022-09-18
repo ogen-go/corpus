@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "issue409.yml",
+			"size": 0,
+			"path": "openapi3/testdata/issue409.yml",
+			"byteSize": 554,
+			"content": "openapi: 3.0.3\ninfo:\n  description: Contains Patterns that can't be compiled by the go regexp engine\n  title: Issue 409\n  version: 0.0.1\npaths:\n  /v1/apis/{apiID}:\n    get:\n      description: Get a list of all Apis and there versions for a given workspace\n      operationId: getApisV1\n      parameters:\n        - description: The ID of the API\n          in: path\n          name: apiID\n          required: true\n          schema:\n            type: string\n            pattern: ^[a-zA-Z0-9]{0,4096}$\n      responses:\n        \"200\":\n          description: OK\n",
+			"canonicalURL": "/github.com/getkin/kin-openapi@68016e06befbe1aa795cf3e310d932b9abb412ba/-/blob/openapi3/testdata/issue409.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getkin/kin-openapi/blob/68016e06befbe1aa795cf3e310d932b9abb412ba/openapi3/testdata/issue409.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/v1/apis/{apiID}\": get: parameters: \"apiID\": string validator: pattern: error parsing regexp: invalid repeat count: `{0,4096}`"
+}

@@ -10,10 +10,10 @@
 			"path": "t/spec/v3-default-response-extra.yaml",
 			"byteSize": 1157,
 			"content": "openapi: 3.0.0\ninfo:\n  title: v3-default-response-extra\n  version: 0.0.1\ncomponents:\n  schemas:\n    base:\n      type: object\n      required: [status, reason]\n      properties:\n        status:\n          type: integer\n        reason:\n          type: string\n    not_found:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/base'\n    exception:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/base'\n  responses:\n    '404':\n      description: Custom 404\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/not_found'\npaths:\n  /item/{id}:\n    get:\n      summary: get a single item\n      description: get a single item from the database\n      x-mojo-name: item\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/base'\n        '404':\n          $ref: '#/components/responses/404'\n        '500':\n          description: Custom 500\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/exception'\n",
-			"canonicalURL": "/github.com/jhthorsen/json-validator@06ba4807a4c35ec58ac1347708ac5fc501ee59bf/-/blob/t/spec/v3-default-response-extra.yaml",
+			"canonicalURL": "/github.com/jhthorsen/json-validator@f1fd0e8c0a4f01728e396a2645f6390e58d0dda4/-/blob/t/spec/v3-default-response-extra.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/jhthorsen/json-validator/blob/06ba4807a4c35ec58ac1347708ac5fc501ee59bf/t/spec/v3-default-response-extra.yaml",
+					"url": "https://github.com/jhthorsen/json-validator/blob/f1fd0e8c0a4f01728e396a2645f6390e58d0dda4/t/spec/v3-default-response-extra.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

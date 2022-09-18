@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "operationid-quirks.json",
+			"size": 0,
+			"path": "packages/api/test/__fixtures__/definitions/operationid-quirks.json",
+			"byteSize": 1195,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"Quirky `operationID` cases\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org/anything\"\n    }\n  ],\n  \"paths\": {\n    \"/quirky-operationId\": {\n      \"get\": {\n        \"description\": \"This mess of a string is intentionally nasty so we can be sure that we're not including anything that wouldn't look right as an operationID for a potential method accessor in `api`.\",\n        \"operationId\": \"quirky/?*!@#$%^\u0026*()-=_.,\u003c\u003e+[]{}\\\\|operation-id_string\"\n      }\n    },\n    \"/no-operation-id\": {\n      \"get\": {\n        \"description\": \"This operation doesn't have an `operationId` so we should create one.\"\n      }\n    },\n    \"/get-operation-path-starts-with-an-http-method\": {\n      \"get\": {\n        \"description\": \"This operation has no `operationId` but because path starts with an HTTP method when we generate an `operationId` that has `get` doubled.\"\n      }\n    },\n    \"/hyphenated-operation-id\": {\n      \"get\": {\n        \"operationId\": \"hyphenated-operation-id\",\n        \"description\": \"This operation has an `operationId` with hypens yet it should still be accessible in the dynamic `api` flow.\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/api@a9c6ce28b3bcb6981e2135180c19f39ef6f025af/-/blob/packages/api/test/__fixtures__/definitions/operationid-quirks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/api/blob/a9c6ce28b3bcb6981e2135180c19f39ef6f025af/packages/api/test/__fixtures__/definitions/operationid-quirks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/get-operation-path-starts-with-an-http-method\": get: at 25:14: responses: no responses"
+}

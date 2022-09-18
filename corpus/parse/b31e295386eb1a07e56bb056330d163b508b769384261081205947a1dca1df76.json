@@ -10,10 +10,10 @@
 			"path": "packages/laminar-cli/test/specs/statements.yaml",
 			"byteSize": 1188,
 			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Boost statements\n  version: 1.0.0\nservers:\n  - url: http://localhost:8094\npaths:\n  '/accounts/{accountId}/meters':\n    get:\n      summary: Get Meters, associated with an account, and its service start and end dates (SSD...SED)\n      parameters:\n        - { $ref: '#/components/parameters/accountId' }\n      responses:\n        'default': { $ref: '#/components/responses/HttpErrorResponse' }\n        '200':\n          description: An list of meters for an account\n          content:\n            application/json:\n              schema:\n                type: array\n                items: { $ref: 'statements-files/account-meter.yaml#/AccountMeter' }\n\ncomponents:\n  responses:\n    HttpErrorResponse:\n      description: Error Response\n      content:\n        application/json:\n          schema: { $ref: '#/components/schemas/HttpError' }\n\n  parameters:\n    accountId:\n      name: accountId\n      in: path\n      schema:\n        $ref: '#/components/schemas/AccountId'\n      required: true\n\n  schemas:\n    AccountId:\n      type: string\n      pattern: '\\\\d+'\n    HttpError:\n      additionalProperties: false\n      properties:\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/ovotech/laminar@d197413e78625b710480de35e99e5d5d9d13a6cc/-/blob/packages/laminar-cli/test/specs/statements.yaml",
+			"canonicalURL": "/github.com/ovotech/laminar@e752a12aec39c88f7eeefcc04345b36225be4d6c/-/blob/packages/laminar-cli/test/specs/statements.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ovotech/laminar/blob/d197413e78625b710480de35e99e5d5d9d13a6cc/packages/laminar-cli/test/specs/statements.yaml",
+					"url": "https://github.com/ovotech/laminar/blob/e752a12aec39c88f7eeefcc04345b36225be4d6c/packages/laminar-cli/test/specs/statements.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

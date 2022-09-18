@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "base.yml",
+			"size": 0,
+			"path": "openapi3/testdata/circularRef/base.yml",
+			"byteSize": 335,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: Recursive cyclic refs example\n  version: \"1.0\"\ncomponents:\n  schemas:\n    Foo:\n      properties:\n        foo2:\n          $ref: \"other.yml#/components/schemas/Foo2\"\n        bar:\n          $ref: \"#/components/schemas/Bar\"\n    Bar:\n      properties:\n        foo:\n          $ref: \"#/components/schemas/Foo\"\n",
+			"canonicalURL": "/github.com/getkin/kin-openapi@68016e06befbe1aa795cf3e310d932b9abb412ba/-/blob/openapi3/testdata/circularRef/base.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getkin/kin-openapi/blob/68016e06befbe1aa795cf3e310d932b9abb412ba/openapi3/testdata/circularRef/base.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Bar\": parse schema: property \"foo\": parse schema: parse schema: property \"foo2\": parse schema: at 1:170: external \"other.yml\": get: file: local file reference is not allowed"
+}

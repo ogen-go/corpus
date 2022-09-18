@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/redocly-cli"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "__tests__/lint/no-enum-type-mismatch-error-recommended-config/openapi.yaml",
+			"byteSize": 857,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Petstore API\n  version: 1.0.0\n  description: description\nsecurity: []\n\npaths:\n\n  /v1/pets/{petId}:\n    get:\n      operationId: getPet\n      parameters:\n      - name: petId\n        in: path\n        required: true\n        schema:\n          type: string\n      responses:\n        '200':\n          description: Details of the requested pet.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Pet'\n\n        '400':\n          description: Bad Request.\n        '500': \n          description: Internal Server Error.\n\ncomponents:\n\n  schemas:\n    Pet:\n      type: object\n      required:\n        -  id\n      properties:\n        name:\n          type: string\n        id:\n          type: string\n          format: uuid\n        status:\n          type: string\n          enum: string",
+			"canonicalURL": "/github.com/Redocly/redocly-cli@bb8b9121c4d7d88352dbc6723ce70db377b8a79e/-/blob/__tests__/lint/no-enum-type-mismatch-error-recommended-config/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Redocly/redocly-cli/blob/bb8b9121c4d7d88352dbc6723ce70db377b8a79e/__tests__/lint/no-enum-type-mismatch-error-recommended-config/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: line 1: cannot unmarshal !!str into *jsonschema.Enum"
+}

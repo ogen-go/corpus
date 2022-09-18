@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/emanuelfreitas/3gpp-documentation"
+		},
+		"file": {
+			"name": "TS29558_Eees_UEIdentifier.yaml",
+			"size": 0,
+			"path": "apis/TS29558_Eees_UEIdentifier.yaml",
+			"byteSize": 3173,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: EES UE Identifier Service\n  version: 1.0.0\n  description: |\n    EES UE Identifier Service.  \n    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  \n    All rights reserved.\n\nexternalDocs:\n  description: \u003e\n    3GPP TS 29.558 V17.0.0; Enabling Edge Applications;\n    Application Programming Interface (API) specification; Stage 3.\n  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.558/\n\nsecurity:\n  - {}\n  - oAuth2ClientCredentials: []\n\nservers:\n  - url: '{apiRoot}/eees-ueidentifier/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in clause 5.2.4 of 3GPP TS 29.122\n\npaths:\n  /fetch:\n    post:\n      summary: Fetch the identifier of an UE.\n      operationId: FetchUEId\n      tags:\n        - Fetch UE Identifier\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/UserInformation'\n      responses:\n        '200':\n          description: \u003e\n            The communicated ACR update information was successfully received.\n            The response body contains the feedback of the EES.\n          content:\n            application/json:\n              schema:\n                $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'\n        '307':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/307'\n        '308':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/308'\n        '400':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/400'\n        '401':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/401'\n        '403':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/403'\n        '404':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/404'\n        '411':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/411'\n        '413':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/413'\n        '415':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/415'\n        '429':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/429'\n        '500':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/503'\n        default:\n          $ref: 'TS29122_CommonData.yaml#/components/responses/default'\n\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: '{tokenUrl}'\n          scopes: {}\n\n  schemas:\n    UserInformation:\n      description: \u003e\n        Represents information about the User or the UE, that used by EES to use 3GPP CN capability \n        to retrieve the EAS specific UE identifier.\n      type: object\n      properties:\n        easId:\n          type: string\n        easProviderId:\n          type: string\n        ipAddr:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/IpAddr'\n        suppFeat:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n      required:\n        - easId\n        - ipAddr\n",
+			"canonicalURL": "/github.com/emanuelfreitas/3gpp-documentation@490692e123da5532e8bc46f33394d0a6402fd036/-/blob/apis/TS29558_Eees_UEIdentifier.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/emanuelfreitas/3gpp-documentation/blob/490692e123da5532e8bc46f33394d0a6402fd036/apis/TS29558_Eees_UEIdentifier.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"UserInformation\": parse schema: property \"ipAddr\": parse schema: at 1:292: external \"TS29571_CommonData.yaml\": get: file: local file reference is not allowed"
+}

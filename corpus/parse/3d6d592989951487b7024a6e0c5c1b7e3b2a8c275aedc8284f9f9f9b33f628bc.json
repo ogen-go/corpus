@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 			"byteSize": 752,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"test\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"empty\": null\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BaseEntityDto\": {\n        \"$ref\": \"./issue-304_parent.json#/components/schemas/BaseEntity\"\n      },\n      \"InheritanceDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Inheritance\"\n      },\n      \"CompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/Composition\"\n      },\n      \"InheritanceAndCompositionDto\": {\n        \"$ref\": \"./issue-304_child.json#/components/schemas/InheritanceAndComposition\"\n      },\n      \"ReferenceToTheSameFile\": {\n        \"$ref\": \"./issue-304.json#/components/schemas/InheritanceAndCompositionDto\"\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@03733f8e20bea437df69d7523f44df68866d26a9/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/03733f8e20bea437df69d7523f44df68866d26a9/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-304.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"BaseEntityDto\": parse schema: at 13:17: external \"./issue-304_parent.json\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"CompositionDto\": parse schema: at 19:17: external \"./issue-304_child.json\": get: file: local file reference is not allowed"
 }

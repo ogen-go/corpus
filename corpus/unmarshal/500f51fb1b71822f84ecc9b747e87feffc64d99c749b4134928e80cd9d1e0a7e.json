@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/shopware/platform"
+		},
+		"file": {
+			"name": "country-state.json",
+			"size": 0,
+			"path": "src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/country-state.json",
+			"byteSize": 2858,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": [],\n    \"paths\": {\n        \"/country-state/{countryId}\": {\n            \"post\": {\n                \"tags\": [\n                    \"System \u0026 Context\",\n                    \"Endpoints supporting Criteria \"\n                ],\n                \"summary\": \"Fetch the states of a country\",\n                \"description\": \"Perform a filtered search the states for a country\",\n                \"operationId\": \"readCountryState\",\n                \"parameters\": [\n                  {\n                    \"name\": \"countryId\",\n                    \"in\": \"path\",\n                    \"required\": true,\n                    \"schema\": {\n                      \"type\": \"string\",\n                      \"pattern\": \"^[0-9a-f]{32}$\"\n                    }\n                  }\n                ],\n                \"requestBody\": {\n                    \"required\": false,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"allOf\": [\n                                    {\n                                        \"$ref\": \"#/components/schemas/Criteria\"\n                                    }\n                                ]\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"Entity search result containing countries.\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"object\",\n                                    \"allOf\": [\n                                        {\n                                            \"properties\": {\n                                                \"elements\": {\n                                                    \"type\": \"array\",\n                                                    \"items\": {\n                                                        \"$ref\": \"#/components/schemas/CountryState\"\n                                                    }\n                                                }\n                                            },\n                                            \"type\": \"object\"\n                                        },\n                                        {\n                                            \"$ref\": \"#/components/schemas/EntitySearchResult\"\n                                        }\n                                    ]\n                                }\n                            }\n                        }\n                    }\n                },\n                \"security\": [\n                    {\n                        \"ApiKey\": []\n                    }\n                ]\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/shopware/platform@92ec4c42cd963a2af2ff7ec2bc4b721b65312b30/-/blob/src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/country-state.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/shopware/platform/blob/92ec4c42cd963a2af2ff7ec2bc4b721b65312b30/src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/country-state.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 3: cannot unmarshal !!seq into ogen.Info"
+}

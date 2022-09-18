@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "all_of_property.json",
+			"size": 0,
+			"path": "test/data/valid_openapi/all_of_property.json",
+			"byteSize": 2358,
+			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"title\": \"Platform API\",\n    \"description\": \"[ Platform](https://server.dev) provides functionality to provide access to content stored within. It provides endpoints for basic manipulation of files and folder.\",\n    \"termsOfService\": \"https://server.com/s\",\n    \"contact\": {\n      \"name\": \"nc\",\n      \"url\": \"https://server.dev\",\n      \"email\": \"dev@server.com\"\n    },\n    \"license\": {\n      \"name\": \"Apache-2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0\"\n    },\n    \"version\": \"2.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://server.com/2.0\",\n      \"description\": \"Platform API server\"\n    }\n  ],\n  \"paths\": {\n    \"/files\": {\n      \"get\": {\n        \"operationId\": \"get_Files\",\n        \"summary\": \"List files \",\n        \"tags\": [\n          \"Skills\"\n        ],\n        \"description\": \"List the files.\",\n        \"parameters\": [\n          {\n            \"name\": \"file_id\",\n            \"description\": \"The unique identifier\",\n            \"example\": \"12345\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Returns all the data.\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/File\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"File\": {\n        \"title\": \"File\",\n        \"type\": \"object\",\n        \"description\": \"A mini representation of a file\",\n        \"required\": [\n          \"id\"\n        ],\n        \"allOf\": [\n          {\n            \"properties\": {\n              \"id\": {\n                \"allOf\": [\n                  {\n                    \"type\": \"string\",\n                    \"example\": \"3\",\n                    \"nullable\": false,\n                    \"description\": \"A numeric identifier\"\n                  },\n                  {\n                    \"nullable\": false\n                  }\n                ]\n              },\n              \"name\": {\n                \"type\": \"string\",\n                \"description\": \"The name of the file\",\n                \"example\": \"Contract.pdf\"\n              }\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@bdfeadb49daea91fe06f4fca3d783eba16793369/-/blob/test/data/valid_openapi/all_of_property.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/bdfeadb49daea91fe06f4fca3d783eba16793369/test/data/valid_openapi/all_of_property.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/files\": get: responses: code 200: contents: media: \"application/json\": generate schema: allOf: field id: allOf: schema type mismatch: string and "
+}

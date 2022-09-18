@@ -10,10 +10,10 @@
 			"path": "gateway-api/openapi.yaml",
 			"byteSize": 1161,
 			"content": "openapi: 3.0.3\ninfo:\n  title: OpenAPI definition\n  version: v0.1\n\npaths:\n  \"/v0.1/transactions\":\n    post:\n      tags:\n        - gateway-controller\n      operationId: createGatewayPendingTransactions\n      requestBody:\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/CreateTransactionRequest\"\n        required: true\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/LogEvent\"\n        '500':\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/GatewayApiError\"\n\ncomponents:\n  schemas:\n    GatewayApiError:\n      required:\n        - code\n        - message\n        - status\n      type: object\n      properties:\n        status:\n          type: integer\n          format: int32\n        code:\n          type: string\n          enum:\n            - UNKNOWN\n            - VALIDATION\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/rarible/ethereum-openapi@f98d0fcf2d5a9b8be3a6ea78852e2dcb0393d0eb/-/blob/gateway-api/openapi.yaml",
+			"canonicalURL": "/github.com/rarible/ethereum-openapi@8516f6b1f3af53133df826ce4e1bd8f4a4363786/-/blob/gateway-api/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/rarible/ethereum-openapi/blob/f98d0fcf2d5a9b8be3a6ea78852e2dcb0393d0eb/gateway-api/openapi.yaml",
+					"url": "https://github.com/rarible/ethereum-openapi/blob/8516f6b1f3af53133df826ce4e1bd8f4a4363786/gateway-api/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

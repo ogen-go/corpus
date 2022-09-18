@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/shopware/platform"
+		},
+		"file": {
+			"name": "handle-payment.json",
+			"size": 0,
+			"path": "src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/handle-payment.json",
+			"byteSize": 2363,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": [],\n    \"paths\": {\n        \"/handle-payment\": {\n            \"post\": {\n                \"tags\": [\n                    \"Payment \u0026 Shipping\"\n                ],\n                \"summary\": \"Initiate a payment for an order\",\n                \"description\": \"This generic endpoint is should be called to initiate a payment flow after an order has been created. The details of the payment flow can differ depending on the payment integration and might require calling additional operations or the setup of webhooks.\\n\\nThe endpoint internally calls the payment handler of the payment method currently set for the order.\",\n                \"operationId\": \"handlePaymentMethod\",\n                \"requestBody\": {\n                    \"required\": true,\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"required\": [\n                                    \"orderId\"\n                                ],\n                                \"properties\": {\n                                    \"orderId\": {\n                                        \"description\": \"Identifier of an order\",\n                                        \"type\": \"string\"\n                                    },\n                                    \"finishUrl\": {\n                                        \"description\": \"URL to which the client should be redirected after successful payment\",\n                                        \"type\": \"string\"\n                                    },\n                                    \"errorUrl\": {\n                                        \"description\": \"URL to which the client should be redirected after erroneous payment\",\n                                        \"type\": \"string\"\n                                    }\n                                },\n                                \"type\": \"object\"\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"Redirect to external payment provider\"\n                    }\n                },\n                \"security\": [\n                    {\n                        \"ApiKey\": []\n                    }\n                ]\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/shopware/platform@92ec4c42cd963a2af2ff7ec2bc4b721b65312b30/-/blob/src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/handle-payment.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/shopware/platform/blob/92ec4c42cd963a2af2ff7ec2bc4b721b65312b30/src/Core/Framework/Api/ApiDefinition/Generator/Schema/StoreApi/paths/handle-payment.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 3: cannot unmarshal !!seq into ogen.Info"
+}

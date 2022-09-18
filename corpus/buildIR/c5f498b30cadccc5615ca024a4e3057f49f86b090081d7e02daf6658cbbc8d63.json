@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/deepobject.yaml",
 			"byteSize": 833,
 			"content": "openapi: 3.0.3\r\ninfo:\r\n  title: deepobject-test\r\n  version: 1.0.0\r\npaths:\r\n  /test:\r\n    get:\r\n      operationId: test\r\n      parameters:\r\n        - name: options\r\n          in: query\r\n          required: false\r\n          style: deepObject\r\n          schema:\r\n            $ref: '#/components/schemas/Options'\r\n          explode: true\r\n      responses:\r\n        '200':\r\n          description: OK\r\n          content:\r\n            text/plain:\r\n              schema:\r\n                type: string\r\ncomponents:\r\n  schemas:\r\n    Options:\r\n      type: object\r\n      properties:\r\n        a:\r\n          nullable: true\r\n          type: string\r\n          format: date-time\r\n        b:\r\n          type: string\r\n          nullable: true\r\n          format: date-time\r\n        c:\r\n          type: array\r\n          items:\r\n            type: string\r\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4635dda5181fd34d50643d2b9dcfcaaef64db418/-/blob/modules/openapi-generator/src/test/resources/3_0/deepobject.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/-/blob/modules/openapi-generator/src/test/resources/3_0/deepobject.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4635dda5181fd34d50643d2b9dcfcaaef64db418/modules/openapi-generator/src/test/resources/3_0/deepobject.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/modules/openapi-generator/src/test/resources/3_0/deepobject.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: parameters: fail: \"options\": field \"C\": nested arrays not allowed"
+	"Error": "buildIR: make ir: path \"/test\": get: parameters: \"options\": field \"C\": nested arrays not allowed"
 }

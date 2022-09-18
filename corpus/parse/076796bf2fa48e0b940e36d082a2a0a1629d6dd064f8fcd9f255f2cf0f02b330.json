@@ -10,10 +10,10 @@
 			"path": "Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
 			"byteSize": 1403,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /maps/{mapDbId}:\n    get:\n      summary: Get the details of a specific Genomic Map\n      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup\n      parameters:\n      - description: The ID which uniquely identifies a `GenomeMap`\n        in: path\n        name: mapDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: GenomeMapSingleResponse\n                type: object\n                required:\n                - metadata\n                - result\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/GenomeMap'\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Genome Maps\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

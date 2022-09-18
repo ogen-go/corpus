@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/Plates/Plates_PlateDbId_GET.yaml",
 			"byteSize": 1456,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /plates/{plateDbId}:\n    get:\n      summary: Get the details of a specific Plate.\n      description: Get the details of a specific `Plate`. Each `Plate` is a collection of `Samples` that are physically grouped together.\n      parameters:\n      - description: The ID which uniquely identifies a `Plate`\n        in: path\n        name: plateDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/PlateSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Plates\ncomponents:\n  responses:\n    PlateSingleResponse:\n      content:\n        application/json:\n          schema:\n            title: PlateSingleResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/Plate'\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@da51ee3cc91464aeed50d0dfd1cc113932ad0b87/-/blob/Specification/BrAPI-Genotyping/Plates/Plates_PlateDbId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Genotyping/Plates/Plates_PlateDbId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/da51ee3cc91464aeed50d0dfd1cc113932ad0b87/Specification/BrAPI-Genotyping/Plates/Plates_PlateDbId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Genotyping/Plates/Plates_PlateDbId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"PlateSingleResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: at 1:126: find schema: resolve: can't find value for \"components/schemas/Context\""
+	"Error": "parse: parse spec: parse components: responses: \"PlateSingleResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: at 1:126: find schema: resolve: can't find value for \"components/schemas/Context\""
 }

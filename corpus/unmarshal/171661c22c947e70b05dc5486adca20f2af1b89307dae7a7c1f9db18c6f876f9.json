@@ -2,18 +2,18 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/academic-resources/stared-repos"
+			"name": "github.com/bbgithub/ledger"
 		},
 		"file": {
 			"name": "4445.yaml",
 			"size": 0,
-			"path": "swagger-ui/test/e2e-selenium/static/test-specs/bugs/4445.yaml",
+			"path": "swagger/test/e2e/specs/bugs/4445.yaml",
 			"byteSize": 2112,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Callback Example\n  version: 1.0.0\npaths:\n  /streams:\n    post:\n      description: subscribes a client to receive out-of-band data\n      parameters:\n        - name: callbackUrl\n          in: query\n          required: true\n          description: |\n            the location where data will be sent.  Must be network accessible\n            by the source server\n          schema:\n            type: string\n            format: uri\n            example: https://tonys-server.com\n      responses:\n        '201':\n          description: subscription successfully created\n          content:\n            application/json:\n              schema:\n                description: subscription information\n                required:\n                  - subscriptionId\n                properties:\n                  subscriptionId:\n                    description: this unique identifier allows management of the subscription\n                    type: string\n                    example: 2531329f-fb09-4ef7-887e-84e648214436\n      callbacks:\n        # the name `onData` is a convenience locator\n        onData:\n          $ref: '#/components/callbacks/onData'\ncomponents:\n  callbacks:\n    onData:\n      # when data is sent, it will be sent to the `callbackUrl` provided\n      # when making the subscription PLUS the suffix `/data`\n      '{$request.query.callbackUrl}/data':\n        post:\n          requestBody:\n            description: subscription payload\n            content:\n              application/json:\n                schema:\n                  properties:\n                    timestamp:\n                      type: string\n                      format: date-time\n                    userData:\n                      type: string\n          responses:\n            '202':\n              description: |\n                Your server implementation should return this HTTP status code\n                if the data was received successfully\n            '204':\n              description: |\n                Your server should return this HTTP status code if no longer interested\n                in further updates\n",
-			"canonicalURL": "/github.com/academic-resources/stared-repos@60fcc9102f3d5186df1d47c404a4d8900e9ffd52/-/blob/swagger-ui/test/e2e-selenium/static/test-specs/bugs/4445.yaml",
+			"canonicalURL": "/github.com/bbgithub/ledger@fdb3262811d295b5e5952539f8feb54eb54f92a8/-/blob/swagger/test/e2e/specs/bugs/4445.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/academic-resources/stared-repos/blob/60fcc9102f3d5186df1d47c404a4d8900e9ffd52/swagger-ui/test/e2e-selenium/static/test-specs/bugs/4445.yaml",
+					"url": "https://github.com/bbgithub/ledger/blob/fdb3262811d295b5e5952539f8feb54eb54f92a8/swagger/test/e2e/specs/bugs/4445.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

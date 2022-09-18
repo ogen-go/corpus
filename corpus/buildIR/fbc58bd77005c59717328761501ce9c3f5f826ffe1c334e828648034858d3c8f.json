@@ -10,14 +10,14 @@
 			"path": "openapi-cli/src/test/resources/generators/service/swagger/multiQueryParam.yaml",
 			"byteSize": 2030,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\n    variables:\n      host:\n        default: openapi\n        description: this value is assigned by the service provider\ntags:\n  - name: pets\n    description: Pets Tag\n  - name: list\n    description: List Tag\npaths:\n  /pets:\n    get:\n      description: |\n        Returns all pets from the system that the user has access\n      operationId: findPets\n      parameters:\n        - name: tags\n          in: query\n          description: tags to filter by\n          required: false\n          style: form\n          schema:\n            type: array\n            items:\n              type: array\n              items:\n                type: string\n        - name: limit\n          in: query\n          description: maximum number of results to return\n          required: true\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: pet response\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Pet'\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n\ncomponents:\n  schemas:\n    Pet:\n      allOf:\n        - $ref: '#/components/schemas/NewPet'\n        - type: object\n          required:\n            - id\n          properties:\n            id:\n              type: integer\n              format: int64\n\n    NewPet:\n      type: object\n      required:\n        - name\n      properties:\n        name:\n          type: string\n        tag:\n          type: string\n\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@0d024122b5c87997811ccf934b7844990264d79a/-/blob/openapi-cli/src/test/resources/generators/service/swagger/multiQueryParam.yaml",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@b707e95d277db08e68a567b3189235dbe654ff0c/-/blob/openapi-cli/src/test/resources/generators/service/swagger/multiQueryParam.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ballerina-platform/openapi-tools/blob/0d024122b5c87997811ccf934b7844990264d79a/openapi-cli/src/test/resources/generators/service/swagger/multiQueryParam.yaml",
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/b707e95d277db08e68a567b3189235dbe654ff0c/openapi-cli/src/test/resources/generators/service/swagger/multiQueryParam.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/pets\": get: parameters: fail: \"tags\": nested arrays not allowed"
+	"Error": "buildIR: make ir: path \"/pets\": get: parameters: \"tags\": nested arrays not allowed"
 }

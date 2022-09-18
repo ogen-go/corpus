@@ -10,14 +10,14 @@
 			"path": "packages/taxios-sandbox/src/query-params.yml",
 			"byteSize": 1552,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Structured query params\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /v1/test:\n    get:\n      parameters:\n        - schema:\n            type: string\n          in: query\n          name: firstName\n          required: true\n        - schema:\n            type: string\n          in: query\n          name: lastName\n        - schema:\n            type: number\n          in: query\n          name: age\n        - schema:\n            type: boolean\n          in: query\n          name: employed\n          required: true\n        - schema:\n            type: array\n            items:\n              type: string\n              enum: ['ru', 'en', 'fr', 'de', 'jp']\n          in: query\n          name: languages\n        - schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/Asset'\n          in: query\n          name: assets\n        - schema:\n            type: object\n            additionalProperties: false\n            properties:\n              good:\n                type: array\n                items:\n                  type: string\n              bad:\n                type: array\n                items:\n                  type: string\n          in: query\n          name: qualities\n      responses:\n        '200':\n          description: OK\n    parameters: []\ncomponents:\n  schemas:\n    Asset:\n      title: Asset\n      type: object\n      properties:\n        currency:\n          type: string\n        amount:\n          type: integer\n      required:\n        - currency\n        - amount\n",
-			"canonicalURL": "/github.com/simplesmiler/taxios@57269b48dda003a96665e00b55ad2bd681e0f444/-/blob/packages/taxios-sandbox/src/query-params.yml",
+			"canonicalURL": "/github.com/simplesmiler/taxios@88c4b208527ee8587bb4d08f7358902140a5da09/-/blob/packages/taxios-sandbox/src/query-params.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/simplesmiler/taxios/blob/57269b48dda003a96665e00b55ad2bd681e0f444/packages/taxios-sandbox/src/query-params.yml",
+					"url": "https://github.com/simplesmiler/taxios/blob/88c4b208527ee8587bb4d08f7358902140a5da09/packages/taxios-sandbox/src/query-params.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/v1/test\": get: parameters: fail: \"assets\": nested objects not allowed"
+	"Error": "buildIR: make ir: path \"/v1/test\": get: parameters: \"assets\": nested objects not allowed"
 }

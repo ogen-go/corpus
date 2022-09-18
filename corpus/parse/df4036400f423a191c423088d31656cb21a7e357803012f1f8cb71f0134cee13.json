@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/kiota"
+		},
+		"file": {
+			"name": "ToDoApi.yaml",
+			"size": 0,
+			"path": "tests/Kiota.Builder.IntegrationTests/ToDoApi.yaml",
+			"byteSize": 1521,
+			"content": "openapi: 3.0.0\ninfo:\n  title: \"Todo API\"\n  version: \"1.0.0\"\nservers:\n  - url: https://mytodos.doesnotexist/\n    description: Core\npaths:\n  /todos: \n    get:\n      description: Return a list of Todo entities\n      operationId: todos_ListTodos\n      parameters:\n          - name: active\n            in: query\n            schema:\n              type: boolean\n          - name: keyword\n            in: query\n            schema:\n              type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                title: collectionTodos\n                type: object\n                properties:\n                  value:\n                    type: array\n                    items: \n                      $ref: \"#/components/schemas/todo\"\n\n    post:\n      requestBody:\n        description: New Todo\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/todo'\n        required: true\n      responses:\n        '201':\n          description: OK\n  /todos/{todoId}:\n    get:\n      description: Return a single Todo object\n      responses:\n        '200':\n          description: OK\n    delete:\n      description: Delete a single Todo object\n      responses:\n        '200':\n          description: OK\ncomponents:\n  schemas:\n    todo:\n      title: Todo\n      type: object\n      properties:\n        id:\n          type: string\n        subject:\n          type: string\n        Notes:\n          type: string\n",
+			"canonicalURL": "/github.com/microsoft/kiota@78d77c709f8bd2d8ee73449d06521c3d82a42519/-/blob/tests/Kiota.Builder.IntegrationTests/ToDoApi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/kiota/blob/78d77c709f8bd2d8ee73449d06521c3d82a42519/tests/Kiota.Builder.IntegrationTests/ToDoApi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/todos/{todoId}\": get: at 1:984: parse path \"/todos/{todoId}\": path parameter not specified: \"todoId\""
+}

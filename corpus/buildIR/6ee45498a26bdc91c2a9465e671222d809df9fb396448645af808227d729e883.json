@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/properties_missing_required_property/test/positive3.json",
 			"byteSize": 1686,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\",\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ]\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"parameters\": [\n        {\n          \"name\": \"id\",\n          \"in\": \"query\",\n          \"description\": \"ID of the API the version\",\n          \"required\": true,\n          \"allowReserved\": true,\n          \"schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"code\": {\n                \"type\": \"object\",\n                \"required\": [\n                  \"name\"\n                ],\n                \"properties\": {\n                  \"age\": {\n                    \"type\": \"integer\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      ]\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@fc9a71627ff3806411ad036c1f59e58780f71c40/-/blob/assets/queries/openAPI/general/properties_missing_required_property/test/positive3.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@d1aec86ce8011d99d96a284b2d95b2137283417a/-/blob/assets/queries/openAPI/general/properties_missing_required_property/test/positive3.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/fc9a71627ff3806411ad036c1f59e58780f71c40/assets/queries/openAPI/general/properties_missing_required_property/test/positive3.json",
+					"url": "https://github.com/Checkmarx/kics/blob/d1aec86ce8011d99d96a284b2d95b2137283417a/assets/queries/openAPI/general/properties_missing_required_property/test/positive3.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/\": get: parameters: fail: \"id\": field \"Code\": nested objects not allowed"
+	"Error": "buildIR: make ir: path \"/\": get: parameters: \"id\": field \"Code\": nested objects not allowed"
 }

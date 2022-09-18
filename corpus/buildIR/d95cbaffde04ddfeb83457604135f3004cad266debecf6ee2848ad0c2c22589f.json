@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "invalid_response_body_all_of_properties_spec.json",
+			"size": 0,
+			"path": "test/data/validationData/invalid_response_body_all_of_properties_spec.json",
+			"byteSize": 1932,
+			"content": "{\n  \"info\": {\n    \"title\": \"Inheritance test API\",\n    \"version\": \"v1.0\"\n  },\n  \"openapi\": \"3.0.1\",\n  \"paths\": {\n    \"/api/inheritancetest\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Page\"\n                }\n              }\n            },\n            \"description\": \"The page data including metadata and content\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"SpecificType\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/ParentType\"\n          },\n          {\n            \"properties\": {\n              \"specificTypeData\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\"specificTypeData\"]\n          }\n        ]\n      },\n      \"ParentType\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/GrandParentType\"\n          },\n          {\n            \"properties\": {\n              \"parentTypeData\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\"parentTypeData\"]\n          }\n        ]\n      },\n      \"GrandParentType\": {\n        \"properties\": {\n          \"grandParentTypeData\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\"grandParentTypeData\"]\n      },\n      \"Page\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/GrandParentType\"\n          },\n          {\n            \"properties\": {\n              \"specificType\": {\n                \"$ref\": \"#/components/schemas/SpecificType\"\n              }\n            },\n            \"required\": [\"specificType\"]\n          }\n        ]\n      }\n    },\n    \"securitySchemes\": {\n      \"basic\": {\n        \"description\": \"Basic HTTP Authentication\",\n        \"scheme\": \"basic\",\n        \"type\": \"http\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@bdfeadb49daea91fe06f4fca3d783eba16793369/-/blob/test/data/validationData/invalid_response_body_all_of_properties_spec.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/bdfeadb49daea91fe06f4fca3d783eba16793369/test/data/validationData/invalid_response_body_all_of_properties_spec.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/api/inheritancetest\": get: responses: code 200: contents: media: \"application/json\": generate schema: allOf: field specificType: allOf: schema type mismatch:  and object"
+}

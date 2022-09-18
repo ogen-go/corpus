@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/emanuelfreitas/3gpp-documentation"
+		},
+		"file": {
+			"name": "TS29486_VAE_ServiceContinuity.yaml",
+			"size": 0,
+			"path": "apis/TS29486_VAE_ServiceContinuity.yaml",
+			"byteSize": 3302,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.1.0\n  title: VAE_Service Continuity\n  description: |\n    API for VAE Service Continuity Service  \n    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  \n    All rights reserved.\nexternalDocs:\n  description: 3GPP TS 29.486 V17.5.0 V2X Application Enabler (VAE) Services\n  url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.486/'\nsecurity:\n  - {}\n  - oAuth2ClientCredentials: []\nservers:\n  - url: '{apiRoot}/vae-service-continuity/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in clause 4.4 of 3GPP TS 29.501\npaths:\n  /geo-areas/{geoId}:\n    get:\n      summary: VAE service continuity query service operation\n      tags:\n        - Individual geographical area (Document)\n      operationId: QueryServiceContinuity\n      parameters:\n        - name: geoId\n          in: path\n          description: Identifier of a geographical area\n          required: true\n          schema:\n            type: string\n        - name: service-id\n          in: query\n          description: Identifier of a V2X service\n          required: true\n          schema:\n            $ref: 'TS29486_VAE_MessageDelivery.yaml#/components/schemas/V2xServiceId'\n        - name: supp-feat\n          in: query\n          description: To filter irrelevant responses related to unsupported features\n          schema:\n            $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n      responses:\n        '200':\n          description: OK. Resource representation is returned\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/V2xServiceInfo'\n        '307':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/307'\n        '308':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/308'\n        '400':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/400'\n        '401':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/401'\n        '403':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/403'\n        '404':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/404'\n        '406':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/406'\n        '429':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/429'\n        '500':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/503'\n        default:\n          $ref: 'TS29571_CommonData.yaml#/components/responses/default'\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows: \n        clientCredentials: \n          tokenUrl: '{tokenUrl}'\n          scopes: {}\n  schemas:\n    V2xServiceInfo:\n      description: Represents an individual geographical area resource including the designated V2X service identifier.\n      type: object\n      properties:\n        serviceIds:\n          type: array\n          items:\n            $ref: 'TS29486_VAE_MessageDelivery.yaml#/components/schemas/V2xServiceId'\n          minItems: 1\n        suppFeat:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n      required:\n        - serviceIds\n",
+			"canonicalURL": "/github.com/emanuelfreitas/3gpp-documentation@490692e123da5532e8bc46f33394d0a6402fd036/-/blob/apis/TS29486_VAE_ServiceContinuity.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/emanuelfreitas/3gpp-documentation/blob/490692e123da5532e8bc46f33394d0a6402fd036/apis/TS29486_VAE_ServiceContinuity.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"V2xServiceInfo\": parse schema: property \"serviceIds\": parse schema: parse schema: at 1:206: external \"TS29486_VAE_MessageDelivery.yaml\": get: file: local file reference is not allowed"
+}

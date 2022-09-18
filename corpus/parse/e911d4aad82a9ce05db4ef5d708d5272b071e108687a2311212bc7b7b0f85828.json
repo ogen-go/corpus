@@ -10,10 +10,10 @@
 			"path": "boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
 			"byteSize": 1240,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Boat Bay Upload Server\n  description: Endpoints for uploading Specs to boat bay\n  license:\n    name: Backbase\n  version: 1.0.0\nservers:\n- url: http://localhost:8080/\ntags:\n- name: boat-maven-plugin\n  description: Endpoints used by the Boat Maven Plugin\npaths:\n  /api/boat/portals/{portalKey}/boat-maven-plugin/{sourceKey}/upload:\n    post:\n      tags:\n      - boat-maven-plugin\n      summary: upload and lint specs\n      operationId: uploadSpec\n      parameters:\n      - $ref: 'schemas/definitions.yaml#/components/parameters/PortalKey'\n      - name: sourceKey\n        in: path\n        description: source identifier\n        required: true\n        style: simple\n        explode: false\n        schema:\n          type: string\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: 'schemas/definitions.yaml#/components/schemas/UploadRequestBody'\n        required: true\n      responses:\n        \"200\":\n          description: list of lint reports for specs\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: 'schemas/definitions.yaml#/components/schemas/BoatLintReport'\n",
-			"canonicalURL": "/github.com/Backbase/backbase-openapi-tools@367d9ddcc8de06b6e4545fdb2364f6c47eb4a531/-/blob/boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
+			"canonicalURL": "/github.com/Backbase/backbase-openapi-tools@97e094ccf7aee3af84b5e9a38d0470d7084b5ebd/-/blob/boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Backbase/backbase-openapi-tools/blob/367d9ddcc8de06b6e4545fdb2364f6c47eb4a531/boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
+					"url": "https://github.com/Backbase/backbase-openapi-tools/blob/97e094ccf7aee3af84b5e9a38d0470d7084b5ebd/boat-maven-plugin/src/main/resources/boat-maven-plugin-api.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
