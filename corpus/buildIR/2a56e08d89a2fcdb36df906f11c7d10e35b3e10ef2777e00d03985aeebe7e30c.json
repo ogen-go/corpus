@@ -10,14 +10,14 @@
 			"path": "_testdata/negative/cyclic/oneOf_double.json",
 			"byteSize": 739,
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Test\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Test\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Test\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Test2\"\n          }\n        ]\n      },\n      \"Test2\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/Test\"\n          }\n        ]\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/ogen-go/ogen@3c78ef470e9474d28419d81ab4d6d2f7eba39bab/-/blob/_testdata/negative/cyclic/oneOf_double.json",
+			"canonicalURL": "/github.com/ogen-go/ogen@24491cf55332458ade2fa4b9edb74b5cf88acba6/-/blob/_testdata/negative/cyclic/oneOf_double.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ogen-go/ogen/blob/3c78ef470e9474d28419d81ab4d6d2f7eba39bab/_testdata/negative/cyclic/oneOf_double.json",
+					"url": "https://github.com/ogen-go/ogen/blob/24491cf55332458ade2fa4b9edb74b5cf88acba6/_testdata/negative/cyclic/oneOf_double.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: responses: code 200: contents: application/json: generate schema: oneOf: oneOf \"#/components/schemas/Test\" [0]: oneOf \"#/components/schemas/Test2\" [0]: reference \"#/components/schemas/Test\" [0] leads to infinite recursion"
+	"Error": "buildIR: make ir: path \"/test\": get: responses: code 200: contents: media: \"application/json\": generate schema: oneOf: oneOf \"#/components/schemas/Test\" [0]: oneOf \"#/components/schemas/Test2\" [0]: reference \"#/components/schemas/Test\" [0] leads to infinite recursion"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/blueswen/mkdocs-swagger-ui-tag"
+		},
+		"file": {
+			"name": "sample-oauth2.yaml",
+			"size": 0,
+			"path": "demo-mkdocs/docs/demo/openapi-spec/sample-oauth2.yaml",
+			"byteSize": 2351,
+			"content": "openapi: 3.0.2\ninfo:\n  title: FastAPI\n  version: 0.1.0\npaths:\n  /token:\n    post:\n      summary: Login\n      operationId: login_token_post\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              $ref: '#/components/schemas/Body_login_token_post'\n        required: true\n      responses:\n        '200':\n          description: Successful Response\n          content:\n            application/json:\n              schema: {}\n        '422':\n          description: Validation Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/HTTPValidationError'\n  /users/me:\n    get:\n      summary: Read Users Me\n      operationId: read_users_me_users_me_get\n      responses:\n        '200':\n          description: Successful Response\n          content:\n            application/json:\n              schema: {}\n      security:\n        - OAuth2PasswordBearer: []\ncomponents:\n  schemas:\n    Body_login_token_post:\n      title: Body_login_token_post\n      required:\n        - username\n        - password\n      type: object\n      properties:\n        grant_type:\n          title: Grant Type\n          pattern: password\n          type: string\n        username:\n          title: Username\n          type: string\n        password:\n          title: Password\n          type: string\n        scope:\n          title: Scope\n          type: string\n          default: ''\n        client_id:\n          title: Client Id\n          type: string\n        client_secret:\n          title: Client Secret\n          type: string\n    HTTPValidationError:\n      title: HTTPValidationError\n      type: object\n      properties:\n        detail:\n          title: Detail\n          type: array\n          items:\n            $ref: '#/components/schemas/ValidationError'\n    ValidationError:\n      title: ValidationError\n      required:\n        - loc\n        - msg\n        - type\n      type: object\n      properties:\n        loc:\n          title: Location\n          type: array\n          items:\n            type: string\n        msg:\n          title: Message\n          type: string\n        type:\n          title: Error Type\n          type: string\n  securitySchemes:\n    OAuth2PasswordBearer:\n      type: oauth2\n      flows:\n        password:\n          scopes: {}\n          tokenUrl: token\n",
+			"canonicalURL": "/github.com/blueswen/mkdocs-swagger-ui-tag@87464f368cf702208cd17a96357db593883febdf/-/blob/demo-mkdocs/docs/demo/openapi-spec/sample-oauth2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/blueswen/mkdocs-swagger-ui-tag/blob/87464f368cf702208cd17a96357db593883febdf/demo-mkdocs/docs/demo/openapi-spec/sample-oauth2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/users/me\": get: operation \"read_users_me_users_me_get\": security: parse security scheme \"OAuth2PasswordBearer\": oauth2: flow \"password\": at 1:1020: \"tokenUrl\" MUST be in the form of a URL: parse \"token\": invalid URI for request"
+}

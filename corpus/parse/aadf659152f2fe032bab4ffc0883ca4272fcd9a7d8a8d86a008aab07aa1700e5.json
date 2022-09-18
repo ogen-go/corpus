@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/stream-services"
+		},
+		"file": {
+			"name": "service-api-v2.yaml",
+			"size": 0,
+			"path": "stream-compositions/api/integrations-api/product-integration-api/src/main/resources/service-api-v2.yaml",
+			"byteSize": 2727,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Product Integration API\n  version: 2.0.0\nservers:\n  - url: http://localhost:8080/service-api/v1\n    description: The server\ntags:\n  - name: ProductIntegration\npaths:\n  /service-api/v2/product-group:\n    post:\n      tags:\n        - ProductIntegration\n      summary: Pulls product group.\n      description: Pulls product group.\n      operationId: pullProductGroup\n      requestBody:\n        description: Product Pull Integration Request\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/PullProductGroupRequest'\n      responses:\n        \"200\":\n          description: Product group sucessfully returned.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PullProductGroupResponse'\n\n        \"400\":\n          description: BadRequest\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequest'\n        \"500\":\n          description: InternalServerError\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/InternalServerError'\n\ncomponents:\n  schemas:\n    BadRequest:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n    PullProductGroupRequest:\n      type: object\n      properties:\n        legalEntityExternalId:\n          type: string\n        legalEntityInternalId:\n          type: string\n        serviceAgreementExternalId:\n          type: string\n        serviceAgreementInternalId:\n          type: string\n        userExternalId:\n          type: string\n        userInternalId:\n          type: string\n        referenceJobRoleNames:\n          $ref: '../../../../../../../api/stream-legal-entity/openapi.yaml#/components/schemas/JobProfileUser/properties/referenceJobRoleNames'\n          description: The reference job roles that should get assigned to the user\n        membershipAccounts:\n          type: array\n          items:\n            type: string\n        additions:\n          type: object\n          additionalProperties:\n            type: string\n\n    PullProductGroupResponse:\n      type: object\n      properties:\n        productGroups:\n          type: array\n          items:\n            $ref: '../../../../../../../api/stream-legal-entity/openapi.yaml#/components/schemas/ProductGroup'\n\n    Product:\n      type: object\n      properties:\n        id:\n          type: string\n        kind:\n          type: string\n        name:\n          type: string\n\n    InternalServerError:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n",
+			"canonicalURL": "/github.com/Backbase/stream-services@54ba5880c503b6dc9c665d99bc8e7fd5c8c46319/-/blob/stream-compositions/api/integrations-api/product-integration-api/src/main/resources/service-api-v2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Backbase/stream-services/blob/54ba5880c503b6dc9c665d99bc8e7fd5c8c46319/stream-compositions/api/integrations-api/product-integration-api/src/main/resources/service-api-v2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PullProductGroupRequest\": parse schema: property \"referenceJobRoleNames\": parse schema: at 1:638: external \"../../../../../../../api/stream-legal-entity/openapi.yaml\": get: file: local file reference is not allowed"
+}

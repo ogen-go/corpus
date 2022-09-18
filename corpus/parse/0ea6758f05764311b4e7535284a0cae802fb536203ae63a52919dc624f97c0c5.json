@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/property_type_encoding_object_ignored/test/negative1.json",
 			"byteSize": 1921,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ],\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\"\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"requestBodies\": {\n      \"NewItem\": {\n        \"description\": \"A JSON object containing item data\",\n        \"required\": true,\n        \"content\": {\n          \"application/x-www-form-urlencoded\": {\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"code\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            },\n            \"examples\": {\n              \"tshirt\": {\n                \"$ref\": \"#/components/examples/tshirt\"\n              }\n            },\n            \"encoding\": {\n              \"code\": {\n                \"contentType\": \"image/png, image/jpeg\",\n                \"allowReserved\": true,\n                \"style\": \"simple\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@fc9a71627ff3806411ad036c1f59e58780f71c40/-/blob/assets/queries/openAPI/3.0/property_type_encoding_object_ignored/test/negative1.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@d1aec86ce8011d99d96a284b2d95b2137283417a/-/blob/assets/queries/openAPI/3.0/property_type_encoding_object_ignored/test/negative1.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/fc9a71627ff3806411ad036c1f59e58780f71c40/assets/queries/openAPI/3.0/property_type_encoding_object_ignored/test/negative1.json",
+					"url": "https://github.com/Checkmarx/kics/blob/d1aec86ce8011d99d96a284b2d95b2137283417a/assets/queries/openAPI/3.0/property_type_encoding_object_ignored/test/negative1.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"NewItem\": parse content: application/x-www-form-urlencoded: encoding property \"code\": param style: at 68:26: invalid style explode combination \"simple\", explode:true"
+	"Error": "parse: parse spec: parse components: requestBodies: \"NewItem\": parse content: application/x-www-form-urlencoded: encoding property \"code\": param style: at 68:26: invalid style explode combination \"simple\", explode:true"
 }

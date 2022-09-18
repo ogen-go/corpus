@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/hiteshchoudhary/pro-backend-developer"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "socialapp/swagger.yaml",
+			"byteSize": 1882,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Social App\n  description: Our fist Social app at LCO - Hitesh\n  version: 1.0.1\n\nservers:\n  - url: http://localhost:4000/api/v1\n    description: localhost version of our app\n  - url: https://localhost:4000/api/v1\n    description: this is just a dummy api url, it doesn't work\n\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic\n    BearerAuth:\n      type: http\n      scheme: bearer\n\npaths:\n  /instagram:\n    get:\n      summary: returns username, followers and follows\n      responses:\n        '200': # status code\n          description: returns an object\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  username:\n                    type: string\n                  followers:\n                    type: string\n                  follows:\n                    type: string\n    post:\n      summary: returns username, followers and follows\n      responses:\n        '200': # status code\n          description: returns an object\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  username:\n                    type: string\n                  followers:\n                    type: string\n                  follows:\n                    type: string\n  /{token}:\n    get:\n      summary: returns whatever is there in parameters\n      parameters:\n        - name: token\n          default: 5\n          in: path\n          schema:\n            type: string\n      responses:\n        '200': # status code\n          description: returns an object\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  params:\n                    type: string\n                  \n",
+			"canonicalURL": "/github.com/hiteshchoudhary/pro-backend-developer@d876ccc661b599c343890e82228a073002479aa6/-/blob/socialapp/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/hiteshchoudhary/pro-backend-developer/blob/d876ccc661b599c343890e82228a073002479aa6/socialapp/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/{token}\": get: parameters: parse parameter \"token\": at 1:861: path parameters must be required"
+}

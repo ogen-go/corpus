@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/BioKIC/NEON-Biorepository"
+		},
+		"file": {
+			"name": "using-traits.yaml",
+			"size": 0,
+			"path": "api/vendor/zircote/swagger-php/Examples/using-traits/using-traits.yaml",
+			"byteSize": 3027,
+			"content": "openapi: 3.0.0\ninfo:\n  title: 'Example of using traits in swagger-php'\n  version: 1.0.0\npaths:\n  '/entities/{id}':\n    delete:\n      tags:\n        - Entities\n      operationId: 372df3207489872fd3c775f623f8340f\n      parameters:\n        -\n          name: id\n          in: path\n          description: 'ID of entity to delete'\n          required: true\n          schema:\n            type: string\n      responses:\n        default:\n          description: 'successful operation'\n  '/products/{product_id}':\n    get:\n      tags:\n        - Products\n      operationId: 569395beea865794cbde04d55c0ba4a2\n      parameters:\n        -\n          name: product_id\n          in: path\n          description: 'ID of product to return'\n          required: true\n          schema:\n            type: string\n      responses:\n        default:\n          description: 'successful operation'\ncomponents:\n  schemas:\n    BellsAndWhistles:\n      title: 'Bells and Whistles trait'\n      allOf:\n        -\n          properties:\n            plating:\n              description: 'The plating.'\n              example: gold\n        -\n          $ref: '#/components/schemas/Bells'\n        -\n          $ref: '#/components/schemas/Whistles'\n    CustomName/Blink:\n      title: 'Blink trait'\n      properties:\n        frequency:\n          description: 'The frequency.'\n          example: 1\n      type: object\n    Colour:\n      title: 'Colour trait'\n      properties:\n        colour:\n          description: 'The colour.'\n          example: red\n      type: object\n    Bells:\n      title: 'Bells trait'\n      properties:\n        bell:\n          description: 'The bell.'\n          example: chime\n      type: object\n    Whistles:\n      title: 'Whistles trait'\n      properties:\n        whistle:\n          description: 'The bell.'\n          example: 'bone whistle'\n      type: object\n    DeleteEntity:\n      title: 'Delete entity trait'\n    Product:\n      title: 'Product model'\n      allOf:\n        -\n          properties:\n            id:\n              description: 'The unique identifier of a product in our catalog.'\n              type: integer\n              format: int64\n              example: 1\n            bell:\n              description: 'The product bell.'\n              example: gong\n        -\n          $ref: '#/components/schemas/Colour'\n        -\n          $ref: '#/components/schemas/BellsAndWhistles'\n    SimpleProduct:\n      title: 'SimpleProduct model'\n      allOf:\n        -\n          properties:\n            id:\n              description: 'The unique identifier of a simple product in our catalog.'\n              type: integer\n              format: int64\n              example: 1\n        -\n          $ref: '#/components/schemas/Bells'\n    TrickyProduct:\n      title: 'TrickyProduct model'\n      allOf:\n        -\n          properties:\n            trick:\n              description: 'The trick.'\n              example: 'recite poem'\n        -\n          $ref: '#/components/schemas/SimpleProduct'\n        -\n          $ref: '#/components/schemas/CustomName~1Blink'\n",
+			"canonicalURL": "/github.com/BioKIC/NEON-Biorepository@34e2243316723517a455d869293e67f246a8a116/-/blob/api/vendor/zircote/swagger-php/Examples/using-traits/using-traits.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/BioKIC/NEON-Biorepository/blob/34e2243316723517a455d869293e67f246a8a116/api/vendor/zircote/swagger-php/Examples/using-traits/using-traits.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: at 1:483: invalid name: \"CustomName/Blink\" doesn't match \"^[a-zA-Z0-9.\\\\-_]+$\""
+}

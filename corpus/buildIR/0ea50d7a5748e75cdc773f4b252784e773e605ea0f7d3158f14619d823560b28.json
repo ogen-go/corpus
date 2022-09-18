@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anymaniax/orval"
+		},
+		"file": {
+			"name": "polymorphic.yaml",
+			"size": 0,
+			"path": "tests/specifications/polymorphic.yaml",
+			"byteSize": 1101,
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: V1\npaths:\n  /demo:\n    get:\n      operationId: getPolymorphicResponse\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: object\n                oneOf:\n                  - $ref: '#/components/schemas/DescendantOne'\n                  - $ref: '#/components/schemas/DescendantTwo'\ncomponents:\n  schemas:\n    DescendantOne:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/ParentType'\n        - type: object\n          properties:\n            value:\n              type: boolean\n    DescendantTwo:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/ParentType'\n        - type: object\n          properties:\n            value:\n              type: string\n    ParentType:\n      type: object\n      properties:\n        value:\n          type: object\n        key:\n          type: string\n        type:\n          type: string\n          enum:\n            - BOOLEAN\n            - STRING\n      discriminator:\n        propertyName: type\n",
+			"canonicalURL": "/github.com/anymaniax/orval@78275c5aa3b53de3c0bb50841e0bd8d7ee292341/-/blob/tests/specifications/polymorphic.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anymaniax/orval/blob/78275c5aa3b53de3c0bb50841e0bd8d7ee292341/tests/specifications/polymorphic.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/demo\": get: responses: code 200: contents: media: \"application/json\": generate schema: oneOf: collect variants: oneOf[0]: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: boolean and object"
+}

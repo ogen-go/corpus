@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/allOf-required-parent.yaml",
 			"byteSize": 1598,
 			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Example\n  license:\n    name: MIT\nservers:\n  - url: http://api.example.xyz/v1\npaths:\n  /person/display/{personId}:\n    get:\n      parameters:\n        - name: personId\n          in: path\n          required: true\n          description: The id of the person to retrieve\n          schema:\n            type: string\n      operationId: list\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/person\"\ncomponents:\n  schemas:\n    person:\n      allOf:\n        - $ref: '#/components/schemas/personForCreation'\n        - properties:\n            id:\n              type: integer\n              format: int32\n      required:\n        - id\n\n    personForCreation:\n      allOf:\n        - $ref: '#/components/schemas/personForUpdate'\n      required:\n        - firstName\n        - name\n        - email\n\n    personForUpdate:\n      properties:\n        firstName:\n          type: string\n          maxLength: 255\n        name:\n          type: string\n          maxLength: 255\n        birthDate:\n          type: string\n          format: date\n        address:\n          type: string\n          maxLength: 255\n        postalCode:\n          type: string\n          maxLength: 255\n        city:\n          type: string\n          maxLength: 255\n        phoneNumber:\n          type: string\n          pattern: ^((\\+)33|0)[1-9](\\d{2}){4}$\n        email:\n          type: string\n          format: email\n        nationality:\n          type: string\n          maxLength: 255",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4635dda5181fd34d50643d2b9dcfcaaef64db418/-/blob/modules/openapi-generator/src/test/resources/3_0/allOf-required-parent.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/-/blob/modules/openapi-generator/src/test/resources/3_0/allOf-required-parent.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4635dda5181fd34d50643d2b9dcfcaaef64db418/modules/openapi-generator/src/test/resources/3_0/allOf-required-parent.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/modules/openapi-generator/src/test/resources/3_0/allOf-required-parent.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/person/display/{personId}\": get: responses: code 200: contents: application/json: generate schema: allOf: schema type mismatch:  and object"
+	"Error": "buildIR: make ir: path \"/person/display/{personId}\": get: responses: code 200: contents: media: \"application/json\": generate schema: allOf: schema type mismatch:  and object"
 }

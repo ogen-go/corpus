@@ -10,14 +10,14 @@
 			"path": "packages/taxios-sandbox/src/snake-case.yml",
 			"byteSize": 683,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Snake case example\n  version: '1.0'\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /v1/test:\n    get:\n      responses:\n        '200':\n          description: OK\ncomponents:\n  schemas:\n    'not a valid identifier':\n      type: number\n    rubiks_cube_face:\n      enum: [f, r, u, l, b, d]\n    rubiks_cube_step:\n      type: object\n      additionalProperties: false\n      properties:\n        face:\n          $ref: '#/components/schemas/rubiks_cube_face'\n        turns:\n          enum: [-1, 1, 2]\n      required:\n        - face\n        - turns\n    rubiks_cube_algorithm:\n      type: array\n      items:\n        $ref: '#/components/schemas/rubiks_cube_step'\n",
-			"canonicalURL": "/github.com/simplesmiler/taxios@57269b48dda003a96665e00b55ad2bd681e0f444/-/blob/packages/taxios-sandbox/src/snake-case.yml",
+			"canonicalURL": "/github.com/simplesmiler/taxios@88c4b208527ee8587bb4d08f7358902140a5da09/-/blob/packages/taxios-sandbox/src/snake-case.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/simplesmiler/taxios/blob/57269b48dda003a96665e00b55ad2bd681e0f444/packages/taxios-sandbox/src/snake-case.yml",
+					"url": "https://github.com/simplesmiler/taxios/blob/88c4b208527ee8587bb4d08f7358902140a5da09/packages/taxios-sandbox/src/snake-case.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"rubiks_cube_algorithm\": parse schema: parse schema: parse schema: property \"turns\": at 1:357: parse enum values: parse value \"-1\": unexpected type: \"\""
+	"Error": "parse: parse spec: parse components: schemas: at 1:27: invalid name: \"not a valid identifier\" doesn't match \"^[a-zA-Z0-9.\\\\-_]+$\""
 }

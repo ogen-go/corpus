@@ -10,10 +10,10 @@
 			"path": "test/test_module.yaml",
 			"byteSize": 1149,
 			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0-beta\n  title: Wikimedia testing APIs\n  x-is-api-root: true\npaths:\n  /post_data/:\n    post:\n      x-route-filters:\n        - type: 'default'\n          name: 'header_match'\n          options:\n            whitelist:\n              x-client-ip:\n                - /^(?:::ffff:)?(?:10|127)\\./\n      x-request-handler:\n        - put_to_storage:\n            request:\n              method: put\n              uri: /{domain}/sys/post_data/post.test/\n              headers: '{{request.headers}}'\n              body: '{{request.body}}'\n      x-monitor: false\n\n  /post_data/{hash}:\n    get:\n      x-setup-handler:\n        - init_storage:\n            uri: /{domain}/sys/post_data/post.test\n      x-request-handler:\n        - get_from_storage:\n            request:\n              uri: /{domain}/sys/post_data/post.test/{hash}\n      x-monitor: false\n\n  /events_no_config:\n    x-modules:\n      - path: sys/events.js\n  /events:\n    x-modules:\n      - path: sys/events.js\n        options: '{{options.events}}'\n\n  /http/{uri}:\n    get:\n      x-request-handler:\n        - request_url:\n            request:\n              uri: '{{uri}}'\n",
-			"canonicalURL": "/github.com/wikimedia/restbase@d2d75af3f73e783a693a7ef86a2847f0c0e39c1d/-/blob/test/test_module.yaml",
+			"canonicalURL": "/github.com/wikimedia/restbase@afe69436e643489764fd76e0a29054733ff92dc5/-/blob/test/test_module.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/wikimedia/restbase/blob/d2d75af3f73e783a693a7ef86a2847f0c0e39c1d/test/test_module.yaml",
+					"url": "https://github.com/wikimedia/restbase/blob/afe69436e643489764fd76e0a29054733ff92dc5/test/test_module.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

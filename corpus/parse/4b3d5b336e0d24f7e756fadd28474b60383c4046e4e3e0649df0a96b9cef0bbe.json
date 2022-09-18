@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/w3c-ccg/vc-api"
+		},
+		"file": {
+			"name": "Presentation.yml",
+			"size": 0,
+			"path": "components/Presentation.yml",
+			"byteSize": 2970,
+			"content": "openapi: 3.0.0\ninfo:\n  version: \"0.0.3-unstable\"\n  title: VC API\n  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).\n  license:\n    name: W3C Software and Document License\n    url: http://www.w3.org/Consortium/Legal/copyright-software.\n  contact:\n    name: GitHub Source Code\n    url: https://github.com/w3c-ccg/vc-api\npaths:\ncomponents:\n  schemas:\n    Presentation:\n      type: object\n      description: A JSON-LD Verifiable Presentation without a proof.\n      properties:\n        \"@context\":\n          type: array\n          description: The JSON-LD context of the presentation.\n          items:\n            type: string\n        \"id\":\n          type: string\n          description: The ID of the presentation.\n        \"type\":\n          type: array\n          description: The JSON-LD type of the presentation.\n          items:\n            type: string\n        \"holder\":\n          type: object\n          description: The holder - will be ignored if no proof is present since there is no proof of authority over the credentials\n          nullable: true\n        \"verifiableCredential\":\n          type: array\n          description: The Verifiable Credentials\n          items:\n            $ref: \"./VerifiableCredential.yml#/components/schemas/VerifiableCredential\"\n      example:\n        {\n          \"@context\":\n            [\n                \"https://www.w3.org/2018/credentials/v1\",\n                \"https://www.w3.org/2018/credentials/examples/v1\",\n            ],\n          \"holder\": \"did:example:123\",\n          \"type\": \"VerifiablePresentation\",\n          \"verifiableCredential\":\n            [\n                \"@context\":\n                  [\n                      \"https://www.w3.org/2018/credentials/v1\",\n                      \"https://www.w3.org/2018/credentials/examples/v1\",\n                  ],\n                \"id\": \"http://example.gov/credentials/3732\",\n                \"type\": [\"VerifiableCredential\", \"UniversityDegreeCredential\"],\n                \"issuer\": \"did:example:123\",\n                \"issuanceDate\": \"2020-03-16T22:37:26.544Z\",\n                \"credentialSubject\":\n                  {\n                    \"id\": \"did:example:123\",\n                    \"degree\":\n                      {\n                        \"type\": \"BachelorDegree\",\n                        \"name\": \"Bachelor of Science and Arts\",\n                      },\n                  },\n                \"proof\":\n                  {\n                    \"type\": \"Ed25519Signature2018\",\n                    \"created\": \"2020-04-02T18:28:08Z\",\n                    \"verificationMethod\": \"did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN\",\n                    \"proofPurpose\": \"assertionMethod\",\n                    \"jws\": \"eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA\",\n                  },\n            ],\n        }\n",
+			"canonicalURL": "/github.com/w3c-ccg/vc-api@d275b08a7f44714b3e96e14808c9eb98718c7a5d/-/blob/components/Presentation.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/w3c-ccg/vc-api/blob/d275b08a7f44714b3e96e14808c9eb98718c7a5d/components/Presentation.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Presentation\": parse schema: property \"verifiableCredential\": parse schema: parse schema: at 1:1614: external \"./VerifiableCredential.yml\": get: file: local file reference is not allowed"
+}

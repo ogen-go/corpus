@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Agrifood"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "AgriGreenhouse/swagger.yaml",
+			"byteSize": 1541,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    AgriGreenhouse: \n      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriGreenhouse/model.yaml#/AgriGreenhouse\"\ninfo:\n  description:  |\n    This entity contains a harmonised description of the conditions recorded within a generic greenhouse, a type of AgriParcel.\n  title: AgriGreenhouse\n  version: \"0.0.2\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - AgriGreenhouse\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriGreenhouse/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriGreenhouse/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Agrifood@b93f69e7ae334f1a44ea2ac23a8c4b129bdb9e66/-/blob/AgriGreenhouse/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Agrifood/blob/b93f69e7ae334f1a44ea2ac23a8c4b129bdb9e66/AgriGreenhouse/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"AgriGreenhouse\": parse schema: at 1:52: external \"https://smart-data-models.github.io/dataModel.Agrifood/AgriGreenhouse/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Agrifood/AgriGreenhouse/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

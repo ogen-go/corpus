@@ -10,10 +10,10 @@
 			"path": "packages/laminar-jwt/examples/oapi.yaml",
 			"byteSize": 1729,
 			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Test\n  version: 1.0.0\nservers:\n  - url: http://localhost:3333\npaths:\n  '/session':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema: { $ref: '#/components/schemas/User' }\n      responses:\n        '200':\n          description: A session object\n          content:\n            application/json:\n              schema: { $ref: '#/components/schemas/Session' }\n  '/test':\n    post:\n      security:\n        # Using the JWTSecurity with admin scopes\n        - JWTSecurity: ['admin']\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            application/json:\n              schema: { $ref: '#/components/schemas/Test' }\n    get:\n      security:\n        # Using the JWTSecurity with no scopes\n        - JWTSecurity: []\n      responses:\n        '200':\n          description: A Test Object\n          content:\n            application/json:\n              schema: { $ref: '#/components/schemas/Test' }\n\ncomponents:\n  securitySchemes:\n    # Defining the JWTSecurity schema to be used on the routes\n    JWTSecurity:\n      type: http\n      scheme: bearer\n\n  schemas:\n    Session:\n      additionalProperties: false\n      properties:\n        jwt:\n          type: string\n        user:\n          $ref: '#/components/schemas/User'\n      required:\n        - jwt\n        - user\n    User:\n      properties:\n        email:\n          type: string\n        scopes:\n          type: array\n          items:\n            type: string\n      required:\n        - email\n\n    Test:\n      properties:\n        text:\n          type: string\n        user:\n          $ref: '#/components/schemas/User'\n      required:\n        - text\n",
-			"canonicalURL": "/github.com/ovotech/laminar@d197413e78625b710480de35e99e5d5d9d13a6cc/-/blob/packages/laminar-jwt/examples/oapi.yaml",
+			"canonicalURL": "/github.com/ovotech/laminar@e752a12aec39c88f7eeefcc04345b36225be4d6c/-/blob/packages/laminar-jwt/examples/oapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ovotech/laminar/blob/d197413e78625b710480de35e99e5d5d9d13a6cc/packages/laminar-jwt/examples/oapi.yaml",
+					"url": "https://github.com/ovotech/laminar/blob/e752a12aec39c88f7eeefcc04345b36225be4d6c/packages/laminar-jwt/examples/oapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

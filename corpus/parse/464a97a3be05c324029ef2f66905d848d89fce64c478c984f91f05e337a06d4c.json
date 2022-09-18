@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ahx/openapi_first"
+		},
+		"file": {
+			"name": "response-code-wildcard.yaml",
+			"size": 0,
+			"path": "spec/data/response-code-wildcard.yaml",
+			"byteSize": 717,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: API Title\n  version: \"1.0\"\nservers:\n  - url: https://api.server.test/v1\npaths:\n  /test:\n    post:\n      operationId: test\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        4XX:\n          description: Error\n          content:\n            application/json:\n              schema:\n                type: object\n        2xx:\n          description: Success\n          content:\n            application/json:\n              schema:\n                type: object\n        default:\n          description: Something\n          content:\n            application/json:\n              schema:\n                type: array\n",
+			"canonicalURL": "/github.com/ahx/openapi_first@3c548bcbb860c06e9573096a161064ea6e9d8bc5/-/blob/spec/data/response-code-wildcard.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ahx/openapi_first/blob/3c548bcbb860c06e9573096a161064ea6e9d8bc5/spec/data/response-code-wildcard.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/test\": post: operation \"test\": responses: at 1:201: parse status code: strconv.Atoi: parsing \"2xx\": invalid syntax"
+}

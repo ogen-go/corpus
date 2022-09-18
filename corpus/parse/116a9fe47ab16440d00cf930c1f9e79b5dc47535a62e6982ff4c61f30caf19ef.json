@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Urigo/graphql-mesh"
+		},
+		"file": {
+			"name": "non_string_links.yml",
+			"size": 0,
+			"path": "packages/loaders/openapi/tests/fixtures/non_string_links.yml",
+			"byteSize": 732,
+			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  description: ''\n  contact: {}\n  version: '1.0'\nservers:\n  - url: http://localhost:7777\nsecurity:\n  - ApiKeyAuth: []\ntags: []\npaths:\n  /test:\n    get:\n      operationId: test\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: string\n          links:\n            testLink:\n              operationId: testLink\n  /test-link:\n    get:\n      operationId: testLink\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  foo:\n                    type: string\n",
+			"canonicalURL": "/github.com/Urigo/graphql-mesh@95b8ff893d989bcf0f35f1907e9bf093f1e304ae/-/blob/packages/loaders/openapi/tests/fixtures/non_string_links.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Urigo/graphql-mesh/blob/95b8ff893d989bcf0f35f1907e9bf093f1e304ae/packages/loaders/openapi/tests/fixtures/non_string_links.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/test\": get: operation \"test\": security: at 1:484: unknown security schema \"ApiKeyAuth\""
+}

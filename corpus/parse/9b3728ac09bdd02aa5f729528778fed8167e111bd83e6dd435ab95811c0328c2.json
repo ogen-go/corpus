@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mocks-server/main"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/plugin-openapi/test/fixtures/refs-remote-server/static/openapi.json",
+			"byteSize": 1043,
+			"content": "{\n\t\"openapi\": \"3.1.0\",\n\t\"info\": {\n\t\t\"title\": \"Testing API\",\n\t\t\"version\": \"1.0.0\",\n\t\t\"description\": \"OpenApi document to create mock for testing purpses\",\n\t\t\"contact\": {\n\t\t\t\"email\": \"info@mocks-server.org\"\n\t\t}\n\t},\n\t\"paths\": {\n\t\t\"/users\": {\n\t\t\t\"$ref\": \"http://127.0.0.1:3200/users.json\"\n\t\t},\n\t\t\"/users/{id}\": {\n\t\t\t\"get\": {\n\t\t\t\t\"parameters\": [{\n\t\t\t\t\t\"name\": \"id\",\n\t\t\t\t\t\"in\": \"path\",\n\t\t\t\t\t\"description\": \"ID the user\",\n\t\t\t\t\t\"required\": true,\n\t\t\t\t\t\"schema\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t}\n\t\t\t\t}],\n\t\t\t\t\"summary\": \"Return one user\",\n\t\t\t\t\"responses\": {\n\t\t\t\t\t\"200\": {\n\t\t\t\t\t\t\"$ref\": \"http://127.0.0.1:3200/user.json\"\n\t\t\t\t\t},\n\t\t\t\t\t\"404\": {\n\t\t\t\t\t\t\"description\": \"user not found\",\n\t\t\t\t\t\t\"content\": {\n\t\t\t\t\t\t\t\"application/json\": {\n\t\t\t\t\t\t\t\t\"examples\": {\n\t\t\t\t\t\t\t\t\t\"not-found\": {\n\t\t\t\t\t\t\t\t\t\t\"$ref\": \"#/components/examples/NotFound\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\t\"components\": {\n\t\t\"examples\": {\n\t\t\t\"NotFound\": {\n\t\t\t\t\"summary\": \"Not found error\",\n\t\t\t\t\"value\": {\n\t\t\t\t\t\"code\": 404,\n\t\t\t\t\t\"message\": \"Not found\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n",
+			"canonicalURL": "/github.com/mocks-server/main@6f37a972a4118dd6e8c51241e01fac6a2d5134f6/-/blob/packages/plugin-openapi/test/fixtures/refs-remote-server/static/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mocks-server/main/blob/6f37a972a4118dd6e8c51241e01fac6a2d5134f6/packages/plugin-openapi/test/fixtures/refs-remote-server/static/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/users\": at 13:12: external \"http://127.0.0.1:3200/users.json\": get: http: do: Get \"http://127.0.0.1:3200/users.json\": host \"127.0.0.1:3200\" is not allowed"
+}

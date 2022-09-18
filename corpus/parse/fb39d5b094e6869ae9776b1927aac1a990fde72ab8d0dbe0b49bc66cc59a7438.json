@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/stream-services"
+		},
+		"file": {
+			"name": "service-api-v2.yaml",
+			"size": 0,
+			"path": "stream-compositions/api/integrations-api/product-catalog-integration-api/src/main/resources/service-api-v2.yaml",
+			"byteSize": 1707,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Product Catalog Integration API\n  version: 2.0.0\nservers:\n  - url: http://localhost:8080/service-api/v1\n    description: The server\ntags:\n  - name: ProductCatalogIntegration\npaths:\n  /service-api/v2/product-catalog:\n    get:\n      tags:\n        - ProductCatalogIntegration\n      summary: Pulls product catalog.\n      description: Pulls product catalog.\n      operationId: pullProductCatalog\n\n      parameters:\n        - in: query\n          name: additionalParameters\n          schema:\n            type: object\n            additionalProperties:\n              type: string\n\n      responses:\n        \"201\":\n          description: Product catalog successfully returned.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PullProductCatalogResponse'\n\n        \"400\":\n          description: BadRequest\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequest'\n        \"500\":\n          description: InternalServerError\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/InternalServerError'\n\ncomponents:\n  schemas:\n    BadRequest:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n    PullProductCatalogResponse:\n      type: object\n      properties:\n        productCatalog:\n          $ref: '../../../../../../../api/stream-product-catalog/openapi.yaml#/components/schemas/ProductCatalog'\n\n    InternalServerError:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n",
+			"canonicalURL": "/github.com/Backbase/stream-services@54ba5880c503b6dc9c665d99bc8e7fd5c8c46319/-/blob/stream-compositions/api/integrations-api/product-catalog-integration-api/src/main/resources/service-api-v2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Backbase/stream-services/blob/54ba5880c503b6dc9c665d99bc8e7fd5c8c46319/stream-compositions/api/integrations-api/product-catalog-integration-api/src/main/resources/service-api-v2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PullProductCatalogResponse\": parse schema: property \"productCatalog\": parse schema: at 1:299: external \"../../../../../../../api/stream-product-catalog/openapi.yaml\": get: file: local file reference is not allowed"
+}

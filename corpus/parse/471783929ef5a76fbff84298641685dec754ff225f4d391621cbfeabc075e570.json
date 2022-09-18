@@ -10,10 +10,10 @@
 			"path": "specs/abtesting/spec.yml",
 			"byteSize": 953,
 			"content": "openapi: 3.0.2\ninfo:\n  title: A/B Testing API\n  description: API powering the A/B Testing feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://analytics.{region}.algolia.com\n    variables:\n      region:\n        enum:\n          - us\n          - de\n        default: us\n  - url: https://analytics.algolia.com\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: abtest\n    x-displayName: A/B Testing\n    description: Manage A/B Tests.\nx-tagGroups:\n  - name: General\n    tags:\n      - abtest\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  /2/abtests:\n    $ref: 'paths/abtests.yml'\n  /2/abtests/{id}:\n    $ref: 'paths/abtest.yml'\n  /2/abtests/{id}/stop:\n    $ref: 'paths/stopABTest.yml'\n",
-			"canonicalURL": "/github.com/algolia/api-clients-automation@e53e145f69089dedcda5d63066e9cdae23142044/-/blob/specs/abtesting/spec.yml",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@9d762cd75564327adbddf6a602baebe2a3e2e3c0/-/blob/specs/abtesting/spec.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/algolia/api-clients-automation/blob/e53e145f69089dedcda5d63066e9cdae23142044/specs/abtesting/spec.yml",
+					"url": "https://github.com/algolia/api-clients-automation/blob/9d762cd75564327adbddf6a602baebe2a3e2e3c0/specs/abtesting/spec.yml",
 					"serviceKind": "GITHUB"
 				}
 			]

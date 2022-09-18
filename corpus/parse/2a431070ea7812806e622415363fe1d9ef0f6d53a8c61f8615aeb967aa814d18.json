@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/sam-api-poller"
+		},
+		"file": {
+			"name": "poller-http-api.yaml",
+			"size": 0,
+			"path": "api-defs/poller-http-api.yaml",
+			"byteSize": 1526,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"Poller Tasks Http API\"\n  version: \"2021-04-07\"\ntags:\n- name: \"httpapi:createdBy\"\n  x-amazon-apigateway-tag-value: \"SAM\"\npaths:\n  /jobs/{jobId}:\n    get:\n      responses:\n        default:\n          description: \"Default response for GET /jobs/{jobId}\"\n      x-amazon-apigateway-integration:\n        credentials:\n          Fn::GetAtt: [PollerHttpApiRole, Arn]\n        uri: \n          Fn::Sub: \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${JobsGetJobSummaryFunction.Arn}/invocations\"\n        payloadFormatVersion: \"2.0\"\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        connectionType: \"INTERNET\"\n  /jobs:\n    post:\n      responses:\n        default:\n          description: \"Default response for POST /jobs\"\n      x-amazon-apigateway-integration:\n        integrationSubtype: \"EventBridge-PutEvents\"\n        credentials:\n           Fn::GetAtt: [PollerHttpApiRole, Arn]\n        requestParameters:\n          EventBusName: \n            Ref: PollerEventBus\n          Detail: \"$request.body\"\n          DetailType: \"api.event\"\n          Source: \"source.events\"\n        payloadFormatVersion: \"1.0\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\nx-amazon-apigateway-cors:\n  allowMethods:\n  - \"GET\"\n  - \"OPTIONS\"\n  - \"POST\"\n  allowHeaders:\n  - \"authorization\"\n  - \"content-type\"\n  - \"x-amz-date\"\n  - \"x-amzm-header\"\n  - \"x-api-key\"\n  - \"x-apigateway-header\"\n  maxAge: 60\n  allowCredentials: false\nx-amazon-apigateway-importexport-version: \"1.0\"",
+			"canonicalURL": "/github.com/aws-samples/sam-api-poller@07ef2de5bc649071eea5358d3591968d1293fa63/-/blob/api-defs/poller-http-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/sam-api-poller/blob/07ef2de5bc649071eea5358d3591968d1293fa63/api-defs/poller-http-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/jobs/{jobId}\": get: at 1:560: parse path \"/jobs/{jobId}\": path parameter not specified: \"jobId\""
+}

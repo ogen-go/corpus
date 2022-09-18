@@ -10,14 +10,14 @@
 			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
 			"byteSize": 902,
 			"content": "openapi: 3.0.1\npaths:\n  /arrayschema:\n    post:\n      description: subscribes a client to updates relevant to the requestor's account,\n        as identified by the input token.  The supplied url will be used as the delivery\n        address for response payloads\n      operationId: subscribe\n      parameters:\n      - name: arrayParameter\n        in: query\n        required: true\n        schema:\n          maxItems: 10\n          minItems: 1\n          uniqueItems: true\n          type: array\n          items:\n            $ref: '#/components/schemas/SubscriptionResponse'\n      responses:\n        default:\n          description: test description\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/SubscriptionResponse'\ncomponents:\n  schemas:\n    SubscriptionResponse:\n      type: object\n      properties:\n        subscriptionId:\n          type: string\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-core@d8e3eb10f1efb7d4ff60282d82d08939c7eff714/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@55471d09991df95dedfded904888a7ba831d426c/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-core/blob/d8e3eb10f1efb7d4ff60282d82d08939c7eff714/modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
+					"url": "https://github.com/swagger-api/swagger-core/blob/55471d09991df95dedfded904888a7ba831d426c/modules/swagger-jaxrs2/src/test/resources/petstore/parameters/ArraySchemaResource.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/arrayschema\": post: parameters: fail: \"arrayParameter\": nested objects not allowed"
+	"Error": "buildIR: make ir: path \"/arrayschema\": post: parameters: \"arrayParameter\": nested objects not allowed"
 }

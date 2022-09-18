@@ -10,14 +10,14 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 			"byteSize": 976,
 			"content": "openapi: 3.0.0\ninfo:\n  title: TestApi\n  version: 1.0.0\npaths:\n  /test:\n    get:\n      summary: Test\n      operationId: testApi\n      responses:\n        \"200\":\n          description: Ok\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ModelC\"\ncomponents:\n  schemas:\n    ModelA:\n      required:\n        - duplicated_required\n      properties:\n        foo:\n          type: string\n        duplicated_optional:\n           type: string\n        duplicated_required:\n           type: string\n    ModelB:\n      required:\n        - duplicated_required\n      properties:\n        bar:\n          type: string\n        duplicated_optional:\n           type: integer\n        duplicated_required:\n           type: integer\n    ModelC:\n      allOf:\n        - $ref: \"#/components/schemas/ModelA\"\n        - $ref: \"#/components/schemas/ModelB\"\n        - type: object\n          properties:\n            baz:\n              type: string\n\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@4635dda5181fd34d50643d2b9dcfcaaef64db418/-/blob/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/-/blob/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/4635dda5181fd34d50643d2b9dcfcaaef64db418/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/modules/openapi-generator/src/test/resources/3_0/allOfDuplicatedProperties.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/test\": get: responses: code 200: contents: application/json: generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: integer and string"
+	"Error": "buildIR: make ir: path \"/test\": get: responses: code 200: contents: media: \"application/json\": generate schema: allOf: merge properties: try to merge conflicting property schemas: schema type mismatch: integer and string"
 }

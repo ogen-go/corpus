@@ -7,13 +7,13 @@
 		"file": {
 			"name": "5-external-refs.yaml",
 			"size": 0,
-			"path": "schemas/v3/5-external-refs.yaml",
+			"path": "test/schemas/v3/5-external-refs.yaml",
 			"byteSize": 993,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Test API 5 - External references\n  version: 1.0.0\ncomponents:\n  schemas:\n    Error:\n      $ref: \"../refs/refs-schemas.yaml#/Error\"\n  responses:\n    error:\n      description: Default error response with error object\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\npaths:\n  /echo:\n    post:\n      description: Echo input back\n      operationId: echo\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                input:\n                  type: string\n              required:\n                - input\n      responses:\n        \"200\":\n          description: Echoed input\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  output:\n                    type: string\n        default:\n          $ref: \"#/components/responses/error\"",
-			"canonicalURL": "/github.com/EXXETA/openapi-cop@7c303a5108b7e5d430fd66874721ced286e8a929/-/blob/schemas/v3/5-external-refs.yaml",
+			"canonicalURL": "/github.com/EXXETA/openapi-cop@ad4e1694ed02bba80ad93a7b47eb8e3189928adc/-/blob/test/schemas/v3/5-external-refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/EXXETA/openapi-cop/blob/7c303a5108b7e5d430fd66874721ced286e8a929/schemas/v3/5-external-refs.yaml",
+					"url": "https://github.com/EXXETA/openapi-cop/blob/ad4e1694ed02bba80ad93a7b47eb8e3189928adc/test/schemas/v3/5-external-refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

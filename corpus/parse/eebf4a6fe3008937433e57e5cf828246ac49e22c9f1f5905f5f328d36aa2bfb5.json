@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/sam-api-poller"
+		},
+		"file": {
+			"name": "external-http-api.yaml",
+			"size": 0,
+			"path": "api-defs/external-http-api.yaml",
+			"byteSize": 848,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"External Applicaton Sample HTTP API\"\n  version: \"2021-04-07\"\ntags:\n- name: \"httpapi:createdBy\"\n  x-amazon-apigateway-tag-value: \"SAM\"\npaths:\n  /payload:\n    get:\n      x-amazon-apigateway-integration:\n        credentials:\n          Fn::GetAtt: [ExternalHttpApiRole, Arn]\n        uri: \n          Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${PayloadGeneratorFunction.Arn}/invocations\n        httpMethod: \"POST\"\n        type: \"aws_proxy\"\n        payloadFormatVersion: \"2.0\"\nx-amazon-apigateway-cors:\n  allowMethods:\n  - \"GET\"\n  - \"OPTIONS\"\n  - \"POST\"\n  allowHeaders:\n  - \"authorization\"\n  - \"content-type\"\n  - \"x-amz-date\"\n  - \"x-amzm-header\"\n  - \"x-api-key\"\n  - \"x-apigateway-header\"\n  maxAge: 60\n  allowCredentials: false\nx-amazon-apigateway-importexport-version: \"1.0\"",
+			"canonicalURL": "/github.com/aws-samples/sam-api-poller@07ef2de5bc649071eea5358d3591968d1293fa63/-/blob/api-defs/external-http-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/sam-api-poller/blob/07ef2de5bc649071eea5358d3591968d1293fa63/api-defs/external-http-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/payload\": get: at 1:125: responses: no responses"
+}

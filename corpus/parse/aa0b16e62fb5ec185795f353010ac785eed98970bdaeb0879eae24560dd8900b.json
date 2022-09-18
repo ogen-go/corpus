@@ -10,14 +10,14 @@
 			"path": "tests/test_postprocessing.yml",
 			"byteSize": 1687,
 			"content": "openapi: 3.0.3\ninfo:\n  title: ''\n  version: 0.0.0\npaths:\n  /a/:\n    get:\n      operationId: a_list\n      tags:\n      - a\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/A'\n          description: ''\n  /a/selection/:\n    get:\n      operationId: a_selection_retrieve\n      tags:\n      - a\n      security:\n      - cookieAuth: []\n      - basicAuth: []\n      - {}\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/B'\n          description: ''\ncomponents:\n  schemas:\n    A:\n      type: object\n      properties:\n        language:\n          $ref: '#/components/schemas/LanguageEnum'\n        vote:\n          $ref: '#/components/schemas/VoteEnum'\n      required:\n      - language\n      - vote\n    B:\n      type: object\n      properties:\n        language:\n          nullable: true\n          oneOf:\n          - $ref: '#/components/schemas/LanguageEnum'\n          - $ref: '#/components/schemas/BlankEnum'\n          - $ref: '#/components/schemas/NullEnum'\n      required:\n      - language\n    BlankEnum:\n      enum:\n      - ''\n    LanguageEnum:\n      enum:\n      - en\n      - es\n      - ru\n      - cn\n      type: string\n    NullEnum:\n      enum:\n      - null\n    VoteEnum:\n      enum:\n      - 1\n      - 0\n      - -1\n      type: integer\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    cookieAuth:\n      type: apiKey\n      in: cookie\n      name: sessionid\n",
-			"canonicalURL": "/github.com/tfranzel/drf-spectacular@c884b8a2bb3f206272d6ab7bd4ba8203c7498050/-/blob/tests/test_postprocessing.yml",
+			"canonicalURL": "/github.com/tfranzel/drf-spectacular@a69dfcebfdbac4f7188b125bd5b29595b4aa0a3c/-/blob/tests/test_postprocessing.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/tfranzel/drf-spectacular/blob/c884b8a2bb3f206272d6ab7bd4ba8203c7498050/tests/test_postprocessing.yml",
+					"url": "https://github.com/tfranzel/drf-spectacular/blob/a69dfcebfdbac4f7188b125bd5b29595b4aa0a3c/tests/test_postprocessing.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"B\": parse schema: property \"language\": parse schema: parse schema: at 1:350: parse schema: infer enum type: cannot infer type from \"null\""
+	"Error": "parse: parse spec: parse components: at 1:526: schemas: \"NullEnum\": parse schema: infer enum type: cannot infer type from \"null\""
 }

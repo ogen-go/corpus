@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smallrye/smallrye-open-api"
+		},
+		"file": {
+			"name": "special.jsonview-schemas-basic.json",
+			"size": 0,
+			"path": "extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/special.jsonview-schemas-basic.json",
+			"byteSize": 3235,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"Generated API\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/item/{id}/internal\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/BeanName_Internal_Public\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/item/{id}/public\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/BeanName_Public\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/BeanName_WriteOnly_Public\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/BeanName_Public\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"BeanName_Internal_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"inner1\": {\n            \"$ref\": \"#/components/schemas/Inner1_Internal_Public\"\n          }\n        }\n      },\n      \"BeanName_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"inner1\": {\n            \"$ref\": \"#/components/schemas/Inner1_Public\"\n          }\n        }\n      },\n      \"BeanName_WriteOnly_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"secret\": {\n            \"type\": \"string\"\n          },\n          \"inner1\": {\n            \"$ref\": \"#/components/schemas/Inner1_WriteOnly_Public\"\n          }\n        }\n      },\n      \"Inner1_Internal_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"string\"\n          },\n          \"inner2\": {\n            \"$ref\": \"#/components/schemas/Inner2\"\n          }\n        }\n      },\n      \"Inner1_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"string\"\n          },\n          \"inner2\": {\n            \"$ref\": \"#/components/schemas/Inner2\"\n          }\n        }\n      },\n      \"Inner1_WriteOnly_Public\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"string\"\n          },\n          \"inner2\": {\n            \"$ref\": \"#/components/schemas/Inner2\"\n          }\n        }\n      },\n      \"Inner2\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"value\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@899afc702bde78da98409b71075364ec5dbbc2ba/-/blob/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/special.jsonview-schemas-basic.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/899afc702bde78da98409b71075364ec5dbbc2ba/extension-jaxrs/src/test/resources/io/smallrye/openapi/runtime/scanner/special.jsonview-schemas-basic.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse operations: path \"/item/{id}/internal\": get: at 9:14: parse path \"/item/{id}/internal\": path parameter not specified: \"id\""
+}

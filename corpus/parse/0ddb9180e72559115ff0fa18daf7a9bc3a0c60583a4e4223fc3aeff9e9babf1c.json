@@ -10,10 +10,10 @@
 			"path": "rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId.yaml",
 			"byteSize": 1608,
 			"content": "openapi: 3.0.2\n\ninfo:\n  title: Eclipse Kapua REST API - Data Metric\n  version: '1.0'\n  contact:\n    name: Eclipse Kapua Dev Team\n    url: https://eclipse.org/kapua\n    email: kapua-dev@eclipse.org\n  license:\n    name: Eclipse Public License 2.0\n    url: https://www.eclipse.org/legal/epl-2.0\n\npaths:\n  /{scopeId}/data/metrics:\n    get:\n      tags:\n        - Data Metric\n      summary: Query the Data Metrics\n      operationId: dataMetricQuery\n      parameters:\n        - $ref: '../openapi.yaml#/components/parameters/scopeId'\n        - name: clientId\n          in: query\n          schema:\n            type: string\n          description: The client ID to filter results\n        - name: channel\n          in: query\n          schema:\n            type: string\n          description: The channel to filter results. It allows '#' wildcard in last channel level\n        - name: name\n          in: query\n          schema:\n            type: string\n          description: The metric name to filter results\n        - $ref: '../openapi.yaml#/components/parameters/limit'\n        - $ref: '../openapi.yaml#/components/parameters/offset'\n      responses:\n        200:\n          description: The result of the query\n          content:\n            application/json:\n              schema:\n                $ref: './dataMetric.yaml#/components/schemas/metricInfoListResult'\n        401:\n          $ref: '../openapi.yaml#/components/responses/unauthenticated'\n        403:\n          $ref: '../openapi.yaml#/components/responses/subjectUnauthorized'\n        500:\n          $ref: '../openapi.yaml#/components/responses/kapuaError'\n",
-			"canonicalURL": "/github.com/eclipse/kapua@670050ccb8a95c2fe89871881566f1c8501a50c4/-/blob/rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId.yaml",
+			"canonicalURL": "/github.com/eclipse/kapua@4fefa61deed73a039cf2678d8afa676a90ad1623/-/blob/rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/eclipse/kapua/blob/670050ccb8a95c2fe89871881566f1c8501a50c4/rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId.yaml",
+					"url": "https://github.com/eclipse/kapua/blob/4fefa61deed73a039cf2678d8afa676a90ad1623/rest-api/resources/src/main/resources/openapi/dataMetric/dataMetric-scopeId.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

@@ -10,10 +10,10 @@
 			"path": "assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 			"byteSize": 919,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/pets\":\n    get:\n      description: Returns all pets from the system that the user has access to\n      responses:\n        \"200\":\n          description: A list of pets.\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/pet\"\n      security:\n        - api_key:\n            - write:pets\n            - read:pets\n        - petstore_auth:\n            - write:pets\n            - read:pets\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: api_key\n      in: header\n    petstore_auth:\n      type: oauth2\n      flows:\n        implicit:\n          authorizationUrl: http://example.org/api/oauth/dialog\n          scopes:\n            write:pets: modify pets in your account\n            read:pets: read your pets\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@fc9a71627ff3806411ad036c1f59e58780f71c40/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@d1aec86ce8011d99d96a284b2d95b2137283417a/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/fc9a71627ff3806411ad036c1f59e58780f71c40/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/d1aec86ce8011d99d96a284b2d95b2137283417a/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/positive4.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

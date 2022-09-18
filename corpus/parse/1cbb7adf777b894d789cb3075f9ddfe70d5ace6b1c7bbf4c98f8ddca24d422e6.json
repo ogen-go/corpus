@@ -10,10 +10,10 @@
 			"path": "test/snapshots/openapi-v3/nullable/nullable.yaml",
 			"byteSize": 864,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: nullabe types\n  version: v0.1\ncomponents:\n  schemas:\n    nullable:\n      type: object\n      properties:\n        field:\n          type: string\n          nullable: true\n\n    nullableAllOf:\n      type: object\n      properties:\n        field:\n          allOf:\n            - $ref: '#/components/schemas/nullable'\n            - required:\n                - id\n              properties:\n                id:\n                  type: string\n                  format: uuid\n          nullable: true\n\n    nullableAnyOf:\n      type: object\n      properties:\n        field:\n          anyOf:\n            - type: string\n            - type: boolean\n          nullable: true\npaths:\n  post:\n    requestBody:\n      application/json:\n        $ref: '#/components/schemas/nullable'\n    responses:\n      200:\n        application/json:\n          type: object\n",
-			"canonicalURL": "/github.com/horiuchi/dtsgenerator@679e05256caabd513658310070adbf05fe2dca46/-/blob/test/snapshots/openapi-v3/nullable/nullable.yaml",
+			"canonicalURL": "/github.com/horiuchi/dtsgenerator@462e48940b4820d5f802ef7db93bf981231b19ee/-/blob/test/snapshots/openapi-v3/nullable/nullable.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/horiuchi/dtsgenerator/blob/679e05256caabd513658310070adbf05fe2dca46/test/snapshots/openapi-v3/nullable/nullable.yaml",
+					"url": "https://github.com/horiuchi/dtsgenerator/blob/462e48940b4820d5f802ef7db93bf981231b19ee/test/snapshots/openapi-v3/nullable/nullable.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

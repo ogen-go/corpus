@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/seriousme/fastify-openapi-glue"
+		},
+		"file": {
+			"name": "test-openapi-v3-recursive.json",
+			"size": 0,
+			"path": "test/test-openapi-v3-recursive.json",
+			"byteSize": 1728,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost/v2\"\n    }\n  ],\n  \"info\": {\n    \"title\": \"Recursive Test specification\",\n    \"description\": \"testing the fastify openapi glue using recursive schema\",\n    \"version\": \"0.1.0\"\n  },\n  \"paths\": {\n    \"/recursive\": {\n      \"post\": {\n        \"operationId\": \"postRecursive\",\n        \"summary\": \"Test recursive parameters\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ok\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/bodyObject\"\n                }\n              }\n            }\n          }\n        },\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/bodyObject\"\n              }\n            }\n          },\n          \"required\": true\n        }\n      }\n    }\n  },\n\n  \"components\": {\n    \"schemas\": {\n      \"bodyObject\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"properties\": {\n          \"str1\": {\n            \"type\": \"string\"\n          },\n          \"arr\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"objRef\": {\n            \"$ref\": \"#/components/schemas/bodyObject\"\n          },\n          \"arrRef\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/bodyObject\"\n            }\n          },\n          \"refStr\": {\n            \"$ref\": \"#/components/schemas/bodyObject/properties/arrRef/items/properties/arr/items\"\n          }\n        },\n        \"required\": [\"str1\"]\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/seriousme/fastify-openapi-glue@0f16b0b1b400f30b7d216e2ef43eb90c1554a72e/-/blob/test/test-openapi-v3-recursive.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/seriousme/fastify-openapi-glue/blob/0f16b0b1b400f30b7d216e2ef43eb90c1554a72e/test/test-openapi-v3-recursive.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"bodyObject\": parse schema: property \"refStr\": parse schema: at 69:21: find schema: resolve: can't find value for \"components/schemas/bodyObject/properties/arrRef/items/properties/arr/items\""
+}
