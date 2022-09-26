@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bigcommerce/api-specs"
+		},
+		"file": {
+			"name": "subscriptions.sf.yml",
+			"size": 0,
+			"path": "reference/subscriptions.sf.yml",
+			"byteSize": 3324,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Storefront Subscriptions\n  description: |-\n    Manage newsletter and marketing email subscriptions on the storefront.\n\n    ## Additional Information\n\n    * [Collecting Newsletter Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions) (support.bigcommerce.com)\n    * [Customers Overview](/api-docs/customers/customers-subscribers-overview)\n    * [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis)\n  version: \"\"\nservers:\n- url: https://{$$.env.store_domain}\ntags:\n- name: Subscription\npaths:\n  /subscriptions:\n    post:\n      tags:\n      - Subscription\n      summary: Create a Subscription\n      description: |-\n        Creates or updates an email subscription.\n\n        By default, customers receive abandoned cart emails as soon as they provide their email address in the checkout flow. They can opt out using this endpoint.\n\n        However, if **Store Settings \u003e Miscellaneous \u003e Require Consent** is enabled, Abandoned Cart Emails are not sent by default, and the customer should opt-in.\n\n        \u003c!-- theme: info --\u003e\n        \u003e #### Note\n        \u003e The Send a Test Request feature is not currently supported for this endpoint.\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SubscriptionRequest'\n        required: false\n      responses:\n        '200':\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Subscription'\ncomponents:\n  schemas:\n    SubscriptionRequest:\n      type: object\n      properties:\n        email:\n          type: string\n          description: Email of subscriber\n        acceptsMarketingNewsletter:\n          type: boolean\n          description: Has subscriber provided consent for receiving Marketing emails.\n        acceptsAbandonedCartEmails:\n          type: boolean\n          description: Has subscriber provided consent for receiving Abandon Cart\n            emails.\n      x-internal: false\n    Subscription:\n      type: object\n      properties:\n        id:\n          type: integer\n          description: |\n            The unique numeric ID of the subscriber; increments sequentially.\n        email:\n          type: string\n          description: |\n            The email of the subscriber. Must be unique.\n        firstName:\n          maxLength: 255\n          minLength: 0\n          type: string\n          description: |\n            The first name of the subscriber.\n        lastName:\n          maxLength: 255\n          minLength: 0\n          type: string\n          description: |\n            The last name of the subscriber.\n        source:\n          maxLength: 255\n          minLength: 0\n          type: string\n          description: |\n            The source of the subscriber. Values are: `storefront`, `order`, or `custom`.\n        orderId:\n          maximum: 2147483647\n          minimum: 1\n          type: integer\n          description: |\n            The ID of the source order, if source was an order.\n          nullable: true\n        consents:\n          type: array\n          description: |\n            The collection of consents the shopper is subscribing to.\n      description: Subscription properties.\n      x-internal: false\n",
+			"canonicalURL": "/github.com/bigcommerce/api-specs@c39f508877c17de6648549038474f5bc79579ff1/-/blob/reference/subscriptions.sf.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bigcommerce/api-specs/blob/c39f508877c17de6648549038474f5bc79579ff1/reference/subscriptions.sf.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:2741: path parameter not specified: \"$$.env.store_domain\""
+}

@@ -10,14 +10,14 @@
 			"path": "specs/query-suggestions/spec.yml",
 			"byteSize": 1193,
 			"content": "openapi: 3.0.2\ninfo:\n  title: Query Suggestions API\n  description: API powering the Query Suggestions feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://query-suggestions.{region}.algolia.com\n    variables:\n      region:\n        enum:\n          - us\n          - eu\n        default: us\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: advanced\n    x-displayName: Advanced\n    description: Advanced operations.\n  - name: configurations\n    x-displayName: Configurations\n    description: Manage Query Suggestions configurations.\nx-tagGroups:\n  - name: General\n    tags:\n      - configurations\n  - name: Others\n    tags:\n      - advanced\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  /1/configs:\n    $ref: 'paths/qsConfigs.yml'\n  /1/configs/{indexName}:\n    $ref: 'paths/qsConfig.yml'\n  /1/configs/{indexName}/status:\n    $ref: 'paths/getConfigurationStatus.yml'\n  /1/logs/{indexName}:\n    $ref: 'paths/getLogFile.yml'\n",
-			"canonicalURL": "/github.com/algolia/api-clients-automation@9d762cd75564327adbddf6a602baebe2a3e2e3c0/-/blob/specs/query-suggestions/spec.yml",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@e795e7dc33752cb863cdd9a1f3cbe53d2c870012/-/blob/specs/query-suggestions/spec.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/algolia/api-clients-automation/blob/9d762cd75564327adbddf6a602baebe2a3e2e3c0/specs/query-suggestions/spec.yml",
+					"url": "https://github.com/algolia/api-clients-automation/blob/e795e7dc33752cb863cdd9a1f3cbe53d2c870012/specs/query-suggestions/spec.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/1/configs\": at 1:329: external \"paths/qsConfigs.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/1/configs\": at 1:329: external \"paths/qsConfigs.yml\": get: file: local file reference is not allowed"
 }

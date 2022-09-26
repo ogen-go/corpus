@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/issue-1094/swagger.yaml",
 			"byteSize": 504,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 15.3.0\n  title: test\npaths:\n  /my-app:\n    get:\n      parameters:\n        - name: target-plmn-list\n          in: query\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: 'common.yaml#/components/schemas/PlmnId'\n                  minItems: 1\n      responses:\n        '200':\n          description: Expected response to a valid request\n          schema:\n            type: string",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1094/swagger.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1094/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/modules/swagger-parser-v3/src/test/resources/issue-1094/swagger.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/issue-1094/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/my-app\": get: parameters: parse parameter \"target-plmn-list\": content: application/json: schema: parse schema: parse schema: at 1:162: external \"common.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/my-app\": get: parameters: parse parameter \"target-plmn-list\": content: application/json: schema: parse schema: parse schema: at 1:162: external \"common.yaml\": get: file: local file reference is not allowed"
 }

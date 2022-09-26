@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Cornutum/tcases"
+		},
+		"file": {
+			"name": "server-url-test.json",
+			"size": 0,
+			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/server-url-test.json",
+			"byteSize": 1490,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Servers\",\n        \"version\": \"0.0.0\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"https://my-api.org\"\n        },\n        {\n            \"url\": \"https://my-api.org:{port}/{env}-resources\",\n            \"variables\": {\n                \"env\": {\n                    \"default\": \"test\"\n                },\n                \"port\": {\n                    \"enum\": [\n                        \"123\",\n                        \"456\"\n                    ],\n                    \"default\": \"123\"\n                }\n            }\n        },\n        {\n            \"url\": \"https://my-api.org:{port}/{env}-resources\"\n        },\n        {\n            \"url\": \"https://my-api.org:{port}/{env}-resources/{version}\",\n            \"variables\": {\n                \"env\": {\n                    \"default\": \"test\"\n                },\n                \"port\": {\n                    \"default\": \"123\"\n                }\n            }\n        }\n    ],\n    \"paths\": {\n        \"/servers\": {\n            \"get\": {\n                \"responses\": {\n                    \"default\": {\n                        \"description\": \"Default\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"type\": \"object\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
+			"canonicalURL": "/github.com/Cornutum/tcases@f34ef2da70715942641efa9afe2a492393f12e4e/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/server-url-test.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Cornutum/tcases/blob/f34ef2da70715942641efa9afe2a492393f12e4e/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/server-url-test.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 27:20: path parameter not specified: \"port\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ysoftdevs/wapifuzz"
+		},
+		"file": {
+			"name": "documentation.yaml",
+			"size": 0,
+			"path": "tests/documentation.yaml",
+			"byteSize": 1328,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io\npaths:\n  /pets?attributeName={attributeValue}:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: attributeValue\n          in: query\n          description: How many items to return at one time (max 100)\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:    \n              schema:\n                $ref: \"#/components/schemas/Pets\"\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/ysoftdevs/wapifuzz@c0193b7514baadc9eecf0881962e05b519a449f6/-/blob/tests/documentation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ysoftdevs/wapifuzz/blob/c0193b7514baadc9eecf0881962e05b519a449f6/tests/documentation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/pets?attributeName={attributeValue}\": get: operation \"listPets\": at 1:513: parse path \"/pets?attributeName={attributeValue}\": path MUST NOT contain a query string"
+}

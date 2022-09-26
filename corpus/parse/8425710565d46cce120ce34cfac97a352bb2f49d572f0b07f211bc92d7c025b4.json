@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/f-teamdev/ship"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "backend/swagger/swagger.yaml",
+			"byteSize": 3385,
+			"content": "openapi: 3.0.0\ninfo:\n  description: \"API sistema de gerenciamento de desenvolvedores da FTeam\"\n  version: \"1.1.0\"\n  title: \"Ship API\"\nservers:\n  - url: https://dev.shipstore.info\n    description: Developer server\n  - url: http://localhost:4000\n    description: Local server\ntags:\n- name: \"auth\"\n  description: \"Autorização de usuário\"\n- name: \"user\"\n  description: \"Access to User\"\n- name: \"file\"\n  description: \"Upload e Download de arquivos\"\n- name: \"client\"\n  description: \"Access to client\"\n- name: \"project\"\n  description: \"Access to project\"\n- name: \"user-on-project\"\n  description: \"many-to-many | User -\u003e Project\"\n- name: \"hour\"\n  description: \"Project hours\"\npaths:\n  # auth\n  /auth/login:\n    $ref: ./src/auth.yaml#/components/login\n  /auth/check_token:\n    $ref: ./src/auth.yaml#/components/check_token\n  /auth/update_password:\n    $ref: ./src/auth.yaml#/components/update_password\n  /auth/refresh_token:\n    $ref: ./src/auth.yaml#/components/refresh_token\n\n  # upload   \n  /file/upload:\n    $ref: ./src/file.yaml#/components/upload\n  /file/{file}:\n    $ref: ./src/file.yaml#/components/download\n\n  # user\n  /logged_user:\n    $ref: ./src/user.yaml#/components/loggedUser\n  /user/{id}:\n    $ref: ./src/user.yaml#/components/userById\n  /user:\n    $ref: ./src/user.yaml#/components/userCrud\n  \n  # project\n  /project/{id}:\n    $ref: ./src/project.yaml#/components/projectById\n  /project:\n    $ref: ./src/project.yaml#/components/projectCrud\n\n  # client\n  /client/{id}:\n    $ref: ./src/client.yaml#/components/clientById\n  /client:\n    $ref: ./src/client.yaml#/components/clientCrud\n\n  # userOnProject\n  /userOnProject/usersByProjectId/{projectId}:\n    $ref: ./src/user_on_project.yaml#/components/usersByProjectId\n  /userOnProject/projectsByUserId/{userId}:\n    $ref: ./src/user_on_project.yaml#/components/projectsByUserId\n  /userOnProject/addUserInProject/{userId}/{projectId}:\n    $ref: ./src/user_on_project.yaml#/components/addUserToProject\n  /userOnProject/removeUserInProject/{userId}/{projectId}:\n    $ref: ./src/user_on_project.yaml#/components/removeUserToProject\n\n  # hour\n  /hour/{idUser}/{idProject}:\n    $ref: ./src/hour.yaml#/components/hoursByIdUserAndIdProject\n  /hour:\n    $ref: ./src/hour.yaml#/components/hourCrud  \n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      description: \"Auth header (Authorization) Access Token\"\n    bearerAuthRefreshToken:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      description: \"(Authorization) Refresh Token\"\n    basicAuth:   \n      type: http\n      scheme: basic\n  responses:\n    NotFound:\n      description: Not found\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorEntity'\n    InternalError:\n      description: Internal error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorEntity'\n    Unauthorized:\n      description: Forbidden operation\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ErrorEntity'\n  schemas:\n    ErrorEntity:\n      type: \"object\"\n      properties:\n        error:\n          type: string\n    UserEntity:\n      $ref: \"./src/user.yaml#/components/schemas/UserEntity\"\n    ProjectEntity:\n      $ref: \"./src/project.yaml#/components/schemas/ProjectEntity\"\n",
+			"canonicalURL": "/github.com/f-teamdev/ship@f92e196d3a8a4c10f3910f5da592dc2f67c5f96e/-/blob/backend/swagger/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/f-teamdev/ship/blob/f92e196d3a8a4c10f3910f5da592dc2f67c5f96e/backend/swagger/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ProjectEntity\": parse schema: at 1:537: external \"./src/project.yaml\": get: file: local file reference is not allowed"
+}

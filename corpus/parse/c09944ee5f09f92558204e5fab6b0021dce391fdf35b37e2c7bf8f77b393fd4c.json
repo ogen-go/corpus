@@ -10,14 +10,14 @@
 			"path": "projects/openapi-io/inputs/openapi3-with-references/circular-references-multiple-refs.yaml",
 			"byteSize": 1513,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Direct Recursive Example\n  description: \u003e-\n    Self-referencing circular example\n  version: '1.0'\npaths:\n  /user/details:\n    get:\n      tags:\n        - User\n      summary: Get User Details\n      description: Get User Details\n      operationId: GetUserDetails\n      responses:\n        '200':\n          description: Successful operation\n          headers: {}\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UserDetails'\n      deprecated: false\n    post:\n      tags:\n        - User\n      summary: Get User Details\n      description: Get User Details\n      operationId: GetUserDetails\n      requestBody:\n        description: Successful operation\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/UserDetails'\n      responses:\n        '200':\n          description: Successful operation\n          headers: {}\n          content: {}\n      deprecated: false\ncomponents:\n  schemas:\n    UserDetails:\n      title: UserDetails\n      type: object\n      properties:\n        name:\n          type: string\n          description: User name\n          example: Joe Mauma\n        email:\n          type: string\n          description: joe@maumas-house.net\n        id:\n          type: number\n          description: Unique ID\n        best_friend:\n          type: object\n          additionalProperties:\n            $ref: '#/components/schemas/UserDetails'\ntags:\n  - name: UserDetails",
-			"canonicalURL": "/github.com/opticdev/optic@e49dec30b5d76f0f8fe627f2bf2b5fa25392e2d9/-/blob/projects/openapi-io/inputs/openapi3-with-references/circular-references-multiple-refs.yaml",
+			"canonicalURL": "/github.com/opticdev/optic@d7a71ade6d5e279dbb7b3cffc5a1dd934cbdfb81/-/blob/projects/openapi-io/inputs/openapi3-with-references/circular-references-multiple-refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/opticdev/optic/blob/e49dec30b5d76f0f8fe627f2bf2b5fa25392e2d9/projects/openapi-io/inputs/openapi3-with-references/circular-references-multiple-refs.yaml",
+					"url": "https://github.com/opticdev/optic/blob/d7a71ade6d5e279dbb7b3cffc5a1dd934cbdfb81/projects/openapi-io/inputs/openapi3-with-references/circular-references-multiple-refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/user/details\": at 1:535: post: duplicate operationId: \"GetUserDetails\""
+	"Error": "parse: parse spec: parse path items: path \"/user/details\": at 1:535: post: duplicate operationId: \"GetUserDetails\""
 }

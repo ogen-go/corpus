@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/joolfe/postman-to-openapi"
+		},
+		"file": {
+			"name": "NullHeader.yml",
+			"size": 0,
+			"path": "test/resources/output/NullHeader.yml",
+			"byteSize": 1816,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Information sociétaire\n  version: 1.0.0\nservers:\n  - url: http://{{url}}\n  - url: https://api.io\ntags:\n  - name: Authentification\npaths:\n  /{webApp}/token:\n    post:\n      tags:\n        - Authentification\n      summary: Récupération token\n      description: |-\n        Méthode d'authentification \n        Retourne un token en cas de succès\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              type: string\n              example: \u003e-\n                \"{\\r\\n \\\"contenu\\\":\\r\\n {\\r\\n \\\"compte\\\": \\\"{{compte}}\\\",\\r\\n\n                \\\"motDePasse\\\": \\\"{{motDePasse}}\\\",\\r\\n \\\"identifiant\\\":\n                \\\"{{identifiant}}\\\"\\r\\n }\\r\\n}\"\n      parameters:\n        - name: Content-Type\n          in: header\n          schema:\n            type: string\n          example: application/json\n        - name: webApp\n          in: path\n          schema:\n            type: string\n          required: true\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n              example:\n                erreur: null\n                codeErreur: 0\n                contenu:\n                  token: ct54q7uoidffg2z661afigu98ix476s8\n  /userHeader:\n    post:\n      tags:\n        - Authentification\n      summary: Missing headers field\n      description: Create a new user into your amazing API\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              example:\n                example: field\n                other:\n                  data1: 'yes'\n                  data2: 'no'\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n",
+			"canonicalURL": "/github.com/joolfe/postman-to-openapi@e0f0e35afebd85444533ee23e58b3b5b32711581/-/blob/test/resources/output/NullHeader.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/joolfe/postman-to-openapi/blob/e0f0e35afebd85444533ee23e58b3b5b32711581/test/resources/output/NullHeader.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:1303: invalid path: http://{{url}}"
+}

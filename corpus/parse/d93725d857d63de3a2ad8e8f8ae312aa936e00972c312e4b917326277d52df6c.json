@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-patterns"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "apigw-lambda-sns/api.yaml",
+			"byteSize": 949,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"RestApi\"\n  version: \"2022-08-08T14:56:31Z\"\nservers:\n- url: \"https://mrbxgs2ki2.execute-api.${AWS::Region}.amazonaws.com/{basePath}\"\n  variables:\n    basePath:\n      default: \"/s1\"\npaths:\n  /:\n    get:\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        httpMethod: \"POST\"\n        uri: \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:LambdaFunctionName/invocations\"\n        responses:\n          default:\n            statusCode: \"200\"\n        passthroughBehavior: \"when_no_match\"\n        contentHandling: \"CONVERT_TO_TEXT\"\n        type: \"aws\"\ncomponents:\n  schemas:\n    Empty:\n      title: \"Empty Schema\"\n      type: \"object\"\n",
+			"canonicalURL": "/github.com/aws-samples/serverless-patterns@3533e7e7a4a222154be8f4f995dd9f5229fe5dc5/-/blob/apigw-lambda-sns/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-patterns/blob/3533e7e7a4a222154be8f4f995dd9f5229fe5dc5/apigw-lambda-sns/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:708: path parameter not specified: \"AWS::Region\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bdemirpolat/kubecd"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger.yaml",
+			"byteSize": 1969,
+			"content": "openapi: 3.0.0\ninfo:\n  title: kubecd\n  version: 1.0.0\nservers:\n  - url: http://{{host}}\npaths:\n  /applications/1:\n    get:\n      tags:\n        - General\n      summary: Get Application with ID\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n    put:\n      tags:\n        - General\n      summary: Update Application\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              example:\n                id: 1\n                name: myapp\n                interval: 30000\n                url: https://github.com/bdemirpolat/myapp.git\n                manifest_dir: kubecd\n                username: bdemirpolat\n                token: ''\n                branch: master\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n  /applications:\n    get:\n      tags:\n        - General\n      summary: List Applications\n      parameters:\n        - name: page\n          in: query\n          schema:\n            type: integer\n          example: '1'\n        - name: limit\n          in: query\n          schema:\n            type: integer\n          example: '5'\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n    post:\n      tags:\n        - General\n      summary: Create Application\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              example:\n                name: myapp1\n                interval: 30000\n                url: https://github.com/bdemirpolat/myapp.git\n                manifest_dir: kubecd\n                username: bdemirpolat\n                token: ''\n                branch: master\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}",
+			"canonicalURL": "/github.com/bdemirpolat/kubecd@b3db260f344acfff32a17c0ee1d6167ff1dc5247/-/blob/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bdemirpolat/kubecd/blob/b3db260f344acfff32a17c0ee1d6167ff1dc5247/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:1395: invalid path: http://{{host}}"
+}

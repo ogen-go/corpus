@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/negative3.json",
 			"byteSize": 1337,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"description\": \"Returns all pets from the system that the user has access to\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"A list of pets.\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/pet\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"security\": [\n          {\n            \"api_key\": []\n          },\n          {\n            \"petstore_auth\": [\n              \"write:pets\",\n              \"read:pets\"\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"api_key\": {\n        \"type\": \"apiKey\",\n        \"name\": \"api_key\",\n        \"in\": \"header\"\n      },\n      \"petstore_auth\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"authorizationUrl\": \"http://example.org/api/oauth/dialog\",\n            \"scopes\": {\n              \"write:pets\": \"modify pets in your account\",\n              \"read:pets\": \"read your pets\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@d1aec86ce8011d99d96a284b2d95b2137283417a/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/negative3.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/negative3.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/d1aec86ce8011d99d96a284b2d95b2137283417a/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/negative3.json",
+					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/3.0/security_requirement_object_with_wrong_scopes/test/negative3.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/pets\": get: responses: 200: content: application/json: schema: parse schema: parse schema: at 19:29: find schema: resolve: can't find value for \"components/schemas/pet\""
+	"Error": "parse: parse spec: parse path items: path \"/pets\": get: responses: 200: content: application/json: schema: parse schema: parse schema: at 19:29: find schema: resolve: can't find value for \"components/schemas/pet\""
 }

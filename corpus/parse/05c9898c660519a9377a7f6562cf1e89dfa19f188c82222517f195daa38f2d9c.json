@@ -10,14 +10,14 @@
 			"path": "v1/random.yaml",
 			"byteSize": 1482,
 			"content": "openapi: 3.0.1\npaths:\n  /random/{format}:\n    get:\n      tags:\n        - Page content\n      summary: Get content for a random page\n      description: |\n        Redirects the client to the URI for the desired format for a random page title.\n\n        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n      parameters:\n        - name: format\n          in: path\n          description: The desired return format\n          required: true\n          schema:\n            type: string\n            enum:\n              - title\n              - html\n              - summary\n              - related\n              - mobile-sections\n              - mobile-sections-lead\n      responses:\n        303:\n          description: The redirect to the desired format URI for a random page\n          content:\n            application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/Random/0.7.0\":\n              schema:\n                type: object\n        default:\n          description: Error\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/problem'\n      x-request-handler:\n        - title_from_mobileapps:\n            request:\n              uri: '{{options.host}}/{domain}/v1/page/random/title'\n            return:\n              status: 303\n              headers:\n                location: ../{request.params.format}/{title_from_mobileapps.body.items[0].title}\n      x-monitor: false\n",
-			"canonicalURL": "/github.com/wikimedia/restbase@afe69436e643489764fd76e0a29054733ff92dc5/-/blob/v1/random.yaml",
+			"canonicalURL": "/github.com/wikimedia/restbase@c45fefc52de715f3b0524662bfbc4240d8f90553/-/blob/v1/random.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/wikimedia/restbase/blob/afe69436e643489764fd76e0a29054733ff92dc5/v1/random.yaml",
+					"url": "https://github.com/wikimedia/restbase/blob/c45fefc52de715f3b0524662bfbc4240d8f90553/v1/random.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/random/{format}\": get: responses: default: content: application/problem+json: schema: parse schema: at 1:749: find schema: resolve: can't find value for \"components/schemas/problem\""
+	"Error": "parse: parse spec: parse path items: path \"/random/{format}\": get: responses: default: content: application/problem+json: schema: parse schema: at 1:749: find schema: resolve: can't find value for \"components/schemas/problem\""
 }

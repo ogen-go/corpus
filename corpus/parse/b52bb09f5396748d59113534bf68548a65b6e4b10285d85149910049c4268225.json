@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
 			"byteSize": 471,
 			"content": "openapi: 3.0.0\ninfo:\n  title: issue\n  version: 1.0.01\n\npaths:\n  /bar:\n    parameters:\n      - $ref: '#/components/parameters/requestid'\n    delete:\n      responses:\n        '204':\n          description: Deleted\n          headers:\n            X-requestid:\n              $ref: '#/components/parameters/requestid'\n\ncomponents:\n  parameters:\n    requestid:\n      name: X-requestid\n      in: header\n      required: false\n      schema:\n        type: string\n        format: uuid",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/-/blob/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/same-refs-different-model-valid.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/bar\": delete: responses: 204: headers: header \"X-requestid\": at 1:48: \"in\" MUST NOT be specified, got \"header\""
+	"Error": "parse: parse spec: parse path items: path \"/bar\": delete: responses: 204: headers: header \"X-requestid\": at 1:48: \"in\" MUST NOT be specified, got \"header\""
 }

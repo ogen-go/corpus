@@ -10,10 +10,10 @@
 			"path": "src/testInt/resources/tests/schema-composed-allof-notype/inputs/openapi30.yaml",
 			"byteSize": 941,
 			"content": "openapi: 3.0.3\ninfo:\n  title: allOf of $ref and schema without type\n  version: 1.0.0\n\npaths:\n  /all-of-no-type:\n    get:\n      responses:\n        '200':\n          description: object response with allOf of $ref and schema without type\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  foo:\n                    allOf:\n                      - readOnly: true\n                      - $ref: '#/components/schemas/Foo'\n# proper way would be this, because a schema must have a type property!\n# https://stackoverflow.com/questions/51402156/how-to-declare-a-ref-property-as-readonly-in-openapi-swagger\n#                  foo:\n#                    readOnly: true\n#                    allOf:\n#                      - $ref: '#/components/schemas/Foo'\ncomponents:\n  schemas:\n\n    Foo:\n      type: object\n      properties:\n        foo:\n          type: string\n",
-			"canonicalURL": "/github.com/openapi-processor/openapi-processor-core@1f7170ca885f2b2d2dabec0f20ca2838e3e39856/-/blob/src/testInt/resources/tests/schema-composed-allof-notype/inputs/openapi30.yaml",
+			"canonicalURL": "/github.com/openapi-processor/openapi-processor-core@cc2fef9ba071af5006cfaa8eaff69c294ed060d1/-/blob/src/testInt/resources/tests/schema-composed-allof-notype/inputs/openapi30.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/openapi-processor/openapi-processor-core/blob/1f7170ca885f2b2d2dabec0f20ca2838e3e39856/src/testInt/resources/tests/schema-composed-allof-notype/inputs/openapi30.yaml",
+					"url": "https://github.com/openapi-processor/openapi-processor-core/blob/cc2fef9ba071af5006cfaa8eaff69c294ed060d1/src/testInt/resources/tests/schema-composed-allof-notype/inputs/openapi30.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

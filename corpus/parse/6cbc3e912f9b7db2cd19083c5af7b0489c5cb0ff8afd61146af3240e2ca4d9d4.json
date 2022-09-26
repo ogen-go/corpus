@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/GoogleCloudPlatform/apigee-anthos-service-mesh-demo"
+		},
+		"file": {
+			"name": "currencyservices.yaml",
+			"size": 0,
+			"path": "apigee/proxies/Currency-v1/apiproxy/resources/oas/currencyservices.yaml",
+			"byteSize": 2406,
+			"content": "# Copyright 2022 Google LLC\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n\nopenapi: 3.0.2\ninfo:\n  description: API for managing Currency resources.\n  version: 1.0.0\n  title: Curerency API\nservers:\n- url: \"{SERVER_URL}/v1/currencyservices\"\nsecurity:\n  - ApiKeyAuth: [] \npaths:\n  /currencies:\n    get:\n      summary: List 'Currency' objects.\n      description: Retrieve a list of 'Currency' objects from the server.\n      responses:\n        \"200\":\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Currencies'    \n  /convert:\n    post:\n      summary: Currency conversion\n      description: converts a currency\n      requestBody:\n        description: converts a currency\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ConvertRequest'\n      responses:\n        \"200\":\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ConvertResponse'    \ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      name: apikey\n      in: query\n  schemas:\n    Currencies:\n      type: object\n      properties:\n        currencycodes:\n          type: array\n          items:\n            type: string\n    ConvertRequest:\n      type: object\n      properties:\n        to_code:\n          type: string\n          example: \"GBP\"\n        from:\n          type: object\n          properties:\n            currency_code: \n              type: string\n              example: \"USD\"\n            units: \n              type: string \n              example: \"100\"\n    ConvertResponse:\n      type: object\n      properties:\n        currencyCode:\n          type: string\n        units:\n          type: string\n        nanos:\n          type: string",
+			"canonicalURL": "/github.com/GoogleCloudPlatform/apigee-anthos-service-mesh-demo@7813d27c51acf84648330f531364085459edbcbf/-/blob/apigee/proxies/Currency-v1/apiproxy/resources/oas/currencyservices.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/GoogleCloudPlatform/apigee-anthos-service-mesh-demo/blob/7813d27c51acf84648330f531364085459edbcbf/apigee/proxies/Currency-v1/apiproxy/resources/oas/currencyservices.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:1427: path parameter not specified: \"SERVER_URL\""
+}

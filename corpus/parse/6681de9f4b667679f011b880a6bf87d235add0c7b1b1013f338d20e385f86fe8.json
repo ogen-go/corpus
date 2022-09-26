@@ -10,14 +10,14 @@
 			"path": "specs/personalization/spec.yml",
 			"byteSize": 1139,
 			"content": "openapi: 3.0.2\ninfo:\n  title: Personalization API\n  description: API powering the Personalization feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://personalization.{region}.algolia.com\n    variables:\n      region:\n        enum:\n          - us\n          - eu\n        default: us\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: profiles\n    x-displayName: Profiles\n    description: Manage users' profiles.\n  - name: strategies\n    x-displayName: Strategies\n    description: Manage personalization strategies.\nx-tagGroups:\n  - name: General\n    tags:\n      - profiles\n      - strategies\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  /1/profiles/personalization/{userToken}:\n    $ref: 'paths/getUserTokenProfile.yml'\n  /1/profiles/{userToken}:\n    $ref: 'paths/deleteUserProfile.yml'\n  /1/strategies/personalization:\n    $ref: 'paths/personalizationStrategy.yml'\n",
-			"canonicalURL": "/github.com/algolia/api-clients-automation@9d762cd75564327adbddf6a602baebe2a3e2e3c0/-/blob/specs/personalization/spec.yml",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@e795e7dc33752cb863cdd9a1f3cbe53d2c870012/-/blob/specs/personalization/spec.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/algolia/api-clients-automation/blob/9d762cd75564327adbddf6a602baebe2a3e2e3c0/specs/personalization/spec.yml",
+					"url": "https://github.com/algolia/api-clients-automation/blob/e795e7dc33752cb863cdd9a1f3cbe53d2c870012/specs/personalization/spec.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/1/profiles/personalization/{userToken}\": at 1:354: external \"paths/getUserTokenProfile.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/1/profiles/personalization/{userToken}\": at 1:354: external \"paths/getUserTokenProfile.yml\": get: file: local file reference is not allowed"
 }

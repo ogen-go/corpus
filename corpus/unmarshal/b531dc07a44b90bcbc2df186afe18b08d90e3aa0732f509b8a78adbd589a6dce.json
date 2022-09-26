@@ -1,0 +1,18 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/readme/oas-examples"
+		},
+		"file": {
+			"name": "schema-validation-top-level.json",
+			"size": 0,
+			"path": "3.1/json/schema-validation-top-level.json",
+			"byteSize": 1624,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Support for a top-level `jsonSchemaDialect` declaration\",\n    \"description\": \"https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#user-content-oasjsonschemadialect\"\n  },\n  \"jsonSchemaDialect\": \"http://json-schema.org/draft-04/schema#\",\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/anything/numbers\": {\n      \"parameters\": [\n        {\n          \"in\": \"query\",\n          \"name\": \"id-exclusive-required\",\n          \"schema\": {\n            \"$schema\": \"https://json-schema.org/draft/2020-12/schema#\",\n            \"type\": \"number\",\n            \"exclusiveMinimum\": 10,\n            \"exclusiveMaximum\": 20,\n            \"multipleOf\": 2,\n            \"default\": 12,\n            \"example\": 14\n          },\n          \"required\": true\n        },\n        {\n          \"in\": \"query\",\n          \"name\": \"id-exclusive-required-schema-v4\",\n          \"schema\": {\n            \"type\": \"number\",\n            \"minimum\": 10,\n            \"maximum\": 20,\n            \"exclusiveMinimum\": true,\n            \"exclusiveMaximum\": true,\n            \"multipleOf\": 2,\n            \"default\": 12,\n            \"example\": 14\n          },\n          \"required\": true\n        }\n      ],\n      \"get\": {\n        \"summary\": \"Number validation\",\n        \"description\": \"This operation has a top-level `jsonSchemaDialect` set to abide by [JSON Schema Draft 04](https://json-schema.org/specification-links.html#draft-4).\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/npm/readme/oas-examples@c1172d94f9ee52c3c1847b73f9ae1ad55945824b/-/blob/3.1/json/schema-validation-top-level.json",
+			"externalURLs": []
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 23: cannot unmarshal !!int `10` into bool; yaml: line 24: cannot unmarshal !!int `20` into bool"
+}

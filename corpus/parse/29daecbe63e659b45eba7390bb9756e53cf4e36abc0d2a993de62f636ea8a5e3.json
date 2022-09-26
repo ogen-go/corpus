@@ -10,14 +10,14 @@
 			"path": "packages/java/endpoint/src/test/resources/dev/hilla/generator/openapi/invalid-schema-type-openapi.json",
 			"byteSize": 1137,
 			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"My super application\",\n    \"version\": \"1.1.1\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://myhost.com/myprefix\",\n      \"description\": \"Vaadin backend server\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"GeneratorTestClass\",\n      \"description\": \"This class is used for OpenApi generator test\"\n    }\n  ],\n  \"paths\": {\n    \"/GeneratorTestClass/complexEntitiesTest\": {\n      \"post\": {\n        \"tags\": [\"GeneratorTestClass\"],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"instant\": {\n                    \"$ref\": \"./java.time.Instant\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ComplexResponse\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/vaadin/hilla@bd62e9bdbf3cd81bf80b5384b01cac57dc8ffe8c/-/blob/packages/java/endpoint/src/test/resources/dev/hilla/generator/openapi/invalid-schema-type-openapi.json",
+			"canonicalURL": "/github.com/vaadin/hilla@27387e3c49574a5a65c954ac36030d09d4955083/-/blob/packages/java/endpoint/src/test/resources/dev/hilla/generator/openapi/invalid-schema-type-openapi.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vaadin/hilla/blob/bd62e9bdbf3cd81bf80b5384b01cac57dc8ffe8c/packages/java/endpoint/src/test/resources/dev/hilla/generator/openapi/invalid-schema-type-openapi.json",
+					"url": "https://github.com/vaadin/hilla/blob/27387e3c49574a5a65c954ac36030d09d4955083/packages/java/endpoint/src/test/resources/dev/hilla/generator/openapi/invalid-schema-type-openapi.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/GeneratorTestClass/complexEntitiesTest\": post: requestBody: parse content: application/json: schema: parse schema: property \"instant\": parse schema: at 30:29: external \"./java.time.Instant\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/GeneratorTestClass/complexEntitiesTest\": post: requestBody: parse content: application/json: schema: parse schema: property \"instant\": parse schema: at 30:29: external \"./java.time.Instant\": get: file: local file reference is not allowed"
 }

@@ -10,10 +10,10 @@
 			"path": "swagger/4258_p1_swagger.yaml",
 			"byteSize": 860,
 			"content": "openapi: 3.0.0\ninfo:\n  description: |\n    This is a test to show how model refererence from another file are failing.\n    This file references api2.yaml.  If you load this file first in the browser it fails.\n    However, if you load api2.yaml first, then load this one it will work.\n  version: 1.0.0\n  title: API1 Test\npaths:\n  '/test-api-1':\n    get:\n      summary: Api 1\n      responses:\n        '200':\n          description: 'api 2 response'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/TestResponse'\ncomponents:\n  schemas:\n    Api1Prop:\n      type: string\n      example: 'api1prop-value'\n\n    TestResponse:\n      type: object\n      properties:\n        api1prop:\n          $ref: '#/components/schemas/Api1Prop'\n        api2prop:\n          $ref: './api2.yaml#/components/schemas/Api2Prop'",
-			"canonicalURL": "/github.com/heldersepu/hs-scripts@7ce356f25ed816c5ea00c8c2f2b29b8127124463/-/blob/swagger/4258_p1_swagger.yaml",
+			"canonicalURL": "/github.com/heldersepu/hs-scripts@fb7f69a81b661f708f63134cf16adc1d7d6d1c2f/-/blob/swagger/4258_p1_swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/heldersepu/hs-scripts/blob/7ce356f25ed816c5ea00c8c2f2b29b8127124463/swagger/4258_p1_swagger.yaml",
+					"url": "https://github.com/heldersepu/hs-scripts/blob/fb7f69a81b661f708f63134cf16adc1d7d6d1c2f/swagger/4258_p1_swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

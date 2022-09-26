@@ -10,10 +10,10 @@
 			"path": "tests/specifications/polymorphic.yaml",
 			"byteSize": 1101,
 			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  version: V1\npaths:\n  /demo:\n    get:\n      operationId: getPolymorphicResponse\n      responses:\n        '200':\n          description: ''\n          content:\n            application/json:\n              schema:\n                type: object\n                oneOf:\n                  - $ref: '#/components/schemas/DescendantOne'\n                  - $ref: '#/components/schemas/DescendantTwo'\ncomponents:\n  schemas:\n    DescendantOne:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/ParentType'\n        - type: object\n          properties:\n            value:\n              type: boolean\n    DescendantTwo:\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/ParentType'\n        - type: object\n          properties:\n            value:\n              type: string\n    ParentType:\n      type: object\n      properties:\n        value:\n          type: object\n        key:\n          type: string\n        type:\n          type: string\n          enum:\n            - BOOLEAN\n            - STRING\n      discriminator:\n        propertyName: type\n",
-			"canonicalURL": "/github.com/anymaniax/orval@78275c5aa3b53de3c0bb50841e0bd8d7ee292341/-/blob/tests/specifications/polymorphic.yaml",
+			"canonicalURL": "/github.com/anymaniax/orval@60b251d1a04ad1ed4d39fd813d99bd41fb10aa98/-/blob/tests/specifications/polymorphic.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anymaniax/orval/blob/78275c5aa3b53de3c0bb50841e0bd8d7ee292341/tests/specifications/polymorphic.yaml",
+					"url": "https://github.com/anymaniax/orval/blob/60b251d1a04ad1ed4d39fd813d99bd41fb10aa98/tests/specifications/polymorphic.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

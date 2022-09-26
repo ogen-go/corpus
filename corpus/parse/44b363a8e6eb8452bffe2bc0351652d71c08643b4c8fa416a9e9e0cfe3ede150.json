@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
 			"byteSize": 750,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json; charset=utf-8:\n              schema:\n                required:\n                  - paging\n                  - items\n                type: object\n                properties:\n                  paging:\n                    $ref: './common/paging.yaml#/Paging'\n                  items:\n                    $ref: '#/components/schemas/StatusResponse'\ncomponents:\n  schemas:\n    StatusResponse:\n      properties:\n        http_code:\n          type: integer\n\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/eafe156df8cb4cd07f3ac3b1772ef9b053fbd9fa/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/nested-file-references/issue-310.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/events\": get: operation \"getEvents\": responses: 200: content: application/json; charset=utf-8: schema: parse schema: property \"paging\": parse schema: at 1:402: external \"./common/paging.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/events\": get: operation \"getEvents\": responses: 200: content: application/json; charset=utf-8: schema: parse schema: property \"paging\": parse schema: at 1:402: external \"./common/paging.yaml\": get: file: local file reference is not allowed"
 }

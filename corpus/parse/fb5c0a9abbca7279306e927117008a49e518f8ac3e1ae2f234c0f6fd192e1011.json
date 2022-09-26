@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/couchbase/sync_gateway"
+		},
+		"file": {
+			"name": "metric.yaml",
+			"size": 0,
+			"path": "docs/api/metric.yaml",
+			"byteSize": 1317,
+			"content": "# Copyright 2022-Present Couchbase, Inc.\n#\n# Use of this software is governed by the Business Source License included\n# in the file licenses/BSL-Couchbase.txt.  As of the Change Date specified\n# in that file, in accordance with the Business Source License, use of this\n# software will be governed by the Apache License, Version 2.0, included in\n# the file licenses/APL2.txt.\n\nopenapi: 3.0.3\ninfo:\n  title: Sync Gateway\n  description: Sync Gateway manages access and synchronization between Couchbase Lite and Couchbase Server\n  version: 3.1.0\n  license:\n    name: Business Source License 1.1 (BSL)\n    url: 'https://github.com/couchbase/sync_gateway/blob/master/LICENSE'\nservers:\n  - url: '{protocol}://{hostname}:4986'\n    description: Metrics API\n    variables:\n      protocol:\n        description: The protocol to use (HTTP or HTTPS)\n        default: http\n        enum:\n          - http\n          - https\n      hostname:\n        description: The hostname to use\n        default: localhost\npaths:\n  /_metrics:\n    $ref: ./paths/metric/_metrics.yaml\n  /_expvar:\n    $ref: ./paths/metric/_expvar.yaml\ntags:\n  - name: Prometheus\n    description: Endpoints for use with Prometheus\nexternalDocs:\n  description: Sync Gateway Quickstart | Couchbase Docs\n  url: 'https://docs.couchbase.com/sync-gateway/current/index.html'\n",
+			"canonicalURL": "/github.com/couchbase/sync_gateway@907808d22fc6dad01af9b5ba5c82a7c4476defb9/-/blob/docs/api/metric.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/couchbase/sync_gateway/blob/907808d22fc6dad01af9b5ba5c82a7c4476defb9/docs/api/metric.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/_expvar\": at 1:472: external \"./paths/metric/_expvar.yaml\": get: file: local file reference is not allowed"
+}

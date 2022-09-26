@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/snapscale/snapscale"
+			"name": "github.com/boscore/ibc_plugin_eos"
 		},
 		"file": {
 			"name": "test_control.swagger.yaml",
@@ -10,14 +10,14 @@
 			"path": "plugins/test_control_api_plugin/test_control.swagger.yaml",
 			"byteSize": 1378,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Test Control API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\ntags:\n  - name: eosio\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /test_control/kill_node_or_producer:\n    post:\n      tags:\n        - TestControl\n      summary: kill_node_or_producer\n      description: Kills node or producer\n      operationId: kill_node_or_producer\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - params\n              properties:\n                params:\n                  type: object\n                  properties:\n                    producer:\n                      $ref: 'https://eosio.github.io/schemata/v2.0/oas/Name.yaml'\n                    where_in_sequence:\n                      type: integer\n                    based_on_lib:\n                      type: integer\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                description: Returns Nothing\n",
-			"canonicalURL": "/github.com/snapscale/snapscale@7a74dc446f32294806f8b7e96492b65171eaeb8b/-/blob/plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"canonicalURL": "/github.com/boscore/ibc_plugin_eos@aa7fcb10d07593891ae8f50871dd31decf79d1ba/-/blob/plugins/test_control_api_plugin/test_control.swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/snapscale/snapscale/blob/7a74dc446f32294806f8b7e96492b65171eaeb8b/plugins/test_control_api_plugin/test_control.swagger.yaml",
+					"url": "https://github.com/boscore/ibc_plugin_eos/blob/aa7fcb10d07593891ae8f50871dd31decf79d1ba/plugins/test_control_api_plugin/test_control.swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/test_control/kill_node_or_producer\": post: operation \"kill_node_or_producer\": requestBody: parse content: application/json: schema: parse schema: property \"params\": parse schema: property \"producer\": parse schema: at 1:502: external \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": get: https: do: Get \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": host \"eosio.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/test_control/kill_node_or_producer\": post: operation \"kill_node_or_producer\": requestBody: parse content: application/json: schema: parse schema: property \"params\": parse schema: property \"producer\": parse schema: at 1:502: external \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": get: https: do: Get \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": host \"eosio.github.io\" is not allowed"
 }
