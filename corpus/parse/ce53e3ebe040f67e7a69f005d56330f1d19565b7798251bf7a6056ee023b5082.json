@@ -10,14 +10,14 @@
 			"path": "Tests/fixtures/authentication-multiple-security-layers/swagger.json",
 			"byteSize": 1466,
 			"content": "{\n    \"openapi\": \"3.0.2\",\n    \"paths\": {\n        \"/foo\": {\n            \"get\": {\n                \"operationId\": \"getFoo\",\n                \"security\": [\n                    {\n                        \"bearer\": []\n                    }\n                ]\n            }\n        },\n        \"/bar\": {\n            \"get\": {\n                \"operationId\": \"getBar\",\n                \"security\": [\n                    {\n                        \"x-header\": []\n                    }\n                ]\n            }\n        },\n        \"/baz\": {\n            \"get\": {\n                \"operationId\": \"getBaz\",\n                \"security\": [\n                    {\n                        \"bearer\": [],\n                        \"x-header\": []\n                    }\n                ]\n            }\n        }\n    },\n    \"security\": [\n        {\n            \"apikey\": []\n        }\n    ],\n    \"info\": {\n        \"version\": \"\",\n        \"title\": \"\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://127.0.0.1:8000/\"\n        }\n    ],\n    \"components\": {\n        \"securitySchemes\": {\n            \"x-header\": {\n                \"type\": \"apiKey\",\n                \"in\": \"header\",\n                \"name\": \"X-API-KEY\"\n            },\n            \"bearer\": {\n                \"type\": \"http\",\n                \"scheme\": \"bearer\"\n            },\n            \"apikey\": {\n                \"type\": \"apiKey\",\n                \"in\": \"query\",\n                \"name\": \"api_key\"\n            }\n        }\n    }\n}\n",
-			"canonicalURL": "/github.com/janephp/open-api-3@3ac803e16000ea11ea2e6aff28d0b901c0768809/-/blob/Tests/fixtures/authentication-multiple-security-layers/swagger.json",
+			"canonicalURL": "/github.com/janephp/open-api-3@3c583bd3aa348f3122787c6898fbb7d67d303d86/-/blob/Tests/fixtures/authentication-multiple-security-layers/swagger.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/janephp/open-api-3/blob/3ac803e16000ea11ea2e6aff28d0b901c0768809/Tests/fixtures/authentication-multiple-security-layers/swagger.json",
+					"url": "https://github.com/janephp/open-api-3/blob/3c583bd3aa348f3122787c6898fbb7d67d303d86/Tests/fixtures/authentication-multiple-security-layers/swagger.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/bar\": get: operation \"getBar\": at 15:20: responses: no responses"
+	"Error": "parse: parse spec: parse path items: path \"/bar\": get: operation \"getBar\": at 15:20: responses: no responses"
 }

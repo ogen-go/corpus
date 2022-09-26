@@ -10,14 +10,14 @@
 			"path": "openapi/parser/_testdata/negative/securityScheme/invalid_oauth2_password_tokenUrl.json",
 			"byteSize": 639,
 			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"paths\": {\n    \"/foo\": {\n      \"get\": {\n        \"security\": [\n          {\n            \"api_key\": [\n              \"read\"\n            ]\n          }\n        ],\n        \"responses\": {\n          \"default\": {\n            \"description\": \"default\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"api_key\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"password\": {\n            \"tokenUrl\": \"-\",\n            \"scopes\": {\n              \"read\": \"read\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/ogen-go/ogen@24491cf55332458ade2fa4b9edb74b5cf88acba6/-/blob/openapi/parser/_testdata/negative/securityScheme/invalid_oauth2_password_tokenUrl.json",
+			"canonicalURL": "/github.com/ogen-go/ogen@d247a06f2c39f135bb21a173776b223d0c3171da/-/blob/openapi/parser/_testdata/negative/securityScheme/invalid_oauth2_password_tokenUrl.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ogen-go/ogen/blob/24491cf55332458ade2fa4b9edb74b5cf88acba6/openapi/parser/_testdata/negative/securityScheme/invalid_oauth2_password_tokenUrl.json",
+					"url": "https://github.com/ogen-go/ogen/blob/d247a06f2c39f135bb21a173776b223d0c3171da/openapi/parser/_testdata/negative/securityScheme/invalid_oauth2_password_tokenUrl.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/foo\": get: security: parse security scheme \"api_key\": oauth2: flow \"password\": at 31:25: \"tokenUrl\" MUST be in the form of a URL: parse \"-\": invalid URI for request"
+	"Error": "parse: parse spec: parse path items: path \"/foo\": get: security: parse security scheme \"api_key\": oauth2: flow \"password\": at 31:25: \"tokenUrl\" MUST be in the form of a URL: parse \"-\": invalid URI for request"
 }

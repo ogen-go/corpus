@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smol-guilherme/repo-provas-ts-back"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "swagger.json",
+			"byteSize": 3382,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Repo Provas API\",\n    \"description\": \"A API permite usuários autenticados enviar provas ao sistema para serem compartilhadas com outras pessoas.\"\n  },\n  \"version\": \"1.0.0\",\n  \"paths\": {\n    \"/signup\": {\n      \"post\": {\n        \"summary\": \"Cadastro de usuário\",\n        \"description\": \"Esta rota permite usuários se cadastrarem no sistema.\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Signup\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/signin\": {\n      \"post\": {\n        \"summary\": \"Autenticação de usuário\",\n        \"description\": \"Esta rota permite usuários se autenticarem no sistema. Apenas usuários autenticados podem contribuir com a inserção de novas provas\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Signin\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/tests\": {\n      \"post\": {\n        \"summary\": \"Inserção de provas no sistema\",\n        \"description\": \"Esta rota permite usuários autenticados de inserir uma nova prova no sistema, desde que o objeto enviado esteja de acordo com o formato estabelecido.\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/Test\"\n              },\n              \"examples\": {\n                \"test\": {\n                  \"value\": {\n                    \"name\": \"Projeto HUB evolved\",\n                    \"pdfUrl\": \"https://www.google.com/hub_evolved_pdf\",\n                    \"category\": \"Prática\",\n                    \"discipline\": \"JavaScript\",\n                    \"teacherName\": \"Diego Pinho\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/tests/:filter\": {\n      \"get\": {\n        \"summary\": \"Busca de provas agrupados pelo filtro 'filter'\",\n        \"description\": \"Esta rota permite usuários autenticados de buscarem a lista de provas disponíveis no sistema passando um dos dois filtros: 1. teacher, para agrupar os dados de acordo com a pessoa instrutora que aplicou a prova; 2. discipline: para agrupar todas as provas de uma mesma matéria\"\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Signup\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"email\": {\n            \"type\": \"string\"\n          },\n          \"password\": {\n            \"type\": \"string\"\n          },\n          \"confirmPassword\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Signin\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"email\": {\n            \"type\": \"string\"\n          },\n          \"password\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Test\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"pdfUrl\": {\n            \"type\": \"string\"\n          },\n          \"discipline\": {\n            \"type\": \"string\"\n          },\n          \"category\": {\n            \"type\": \"string\"\n          },\n          \"teacherName\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/smol-guilherme/repo-provas-ts-back@0245b8e0c6b7f7141f0aec972a7cbb42ef057925/-/blob/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smol-guilherme/repo-provas-ts-back/blob/0245b8e0c6b7f7141f0aec972a7cbb42ef057925/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/signin\": post: at 25:15: responses: no responses"
+}

@@ -10,14 +10,14 @@
 			"path": "core/src/test/resources/parameters_overloading.yaml",
 			"byteSize": 1061,
 			"content": "openapi: 3.0.2\ninfo:\n  title: Projects API\n  version: 1.0.0\npaths:\n  /projects/{id}:\n    get:\n      parameters:\n        - in: path\n          name: id\n          required: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleResponse'\n  /projects/{uid}:\n    get:\n      parameters:\n        - in: path\n          name: uid\n          required: true\n          schema:\n            type: string\n            format: uuid\n      responses:\n        '200':\n          description: 'Success'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SampleResponse'\ncomponents:\n  schemas:\n    SampleResponse:\n      type: object\n      properties:\n        id:\n          type: integer\n        uid:\n          type: string\n        name:\n          type: string\n      required:\n        - id\n        - uid\n        - name",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@322be4c850812fd41452a29979b87c94d8b6203b/-/blob/core/src/test/resources/parameters_overloading.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@b1519debbd916092646632c29263018f3af117e5/-/blob/core/src/test/resources/parameters_overloading.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-diff/blob/322be4c850812fd41452a29979b87c94d8b6203b/core/src/test/resources/parameters_overloading.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-diff/blob/b1519debbd916092646632c29263018f3af117e5/core/src/test/resources/parameters_overloading.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: at 1:524: duplicate path: \"/projects/{uid}\""
+	"Error": "parse: parse spec: parse path items: at 1:524: duplicate path: \"/projects/{uid}\""
 }

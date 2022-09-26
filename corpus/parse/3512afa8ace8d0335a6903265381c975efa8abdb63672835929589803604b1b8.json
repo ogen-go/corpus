@@ -10,14 +10,14 @@
 			"path": "api/source/openapi.yaml",
 			"byteSize": 2311,
 			"content": "openapi: 3.0.0\n\ninfo:\n  title: Mon-entreprise API\n  version: beta\n  description: |\n    Cet API expose les règles Publicodes de [mon-entreprise](https://mon-entreprise.urssaf.fr/).\n\n    Pour plus d'informations, consultez [notre documentation](/d%C3%A9veloppeur/api).\n\nservers:\n  - url: /api/v1/\n\npaths:\n  /evaluate:\n    post:\n      requestBody:\n        content:\n          application/json:\n            examples:\n              SalaireBrutEnNet:\n                value:\n                  {\n                    'situation':\n                      {\n                        'salarié . contrat . salaire brut':\n                          { 'valeur': 4200, 'unité': '€ / mois' },\n                        'salarié . contrat': \"'CDI'\",\n                      },\n                    'expressions':\n                      ['salarié . rémunération . net . à payer avant impôt'],\n                  }\n              MicroEntreprise:\n                value:\n                  {\n                    situation:\n                      {\n                        \"dirigeant . auto-entrepreneur . chiffre d'affaires\": '42000 €/an',\n                        'entreprise . activité': \"'libérale'\",\n                        'entreprise . activité . libérale . réglementée': 'non',\n                        'entreprise . catégorie juridique': \"'EI'\",\n                        'entreprise . catégorie juridique . EI . auto-entrepreneur': 'oui',\n                        'dirigeant . auto-entrepreneur . impôt . versement libératoire': 'non',\n                        'impôt . méthode de calcul': \"'taux neutre'\",\n                      },\n                    expressions:\n                      [\n                        {\n                          'valeur': 'dirigeant . auto-entrepreneur . cotisations et contributions',\n                          'unité': '€/an',\n                        },\n                        'dirigeant . rémunération . impôt',\n                        'dirigeant . auto-entrepreneur . revenu net . après impôt',\n                      ],\n                  }\n  /rules/{rule}:\n    get:\n      parameters:\n        - examples:\n            SalaireNet:\n              value: 'salarié . rémunération . net . à payer avant impôt'\n            Impot:\n              value: 'impôt . méthode de calcul'\n",
-			"canonicalURL": "/github.com/betagouv/mon-entreprise@9aa5b2f0692c0d6dbd07462eac582d1ae7db315b/-/blob/api/source/openapi.yaml",
+			"canonicalURL": "/github.com/betagouv/mon-entreprise@521897635aead0fc316bbbf22eb9d7427a13aac1/-/blob/api/source/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/betagouv/mon-entreprise/blob/9aa5b2f0692c0d6dbd07462eac582d1ae7db315b/api/source/openapi.yaml",
+					"url": "https://github.com/betagouv/mon-entreprise/blob/521897635aead0fc316bbbf22eb9d7427a13aac1/api/source/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/evaluate\": post: at 1:300: responses: no responses"
+	"Error": "parse: parse spec: parse path items: path \"/evaluate\": post: at 1:300: responses: no responses"
 }

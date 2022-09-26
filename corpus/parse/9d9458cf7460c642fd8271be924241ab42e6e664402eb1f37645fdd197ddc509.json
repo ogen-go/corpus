@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ShaghayeghFathi/errandboi"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "swagger.yaml",
+			"byteSize": 3309,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Errandboi\n  description: A scheduling service that publishes given events to emqx and nats at the given time\n  version: 1.0.0\nservers:\n  - url: http://{{baseurl}}\npaths:\n  /events:\n    post:\n      tags:\n        - General\n      summary: Post Events\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              example:\n                type:\n                  - nats\n                  - emqx\n                events:\n                  - description: Event10\n                    delay: 10s\n                    topic: topic1\n                    payload: hello\n      responses:\n        \"200\":\n          description: OK\n          headers:\n            Date:\n              schema:\n                type: string\n                example: Sun, 03 Apr 2022 07:57:22 GMT\n            Content-Type:\n              schema:\n                type: string\n                example: application/json\n            Content-Length:\n              schema:\n                type: integer\n                example: \"33\"\n          content:\n            application/json:\n              schema:\n                type: object\n              example:\n                id: 62495362f8358c7b9d83ff4e\n  /events/{eventId}:\n    get:\n      tags:\n        - General\n      summary: Get Events\n      parameters:\n        - name: eventId\n          in: path\n          schema:\n            type: string\n          required: true\n          example: 62495362f8358c7b9d83ff4e\n      responses:\n        \"200\":\n          description: OK\n          headers:\n            Date:\n              schema:\n                type: string\n                example: Sun, 03 Apr 2022 07:58:37 GMT\n            Content-Type:\n              schema:\n                type: string\n                example: application/json\n            Content-Length:\n              schema:\n                type: integer\n                example: \"109\"\n          content:\n            application/json:\n              schema:\n                type: object\n              example:\n                type:\n                  - nats\n                  - emqx\n                events:\n                  - description: Event10\n                    delay: 5s\n                    topic: topic1\n                    payload: hello\n  /events/{eventId}/status:\n    get:\n      tags:\n        - General\n      summary: Get Events Status\n      parameters:\n        - name: eventId\n          in: path\n          schema:\n            type: string\n          required: true\n          example: 62495362f8358c7b9d83ff4e\n      responses:\n        \"200\":\n          description: OK\n          headers:\n            Date:\n              schema:\n                type: string\n                example: Sun, 03 Apr 2022 07:58:24 GMT\n            Content-Type:\n              schema:\n                type: string\n                example: application/json\n            Content-Length:\n              schema:\n                type: integer\n                example: \"90\"\n          content:\n            application/json:\n              schema:\n                type: object\n              example:\n                status: done\n                events:\n                  - description: Event10\n                    publish_date: 2022-04-11T13:31:28+04:30\n                    status: Done\n",
+			"canonicalURL": "/github.com/ShaghayeghFathi/errandboi@d8cdfa9ffa6250ff1efd65666ecd699b6ccdb45e/-/blob/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ShaghayeghFathi/errandboi/blob/d8cdfa9ffa6250ff1efd65666ecd699b6ccdb45e/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:2133: invalid path: http://{{baseurl}}"
+}

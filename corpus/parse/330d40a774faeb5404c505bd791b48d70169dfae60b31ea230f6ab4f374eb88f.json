@@ -10,14 +10,14 @@
 			"path": "docs/openapi/bulk-api.yaml",
 			"byteSize": 963,
 			"content": "openapi: 3.0.0\ninfo:\n  title: \"Bulk API\"\n  version: 2.0.0\n  description: \"The API for performing bulk uploads\\n\u003ch2\u003eFile Preparation\u003c/h2\u003e\\nThis API requires a file to be submitted with the appropriate schema. The details of that file's schema can be found at \u003ca href='../../../../etl/docs/csv/import-schema.json'\u003eFile schema\u003c/a\u003e\\n\"\n  \ntags:\n  - name: \"UploadAllParticipants\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: none\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload_all_participants/{filename}':\n    $ref: './../../etl/docs/openapi/uploadAllParticipants.yaml'\n  '/upload/{filename}':\n    $ref: './../../etl/docs/openapi/upload.yaml'\n  '/uploads/{uploadIdentifier}':\n    $ref: './../../etl/docs/openapi/getUploadById.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n    \n",
-			"canonicalURL": "/github.com/18F/piipan@753a7b6f00b1d0b90fdcaea881d53ee1a1b3e3d7/-/blob/docs/openapi/bulk-api.yaml",
+			"canonicalURL": "/github.com/18F/piipan@e9a84b6b86fa3833a8400dae0b4976e2df029bba/-/blob/docs/openapi/bulk-api.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/18F/piipan/blob/753a7b6f00b1d0b90fdcaea881d53ee1a1b3e3d7/docs/openapi/bulk-api.yaml",
+					"url": "https://github.com/18F/piipan/blob/e9a84b6b86fa3833a8400dae0b4976e2df029bba/docs/openapi/bulk-api.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/upload/{filename}\": at 1:531: external \"./../../etl/docs/openapi/upload.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/upload/{filename}\": at 1:531: external \"./../../etl/docs/openapi/upload.yaml\": get: file: local file reference is not allowed"
 }

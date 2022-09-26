@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/darren-reddick/terraform-aws-transfer"
+			"name": "github.com/localstack/localstack-terraform-samples"
 		},
 		"file": {
 			"name": "openapi.yaml",
 			"size": 0,
-			"path": "api-definitions/openapi.yaml",
+			"path": "apigateway-aws-transfer/openapi.yaml",
 			"byteSize": 1872,
 			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"sftp-idp-secrets\"\n  description: \"This API provides an IDP for AWS Transfer service\"\n  version: 0.0.2\npaths:\n  /servers/{serverId}/users/{username}/config:\n    get:\n      parameters:\n      - name: \"Password\"\n        in: \"header\"\n        schema:\n          type: \"string\"\n      - name: \"protocol\"\n        in: \"query\"\n        schema:\n          type: \"string\"\n      - name: \"sourceIp\"\n        in: \"query\"\n        schema:\n          type: \"string\"\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/UserConfigResponseModel\"\n      security:\n      - sigv4: []\n      x-amazon-apigateway-integration:\n        httpMethod: \"POST\"\n        uri: ${LAMBDA_INVOKE_ARN}\n        responses:\n          default:\n            statusCode: \"200\"\n        requestTemplates:\n          application/json: \"{\\n  \\\"username\\\": \\\"$input.params('username')\\\",\\n \\\n            \\ \\\"password\\\": \\\"$util.escapeJavaScript($input.params('Password')).replaceAll(\\\"\\\n            \\\\\\\\'\\\",\\\"'\\\")\\\",\\n  \\\"serverId\\\": \\\"$input.params('serverId')\\\",\\n\\\n            \\\"protocol\\\": \\\"$input.params('protocol')\\\",\\n\\\n            \\\"sourceIp\\\": \\\"$input.params('sourceIp')\\\"\\n}\\n\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        type: \"aws\"\ncomponents:\n  schemas:\n    UserConfigResponseModel:\n      title: \"UserUserConfig\"\n      type: \"object\"\n      properties:\n        HomeDirectory:\n          type: \"string\"\n        Role:\n          type: \"string\"\n        Policy:\n          type: \"string\"\n        PublicKeys:\n          type: \"array\"\n          items:\n            type: \"string\"\n  securitySchemes:\n    sigv4:\n      type: \"apiKey\"\n      name: \"Authorization\"\n      in: \"header\"\n      x-amazon-apigateway-authtype: \"awsSigv4\"\n",
-			"canonicalURL": "/github.com/darren-reddick/terraform-aws-transfer@f6efd9aa36bb41778f2dca51b03863962376ee8e/-/blob/api-definitions/openapi.yaml",
+			"canonicalURL": "/github.com/localstack/localstack-terraform-samples@68d68caf6467cc6ff9e68f38af74457396f5ed07/-/blob/apigateway-aws-transfer/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/darren-reddick/terraform-aws-transfer/blob/f6efd9aa36bb41778f2dca51b03863962376ee8e/api-definitions/openapi.yaml",
+					"url": "https://github.com/localstack/localstack-terraform-samples/blob/68d68caf6467cc6ff9e68f38af74457396f5ed07/apigateway-aws-transfer/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/servers/{serverId}/users/{username}/config\": get: at 1:580: parse path \"/servers/{serverId}/users/{username}/config\": path parameter not specified: \"serverId\""
+	"Error": "parse: parse spec: parse path items: path \"/servers/{serverId}/users/{username}/config\": get: at 1:580: parse path \"/servers/{serverId}/users/{username}/config\": path parameter not specified: \"serverId\""
 }

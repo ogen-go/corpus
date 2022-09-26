@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vaadin/hilla"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "packages/java/parser-jvm-plugin-backbone/src/test/resources/dev/hilla/parser/plugins/backbone/transients/openapi.json",
+			"byteSize": 1777,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Vaadin Application\",\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:8080/connect\",\n      \"description\": \"Vaadin Backend\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"TransientEndpoint\"\n    }\n  ],\n  \"paths\": {\n    \"/TransientEndpoint/getTransientModel\": {\n      \"post\": {\n        \"tags\": [\"TransientEndpoint\"],\n        \"operationId\": \"TransientEndpoint_getTransientModel_POST\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"nullable\": true,\n                  \"anyOf\": [\n                    {\n                      \"$ref\": \"#/components/schemas/dev.hilla.parser.plugins.backbone.transients.TransientEndpoint$TransientModel\"\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"dev.hilla.parser.plugins.backbone.transients.TransientEndpoint$TransientModel\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"notTransientField\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          },\n          \"nonTransientEntity\": {\n            \"nullable\": true,\n            \"anyOf\": [\n              {\n                \"$ref\": \"#/components/schemas/dev.hilla.parser.plugins.backbone.transients.NonTransientEntity\"\n              }\n            ]\n          }\n        }\n      },\n      \"dev.hilla.parser.plugins.backbone.transients.NonTransientEntity\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"entityField\": {\n            \"type\": \"string\",\n            \"nullable\": true\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/vaadin/hilla@27387e3c49574a5a65c954ac36030d09d4955083/-/blob/packages/java/parser-jvm-plugin-backbone/src/test/resources/dev/hilla/parser/plugins/backbone/transients/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vaadin/hilla/blob/27387e3c49574a5a65c954ac36030d09d4955083/packages/java/parser-jvm-plugin-backbone/src/test/resources/dev/hilla/parser/plugins/backbone/transients/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: at 45:7: invalid name: \"dev.hilla.parser.plugins.backbone.transients.TransientEndpoint$TransientModel\" doesn't match \"^[a-zA-Z0-9.\\\\-_]+$\""
+}

@@ -10,14 +10,14 @@
 			"path": "api/openapi/websocket.yml",
 			"byteSize": 1316,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Mainflux ws adapter\n  description: WebSocket API for sending messages through communication channels.\n  version: \"1.0.0\"\npaths:\n  /channels/{id}/messages:\n    post:\n      summary: Sends message to the communication channel\n      description: |\n        Sends message to the communication channel. Messages can be sent as\n        JSON formatted SenML or as blob.\n      tags:\n        - messages\n      parameters:\n        - $ref: \"#/components/parameters/ID\"\n      requestBody:\n        $ref: \"#/components/requestBodies/MessageReq\"\n      responses:\n        \"202\":\n          description: Message is accepted for processing.\n        \"400\":\n          description: Message discarded due to its malformed content.\n        \"401\":\n          description: Missing or invalid access token provided.\n        \"404\":\n          description: Message discarded due to invalid channel id.\n        \"415\":\n          description: Message discarded due to invalid or missing content type.\n        '500':\n          $ref: \"#/components/responses/ServiceError\"\n  /health:\n    get:\n      summary: Retrieves service health check info.\n      tags:\n        - health\n      responses:\n        '200':\n          $ref: \"#/components/responses/HealthRes\"\n        '500':\n          $ref: \"#/components/responses/ServiceError\"\n",
-			"canonicalURL": "/github.com/mainflux/mainflux@8a4cc12cd3a8afe597e7651a2efc29d3cf7be823/-/blob/api/openapi/websocket.yml",
+			"canonicalURL": "/github.com/mainflux/mainflux@237826e25370cd4970c241dc463d367b3039ca8f/-/blob/api/openapi/websocket.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/mainflux/mainflux/blob/8a4cc12cd3a8afe597e7651a2efc29d3cf7be823/api/openapi/websocket.yml",
+					"url": "https://github.com/mainflux/mainflux/blob/237826e25370cd4970c241dc463d367b3039ca8f/api/openapi/websocket.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/channels/{id}/messages\": post: parameters: parse parameter \"\": at 1:346: can't find value for \"components/parameters/ID\""
+	"Error": "parse: parse spec: parse path items: path \"/channels/{id}/messages\": post: parameters: parse parameter \"\": at 1:346: can't find value for \"components/parameters/ID\""
 }

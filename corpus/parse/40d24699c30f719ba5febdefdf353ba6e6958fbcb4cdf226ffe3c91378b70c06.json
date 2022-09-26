@@ -10,14 +10,14 @@
 			"path": "packages/loaders/openapi/tests/fixtures/explode.yml",
 			"byteSize": 1460,
 			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  description: ''\n  contact: {}\n  version: '1.0'\nservers:\n  - url: http://localhost:7777\nsecurity:\n  - ApiKeyAuth: []\ntags: []\npaths:\n  /test-false:\n    get:\n      summary: TestExplodeParameterFalse\n      description: Endpoint that required explode == false params\n      operationId: testExplodeParameterFalse\n      parameters:\n        - name: exploded\n          in: query\n          required: true\n          explode: false\n          style: form\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UrlResult'\n  /test-true:\n    get:\n      summary: TestExplodeParameterTrue\n      description: Endpoint that required explode == true params\n      operationId: testExplodeParameterTrue\n      parameters:\n        - name: exploded\n          in: query\n          required: true\n          explode: true\n          style: form\n          schema:\n            type: array\n            items:\n              type: string\n      responses:\n        200:\n          description: ''\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UrlResult'\n      deprecated: false\ncomponents:\n  schemas:\n    UrlResult:\n      type: object\n      properties:\n        url:\n          type: string\n",
-			"canonicalURL": "/github.com/Urigo/graphql-mesh@95b8ff893d989bcf0f35f1907e9bf093f1e304ae/-/blob/packages/loaders/openapi/tests/fixtures/explode.yml",
+			"canonicalURL": "/github.com/Urigo/graphql-mesh@2221e331b44d2b2c08e9ecbb1701f6d933689729/-/blob/packages/loaders/openapi/tests/fixtures/explode.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Urigo/graphql-mesh/blob/95b8ff893d989bcf0f35f1907e9bf093f1e304ae/packages/loaders/openapi/tests/fixtures/explode.yml",
+					"url": "https://github.com/Urigo/graphql-mesh/blob/2221e331b44d2b2c08e9ecbb1701f6d933689729/packages/loaders/openapi/tests/fixtures/explode.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/test-false\": get: operation \"testExplodeParameterFalse\": security: at 1:1096: unknown security schema \"ApiKeyAuth\""
+	"Error": "parse: parse spec: parse path items: path \"/test-false\": get: operation \"testExplodeParameterFalse\": security: at 1:1096: unknown security schema \"ApiKeyAuth\""
 }

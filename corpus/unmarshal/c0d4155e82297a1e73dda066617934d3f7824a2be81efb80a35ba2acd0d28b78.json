@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "npm/openapi-to-graphql"
+			"name": "github.com/mcollina/openapi-graphql"
 		},
 		"file": {
 			"name": "extensions_error5.json",
@@ -10,8 +10,13 @@
 			"path": "test/fixtures/extensions_error5.json",
 			"byteSize": 3005,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Extensions Error 5\",\n    \"description\": \"An API to test converting Open API Specs 3.0 to GraphQL\",\n    \"version\": \"1.0.0\",\n    \"termsOfService\": \"http://example.com/terms/\",\n    \"contact\": {\n      \"name\": \"Elias Meire\",\n      \"url\": \"http://www.example.com/support\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"http://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"externalDocs\": {\n    \"url\": \"http://example.com/docs\",\n    \"description\": \"Some more natural language description.\"\n  },\n  \"tags\": [\n    {\n      \"name\": \"test\",\n      \"description\": \"Indicates this API is for testing\"\n    }\n  ],\n  \"servers\": [\n    {\n      \"url\": \"http://localhost:{port}/{basePath}\",\n      \"description\": \"The location of the local test server.\",\n      \"variables\": {\n        \"port\": {\n          \"default\": \"3002\"\n        },\n        \"basePath\": {\n          \"default\": \"api\"\n        }\n      }\n    }\n  ],\n  \"paths\": {\n    \"/user\": {\n      \"post\": {\n        \"tags\": [\"user\"],\n        \"summary\": \"Creates a user\",\n        \"description\": \"Creates a user\",\n        \"operationId\": \"createUser\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": { \"$ref\": \"#/components/schemas/user\" }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful operation\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": { \"$ref\": \"#/components/schemas/user\" }\n              }\n            }\n          }\n        },\n        \"callbacks\": {\n          \"userCreated\": {\n            \"$ref\": \"#/components/callbacks/UserEvent\"\n          },\n          \"userCreated2\": {\n            \"$ref\": \"#/components/callbacks/UserEvent2\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"user\": {\n        \"type\": \"object\",\n        \"description\": \"A user represents a natural person\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"The legal name of a user\"\n          }\n        }\n      }\n    },\n    \"callbacks\": {\n      \"UserEvent\": {\n        \"/users/{$request.body#/id}/events/+\": {\n          \"post\": {\n            \"operationId\": \"userEventListener\",\n            \"description\": \"Listen all user events owned by userName\",\n            \"responses\": {\n              \"204\": {\n                \"description\": \"user event response\"\n              }\n            }\n          }\n        }\n      },\n      \"UserEvent2\": {\n        \"/users/{$request.body#/id}/events/+\": {\n          \"post\": {\n            \"operationId\": \"userEventListener2\",\n            \"x-graphql-field-name\": \"userEventListener\",\n            \"description\": \"Listen all user events owned by userName\",\n            \"responses\": {\n              \"204\": {\n                \"description\": \"user event response\"\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"security\": []\n}\n",
-			"canonicalURL": "/npm/openapi-to-graphql@48a4010a81790e58c861298e6c6de052497234ce/-/blob/test/fixtures/extensions_error5.json",
-			"externalURLs": []
+			"canonicalURL": "/github.com/mcollina/openapi-graphql@bd0a3e4ebef5acac537d2680a28387426e7f6c93/-/blob/test/fixtures/extensions_error5.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mcollina/openapi-graphql/blob/bd0a3e4ebef5acac537d2680a28387426e7f6c93/test/fixtures/extensions_error5.json",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
 	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 67: cannot unmarshal !!str `#/compo...` into ogen.PathItem; yaml: line 70: cannot unmarshal !!str `#/compo...` into ogen.PathItem"

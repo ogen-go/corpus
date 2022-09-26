@@ -10,14 +10,14 @@
 			"path": "modules/sample/src/main/resources/issues/issue264.yaml",
 			"byteSize": 500,
 			"content": "openapi: 3.0.1\ninfo:\n  title: \"Dashed-case enum names with numeric components don't get converted properly\"\n  version: 1.0.0\npaths:\n  /foo:\n    get:\n      operationId: getFoo\n      parameters:\n        - in: query\n          name: FooEnum\n          $ref: \"#/components/schemas/FooEnum\"\n          required: true\n      responses:\n        204:\n          description: OK\ncomponents:\n  schemas:\n    FooEnum:\n      type: string\n      enum:\n        - foo-bar-1\n        - baz-quux-2-flurb\n#        - 3-moo-cow\n",
-			"canonicalURL": "/github.com/guardrail-dev/guardrail@d2917e294b85f6bc140a06067a6d989e321ca8e7/-/blob/modules/sample/src/main/resources/issues/issue264.yaml",
+			"canonicalURL": "/github.com/guardrail-dev/guardrail@3e39e3712ea2134805ca46d63a84bb1eacb44271/-/blob/modules/sample/src/main/resources/issues/issue264.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/guardrail-dev/guardrail/blob/d2917e294b85f6bc140a06067a6d989e321ca8e7/modules/sample/src/main/resources/issues/issue264.yaml",
+					"url": "https://github.com/guardrail-dev/guardrail/blob/3e39e3712ea2134805ca46d63a84bb1eacb44271/modules/sample/src/main/resources/issues/issue264.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/foo\": get: operation \"getFoo\": parameters: parse parameter \"FooEnum\": at 1:37: unknown parameter location \"\""
+	"Error": "parse: parse spec: parse path items: path \"/foo\": get: operation \"getFoo\": parameters: parse parameter \"FooEnum\": at 1:37: unknown parameter location \"\""
 }

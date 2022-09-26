@@ -10,10 +10,10 @@
 			"path": "assets/queries/openAPI/general/string_schema_with_broad_pattern/test/positive3.yaml",
 			"byteSize": 1346,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      operationId: listVersionsv2\n      summary: List API versions\n      responses:\n        \"200\":\n          description: 200 response\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                      - status: CURRENT\n                        updated: \"2011-01-21T11:33:21Z\"\n                        id: v2.0\n                        links:\n                          - href: http://127.0.0.1:8774/v2/\n                            rel: self\ncomponents:\n  schemas:\n    GeneralError:\n      type: object\n      discriminator:\n        propertyName: petType\n      additionalProperties: false\n      properties:\n        code:\n          type: string\n          maxLength: 15\n          format: int32\n          pattern: .*\n        message:\n          type: string\n          maxLength: 15\n          pattern: ^[0-9a-z]{15}$\n      required:\n        - petType\n  requestBodies:\n    NewItem:\n      description: A JSON object containing item data\n      required: true\n      content:\n        multipart/form-data:\n          schema:\n            $ref: \"#/components/schemas/GeneralError\"\n          examples:\n            tshirt:\n              $ref: \"#/components/examples/tshirt\"\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@d1aec86ce8011d99d96a284b2d95b2137283417a/-/blob/assets/queries/openAPI/general/string_schema_with_broad_pattern/test/positive3.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/general/string_schema_with_broad_pattern/test/positive3.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/d1aec86ce8011d99d96a284b2d95b2137283417a/assets/queries/openAPI/general/string_schema_with_broad_pattern/test/positive3.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/general/string_schema_with_broad_pattern/test/positive3.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

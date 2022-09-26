@@ -2,18 +2,18 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/blst-security/cherrybomb"
+			"name": "github.com/chanced/openapi"
 		},
 		"file": {
-			"name": "mega_oas.yaml",
+			"name": "mega.yaml",
 			"size": 0,
-			"path": "cli/mega_oas.yaml",
+			"path": "testdata/documents/validation/pass/mega.yaml",
 			"byteSize": 1237,
 			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n",
-			"canonicalURL": "/github.com/blst-security/cherrybomb@6a09f59ae27cf686cd6347a8c90453f8a15e5c07/-/blob/cli/mega_oas.yaml",
+			"canonicalURL": "/github.com/chanced/openapi@020541718df62fe866922569af97891386e26e83/-/blob/testdata/documents/validation/pass/mega.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/blst-security/cherrybomb/blob/6a09f59ae27cf686cd6347a8c90453f8a15e5c07/cli/mega_oas.yaml",
+					"url": "https://github.com/chanced/openapi/blob/020541718df62fe866922569af97891386e26e83/testdata/documents/validation/pass/mega.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

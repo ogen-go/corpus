@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHatInsights/drift-backend"
+		},
+		"file": {
+			"name": "admin_api.spec.yaml",
+			"size": 0,
+			"path": "drift/openapi/admin_api.spec.yaml",
+			"byteSize": 1094,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  version: \"0.1\"\n  title: Drift Backend Service Admin Plane\n  description: Admin API for Drift Service\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\n\nservers:\n  - url: \"{{ path_prefix }}{{ app_name }}/admin\"\n\n\npaths:\n  /status:\n    get:\n      summary: admin data call\n      operationId: drift.views.admin.status\n      tags:\n        - status\n      responses:\n        '200':\n          description: \"A small JSON indicating some information about application\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Status\"\ncomponents:\n  schemas:\n    Status:\n      properties:\n        system_baseline_version:\n          type: string\n        totalBaselinesCount:\n          type: integer\n        customerIdsCount:\n          type: integer\n        createdBaselinesToday:\n          type: integer\n        createdBaselinesWeek:\n          type: integer\n        createdBaselinesMonth:\n          type: integer\n        totalBaselinesWithAssociationsCount:\n          type: integer\n",
+			"canonicalURL": "/github.com/RedHatInsights/drift-backend@5e5e1670ccb6cdcff836b3e7bd4e5788fafabf45/-/blob/drift/openapi/admin_api.spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RedHatInsights/drift-backend/blob/5e5e1670ccb6cdcff836b3e7bd4e5788fafabf45/drift/openapi/admin_api.spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at 1:896: invalid path: {{ path_prefix }}{{ app_name }}/admin"
+}

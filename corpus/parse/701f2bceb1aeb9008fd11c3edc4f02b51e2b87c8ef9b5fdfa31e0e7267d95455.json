@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/AntelopeIO/leap"
+		},
+		"file": {
+			"name": "test_control.swagger.yaml",
+			"size": 0,
+			"path": "plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"byteSize": 1377,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Control API\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eos.io\ntags:\n  - name: eosio\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /test_control/kill_node_or_producer:\n    post:\n      tags:\n        - TestControl\n      summary: kill_node_or_producer\n      description: Kills node or producer\n      operationId: kill_node_or_producer\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - params\n              properties:\n                params:\n                  type: object\n                  properties:\n                    producer:\n                      $ref: 'https://docs.eosnetwork.com/openapi/v2.0/Name.yaml'\n                    where_in_sequence:\n                      type: integer\n                    based_on_lib:\n                      type: integer\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                description: Returns Nothing\n",
+			"canonicalURL": "/github.com/AntelopeIO/leap@e401c23f0ee3a52f0f5362ced0bd0a394b10186f/-/blob/plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/AntelopeIO/leap/blob/e401c23f0ee3a52f0f5362ced0bd0a394b10186f/plugins/test_control_api_plugin/test_control.swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/test_control/kill_node_or_producer\": post: operation \"kill_node_or_producer\": requestBody: parse content: application/json: schema: parse schema: property \"params\": parse schema: property \"producer\": parse schema: at 1:502: external \"https://docs.eosnetwork.com/openapi/v2.0/Name.yaml\": get: https: do: Get \"https://docs.eosnetwork.com/openapi/v2.0/Name.yaml\": host \"docs.eosnetwork.com\" is not allowed"
+}

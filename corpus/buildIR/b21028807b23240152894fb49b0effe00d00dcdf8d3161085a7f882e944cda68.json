@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wepala/weos"
+		},
+		"file": {
+			"name": "blog-create-batch.yaml",
+			"size": 0,
+			"path": "controllers/rest/fixtures/blog-create-batch.yaml",
+			"byteSize": 4214,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Blog\n  description: Blog example\n  version: 1.0.0\nservers:\n  - url: https://prod1.weos.sh/blog/dev\n    description: WeOS Dev\n  - url: https://prod1.weos.sh/blog/v1\nx-weos-config:\n  event-source:\n    - title: default\n      driver: service\n      endpoint: https://prod1.weos.sh/events/v1\n    - title: event\n      driver: sqlite3\n      database: test.db\n  database:\n    driver: sqlite3\n    database: test.db\n  databases:\n    - title: default\n      driver: sqlite3\n      database: test.db\n  rest:\n    middleware:\n      - RequestID\n      - Recover\n      - ZapLogger\ncomponents:\n  schemas:\n    Category:\n      type: object\n      properties:\n        title:\n          type: string\n        description:\n          type: string\n      required:\n        - title\n      x-identifier:\n        - title\n    Author:\n      type: object\n      properties:\n        id:\n          type: string\n          format: ksuid\n        firstName:\n          type: string\n        lastName:\n          type: string\n        email:\n          type: string\n          format: email\n      required:\n        - firstName\n        - lastName\n      x-identifier:\n        - id\n        - email\n    Blog:\n      type: object\n      properties:\n        url:\n          type: string\n          format: uri\n        title:\n          type: string\n        description:\n          type: string\n        status:\n          type: string\n          nullable: true\n          enum:\n            - \"null\"\n            - unpublished\n            - published\n        image:\n          type: string\n          format: byte\n        categories:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Post\"\n        posts:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Category\"\n        lastUpdated:\n          type: string\n          format: date-time\n        created:\n          type: string\n          format: date-time\n      required:\n        - title\n        - url\n    Post:\n      type: object\n      properties:\n        title:\n          type: string\n        description:\n          type: string\n        author:\n          $ref: \"#/components/schemas/Author\"\n        created:\n          type: string\n          format: date-time\npaths:\n  /health:\n    summary: Health Check\n    get:\n      x-controller: HealthCheck\n      responses:\n        200:\n          description: Health Response\n        500:\n          description: API Internal Error\n  /blogs:\n    post:\n      operationId: Add Blogs\n      requestBody:\n        description: List of blogs to add\n        required: true\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                $ref: \"#/components/schemas/Blog\"\n          application/x-www-form-urlencoded:\n            schema:\n              type: array\n              items:\n                $ref: \"#/components/schemas/Blog\"\n          application/xml:\n            schema:\n              type: array\n              items:\n                $ref: \"#/components/schemas/Blog\"\n      responses:\n        201:\n          description: Added Blogs to Aggregator\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Blog\"\n        400:\n          description: Invalid blog submitted\n  /blogs/{id}:\n    patch:\n      operationId: Edit Blog\n      parameters:\n        - in: path\n          name: id\n          schema:\n            type: string\n          required: true\n          description: blog id\n      requestBody:\n        description: Blog info that is submitted\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/Blog\"\n          application/x-www-form-urlencoded:\n            schema:\n              $ref: \"#/components/schemas/Blog\"\n          application/xml:\n            schema:\n              $ref: \"#/components/schemas/Blog\"\n      responses:\n        201:\n          description: Update blog\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Blog\"\n        400:\n          description: Invalid blog submitted\n",
+			"canonicalURL": "/github.com/wepala/weos@84c6a9cc7e2046a1cbf001fccb5e577981d8c644/-/blob/controllers/rest/fixtures/blog-create-batch.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wepala/weos/blob/84c6a9cc7e2046a1cbf001fccb5e577981d8c644/controllers/rest/fixtures/blog-create-batch.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: path \"/blogs/{id}\": patch: requestBody: contents: media: \"application/x-www-form-urlencoded\": form parameter \"categories\": nested objects not allowed",
+	"NotImplemented": [
+		"complex form schema"
+	]
+}

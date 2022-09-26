@@ -10,14 +10,14 @@
 			"path": "docs/_static/crypto/v1.yaml",
 			"byteSize": 1267,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Nuts Crypto Service API spec\n  description: API specification for crypto services available within nuts node\n  version: 1.0.0\n  license:\n    name: GPLv3\nservers:\n  - url: http://localhost:1323\npaths:\n  /internal/crypto/v1/sign_jwt:\n    post:\n      summary: \"sign a JWT payload with the private key of the given kid\"\n      description: |\n        Sign a JWT payload with the private key of the given kid\n\n        error returns:\n        * 400 - incorrect input\n      operationId: signJwt\n      tags:\n        - crypto\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SignJwtRequest'\n      responses:\n        '200':\n          description: \"OK response, body holds JWT\"\n          content:\n            text/plain:\n              schema:\n                example: \"aa==.bb==.cc==\"\n        default:\n          $ref: '../common/error_response.yaml'\n\ncomponents:\n  schemas:\n    SignJwtRequest:\n      required:\n        - claims\n        - kid\n      properties:\n        kid:\n          type: string\n        claims:\n          type: object\n  securitySchemes:\n    jwtBearerAuth:\n      type: http\n      scheme: bearer\n\nsecurity:\n  - {}\n  - jwtBearerAuth: []",
-			"canonicalURL": "/github.com/nuts-foundation/nuts-node@74ccd5ee9ad811b865acdd3746243bb0b915d44b/-/blob/docs/_static/crypto/v1.yaml",
+			"canonicalURL": "/github.com/nuts-foundation/nuts-node@e0123cb84e20989343393b5a46b0cac40115b61d/-/blob/docs/_static/crypto/v1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/nuts-foundation/nuts-node/blob/74ccd5ee9ad811b865acdd3746243bb0b915d44b/docs/_static/crypto/v1.yaml",
+					"url": "https://github.com/nuts-foundation/nuts-node/blob/e0123cb84e20989343393b5a46b0cac40115b61d/docs/_static/crypto/v1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/internal/crypto/v1/sign_jwt\": post: operation \"signJwt\": responses: default: at 1:864: external \"../common/error_response.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/internal/crypto/v1/sign_jwt\": post: operation \"signJwt\": responses: default: at 1:864: external \"../common/error_response.yaml\": get: file: local file reference is not allowed"
 }

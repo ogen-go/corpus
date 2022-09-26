@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/sam-accelerate-nested-stacks-demo"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "api/definition/openapi.yaml",
+			"byteSize": 2807,
+			"content": "openapi: 3.0.1\ninfo:\n  title: order-app\n  version: '1.0'\nservers:\n  - url: /Dev\npaths:\n  /orders:\n    get:\n      x-amazon-apigateway-integration:\n        credentials:\n          Fn::GetAtt:\n            - ApiGwExecutionRole\n            - Arn\n        type: aws_proxy\n        httpMethod: POST\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetOrders}/invocations\n        passthroughBehavior: when_no_match\n    post:\n      summary: create a new order\n      description: \"place an order message onto sqs queue for processing\"\n      responses:\n        \"200\":\n          description: create order request successfully handled\n        \"400\":\n          description: Bad reqeust\n        \"500\":\n          description: Server Error\n      x-amazon-apigateway-integration:\n        type: aws\n        credentials:\n          Fn::GetAtt:\n            - ApiGwExecutionRole\n            - Arn\n        httpMethod: POST\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:sqs:path/${AWS::AccountId}/${OrderQueueName}\n        requestParameters:\n          integration.request.header.Content-Type: \"'application/x-www-form-urlencoded'\"\n        requestTemplates:\n          application/json: \"Action=SendMessage\u0026MessageBody={\\\"data\\\":$input.json('$')}\"\n        responses:\n          default:\n            statusCode: \"200\"\n        passthroughBehavior: \"NEVER\"\n  /orders/{orderId+}:\n    get:\n      x-amazon-apigateway-integration:\n        credentials: \n          Fn::GetAtt:\n            - ApiGwExecutionRole\n            - Arn\n        type: \"aws_proxy\"\n        httpMethod: POST\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetSingleOrder}/invocations\n        passthroughBehavior: \"when_no_match\"\n    put:\n      parameters:\n      - name: \"orderId\"\n        in: \"path\"\n        required: true\n        schema:\n          type: \"string\"\n      x-amazon-apigateway-integration:\n        credentials: \n          Fn::GetAtt: [ ApiGwExecutionRole, Arn ]\n        httpMethod: POST\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${UpdateOrder}/invocations\n        responses:\n          default:\n            statusCode: \"200\"\n        passthroughBehavior: \"when_no_match\"\n        type: \"aws_proxy\"\n    delete:\n      parameters:\n      - name: \"orderId\"\n        in: \"path\"\n        required: true\n        schema:\n          type: \"string\"\n      x-amazon-apigateway-integration:\n        credentials: \n          Fn::GetAtt: [ ApiGwExecutionRole, Arn ]\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DeleteOrder}/invocations\n        passthroughBehavior: \"when_no_match\"\ncomponents: {}\n",
+			"canonicalURL": "/github.com/aws-samples/sam-accelerate-nested-stacks-demo@75fdfe94cf02c65aa16671840736e1b60d975893/-/blob/api/definition/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/sam-accelerate-nested-stacks-demo/blob/75fdfe94cf02c65aa16671840736e1b60d975893/api/definition/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/orders\": get: at 1:107: responses: no responses"
+}

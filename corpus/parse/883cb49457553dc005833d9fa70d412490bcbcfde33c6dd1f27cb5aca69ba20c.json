@@ -10,14 +10,14 @@
 			"path": "tests/integration/testdata/invoke/cdk/sample-cdk-stack/sample-definition.yaml",
 			"byteSize": 853,
 			"content": "openapi: 3.0.3\ninfo:\n  title: API Gateway IP Filtering Example API\n  version: 1.0.0\n\npaths:\n  /anyandall:\n    any:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n  /proxypath/{proxy+}:\n    get:\n      summary: Example API Endpoint\n      operationId: example\n      responses:\n        '200':\n          description: Success\n      x-amazon-apigateway-integration:\n        uri:\n          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ExampleFunction.Arn}:live/invocations\n        httpMethod: POST\n        type: aws_proxy\n",
-			"canonicalURL": "/github.com/aws/aws-sam-cli@b9196b0db3f1e0ba042b4e3751d4b0b1cb220a50/-/blob/tests/integration/testdata/invoke/cdk/sample-cdk-stack/sample-definition.yaml",
+			"canonicalURL": "/github.com/aws/aws-sam-cli@3bd27292e83ea0b19ef7e51d99ab83bc9b385264/-/blob/tests/integration/testdata/invoke/cdk/sample-cdk-stack/sample-definition.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aws/aws-sam-cli/blob/b9196b0db3f1e0ba042b4e3751d4b0b1cb220a50/tests/integration/testdata/invoke/cdk/sample-cdk-stack/sample-definition.yaml",
+					"url": "https://github.com/aws/aws-sam-cli/blob/3bd27292e83ea0b19ef7e51d99ab83bc9b385264/tests/integration/testdata/invoke/cdk/sample-cdk-stack/sample-definition.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/proxypath/{proxy+}\": get: operation \"example\": at 1:460: parse path \"/proxypath/{proxy+}\": path parameter not specified: \"proxy+\""
+	"Error": "parse: parse spec: parse path items: path \"/proxypath/{proxy+}\": get: operation \"example\": at 1:460: parse path \"/proxypath/{proxy+}\": path parameter not specified: \"proxy+\""
 }

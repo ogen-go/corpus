@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Agrifood"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "AgriParcel/swagger.yaml",
+			"byteSize": 1561,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    AgriParcel: \n      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriParcel/model.yaml#/AgriParcel\"\ninfo:\n  description:  |\n    This entity contains a harmonised description of a generic parcel of land. This entity is primarily associated with the agricultural vertical and related IoT applications.\n  title: AgriParcel\n  version: \"0.0.4\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - AgriParcel\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriParcel/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/AgriParcel/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Agrifood@a334769f6e0a1c6bbea3a331853ad1087b89b8d0/-/blob/AgriParcel/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Agrifood/blob/a334769f6e0a1c6bbea3a331853ad1087b89b8d0/AgriParcel/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"AgriParcel\": parse schema: at 1:48: external \"https://smart-data-models.github.io/dataModel.Agrifood/AgriParcel/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Agrifood/AgriParcel/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

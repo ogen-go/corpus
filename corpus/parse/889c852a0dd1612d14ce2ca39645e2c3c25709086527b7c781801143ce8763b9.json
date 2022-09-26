@@ -10,14 +10,14 @@
 			"path": "packages/apidom-ls/test/fixtures/deref/fullrootresponses.json",
 			"byteSize": 2058,
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"deref\",\n    \"version\": \"1.0.0\",\n    \"description\": \"deref\"\n  },\n  \"servers\": [\n    {\n      \"description\": \"local\",\n      \"url\": \"http://localhost:8082/\"\n    }\n  ],\n  \"paths\": {\n    \"/a\" : {\n      \"get\": {\n        \"operationId\": \"aget\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/userId\"\n          }\n        ]\n      },\n      \"post\": {\n        \"operationId\": \"apost\"\n      }\n    },\n    \"/b\" : {\n      \"get\": {\n        \"operationId\": \"bget\",\n        \"parameters\": [\n          {\n            \"$ref\": \"#/components/parameters/userId\"\n          }\n        ]\n      },\n      \"post\": {\n        \"operationId\": \"bpost\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/foo\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"default\": {\n            \"description\": \"aa\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/foo\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"foo\": {\n        \"type\": \"string\"\n      },\n      \"bar\": {\n        \"$id\": \"http://localhost:8082/\",\n        \"type\": \"string\"\n      }\n    },\n    \"parameters\": {\n      \"userId\": {\n        \"$ref\": \"#/components/parameters/indirection1\",\n        \"description\": \"override\"\n      },\n      \"indirection1\": {\n        \"$ref\": \"#/components/parameters/indirection2\",\n        \"summary\": \"indirect summary\"\n      },\n      \"indirection2\": {\n        \"$ref\": \"#/components/parameters/userIdRef\",\n        \"summary\": \"indirect summary\"\n      },\n      \"userIdRef\": {\n        \"name\": \"userId\",\n        \"in\": \"query\",\n        \"description\": \"ID of the user\",\n        \"required\": true\n      },\n      \"externalRef\": {\n        \"$ref\": \"./ex.json#/externalParameter\",\n        \"description\": \"another ref\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/swagger-api/apidom@99e5e841028f64b56520257cf9d502da17fe0827/-/blob/packages/apidom-ls/test/fixtures/deref/fullrootresponses.json",
+			"canonicalURL": "/github.com/swagger-api/apidom@f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/-/blob/packages/apidom-ls/test/fixtures/deref/fullrootresponses.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/apidom/blob/99e5e841028f64b56520257cf9d502da17fe0827/packages/apidom-ls/test/fixtures/deref/fullrootresponses.json",
+					"url": "https://github.com/swagger-api/apidom/blob/f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/packages/apidom-ls/test/fixtures/deref/fullrootresponses.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"indirection1\": at 86:20: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse components: parameters: \"userIdRef\": at 86:20: parameter MUST contain either a schema property, or a content property"
 }

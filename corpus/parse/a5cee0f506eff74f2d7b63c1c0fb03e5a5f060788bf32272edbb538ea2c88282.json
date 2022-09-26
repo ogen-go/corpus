@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Deanout/react-wishlist-series"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "backend/swagger/v1/swagger.yaml",
+			"byteSize": 2185,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  title: API V1\n  version: v1\npaths:\n  \"/api/v1/books\":\n    get:\n      summary: Get all books\n      tags:\n      - Books\n      security:\n      - Bearer: []\n      parameters:\n      - name: Authorization\n        in: header\n        required: true\n        description: Authorization token\n        schema:\n          type: string\n      responses:\n        '200':\n          description: books found\n        '401':\n          description: unauthorized\n    post:\n      summary: Create a book\n      tags:\n      - Books\n      security:\n      - Bearer: []\n      parameters:\n      - name: Authorization\n        in: header\n        required: true\n        description: Authorization token\n        schema:\n          type: string\n      responses:\n        '302':\n          description: redirected\n        '401':\n          description: unauthorized\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                book:\n                  title:\n                    type: string\n                  body:\n                    type: string\n              required:\n              - title\n              - body\n          application/xml:\n            schema:\n              type: object\n              properties:\n                book:\n                  title:\n                    type: string\n                  body:\n                    type: string\n              required:\n              - title\n              - body\n  \"/api/v1/books/{id}\":\n    get:\n      summary: Get a book\n      tags:\n      - Books\n      security:\n      - Bearer: []\n      parameters:\n      - name: Authorization\n        in: header\n        required: true\n        description: Authorization token\n        schema:\n          type: string\n      - name: id\n        in: path\n        required: true\n        description: ID of the book\n        schema:\n          type: string\n      responses:\n        '200':\n          description: book found\n        '404':\n          description: book not found\n        '401':\n          description: unauthorized\nservers:\n- url: https://{defaultHost}\n  variables:\n    defaultHost:\n      default: www.example.com\n",
+			"canonicalURL": "/github.com/Deanout/react-wishlist-series@25ec3cfe70ce872d3d87b1999bc6cc2f93b34952/-/blob/backend/swagger/v1/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Deanout/react-wishlist-series/blob/25ec3cfe70ce872d3d87b1999bc6cc2f93b34952/backend/swagger/v1/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/api/v1/books\": get: security: at 1:327: unknown security schema \"Bearer\""
+}

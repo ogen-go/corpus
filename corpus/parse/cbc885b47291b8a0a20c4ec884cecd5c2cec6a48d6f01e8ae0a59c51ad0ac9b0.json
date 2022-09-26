@@ -10,14 +10,14 @@
 			"path": "packages/laminar/examples/oapi-security.yaml",
 			"byteSize": 1157,
 			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3333\npaths:\n  '/user':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              '$ref': '#/components/schemas/User'\n      security:\n        - MySecurity:\n            - admin\n      responses:\n        '200':\n          description: Newly Created User\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/NewUser'\n    get:\n      security:\n        - MySecurity: []\n      responses:\n        '200':\n          description: Loaded User\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/User'\ncomponents:\n  securitySchemes:\n    MySecurity:\n      type: http\n      scheme: bearer\n  schemas:\n    User:\n      properties:\n        email:\n          type: string\n      required:\n        - email\n    NewUser:\n      properties:\n        result:\n          type: string\n        user:\n          '$ref': '#/components/schemas/User'\n      required:\n        - result\n        - user\n",
-			"canonicalURL": "/github.com/ovotech/laminar@e752a12aec39c88f7eeefcc04345b36225be4d6c/-/blob/packages/laminar/examples/oapi-security.yaml",
+			"canonicalURL": "/github.com/ovotech/laminar@339c0d9d5a461b261166737eb7300ee6cb36bae9/-/blob/packages/laminar/examples/oapi-security.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ovotech/laminar/blob/e752a12aec39c88f7eeefcc04345b36225be4d6c/packages/laminar/examples/oapi-security.yaml",
+					"url": "https://github.com/ovotech/laminar/blob/339c0d9d5a461b261166737eb7300ee6cb36bae9/packages/laminar/examples/oapi-security.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse operations: path \"/user\": post: security: at 1:831: list of scopes MUST be empty for \"type\" \"http\""
+	"Error": "parse: parse spec: parse path items: path \"/user\": post: security: at 1:831: list of scopes MUST be empty for \"type\" \"http\""
 }

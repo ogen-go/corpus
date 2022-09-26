@@ -10,10 +10,10 @@
 			"path": "modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
 			"byteSize": 968,
 			"content": "openapi: \"3.0.1\"\ninfo:\n  version: 0.0.1\n  title: broken API\npaths:\n  /test:\n    put:\n      summary: No description\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MyParameter'\n      responses:\n        200:\n          description: \"OK\"\ncomponents:\n  schemas:\n    MyParameter:\n      type: object\n      properties:\n        text_field:\n          $ref: '#/components/schemas/MyParameterTextField'\n    MyParameterTextField:\n      $ref: '#/components/schemas/TypeAliasToString'\n    TypeAliasToString:\n      type: string\n      minLength: 1\n      maxLength: 50\n    BaseModel:\n      type: object\n      discriminator: className\n      required:\n        - className\n      properties:\n        className:\n          type: string\n    ComposedModel:\n      allOf:\n        - $ref: '#/components/schemas/BaseModel'\n        - type: object\n          properties:\n            testProperty:\n              type: string",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/-/blob/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/-/blob/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/c4a3866e75e68f82a0873e22451cb5ec0d25b1cd/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/modules/openapi-generator/src/test/resources/3_0/type_alias.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]

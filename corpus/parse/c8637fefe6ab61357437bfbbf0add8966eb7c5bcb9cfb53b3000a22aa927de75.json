@@ -1,0 +1,18 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/readme/oas-examples"
+		},
+		"file": {
+			"name": "schema-encoding-style.yaml",
+			"size": 0,
+			"path": "3.1/yaml/schema-encoding-style.yaml",
+			"byteSize": 1197,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Encoding `style` serialization support\n  description: https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#encoding-object\n  version: 1.0.0\n  contact:\n    email: aaron@readme.io\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: https://httpbin.org\npaths:\n  '/form/primitive':\n    put:\n      operationId: encoding_form\n      summary: Form style serialization\n      description: Form style serialization\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                primitive:\n                  type: string\n                array:\n                  type: array\n                  items:\n                    type: string\n                object:\n                  type: object\n                  properties:\n                    foo:\n                      type: string\n                    bar:\n                      type: string\n            encoding:\n              primitive:\n                style: form\n              array:\n                style: form\n              object:\n                style: form\n",
+			"canonicalURL": "/npm/readme/oas-examples@c1172d94f9ee52c3c1847b73f9ae1ad55945824b/-/blob/3.1/yaml/schema-encoding-style.yaml",
+			"externalURLs": []
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/form/primitive\": put: operation \"encoding_form\": at 1:361: responses: no responses"
+}
