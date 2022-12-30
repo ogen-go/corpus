@@ -10,14 +10,14 @@
 			"path": "InverterDevice/swagger.yaml",
 			"byteSize": 1829,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    InverterDevice: \n      $ref: \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml#/InverterDevice\"\ninfo:\n  description:  |\n    The data model is intended to describe the mechanical, electrical characteristics of an Inverter according to *DC - Direct Current Information* supplied as input and *AC - Alternating Current Information*  returned as output. *Remark*: This Data Model can be used directly as a main entity to describe the device [Inverter] or as a sub-entity of the Data Model {DEVICE] using a reference by the [refDevice] attribute.\n  title: InverterDevice\n  version: \"0.0.2\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - InverterDevice\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.Energy@0cb0c2437da7569f3b471992ef0eba562e4c09ac/-/blob/InverterDevice/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Energy@45a49b90707bac91d29979c3e6e894f58d395dda/-/blob/InverterDevice/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.Energy/blob/0cb0c2437da7569f3b471992ef0eba562e4c09ac/InverterDevice/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.Energy/blob/45a49b90707bac91d29979c3e6e894f58d395dda/InverterDevice/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"InverterDevice\": parse schema: at 1:52: external \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"InverterDevice\": resolve \"#/components/schemas/InverterDevice\": at InverterDevice/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml#/InverterDevice\": get \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.Energy/InverterDevice/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

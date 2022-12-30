@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ReferenceSets_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/ReferenceSets/ReferenceSets_GET.yaml",
+			"byteSize": 3121,
+			"content": "openapi: 3.0.0\ninfo:\n  title: ga4gh/reference_service.proto\n  version: version not set\npaths:\n  /referencesets:\n    get:\n      summary: Gets a list of `ReferenceSets`.\n      description: Gets a filtered list of `ReferenceSets`.\n      parameters:\n        - name: referenceSetDbId\n          description: The ID of the `ReferenceSet` to be retrieved.\n          in: query\n          schema:\n            type: string\n        - name: accession\n          description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).\n          in: query\n          schema:\n            type: string\n        - name: assemblyPUI\n          description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).\n          in: query\n          schema:\n            type: string\n        - name: md5checksum\n          description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).\n          in: query\n          schema:\n            type: string\n        - $ref: '#/components/parameters/commonCropName'\n        - $ref: '#/components/parameters/programDbId'\n        - $ref: '#/components/parameters/trialDbId'\n        - $ref: '#/components/parameters/studyDbId'\n        - $ref: '#/components/parameters/externalReferenceId'\n        - $ref: '#/components/parameters/externalReferenceSource'\n        - $ref: '#/components/parameters/page'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/ReferenceSetsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Reference Sets\ncomponents:\n  responses:\n    ReferenceSetsListResponse:\n      description: OK\n      headers: {}\n      content:\n        application/json:\n          schema:\n            title: ReferenceSetsListResponse\n            type: object\n            required:\n            - metadata\n            - result\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                title: ReferenceSetsListResponseResult\n                type: object\n                required:\n                - data\n                properties:\n                  data:\n                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                    items:\n                      $ref: '#/components/schemas/ReferenceSet'\n                    type: array",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Genotyping/ReferenceSets/ReferenceSets_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Genotyping/ReferenceSets/ReferenceSets_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"ReferenceSetsListResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Genotyping/ReferenceSets/ReferenceSets_GET.yaml:66:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

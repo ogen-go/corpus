@@ -10,14 +10,14 @@
 			"path": "src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
 			"byteSize": 480,
 			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"components\": {\n    \"schemas\": {\n      \"Example\": {\n        \"type\": \"object\",\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/address\"\n          },\n          {\n            \"properties\": {\n              \"type\": {\n                \"enum\": [\n                  \"residential\",\n                  \"business\"\n                ]\n              }\n            }\n          }\n        ],\n        \"additionalProperties\": false\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@72581effc8762fc9afd2d8b6f9c467763575dc46/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/72581effc8762fc9afd2d8b6f9c467763575dc46/src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Example\": parse schema: parse schema: at 9:21: find schema: resolve: can't find value for \"components/schemas/address\""
+	"Error": "parse: parse spec: parse components: schemas: \"Example\": resolve \"#/components/schemas/Example\": allOf: at src/test/resources/fixtures/transformation/oai2-oai3/definitions/schema-with-allOf.expected.json:9:21: $ref: resolve \"#/components/schemas/address\": resolve: can't find value for \"components/schemas/address\""
 }

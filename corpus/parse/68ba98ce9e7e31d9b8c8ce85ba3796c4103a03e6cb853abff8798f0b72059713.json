@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/DFE-Digital/early-careers-framework"
+		},
+		"file": {
+			"name": "template.yml",
+			"size": 0,
+			"path": "swagger/v3/template.yml",
+			"byteSize": 1334,
+			"content": "---\nopenapi: 3.0.1\ninfo:\n  version: 3.0.0\n  title: \"Lead provider API - 3.0.0 (Draft)\"\n  contact:\n    name: DfE\n    email: continuing-professional-development@digital.education.gov.uk\n  description: \"The lead provider API for DfE's manage teacher CPD service. You cannot make calls to this version in any environment. We are sharing as a spec only now - your feedback is welcome\"\nservers:\n  - url: https://ecf-sandbox.london.cloudapps.digital\n    description: \"Sandbox\"\n  - url: /\n    description: \"Current environment\"\n  - url: https://manage-training-for-early-career-teachers.education.gov.uk\n    description: \"Production\"\n\npaths:\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      bearerFormat: string\n      type: http\n      scheme: bearer\n  schemas:\n    ParticipantDeclarationResponse:\n      anyOf:\n        - $ref: \"#/components/schemas/ECFParticipantDeclarationResponse\"\n        - $ref: \"#/components/schemas/NPQParticipantDeclarationResponse\"\n      discriminator:\n        propertyName: type\n    NPQParticipantDeclarationAttributes:\n      anyOf:\n        - $ref: \"#/components/schemas/NPQParticipantStartedDeclarationAttributes\"\n        - $ref: \"#/components/schemas/NPQParticipantRetainedDeclarationAttributes\"\n        - $ref: \"#/components/schemas/NPQParticipantCompletedDeclarationAttributes\"\nsecurity:\n  - \"bearerAuth\": []\n",
+			"canonicalURL": "/github.com/DFE-Digital/early-careers-framework@85a313a25665421ead19e579a4075c5aee7f7a35/-/blob/swagger/v3/template.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/DFE-Digital/early-careers-framework/blob/85a313a25665421ead19e579a4075c5aee7f7a35/swagger/v3/template.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ParticipantDeclarationResponse\": resolve \"#/components/schemas/ParticipantDeclarationResponse\": anyOf: at swagger/v3/template.yml:28:17: $ref: resolve \"#/components/schemas/ECFParticipantDeclarationResponse\": resolve: can't find value for \"components/schemas/ECFParticipantDeclarationResponse\""
+}

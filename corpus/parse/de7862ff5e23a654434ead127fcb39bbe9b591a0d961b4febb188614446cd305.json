@@ -10,14 +10,14 @@
 			"path": "pkg/generators/models/testdata/cases/embedded_type/api.yaml",
 			"byteSize": 533,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.0\n  title: Test\n\ncomponents:\n  schemas:\n    Top:\n      type: object\n      properties:\n        obj:\n          $ref: \"#/components/schemas/Sub1\"\n        arr:\n          $ref: \"#/components/schemas/Sub2\"\n        boo:\n          $ref: \"#/components/schemas/Sub3\"\n    Sub1:\n      type: object\n      properties:\n        foo:\n          type: string\n    Sub2:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Sub1\"\n    Sub3:\n      type: bool\n      description: Type alias for a value type\n",
-			"canonicalURL": "/github.com/contiamo/openapi-generator-go@0d60d72ef9e3105413fba06669773b9858bd9025/-/blob/pkg/generators/models/testdata/cases/embedded_type/api.yaml",
+			"canonicalURL": "/github.com/contiamo/openapi-generator-go@1629397ad8f7a690565f604d69a3b9e7ba6167d6/-/blob/pkg/generators/models/testdata/cases/embedded_type/api.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/contiamo/openapi-generator-go/blob/0d60d72ef9e3105413fba06669773b9858bd9025/pkg/generators/models/testdata/cases/embedded_type/api.yaml",
+					"url": "https://github.com/contiamo/openapi-generator-go/blob/1629397ad8f7a690565f604d69a3b9e7ba6167d6/pkg/generators/models/testdata/cases/embedded_type/api.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Sub3\": parse schema: at 1:219: unexpected schema type: \"bool\""
+	"Error": "parse: parse spec: parse components: schemas: \"Top\": resolve \"#/components/schemas/Top\": property \"boo\": $ref: resolve \"#/components/schemas/Sub3\": at pkg/generators/models/testdata/cases/embedded_type/api.yaml:27:13: type: unexpected schema type: \"bool\""
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.UrbanMobility"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "GtfsShape/swagger.yaml",
+			"byteSize": 1408,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    GtfsShape: \n      $ref: \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/model.yaml#/GtfsShape\"\ninfo:\n  description:  |\n    GTFS Shape\n  title: GtfsShape\n  version: \"0.0.2\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - GtfsShape\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.UrbanMobility@42526b4a507ac4c10d51cae2ac0b5b16da4f6168/-/blob/GtfsShape/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.UrbanMobility/blob/42526b4a507ac4c10d51cae2ac0b5b16da4f6168/GtfsShape/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"GtfsShape\": resolve \"#/components/schemas/GtfsShape\": at GtfsShape/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/model.yaml#/GtfsShape\": get \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.UrbanMobility/GtfsShape/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

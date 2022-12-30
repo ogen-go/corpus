@@ -10,14 +10,14 @@
 			"path": "openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml",
 			"byteSize": 1913,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Uber API\n  description: Move your app forward with the Uber API\n  version: 1.0.0\nservers:\n  - url: https://api.uber.com/v1\npaths:\n  /xmlarrayproducts:\n    get:\n      summary: Product Types\n      operationId: getProducts\n      description: The Products endpoint returns information about the Uber products\n        offered at a given location.\n      tags:\n        - Products\n      parameters:\n        - in: query\n          name: subscription_default_tax_rates\n          required: false\n          schema:\n            anyOf:\n              - items:\n                  maxLength: 5000\n                  type: string\n                type: array\n              - enum:\n                  - ''\n                type: string\n          style: deepObject\n      responses:\n        \"200\":\n          description: An array of products\n          content:\n            application/xml:\n              schema:\n                type: array\n                items: {}\ncomponents:\n  schemas:\n    User:\n      properties:\n        first_name:\n          type: string\n          description: First name of the Uber user.\n        last_name:\n          type: string\n          description: Last name of the Uber user.\n        tax_rates:\n          anyOf:\n            - items:\n                maxLength: 5000\n                type: string\n              type: array\n            - enum:\n                - ''\n              type: string\n    Activity:\n      properties:\n        uuid:\n          type: string\n          description: Unique identifier for the activity\n    Activities:\n      properties:\n        offset:\n          type: integer\n          format: int32\n          description: Position in pagination.\n        history:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Activity\"\n    AnyOF:\n      anyOf:\n        - $ref: '#/components/schemas/User'\n        - $ref: '#/components/schemas/Activity'",
-			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@b707e95d277db08e68a567b3189235dbe654ff0c/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@d6440e180261462963e85de1bc22fb9f8309543b/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ballerina-platform/openapi-tools/blob/b707e95d277db08e68a567b3189235dbe654ff0c/openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml",
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/d6440e180261462963e85de1bc22fb9f8309543b/openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/xmlarrayproducts\": get: operation \"getProducts\": parameters: parse parameter \"subscription_default_tax_rates\": at 1:1020: invalid schema:style:explode combination: (\"\":\"deepObject\":true)"
+	"Error": "parse: parse spec: parse path items: path \"/xmlarrayproducts\": get: operation \"getProducts\": parameters: parse parameter \"subscription_default_tax_rates\": at openapi-cli/src/test/resources/generators/schema/swagger/scenario15.yaml:26:23: invalid schema.type:style:explode combination: (\"array\":\"deepObject\":true)"
 }

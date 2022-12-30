@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "error_api_invalid_endpoint_configuration_openapi_3.yaml",
+			"size": 0,
+			"path": "tests/translator/input/error_api_invalid_endpoint_configuration_openapi_3.yaml",
+			"byteSize": 306,
+			"content": "Resources:\n  ExplicitApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: SomeStage\n      DefinitionBody:\n        openapi: 3.0.1\n        paths: {}\n        servers:\n        - x-amazon-apigateway-endpoint-configuration:\n          - this should be a dict\n      DisableExecuteApiEndpoint: true\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/error_api_invalid_endpoint_configuration_openapi_3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/error_api_invalid_endpoint_configuration_openapi_3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/error_api_invalid_endpoint_configuration_openapi_3.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml",
 			"byteSize": 1836,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /search/allelematrix/{searchResultsDbId}:\n    get:\n      summary: Get the results of a Allele Matrix search request\n      description: |-\n        Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, but the search and filter parameters give the ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.\n        \u003cbr/\u003eEach row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet. \n        \u003cbr/\u003eClients should submit a search request using the corresponding `POST /search/allelematrix` endpoint. Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. If a server needs more time to process the request, it might respond with a `searchResultsDbId`. Use this endpoint to retrieve the results of the search. \n        \u003cbr/\u003eReview the \u003ca target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\u003eSearch Services documentation\u003c/a\u003e for additional implementation details.\n      parameters:\n      - $ref: '#/components/parameters/searchResultsDbId'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '202': \n          $ref: '#/components/responses/202AcceptedSearchResponse' \n        '200':\n          $ref: '#/components/responses/AlleleMatrixResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Allele Matrix",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/search/allelematrix/{searchResultsDbId}\": get: parameters: parse parameter \"\": at 1:1260: can't find value for \"components/parameters/searchResultsDbId\""
+	"Error": "parse: parse spec: parse path items: path \"/search/allelematrix/{searchResultsDbId}\": get: parameters: parse parameter \"\": at Specification/BrAPI-Genotyping/AlleleMatrix/Search_AlleleMatrix_SearchResultsDbId_GET.yaml:15:15: can't find value for \"components/parameters/searchResultsDbId\""
 }

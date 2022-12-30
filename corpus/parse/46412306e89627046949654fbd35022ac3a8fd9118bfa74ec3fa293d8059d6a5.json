@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getyourguide/partner-api-spec"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "spec/api.yaml",
+			"byteSize": 3183,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Partner Api\n  description: This GetYourGuide Partner API provides access to GetYourGuide’s marketplace for tours and activities. It has a RESTful interface and uses the JSON media format. Access is secured via SSL and an API access token. Further documentation can be found in the public GitHub repository linked below. Do not forget to also check out the GitHub wiki for some more extensive guides.\n  version: 1.0.0\n  contact:\n    name: Partner Tech\n    url: https://partner.getyourguide.com/\n  license:\n    name: Apache License, Version 2.0\n    url: https://github.com/getyourguide/partner-api-spec/blob/main/LICENSE\n\nexternalDocs:\n  description: Further Documentation, additional resources and best practices\n  url: https://github.com/getyourguide/partner-api-spec\n\nservers:\n  - url: https://api.getyourguide.com/\n    description: Production\n  - url: https://api.testing20.gygtest.com/\n    description: Testing\n  # Hidden as it is causing confusion for partner.\n  # - url: https://api.gygdev.gygtest.com/\n  #   description: Development\n\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: X-ACCESS-TOKEN\n\nsecurity:\n  - ApiKeyAuth: []\n\npaths:\n  # Configuration\n  /configuration/{version}:\n    $ref: \"./paths/configuration.yaml#/paths/~1configuration~1{version}\"\n  /{version}/configuration/payment:\n    $ref: \"./paths/configuration.yaml#/paths/~1{version}~1configuration~1payment\"\n  # Bookings\n  /{version}/bookings:\n    $ref: \"./paths/bookings.yaml#/paths/~1{version}~1bookings\"\n  /{version}/bookings/{booking_hash}:\n    $ref: \"./paths/bookings.yaml#/paths/~1{version}~1bookings~1{booking_hash}\"\n  # Carts\n  /{version}/carts:\n    $ref: \"./paths/carts.yaml#/paths/~1{version}~1carts\"\n  /{version}/carts/{shopping_cart_hash}:\n    $ref: \"./paths/carts.yaml#/paths/~1{version}~1carts~1{shopping_cart_hash}\"\n  # Categories\n  /{version}/categories:\n    $ref: \"./paths/categories.yaml#/paths/~1{version}~1categories\"\n  /{version}/categories/{category_id}:\n    $ref: \"./paths/categories.yaml#/paths/~1{version}~1categories~1{category_id}\"\n  # Options\n  /{version}/options/{option_id}:\n    $ref: \"./paths/options.yaml#/paths/~1{version}~1options~1{option_id}\"\n  /{version}/options/{option_id}/pricings:\n    $ref: \"./paths/options.yaml#/paths/~1{version}~1options~1{option_id}~1pricings\"\n  /{version}/options/{option_id}/availabilities:\n    $ref: \"./paths/options.yaml#/paths/~1{version}~1options~1{option_id}~1availabilities\"\n  # Reviews\n  /{version}/reviews/tour/{tour_id}:\n    $ref: \"./paths/reviews.yaml#/paths/~1{version}~1reviews~1tour~1{tour_id}\"\n  # Suppliers\n  /{version}/suppliers/{supplier_id}:\n    $ref: \"./paths/suppliers.yaml#/paths/~1{version}~1suppliers~1{supplier_id}\"\n  # Tours\n  /{version}/tours:\n    $ref: \"./paths/tours.yaml#/paths/~1{version}~1tours\"\n  /{version}/tours/{tour_id}:\n    $ref: \"./paths/tours.yaml#/paths/~1{version}~1tours~1{tour_id}\"\n  /{version}/tours/{tour_id}/availabilities:\n    $ref: \"./paths/tours.yaml#/paths/~1{version}~1tours~1{tour_id}~1availabilities\"\n  /{version}/tours/{tour_id}/options:\n    $ref: \"./paths/tours.yaml#/paths/~1{version}~1tours~1{tour_id}~1options\"\n",
+			"canonicalURL": "/github.com/getyourguide/partner-api-spec@4860aa395f0e057d6fa4996e554152da64e44fda/-/blob/spec/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getyourguide/partner-api-spec/blob/4860aa395f0e057d6fa4996e554152da64e44fda/spec/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/{version}/bookings\": get: operation \"BookingsGetAll\": at https://raw.githubusercontent.com/getyourguide/partner-api-spec/4860aa395f0e057d6fa4996e554152da64e44fda/spec/paths/bookings.yaml:44:7: parse path \"/{version}/bookings\": path parameter not specified: \"version\""
+}

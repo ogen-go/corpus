@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/beowulf1416/idEAS"
+		},
+		"file": {
+			"name": "countries.json",
+			"size": 0,
+			"path": "www/swagger/countries.json",
+			"byteSize": 3030,
+			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"openapi document\",\n        \"version\": \"0.0.1\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://localhost:8081\",\n            \"description\": \"local auth server\"\n        }\n    ],\n    \"components\": {\n        \"schemas\":{\n            \"apiResponse\":{\n                \"type\":\"object\",\n                \"properties\":{\n                    \"success\":{\n                        \"type\":\"boolean\",\n                        \"readOnly\":true\n                    },\n                    \"message\":{\n                        \"type\":\"string\",\n                        \"readOnly\":true\n                    },\n                    \"data\":{\n                        \"type\":\"object\",\n                        \"readOnly\":true,\n                        \"nullable\":true\n                    }\n                },\n                \"required\":[\n                    \"success\",\n                    \"message\"\n                ]\n            },\n            \"countriesFetchRequest\":{\n                \"type\":\"object\",\n                \"properties\":{\n                    \"filter\":{\n                        \"type\":\"string\",\n                        \"readOnly\":true\n                    },\n                    \"items\":{\n                        \"type\":\"number\",\n                        \"readOnly\":true\n                    },\n                    \"page\":{\n                        \"type\":\"number\",\n                        \"readOnly\":true\n                    }\n                },\n                \"required\":[\n                    \"filter\",\n                    \"items\",\n                    \"page\"\n                ]\n            }\n        },\n        \"securitySchemes\": {\n            \"bearer\": {\n                \"type\": \"http\",\n                \"description\": \"Bearer authentication\",\n                \"name\": \"Authorization\",\n                \"in\": \"header\",\n                \"scheme\": \"bearer\"\n            }\n        }\n    },\n    \"paths\":{\n        \"countries/fetch\":{\n            \"summary\":\"fetch countries matching a filter\",\n            \"post\":{\n                \"summary\": \"POST method\",\n                \"tags\":[\"countries\"],\n                \"operationId\":\"country_fetch\",\n                \"requestBody\":{\n                    \"required\":true,\n                    \"content\":{\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/countriesFetchRequest\"\n                            }\n                        }\n                    }\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"client added\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/apiResponse\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}",
+			"canonicalURL": "/github.com/beowulf1416/idEAS@abf56da9c7f0af4f87e5656ce9e715927670c181/-/blob/www/swagger/countries.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/beowulf1416/idEAS/blob/abf56da9c7f0af4f87e5656ce9e715927670c181/www/swagger/countries.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"countries/fetch\": post: operation \"country_fetch\": at www/swagger/countries.json:73:20: parse path \"countries/fetch\": path MUST begin with a forward slash"
+}

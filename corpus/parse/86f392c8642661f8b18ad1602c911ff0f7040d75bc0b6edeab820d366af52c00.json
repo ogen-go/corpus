@@ -7,17 +7,17 @@
 		"file": {
 			"name": "root.json",
 			"size": 0,
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/schema-object/fixtures/indirect-internal-circular/root.json",
 			"byteSize": 394,
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"$ref\": \"#/components/schemas/Indirection1\"\n      },\n      \"Indirection1\": {\n        \"$ref\": \"#/components/schemas/Indirection2\"\n      },\n      \"Indirection3\": {\n        \"$ref\": \"#/components/schemas/Indirection3\"\n      },\n      \"Indirection4\": {\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/swagger-api/apidom@f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"canonicalURL": "/github.com/swagger-api/apidom@24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/schema-object/fixtures/indirect-internal-circular/root.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/apidom/blob/f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+					"url": "https://github.com/swagger-api/apidom/blob/24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/schema-object/fixtures/indirect-internal-circular/root.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Indirection1\": parse schema: at 9:17: find schema: resolve: can't find value for \"components/schemas/Indirection2\""
+	"Error": "parse: parse spec: parse components: schemas: \"Indirection1\": resolve \"#/components/schemas/Indirection1\": at packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/schema-object/fixtures/indirect-internal-circular/root.json:9:17: $ref: resolve \"#/components/schemas/Indirection2\": resolve: can't find value for \"components/schemas/Indirection2\""
 }

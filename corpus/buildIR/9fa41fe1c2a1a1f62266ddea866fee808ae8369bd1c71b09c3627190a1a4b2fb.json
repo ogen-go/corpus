@@ -10,14 +10,14 @@
 			"path": "examples/connexion_deep_object_filters.yaml",
 			"byteSize": 1630,
 			"content": "openapi: \"3.0.0\"\n\ninfo:\n  title: Deep object filtering\n  version: '1.0'\n\npaths:\n  /data:\n    get:\n      summary: Get data.\n      description: Return data (with applied filters)\n      operationId: connexion_deep_object_filters.getData\n      responses:\n        200:\n          description: Data\n          content:\n            application/vnd.api+json:\n              schema:\n                type: array\n                items:\n                  type: object\n                  properties:\n                    id:\n                      type: integer\n                      example: 1\n                    details:\n                      type: object\n                      properties:\n                        sap:\n                          type: boolean\n                          example: true\n                        text:\n                          type: string\n                          example: xxee\n                      required:\n                        - sap\n                        - text\n                  required:\n                    - details\n                    - id\n      parameters:\n        - in: query\n          name: filter\n          description: Filter by deep object\n          schema:\n            type: object\n            properties:\n              id:\n                type: integer\n                example: 1\n              details:\n                type: object\n                properties:\n                  sap:\n                    type: boolean\n                    example: true\n                  text:\n                    type: string\n                    example: xxee\n          style: deepObject\n          explode: true\n",
-			"canonicalURL": "/github.com/RedHatInsights/vulnerability-engine@2fb0af5f7c5e56ca98ac47fa2687adad6633f74c/-/blob/examples/connexion_deep_object_filters.yaml",
+			"canonicalURL": "/github.com/RedHatInsights/vulnerability-engine@1f1c1fed20c890ccc249c9b4380477afa53b6502/-/blob/examples/connexion_deep_object_filters.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/RedHatInsights/vulnerability-engine/blob/2fb0af5f7c5e56ca98ac47fa2687adad6633f74c/examples/connexion_deep_object_filters.yaml",
+					"url": "https://github.com/RedHatInsights/vulnerability-engine/blob/1f1c1fed20c890ccc249c9b4380477afa53b6502/examples/connexion_deep_object_filters.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/data\": get: parameters: \"filter\": field \"Details\": nested objects not allowed"
+	"Error": "buildIR: make ir: operations: path \"/data\": get: parameters: \"filter\": field \"Details\": nested objects not allowed"
 }

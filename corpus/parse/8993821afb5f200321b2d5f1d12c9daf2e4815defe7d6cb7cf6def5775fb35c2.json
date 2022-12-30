@@ -10,14 +10,14 @@
 			"path": "src/test/resources/externalfile.yaml",
 			"byteSize": 1322,
 			"content": "openapi: 3.0.1\r\ninfo:\r\n\r\npaths:\r\n\r\nx-package: com.example\r\n\r\ncomponents:\r\n  schemas:\r\n    DatabaseConnectionRequest:\r\n      type: object\r\n      nullable: false\r\n      properties:\r\n        type:\r\n          $ref: '#/components/schemas/DatabaseType'\r\n        host:\r\n          description: Database host url\r\n          type: string\r\n          default: null\r\n        port:\r\n          description: Database port like 5432\r\n          type: integer\r\n          default: null\r\n        user_name:\r\n          description: Database user name\r\n          type: string\r\n          default: null\r\n        password:\r\n          description: Database password\r\n          type: string\r\n          default: null\r\n        name:\r\n          description: Connection name\r\n          example: My Connection\r\n          type: string\r\n          nullable: false\r\n        jdbc_url:\r\n          description: JDBC URL\r\n          example: jdbc:postgresql://127.0.0.1:5432/postgres\r\n          type: string\r\n          nullable: false\r\n        auth_type:\r\n          $ref: '#/components/schemas/DatabaseConnectionAuthType'\r\n        access_level:\r\n          $ref: '#/components/schemas/DatabaseConnectionAccessLevel'\r\n\r\n    NullableType:\r\n      type: object\r\n      nullable: true\r\n      properties:\r\n        type:\r\n          $ref: '#/components/schemas/DatabaseType'",
-			"canonicalURL": "/github.com/CourseOrchestra/hurdy-gurdy@c7b61eaefcc4b4442e8d4d8549ad169083953866/-/blob/src/test/resources/externalfile.yaml",
+			"canonicalURL": "/github.com/CourseOrchestra/hurdy-gurdy@c0d9b5d64b373c90dae4314d47c1e65f2b703dec/-/blob/src/test/resources/externalfile.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/CourseOrchestra/hurdy-gurdy/blob/c7b61eaefcc4b4442e8d4d8549ad169083953866/src/test/resources/externalfile.yaml",
+					"url": "https://github.com/CourseOrchestra/hurdy-gurdy/blob/c0d9b5d64b373c90dae4314d47c1e65f2b703dec/src/test/resources/externalfile.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"NullableType\": parse schema: property \"type\": parse schema: at 1:904: find schema: resolve: can't find value for \"components/schemas/DatabaseType\""
+	"Error": "parse: parse spec: parse components: schemas: \"DatabaseConnectionRequest\": resolve \"#/components/schemas/DatabaseConnectionRequest\": property \"type\": at src/test/resources/externalfile.yaml:15:17: $ref: resolve \"#/components/schemas/DatabaseType\": resolve: can't find value for \"components/schemas/DatabaseType\""
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ramgrandhi/serverless-wso2-apim"
+		},
+		"file": {
+			"name": "serverless.yml",
+			"size": 0,
+			"path": "src/__tests__/e2e/valid-oauth2-mtls-enabled-3.2.0/serverless.yml",
+			"byteSize": 2593,
+			"content": "service: serverless-wso2-apim\nprovider:\n  name: aws\n  stackName: ${env:STACK_NAME}\n  deploymentBucket:\n    name: ${env:TEST_ID_NORMALIZED}\nplugins:\n  - serverless-localstack\n  - serverless-deployment-bucket\n  - \"../../../../../src\"\n\n#⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇ Modify the configuration below to suit your test case.\n#⬇⬇⬇ START HERE ⬇⬇⬇⬇ Help: https://github.com/ramgrandhi/serverless-wso2-apim#configuration-reference\n#⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇ For a full list of env vars that you can use, refer `src/__tests__/e2e/e2e.test.js`\ncustom:\n  wso2apim:\n    enabled: true\n    host: ${env:WSO2_HOST}\n    port: ${env:WSO2_PORT}\n    user: ${env:WSO2_USER}\n    pass: ${env:WSO2_PASS}\n    gatewayEnv: ${env:WSO2_ENV}\n    apidefs:\n      - name: ${env:TEST_ID}-1\n        description: ${env:TEST_ID}-1\n        rootContext: /${env:TEST_ID}-1\n        version: \"v1\"\n        visibility: \"PRIVATE\"\n        securityScheme:\n          mutualssl:\n            enabled: true\n            clientCert: 'file://cert.cer'\n          oauth2:\n            enabled: true\n        backend:\n          http:\n            baseUrl: \"https://baseUrl\"\n        maxTps: 10\n        tags:\n          - ${env:TEST_ID}-1\n        swaggerSpec:\n          swagger: \"2.0\"\n          info:\n            title: ${env:TEST_ID}-1\n            version: \"v1\"\n            contact:\n              name: ${env:TEST_ID}-1\n              email: ${env:TEST_ID}-1\n          paths:\n            /*:\n              post:\n                responses:\n                  \"201\":\n                    description: Created\n                x-auth-type: \"None\"\n      # - name: ${env:TEST_ID}-2\n      #   description: ${env:TEST_ID}-2\n      #   rootContext: /${env:TEST_ID}-2\n      #   version: \"1\"\n      #   visibility: \"PUBLIC\"\n      #   backend:\n      #     http:\n      #       baseUrl: \"https://baseUrl\"\n      #   maxTps: 10\n      #   tags:\n      #     - ${env:TEST_ID}-2\n      #   swaggerSpec:\n      #     openapi: 3.0.0\n      #     info:\n      #       title: ${env:TEST_ID}-2\n      #       version: \"1\"\n      #       contact:\n      #         name: ${env:TEST_ID}-2\n      #         email: ${env:TEST_ID}-2\n      #     paths:\n      #       /*:\n      #         post:\n      #           responses:\n      #             \"201\":\n      #               description: Created\n      #           x-auth-type: \"None\"\n\n# Optionally, add your other AWS provider-specific resources below.\n# Make sure there is at least one resource listed below, otherwise stack deployment would fail.\nresources:\n  Resources:\n    Topic:\n      Type: AWS::SNS::Topic\n",
+			"canonicalURL": "/github.com/ramgrandhi/serverless-wso2-apim@42288c5f37592cae72adb96412439fd81d7b0b88/-/blob/src/__tests__/e2e/valid-oauth2-mtls-enabled-3.2.0/serverless.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ramgrandhi/serverless-wso2-apim/blob/42288c5f37592cae72adb96412439fd81d7b0b88/src/__tests__/e2e/valid-oauth2-mtls-enabled-3.2.0/serverless.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at src/__tests__/e2e/valid-oauth2-mtls-enabled-3.2.0/serverless.yml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

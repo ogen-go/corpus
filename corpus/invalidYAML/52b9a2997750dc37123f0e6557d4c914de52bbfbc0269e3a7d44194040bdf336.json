@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "negative3.yaml",
+			"size": 0,
+			"path": "test/data/production/best-practices/negative3.yaml",
+			"byteSize": 2061,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\n  description: the awesome API\nservers:\n  - url: https://production.test.com\n    description: production environment\nexternalDocs:\n  description: \"Find more info here\",\n  url: \"https://example.com\"\n\n\ncomponents:\n  schemas:\n    Customer:\n      description: a customer\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          description: a property\n          type: string\n        name:\n          description: a property\n          type: string\n      required: [\"id\"]\n\npaths:\n  /users/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as is\n        schema:\n          type: string\n      - name: accept\n        description: desc\n        in: header\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          headers:\n            content-type:\n              description: desc\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"\n              example:\n                id: 1\n\n  /users-list/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as is\n        schema:\n          type: string\n      - name: accept\n        description: desc\n        in: header\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          headers:\n            content-type:\n              description: desc\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"\n              example:\n                id: 1",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/best-practices/negative3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/best-practices/negative3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "invalidYAML: yaml: line 9:2: did not find expected key"
+}

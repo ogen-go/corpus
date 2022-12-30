@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/TimesysGit/board-farm-rest-api"
+		},
+		"file": {
+			"name": "netboot_transfer_file.yaml",
+			"size": 0,
+			"path": "spec/netboot/netboot_transfer_file.yaml",
+			"byteSize": 1763,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Generated for EBF-TAS\n  version: '0.2'\nservers:\n- url: https://bfc.timesys.com\ncomponents:\n  securitySchemes:\n    tokenAuth:\n      type: http\n      scheme: token\nsecurity:\n- tokenAuth: []\npaths:\n  /api/v0.2/devices/{DeviceName}/netboot/transfer/file/:\n    post:\n      tags:\n      - api\n      operationId: api_devices_netboot_transfer_netboot_image_transfer\n      parameters:\n      - name: DeviceName\n        in: path\n        description: A unique value identifying this device.\n        required: true\n        schema:\n          type: string\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                file:\n                  type: string\n                  format: binary\n                transferring_tool:\n                  type: string\n                cmd_args:\n                  type: string\n                extraction_dir:\n                  type: string\n                delete_after:\n                  type: boolean\n              required:\n                - file\n        required: true\n        required: true\n      responses:\n        200:\n          description: \"\"\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  result:\n                    type: string\n                  data: \n                    type: object\n                    properties:\n                      job_id: \n                        type: string\n                      progress_url:\n                        type: string\n                  message:\n                    type: string\n                required:\n                  - result\n      x-codegen-request-body-name: data",
+			"canonicalURL": "/github.com/TimesysGit/board-farm-rest-api@39b7c0b6962beae1b63198154fcaf0d90c36ff34/-/blob/spec/netboot/netboot_transfer_file.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/TimesysGit/board-farm-rest-api/blob/39b7c0b6962beae1b63198154fcaf0d90c36ff34/spec/netboot/netboot_transfer_file.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 47: mapping key \"required\" already defined at line 46"
+}

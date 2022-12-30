@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml",
 			"byteSize": 1421,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /search/locations:\n    post:\n      summary: Submit a search request for `Locations`\n      description: |-\n        Submit a search request for `Locations`\u003cbr/\u003e\n        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \n        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. \n        Use the corresponding `GET /search/locations/{searchResultsDbId}` to retrieve the results of the search. \u003cbr/\u003e \n        Review the \u003ca target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\u003eSearch Services documentation\u003c/a\u003e for additional implementation details.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/LocationSearchRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/LocationListResponse'\n        '202':\n          $ref: '#/components/responses/202AcceptedSearchResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Locations\n",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/search/locations\": post: parameters: parse parameter \"\": at 1:754: can't find value for \"components/parameters/authorizationHeader\""
+	"Error": "parse: parse spec: parse path items: path \"/search/locations\": post: parameters: parse parameter \"\": at Specification/BrAPI-Core/Locations/Search_Locations_POST.yaml:16:15: can't find value for \"components/parameters/authorizationHeader\""
 }

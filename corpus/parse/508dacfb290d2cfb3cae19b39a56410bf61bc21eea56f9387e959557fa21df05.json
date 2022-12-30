@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "People_GET_POST.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/People/People_GET_POST.yaml",
+			"byteSize": 3521,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /people:\n    get:\n      summary: Get filtered list of People\n      description: Get filtered list of people\n      parameters:\n      - description: A persons first name\n        in: query\n        name: firstName\n        required: false\n        schema:\n          type: string\n      - description: A persons last name\n        in: query\n        name: lastName\n        required: false\n        schema:\n          type: string\n      - description: The unique ID of a person\n        in: query\n        name: personDbId\n        required: false\n        schema:\n          type: string\n      - description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.\n        in: query\n        name: userID\n        required: false\n        schema:\n          type: string\n      - $ref: '#/components/parameters/commonCropName'\n      - $ref: '#/components/parameters/programDbId'\n      - $ref: '#/components/parameters/externalReferenceID'\n      - $ref: '#/components/parameters/externalReferenceId'\n      - $ref: '#/components/parameters/externalReferenceSource'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/PersonListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - People\n    post:\n      summary: Create new People\n      description: Create new People entities. `personDbId` is generated and managed by the server.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items: \n                $ref: '#/components/schemas/PersonNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/PersonListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - People\ncomponents:\n  responses:\n    PersonListResponse:\n      content:\n        application/json:\n          schema:\n            title: PersonListResponse\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                properties:\n                  data:\n                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                    items:\n                      $ref: '#/components/schemas/Person'\n                    type: array\n                required:\n                - data\n                type: object\n            required:\n            - metadata\n            - result\n            type: object\n      description: OK\n      headers: {}\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/People/People_GET_POST.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/People/People_GET_POST.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"PersonListResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Core/People/People_GET_POST.yaml:86:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

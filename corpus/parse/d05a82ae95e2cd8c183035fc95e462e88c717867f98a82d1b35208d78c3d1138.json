@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml",
 			"byteSize": 1063,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      responses:\n        \"200\":\n          description: the user being returned\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  uuid:\n                    type: string\n                    format: uuid\n  \"/users/{userid}/address\":\n    parameters:\n      - name: userid\n        in: path\n        required: true\n        description: the user identifier, as userId\n        schema:\n          type: string\n    get:\n      operationId: getUserAddress\n      responses:\n        \"200\":\n          description: the user's address\ncomponents:\n  schemas:\n    Pet:\n      $ref: \"../models/pet.yaml\"\n    User:\n      $ref: \"https://api.example.com/v2/openapi.yaml#/components/schemas/User\"\n  responses:\n    GenericError:\n      $ref: \"../template-api.yaml#/components/responses/GenericError\"\n  links:\n    address:\n      operationId: getUserAddress\n      parameters:\n        userId: $request.path.id\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@78acc8ae8f5004d721f14dcd670abcfb0fbf3897/-/blob/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse schema: at 1:233: external \"../models/pet.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Pet\": resolve \"#/components/schemas/Pet\": at assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/test/negative6.yaml:35:13: $ref: resolve \"../models/pet.yaml\": get \"https://raw.githubusercontent.com/Checkmarx/kics/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/link_object_operation_id_does_not_target_an_operation_object/models/pet.yaml\": https: bad HTTP code 404 (Not Found)"
 }

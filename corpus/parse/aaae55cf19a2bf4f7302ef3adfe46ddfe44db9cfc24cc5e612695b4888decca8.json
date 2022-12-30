@@ -10,14 +10,14 @@
 			"path": "test/data/toBundleExamples/referenced_header/expected.json",
 			"byteSize": 1682,
 			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\",\n    \"description\": \"A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification\",\n    \"termsOfService\": \"http://swagger.io/terms/\",\n    \"contact\": {\n      \"name\": \"Swagger API Team\",\n      \"email\": \"apiteam@swagger.io\",\n      \"url\": \"http://swagger.io\"\n    },\n    \"license\": {\n      \"name\": \"Apache 2.0\",\n      \"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\"\n    }\n  },\n  \"paths\": {\n    \"/pets\": {\n      \"get\": {\n        \"description\": \"Returns all pets alesuada ac...\",\n        \"operationId\": \"findPets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"An paged array of pets\",\n            \"headers\": {\n              \"x-next\": {\n                \"$ref\": \"#/components/headers/_header.yaml\"\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pets\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Pet\": {\n        \"required\": [\n          \"id\",\n          \"name\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"tag\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"headers\": {\n      \"_header.yaml\": {\n        \"description\": \"A link to the next page of responses\",\n        \"schema\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@bdfeadb49daea91fe06f4fca3d783eba16793369/-/blob/test/data/toBundleExamples/referenced_header/expected.json",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@a9111c1712ab3c38677bc62787ab7723e84a20c0/-/blob/test/data/toBundleExamples/referenced_header/expected.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/bdfeadb49daea91fe06f4fca3d783eba16793369/test/data/toBundleExamples/referenced_header/expected.json",
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/toBundleExamples/referenced_header/expected.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/pets\": get: operation \"findPets\": responses: 200: content: application/json: schema: parse schema: at 34:27: find schema: resolve: can't find value for \"components/schemas/Pets\""
+	"Error": "parse: parse spec: parse path items: path \"/pets\": get: operation \"findPets\": responses: 200: content: application/json: schema: parse schema: at test/data/toBundleExamples/referenced_header/expected.json:34:27: $ref: resolve \"#/components/schemas/Pets\": resolve: can't find value for \"components/schemas/Pets\""
 }

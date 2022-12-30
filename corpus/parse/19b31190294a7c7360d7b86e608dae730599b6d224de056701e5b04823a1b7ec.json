@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ogen-go/ogen"
+		},
+		"file": {
+			"name": "duplicate_operationId_within_webhooks.json",
+			"size": 0,
+			"path": "openapi/parser/_testdata/negative/webhook/duplicate_operationId_within_webhooks.json",
+			"byteSize": 482,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"title\",\n    \"version\": \"v0.1.0\"\n  },\n  \"webhooks\": {\n    \"usersGet\": {\n      \"get\": {\n        \"operationId\": \"usersGet\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\"\n          }\n        }\n      }\n    },\n    \"usersPost\": {\n      \"post\": {\n        \"operationId\": \"usersGet\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"User info\"\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ogen-go/ogen@381d15ef02a602261e24b0a2dd53d36dccb7bfab/-/blob/openapi/parser/_testdata/negative/webhook/duplicate_operationId_within_webhooks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ogen-go/ogen/blob/381d15ef02a602261e24b0a2dd53d36dccb7bfab/openapi/parser/_testdata/negative/webhook/duplicate_operationId_within_webhooks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse webhooks: parse webhook \"usersPost\": parse pathItem: post: at openapi/parser/_testdata/negative/webhook/duplicate_operationId_within_webhooks.json:20:24: duplicate operationId: \"usersGet\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Lists_GET_POST.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Lists/Lists_GET_POST.yaml",
+			"byteSize": 3501,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /lists:\n    get:\n      summary: Get filtered set of generic lists\n      description: Get filtered set of generic lists\n      parameters:\n      - description: A flag to indicate the type of objects that are referneced in a List \n        in: query\n        name: listType\n        required: false\n        schema:\n          $ref: '#/components/schemas/ListTypes'\n      - description: The human readable name of a List\n        in: query\n        name: listName\n        required: false\n        schema:\n          type: string\n      - description: The unique identifier of a List\n        in: query\n        name: listDbId\n        required: false\n        schema:\n          type: string\n      - description: A short tag to indicate the source of a list\n        in: query\n        name: listSource\n        required: false\n        schema:\n          type: string\n      - $ref: '#/components/parameters/commonCropName'\n      - $ref: '#/components/parameters/programDbId'\n      - $ref: '#/components/parameters/externalReferenceID'\n      - $ref: '#/components/parameters/externalReferenceId'\n      - $ref: '#/components/parameters/externalReferenceSource'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/ListsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Lists\n    post:\n      summary: Create New List Objects\n      description: Create new list objects in the database\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/ListNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/ListsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Lists\ncomponents:\n  responses:\n    ListsListResponse:\n      content:\n        application/json:\n          schema:\n            title: ListsListResponse\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                type: object\n                properties:\n                  data:\n                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/ListSummary'\n                required:\n                - data\n            required:\n            - metadata\n            - result\n            type: object\n      description: OK\n      headers: {}\n    \n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/Lists/Lists_GET_POST.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/Lists/Lists_GET_POST.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"ListsListResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Core/Lists/Lists_GET_POST.yaml:86:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

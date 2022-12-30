@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/eks-blueprints-for-proton"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "templates/eks-mng-karpenter-with-new-vpc/v1/schema/schema.yaml",
+			"byteSize": 1521,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  environment_input_type: \"EnvironmentInput\"\n  types:\n    EnvironmentInput:\n      type: object\n      description: \"Input properties for eks environment.\"\n      required:\n        - cluster_name\n        - vpc_cidr\n        - user\n        - kubernetes_version\n      properties:\n        cluster_name:\n          title: \"Cluster name\"\n          type: string\n        vpc_cidr:\n          title: \"VPC CIDR\"\n          type: string\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|24))\n          default: 10.0.0.0/16\n        user:\n          title: \"User\"\n          type: string\n          description: \"IAM User for cluster access\"\n        kubernetes_version:\n          title: \"Kubernetes version\"\n          type: string\n          enum: [\"1.23\"]\n          default: \"1.23\"\n        aws_load_balancer_controller:\n          title: \"Enable AWS Load Balancer Controller Add-On\"\n          type: boolean\n          default: true\n        metrics_server:\n          title: \"Enable Metrics Server Add-On\"\n          type: boolean\n          default: true\n        aws_for_fluentbit:\n          title: \"Enable AWS for FluentBit Add-On\"\n          type: boolean\n          default: true\n        cert_manager:\n          title: \"Enable Cert Manager Add-On\"\n          type: boolean\n          default: true\n        vpa:\n          title: \"Enable VPA Add-On\"\n          type: boolean\n          default: true\n        karpenter:\n          title: \"Enable Karpenter Add-On\"\n          type: boolean\n          default: true\n",
+			"canonicalURL": "/github.com/aws-samples/eks-blueprints-for-proton@b2c7706fc5623d2e109a632b59941718ec2d0ab6/-/blob/templates/eks-mng-karpenter-with-new-vpc/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/eks-blueprints-for-proton/blob/b2c7706fc5623d2e109a632b59941718ec2d0ab6/templates/eks-mng-karpenter-with-new-vpc/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at templates/eks-mng-karpenter-with-new-vpc/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

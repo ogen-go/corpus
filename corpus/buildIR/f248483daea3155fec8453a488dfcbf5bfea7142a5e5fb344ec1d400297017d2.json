@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/nuts-foundation/nuts-node"
+		},
+		"file": {
+			"name": "v1.yaml",
+			"size": 0,
+			"path": "docs/_static/crypto/v1.yaml",
+			"byteSize": 2852,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Nuts Crypto Service API spec\n  description: API specification for crypto services available within nuts node\n  version: 1.0.0\n  license:\n    name: GPLv3\nservers:\n  - url: http://localhost:1323\npaths:\n  /internal/crypto/v1/sign_jwt:\n    post:\n      summary: \"sign a JWT payload with the private key of the given kid\"\n      description: |\n        Sign a JWT payload with the private key of the given kid\n\n        error returns:\n        * 400 - incorrect input\n      operationId: signJwt\n      tags:\n        - crypto\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SignJwtRequest'\n      responses:\n        '200':\n          description: \"OK response, body holds JWT\"\n          content:\n            text/plain:\n              schema:\n                example: \"aa==.bb==.cc==\"\n        default:\n          $ref: '../common/error_response.yaml'\n  /internal/crypto/v1/sign_jws:\n    post:\n      summary: \"sign a payload and headers with the private key of the given kid into a JWS object\"\n      description: |\n        Sign a payload and headers with the private key of the given kid into a JWS object\n\n        error returns:\n        * 400 - incorrect input\n      operationId: signJws\n      tags:\n        - crypto\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/SignJwsRequest'\n      responses:\n        '200':\n          description: \"OK response, body holds JWS\"\n          content:\n            text/plain:\n              schema:\n                example: \"aa==.bb==.cc==\"\n        default:\n          $ref: '../common/error_response.yaml'\n\ncomponents:\n  schemas:\n    SignJwtRequest:\n      required:\n        - claims\n        - kid\n      properties:\n        kid:\n          type: string\n        claims:\n          type: object\n    SignJwsRequest:\n      required:\n        - headers\n        - payload\n        - kid\n      properties:\n        kid:\n          type: string\n          description: \"Reference to the key ID used for signing the JWS.\"\n        headers:\n          type: object\n          description: \"The map of protected headers\"\n        payload:\n          type: string\n          format: byte\n          description: \"The payload to be signed as bytes. The bytes must be encoded with base64 encoding.\"\n        detached:\n          type: boolean\n          default: false\n          description: \"In detached mode the payload is signed but NOT included in the returned JWS object. \n          Instead, the space between the first and second dot is empty, like this: \\\"\u003cheader\u003e..\u003csignature\u003e\\\".\n          Defaults to false.\"\n  securitySchemes:\n    jwtBearerAuth:\n      type: http\n      scheme: bearer\n\nsecurity:\n  - {}\n  - jwtBearerAuth: []\n",
+			"canonicalURL": "/github.com/nuts-foundation/nuts-node@747564021c1590b192eda2cdbd373503ecb0ecc9/-/blob/docs/_static/crypto/v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/nuts-foundation/nuts-node/blob/747564021c1590b192eda2cdbd373503ecb0ecc9/docs/_static/crypto/v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reduce default: default: contents: unsupported content types: [application/problem+json]"
+}

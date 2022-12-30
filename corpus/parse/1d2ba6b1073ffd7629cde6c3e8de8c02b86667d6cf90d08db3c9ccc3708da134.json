@@ -10,14 +10,14 @@
 			"path": "test/suite/functional/Naming/schemaNoDuplicates.yaml",
 			"byteSize": 1623,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Shop API\n  version: '1'\npaths:\n  /v1/orders/{id}:\n    get:\n      summary: Get Order\n      operationId: getOrder\n      responses:\n        '200':\n          $ref: '#/components/responses/OrderResponse'\n  /v1/shippings:\n    get:\n      summary: Find Shipping information\n      operationId: findShipping\n      responses:\n        '200':\n          $ref: '#/components/responses/FindShippingResponse'\ncomponents:\n  responses:\n    OrderResponse:\n      description: Order information\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              data:\n                $ref: '#/components/schemas/Order'\n    FindShippingResponse:\n      description: Shippings information\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              data:\n                $ref: '#/components/schemas/Shippings'\n  schemas:\n    Order:\n      type: object\n      properties:\n        id:\n          type: integer\n        externalId:\n          type: integer\n        transactionId:\n          type: integer\n        userId:\n          type: integer\n        createdAt:\n          type: string\n          format: 'date-time'\n      required:\n        - id\n    Shippings:\n      type: array\n      items:\n        $ref: '#/components/schemas/Shipping'\n    Shipping:\n      type: object\n      properties:\n        id:\n          type: integer\n        order:\n          type: object\n          properties:\n            id:\n              type: integer\n          required:\n            - id\n      required:\n        - id\n        - order",
-			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@4e55a32b900df7ebd1ac02dc3b3705c44c8b10c3/-/blob/test/suite/functional/Naming/schemaNoDuplicates.yaml",
+			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@dd30187e0e7a2c9dccec2bc2f4cc4a27514fddd5/-/blob/test/suite/functional/Naming/schemaNoDuplicates.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/DoclerLabs/api-client-generator/blob/4e55a32b900df7ebd1ac02dc3b3705c44c8b10c3/test/suite/functional/Naming/schemaNoDuplicates.yaml",
+					"url": "https://github.com/DoclerLabs/api-client-generator/blob/dd30187e0e7a2c9dccec2bc2f4cc4a27514fddd5/test/suite/functional/Naming/schemaNoDuplicates.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/v1/orders/{id}\": get: operation \"getOrder\": at 1:980: parse path \"/v1/orders/{id}\": path parameter not specified: \"id\""
+	"Error": "parse: parse spec: parse path items: path \"/v1/orders/{id}\": get: operation \"getOrder\": at test/suite/functional/Naming/schemaNoDuplicates.yaml:8:7: parse path \"/v1/orders/{id}\": path parameter not specified: \"id\""
 }

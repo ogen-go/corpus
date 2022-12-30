@@ -10,14 +10,14 @@
 			"path": "yugabyted-ui/apiserver/conf/openapi/openapi.yaml",
 			"byteSize": 1010,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Yugabyte Cloud\n  description: YugabyteDB as a Service\n  termsOfService: https://www.yugabyte.com/yugabyte-cloud-terms-of-service\n  version: v1\n  contact:\n    name: Yugabyte Cloud Support\n    url: https://support.yugabyte.com/\n    email: support@yugabyte.com\n  license:\n    name: Properietary (TBD)\n    url: https://www.yugabyte.com/yugabyte-cloud-terms-of-service\nservers:\n  - url: '{protocol}://{host_port}/api'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host_port:\n        default: localhost:1323\n    description: Endpoint of the API server\ntags:\n  $ref: \"./tags/_index.yaml\"\npaths:\n  $ref: \"./paths/_index.yaml\"\ncomponents:\n  schemas:\n    $ref: \"./schemas/_index.yaml\"\n  requestBodies:\n    $ref: \"./request_bodies/_index.yaml\"\n  responses:\n    $ref: \"./responses/_index.yaml\"\n  securitySchemes:\n    BearerAuthToken:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\nsecurity:\n  - BearerAuthToken: []\n",
-			"canonicalURL": "/github.com/yugabyte/yugabyte-db@e14cfe83439e5fba54e36b4f5e1a8ade2db41c74/-/blob/yugabyted-ui/apiserver/conf/openapi/openapi.yaml",
+			"canonicalURL": "/github.com/yugabyte/yugabyte-db@9c81e923afa0e563a51a7ac3e00fe43d8e28c9f8/-/blob/yugabyted-ui/apiserver/conf/openapi/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/yugabyte/yugabyte-db/blob/e14cfe83439e5fba54e36b4f5e1a8ade2db41c74/yugabyted-ui/apiserver/conf/openapi/openapi.yaml",
+					"url": "https://github.com/yugabyte/yugabyte-db/blob/9c81e923afa0e563a51a7ac3e00fe43d8e28c9f8/yugabyted-ui/apiserver/conf/openapi/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `./reque...` into ogen.RequestBody; yaml: line 1: cannot unmarshal !!str `./respo...` into ogen.Response; yaml: line 1: cannot unmarshal !!str `./schem...` into ogen.Schema; yaml: line 1: cannot unmarshal !!str `./paths...` into ogen.PathItem; yaml: line 1: cannot unmarshal !!map into []ogen.Tag"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 26: cannot unmarshal !!map into []ogen.Tag; yaml: line 28: cannot unmarshal !!str `./paths...` into ogen.PathItem; yaml: line 31: cannot unmarshal !!str `./schem...` into ogen.Schema; yaml: line 33: cannot unmarshal !!str `./reque...` into ogen.RequestBody; yaml: line 35: cannot unmarshal !!str `./respo...` into ogen.Response"
 }

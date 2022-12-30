@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Eknathreddy09/tap-script"
+		},
+		"file": {
+			"name": "catalog-info.yaml",
+			"size": 0,
+			"path": "catalog-info.yaml",
+			"byteSize": 2486,
+			"content": "apiVersion: backstage.io/v1alpha1\nkind: Domain\nmetadata:\n  name: demo-domain\n  description: Demo Domain for Tanzu Application Platform\n  annotations:\n    'backstage.io/techdocs-ref': dir:.\nspec:\n  owner: demo-team\n\n---\n\napiVersion: backstage.io/v1alpha1\nkind: Component\nmetadata:\n  name: demo-app-ms-1\n  description: Demo Application's Microservice-1\n  tags:\n    - microservice\n  annotations:\n    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=demo-app-ms-1'\n    'backstage.io/techdocs-ref': dir:.\nspec:\n  type: service\n  providesApis:\n   - demo-api\n  lifecycle: alpha\n  owner: demo-team\n  system: demo-app\n\n---\n\napiVersion: backstage.io/v1alpha1\nkind: Component\nmetadata:\n  name: demo-app-ms-2\n  description: Demo Application's Microservice-2\n  tags:\n    - microservice\n  annotations:\n    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=demo-app-ms-2'\n    'backstage.io/techdocs-ref': dir:.\nspec:\n  type: service\n  consumesApis:\n   - demo-api\n  lifecycle: alpha\n  owner: demo-team\n  system: demo-app\n\n---\n\napiVersion: backstage.io/v1alpha1\nkind: System\nmetadata:\n  name: demo-app\n  description: Demo Application for Tanzu Application Platform\n  annotations:\n    'backstage.io/techdocs-ref': dir:.\nspec:\n  owner: demo-team\n  domain: demo-domain\n\n---\n\napiVersion: backstage.io/v1alpha1\nkind: API\nmetadata:\n  name: demo-api\n  description: The demo API for Tanzu Application Platform GUI\n  links:\n    - url: https://api.agify.io\n      title: API Definition\n      icon: docs\n    - url: https://petstore.swagger.io/v2/swagger.json\n      title: petstore\n      icon: docs\nspec:\n  type: openapi\n  lifecycle: experimental\n  owner: demo-team\n  system: demo-app # Or specify system name of your choice\n  definition: |\n    openapi: 3.0.1\n    info:\n      title: Demo API\n      description: defaultDescription\n      version: '0.1'\n    servers:\n      - url: https://api.agify.io\n      - url: https://petstore.swagger.io/v2/swagger.json\n    paths:\n      /:\n        get:\n          description: Auto generated using Swagger Inspector\n          parameters:\n            - name: name\n              in: query\n              schema:\n                type: string\n              example: type_any_name\n          responses:\n            '200':\n              description: Auto generated using Swagger Inspector\n              content:\n                application/json; charset=utf-8:\n                  schema:\n                    type: string\n                  examples: {}\n",
+			"canonicalURL": "/github.com/Eknathreddy09/tap-script@b9122d62f52c126fc9daa7e2fd959c2102db8f5e/-/blob/catalog-info.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Eknathreddy09/tap-script/blob/b9122d62f52c126fc9daa7e2fd959c2102db8f5e/catalog-info.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at catalog-info.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

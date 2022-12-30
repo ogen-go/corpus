@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/validator-badge"
+		},
+		"file": {
+			"name": "petstore30ext1.yaml",
+			"size": 0,
+			"path": "src/test/resources/oas30local/petstore30ext1.yaml",
+			"byteSize": 2010,
+			"content": "openapi: 3.0.0\ncomponents:\n  pathItems:\n    getUserByName:\n      get:\n        tags:\n          - user\n        summary: Get user by user name\n        description: \"\"\n        operationId: getUserByName\n        parameters:\n          - name: username\n            in: path\n            description: 'The name that needs to be fetched. Use user1 for testing. '\n            required: true\n            schema:\n              type: string\n        responses:\n          \"200\":\n            description: successful operation\n            wrongField: WRONG\n            content:\n              application/xml:\n                schema:\n                  $ref: '#/components/schemas/User'\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/User'\n          \"400\":\n            description: Invalid username supplied\n          \"404\":\n            description: User not found\n          \"500\":\n            description: unexpected error\n            content:\n              application/json:\n                schema:\n                  $ref: 'http://localhost:1337/petstore30ext2.yaml#/components/schemas/Error'\n          \"501\":\n            description: unexpected error\n            content:\n              application/json:\n                schema:\n                  $ref: './petstore30ext2.yaml#/components/schemas/Error'\n\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int64\n          example: 10\n        username:\n          type: string\n          example: theUser\n        firstName:\n          type: string\n          example: John\n        lastName:\n          type: string\n          example: James\n        email:\n          type: string\n          example: john@email.com\n        password:\n          type: string\n          example: \"12345\"\n        phone:\n          type: string\n          example: \"12345\"\n        userStatus:\n          type: integer\n          description: User Status\n          format: int32\n          example: 1\n",
+			"canonicalURL": "/github.com/swagger-api/validator-badge@75bfd0b70ad4bc4543ca6f83e0f51baba664966a/-/blob/src/test/resources/oas30local/petstore30ext1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/validator-badge/blob/75bfd0b70ad4bc4543ca6f83e0f51baba664966a/src/test/resources/oas30local/petstore30ext1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: at src/test/resources/oas30local/petstore30ext1.yaml:4:5: feature \"pathItem components\" requires OpenAPI version 3.1.0, but actual version is 3.0.0"
+}

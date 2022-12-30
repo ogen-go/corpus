@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
 			"byteSize": 1424,
 			"content": "openapi: 3.0.1\nservers: []\ninfo:\n  version: 1.0.0\n  title: Person\n  description: Maintain Person data\npaths:\n  /newPerson:\n    post:\n      summary: Create new person\n      description: Create new person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: '#/components/schemas/PersonObj'\n  /oldPerson:\n    post:\n      summary: Create old person\n      description: Create old person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/b.yaml#/components/schemas/PersonObj'\n  /yetAnotherPerson:\n    post:\n      summary: Create yet another person\n      description: Create yet another person\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/b.yaml#/components/schemas/PersonObj'\n  /thisAintAnotherPerson:\n    post:\n      summary: Create no more persons\n      description: Create no more persons\n      responses:\n        '200':\n          description: OK\n          content:\n            '*/*':\n              schema:\n                $ref: './refs-name-conflict/c.yaml#/components/schemas/PersonObj'\ncomponents:\n  schemas:\n    PersonObj:\n      properties:\n        location:\n          type: string\n          example: local",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/oldPerson\": post: responses: 200: content: */*: schema: parse schema: at 1:524: external \"./refs-name-conflict/b.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/oldPerson\": post: responses: 200: content: */*: schema: parse schema: at modules/swagger-parser-v3/src/test/resources/refs-name-conflict/a.yaml:29:23: $ref: resolve \"./refs-name-conflict/b.yaml#/components/schemas/PersonObj\": get \"https://raw.githubusercontent.com/swagger-api/swagger-parser/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/refs-name-conflict/refs-name-conflict/b.yaml\": https: bad HTTP code 404 (Not Found)"
 }

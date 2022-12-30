@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/aws-proton-cloudformation-sample-templates"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "environment-templates/ecs-ec2-env/v1/schema/schema.yaml",
+			"byteSize": 2035,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  environment_input_type: \"EC2EnvironmentInput\"\n  types:\n    EC2EnvironmentInput:\n      type: object\n      description: \"Input properties for my environment\"\n      properties:\n        vpc_cidr:\n          type: string\n          description: \"The CIDR range for your VPC\"\n          default: 10.0.0.0/16\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|18|24))\n        public_subnet_one_cidr:\n          type: string\n          description: \"The CIDR range for public subnet one\"\n          default: 10.0.0.0/18\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|18|24))\n        public_subnet_two_cidr:\n          type: string\n          description: \"The CIDR range for public subnet two\"\n          default: 10.0.64.0/18\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|18|24))\n        private_subnet_one_cidr:\n          type: string\n          description: \"The CIDR range for private subnet one\"\n          default: 10.0.128.0/18\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|18|24))\n        private_subnet_two_cidr:\n          type: string\n          description: \"The CIDR range for private subnet two\"\n          default: 10.0.192.0/18\n          pattern: ([0-9]{1,3}\\.){3}[0-9]{1,3}($|/(16|18|24))\n        subnet_type:\n          type: string\n          description: \"Subnet type for your EC2 instances\"\n          enum: [\"public\", \"private\"]\n          default: \"public\"\n        DesiredCapacity:\n          type: number\n          default: 1\n          description: \"Number of EC2 instances to launch in your ECS cluster\"\n        MaxSize:\n          type: number\n          default: 6\n          description: \"Maximum number of EC2 instances that can be launched in your ECS cluster\"\n        ECSAMI:\n          description: \"AMI used to launch the EC2 instances\"\n          type: string\n          default: \"/aws/service/ecs/optimized-ami/amazon-linux-2/recommended/image_id\"\n        InstanceType:\n          description: \"EC2 instance type\"\n          type: string\n          default: \"c4.xlarge\"",
+			"canonicalURL": "/github.com/aws-samples/aws-proton-cloudformation-sample-templates@afda2c8355a00af1f9670cd7ab15f6c86c0ca492/-/blob/environment-templates/ecs-ec2-env/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/aws-proton-cloudformation-sample-templates/blob/afda2c8355a00af1f9670cd7ab15f6c86c0ca492/environment-templates/ecs-ec2-env/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at environment-templates/ecs-ec2-env/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.EnergyCIM"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "Switch/swagger.yaml",
+			"byteSize": 1548,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    Switch: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/model.yaml#/Switch\"\ninfo:\n  description:  |\n    Adapted from CIM data models. A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches.\n  title: Switch\n  version: \"0.0.2\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - Switch\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@b3306b5a43bd0608292a10c30767ff8c3fa690d7/-/blob/Switch/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/b3306b5a43bd0608292a10c30767ff8c3fa690d7/Switch/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Switch\": resolve \"#/components/schemas/Switch\": at Switch/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/model.yaml#/Switch\": get \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/Switch/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

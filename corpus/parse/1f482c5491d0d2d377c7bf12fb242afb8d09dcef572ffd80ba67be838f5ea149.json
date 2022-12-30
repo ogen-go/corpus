@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tokenized/identity-oracle"
+		},
+		"file": {
+			"name": "identity-oracle.yaml",
+			"size": 0,
+			"path": "api/identity-oracle.yaml",
+			"byteSize": 1690,
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: 0.1.0\n  title: Tokenized Identity Oracle API\n  description: \u003e\n    Welcome to the Tokenized Identity Oracle API reference.\n    This API exposes endpoints intended to support the operation of an identity oracle.\n\nservers:\n  - url: http://localhost:8080\n    description: Test server\n\n  - url: https://identity.tokenized.com\n    description: Production server (uses live data)\n\ntags:\n  - name: oracle\n    description: Oracle actions\n\n  - name: transfer\n    description: Transfer related actions\n\n  - name: identity\n    description: Identity/Entity related actions\n\npaths:\n  # Index\n  /health:\n    get:\n      summary: Health check\n      description: This endpoint can be called verify that you can reach the API.\n      responses:\n        200:\n          description: Successful operation\n\n  # Oracle\n  /oracle/id:\n    $ref: \"./oracle/id.yaml\"\n  /oracle/register:\n    $ref: \"./oracle/register.yaml\"\n  /oracle/addXPub:\n    $ref: \"./oracle/add_xpub.yaml\"\n  /oracle/user:\n    $ref: \"./oracle/user.yaml\"\n  /oracle/updateIdentity:\n    $ref: \"./oracle/update_identity.yaml\"\n\n  # Transfer\n  /transfer/approve:\n    $ref: \"./transfer/approve.yaml\"\n\n  # Identity\n  /identity/verifyPubKey:\n    $ref: \"./identity/verify_pub_key.yaml\"\n  /identity/verifyXPub:\n    $ref: \"./identity/verify_xpub.yaml\"\n  /identity/verifyAdmin:\n    $ref: \"./identity/verify_admin.yaml\"\n\ncomponents:\n  schemas:\n    Entity:\n      $ref: ./_components/schemas/Entity.yaml\n    TransferApproval:\n      $ref: ./_components/schemas/TransferApproval.yaml\n    AdministratorField:\n      $ref: ./_components/schemas/AdministratorField.yaml\n    ManagerField:\n      $ref: ./_components/schemas/ManagerField.yaml\n",
+			"canonicalURL": "/github.com/tokenized/identity-oracle@6b94ef5245c5a319104841841712bad5c20c5387/-/blob/api/identity-oracle.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tokenized/identity-oracle/blob/6b94ef5245c5a319104841841712bad5c20c5387/api/identity-oracle.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Entity\": resolve \"#/components/schemas/Entity\": $ref: resolve \"./_components/schemas/Entity.yaml\": property \"Administration\": items: at https://raw.githubusercontent.com/tokenized/identity-oracle/6b94ef5245c5a319104841841712bad5c20c5387/api/_components/schemas/Entity.yaml:66:13: $ref: resolve \"#/components/schemas/AdministratorField\": resolve: can't find value for \"components/schemas/AdministratorField\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SeUniVr/RestTestGen"
+		},
+		"file": {
+			"name": "responseRef.json",
+			"size": 0,
+			"path": "src/test/resources/specifications/responseRef.json",
+			"byteSize": 792,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\"\n    }\n  ],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"getRoot\"\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyBaseSchema\": {\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"MyRefSchema\": {\n        \"properties\": {\n          \"baseSchemas\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/MyBaseSchema\"\n            }\n          }\n        }\n      }\n    },\n    \"responses\": {\n      \"Refponse\": {\n        \"content\": {\n          \"*/*\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyRefSchema\"\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/SeUniVr/RestTestGen@c2182e83cbf652575339456966944312edf50a38/-/blob/src/test/resources/specifications/responseRef.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SeUniVr/RestTestGen/blob/c2182e83cbf652575339456966944312edf50a38/src/test/resources/specifications/responseRef.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/\": get: operation \"getRoot\": at src/test/resources/specifications/responseRef.json:10:14: responses: no responses"
+}

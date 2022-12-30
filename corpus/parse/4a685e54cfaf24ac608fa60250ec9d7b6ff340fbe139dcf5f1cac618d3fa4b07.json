@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/mreferre/aws-proton-tutorial"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "vpc-ecscluster-lb-fargate-tutorial/lb-fargate-svc/v1/schema/schema.yaml",
+			"byteSize": 1671,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  service_input_type: \"LoadBalancedServiceInput\"\n  pipeline_input_type: \"PipelineInputs\"\n\n  types:\n    LoadBalancedServiceInput:\n      type: object\n      description: \"Input properties for a loadbalanced Fargate service\"\n      properties:\n        port:\n          type: number\n          description: \"The port to route traffic to\"\n          default: 80\n          minimum: 0\n          maximum: 65535\n        desired_count:\n          type: number\n          description: \"The default number of Fargate tasks you want running\"\n          default: 1\n          minimum: 1\n        task_size:\n          type: string\n          description: \"The size of the task you want to run\"\n          enum: [\"x-small\", \"small\", \"medium\", \"large\", \"x-large\"]\n          default: \"x-small\"\n        image:\n          type: string\n          description: \"The name/url of the container image\"\n          default: \"public.ecr.aws/z9d2n7e1/nginx:1.21.0\"\n          minLength: 1\n          maxLength: 200\n        indexhtmlcontent:\n          type: string\n          description: \"The content of the home page\"\n          default: \"\"\n          \n    PipelineInputs:\n      type: object\n      description: \"Pipeline input properties\"\n      properties:\n        dockerfile:\n          type: string\n          description: \"The location of the Dockerfile to build\"\n          default: \"Dockerfile\"\n          minLength: 1\n          maxLength: 100\n        unit_test_command:\n          type: string\n          description: \"The command to run to unit test the application code\"\n          default: \"echo 'add your unit test command here'\"\n          minLength: 1\n          maxLength: 200",
+			"canonicalURL": "/github.com/mreferre/aws-proton-tutorial@b88159c44027589517ef616085e1276cb5ac950c/-/blob/vpc-ecscluster-lb-fargate-tutorial/lb-fargate-svc/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/mreferre/aws-proton-tutorial/blob/b88159c44027589517ef616085e1276cb5ac950c/vpc-ecscluster-lb-fargate-tutorial/lb-fargate-svc/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at vpc-ecscluster-lb-fargate-tutorial/lb-fargate-svc/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

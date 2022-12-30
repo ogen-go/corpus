@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adzerk/adzerk-api-specification"
+		},
+		"file": {
+			"name": "zone.yaml",
+			"size": 0,
+			"path": "management/zone.yaml",
+			"byteSize": 3305,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Adzerk Management API - Zones\n  description: Zone related Adzerk Management API\n  version: '1.0'\nservers:\n  - url: 'https://api.adzerk.net'\ntags:\n  - name: zone\n    description: Manage Zones\npaths:\n  /v1/zone:\n    post:\n      tags:\n        - zone\n      operationId: create\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - Name\n              properties:\n                Name:\n                  type: string\n                SiteId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                IsDeleted:\n                  type: boolean\n                  default: false\n                  nullable: true\n      responses:\n        200:\n          description: The newly created Zone\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/zone.yaml#/schemas/Zone'\n    get:\n      tags:\n        - zone\n      operationId: list\n      security:\n        - ApiKeyAuth: []\n      parameters:\n        - name: pageSize\n          in: query\n          description: The size of the page to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n            default: 500\n        - name: page\n          in: query\n          description: The page number to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n      responses:\n        200:\n          description: The newly created Zone\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/zone.yaml#/schemas/ZoneList'\n  '/v1/zone/{id}':\n    parameters:\n      - name: id\n        in: path\n        description: The Site Id\n        required: true\n        schema:\n          type: integer\n          format: int32\n    get:\n      tags:\n        - zone\n      operationId: get\n      security:\n        - ApiKeyAuth: []\n      responses:\n        200:\n          description: The Zone\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/zone.yaml#/schemas/Zone'\n    put:\n      tags:\n        - zone\n      operationId: update\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - Id\n                - Name\n              properties:\n                Id:\n                  type: integer\n                  format: int32\n                Name:\n                  type: string\n                SiteId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                IsDeleted:\n                  type: boolean\n                  default: false\n                  nullable: true\n      responses:\n        200:\n          description: The updated Zone\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/zone.yaml#/schemas/Zone'\ncomponents:\n  securitySchemes:\n    $ref: './components/security-schemes.yaml#/components/securitySchemes'",
+			"canonicalURL": "/github.com/adzerk/adzerk-api-specification@25b2da9378e96562925f89165bfae045adbe912b/-/blob/management/zone.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adzerk/adzerk-api-specification/blob/25b2da9378e96562925f89165bfae045adbe912b/management/zone.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 134: cannot unmarshal !!str `./compo...` into ogen.SecurityScheme"
+}

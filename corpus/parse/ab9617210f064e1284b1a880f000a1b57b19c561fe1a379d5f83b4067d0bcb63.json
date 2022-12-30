@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cspannos/PRAXIS-Blockchain-API-Maximizer"
+		},
+		"file": {
+			"name": "1394.yaml",
+			"size": 0,
+			"path": "praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1394.yaml",
+			"byteSize": 825,
+			"content": "meta:\n  title: \"#1394 - path key that does not start with `/`\"\ncases:\n- name: in Swagger 2\n  input:\n    swagger: \"2.0\"\n    info:\n      version: \"#1394\"\n      title: \"bug #1394\"\n    paths:\n      myPath:\n        get:\n          responses:\n            '200':\n              description: OK\n  output:\n    length: 1\n    match:\n    - level: error\n      message: should only have path names that start with `/`\n      path: [paths]\n      source: structural\n- name: in OpenAPI 3\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: \"#1394\"\n      title: \"bug #1394\"\n    paths:\n      myPath:\n        get:\n          responses:\n            '200':\n              description: OK\n  output:\n    length: 1\n    match:\n    - level: error\n      message: should only have path names that start with `/`\n      path: [paths]\n      source: structural",
+			"canonicalURL": "/github.com/cspannos/PRAXIS-Blockchain-API-Maximizer@8ee70fc7c85d5bde8da762dbfbefe748d6c89492/-/blob/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1394.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer/blob/8ee70fc7c85d5bde8da762dbfbefe748d6c89492/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1394.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1394.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

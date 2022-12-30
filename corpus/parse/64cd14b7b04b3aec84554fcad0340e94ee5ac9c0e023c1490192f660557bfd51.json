@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/microsoft/OpenAPI.NET"
+		},
+		"file": {
+			"name": "documentWithExternalRefs.yaml",
+			"size": 0,
+			"path": "test/Microsoft.OpenApi.Readers.Tests/V3Tests/Samples/OpenApiDocument/documentWithExternalRefs.yaml",
+			"byteSize": 408,
+			"content": "﻿    openapi: 3.0.1\n    info:\n      title: anyOf-oneOf\n      license:\n        name: MIT\n      version: 1.0.0\n    paths: { }\n    components:\n      schemas:\n        Nested:\n          type: object\n          properties:\n            AnyOf:\n              anyOf:\n                - $ref: file:///C:/MySchemas.json#/definitions/ArrayObject\n                - $ref: ../foo/schemas.yaml#/components/schemas/Number     ",
+			"canonicalURL": "/github.com/microsoft/OpenAPI.NET@db081574abf10ade7f3de3d3a3f61d0d4c66fa9e/-/blob/test/Microsoft.OpenApi.Readers.Tests/V3Tests/Samples/OpenApiDocument/documentWithExternalRefs.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/microsoft/OpenAPI.NET/blob/db081574abf10ade7f3de3d3a3f61d0d4c66fa9e/test/Microsoft.OpenApi.Readers.Tests/V3Tests/Samples/OpenApiDocument/documentWithExternalRefs.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Nested\": resolve \"#/components/schemas/Nested\": property \"AnyOf\": anyOf: at test/Microsoft.OpenApi.Readers.Tests/V3Tests/Samples/OpenApiDocument/documentWithExternalRefs.yaml:15:25: $ref: resolve \"file:///C:/MySchemas.json#/definitions/ArrayObject\": get \"file:///C:/MySchemas.json\": file: local file reference is not allowed"
+}

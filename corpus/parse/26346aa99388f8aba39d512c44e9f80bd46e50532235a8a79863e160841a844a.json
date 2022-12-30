@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "npm/readme/oas-examples"
+			"name": "github.com/readmeio/oas-examples"
 		},
 		"file": {
 			"name": "response-http-behavior.yaml",
@@ -10,9 +10,14 @@
 			"path": "3.0/yaml/response-http-behavior.yaml",
 			"byteSize": 2041,
 			"content": "openapi: 3.0.0\ninfo:\n  description: This is a sample definition to test unique HTTP behavior.\n  version: 1.0.0\n  title: HTTP test\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  - url: http://httpbin.org\npaths:\n  '/cache':\n    get:\n      summary: Load a file with caching headers\n      description: Making this request without these parameters should make an uncached\n        request. When you provide `if-modified-since` or `if-none-match` you should\n        return a `304 Not Modified`.\n      operationId: cached\n      parameters:\n        - name: If-Modified-Since\n          in: header\n          description: An RFC 3339 formatted `date-time` string, preferably in UTC.\n            If the resource was last updated before the provided `date-time`, the server\n            should return a `304 Not Modified` response, otherwise a 200 with an accurate\n            `last-modified` time.\n          required: false\n          schema:\n            type: string\n            format: date-time\n        - name: If-None-Match\n          in: header\n          description: If you provide a value here, it will be checked against the generated\n            ETAG of the target resource. If they match, you'll get a `304 Not Modified`\n            response, otherwise a `200 OK` with a new ETAG.\n          required: false\n          schema:\n            type: string\n      responses:\n        default:\n          description: successful response\n      security:\n        - api_key: []\n  '/status/302':\n    get:\n      summary: Redirect\n      description: Returns a `302 Found` status\n      operationId: redirect\n      responses:\n        default:\n          description: successful response\n      security:\n        - api_key: []\n  '/status/204':\n    get:\n      summary: No content\n      description: Returns a `204 No Content` with no body\n      operationId: nocontent\n      responses:\n        default:\n          description: successful response\n      security:\n        - api_key: []\nx-readme:\n  proxy-enabled: false\n",
-			"canonicalURL": "/npm/readme/oas-examples@c1172d94f9ee52c3c1847b73f9ae1ad55945824b/-/blob/3.0/yaml/response-http-behavior.yaml",
-			"externalURLs": []
+			"canonicalURL": "/github.com/readmeio/oas-examples@ce1e5c9b6bda57cbfce4b9ba21c968a30eb63529/-/blob/3.0/yaml/response-http-behavior.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/oas-examples/blob/ce1e5c9b6bda57cbfce4b9ba21c968a30eb63529/3.0/yaml/response-http-behavior.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/cache\": get: operation \"cached\": security: at 1:1213: unknown security schema \"api_key\""
+	"Error": "parse: parse spec: parse path items: path \"/cache\": get: operation \"cached\": security: at 3.0/yaml/response-http-behavior.yaml:42:11: unknown security scheme \"api_key\""
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/toshiossada/dart_backend"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "specs/swagger.yaml",
+			"byteSize": 897,
+			"content": "openapi: 3.0.0\ninfo:\n  description: 'API da semana do backend'\n  version: '1.0.0'\n  title: 'Semana do Backend'\nservers:\n  - url: http://localhost:8080\n    description: Local server\n  - url: http://146.190.226.218:4466\n    description: Remote server\ntags:\n  - name: 'user'\n    description: 'Access to User'\n\npaths:\n  # user\n  /user/{id}:\n    $ref: 'src/user.yaml#/components/GetOneOrDelete'\n  /user:\n    $ref: 'src/user.yaml#/components/UserCrud'\n\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      description: 'Auth header (Authorization) Access Token'\n    bearerRefreshAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n      description: 'RefreshToken'\n  schemas:\n    BackendException:\n      type: object\n      properties:\n        error:\n          type: string\n",
+			"canonicalURL": "/github.com/toshiossada/dart_backend@db8f75039e6b7f602c78744371bd5d6db8a0b572/-/blob/specs/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/toshiossada/dart_backend/blob/db8f75039e6b7f602c78744371bd5d6db8a0b572/specs/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/user/{id}\": put: at https://raw.githubusercontent.com/toshiossada/dart_backend/db8f75039e6b7f602c78744371bd5d6db8a0b572/specs/src/user.yaml:137:7: parse path \"/user/{id}\": path parameter not specified: \"id\""
+}

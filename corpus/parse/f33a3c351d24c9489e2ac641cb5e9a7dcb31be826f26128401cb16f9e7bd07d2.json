@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdegre/5GC_APIs"
+		},
+		"file": {
+			"name": "TS29553_Npanf_ProseKey.yaml",
+			"size": 0,
+			"path": "TS29553_Npanf_ProseKey.yaml",
+			"byteSize": 3660,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Npanf_ProseKey\n  version: 1.0.0\n  description: |\n    PAnF ProseKey Service.  \n    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  \n    All rights reserved.\n\nexternalDocs:\n  description: 3GPP TS 29.553 V17.0.0; 5G System; 5G ProSe Anchor Services; Stage 3.\n  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.553/\n\nservers:\n  - url: '{apiRoot}/npanf-prosekey/\u003capiVersion\u003e'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in clause 4.4 of 3GPP TS 29.501\n\nsecurity:\n  - {}\n  - oAuth2ClientCredentials:\n    - npanf-prosekey\n\npaths:\n  /prose-keys/register:\n    post:\n      summary: Register the Prose Key\n      operationId: ProseKeyRegistration\n      tags:\n        - prosekey registration\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProseContextInfo'\n        required: true\n      responses:\n        '204':\n          description: Successful Response\n        '404':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/404'\n        default:\n          description: Unexpected error\n\n  /prose-keys/retrieve:\n    post:\n      summary: retrieve the prose key\n      operationId: ProseKeyRetrieval\n      tags:\n        - Prose Key Retrieval\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ProseKeyRequest'\n        required: true\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ProseKeyResponse'\n        '400':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/400'\n        '404':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/404'\n        '500':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29571_CommonData.yaml#/components/responses/503'\n        default:\n          description: Unexpected error\n\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: '{nrfApiRoot}/oauth2/token'\n          scopes:\n            npanf-prosekey: Access to the Npanf_ProseKey API\n\n  schemas:\n#\n#  Structured Data Types\n#\n    ProseContextInfo:\n      description: Prose Context Info.\n      type: object\n      properties:\n        supi:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'\n        5gPruk:\n          $ref: '#/components/schemas/5GPruk'\n        5gPrukId:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/5GPrukId'\n        relayServiceCode:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/RelayServiceCode'\n      required:\n        - supi\n        - 5gPruk\n        - 5gPrukId\n        - relayServiceCode\n\n    ProseKeyRequest:\n      description: Prose Key Request.\n      type: object\n      properties:\n        5gPrukId:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/5GPrukId'\n        relayServiceCode:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/RelayServiceCode'\n      required:\n        - 5gPrukId\n        - relayServiceCode\n\n    ProseKeyResponse:\n      description: Prose Key Response.\n      type: object\n      properties:\n        5gPruk:\n          $ref: '#/components/schemas/5GPruk'\n      required:\n        - 5gPruk\n\n#\n#  Simple Data Types\n#\n    5GPruk:\n      description: 5G Prose Remote User Key\n      type: string\n      pattern: '^[A-Fa-f0-9]{64}$'\n\n#\n#  Enumeration Data Types\n#\n",
+			"canonicalURL": "/github.com/jdegre/5GC_APIs@605fe2f5ce468cba9e13880ae876942b930d6b24/-/blob/TS29553_Npanf_ProseKey.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jdegre/5GC_APIs/blob/605fe2f5ce468cba9e13880ae876942b930d6b24/TS29553_Npanf_ProseKey.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/prose-keys/register\": post: operation \"ProseKeyRegistration\": security: parse security scheme \"oAuth2ClientCredentials\": oauth2: flow \"clientCredentials\": at TS29553_Npanf_ProseKey.yaml:84:21: \"tokenUrl\" MUST be in the form of a URL: parse \"{nrfApiRoot}/oauth2/token\": invalid URI for request"
+}

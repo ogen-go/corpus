@@ -10,14 +10,14 @@
 			"path": "tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json",
 			"byteSize": 1530,
 			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\": {\n        \"title\": \"Empty\",\n        \"version\": \"0.0.0\"\n    },\n    \"paths\": {\n        \"/empty\": {\n            \"post\": {\n                \"parameters\": [\n                    {\n                        \"name\": \"param0\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"nullable\": true\n                        }\n                    },\n                    {\n                        \"name\": \"param1\",\n                        \"in\": \"query\",\n\n                        \"schema\": {\n                            \"oneOf\": [\n                                {\n                                    \"enum\": [ false ]\n                                },\n                                {\n                                    \"enum\": [ 1, 2, 3 ]\n                                },\n                                {\n                                }\n                            ]\n                        }\n                    }\n                ],\n                \"responses\": {\n                    \"default\": {\n                        \"$ref\": \"#/components/responses/success\"\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"responses\": {\n            \"success\": {\n                \"description\": \"Success\",\n                \"content\": {\n                    \"application/json\": {\n                        \"schema\": {\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
-			"canonicalURL": "/github.com/Cornutum/tcases@f34ef2da70715942641efa9afe2a492393f12e4e/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json",
+			"canonicalURL": "/github.com/Cornutum/tcases@51d66ef50be2d40e0d6cbdfc183c058d216da8ea/-/blob/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Cornutum/tcases/blob/f34ef2da70715942641efa9afe2a492393f12e4e/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json",
+					"url": "https://github.com/Cornutum/tcases/blob/51d66ef50be2d40e0d6cbdfc183c058d216da8ea/tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/empty\": post: parameters: parse parameter \"param0\": at 11:21: invalid schema:style:explode combination: (\"\":\"form\":true)"
+	"Error": "parse: parse spec: parse path items: path \"/empty\": post: parameters: parse parameter \"param1\": parse schema: oneOf: at tcases-openapi/src/test/resources/org/cornutum/tcases/openapi/emptySchema.json:25:33: type: unexpected schema type: \"\""
 }

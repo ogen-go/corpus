@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-containers/proton-codebuild-provisioning-examples"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "cdk/service-templates/ecs-fargate-service/v1/schema/schema.yaml",
+			"byteSize": 1823,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  service_input_type: \"ECSFargateSvcInputs\"\n  types:\n    ECSFargateSvcInputs:\n      type: object\n      description: \"Input properties for a loadbalanced Fargate service\"\n      properties:\n        port:\n          title: \"Container port\"\n          type: number\n          description: \"The container port to route traffic to\"\n          default: 80\n          minimum: 0\n          maximum: 65535\n        desired_count:\n          title: \"Desired count\"\n          type: number\n          description: \"The default number of Fargate tasks you want running\"\n          default: 1\n          minimum: 1\n        task_size:\n          title: \"Task size\"\n          type: string\n          description: \"The size of the task you want to run\"\n          enum: [\"x-small\", \"small\", \"medium\", \"large\", \"x-large\"]\n          default: \"x-small\"\n        image:\n          title: \"Container image URI\"\n          type: string\n          description: \"The name/url of the container image\"\n          default: \"public.ecr.aws/nginx/nginx:stable\"\n          minLength: 1\n          maxLength: 200\n        service_discovery_name:\n          title: \"Service discovery name\"\n          type: string\n          description: \"The name of the service to register in service discovery\"\n          minLength: 3\n          maxLength: 24\n        load_balanced:\n          title: \"Enable Application Load Balancing\"\n          type: boolean\n          description: \"If enabled, Application Load Balancer will get created and point to the default port of the container\"\n          default: false\n        load_balanced_public:\n          title: \"Public Facing LB\"\n          type: boolean\n          description: \"This determines where the load balancer is placed in the network - internet facing or private to the vpc\"\n          default: public\n",
+			"canonicalURL": "/github.com/aws-containers/proton-codebuild-provisioning-examples@9bb16415f517ec89e2b2578a405c21a04a957803/-/blob/cdk/service-templates/ecs-fargate-service/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-containers/proton-codebuild-provisioning-examples/blob/9bb16415f517ec89e2b2578a405c21a04a957803/cdk/service-templates/ecs-fargate-service/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at cdk/service-templates/ecs-fargate-service/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

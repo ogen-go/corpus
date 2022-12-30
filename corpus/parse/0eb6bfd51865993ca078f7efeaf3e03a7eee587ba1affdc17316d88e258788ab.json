@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/auth/cloudentity/example-1/api.yaml",
+			"byteSize": 895,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: auth-cloudentity\n  namespace: kusk-system\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  spec: |\n    openapi: 3.0.0\n    info:\n      title: auth-cloudentity\n      description: auth-cloudentity\n      version: \"0.1.0\"\n    schemes:\n      - http\n      - https\n    x-kusk:\n      upstream:\n        service:\n          name: auth-cloudentity-go-httpbin\n          namespace: kusk-system\n          port: 80\n      auth:\n        cloudentity:\n          host:\n            hostname: cloudentity-authorizer-standalone-authorizer.kusk-system\n            port: 9004\n    paths:\n      \"/\":\n        get:\n          description: Returns GET data.\n          operationId: \"/get\"\n          responses: {}\n      \"/uuid\":\n        get:\n          description: Returns UUID4.\n          operationId: \"/uuid\"\n          responses: {}\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/examples/auth/cloudentity/example-1/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/examples/auth/cloudentity/example-1/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at examples/auth/cloudentity/example-1/api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

@@ -10,14 +10,14 @@
 			"path": "test/test_module.yaml",
 			"byteSize": 1149,
 			"content": "openapi: 3.0.1\ninfo:\n  version: 1.0.0-beta\n  title: Wikimedia testing APIs\n  x-is-api-root: true\npaths:\n  /post_data/:\n    post:\n      x-route-filters:\n        - type: 'default'\n          name: 'header_match'\n          options:\n            whitelist:\n              x-client-ip:\n                - /^(?:::ffff:)?(?:10|127)\\./\n      x-request-handler:\n        - put_to_storage:\n            request:\n              method: put\n              uri: /{domain}/sys/post_data/post.test/\n              headers: '{{request.headers}}'\n              body: '{{request.body}}'\n      x-monitor: false\n\n  /post_data/{hash}:\n    get:\n      x-setup-handler:\n        - init_storage:\n            uri: /{domain}/sys/post_data/post.test\n      x-request-handler:\n        - get_from_storage:\n            request:\n              uri: /{domain}/sys/post_data/post.test/{hash}\n      x-monitor: false\n\n  /events_no_config:\n    x-modules:\n      - path: sys/events.js\n  /events:\n    x-modules:\n      - path: sys/events.js\n        options: '{{options.events}}'\n\n  /http/{uri}:\n    get:\n      x-request-handler:\n        - request_url:\n            request:\n              uri: '{{uri}}'\n",
-			"canonicalURL": "/github.com/wikimedia/restbase@c45fefc52de715f3b0524662bfbc4240d8f90553/-/blob/test/test_module.yaml",
+			"canonicalURL": "/github.com/wikimedia/restbase@c1d391c74d39d38f7b1a8175e510fa714b4d91f1/-/blob/test/test_module.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/wikimedia/restbase/blob/c45fefc52de715f3b0524662bfbc4240d8f90553/test/test_module.yaml",
+					"url": "https://github.com/wikimedia/restbase/blob/c1d391c74d39d38f7b1a8175e510fa714b4d91f1/test/test_module.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/http/{uri}\": get: at 1:279: parse path \"/http/{uri}\": path parameter not specified: \"uri\""
+	"Error": "parse: parse spec: parse path items: path \"/http/{uri}\": get: at test/test_module.yaml:46:7: parse path \"/http/{uri}\": path parameter not specified: \"uri\""
 }

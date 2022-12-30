@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openapi-processor/openapi-processor-core"
+		},
+		"file": {
+			"name": "openapi30.yaml",
+			"size": 0,
+			"path": "src/testInt/resources/tests/schema-duplicate-by-refs/inputs/openapi30.yaml",
+			"byteSize": 471,
+			"content": "openapi: 3.0.3\ninfo:\n  title: test duplicate schema\n  version: 1.0.0\n\npaths:\n\n  /foo-one:\n    get:\n      responses:\n        '200':\n          description: result\n          content:\n            application/json:\n                schema:\n                  $ref: 'one.yaml#/Foo'\n\n  /foo-two:\n    get:\n      responses:\n        '200':\n          description: result\n          content:\n            application/json:\n                schema:\n                  $ref: 'two.yaml#/Foo'\n",
+			"canonicalURL": "/github.com/openapi-processor/openapi-processor-core@1bf168c0af909fbdf7fa44ab3f9712492fb1380d/-/blob/src/testInt/resources/tests/schema-duplicate-by-refs/inputs/openapi30.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openapi-processor/openapi-processor-core/blob/1bf168c0af909fbdf7fa44ab3f9712492fb1380d/src/testInt/resources/tests/schema-duplicate-by-refs/inputs/openapi30.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reference type \"https://raw.githubusercontent.com/openapi-processor/openapi-processor-core/1bf168c0af909fbdf7fa44ab3f9712492fb1380d/src/testInt/resources/tests/schema-duplicate-by-refs/inputs/two.yaml#/Foo\" name conflict: \"Foo\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ietf-tools/bibxml-service"
+		},
+		"file": {
+			"name": "openapi-legacy.yaml",
+			"size": 0,
+			"path": "templates/openapi-legacy.yaml",
+			"byteSize": 2520,
+			"content": "openapi: 3.1.0\n\ninfo:\n  title: IETF BibXML service — compatibility API\n  description: |\n    These are APIs for compatibility with existing third-party systems during the migration period.\n  contact:\n    email: ietf-ribose@ribose.com\n  license:\n    name: BSD 3-Clause\n    url: https://github.com/ietf-ribose/bibxml-service/blob/main/LICENSE\n  version: {{ snapshot }}\n\nservers:\n- url: /\n\npaths:\n\n  /public/rfc/{directory_name}/{filename}.xml:\n    parameters:\n    - name: directory_name\n      in: path\n      description: Directory name, as per xml2rfc web server’s content.\n      required: true\n      schema:\n        type: string\n        example: bibxml4\n    - name: filename\n      in: path\n      description: Filename, as per xml2rfc web server’s content. Typically starts with “reference” or “_reference”.\n      required: true\n      schema:\n        example: reference.W3C.NOTE-XML-FRAG-REQ-19981123\n        type: string\n    - name: anchor\n      in: query\n      description: |\n        Replace the `anchor` in *top-level* `\u003creference\u003e` or `\u003creferencegroup\u003e`\n        to specified string.\n\n        NOTE: Does not affect any of the nested `\u003creference\u003e` elements.\n      required: true\n      schema:\n        type: string\n\n    get:\n      summary: Get bibliographic item by xml2rfc tools path\n      description: |\n        This endpoint returns raw XML response.\n        Returned bibliographic item is either obtained from a Relaton source,\n        or (if impossible to locate given anchor, and xml2rfc data is indexed)\n        from xml2rfc snapshot.\n      responses:\n\n        200:\n          description: successful operation\n          content:\n            application/xml:\n              schema:\n                type: string\n\n        404:\n          description: reference not found. (At this time, there may be false negatives)\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\n        500:\n          description: error retrieving or serializing item\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n\ncomponents:\n\n  schemas:\n\n    ErrorResponse:\n      type: object\n      properties:\n        error:\n          type: object\n          properties:\n            code:\n              type: integer\n              description: Code for automatic error processing\n            message:\n              type: string\n              description: Human readable error message\n",
+			"canonicalURL": "/github.com/ietf-tools/bibxml-service@20b9faac26ea6dd5fc980f6b70a4e1087ca123d5/-/blob/templates/openapi-legacy.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ietf-tools/bibxml-service/blob/20b9faac26ea6dd5fc980f6b70a4e1087ca123d5/templates/openapi-legacy.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 12: cannot unmarshal !!map into string"
+}

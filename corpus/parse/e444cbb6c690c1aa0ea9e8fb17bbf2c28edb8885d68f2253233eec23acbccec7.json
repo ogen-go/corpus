@@ -10,14 +10,14 @@
 			"path": "tests/integration/data/v3.1/security_override.yaml",
 			"byteSize": 843,
 			"content": "openapi: \"3.1.0\"\ninfo:\n  title: Minimal OpenAPI specification with security override\n  version: \"0.1\"\nsecurity:\n  - api_key: []\npaths:\n  /resource/{resId}:\n    parameters:\n      - name: resId\n        in: path\n        required: true\n        description: the ID of the resource to retrieve\n        schema:\n          type: string\n    get:\n      responses:\n        default:\n          description: Default security.\n    post:\n      security:\n        - petstore_auth:\n            - write:pets\n            - read:pets\n      responses:\n        default:\n          description: Override security.\n    put:\n      security: []\n      responses:\n        default:\n          description: Remove security.\ncomponents:\n  securitySchemes:\n    api_key:\n      type: apiKey\n      name: api_key\n      in: query\n    petstore_auth:\n      type: http\n      scheme: basic",
-			"canonicalURL": "/github.com/p1c2u/openapi-core@df4bbfe0d7b2a88e86f5f9a47d31549197717e47/-/blob/tests/integration/data/v3.1/security_override.yaml",
+			"canonicalURL": "/github.com/p1c2u/openapi-core@8049b641558b7bb9b3c81f516410900072b1208f/-/blob/tests/integration/data/v3.1/security_override.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/p1c2u/openapi-core/blob/df4bbfe0d7b2a88e86f5f9a47d31549197717e47/tests/integration/data/v3.1/security_override.yaml",
+					"url": "https://github.com/p1c2u/openapi-core/blob/8049b641558b7bb9b3c81f516410900072b1208f/tests/integration/data/v3.1/security_override.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/resource/{resId}\": post: security: at 1:585: list of scopes MUST be empty for \"type\" \"http\""
+	"Error": "parse: parse spec: parse path items: path \"/resource/{resId}\": post: security: at tests/integration/data/v3.1/security_override.yaml:23:15: list of scopes MUST be empty for \"type\" \"http\""
 }

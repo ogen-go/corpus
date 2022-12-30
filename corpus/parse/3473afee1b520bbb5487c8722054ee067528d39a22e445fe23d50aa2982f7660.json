@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json",
 			"byteSize": 1604,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\",\n    \"contact\": {\n      \"name\": \"contact\",\n      \"url\": \"https://www.google.com/\",\n      \"email\": \"user@gmail.c\"\n    }\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"200 response\",\n            \"content\": {\n              \"application/json\": {\n                \"examples\": {\n                  \"foo\": {\n                    \"value\": {\n                      \"versions\": [\n                        {\n                          \"status\": \"CURRENT\",\n                          \"updated\": \"2011-01-21T11:33:21Z\",\n                          \"id\": \"v2.0\",\n                          \"links\": [\n                            {\n                              \"href\": \"http://127.0.0.1:8774/v2/\",\n                              \"rel\": \"self\"\n                            }\n                          ]\n                        }\n                      ]\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"GeneralError\": {\n        \"type\": \"object\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"properties\": {\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ]\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@78acc8ae8f5004d721f14dcd670abcfb0fbf3897/-/blob/assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json",
+					"url": "https://github.com/Checkmarx/kics/blob/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"GeneralError\": parse schema: at 52:18: object cannot contain 'items' field"
+	"Error": "parse: parse spec: parse components: schemas: \"GeneralError\": resolve \"#/components/schemas/GeneralError\": at assets/queries/openAPI/general/non_array_schema_with_items/test/positive1.json:52:18: items: object cannot contain 'items' field"
 }

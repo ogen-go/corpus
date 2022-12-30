@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "negative18.yaml",
+			"size": 0,
+			"path": "test/data/production/spectral/negative18.yaml",
+			"byteSize": 891,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  description: a description\n  license:\n    name: MIT\n    url: https://www.tldrlegal.com/l/mit\n  contact:\n    name: A-Team\n    email: a-team@goarmy.com\ntags:\n  - name: Invoice Items\n    description: description of the tag\n\ncomponents:\n  schemas:\n    TheBadModel:\n      type: object\n      properties:\n        number_of_connectors:\n          type: integer\n          description: The number of extension points.\n          enum:\n            - 1\n            - 8\n            - 3\n            - 8\npaths:\n  /invoices/{id}/items:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the invoice identifier, as is\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/spectral/negative18.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/spectral/negative18.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"TheBadModel\": resolve \"#/components/schemas/TheBadModel\": property \"number_of_connectors\": at test/data/production/spectral/negative18.yaml:25:15: duplicate enum value: \"8\""
+}

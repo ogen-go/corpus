@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/aws-sam-cli"
+		},
+		"file": {
+			"name": "http_api_with_cors.yaml",
+			"size": 0,
+			"path": "tests/functional/commands/validate/lib/models/http_api_with_cors.yaml",
+			"byteSize": 1188,
+			"content": "%YAML 1.1\n---\nConditions:\n  C1:\n    Fn::Equals:\n    - true\n    - true\n\nGlobals:\n  HttpApi:\n    CorsConfiguration:\n      Fn::If:\n      - C1\n      - AllowHeaders:\n        - x-apigateway-header\n        AllowMethods:\n        - GET\n        AllowOrigins:\n        - https://foo.com\n        ExposeHeaders:\n        - x-amzn-header\n      - AWS::NoValue\n\nResources:\n  HttpApiFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      InlineCode: |\n        exports.handler = async (event) =\u003e {\n         console.log(\"Hello from MyAuthFunction\")\n          return {\n          statusCode: 200,\n          body: JSON.stringify(event),\n          headers: {}\n          }\n        }\n      Handler: index.handler\n      Runtime: nodejs12.x\n      Events:\n        SimpleCase:\n          Type: HttpApi\n          Properties:\n            ApiId: !Ref MyApi\n        ImplicitApi:\n          Type: HttpApi\n\n  MyApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        info:\n          version: '1.0'\n          title:\n            Ref: AWS::StackName\n        paths:\n          $default:\n            x-amazon-apigateway-any-method:\n              isDefaultRoute: true\n        openapi: 3.0.1\n",
+			"canonicalURL": "/github.com/aws/aws-sam-cli@bce85fd41c1b522ac20899ff4f2917db6ed96b93/-/blob/tests/functional/commands/validate/lib/models/http_api_with_cors.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/aws-sam-cli/blob/bce85fd41c1b522ac20899ff4f2917db6ed96b93/tests/functional/commands/validate/lib/models/http_api_with_cors.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/functional/commands/validate/lib/models/http_api_with_cors.yaml:3:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

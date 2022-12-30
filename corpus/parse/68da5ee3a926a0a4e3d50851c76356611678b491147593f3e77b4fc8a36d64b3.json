@@ -10,14 +10,14 @@
 			"path": "test/data/valid_openapi/issue#479.yml",
 			"byteSize": 2148,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.swagger.io/v1\npaths:\n  /pets:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: limit\n          in: query\n          description: How many items to return at one time (max 100)\n          required: false\n          schema:\n            type: integer\n            format: int32\n        - name: header-1\n          in: header\n          required: false\n          schema:\n            type: integer\n            format: int64\n      responses:\n        '200':\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: integer\n                format: int64\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\n  /pets2/{pathVar}:\n    get:\n      summary: List all pets\n      operationId: listPets\n      tags:\n        - pets\n      parameters:\n        - name: pathVar\n          in: path\n          required: false\n          schema:\n            type: integer\n            format: int32\n      responses:\n        '200':\n          description: A paged array of pets\n          headers:\n            x-next:\n              description: A link to the next page of responses\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pets\"\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@bdfeadb49daea91fe06f4fca3d783eba16793369/-/blob/test/data/valid_openapi/issue%23479.yml",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@a9111c1712ab3c38677bc62787ab7723e84a20c0/-/blob/test/data/valid_openapi/issue%23479.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/bdfeadb49daea91fe06f4fca3d783eba16793369/test/data/valid_openapi/issue#479.yml",
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/valid_openapi/issue#479.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/pets2/{pathVar}\": at 1:1129: get: duplicate operationId: \"listPets\""
+	"Error": "parse: parse spec: parse components: schemas: \"Pets\": resolve \"#/components/schemas/Pets\": items: at test/data/valid_openapi/issue#479.yml:86:15: $ref: resolve \"#/components/schemas/Pet\": get \"https://raw.githubusercontent.com/postmanlabs/openapi-to-postman/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/valid_openapi/issue\": https: bad HTTP code 404 (Not Found)"
 }

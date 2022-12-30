@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdegre/5GC_APIs"
+		},
+		"file": {
+			"name": "TS29549_SS_NetworkSliceAdaptation.yaml",
+			"size": 0,
+			"path": "TS29549_SS_NetworkSliceAdaptation.yaml",
+			"byteSize": 3084,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: SS_NetworkSliceAdaptation\n  description: |\n    API for SEAL Network Slice Adaptation.  \n    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  \n    All rights reserved.\n  version: \"1.0.1\"\n\nexternalDocs:\n  description: \u003e\n    3GPP TS 29.549 V17.6.0 Service Enabler Architecture Layer for Verticals (SEAL);\n    Application Programming Interface (API) specification; Stage 3.\n  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/\n\nsecurity:\n  - {}\n  - oAuth2ClientCredentials: []\n\nservers:\n  - url: '{apiRoot}/ss-nsa/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in clause 6.5 of 3GPP TS 29.549\n\npaths:\n  /request:\n    post:\n      summary: request the network slice adaptation.\n      operationId: RequestNetworkSliceAdaptation\n      tags:\n        - Network Slice Adaptation Request\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/NwSliceAdptInfo'\n      responses:\n        '204':\n          description: No Content. The requested network slice adaptation is successfully processed.\n        '307':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/307'\n        '308':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/308'\n        '400':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/400'\n        '401':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/401'\n        '403':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/403'\n        '404':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/404'\n        '411':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/411'\n        '413':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/413'\n        '415':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/415'\n\n        '429':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/429'\n        '500':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/503'\n        default:\n          $ref: 'TS29122_CommonData.yaml#/components/responses/default'\n\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: '{tokenUrl}'\n          scopes: {}\n\n  schemas:\n    NwSliceAdptInfo:\n      description: The requested network slice adaptation with the underlying network.\n      type: object\n      properties:\n        valServiceId:\n          type: string\n        valTgtUeIds:\n          type: array\n          items:\n            type: string\n        snssai:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'\n        dnn:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'\n        suppFeat:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n      required:\n        - valServiceId\n        - valTgtUeIds\n",
+			"canonicalURL": "/github.com/jdegre/5GC_APIs@605fe2f5ce468cba9e13880ae876942b930d6b24/-/blob/TS29549_SS_NetworkSliceAdaptation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jdegre/5GC_APIs/blob/605fe2f5ce468cba9e13880ae876942b930d6b24/TS29549_SS_NetworkSliceAdaptation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/request\": post: operation \"RequestNetworkSliceAdaptation\": security: parse security scheme \"oAuth2ClientCredentials\": oauth2: flow \"clientCredentials\": at TS29549_SS_NetworkSliceAdaptation.yaml:78:21: \"tokenUrl\" MUST be in the form of a URL: parse \"{tokenUrl}\": invalid URI for request"
+}

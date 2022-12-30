@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cc32d9/wax-leap"
+		},
+		"file": {
+			"name": "test_control.swagger.yaml",
+			"size": 0,
+			"path": "plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"byteSize": 1540,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Test Control API\n  description: Nodeos Test Control API Specification. See developer documentation at https://docs.eosnetwork.com for information on enabling this plugin.\n  version: 1.0.0\n  license:\n    name: MIT\n    url: https://opensource.org/licenses/MIT\n  contact:\n    url: https://eosnetwork.com\ntags:\n  - name: eosio\nservers:\n  - url: '{protocol}://{host}:{port}/v1/'\n    variables:\n      protocol:\n        enum:\n          - http\n          - https\n        default: http\n      host:\n        default: localhost\n      port:\n        default: \"8080\"\ncomponents:\n  schemas: {}\npaths:\n  /test_control/kill_node_or_producer:\n    post:\n      tags:\n        - TestControl\n      summary: kill_node_or_producer\n      description: Kills node or producer\n      operationId: kill_node_or_producer\n      parameters: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - params\n              properties:\n                params:\n                  type: object\n                  properties:\n                    producer:\n                      $ref: 'https://eosio.github.io/schemata/v2.0/oas/Name.yaml'\n                    where_in_sequence:\n                      type: integer\n                    based_on_lib:\n                      type: integer\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                description: Returns Nothing\n",
+			"canonicalURL": "/github.com/cc32d9/wax-leap@63225e272a1b7a62cc1bd02bb97e6128b01e6ea8/-/blob/plugins/test_control_api_plugin/test_control.swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cc32d9/wax-leap/blob/63225e272a1b7a62cc1bd02bb97e6128b01e6ea8/plugins/test_control_api_plugin/test_control.swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/test_control/kill_node_or_producer\": post: operation \"kill_node_or_producer\": requestBody: parse content: application/json: schema: parse schema: property \"params\": property \"producer\": at plugins/test_control_api_plugin/test_control.swagger.yaml:48:29: $ref: resolve \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": get \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": https: do: Get \"https://eosio.github.io/schemata/v2.0/oas/Name.yaml\": host \"eosio.github.io\" is not allowed"
+}

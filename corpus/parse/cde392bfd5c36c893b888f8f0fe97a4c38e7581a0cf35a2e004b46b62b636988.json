@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "error_api_invalid_security.yaml",
+			"size": 0,
+			"path": "tests/translator/input/error_api_invalid_security.yaml",
+			"byteSize": 1097,
+			"content": "Resources:\n  API:\n    Type: AWS::Serverless::Api\n    Metadata:\n      SamResourceId: API\n    Properties:\n      StageName: Prod\n      OpenApiVersion: 3.0.3\n      Auth:\n        DefaultAuthorizer: AWS_IAM\n      DefinitionBody:\n        openapi: 3.0.3\n        paths:\n          /test:\n            get:\n              responses:\n                '200':\n                  description: Success\n              x-amazon-apigateway-integration:\n                uri:\n                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APILambda.Arn}:live/invocations\n                httpMethod: GET\n                type: aws_proxy\n                passthroughBehaviour: never\n              # the security value should be a list:\n              security:\n        security:\n        - ApiKeyAuth: []\n\n  APILambda:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: s3://abc/def\n      Handler: api\n      Events:\n        ApiCall:\n          Type: Api\n          Properties:\n            RestApiId:\n              Ref: API\n            Path: /*\n            Method: '*'\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/error_api_invalid_security.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/error_api_invalid_security.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/error_api_invalid_security.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

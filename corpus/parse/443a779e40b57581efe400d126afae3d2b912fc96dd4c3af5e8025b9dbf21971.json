@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/temando/open-api-renderer"
+		},
+		"file": {
+			"name": "circular-ref.json",
+			"size": 0,
+			"path": "test/parser/open-api/v3/data/inputs/circular-ref.json",
+			"byteSize": 1400,
+			"content": "{\n  \"openapi\": \"3.0.0-rc2\",\n  \"info\": {\n    \"contact\": {\n      \"email\": \"ibl-team@lists.forge.bbc.co.uk\",\n      \"name\": \"Open iBL Project\",\n      \"url\": \"http://developer.bbc.co.uk/\"\n    },\n    \"description\": \"The definitive iPlayer API.\",\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://opensource.org/licenses/MIT\"\n    },\n    \"title\": \"BBC iPlayer Business Layer\",\n    \"version\": \"1.0\"\n  },\n  \"paths\": {\n    \"/categories\": {\n      \"get\": {\n        \"description\": \"Get the list of all the categories in TV \u0026 iPlayer.\",\n        \"operationId\": \"Get_Categories_\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Default response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/ibl\"\n                }\n              }\n            }\n          }\n        },\n        \"summary\": \"Get categories\"\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"category\": {\n        \"properties\": {\n          \"sub_categories\": {\n            \"items\": {\n              \"$ref\": \"#/components/schemas/category\"\n            },\n            \"type\": \"array\"\n          }\n        },\n        \"type\": \"object\"\n      },\n      \"ibl\": {\n        \"properties\": {\n          \"category\": {\n            \"$ref\": \"#/components/schemas/category\"\n          }\n        },\n        \"type\": \"object\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/temando/open-api-renderer@a46d7e63ec13a962ba9a04fa04648e7e3da7627a/-/blob/test/parser/open-api/v3/data/inputs/circular-ref.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/temando/open-api-renderer/blob/a46d7e63ec13a962ba9a04fa04648e7e3da7627a/test/parser/open-api/v3/data/inputs/circular-ref.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at test/parser/open-api/v3/data/inputs/circular-ref.json:2:14: invalid version: invalid patch version: strconv.Atoi: parsing \"0-rc2\": invalid syntax"
+}

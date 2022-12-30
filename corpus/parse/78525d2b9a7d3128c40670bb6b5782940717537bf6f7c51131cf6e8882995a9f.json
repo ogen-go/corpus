@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "positive4.yaml",
+			"size": 0,
+			"path": "test/data/production/security/positive4.yaml",
+			"byteSize": 879,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\n\nservers:\n  - url: https://my.api.server.com/\n    description: API server\n\ncomponents:\n\n  securitySchemes:\n    OAuth2:\n      type: oauth2\n      flows:\n        authorizationCode:\n          scopes:\n            write: modify objects in your account\n            read: read objects in your account\n          authorizationUrl: https://example.com/oauth/authorize\n          tokenUrl: https://example.com/oauth/token\n\nsecurity:\n  - OAuth2:\n      - write\n      - read\npaths:\n  /users:\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Customer\"",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/security/positive4.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/security/positive4.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users\": get: operation \"opid\": responses: 200: content: application/json: schema: parse schema: items: at test/data/production/security/positive4.yaml:42:25: $ref: resolve \"#/components/schemas/Customer\": resolve: can't find value for \"components/schemas/Customer\""
+}

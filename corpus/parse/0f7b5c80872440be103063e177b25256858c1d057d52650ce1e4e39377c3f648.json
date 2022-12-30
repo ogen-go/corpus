@@ -10,14 +10,14 @@
 			"path": "tests/schemas/v3.0/explode-param-3.0.1.yaml",
 			"byteSize": 1522,
 			"content": "openapi: 3.0.1\ninfo:\n  title: API\n  description: Documentation\n  version: \"0.1\"\npaths:\n  \"/{user}/foos\":\n    parameters:\n      - schema:\n          type: string\n        user: blbalbla\n        in: path\n        required: true\n    post:\n      summary: Some summary\n      operationId: createFile\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Floop\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                meme:\n                  type: string\n                  default: \"\"\n                memeType:\n                  type: string\n              required:\n                - meme\n        required: true\n      description: \"\"\n  /something/:\n    get:\n      operationId: gets\n      parameters:\n        - name: params\n          in: query\n          required: false\n          explode: true\n          schema:\n            $ref: \"#/components/schemas/QueryParams\"\n\ncomponents:\n  schemas:\n    Floop:\n      type: object\n      properties:\n        info:\n          type: string\n    QueryParams:\n      type: object\n      properties:\n        page:\n          minimum: 0\n          type: integer\n          description: Page number\n          format: int32\n          nullable: true\n        page-size:\n          minimum: 0\n          type: integer\n          description: Page size\n          format: int32\n          nullable: true\n",
-			"canonicalURL": "/github.com/acacode/swagger-typescript-api@3886119a7e25b50a31c6eb8d4df68c548ec3a7b3/-/blob/tests/schemas/v3.0/explode-param-3.0.1.yaml",
+			"canonicalURL": "/github.com/acacode/swagger-typescript-api@79274ac391f6f5d12ebc2e3773c5bf6783f7312e/-/blob/tests/schemas/v3.0/explode-param-3.0.1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/acacode/swagger-typescript-api/blob/3886119a7e25b50a31c6eb8d4df68c548ec3a7b3/tests/schemas/v3.0/explode-param-3.0.1.yaml",
+					"url": "https://github.com/acacode/swagger-typescript-api/blob/79274ac391f6f5d12ebc2e3773c5bf6783f7312e/tests/schemas/v3.0/explode-param-3.0.1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/something/\": get: operation \"gets\": at 1:460: responses: no responses"
+	"Error": "parse: parse spec: parse path items: path \"/something/\": get: operation \"gets\": at tests/schemas/v3.0/explode-param-3.0.1.yaml:41:7: responses: no responses"
 }

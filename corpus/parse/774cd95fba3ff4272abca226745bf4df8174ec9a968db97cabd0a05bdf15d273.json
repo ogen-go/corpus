@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Himenon/openapi-typescript-code-generator"
+		},
+		"file": {
+			"name": "v0.yml",
+			"size": 0,
+			"path": "test/remote.ref.access/v0.yml",
+			"byteSize": 2800,
+			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: v0.remote.ref.access.test\n  description: Library test schema\n  license:\n    name: MIT\n\nservers:\n  - url: \"http://dev.remote.ref.access.test/v0/\"\n    description: Development Environment\n  - url: \"https://ref,remote.access.test/v0/\"\n    description: Production Environment\n\ntags:\n  - name: test\n\ncomponents:\n  schemas:\n    Book:\n      type: object\n      required:\n        - metadata\n      properties:\n        author:\n          type: object\n          properties:\n            name:\n              type: string\n            age:\n              type: string\n        publisher:\n          type: object\n          properties:\n            name:\n              type: String\n            address:\n              type: string\n        metadata:\n          type: object\n          required:\n            - description\n          properties:\n            description:\n              type: string\n    Author:\n      $ref: \"#/components/schemas/Book/properties/author\"\n    Publisher:\n      $ref: \"#/components/schemas/Book/properties/publisher\"\n\npaths:\n  /get/book/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: Book ID\n        schema:\n          type: string\n          format: uuid\n    get:\n      operationId: getBook\n      responses:\n        200:\n          description: Get Books\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Book\"\n  /get/book/{id}/description:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: Book ID\n        schema:\n          type: string\n          format: uuid\n    get:\n      operationId: getDescription\n      responses:\n        200:\n          description: Get Book Description\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Book/properties/metadata/properties/description\"\n\n  /get/author/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: Author Id\n        schema:\n          type: string\n          format: uuid\n    get:\n      operationId: getAuthor\n      responses:\n        200:\n          description: Get Author\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Book/properties/author\"\n  /get/publisher/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: Publisher ID\n        schema:\n          type: string\n          format: uuid\n    get:\n      operationId: getPublisher\n      responses:\n        200:\n          description: Get Publisher\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Publisher\"\n",
+			"canonicalURL": "/github.com/Himenon/openapi-typescript-code-generator@425502beb9bf90d84a8d289bfb4067765a22d457/-/blob/test/remote.ref.access/v0.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Himenon/openapi-typescript-code-generator/blob/425502beb9bf90d84a8d289bfb4067765a22d457/test/remote.ref.access/v0.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Book\": resolve \"#/components/schemas/Book\": property \"publisher\": property \"name\": at test/remote.ref.access/v0.yml:36:21: type: unexpected schema type: \"String\""
+}

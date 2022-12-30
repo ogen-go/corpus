@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/readmeio/api"
+		},
+		"file": {
+			"name": "auth-quirks.json",
+			"size": 0,
+			"path": "packages/api/test/__fixtures__/definitions/auth-quirks.json",
+			"byteSize": 1117,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Debugging auth quirks\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://httpbin.org\"\n    }\n  ],\n  \"paths\": {\n    \"/anything\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"oauth2\": [\"write:things\"]\n          },\n          {\n            \"basicAuth\": []\n          }\n        ]\n      }\n    },\n    \"/anything/or-and\": {\n      \"post\": {\n        \"security\": [\n          {\n            \"oauth2\": [\"write:things\"]\n          },\n          {\n            \"basicAuth\": [],\n            \"bearerAuth\": []\n          }\n        ]\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"basicAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"basic\"\n      },\n      \"bearerAuth\": {\n        \"type\": \"http\",\n        \"scheme\": \"bearer\"\n      },\n      \"oauth2\": {\n        \"type\": \"oauth2\",\n        \"flows\": {\n          \"implicit\": {\n            \"authorizationUrl\": \"http://example.com/oauth/dialog\",\n            \"scopes\": {\n              \"write:things\": \"Add things to your account\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/readmeio/api@7c5224c7d10b1415d75a56d023292086e0b021ff/-/blob/packages/api/test/__fixtures__/definitions/auth-quirks.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/api/blob/7c5224c7d10b1415d75a56d023292086e0b021ff/packages/api/test/__fixtures__/definitions/auth-quirks.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/anything\": post: at packages/api/test/__fixtures__/definitions/auth-quirks.json:14:15: responses: no responses"
+}

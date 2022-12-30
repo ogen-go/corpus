@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adzerk/adzerk-api-specification"
+		},
+		"file": {
+			"name": "day-part.yaml",
+			"size": 0,
+			"path": "management/day-part.yaml",
+			"byteSize": 3710,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Adzerk Management API - Scheduled Reporting\n  description: Scheduled Reporting related Adzerk Management API\n  version: '1.0'\nservers:\n  - url: 'https://api.adzerk.net'\ntags:\n  - name: day-part\n    description: Day Parting\npaths:\n  '/v1/flight/{flightId}/dayparting':\n    parameters:\n      - name: flightId\n        in: path\n        description: Id of the Flight to Day Part\n        required: true\n        schema:\n          type: integer\n          format: int32\n    get:\n      tags:\n        - day-part\n      operationId: list\n      security:\n        - ApiKeyAuth: []\n      parameters:\n        - name: pageSize\n          in: query\n          description: The size of the page to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n            default: 500\n        - name: page\n          in: query\n          description: The page number to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n      responses:\n        200:\n          description: A paged list of Day Parts\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/day-part.yaml#/schemas/DayPartList'\n    post:\n      tags:\n        - day-part\n      operationId: create\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - StartTime\n                - EndTime\n                - WeekDays\n              properties:\n                StartTime:\n                  type: string\n                  format: time|HH:MM:SS\n                EndTime:\n                  type: string\n                  format: time|HH:MM:SS\n                WeekDays:\n                  type: array\n                  items:\n                    type: string\n                    enum: ['SU','MO','TU','WE','TH','FR','SA']\n      responses:\n        201:\n          description: The Day Part\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  TimepartId:\n                    type: integer\n                    format: int32\n  '/v1/flight/{flightId}/dayparting/{id}':\n    parameters:\n      - name: flightId\n        in: path\n        description: Id of the Flight to Day Part\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: id\n        in: path\n        description: Id of the Day Part\n        required: true\n        schema:\n          type: integer\n          format: int32\n    get:\n      tags:\n        - day-part\n      operationId: get\n      security:\n        - ApiKeyAuth: []\n      responses:\n        200:\n          description: The Day Part\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/day-part.yaml#/schemas/DayPart'\n  '/v1/flight/{flightId}/dayparting/{id}/delete':\n    parameters:\n      - name: flightId\n        in: path\n        description: Id of the Flight to Day Part\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: id\n        in: path\n        description: Id of the Day Part\n        required: true\n        schema:\n          type: integer\n          format: int32\n    post:\n      tags:\n        - day-part\n      operationId: delete\n      security:\n        - ApiKeyAuth: []\n      responses:\n        204:\n          description: Successfully Deleted\ncomponents:\n  securitySchemes:\n    $ref: './components/security-schemes.yaml#/components/securitySchemes'",
+			"canonicalURL": "/github.com/adzerk/adzerk-api-specification@25b2da9378e96562925f89165bfae045adbe912b/-/blob/management/day-part.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adzerk/adzerk-api-specification/blob/25b2da9378e96562925f89165bfae045adbe912b/management/day-part.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 146: cannot unmarshal !!str `./compo...` into ogen.SecurityScheme"
+}

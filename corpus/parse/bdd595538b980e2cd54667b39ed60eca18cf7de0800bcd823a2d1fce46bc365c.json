@@ -5,19 +5,19 @@
 			"name": "github.com/aml-org/amf"
 		},
 		"file": {
-			"name": "ref-unknown-schema.json",
+			"name": "ref-version-schema.json",
 			"size": 0,
-			"path": "amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-unknown-schema.json",
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-version-schema.json",
 			"byteSize": 419,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Something\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {},\n  \"components\": {\n    \"schemas\": {\n      \"a\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"a1\": {\n            \"$ref\": \"/unknown-schema.json\"\n          }\n        },\n        \"example\": {\n          \"a1\": {\n            \"b1\": \"something\",\n            \"b2\": 44\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/aml-org/amf@d0616fdad67e81ecafe654fcbc6a14e3a639005d/-/blob/amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-unknown-schema.json",
+			"canonicalURL": "/github.com/aml-org/amf@db08879c7092296bac1404c740c559a9e3f273ec/-/blob/amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-version-schema.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aml-org/amf/blob/d0616fdad67e81ecafe654fcbc6a14e3a639005d/amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-unknown-schema.json",
+					"url": "https://github.com/aml-org/amf/blob/db08879c7092296bac1404c740c559a9e3f273ec/amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-version-schema.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"a\": parse schema: property \"a1\": parse schema: at 14:21: external \"/unknown-schema.json\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"a\": resolve \"#/components/schemas/a\": property \"a1\": at amf-cli/shared/src/test/resources/validations/oas3/ref-schema/ref-version-schema.json:14:21: $ref: resolve \"/unknown-schema.json\": get \"https://raw.githubusercontent.com/unknown-schema.json\": https: bad HTTP code 400 (Bad Request)"
 }

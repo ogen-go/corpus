@@ -10,14 +10,14 @@
 			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_multipart.yaml",
 			"byteSize": 1971,
 			"content": "openapi: 3.0.0\npaths:\n  /v3/openapi/multipartObject:\n    post:\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                person:\n                  type: object\n                  properties:\n                    name:\n                      type: string\n                    age:\n                      type: number\n      responses:\n        \"200\":\n          description: OK\n  /v3/openapi/multipartBinary:\n    post:\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                file:\n                  type: string\n                  format: binary\n      responses:\n        \"200\":\n          description: OK\n  /v3/openapi/multipartArray:\n    post:\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                people:\n                  type: array\n                  items:\n                    type: object\n                    properties:\n                      name:\n                        type: string\n                      age:\n                        type: number\n      responses:\n        \"200\":\n          description: OK\n  /v3/openapi/multipartOther:\n    post:\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                organization:\n                  type: string\n      responses:\n        \"200\":\n          description: OK\n  /v3/openapi/multipartMultiple:\n    post:\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              properties:\n                additionalMetadata:\n                  type: string\n                  description: Additional data to pass to server\n                file:\n                  type: string\n                  description: file to upload\n                  format: binary\n      responses:\n        \"200\":\n          description: OK",
-			"canonicalURL": "/github.com/zaproxy/zap-extensions@6345b6935f7d9a4de3a992db4c9d15221ecf67a1/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_multipart.yaml",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@3243e5fd4a5e4016f77bf1958197db654825804c/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_multipart.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/zaproxy/zap-extensions/blob/6345b6935f7d9a4de3a992db4c9d15221ecf67a1/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_multipart.yaml",
+					"url": "https://github.com/zaproxy/zap-extensions/blob/3243e5fd4a5e4016f77bf1958197db654825804c/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/OpenApi_defn_multipart.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/v3/openapi/multipartArray\": post: requestBody: contents: media: \"multipart/form-data\": form parameter \"people\": nested objects not allowed"
+	"Error": "buildIR: make ir: operations: path \"/v3/openapi/multipartArray\": post: requestBody: contents: media: \"multipart/form-data\": form parameter \"people\": nested objects not allowed"
 }

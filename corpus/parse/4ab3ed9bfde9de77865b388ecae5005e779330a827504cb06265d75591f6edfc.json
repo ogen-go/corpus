@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "function_with_http_api.yaml",
+			"size": 0,
+			"path": "integration/resources/templates/combination/function_with_http_api.yaml",
+			"byteSize": 906,
+			"content": "Resources:\n  MyLambdaFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      Handler: index.handler\n      Runtime: python3.7\n      InlineCode: |\n        def handler(event, context):\n            return {'body': 'Hello World!', 'statusCode': 200}\n      MemorySize: 128\n      Events:\n        GetApi:\n          Type: HttpApi\n          Properties:\n            ApiId:\n              Ref: MyApi\n            Method: GET\n            Path: /some/path\n\n  MyApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        info:\n          version: '1.0'\n          title:\n            Ref: AWS::StackName\n        paths:\n          /some/path: {}\n          /other: {}\n        openapi: 3.0.1\n\nOutputs:\n  ApiUrl:\n    Description: API endpoint URL for Prod environment\n    Value:\n      Fn::Sub: https://${MyApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/\nMetadata:\n  SamTransformTest: true\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/integration/resources/templates/combination/function_with_http_api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/integration/resources/templates/combination/function_with_http_api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at integration/resources/templates/combination/function_with_http_api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

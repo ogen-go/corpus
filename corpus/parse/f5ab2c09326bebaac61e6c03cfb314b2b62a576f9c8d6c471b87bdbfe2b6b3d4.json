@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/cors/cors-1/api.yaml",
+			"byteSize": 934,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: examples-cors-1\n  namespace: default\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  spec: |\n    openapi: 3.1.0\n    info:\n      title: examples-cors-1\n      description: examples-cors-1\n      version: '0.1.0'\n    schemes:\n    - http\n    - https\n    x-kusk:\n      upstream:\n        service:\n          name: examples-cors-1-go-httpbin\n          namespace: default\n          port: 80\n      cors:\n        origins:\n          - \"*\"\n        methods:\n          - POST\n          - GET\n          - OPTIONS\n        headers:\n          - Content-Type\n        credentials: true\n        max_age: 86200\n    paths:\n      \"/\":\n        get:\n          description: Returns GET data.\n          operationId: \"/get\"\n          responses: {}\n      \"/uuid\":\n        get:\n          operationId: \"/uuid\"\n          description: Returns UUID4.\n          responses: {}\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/examples/cors/cors-1/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/examples/cors/cors-1/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at examples/cors/cors-1/api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tadoku/tadoku"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "third_party/oapi-codegen/vendor/github.com/getkin/kin-openapi/openapi3/testdata/recursiveRef/openapi.yml",
+			"byteSize": 730,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: Recursive refs example\n  version: \"1.0\"\npaths:\n  /foo:\n    $ref: ./paths/foo.yml\n  /double-ref-foo:\n    get:\n      summary: Double ref response\n      description: Reference response with double reference.\n      responses:\n        \"400\":\n          $ref: \"#/components/responses/400\"\ncomponents:\n  schemas:\n    Foo:\n      $ref: ./components/Foo.yml\n    Foo2:\n      $ref: ./components/Foo/Foo2.yml\n    Bar:\n      $ref: ./components/Bar.yml\n    Cat:\n      $ref: ./components/Cat.yml\n    Error:\n      $ref: ./components/models/error.yaml\n  responses:\n    \"400\":\n      description: 400 Bad Request\n      content:\n        application/json:\n          schema:\n            $ref: \"#/components/schemas/Error\"\n",
+			"canonicalURL": "/github.com/tadoku/tadoku@345efa9f841437c0e1a2ba48bb3dd9e1be25999d/-/blob/third_party/oapi-codegen/vendor/github.com/getkin/kin-openapi/openapi3/testdata/recursiveRef/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tadoku/tadoku/blob/345efa9f841437c0e1a2ba48bb3dd9e1be25999d/third_party/oapi-codegen/vendor/github.com/getkin/kin-openapi/openapi3/testdata/recursiveRef/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Cat\": resolve \"#/components/schemas/Cat\": $ref: resolve \"./components/Cat.yml\": property \"cat\": at https://raw.githubusercontent.com/tadoku/tadoku/345efa9f841437c0e1a2ba48bb3dd9e1be25999d/third_party/oapi-codegen/vendor/github.com/getkin/kin-openapi/openapi3/testdata/recursiveRef/components/Cat.yml:4:11: $ref: resolve \"../openapi.yml#/components/schemas/Cat\": infinite recursion"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/apidom"
+		},
+		"file": {
+			"name": "root.json",
+			"size": 0,
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"byteSize": 394,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"$ref\": \"#/components/schemas/Indirection1\"\n      },\n      \"Indirection1\": {\n        \"$ref\": \"#/components/schemas/Indirection2\"\n      },\n      \"Indirection2\": {\n        \"$ref\": \"#/components/schemas/Indirection3\"\n      },\n      \"Indirection3\": {\n        \"$ref\": \"#/components/schemas/User\"\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/swagger-api/apidom@24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/apidom/blob/24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"User\": resolve \"#/components/schemas/User\": $ref: resolve \"#/components/schemas/Indirection1\": $ref: resolve \"#/components/schemas/Indirection2\": $ref: resolve \"#/components/schemas/Indirection3\": at packages/apidom-reference/test/dereference/strategies/openapi-3-1/schema-object/fixtures/indirect-internal-circular/root.json:15:17: $ref: resolve \"#/components/schemas/User\": infinite recursion"
+}

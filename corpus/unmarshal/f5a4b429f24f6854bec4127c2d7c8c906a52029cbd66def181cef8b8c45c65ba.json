@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/openEHR/specifications-ITS-REST"
+		},
+		"file": {
+			"name": "query.openapi.yaml",
+			"size": 0,
+			"path": "specifications/query.openapi.yaml",
+			"byteSize": 2627,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Query API\n  version: latest\n  x-status: STABLE\n  x-spec: query\n  contact:\n    name: Specifications Editorial Committee openEHR\n    url: 'https://specifications.openehr.org/'\n    email: info@openehr.org\n  license:\n    name: Creative Commons Attribution-NoDerivs 3.0 Unported\n    url: 'https://creativecommons.org/licenses/by-nd/3.0/'\n  description:\n    $ref: ./docs/query/Intro.md\nsecurity: []\nservers:\n  - url: 'https://{baseUrl}/v1'\n    description: An example openEHR server URL.\n    variables:\n      baseUrl:\n        default: openEHRSys.example.com\n        description: The (example) server base URL prefix providing openEHR services. This may contain server name, port and base path prefix.\npaths:\n  '/query/aql':\n    get:\n      $ref: ./operations/query_execute_adhoc_query.yaml\n    post:\n      $ref: ./operations/query_execute_adhoc_query_body.yaml\n  '/query/{qualified_query_name}':\n    get:\n      $ref: ./operations/query_execute_stored_query.yaml\n    post:\n      $ref: ./operations/query_execute_stored_query_body.yaml\n  '/query/{qualified_query_name}/{version}':\n    get:\n      $ref: ./operations/query_execute_stored_query_version.yaml\n    post:\n      $ref: ./operations/query_execute_stored_query_version_body.yaml\ntags:\n  - name: Query_types\n    x-displayName: Query types\n    description:\n      $ref: ./docs/query/Query_types.md\n  - name: Qualified_query_name\n    x-displayName: Qualified query name\n    description:\n      $ref: ./docs/query/Qualified_query_name.md\n  - name: Request\n    x-displayName: Request details\n    description:\n      $ref: ./docs/query/Request.md\n  - name: Response\n    x-displayName: Response details\n    description:\n      $ref: ./docs/query/Response.md\n  - name: Query\n    x-displayName: Query Execute\n    description: |\n      Execution of [AQL queries](https://specifications.openehr.org/releases/QUERY/latest/AQL.html).\n      Actions upon resources of this group are also formally described in the [I_QUERY_SERVICE](https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_query_service_interface) Abstract Service Model interface.\n  - name: Query_schema\n    x-displayName: Query Execute\n    x-traitTag: true\n    description:\n      $ref: ./tags/Query_schema.md\n  - name: RESULT_SET_schema\n    x-displayName: RESULT_SET\n    description:\n      $ref: ./tags/RESULT_SET_schema.md\nx-tagGroups:\n  - name: Docs\n    tags:\n      - Query_types\n      - Qualified_query_name\n      - Request\n      - Response\n  - name: Resource endpoints\n    tags:\n      - Query\n  - name: Resource Schema\n    tags:\n      - Query_schema\n      - RESULT_SET_schema\n",
+			"canonicalURL": "/github.com/openEHR/specifications-ITS-REST@4aec22de9cdbd5427862f08013e8dce536a291cc/-/blob/specifications/query.openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/openEHR/specifications-ITS-REST/blob/4aec22de9cdbd5427862f08013e8dce536a291cc/specifications/query.openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 15: cannot unmarshal !!map into string; yaml: line 44: cannot unmarshal !!map into string; yaml: line 48: cannot unmarshal !!map into string; yaml: line 52: cannot unmarshal !!map into string; yaml: line 56: cannot unmarshal !!map into string; yaml: line 66: cannot unmarshal !!map into string; yaml: line 70: cannot unmarshal !!map into string"
+}

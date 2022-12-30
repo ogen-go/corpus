@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/rapi-doc/RapiDoc"
+		},
+		"file": {
+			"name": "schema-read-and-write-only.yaml",
+			"size": 0,
+			"path": "docs/specs/schema-read-and-write-only.yaml",
+			"byteSize": 2203,
+			"content": "openapi: 3.0.0\ninfo:\n  title: ReadOnly and WriteOnly field attributes in Request, Response, Callback and Webhook  \n  version: \"1\"\n\npaths:\n  /users:\n    post:\n      summary: Create a user (Regular req n response and Callback req n response)\n      requestBody:\n        description: Pass in the RFQ properties to update. Only `product` is required.\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/User\"\n      callbacks:\n        created:\n          /send-data-needed-for-creation-here:\n            post:\n              description: Called when the user is created\n              requestBody:\n                content:\n                  application/json:\n                    schema:\n                      $ref: \"#/components/schemas/User\"\n              responses:\n                \"200\":\n                  description: OK\n                  content:\n                    application/json:\n                      schema:\n                        type: array\n                        items:\n                          $ref: \"#/components/schemas/User\"\n\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/User\"\n\nwebhooks:\n  user-hooks:\n    post:\n      summary: Called after user Creation\n      requestBody:\n        description: Informs the client that a user is created and passes on the user data\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/components/schemas/User\"\n      responses:\n        \"200\":\n          description: Return a 200 status to indicate that the data was received successfully\ncomponents:\n  schemas:\n    User:\n      type: object\n      properties:\n        id:\n          type: string\n          description: Server-generated ID of the user\n          readOnly: true\n        name:\n          type: string\n          description: The name of the user\n        password:\n          type: string\n          description: Password of the user\n          format: password\n          writeOnly: true\n",
+			"canonicalURL": "/github.com/rapi-doc/RapiDoc@6e24bf5b8e170c798670489a42d44dfcc5c6939a/-/blob/docs/specs/schema-read-and-write-only.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/rapi-doc/RapiDoc/blob/6e24bf5b8e170c798670489a42d44dfcc5c6939a/docs/specs/schema-read-and-write-only.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse webhooks: at docs/specs/schema-read-and-write-only.yaml:48:3: feature \"webhooks\" requires OpenAPI version 3.1.0, but actual version is 3.0.0"
+}

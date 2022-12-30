@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/opendatadiscovery/opendatadiscovery-specification"
+		},
+		"file": {
+			"name": "odd_api.yaml",
+			"size": 0,
+			"path": "specification/odd_api.yaml",
+			"byteSize": 2480,
+			"content": "openapi: 3.0.3\ninfo:\n  title: OpenDataDiscovery API Contract\n  version: 0.0.1\n  description: OpenDataDiscovery API Contract\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\npaths:\n  /ingestion/entities:\n    post:\n      description: Ingests list of data entities\n      operationId: postDataEntityList\n      tags:\n        - OpenDataDiscoveryIngestion\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: './entities.yaml/#/components/schemas/DataEntityList'\n      responses:\n        '201':\n          description: Created\n\n  /ingestion/entities/datasets/stats:\n    post:\n      description: Ingests list of stats for data sets\n      operationId: postDataSetStatsList\n      tags:\n        - OpenDataDiscoveryIngestion\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: './entities.yaml/#/components/schemas/DatasetStatisticsList'\n      responses:\n        '201':\n          description: Created\n\n  /ingestion/datasources:\n    post:\n      description: Creates data sources in the target catalog\n      operationId: createDataSource\n      tags:\n        - OpenDataDiscoveryIngestion\n      requestBody: \n        content:\n          application/json:\n            schema:\n              $ref: './entities.yaml/#/components/schemas/DataSourceList'\n      responses:\n        '201':\n          description: Created\n\n  /ingestion/alerts:\n    post:\n      description: Alerts target catalog about ingestion issues\n      operationId: createAlerts\n      tags:\n        - OpenDataDiscoveryIngestion\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: './entities.yaml/#/components/schemas/IngestionAlertList'\n      responses:\n        '201':\n          description: Created\n  \n  /ingestion/entities/degs/children:\n    get:\n      description: Searches for data entities in the target catalog by oddrn of a DEG they are currently part of\n      operationId: getDataEntitiesByDEGOddrn\n      tags:\n        - OpenDataDiscoveryIngestion\n      parameters:\n        - name: oddrn\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: './entities.yaml/#/components/schemas/CompactDataEntityList'",
+			"canonicalURL": "/github.com/opendatadiscovery/opendatadiscovery-specification@dfa7973a98993fb10d0e7722e6c92c3b140ed025/-/blob/specification/odd_api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/opendatadiscovery/opendatadiscovery-specification/blob/dfa7973a98993fb10d0e7722e6c92c3b140ed025/specification/odd_api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/ingestion/alerts\": post: operation \"createAlerts\": requestBody: parse content: application/json: schema: parse schema: at specification/odd_api.yaml:67:21: $ref: resolve \"./entities.yaml/#/components/schemas/IngestionAlertList\": get \"https://raw.githubusercontent.com/opendatadiscovery/opendatadiscovery-specification/dfa7973a98993fb10d0e7722e6c92c3b140ed025/specification/entities.yaml/\": https: bad HTTP code 400 (Bad Request)"
+}

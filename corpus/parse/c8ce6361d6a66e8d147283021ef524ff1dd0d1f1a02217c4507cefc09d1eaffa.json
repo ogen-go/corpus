@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
 			"byteSize": 861,
 			"content": "openapi: 3.0.0\nservers: []\ninfo:\n  description: This is a simple API\n  version: \"1.0.0\"\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\n\npaths:\n  /inventory/{inventory-id}:\n    get:\n      operationId: getInventoryItem\n      description: Sample\n      parameters:\n        # path\n        - $ref: 'issue-983-domain.yaml/#/components/parameters/inventory-id'\n      responses:\n        '200':\n          description: search results matching criteria\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/InventoryItem'\n        '400':\n          description: bad input parameter\n\n\ncomponents:\n  schemas:\n    InventoryItem:\n      type: string",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-983.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/inventory/{inventory-id}\": get: operation \"getInventoryItem\": parameters: parse parameter \"\": at 1:430: external \"issue-983-domain.yaml/\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/inventory/{inventory-id}\": get: operation \"getInventoryItem\": parameters: parse parameter \"\": at modules/swagger-parser-v3/src/test/resources/issue-983.yaml:20:17: get \"https://raw.githubusercontent.com/swagger-api/swagger-parser/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-983-domain.yaml/\": https: bad HTTP code 400 (Bad Request)"
 }

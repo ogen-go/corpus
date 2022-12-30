@@ -10,14 +10,14 @@
 			"path": "api/doc/Token.yaml",
 			"byteSize": 1552,
 			"content": "openapi: 3.0.0\ninfo:\n  title: 'YetiForce API for Token. Type: Token'\n  description: ''\n  termsOfService: 'https://yetiforce.com/'\n  contact:\n    name: 'Devs API Team'\n    url: 'https://yetiforce.com/'\n    email: devs@yetiforce.com\n  license:\n    name: 'YetiForce Public License'\n    url: 'https://yetiforce.com/en/yetiforce/license'\n  version: '0.1'\nservers:\n  -\n    url: 'https://gitdeveloper.yetiforce.com'\n    description: 'Demo server of the development version'\n  -\n    url: 'https://gitstable.yetiforce.com'\n    description: 'Demo server of the latest stable version'\npaths:\n  '/webservice/Token/{token}':\n    get:\n      tags:\n        - Token\n      summary: 'Token support'\n      description: 'Token support method.'\n      operationId: 7a132548b514bf08d4f59a9510211306\n      parameters:\n        -\n          name: token\n          in: path\n          description: Token\n          required: true\n          schema:\n            type: string\n          example: vrm6bcA3fp2J0RB96AvDCAVsKv1MaMVbGQ1QbFtS5jr0DSXvUvc3ec08fMhCk7kd\n      responses:\n        '200':\n          description: Result\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Token_Get_Report'\n        '404':\n          description: 'No token'\n        '405':\n          description: 'The token does not exist or has expired'\n      security:\n        -\n          ApiKeyAuth: []\n          token: []\ncomponents:\n  schemas:\n    Token_Get_Report:\n      title: Response\n      description: Response\n      type: string\n      example: OK\n",
-			"canonicalURL": "/github.com/YetiForceCompany/YetiForceCRM@1341296d1df79ac9ed1c699c86816840bd3c943d/-/blob/api/doc/Token.yaml",
+			"canonicalURL": "/github.com/YetiForceCompany/YetiForceCRM@a3243b746150d83a88b5f1cf964997a98fa217da/-/blob/api/doc/Token.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/YetiForceCompany/YetiForceCRM/blob/1341296d1df79ac9ed1c699c86816840bd3c943d/api/doc/Token.yaml",
+					"url": "https://github.com/YetiForceCompany/YetiForceCRM/blob/a3243b746150d83a88b5f1cf964997a98fa217da/api/doc/Token.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/webservice/Token/{token}\": get: operation \"7a132548b514bf08d4f59a9510211306\": security: at 1:1030: unknown security schema \"ApiKeyAuth\""
+	"Error": "parse: parse spec: parse path items: path \"/webservice/Token/{token}\": get: operation \"7a132548b514bf08d4f59a9510211306\": security: at api/doc/Token.yaml:51:11: unknown security scheme \"ApiKeyAuth\""
 }

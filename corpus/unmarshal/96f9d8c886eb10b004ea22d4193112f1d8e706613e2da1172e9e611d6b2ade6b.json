@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-patterns"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "apigw-mappingtemplate-lambda/api.yaml",
+			"byteSize": 1185,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"testquery\"\n  version: \"2022-09-27T13:47:09Z\"\nservers:\n  variables:\n    basePath:\n      default: \"/v1\"\npaths:\n  /:\n    x-amazon-apigateway-any-method:\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        httpMethod: \"POST\"\n        uri: \n          Fn::Sub: \"arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIFunction.Arn}/invocations\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: \"#set($inputRoot = $input.path('$'))\\n#if($inputRoot.toString().contains(\\\"\\\n                error\\\"))\\n#set($context.responseOverride.status = 400)\\n#set($inputRoot.statuscode\\\n                \\ = 650)\\n#set($inputRoot.body = \\\"changed\\\")\\n#end\\n$input.json(\\\"\\\n                $\\\")\"\n        passthroughBehavior: \"when_no_templates\"\n        contentHandling: \"CONVERT_TO_TEXT\"\n        type: \"aws\"\ncomponents:\n  schemas:\n    Empty:\n      title: \"Empty Schema\"\n      type: \"object\"\n",
+			"canonicalURL": "/github.com/aws-samples/serverless-patterns@521e4c49ab96f9eb2487326c5251ea2334528338/-/blob/apigw-mappingtemplate-lambda/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-patterns/blob/521e4c49ab96f9eb2487326c5251ea2334528338/apigw-mappingtemplate-lambda/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 6: cannot unmarshal !!map into []ogen.Server"
+}

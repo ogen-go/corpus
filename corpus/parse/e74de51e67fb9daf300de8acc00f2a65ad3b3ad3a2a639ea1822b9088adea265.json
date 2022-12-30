@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vinitshahdeo/topmate-readme-badge"
+		},
+		"file": {
+			"name": "Topmate.yaml",
+			"size": 0,
+			"path": ".postman/schema/Topmate.yaml",
+			"byteSize": 2025,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Topmate README Badges API\n  description: \u003e-\n    Topmate is a platform to connect 1:1 with your audience \u0026 monetise your time\n    better. Basically, one link to do it all ➥\n    [topmate.io/vinitshahdeo](https://topmate.io/vinitshahdeo). Even better, you\n    can now **add a markdown badge** in your GitHub profile `README` to connect\n    with your community! If you haven't claimed your topmate link yet, visit\n    [topmate.io](https://topmate.io/) to join 1000+ creators, experts and\n    mentors creating impact with their time.\n\n\n    [![](https://topmate-readme-badge.herokuapp.com/vinitshahdeo)](https://topmate.io/vinitshahdeo)\n\n\n    \u003e **Here's the GitHub repository:\n    [vinitshahdeo/topmate-readme-badge](https://github.com/vinitshahdeo/topmate-readme-badge/)**\n\n\n    ### API\n\n\n\n    - Base URL: https://topmate-readme-badge.herokuapp.com\n\n    - Route param: `username` - Your Topmate username\n\n    - Query param: `style` - It can be flat, flat-square, plastic, social and\n    for-the-badge\n\n\n    ### Usage\n\n\n    ```markdown\n\n    [![Topmate](https://topmate-readme-badge.herokuapp.com/vinitshahdeo)](https://topmate.io/vinitshahdeo)\n\n    ```\n  version: 1.0.0\nservers:\n  - url: http://{{baseurl}}\npaths:\n  /{username}:\n    get:\n      tags:\n        - default\n      summary: Get For The Badge\n      description: \u003e-\n        ![](https://topmate-readme-badge.herokuapp.com/vinitshahdeo?style=for-the-badge)\n      parameters:\n        - name: style\n          in: query\n          schema:\n            type: string\n          description: \u003e-\n            Badge style. It can be flat, flat-square, plastic, social and\n            for-the-badge\n          example: for-the-badge\n        - name: username\n          in: path\n          schema:\n            type: string\n          required: true\n          description: Enter your Topmate.io username\n          example: vinitshahdeo\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json: {}\n",
+			"canonicalURL": "/github.com/vinitshahdeo/topmate-readme-badge@019a39dc7bbd2f32da62babd4aa21b2e35cfdea4/-/blob/.postman/schema/Topmate.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vinitshahdeo/topmate-readme-badge/blob/019a39dc7bbd2f32da62babd4aa21b2e35cfdea4/.postman/schema/Topmate.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at .postman/schema/Topmate.yaml:43:10: invalid path: http://{{baseurl}}"
+}

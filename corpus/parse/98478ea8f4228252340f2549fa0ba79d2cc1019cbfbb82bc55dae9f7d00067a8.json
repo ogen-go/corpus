@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/trajano/spring-cloud-demo"
+		},
+		"file": {
+			"name": "spring-cloud-docker-swarm.yaml",
+			"size": 0,
+			"path": "src/openapi/spring-cloud-docker-swarm.yaml",
+			"byteSize": 757,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Spring Cloud Docker Swarm\n  version: 3.0.0\n  description: |\n    An implementation of Spring Cloud that utilizes Docker Swarm for service discovery and provides OAuth-like\n    functionality for controlling access to the system.\n    \n    This is using the \"SimpleIdentityProvider\" which is used for demo and testing purposes.\n  license:\n    name: EPL-2.0\n    url: https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt\nservers:\n  - description: local direct\n    url: http://localhost:28082\n    variables: {}\npaths:\n  /auth:\n    $ref: \"./simple-auth.yaml#/paths/~1auth\"\n  /refresh:\n    $ref: \"./auth.yaml#/paths/~1refresh\"\n  /logout:\n    $ref: \"./auth.yaml#/paths/~1logout\"\n  /whoami:\n    $ref: \"./whoami.yaml#/paths/~1whoami\"\n",
+			"canonicalURL": "/github.com/trajano/spring-cloud-demo@fd7e17a13308c7d35e177bf0b24baee214b18df4/-/blob/src/openapi/spring-cloud-docker-swarm.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/trajano/spring-cloud-demo/blob/fd7e17a13308c7d35e177bf0b24baee214b18df4/src/openapi/spring-cloud-docker-swarm.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/whoami\": get: operation \"whoami\": responses: 401.1: at https://raw.githubusercontent.com/trajano/spring-cloud-demo/fd7e17a13308c7d35e177bf0b24baee214b18df4/src/openapi/whoami.yaml:85:17: can't find value for \"components/responses/missing-token\""
+}

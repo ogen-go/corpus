@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/PaystackOSS/openapi"
+		},
+		"file": {
+			"name": "marketplace.yaml",
+			"size": 0,
+			"path": "use_cases/marketplace.yaml",
+			"byteSize": 2563,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Create an online marketplace\n  description: \u003e-\n    The OpenAPI specification for creating a marketplace application using the [Paystack API](https://paystack.com/docs/api/).\n    \n    ### Prerequisites\n\n    1. Sign up on [Paystack](https://paystack.com/signup) to get your secret API key\n\n    2. Set your API key as an environment variable on [Postman](https://learning.postman.com/docs/sending-requests/variables/)\n\n    \n    The [Split API](https://paystack.com/docs/payments/split-payments/) is useful in marketplace apps where the transactions are divided between the platform and the vendor.\n    That way, the platform keeps a portion of each transaction.\n  version: 1.0.0\nservers:\n  - url: https://api.paystack.co\n    description: Base API endpoint\npaths:\n  /subaccount:\n    post:\n      $ref: '../main/resources/subaccount/create.yaml'\n  /split:\n    post:\n      $ref: '../main/resources/split/create.yaml'\n  /transaction/initialize:\n    $ref: '../main/resources/transaction/initialize.yaml'\n  /refund:\n    post:\n      $ref: '../main/resources/refund/create.yaml'\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n  schemas:\n    Customer:\n      $ref: '../main/schemas/customer/Customer.yaml'\n    Error:\n      type: object\n      properties:\n        status:\n          type:  boolean\n        message:\n          type: string\n    Response:\n      type: object\n      properties:\n        status:\n          type:  boolean\n        message:\n          type: string\n        data:\n          type: object\n  responses:\n    Ok:\n      description: Successful operation\n      content:\n        application/json:\n          schema:\n            $ref: '../main/responses/response.yaml'\n    Created:\n      description: Resource created\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Response'\n    NotFound:\n      description: Entity not found\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n          example:       \n            status: false\n            message: Entity not found\n    Unauthorized:\n      description: Unauthorized operation\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\n          example:\n            status: false\n            message: Invalid key\n    GeneralError:\n      description: General Error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/Error'\nsecurity:\n  - bearerAuth: []",
+			"canonicalURL": "/github.com/PaystackOSS/openapi@e65c07ce33d6900becd5f8dc3b935e7536ce486f/-/blob/use_cases/marketplace.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/PaystackOSS/openapi/blob/e65c07ce33d6900becd5f8dc3b935e7536ce486f/use_cases/marketplace.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/refund\": post: at use_cases/marketplace.yaml:31:7: responses: no responses"
+}

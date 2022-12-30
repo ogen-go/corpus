@@ -10,14 +10,14 @@
 			"path": "modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml",
 			"byteSize": 1490,
 			"content": "openapi: 3.0.1\npaths:\n  /security:\n    get:\n      description: description\n      operationId: Operation Id\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*': {}\n      security:\n      - security_key:\n        - write:pets\n        - read:pets\n      - myOauth2Security:\n        - write:pets\n    put:\n      description: description 3\n      operationId: Operation Id 3\n      requestBody:\n        content:\n          '*/*':\n            schema:\n              type: string\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*': {}\n      security:\n      - security_key:\n        - write:pets\n        - read:pets\n      - myOauth2Security:\n        - write:pets\n      - security_key3:\n        - write:pets\n        - read:pets\n    patch:\n      description: description 2\n      operationId: Operation Id 2\n      responses:\n        default:\n          description: default response\n          content:\n            '*/*': {}\n      security:\n      - security_key:\n        - write:pets\n        - read:pets\n      - myOauth2Security:\n        - write:pets\n      - security_key2:\n        - write:pets\n        - read:pets\ncomponents:\n  securitySchemes:\n    myOauth2Security:\n      type: oauth2\n      description: myOauthSecurity Description\n      in: header\n      flows:\n        implicit:\n          authorizationUrl: http://x.com\n          scopes:\n            write:pets: modify pets in your account\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-core@55471d09991df95dedfded904888a7ba831d426c/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-core@1cfb832d2a92a92a744db84b6889a06b59ea117d/-/blob/modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-core/blob/55471d09991df95dedfded904888a7ba831d426c/modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml",
+					"url": "https://github.com/swagger-api/swagger-core/blob/1cfb832d2a92a92a744db84b6889a06b59ea117d/modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/security\": get: operation \"Operation Id\": security: at 1:440: unknown security schema \"security_key\""
+	"Error": "parse: parse spec: parse path items: path \"/security\": get: operation \"Operation Id\": security: at modules/swagger-jaxrs2/src/test/resources/petstore/SecurityResource.yaml:13:9: unknown security scheme \"security_key\""
 }

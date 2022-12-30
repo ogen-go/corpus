@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Redocly/redocly-cli"
+		},
+		"file": {
+			"name": "test.yaml",
+			"size": 0,
+			"path": "__tests__/bundle/bundle-anchor/test.yaml",
+			"byteSize": 638,
+			"content": "openapi: 3.1.0\npaths:\n  /test-api:\n    get:\n      responses:\n        '200':\n          description: success\n          content:\n            application/json:\n              schema:\n                $defs:\n                  main_data:\n                    $anchor: main_data\n                    type: object\n                    properties: \n                      foo:\n                        type: string\n                type: object\n                oneOf:\n                - properties:\n                    wrapper:\n                      $ref: '#main_data'\n                - $ref: '#main_data'\n              example: \n                foo: TEST\n",
+			"canonicalURL": "/github.com/Redocly/redocly-cli@9f3d618484a27e1d85ba6097eb4c4130c486ad85/-/blob/__tests__/bundle/bundle-anchor/test.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Redocly/redocly-cli/blob/9f3d618484a27e1d85ba6097eb4c4130c486ad85/__tests__/bundle/bundle-anchor/test.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/test-api\": get: responses: 200: content: application/json: schema: parse schema: oneOf: property \"wrapper\": at __tests__/bundle/bundle-anchor/test.yaml:22:29: $ref: resolve \"#main_data\": resolve: invalid pointer \"main_data\": pointer must start with '/'"
+}

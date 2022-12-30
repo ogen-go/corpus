@@ -10,14 +10,14 @@
 			"path": "docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 			"byteSize": 869,
 			"content": "openapi: 3.0.3\ninfo:\n  title: Entities\n  version: '1.0'\npaths:\n  /:\n    post:\n      operationId: postRoot\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Clause'\n        required: true\n      responses:\n        '200':\n          description: ''\n        '400':\n          description: 'Invalid value for: body'\n          content:\n            text/plain:\n              schema:\n                type: string\ncomponents:\n  schemas:\n    Clause:\n      oneOf:\n        - $ref: '#/components/schemas/Expression'\n        - $ref: '#/components/schemas/Not'\n    Expression:\n      required:\n        - v\n      type: object\n      properties:\n        v:\n          type: string\n    Not:\n      required:\n        - not\n      type: object\n      properties:\n        not:\n          $ref: '#/components/schemas/Clause'",
-			"canonicalURL": "/github.com/softwaremill/tapir@2a81d93512924b990d5e085362162ad1b4a24481/-/blob/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
+			"canonicalURL": "/github.com/softwaremill/tapir@cfab7aeda09154ab62a07d957beab9be4a1945f6/-/blob/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/softwaremill/tapir/blob/2a81d93512924b990d5e085362162ad1b4a24481/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
+					"url": "https://github.com/softwaremill/tapir/blob/cfab7aeda09154ab62a07d957beab9be4a1945f6/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/\": post: requestBody: contents: media: \"application/json\": generate schema: save schema types: #/components/schemas/Not: wrap field \"Not\" with generic type: infinite recursion: Not.Not is required"
+	"Error": "buildIR: make ir: operations: path \"/\": post: requestBody: contents: media: \"application/json\": generate schema: save schema types: https://raw.githubusercontent.com/softwaremill/tapir/cfab7aeda09154ab62a07d957beab9be4a1945f6/docs/openapi-docs/src/test/resources/coproduct/expected_recursive_coproducts.yml#/components/schemas/Not: wrap field \"Not\" with generic type: infinite recursion: Not.Not is required"
 }

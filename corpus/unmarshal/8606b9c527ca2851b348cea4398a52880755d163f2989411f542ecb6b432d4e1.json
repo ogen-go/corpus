@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/serverless-patterns"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "step-function-sync-rest-api/api.yaml",
+			"byteSize": 1275,
+			"content": "openapi: \"3.0.1\"\ninfo:\n  title: \"step-function-integration\"\n  version: \"2022-06-20T05:39:09Z\"\nservers:\n  variables:\n    basePath:\n      default: \"/dev\"\npaths:\n  /:\n    post:\n      responses:\n        \"200\":\n          description: \"200 response\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Empty\"\n      x-amazon-apigateway-integration:\n        type: \"aws\"\n        credentials: \n          Fn::Sub: \"${RestApiRole.Arn}\"\n        httpMethod: \"POST\"\n        uri: \n          \"arn:aws:apigateway:${AWS::Region}:states:action/StartSyncExecution\"\n        responses:\n          default:\n            statusCode: \"200\"\n            responseTemplates:\n              application/json: \"#set ($parsedPayload = $util.parseJson($input.json('$.output')))\\n\\\n                $parsedPayload\"\n        requestTemplates:\n          application/json: \"#set($data = $util.escapeJavaScript($input.json('$')))\\n\\\n            \\    {\\n        \\\"input\\\": \\\"$data\\\",\\n        \\\"stateMachineArn\\\": \\\"\\\n            arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:StateMachineExpressSync\\\"\\n    }\"\n        passthroughBehavior: \"when_no_templates\"\ncomponents:\n  schemas:\n    Empty:\n      title: \"Empty Schema\"\n      type: \"object\"\n",
+			"canonicalURL": "/github.com/aws-samples/serverless-patterns@521e4c49ab96f9eb2487326c5251ea2334528338/-/blob/step-function-sync-rest-api/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/serverless-patterns/blob/521e4c49ab96f9eb2487326c5251ea2334528338/step-function-sync-rest-api/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 6: cannot unmarshal !!map into []ogen.Server"
+}

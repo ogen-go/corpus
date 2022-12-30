@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/deepmap/oapi-codegen"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "internal/test/any_of/param/spec.yaml",
+			"byteSize": 848,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: AnyOf parameter\n  description: Checks parameter serialize has AnyOf\npaths:\n  /test:\n    get:\n      parameters:\n      - name: test\n        in: query\n        schema:\n          $ref: '#/components/schemas/test'\n      - name: test2\n        in: query\n        schema:\n          type: array\n          items:\n            $ref: '#/components/schemas/test2'\ncomponents:\n  schemas:\n    test:\n      anyOf:\n        - type: object\n          required:\n            - item1\n            - item2\n          properties:\n            item1:\n              type: string\n            item2:\n              type: string\n        - type: object\n          properties:\n            item2:\n              type: string\n            item3:\n              type: string\n    test2:\n      oneOf:\n        - type: integer\n        - type: string\n",
+			"canonicalURL": "/github.com/deepmap/oapi-codegen@ab90f1927bc5ec3e29af216d4298fbb4780ae36d/-/blob/internal/test/any_of/param/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/deepmap/oapi-codegen/blob/ab90f1927bc5ec3e29af216d4298fbb4780ae36d/internal/test/any_of/param/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/test\": get: at internal/test/any_of/param/spec.yaml:9:7: responses: no responses"
+}

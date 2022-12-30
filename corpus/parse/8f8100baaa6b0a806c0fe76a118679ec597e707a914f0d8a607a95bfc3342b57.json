@@ -10,14 +10,14 @@
 			"path": "MeatProduct/swagger.yaml",
 			"byteSize": 1450,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    MeatProduct: \n      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml#/MeatProduct\"\ninfo:\n  description:  |\n    Object modelling a meat product for a livestock farm.\n  title: MeatProduct\n  version: \"0.0.1\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - MeatProduct\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.Agrifood@a334769f6e0a1c6bbea3a331853ad1087b89b8d0/-/blob/MeatProduct/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Agrifood@0943d41ef9527679047b2a63d8b70e4e0cf24027/-/blob/MeatProduct/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.Agrifood/blob/a334769f6e0a1c6bbea3a331853ad1087b89b8d0/MeatProduct/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.Agrifood/blob/0943d41ef9527679047b2a63d8b70e4e0cf24027/MeatProduct/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"MeatProduct\": parse schema: at 1:49: external \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"MeatProduct\": resolve \"#/components/schemas/MeatProduct\": at MeatProduct/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml#/MeatProduct\": get \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

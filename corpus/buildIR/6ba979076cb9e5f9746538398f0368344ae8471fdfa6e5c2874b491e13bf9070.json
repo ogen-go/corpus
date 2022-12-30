@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getyourguide/partner-api-spec"
+		},
+		"file": {
+			"name": "carts.yaml",
+			"size": 0,
+			"path": "spec/paths/carts.yaml",
+			"byteSize": 2678,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Paths for carts\n  version: 1.0.0\npaths:\n  /{version}/carts:\n    post:\n      operationId: CartsConfirm\n      summary: Confirm a shopping cart.\n      tags:\n        - Carts\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"../components/schema/carts.yaml#/components/schemas/CartsConfirmRequest\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    properties:\n                      shopping_cart:\n                        oneOf:\n                          - $ref: \"../components/schema/carts.yaml#/components/schemas/CartsConfirmResponseConfirmed\"\n                          - $ref: \"../components/schema/carts.yaml#/components/schemas/CartsConfirmResponseInPayment\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n\n  /{version}/carts/{shopping_cart_hash}:\n    get:\n      operationId: CartsGetByHash\n      summary: Get information about a shopping cart.\n      tags:\n        - Carts\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/path.yaml#/components/parameters/shoppingCartHash\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    properties:\n                      shopping_cart:\n                        $ref: \"../components/schema/carts.yaml#/components/schemas/CartsConfirmResponseConfirmed\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n",
+			"canonicalURL": "/github.com/getyourguide/partner-api-spec@4860aa395f0e057d6fa4996e554152da64e44fda/-/blob/spec/paths/carts.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getyourguide/partner-api-spec/blob/4860aa395f0e057d6fa4996e554152da64e44fda/spec/paths/carts.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reduce default: too complicated to reduce default error"
+}

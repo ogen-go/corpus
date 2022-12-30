@@ -10,14 +10,14 @@
 			"path": "rt-raw-image.yml",
 			"byteSize": 648,
 			"content": "openapi: 3.0.3\ncomponents:\n  schemas:\n\n    DocumentImageResult:\n      title: \"Document Image\"\n      allOf:\n        - type: object\n          description: \"Contains cropped and rotated with perspective compensation image of document.\n            Single input image can contain multiple document side/pages, which will be returned as separated results.\n            Most of coordinates in other types defined on that image\"\n          required:\n            - RawImageContainer\n          properties:\n            RawImageContainer:\n              $ref: \"./common.yml#/components/schemas/ImageData\"\n        - $ref: './rt.yml#/components/schemas/ResultItem'\n",
-			"canonicalURL": "/github.com/regulaforensics/DocumentReader-web-openapi@daaa50378df68dd1fd2ad8c0441ffc9738e3ede5/-/blob/rt-raw-image.yml",
+			"canonicalURL": "/github.com/regulaforensics/DocumentReader-web-openapi@ac122a864e149b0e1272fc15954ea856a3057e59/-/blob/rt-raw-image.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/regulaforensics/DocumentReader-web-openapi/blob/daaa50378df68dd1fd2ad8c0441ffc9738e3ede5/rt-raw-image.yml",
+					"url": "https://github.com/regulaforensics/DocumentReader-web-openapi/blob/ac122a864e149b0e1272fc15954ea856a3057e59/rt-raw-image.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"DocumentImageResult\": parse schema: parse schema: property \"RawImageContainer\": parse schema: at 1:359: external \"./common.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"DocumentImageResult\": resolve \"#/components/schemas/DocumentImageResult\": allOf: $ref: resolve \"./rt.yml#/components/schemas/ResultItem\": parse discriminator: at https://raw.githubusercontent.com/regulaforensics/DocumentReader-web-openapi/ac122a864e149b0e1272fc15954ea856a3057e59/rt.yml:107:15: resolve mapping: resolve \"AuthenticityResult\": get \"https://raw.githubusercontent.com/regulaforensics/DocumentReader-web-openapi/ac122a864e149b0e1272fc15954ea856a3057e59/AuthenticityResult\": https: bad HTTP code 404 (Not Found)"
 }

@@ -10,14 +10,14 @@
 			"path": "addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
 			"byteSize": 893,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Market Data Exporter API\npaths:\n  /v4/endpoint:\n    post:\n      requestBody:\n        content:\n          'application/json':\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/TypeQuery'\n        required: true\n      responses:\n        '400':\n          description: The request was ill-formed\n\ncomponents:\n  schemas:\n    TypeQuery:\n      type: object\n      properties:\n        type:\n          type: mytype\n        tags:\n          type: array\n          items: {}\n        includes:\n          type: array\n        metadata:\n          type: object\n        extra:\n          type: object\n          properties: {}\n        filtered_keys:\n          type: array\n          items:\n            $ref: '#/components/schemas/NaturalKey'\n    NaturalKey:\n      type: object\n      additionalProperties:\n        type: string\n\n",
-			"canonicalURL": "/github.com/zaproxy/zap-extensions@6345b6935f7d9a4de3a992db4c9d15221ecf67a1/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
+			"canonicalURL": "/github.com/zaproxy/zap-extensions@3243e5fd4a5e4016f77bf1958197db654825804c/-/blob/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/zaproxy/zap-extensions/blob/6345b6935f7d9a4de3a992db4c9d15221ecf67a1/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
+					"url": "https://github.com/zaproxy/zap-extensions/blob/3243e5fd4a5e4016f77bf1958197db654825804c/addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"TypeQuery\": parse schema: property \"type\": parse schema: at 1:359: unexpected schema type: \"mytype\""
+	"Error": "parse: parse spec: parse components: schemas: \"TypeQuery\": resolve \"#/components/schemas/TypeQuery\": property \"type\": at addOns/openapi/src/test/resources/org/zaproxy/zap/extension/openapi/v3/Schema_invalid_property_type.yaml:25:17: type: unexpected schema type: \"mytype\""
 }

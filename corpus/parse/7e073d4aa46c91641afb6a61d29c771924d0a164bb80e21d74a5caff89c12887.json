@@ -1,0 +1,18 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/tdp_core"
+		},
+		"file": {
+			"name": "proxy.yml",
+			"size": 0,
+			"path": "tdp_core/swagger/proxy.yml",
+			"byteSize": 780,
+			"content": "openapi: 3.0.0\ntags:\n  - name: proxy\n    description: proxy api\npaths:\n  '/proxy/{site}':\n    parameters:\n      - name: site\n        in: path\n        required: true\n        description: the site key as defined in the targid_proxy extension point\n        schema:\n          type: string\n    get:\n      x-swagger-router-controller: tdp_core\n      operationId: proxy.get_details\n      description: proxy to another get another website\n      tags:\n        - proxy\n      responses:\n        '200':\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                title: the proxied website\n        '403':\n          $ref: '#/components/responses/notAllowed'\n        '404':\n          $ref: '#/components/responses/notFound'\n",
+			"canonicalURL": "/npm/tdp_core@d9adfaf8612a370880cc9b397a772c18740b2608/-/blob/tdp_core/swagger/proxy.yml",
+			"externalURLs": []
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/proxy/{site}\": get: operation \"proxy.get_details\": responses: 404: at tdp_core/swagger/proxy.yml:30:17: can't find value for \"components/responses/notFound\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/auth/jwt/oauth0/api.yaml",
+			"byteSize": 1089,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: auth-jwt-oauth0\n  namespace: default\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  spec: |\n    openapi: 3.1.0\n    info:\n      title: \"auth-jwt-oauth0\"\n      description: \"auth-jwt-oauth0\"\n      version: \"0.1.0\"\n    schemes:\n    - http\n    - https\n    x-kusk:\n      auth:\n        jwt:\n          providers:\n            - name: \"kusk-gateway-jwt\"\n              issuer: \"https://kubeshop-kusk-gateway-oauth2.eu.auth0.com/\"\n              audiences:\n                - \"https://kubeshop-kusk-gateway-oauth2.eu.auth0.com/api/v2/\"\n              jwks: \"https://kubeshop-kusk-gateway-oauth2.eu.auth0.com/.well-known/jwks.json\"\n      upstream:\n        service:\n          name: auth-jwt-oauth0-go-httpbin\n          namespace: default\n          port: 80\n    paths:\n      \"/uuid\":\n        get:\n          description: Returns UUID4.\n          operationId: \"/uuid\"\n          responses: {}\n      \"/\":\n        get:\n          description: Returns GET data.\n          operationId: \"/get\"\n          responses: {}\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/examples/auth/jwt/oauth0/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/examples/auth/jwt/oauth0/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at examples/auth/jwt/oauth0/api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

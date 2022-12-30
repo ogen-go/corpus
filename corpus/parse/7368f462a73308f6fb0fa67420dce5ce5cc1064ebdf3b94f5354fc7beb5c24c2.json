@@ -10,14 +10,14 @@
 			"path": "security/tests/security-test.yml",
 			"byteSize": 645,
 			"content": "openapi: 3.0.1\ninfo:\n  version: \"1.2.3\"\n  title: \"securitySchemes\"\npaths:\n  /security-ko-missing:\n    put:\n      responses: {}\n    post:\n      security: []\n  /security-ok-put:\n    put:\n      security:\n        -  BasicAuth: []\n      responses: {}\n  /security-ok-get:\n    get:\n      security:\n        - {}\n      responses: {}\n    head:\n      security:\n        - {}\n        - BasicAuth: []\n  /security-ko-get:\n    get:\n      responses: {}\n    head:\n      security: []\n  /security-ko-info:\n    post:\n      security:\n        - {}\n        - BasicAuth: []\n            \n\ncomponents:\n  securitySchemes:\n    BasicAuth:\n      type: http\n      scheme: basic",
-			"canonicalURL": "/github.com/italia/api-oas-checker@980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/-/blob/security/tests/security-test.yml",
+			"canonicalURL": "/github.com/italia/api-oas-checker@a09cc2e71a3a7038746845ab4776eedd1a2c50eb/-/blob/security/tests/security-test.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/italia/api-oas-checker/blob/980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/security/tests/security-test.yml",
+					"url": "https://github.com/italia/api-oas-checker/blob/a09cc2e71a3a7038746845ab4776eedd1a2c50eb/security/tests/security-test.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/security-ko-get\": get: at 1:201: responses: no responses"
+	"Error": "parse: parse spec: parse path items: path \"/security-ko-get\": get: at security/tests/security-test.yml:27:18: responses: no responses"
 }

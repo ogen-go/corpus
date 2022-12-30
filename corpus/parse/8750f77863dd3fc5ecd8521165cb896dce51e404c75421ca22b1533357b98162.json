@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "negative.data.yaml",
+			"size": 0,
+			"path": "test/data/integration/profile15/negative.data.yaml",
+			"byteSize": 984,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\nservers:\n  - url: https://production.test.com/\n    description: production environment\n\ncomponents:\n  schemas:\n    Customer:\n      description: a customer\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          description: a property\n          type: string\n        name:\n          description: a property\n          type: string\n      required: [\"id\"]\n\npaths:\n  /users:\n    get:\n      description: op-description-users\n      operationId: users\n      tags:\n        - All users\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"#/components/schemas/Customers\"\n        \"201\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/integration/profile15/negative.data.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/integration/profile15/negative.data.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users\": get: operation \"users\": responses: 200: content: application/json: schema: parse schema: items: at test/data/integration/profile15/negative.data.yaml:39:25: $ref: resolve \"#/components/schemas/Customers\": resolve: can't find value for \"components/schemas/Customers\""
+}

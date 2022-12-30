@@ -10,14 +10,14 @@
 			"path": "testdata/documents/validation/pass/mega.yaml",
 			"byteSize": 1237,
 			"content": "openapi: 3.1.0\ninfo:\n  summary: My API's summary\n  title: My API\n  version: 1.0.0\n  license:\n    name: Apache 2.0\n    identifier: Apache-2.0\njsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base\npaths:\n  /:\n    get:\n      parameters: []\n  /{pathTest}: {}\nwebhooks:\n  myWebhook:\n    $ref: '#/components/pathItems/myPathItem'\n    description: Overriding description\ncomponents:\n  securitySchemes:\n    mtls:\n      type: mutualTLS\n  pathItems:\n    myPathItem:\n      post:\n        requestBody:\n          required: true\n          content:\n            'application/json':\n              schema:\n                type: object\n                properties:\n                  type:\n                    type: string\n                  int:\n                    type: integer\n                    exclusiveMaximum: 100\n                    exclusiveMinimum: 0\n                  none:\n                    type: 'null'\n                  arr:\n                    type: array\n                    $comment: Array without items keyword\n                  either:\n                    type: ['string','null']\n                discriminator:\n                  propertyName: type\n                  x-extension: true\n                myArbitraryKeyword: true\n",
-			"canonicalURL": "/github.com/chanced/openapi@020541718df62fe866922569af97891386e26e83/-/blob/testdata/documents/validation/pass/mega.yaml",
+			"canonicalURL": "/github.com/chanced/openapi@ae22dfdca5f29482e9b3b0d392dc99d179251654/-/blob/testdata/documents/validation/pass/mega.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/chanced/openapi/blob/020541718df62fe866922569af97891386e26e83/testdata/documents/validation/pass/mega.yaml",
+					"url": "https://github.com/chanced/openapi/blob/ae22dfdca5f29482e9b3b0d392dc99d179251654/testdata/documents/validation/pass/mega.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!seq into string"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 37: cannot unmarshal !!int `100` into bool; yaml: line 38: cannot unmarshal !!int `0` into bool"
 }

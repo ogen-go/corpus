@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/podhmo/individual-sandbox"
+		},
+		"file": {
+			"name": "more2.0.yaml",
+			"size": 0,
+			"path": "daily/20190218/example_openapi/src/more2.0.yaml",
+			"byteSize": 2799,
+			"content": "# from: https://swagger.io/docs/specification/basic-structure/\n\nopenapi: 3.0.0\ninfo:\n  title: Sample API\n  description: API description in Markdown.\n  version: 1.0.0\nhost: api.example.com\nbasePath: /v1\nschemes:\n  - http\n\nconsumes:\n  - /application/json\nproduces:\n  - /application/json\n\ndefinitions:\n  User:\n    properties:\n      id:\n        type: integer\n      name:\n        type: string\n    required:\n      - id\n      - name\n\nparameters:\n  userId:\n    in: path\n    name: userId\n    requred: true\n    description: The ID of the user to return\n    type: integer\n    format: int64\n    minimum: 1\n\npaths:\n  /users:\n    get:\n      summary: Returns a list of users.\n      description: Optional extended description in Markdown.\n      responses:\n        '200':    # status code\n          description: A JSON array of user names\n          schema:\n            type: array\n            items:\n              type: string\n    post:\n      summary: Craetes a user.\n      parameters:\n        - in: body\n          name: user\n          schema:\n            type: object\n            properties:\n              username:\n                type: string\n      resonses:\n        \"201\":\n          description: Created\n  /users/{userId}:\n    get:\n      summary: Returns a user by ID.\n      parameters:\n        - in: path\n          name: userId\n          requred: true\n          description: The ID of the user to return\n          type: integer\n          format: int64\n          minimum: 1\n      responses:\n        \"200\":\n          description: A user object.\n          schema:\n            type: object\n            properties:\n              id:\n                type: integer\n                format: int64\n                example: 4\n              name:\n                type: string\n                example: Jessica Smith\n        \"400\":\n          description: The specified user ID is invalid (not a number)\n        \"404\":\n          description: A user with the specified ID was not found.\n        default:\n          description: Unexpected error\n  /users2/{userId}:\n    get:\n      summary: Returns a user by ID.\n      parameters:\n        - $ref: \"#/parameters/userId\"\n      responses:\n        \"200\":\n          description: A user object.\n          schema:\n            $ref: \"#/definitions/User\"\n        \"400\":\n          description: The specified user ID is invalid (not a number)\n        \"404\":\n          description: A user with the specified ID was not found.\n        default:\n          description: Unexpected error\n  /users2:\n    post:\n      summary: Craetes a user.\n      parameters:\n        - in: body\n          name: user\n          schema:\n            $ref: \"#/definitions/User\"\n      resonses:\n        \"201\":\n          description: Created\n\nsecurityDefinitions:\n  BasicAuth:\n    type: basic\n\nsecurity:\n  - BasicAuth: []\n",
+			"canonicalURL": "/github.com/podhmo/individual-sandbox@f1a369910afdf16e198a4689bc09c48391141665/-/blob/daily/20190218/example_openapi/src/more2.0.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/podhmo/individual-sandbox/blob/f1a369910afdf16e198a4689bc09c48391141665/daily/20190218/example_openapi/src/more2.0.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users\": get: security: at daily/20190218/example_openapi/src/more2.0.yaml:127:5: unknown security scheme \"BasicAuth\""
+}

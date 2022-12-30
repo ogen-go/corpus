@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_5381.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/issue_5381.yaml",
+			"byteSize": 3300,
+			"content": "openapi: 3.0.1\ninfo:\n  title: ByRefOrValue\n  description: \u003e\n    This tests for a oneOf interface representation\n  version: 0.0.1\nservers:\n  - url: \"http://localhost:8080\"\ntags:\n  - name: Foo\npaths:\n  /foo:\n    get:\n      tags:\n        - Foo\n      summary: GET all Foos\n      operationId: getAllFoos\n      responses:\n        '200':\n          $ref: '#/components/responses/200FooArray'\n    post:\n      tags:\n        - Foo\n      summary: Create a Foo\n      operationId: createFoo\n      requestBody:\n        $ref: '#/components/requestBodies/Foo'\n      responses:\n        '201':\n          $ref: '#/components/responses/201Foo'\n\ncomponents:\n  schemas:\n    Entity:\n      type: object\n      allOf:\n        - \"$ref\": \"#/components/schemas/Addressable\"\n        - \"$ref\": \"#/components/schemas/Extensible\"\n\n    EntityRef:\n      description: Entity reference schema to be use for all entityRef class.\n      type: object\n      properties:\n        name:\n          type: string\n          description: Name of the related entity.\n        '@referredType':\n          type: string\n          description: The actual type of the target instance when needed for disambiguation.\n      allOf:\n        - $ref: '#/components/schemas/Addressable'\n        - \"$ref\": \"#/components/schemas/Extensible\"\n\n\n    Addressable:\n      type: object\n      properties:\n        href:\n          type: string\n          description: Hyperlink reference\n        id:\n          type: string\n          description: unique identifier\n      description: Base schema for addressable entities\n    Extensible:\n      type: object\n      properties:\n        \"@schemaLocation\":\n          type: string\n          description: A URI to a JSON-Schema file that defines additional attributes\n            and relationships\n        \"@baseType\":\n          type: string\n          description: When sub-classing, this defines the super-class\n        \"@type\":\n          type: string\n          description: When sub-classing, this defines the sub-class Extensible name\n      required:\n        - '@type'\n\n    FooRefOrValue:\n      type: object\n      oneOf:\n        - $ref: \"#/components/schemas/Foo\"\n        - $ref: \"#/components/schemas/FooRef\"\n      discriminator:\n        propertyName: \"@type\"\n        mapping:\n          Foo: \"#/components/schemas/Foo\"\n          FooRef: \"#/components/schemas/FooRef\"\n\n    Foo:\n      type: object\n      properties:\n        fooPropA:\n          type: string\n        fooPropB:\n          type: string\n      allOf:\n        - $ref: '#/components/schemas/Entity'\n\n    FooRef:\n      type: object\n      properties:\n        foorefPropA:\n          type: string\n      allOf:\n        - $ref: '#/components/schemas/EntityRef'\n\n  requestBodies:\n    Foo:\n      description: The Foo to be created\n      content:\n        application/json;charset=utf-8:\n          schema:\n            $ref: '#/components/schemas/Foo'\n  responses:\n    '204':\n      description: Deleted\n      content: { }\n    201Foo:\n      description: Error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/FooRefOrValue'\n    200FooArray:\n      description: Success\n      content:\n        application/json;charset=utf-8:\n          schema:\n            type: array\n            items:\n              $ref: '#/components/schemas/FooRefOrValue'",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a8265b6eec3ca372e28d49de38cf6f4b032a937/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_5381.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a8265b6eec3ca372e28d49de38cf6f4b032a937/modules/openapi-generator/src/test/resources/3_0/issue_5381.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/foo\": get: responses: code 200: contents: media: \"application/json;charset=utf-8\": generate schema: item: oneOf: discriminator: unable to map \"Foo\" to \"https://raw.githubusercontent.com/OpenAPITools/openapi-generator/3a8265b6eec3ca372e28d49de38cf6f4b032a937/modules/openapi-generator/src/test/resources/3_0/issue_5381.yaml#/components/schemas/Foo\""
+}

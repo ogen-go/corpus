@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-cloudformation/cfn-lint"
+		},
+		"file": {
+			"name": "used_transform_removed.yaml",
+			"size": 0,
+			"path": "test/fixtures/templates/good/parameters/used_transform_removed.yaml",
+			"byteSize": 1147,
+			"content": "AWSTemplateFormatVersion: '2010-09-09'\nTransform: 'AWS::Serverless-2016-10-31'\n\nParameters:\n  ECSStack:\n    Type: String\n  AppStack:\n    Type: String\n  CognitoStackName:\n    Type: String\n\nResources:\n  MyAPI:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: dev\n      EndpointConfiguration: EDGE\n      DefinitionBody:\n        openapi: 3.0.1\n        paths:\n          /:\n            get:\n              x-amazon-apigateway-integration:\n                connectionId:\n                  Fn::ImportValue:\n                    !Sub ${ECSStack}-VPCLink\n                uri:\n                  Fn::Sub:\n                    - http://${EndpointUri}/\n                    - EndpointUri: !ImportValue\n                        Fn::Sub: ${AppStack}-PrivateDNSEndpoint\n\n          securitySchemes:\n            cognitoAuth:\n              type: apiKey\n              name: Authorization\n              in: header\n              x-amazon-apigateway-authtype: cognito_user_pools\n              x-amazon-apigateway-authorizer:\n                type: cognito_user_pools\n                providerARNs:\n                  - Fn::ImportValue: !Sub ${CognitoStackName}-Arn\n",
+			"canonicalURL": "/github.com/aws-cloudformation/cfn-lint@1e062e2ed6e9d7fe459ff30f7bbd7f14d36cad9b/-/blob/test/fixtures/templates/good/parameters/used_transform_removed.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-cloudformation/cfn-lint/blob/1e062e2ed6e9d7fe459ff30f7bbd7f14d36cad9b/test/fixtures/templates/good/parameters/used_transform_removed.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at test/fixtures/templates/good/parameters/used_transform_removed.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

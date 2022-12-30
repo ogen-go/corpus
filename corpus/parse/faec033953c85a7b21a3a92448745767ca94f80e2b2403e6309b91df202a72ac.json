@@ -10,14 +10,14 @@
 			"path": "pkg/importer/tests/openapi3/query-body-param.yaml",
 			"byteSize": 793,
 			"content": "openapi: \"3.0\"\nbasePath: /api/v1\nhost: goat.example.com\ninfo:\n  title: Goat CRUD API\n  version: 1.2.3\ncomponents:\n  schemas:\n    Goat:\n      additionalProperties: false\n      properties:\n        name:\n          type: string\n        birthday:\n          type: string\n          format: date\n      type: object\npaths:\n  /goat/create-goat:\n    post:\n      consumes:\n        - application/json\n      description: Creates a goat.\n      produces:\n        - application/json\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Goat'\n      responses:\n        '201':\n          description: ''\n          headers:\n            Location:\n              description: Location of the newly allocated goat.\n      summary: Creates a goat.\n",
-			"canonicalURL": "/github.com/anz-bank/sysl@0e2d95f5864453719c1a172307baddf03507a076/-/blob/pkg/importer/tests/openapi3/query-body-param.yaml",
+			"canonicalURL": "/github.com/anz-bank/sysl@098ecb5416aadf8a0274bf1a77bd65ec8ed49b67/-/blob/pkg/importer/tests/openapi3/query-body-param.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anz-bank/sysl/blob/0e2d95f5864453719c1a172307baddf03507a076/pkg/importer/tests/openapi3/query-body-param.yaml",
+					"url": "https://github.com/anz-bank/sysl/blob/098ecb5416aadf8a0274bf1a77bd65ec8ed49b67/pkg/importer/tests/openapi3/query-body-param.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/goat/create-goat\": post: responses: 201: headers: header \"Location\": at 1:570: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse path items: path \"/goat/create-goat\": post: responses: 201: headers: header \"Location\": at pkg/importer/tests/openapi3/query-body-param.yaml:36:15: parameter MUST contain either a schema property, or a content property"
 }

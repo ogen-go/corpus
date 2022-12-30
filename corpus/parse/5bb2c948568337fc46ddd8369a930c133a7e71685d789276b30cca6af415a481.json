@@ -10,14 +10,14 @@
 			"path": "rules/tests/casing-test.yml",
 			"byteSize": 1141,
 			"content": "openapi: 3.0.1\npaths:\n  /ok-kebab-case/{withParameter}: {}\n  /ok-header:\n    parameters:\n      - name: Pascal-Ok\n        in: header\n    get:\n      responses:\n        default:\n          headers:\n            Another-Pascal-Ok: {}\n  /header:\n    parameters:\n      - name: ko-header\n        in: header\n      - name: KO_REQUEST_HEADER\n        in: header\n    get:\n      responses:\n        \"200\":\n          headers:\n            KO_RESPONSE_HEADER:\n              description: not allowed\n\n          \n  /ok-kebab-case:\n    get:\n      parameters:\n      - name: snake_param\n        in: query\n        schema:\n          type: string\n      - name: camelParam\n        in: query\n        schema:\n          type: string\n  /KO_NON_KEBAB: {}\n  /koNonKebab:\n    get:\n      parameters:\n      - name: KOUPPERPARAM\n        in: query\n        schema:\n          type: string\n      - name: KO_PARAM\n        in: query\n        schema:\n          type: string\ncomponents:\n  schemas:\n    koNonCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    OkCamelSchema:\n      type: string\n      pattern: '[a-z]+'\n    Ko-CamelSchema:\n      type: string\n      pattern: '[a-z]+'\n",
-			"canonicalURL": "/github.com/italia/api-oas-checker@980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/-/blob/rules/tests/casing-test.yml",
+			"canonicalURL": "/github.com/italia/api-oas-checker@a09cc2e71a3a7038746845ab4776eedd1a2c50eb/-/blob/rules/tests/casing-test.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/italia/api-oas-checker/blob/980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/rules/tests/casing-test.yml",
+					"url": "https://github.com/italia/api-oas-checker/blob/a09cc2e71a3a7038746845ab4776eedd1a2c50eb/rules/tests/casing-test.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/header\": parameters: parse parameter \"ko-header\": at 1:356: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse path items: path \"/header\": parameters: parse parameter \"ko-header\": at rules/tests/casing-test.yml:15:9: parameter MUST contain either a schema property, or a content property"
 }

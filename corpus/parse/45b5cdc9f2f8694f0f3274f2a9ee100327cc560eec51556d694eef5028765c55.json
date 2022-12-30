@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/als"
+		},
+		"file": {
+			"name": "runtime-only-expression-request.json",
+			"size": 0,
+			"path": "als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/runtime-expressions/runtime-only-expression-request.json",
+			"byteSize": 2751,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Basic Callbacks\",\n    \"version\": \"0.1\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"this is a test\",\n        \"operationId\": \"test\",\n        \"callbacks\": {\n          \"expressionWithStaticText\": {\n            \"http://notificationServer.com?transactionId={$request.body#/id}\u0026email={$request.body}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"content\":  {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"string\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          },\n          \"expressionWithCurlyBraces\": {\n            \"{$request.body#/callbackUrl}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"content\":  {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"number\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook 2 successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          },\n          \"onlyExpression\": {\n            \"{$request.*}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"content\":  {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"number\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook 2 successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          },\n          \"invalidExpression\": {\n            \"{$request.payload.name}\": {\n              \"post\": {\n                \"requestBody\": {\n                  \"content\":  {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"type\": \"number\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"200\": {\n                    \"description\": \"webhook 2 successfully processed and no retries will be performed\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aml-org/als@289e2f70e78eb8df69226043844fe1e9eee51751/-/blob/als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/runtime-expressions/runtime-only-expression-request.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/als/blob/289e2f70e78eb8df69226043844fe1e9eee51751/als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/runtime-expressions/runtime-only-expression-request.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/test\": get: operation \"test\": at als-suggestions/shared/src/test/resources/test/oas30/by-directory/json/runtime-expressions/runtime-only-expression-request.json:9:14: responses: no responses"
+}

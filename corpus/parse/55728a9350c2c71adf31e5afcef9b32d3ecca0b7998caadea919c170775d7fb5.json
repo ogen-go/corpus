@@ -10,14 +10,14 @@
 			"path": "specs/insights/spec.yml",
 			"byteSize": 836,
 			"content": "openapi: 3.0.2\ninfo:\n  title: Insights API\n  description: API powering the Insights feature of Algolia.\n  version: 1.0.0\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://insights.{region}.algolia.io\n    variables:\n      region:\n        enum:\n          - us\n          - de\n        default: us\n  - url: https://insights.algolia.io\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: events\n    x-displayName: Events\n    description: Events operations.\nx-tagGroups:\n  - name: General\n    tags:\n      - events\npaths:\n  # ######################\n  # ### Custom request ###\n  # ######################\n  /1{path}:\n    $ref: '../common/paths/customRequest.yml'\n\n  /1/events:\n    $ref: 'paths/pushEvents.yml'\n",
-			"canonicalURL": "/github.com/algolia/api-clients-automation@e795e7dc33752cb863cdd9a1f3cbe53d2c870012/-/blob/specs/insights/spec.yml",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@86c6168fbf836c9ef55cb1d0b4e053327ccff590/-/blob/specs/insights/spec.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/algolia/api-clients-automation/blob/e795e7dc33752cb863cdd9a1f3cbe53d2c870012/specs/insights/spec.yml",
+					"url": "https://github.com/algolia/api-clients-automation/blob/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/insights/spec.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/1/events\": at 1:310: external \"paths/pushEvents.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/1/events\": post: operation \"pushEvents\": security: parse security scheme \"appId\": at https://raw.githubusercontent.com/algolia/api-clients-automation/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/insights/paths/pushEvents.yml:9:13: get \"https://raw.githubusercontent.com/algolia/api-clients-automation/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/insights/common/securitySchemes.yml\": https: bad HTTP code 404 (Not Found)"
 }

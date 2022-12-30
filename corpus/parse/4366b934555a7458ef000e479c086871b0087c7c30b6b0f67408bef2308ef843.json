@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/getkin/kin-openapi"
+			"name": "github.com/gotomicro/eapi"
 		},
 		"file": {
 			"name": "issue235.spec0-typo.yml",
 			"size": 0,
-			"path": "openapi3/testdata/issue235.spec0-typo.yml",
+			"path": "spec/testdata/issue235.spec0-typo.yml",
 			"byteSize": 502,
 			"content": "openapi: 3.0.0\ninfo:\n  title: 'OAI Specification in YAML'\n  version: 0.0.1\npaths:\n  /test:\n    get:\n      responses:\n        \"200\":\n          $ref: '#/components/responses/GetTestOK'\ncomponents:\n  responses:\n    GetTestOK:\n      description: OK\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/ObjectA'\n  schemas:\n    ObjectA:\n      type: object\n      properties:\n        object_b:\n          $ref: 'issue235.spec0-typo.yml#/components/schemas/ObjectD'\n",
-			"canonicalURL": "/github.com/getkin/kin-openapi@fa5d9a9b251edabf09f20bebd8aebba923c4da44/-/blob/openapi3/testdata/issue235.spec0-typo.yml",
+			"canonicalURL": "/github.com/gotomicro/eapi@6abd7709e68cf69da7a61db70d5591a445dd143e/-/blob/spec/testdata/issue235.spec0-typo.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/getkin/kin-openapi/blob/fa5d9a9b251edabf09f20bebd8aebba923c4da44/openapi3/testdata/issue235.spec0-typo.yml",
+					"url": "https://github.com/gotomicro/eapi/blob/6abd7709e68cf69da7a61db70d5591a445dd143e/spec/testdata/issue235.spec0-typo.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": parse schema: property \"object_b\": parse schema: at 1:200: external \"issue235.spec0-typo.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"ObjectA\": resolve \"#/components/schemas/ObjectA\": property \"object_b\": at spec/testdata/issue235.spec0-typo.yml:24:17: $ref: resolve \"issue235.spec0-typo.yml#/components/schemas/ObjectD\": resolve: can't find value for \"components/schemas/ObjectD\""
 }

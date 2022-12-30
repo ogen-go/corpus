@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SeUniVr/RestTestGen"
+		},
+		"file": {
+			"name": "recursive_ref.json",
+			"size": 0,
+			"path": "src/test/resources/specifications/recursive_ref.json",
+			"byteSize": 738,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\"\n    }\n  ],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"getRoot\"\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyRecursiveSchema\": {\n        \"properties\": {\n          \"recursive\": {\n            \"$ref\": \"#/components/schemas/MyRecursiveSchema\"\n          }\n        }\n      },\n      \"MyRecursiveSchema2\": {\n        \"properties\": {\n          \"recursive\": {\n            \"$ref\": \"#/components/schemas/MyRecursiveSchema3\"\n          }\n        }\n      },\n      \"MyRecursiveSchema3\": {\n        \"properties\": {\n          \"recursive\": {\n            \"$ref\": \"#/components/schemas/MyRecursiveSchema2\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/SeUniVr/RestTestGen@c2182e83cbf652575339456966944312edf50a38/-/blob/src/test/resources/specifications/recursive_ref.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SeUniVr/RestTestGen/blob/c2182e83cbf652575339456966944312edf50a38/src/test/resources/specifications/recursive_ref.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/\": get: operation \"getRoot\": at src/test/resources/specifications/recursive_ref.json:10:14: responses: no responses"
+}

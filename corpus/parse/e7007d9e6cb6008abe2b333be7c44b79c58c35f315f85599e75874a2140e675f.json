@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ZenWave360/json-schema-ref-parser-jvm"
+		},
+		"file": {
+			"name": "openapi-missing.yml",
+			"size": 0,
+			"path": "src/test/resources/openapi/openapi-missing.yml",
+			"byteSize": 374,
+			"content": "openapi: 3.0.0\n\npaths:\n  /product:\n    get:\n      operationId: getProduct\n      responses:\n        200:\n          $ref: 'missing.yaml#/responses/200'\n        201:\n          $ref: 'classpath:/notfound.yml'\n        500:\n          $ref: 'https://github.com/ZenWave360/missing.yaml#/responses/500'\n#        400:\n#          $ref: 'https://domain.not/missing.yaml#/responses/400'\n",
+			"canonicalURL": "/github.com/ZenWave360/json-schema-ref-parser-jvm@9a56d20681d1be2f8a2e949c8548fa138ca721b6/-/blob/src/test/resources/openapi/openapi-missing.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ZenWave360/json-schema-ref-parser-jvm/blob/9a56d20681d1be2f8a2e949c8548fa138ca721b6/src/test/resources/openapi/openapi-missing.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/product\": get: operation \"getProduct\": responses: 200: at src/test/resources/openapi/openapi-missing.yml:9:17: get \"https://raw.githubusercontent.com/ZenWave360/json-schema-ref-parser-jvm/9a56d20681d1be2f8a2e949c8548fa138ca721b6/src/test/resources/openapi/missing.yaml\": https: bad HTTP code 404 (Not Found)"
+}

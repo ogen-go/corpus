@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/last-ent/distributed-go"
+			"name": "github.com/PacktPublishing/Distributed-Computing-with-Go"
 		},
 		"file": {
 			"name": "books.yaml",
 			"size": 0,
-			"path": "chapter5/openapi/books.yaml",
+			"path": "Chapter05/openapi/books.yaml",
 			"byteSize": 2943,
 			"content": "# openapi/books.yaml\n\nopenapi: 3.0.0\nservers:\n  - url: /api\ninfo:\n  title: Books API\n  version: '1.0'\n  description: \u003e\n    API responsible for adding, reading and updating list of books.\npaths:\n  /books:\n    get:\n      description: |\n        Get list of all books\n      responses:\n        '200':\n          description: |\n            Request successfully returned list of all books\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/response'\n  /books/{id}:\n    get:\n      description: |\n        Get a particular books with ID `id`\n      responses:\n        '200':\n          description: |\n            Request was successfully completed.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/document'\n      parameters:\n        - in: query\n          name: id\n          schema:\n            type: integer\n          description: Book ID of the book to get.\n    post:\n      description: |\n        Get a particular books with ID `id`\n      responses:\n        '200':\n          description: |\n            Request was successfully completed.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/payload'\n      requestBody:\n        content:\n          application/json:\n            schema:\n                $ref: '#/components/schemas/document'\n    put:\n      description: |\n        Update the data of a Book with ID `id` with the payload sent in the request body.\n      responses:\n        '200':\n          description: |\n            Request was successfully completed.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/payload'\n      requestBody:\n        content:\n          application/json:\n            schema:\n                $ref: '#/components/schemas/document'\n    delete:\n      description: |\n        Get a particular books with ID `id`\n      responses:\n        '200':\n          description: |\n            Request was successfully completed.\n      parameters:\n        - in: query\n          name: id\n          schema:\n            type: integer\n          description: Book ID of the book to get.\ncomponents:\n  schemas:\n    response:\n      type: array\n      items:\n        $ref: '#/components/schemas/document'\n      \n    document:\n      type: object\n      required:\n        - title\n        - link\n      properties:\n        id:\n          type: integer\n          description: Book ID\n        title:\n          type: string\n          description: Title of the book\n        link: \n          type: string\n          description: Link to the book\n     \n    payload:\n      type: object\n      required:\n        - title\n        - link\n      properties:\n        title:\n          type: string\n          description: Title of the book\n        link: \n          type: string\n          description: Link to the book\n",
-			"canonicalURL": "/github.com/last-ent/distributed-go@702bfabc763bb0b3d7e472c4211b00b8ae6828cb/-/blob/chapter5/openapi/books.yaml",
+			"canonicalURL": "/github.com/PacktPublishing/Distributed-Computing-with-Go@288e7e20631a0b05c6fca6df80125ec93dbe85b8/-/blob/Chapter05/openapi/books.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/last-ent/distributed-go/blob/702bfabc763bb0b3d7e472c4211b00b8ae6828cb/chapter5/openapi/books.yaml",
+					"url": "https://github.com/PacktPublishing/Distributed-Computing-with-Go/blob/288e7e20631a0b05c6fca6df80125ec93dbe85b8/Chapter05/openapi/books.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/books/{id}\": get: at 1:1193: parse path \"/books/{id}\": path parameter not specified: \"id\""
+	"Error": "parse: parse spec: parse path items: path \"/books/{id}\": get: at Chapter05/openapi/books.yaml:26:7: parse path \"/books/{id}\": path parameter not specified: \"id\""
 }

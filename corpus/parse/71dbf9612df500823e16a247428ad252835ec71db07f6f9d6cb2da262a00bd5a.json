@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-containers/proton-codebuild-provisioning-examples"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "terraform/service-templates/ecs-fargate-load-balanced-service/v1/schema/schema.yaml",
+			"byteSize": 1507,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  service_input_type: \"LoadBalancedFargateServiceInput\"\n  types:\n    LoadBalancedFargateServiceInput:\n      type: object\n      description: \"Input properties for a loadbalanced Fargate service\"\n      properties:\n        port:\n          type: number\n          title: \"Container Port\"\n          description: \"The port the container listens on\"\n          default: 8080\n          minimum: 0\n          maximum: 65535\n        health_check_path:\n          title: Health Check Path\n          description: The health check path\n          type: string\n          default: /health\n        desired_count:\n          type: number\n          title: \"Desired Task Count\"\n          description: \"The default number of Fargate tasks you want running\"\n          default: 1\n          minimum: 1\n        task_size:\n          type: string\n          title: \"Task Size (CPU/Memory)\"\n          description: \"The size of the task you want to run\"\n          enum: [\"x-small\", \"small\", \"medium\", \"large\", \"x-large\"]\n          default: \"x-small\"\n        subnet_type:\n          type: string\n          title: \"Subnet location\"\n          description: \"Which subnet to run tasks in\"\n          enum: [\"public\", \"private\"]\n          default: \"private\"\n        image:\n          type: string\n          title: \"Container Image\"\n          description: \"The container image to deploy\"\n          default: \"public.ecr.aws/aws-containers/proton-demo-image:1e5ca1d\"\n          minLength: 1\n          maxLength: 200\n",
+			"canonicalURL": "/github.com/aws-containers/proton-codebuild-provisioning-examples@9bb16415f517ec89e2b2578a405c21a04a957803/-/blob/terraform/service-templates/ecs-fargate-load-balanced-service/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-containers/proton-codebuild-provisioning-examples/blob/9bb16415f517ec89e2b2578a405c21a04a957803/terraform/service-templates/ecs-fargate-load-balanced-service/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at terraform/service-templates/ecs-fargate-load-balanced-service/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

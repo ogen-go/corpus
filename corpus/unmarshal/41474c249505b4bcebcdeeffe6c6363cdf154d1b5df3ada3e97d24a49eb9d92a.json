@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/canonical/acceptable"
+		},
+		"file": {
+			"name": "oas_testcase_expected.yaml",
+			"size": 0,
+			"path": "examples/oas_testcase_expected.yaml",
+			"byteSize": 1789,
+			"content": "components:\n  schemas:\n    Default:\n      properties:\n        code:\n          format: int32\n          type: integer\n      type: object\ninfo:\n  contact:\n    email: example@example.example\n    name: ''\n  description: OpenApiSample\n  title: OpenApiSample\n  version: 0.0.5\nopenapi: 3.1.0\npaths:\n  /foo/{p}/{q}:\n    get:\n      description: Documentation goes here.\n      operationId: foo\n      parameters:\n      - in: path\n        name: p\n        required: true\n        schema:\n          type: int\n      - in: path\n        name: q\n        required: true\n        schema:\n          type: str\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref:\n                properties:\n                  baz:\n                    description: Bar the door.\n                    introduced_at: 4\n                    properties:\n                      bar:\n                        description: asdf\n                        introduced_at: 5\n                        type: string\n                    type: object\n                  foo:\n                    description: This is a foo.\n                    type: string\n                required:\n                - foo\n                - baz\n                type: object\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref:\n                  properties:\n                    bar:\n                      description: bar bar\n                      introduced_at: 5\n                      type: string\n                    foo_result:\n                      description: Result of a foo.\n                      type: string\n                  type: object\n          description: OK\n      tags:\n      - none\nservers:\n- url: http://localhost\ntags:\n- name: none\n",
+			"canonicalURL": "/github.com/canonical/acceptable@5a966ab5d2bff1fd84322290e8b7ccc29667fc35/-/blob/examples/oas_testcase_expected.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/canonical/acceptable/blob/5a966ab5d2bff1fd84322290e8b7ccc29667fc35/examples/oas_testcase_expected.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 38: cannot unmarshal !!map into string; yaml: line 61: cannot unmarshal !!map into string"
+}

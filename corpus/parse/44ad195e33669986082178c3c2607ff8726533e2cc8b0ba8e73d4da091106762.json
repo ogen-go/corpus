@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/aws-proton-terraform-sample-templates"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "service-templates/worker-fargate-svc/v1/schema/schema.yaml",
+			"byteSize": 1988,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  service_input_type: \"WorkerFargateServiceInput\"\n  pipeline_input_type: \"PipelineInputs\"\n\n  types:\n    WorkerFargateServiceInput:\n      type: object\n      description: \"Input properties for a Worker Fargate service\"\n      properties:\n        desired_count:\n          type: number\n          description: \"The default number of Fargate tasks you want running\"\n          default: 1\n          minimum: 1\n        task_size:\n          type: string\n          description: \"The size of the task you want to run\"\n          enum: [\"x-small\", \"small\", \"medium\", \"large\", \"x-large\"]\n          default: \"x-small\"\n        subnet_type:\n          type: string\n          description: \"Subnet type for your service\"\n          enum: [\"public\", \"private\"]\n          default: \"public\"\n        image:\n          type: string\n          description: \"The name/url of the container image\"\n          default: \"public.ecr.aws/z9d2n7e1/nginx:1.21.0\"\n          minLength: 1\n          maxLength: 200\n\n    PipelineInputs:\n      type: object\n      description: \"Pipeline input properties\"\n      properties:\n        service_dir:\n          type: string\n          description: \"Source directory for the service\"\n          default: \"ecs-worker\"\n          minLength: 1\n          maxLength: 100\n        dockerfile:\n          type: string\n          description: \"The location of the Dockerfile to build\"\n          default: \"Dockerfile\"\n          minLength: 1\n          maxLength: 100\n        unit_test_command:\n          type: string\n          description: \"The command to run to unit test the application code\"\n          default: \"echo 'add your unit test command here'\"\n          minLength: 1\n          maxLength: 200\n        environment_account_ids:\n          type: string\n          pattern: '^$|^\\d{12}(,\\d{12})*$'\n          description: \"The environment account ids for service instances using cross account environment, separated by ,\"\n          default: \"\"\n          maxLength: 200",
+			"canonicalURL": "/github.com/aws-samples/aws-proton-terraform-sample-templates@77258105109f55a222313e829d1bd4e7fc5df781/-/blob/service-templates/worker-fargate-svc/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/aws-proton-terraform-sample-templates/blob/77258105109f55a222313e829d1bd4e7fc5df781/service-templates/worker-fargate-svc/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at service-templates/worker-fargate-svc/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

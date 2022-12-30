@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/aws-sam-cli"
+		},
+		"file": {
+			"name": "api_with_security_definition_and_no_components.yaml",
+			"size": 0,
+			"path": "tests/functional/commands/validate/lib/models/api_with_security_definition_and_no_components.yaml",
+			"byteSize": 1180,
+			"content": "%YAML 1.1\n---\nResources:\n  GetHtmlFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: s3://sam-demo-bucket/member_portal.zip\n      Handler: index.handler\n      Runtime: nodejs12.x\n  ExplicitApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: Prod\n      DefinitionBody:\n        info:\n          version: '1.0'\n          title:\n            Ref: AWS::StackName\n        securityDefinitions: # 1 Add security definition\n          CognitoAuthorizer:\n            type: apiKey\n            name: Authorization\n            in: header\n            x-amazon-apigateway-authtype: cognito_user_pools\n            x-amazon-apigateway-authorizer:\n              providerARNs:\n              - \n                  # userPool ARN\n              type: cognito_user_pools\n        paths:\n          /{proxy+}:\n            x-amazon-apigateway-any-method:\n              x-amazon-apigateway-integration:\n                httpMethod: POST\n                type: aws_proxy\n                uri:\n                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetHtmlFunction.Arn}/invocations\n              responses: {}\n        openapi: 3.0.0\n",
+			"canonicalURL": "/github.com/aws/aws-sam-cli@bce85fd41c1b522ac20899ff4f2917db6ed96b93/-/blob/tests/functional/commands/validate/lib/models/api_with_security_definition_and_no_components.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/aws-sam-cli/blob/bce85fd41c1b522ac20899ff4f2917db6ed96b93/tests/functional/commands/validate/lib/models/api_with_security_definition_and_no_components.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/functional/commands/validate/lib/models/api_with_security_definition_and_no_components.yaml:3:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

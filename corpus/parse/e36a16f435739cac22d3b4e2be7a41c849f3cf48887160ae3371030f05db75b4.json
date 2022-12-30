@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/danielgtaylor/restish"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/testdata/extensions/openapi.yaml",
+			"byteSize": 1028,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Test API\npaths:\n  /items/{item-id}:\n    get:\n      operationId: get-item\n      x-cli-name: getItem\n      x-cli-aliases:\n        - get-item\n        - getitem\n        - gi\n      parameters:\n        - name: item-id\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: q\n          x-cli-name: query\n          in: query\n          schema:\n            type: array\n            items:\n              type: string\n        - name: MyHeader\n          in: header\n          example: abc123\n          schema:\n            type: string\n          x-cli-ignore: true\n      responses:\n        \"200\":\n          description: description\n          x-cli-description: CLI-specific description override\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  foo:\n                    type: string\n    delete:\n      operationId: delete-item\n      x-cli-ignore: true\n",
+			"canonicalURL": "/github.com/danielgtaylor/restish@0e19b3c986daaa1fd7f24de2f014939df87e9318/-/blob/openapi/testdata/extensions/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/danielgtaylor/restish/blob/0e19b3c986daaa1fd7f24de2f014939df87e9318/openapi/testdata/extensions/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/items/{item-id}\": delete: operation \"delete-item\": at openapi/testdata/extensions/openapi.yaml:45:7: parse path \"/items/{item-id}\": path parameter not specified: \"item-id\""
+}

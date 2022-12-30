@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "negative1.yaml",
+			"size": 0,
+			"path": "test/data/production/datagraph/negative1.yaml",
+			"byteSize": 1406,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\nservers:\n  - url: https://production.test.com/\n    description: production environment\n\ncomponents:\n  schemas:\n    Customer:\n      description: a customer\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          description: a property\n          type: string\n        name:\n          description: a property\n          type: string\n      required: [\"id\"]\n\npaths:\n  /users/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as is\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"\n  /invoices/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the invoice identifier, as is\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              description: an invoice\n              schema:\n                type: object",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/datagraph/negative1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/datagraph/negative1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users/{id}\": get: at test/data/production/datagraph/negative1.yaml:35:20: duplicate operationId: \"opid\""
+}

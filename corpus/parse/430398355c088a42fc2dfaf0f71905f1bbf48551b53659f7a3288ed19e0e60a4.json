@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/bcgov/sbc-pay"
+		},
+		"file": {
+			"name": "bcol-api-1.0.0.yaml",
+			"size": 0,
+			"path": "docs/docs/api_contract/bcol-api-1.0.0.yaml",
+			"byteSize": 3094,
+			"content": "openapi: 3.0.0\ninfo:\n  title: bcol-api-1.0.0.yaml\n  version: '1.0'\n  description: BCOL API\nservers:\n  - url: 'http://localhost:3000'\npaths:\n  /profiles:\n    post:\n      summary: ''\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: ../../../bcol-api/src/bcol_api/schemas/schemas/profile_response.json\n              examples:\n                example-1:\n                  value:\n                    userId: PB25020\n                    accountNumber: '180670'\n                    authCode: M\n                    authCodeDesc: Master\n                    accountType: B\n                    accountTypeDesc: Billable\n                    gstStatus: ''\n                    gstStatusDesc: Must-Pay\n                    pstStatus: ''\n                    pstStatusDesc: Must-Pay\n                    userName: 'BRIDGER, JULIE'\n                    orgName: BC ONLINE TECHNICAL TEAM DEVL\n                    orgType: LAW\n                    phone: (250)953-8271 EX1999\n                    fax: (250)953-8212\n                    address:\n                      line1: '#400A - 4000 SEYMOUR PLACE'\n                      line2: PENTHOUSE\n                      city: AB1\n                      province: BC\n                      country: CANADA\n                      postalCode: V8X 5J8\n                    profileFlags:\n                      - OSBR\n                      - ADS\n                      - COLIN_TYPE\n                      - COMP\n                      - ICBC\n                      - MH\n                      - LTO\n                      - SES\n                      - PPR\n                      - VS\n                      - CCREF\n                      - CCREL\n                      - ATSOURCE\n                      - COURT_SERVICES\n                      - EMERGIS\n                      - LOCATION_CODE\n      description: Verify User Profile\n      operationId: verify_profile\n      requestBody:\n        description: ''\n        content:\n          application/json:\n            schema:\n              $ref: ../../../bcol-api/src/bcol_api/schemas/schemas/accounts_request.json\n            examples:\n              example-1:\n                value: '{ \"userId\": \"test\", \"password\": \"password\" }'\n  /payments:\n    post:\n      summary: ''\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: ../../../bcol-api/src/bcol_api/schemas/schemas/payment_response.json\n              examples:\n                example-1:\n                  value:\n                    statutoryFee: '-700'\n                    totalAmount: '-850'\n                    tsFee: '-150'\n                    gst: '+00'\n                    pst: '+00'\n                    accountNumber: '180670'\n                    userId: PB25020\n                    date: '20191125:125330505'\n                    feeCode: BSH105\n                    key: TEST\n                    sequenceNo: '0001'\n      description: Post payment to BC Online\ncomponents:\n  schemas: {}\n",
+			"canonicalURL": "/github.com/bcgov/sbc-pay@99fe21589030e4bec6d2bd2a39ac6b7f56f2cc28/-/blob/docs/docs/api_contract/bcol-api-1.0.0.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/bcgov/sbc-pay/blob/99fe21589030e4bec6d2bd2a39ac6b7f56f2cc28/docs/docs/api_contract/bcol-api-1.0.0.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/payments\": post: responses: 200: content: application/json: schema: parse schema: $ref: resolve \"../../../bcol-api/src/bcol_api/schemas/schemas/payment_response.json\": property \"address\": at https://raw.githubusercontent.com/bcgov/sbc-pay/99fe21589030e4bec6d2bd2a39ac6b7f56f2cc28/bcol-api/src/bcol_api/schemas/schemas/payment_response.json:51:17: $ref: resolve \"./adress.json\": get \"https://raw.githubusercontent.com/bcgov/sbc-pay/99fe21589030e4bec6d2bd2a39ac6b7f56f2cc28/bcol-api/src/bcol_api/schemas/schemas/adress.json\": https: bad HTTP code 404 (Not Found)"
+}

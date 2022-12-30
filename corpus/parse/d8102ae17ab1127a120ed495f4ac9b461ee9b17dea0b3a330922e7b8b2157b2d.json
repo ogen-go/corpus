@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml",
 			"byteSize": 1385,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variants/{variantDbId}:\n    get:\n      summary: Gets a `Variant` by ID.\n      description: The endpoint `GET /variants/{id}` will return a JSON version of `Variant`.\n      parameters:\n        - name: variantDbId\n          description: The ID which uniquely identifies a `Variant`\n          in: path\n          required: true\n          schema:\n            type: string\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          description: OK\n          headers: {}\n          content:\n            application/json:\n              schema:\n                title: VariantSingleResponse\n                type: object\n                required:\n                - metadata\n                - result\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    $ref: '#/components/schemas/Variant'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n        - Variants",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/variants/{variantDbId}\": get: parameters: parse parameter \"\": at 1:353: can't find value for \"components/parameters/authorizationHeader\""
+	"Error": "parse: parse spec: parse path items: path \"/variants/{variantDbId}\": get: parameters: parse parameter \"\": at Specification/BrAPI-Genotyping/Variants/Variants_VariantId_GET.yaml:17:17: can't find value for \"components/parameters/authorizationHeader\""
 }

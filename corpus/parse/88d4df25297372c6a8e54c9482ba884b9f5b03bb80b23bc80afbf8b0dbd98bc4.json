@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json",
 			"byteSize": 1276,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"uuid\": {\n                      \"type\": \"string\",\n                      \"format\": \"uuid\"\n                    }\n                  }\n                }\n              }\n            },\n            \"links\": {\n              \"l\": {\n                \"$ref\": \"#components/linfks/address\"\n              }\n            },\n            \"description\": \"the user being returned\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"responses\": {\n      \"GenericError\": {\n        \"$ref\": \"../template-api.yaml#/components/responses/GenericError\"\n      }\n    },\n    \"links\": {\n      \"address\": {\n        \"operationId\": \"getUssssserAddress\",\n        \"parameters\": {\n          \"userId\": \"$request.path.id\"\n        }\n      }\n    },\n    \"schemas\": {\n      \"Pet\": {\n        \"$ref\": \"../models/pet.yaml\"\n      },\n      \"User\": {\n        \"$ref\": \"https://api.example.com/v2/openapi.yaml#/components/schemas/User\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@78acc8ae8f5004d721f14dcd670abcfb0fbf3897/-/blob/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json",
+					"url": "https://github.com/Checkmarx/kics/blob/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Pet\": parse schema: at 52:17: external \"../models/pet.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Pet\": resolve \"#/components/schemas/Pet\": at assets/queries/openAPI/3.0/link_object_incorrect_ref/test/positive2.json:52:17: $ref: resolve \"../models/pet.yaml\": get \"https://raw.githubusercontent.com/Checkmarx/kics/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/link_object_incorrect_ref/models/pet.yaml\": https: bad HTTP code 404 (Not Found)"
 }

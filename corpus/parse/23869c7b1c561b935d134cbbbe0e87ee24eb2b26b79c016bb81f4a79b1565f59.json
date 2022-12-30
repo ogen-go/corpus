@@ -10,14 +10,14 @@
 			"path": "openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml",
 			"byteSize": 758,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: People\npaths:\n  /person:\n    get:\n      summary: Person with given name.\n      description: Return the first person with the give name.\n      operationId: listPerson\n      parameters:\n        - name: name\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: The person with the given name.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Person'\ncomponents:\n  schemas:\n    Person:\n      required:\n        - name\n      type: object\n      properties:\n        name:\n          type: string\n        employee:\n          $ref: '#/components/schemas/Person01'\n",
-			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@b707e95d277db08e68a567b3189235dbe654ff0c/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@d6440e180261462963e85de1bc22fb9f8309543b/-/blob/openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ballerina-platform/openapi-tools/blob/b707e95d277db08e68a567b3189235dbe654ff0c/openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml",
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/d6440e180261462963e85de1bc22fb9f8309543b/openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Person\": parse schema: property \"employee\": parse schema: at 1:70: find schema: resolve: can't find value for \"components/schemas/Person01\""
+	"Error": "parse: parse spec: parse components: schemas: \"Person\": resolve \"#/components/schemas/Person\": property \"employee\": at openapi-cli/src/test/resources/generators/schema/swagger/undocument_ref.yaml:34:17: $ref: resolve \"#/components/schemas/Person01\": resolve: can't find value for \"components/schemas/Person01\""
 }

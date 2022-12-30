@@ -10,14 +10,14 @@
 			"path": "example/golang/openapi/yaml/resources.yaml",
 			"byteSize": 1093,
 			"content": "openapi: 3.0.2\ninfo:\n  version: 0.0.1\n  title: '@viron/example-golang resources'\n  description: resources api specifications\n\ntags:\n  - name: resource\n\npaths:\n  /resources/{resourceName}/downloads:\n    get:\n      operationId: downloadResources\n      tags:\n        - resource\n      summary: download resources\n      description: データダウンロード\n      parameters:\n        - $ref: '#/components/parameters/ResourceNamePathParam'\n        - $ref: '#/components/parameters/FormatQueryParam'\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: string\n            text/csv:\n              schema:\n                type: string\n      security:\n        - jwt: []\n\ncomponents:\n  parameters:\n    ResourceNamePathParam:\n      name: resourceName\n      in: path\n      schema:\n        type: string\n      required: true\n\n    FormatQueryParam:\n      name: format\n      in: query\n      schema:\n        type: string\n        enum:\n          - json\n          - csv\n        default: json\n      required: false",
-			"canonicalURL": "/github.com/cam-inc/viron@3cdab5102fba62da5f928bbdb12a724daf317a05/-/blob/example/golang/openapi/yaml/resources.yaml",
+			"canonicalURL": "/github.com/cam-inc/viron@2dac6cf9e1ed50d7b516a6c71ab8f89189a0d806/-/blob/example/golang/openapi/yaml/resources.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/cam-inc/viron/blob/3cdab5102fba62da5f928bbdb12a724daf317a05/example/golang/openapi/yaml/resources.yaml",
+					"url": "https://github.com/cam-inc/viron/blob/2dac6cf9e1ed50d7b516a6c71ab8f89189a0d806/example/golang/openapi/yaml/resources.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/resources/{resourceName}/downloads\": get: operation \"downloadResources\": security: at 1:793: unknown security schema \"jwt\""
+	"Error": "parse: parse spec: parse path items: path \"/resources/{resourceName}/downloads\": get: operation \"downloadResources\": security: at example/golang/openapi/yaml/resources.yaml:32:11: unknown security scheme \"jwt\""
 }

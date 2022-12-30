@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/renuka-fernando/demos"
+		},
+		"file": {
+			"name": "orders-swagger.yaml",
+			"size": 0,
+			"path": "adaptive-scaling-of-microgateways-on-kubernetes/webinar/scenario-3-privatejet-gateway/orders-swagger.yaml",
+			"byteSize": 1724,
+			"content": "#Copyright (c)  WSO2 Inc. (http://www.wso2.org) All Rights Reserved.\n#\n# WSO2 Inc. licenses this file to you under the Apache License,\n# Version 2.0 (the \"License\"); you may not use this file except\n# in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n# KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n\nopenapi: 3.0.0\ninfo:\n  title: ABC-Orders\n  version: v1\n  description: This API contains operations related to ABC online shopping store.\nx-wso2-basePath: /abcorders/api/{version}\nx-wso2-production-endpoints:\n  urls:\n    - orders-ms\nx-wso2-mode: privateJet\npaths:\n  /orders:\n    get:\n      produces:\n      - \"application/json\"\n    post:\n      consumes:\n      - \"application/json\"\n      produces:\n      - \"application/json\"\n      parameters:\n      - in: \"body\"\n        name: \"body\"\n        required: true\n\n  /orders/{orderId}:\n    get:\n      parameters:\n        - name: orderId\n          in: path\n          required: true\n          schema:\n            type: string\n    put:\n      consumes:\n      - \"application/json\"\n      produces:\n      - \"application/json\"\n      parameters:\n      - name: orderId\n        in: path\n        required: true\n        schema:\n          type: string\n      - name: \"body\"\n        in: \"body\"\n        required: true\n    delete:\n      parameters:\n        - name: orderId\n          in: path\n          required: true\n          schema:\n            type: string",
+			"canonicalURL": "/github.com/renuka-fernando/demos@97d669fe488f71949d700d194a38b7305f1f2153/-/blob/adaptive-scaling-of-microgateways-on-kubernetes/webinar/scenario-3-privatejet-gateway/orders-swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/renuka-fernando/demos/blob/97d669fe488f71949d700d194a38b7305f1f2153/adaptive-scaling-of-microgateways-on-kubernetes/webinar/scenario-3-privatejet-gateway/orders-swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/orders\": get: at adaptive-scaling-of-microgateways-on-kubernetes/webinar/scenario-3-privatejet-gateway/orders-swagger.yaml:30:7: responses: no responses"
+}

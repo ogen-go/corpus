@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/open5gs/open5gs"
+			"name": "github.com/uw-ictd/dAuth"
 		},
 		"file": {
 			"name": "TS29504_Nudr_GroupIDmap.yaml",
 			"size": 0,
-			"path": "lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
+			"path": "open5gs/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
 			"byteSize": 2442,
 			"content": "openapi: 3.0.0\r\n\r\ninfo:\r\n  version: 1.0.0\r\n  title: 'Nudr_GroupIDmap'\r\n  description: |\r\n    Unified Data Repository Service for NF-Group ID retrieval.\r\n    © 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).\r\n    All rights reserved.\r\n\r\nexternalDocs:\r\n  description: 3GPP TS 29.504 V16.4.0; 5G System; Unified Data Repository Services; Stage 3\r\n  url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.504/'\r\n\r\nservers:\r\n  - description: API root\r\n    url: '{apiRoot}/nudr-group-id-map/v1'\r\n    variables:\r\n      apiRoot:\r\n        default: https://example.com\r\n\r\nsecurity:\r\n  - {}\r\n  - oAuth2ClientCredentials:\r\n      - nudr-group-id-map\r\n\r\npaths:\r\n  /nf-group-ids:\r\n    get:\r\n      summary: Retrieves NF-Group IDs for provided Subscriber and NF types\r\n      operationId: GetNfGroupIDs\r\n      tags:\r\n        - NF Group IDs (Document)\r\n      parameters:\r\n        - name: nf-type\r\n          in: query\r\n          description: Type of NF\r\n          required: true\r\n          style: form\r\n          explode: false\r\n          schema:\r\n            type: array\r\n            items:\r\n              $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'\r\n            minItems: 1\r\n        - name: subscriberId\r\n          in: query\r\n          description: Identifier of the subscriber\r\n          required: true\r\n          schema:\r\n            $ref: '#/components/schemas/SubscriberId'\r\n      responses:\r\n        '200':\r\n          description: Expected response to a valid request\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: '#/components/schemas/NfGroupIdMapResult'\r\n        '404':\r\n          $ref: 'TS29571_CommonData.yaml#/components/responses/404'\r\n        default:\r\n          description: Unexpected error\r\n\r\n\r\ncomponents:\r\n  securitySchemes:\r\n    oAuth2ClientCredentials:\r\n      type: oauth2\r\n      flows:\r\n        clientCredentials:\r\n          tokenUrl: '{nrfApiRoot}/oauth2/token'\r\n          scopes:\r\n            nudr-group-id-map: Access to the Nudr_GroupIDmap API\r\n\r\n\r\n\r\n  schemas:\r\n\r\n# COMPLEX TYPES:\r\n\r\n    NfGroupIdMapResult:\r\n      type: object\r\n      additionalProperties:\r\n        $ref: 'TS29571_CommonData.yaml#/components/schemas/NfGroupId'\r\n      minProperties: 1\r\n\r\n\r\n# SIMPLE TYPES:\r\n\r\n    SubscriberId:\r\n      type: string\r\n      pattern: '^(imsi-[0-9]{5,15}|nai-.+|msisdn-[0-9]{5,15}|extid-[^@]+@[^@]+|impi-.+|impu-.+|.+)$'\r\n\r\n# ENUMS:\r\n",
-			"canonicalURL": "/github.com/open5gs/open5gs@7d5fbc6e06b537ef49c10fbea452969167aa6a69/-/blob/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
+			"canonicalURL": "/github.com/uw-ictd/dAuth@fe78789ab07a3362c831b3fc7d770eb5447717c9/-/blob/open5gs/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/open5gs/open5gs/blob/7d5fbc6e06b537ef49c10fbea452969167aa6a69/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
+					"url": "https://github.com/uw-ictd/dAuth/blob/fe78789ab07a3362c831b3fc7d770eb5447717c9/open5gs/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"NfGroupIdMapResult\": parse schema: parse schema: at 1:80: external \"TS29571_CommonData.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/nf-group-ids\": get: operation \"GetNfGroupIDs\": security: parse security scheme \"oAuth2ClientCredentials\": oauth2: flow \"clientCredentials\": at open5gs/lib/sbi/support/20210629/standard/TS29504_Nudr_GroupIDmap.yaml:71:21: \"tokenUrl\" MUST be in the form of a URL: parse \"{nrfApiRoot}/oauth2/token\": invalid URI for request"
 }

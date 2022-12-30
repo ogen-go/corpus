@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml",
 			"byteSize": 1703,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /delete/observations:\n    post:\n      summary: Submit a delete request for `Observations`\n      description: |-\n        Submit a delete request for `Observations`\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ObservationSearchRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/ObservationDeleteResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Observations\n\ncomponents:\n  responses:\n    ObservationDeleteResponse:\n      content:\n        application/json:\n          schema:\n            title: ObservationDeleteResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                properties:\n                  observationDbIds:\n                    description: The unique ids of the Observation records which have been successfully deleted\n                    items:\n                      type: string\n                    type: array\n                    example: ['6a4a59d8', '3ff067e0']\n                required:\n                - observationDbIds\n                type: object\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: responses: \"ObservationDeleteResponse\": content: application/json: schema: parse schema: property \"@context\": parse schema: at 1:132: find schema: resolve: can't find value for \"components/schemas/Context\""
+	"Error": "parse: parse spec: parse components: responses: \"ObservationDeleteResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Phenotyping/Observations/Delete_Observations_POST.yaml:40:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
 }

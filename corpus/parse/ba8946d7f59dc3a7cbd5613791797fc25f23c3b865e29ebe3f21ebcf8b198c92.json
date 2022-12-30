@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "specWithAuthOauth1.yaml",
+			"size": 0,
+			"path": "test/data/valid_openapi/specWithAuthOauth1.yaml",
+			"byteSize": 956,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url: https://postman-echo.com/get\nsecurity:\n  - bear: []\npaths:\n  /pets/{petId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: petId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\"\ncomponents:\n  schemas:\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  securitySchemes:\n    bear:\n      type: http\n      scheme: oauth1\n",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@a9111c1712ab3c38677bc62787ab7723e84a20c0/-/blob/test/data/valid_openapi/specWithAuthOauth1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/valid_openapi/specWithAuthOauth1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/pets/{petId}\": get: operation \"showPetById\": security: parse security scheme \"bear\": http: at test/data/valid_openapi/specWithAuthOauth1.yaml:48:15: invalid \"scheme\": \"oauth1\""
+}

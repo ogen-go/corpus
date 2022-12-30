@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/alexferl/echo-boilerplate"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/openapi.yaml",
+			"byteSize": 1603,
+			"content": "openapi: 3.0.3\ninfo:\n  title: echo-boilerplate\n  description: echo-boilerplate API\n  version: 1.0.0\n  contact:\n    url: https://github.com/alexferl/echo-boilerplate\n  license:\n    name: MIT\n    url: https://raw.githubusercontent.com/alexferl/echo-boilerplate/master/LICENSE\nservers:\n  - url: http://localhost:1323\n  - url: http://example.com # golang httptest\n  - url: https://{environment}.example.com\n    variables:\n      environment:\n        default: api    # Production server\n        enum:\n          - api         # Production server\n          - api.staging # Staging server\n          - api.test    # Test server\ntags:\n  - name: auth\n    description: Authentication operations\n  - name: tasks\n    description: Operations on tasks\n  - name: users\n    description: Operations on users\npaths:\n  /auth/signup:\n    $ref: './paths/auth_signup.yaml'\n  /auth/login:\n    $ref: './paths/auth_login.yaml'\n  /auth/refresh:\n    $ref: './paths/auth_refresh.yaml'\n  /auth/logout:\n    $ref: './paths/auth_logout.yaml'\n  /tasks:\n    $ref: './paths/tasks.yaml'\n  /tasks/{id}:\n    $ref: './paths/tasks_{id}.yaml'\n  /user:\n    $ref: './paths/user.yaml'\n  /user/personal_access_tokens:\n    $ref: './paths/user_personal_access_tokens.yaml'\n  /user/personal_access_tokens/{id}:\n    $ref: './paths/user_personal_access_tokens_{id}.yaml'\n  /users/{username}:\n    $ref: './paths/users_{username}.yaml'\n  /users:\n    $ref: './paths/users.yaml'\ncomponents:\n  securitySchemes:\n    cookieAuth:\n      $ref: './components/securitySchemes/CookieAuth.yaml'\n    bearerAuth:\n      $ref: './components/securitySchemes/BearerAuth.yaml'\n",
+			"canonicalURL": "/github.com/alexferl/echo-boilerplate@a3b4badf7b6ba10240cb425b779a8850d8812ad0/-/blob/openapi/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/alexferl/echo-boilerplate/blob/a3b4badf7b6ba10240cb425b779a8850d8812ad0/openapi/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/auth/login\": post: operation \"login\": responses: 200: headers: header \"\\x00Set-Cookie\": at https://raw.githubusercontent.com/alexferl/echo-boilerplate/a3b4badf7b6ba10240cb425b779a8850d8812ad0/openapi/paths/auth_login.yaml:25:11: invalid header name \"\\x00Set-Cookie\""
+}

@@ -10,14 +10,14 @@
 			"path": "api/support/swagger-api_support.yaml",
 			"byteSize": 960,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Swagger Cloudtrust Management\n  description: 'Tasks API for Cloudtrust.'\n  version: 1.0.0\nservers:\n- url: http://localhost:8888\ntags:\n- name: Support\n  description: Support helpers\npaths:\n  /support/accounts:\n    get:\n      tags:\n      - Support\n      summary: Get account information according to a given email\n      parameters:\n      - name: email\n        in: query\n        required: true\n        schema:\n          type: string\n      responses:\n        200:\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/EmailInfo'\ncomponents:\n  schemas:\n    EmailInfo:\n      type: object\n      properties:\n        realm:\n          type: string\n        creationDate:\n          type: int\n          description: creation date in seconds since epoch\nsecurity:\n  - openId:\n    - todo",
-			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@7d1c92a14a087193722be51af922ea779dc96507/-/blob/api/support/swagger-api_support.yaml",
+			"canonicalURL": "/github.com/cloudtrust/keycloak-bridge@8cc3640390f4805864ca275c7e00cc16197f69f1/-/blob/api/support/swagger-api_support.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/7d1c92a14a087193722be51af922ea779dc96507/api/support/swagger-api_support.yaml",
+					"url": "https://github.com/cloudtrust/keycloak-bridge/blob/8cc3640390f4805864ca275c7e00cc16197f69f1/api/support/swagger-api_support.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"EmailInfo\": parse schema: property \"creationDate\": parse schema: at 1:130: unexpected schema type: \"int\""
+	"Error": "parse: parse spec: parse components: schemas: \"EmailInfo\": resolve \"#/components/schemas/EmailInfo\": property \"creationDate\": at api/support/swagger-api_support.yaml:40:17: type: unexpected schema type: \"int\""
 }

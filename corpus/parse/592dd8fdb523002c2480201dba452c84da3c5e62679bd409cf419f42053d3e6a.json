@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/flashbots/relay-specs"
+		},
+		"file": {
+			"name": "relay-oapi.yaml",
+			"size": 0,
+			"path": "relay-oapi.yaml",
+			"byteSize": 1988,
+			"content": "openapi: \"3.0.3\"\n\ninfo:\n  title: Relay API\n  description: |\n    API specification for MEV-Boost PBS relays.\n  version: \"dev\"\n  contact:\n    name: GitHub Repository\n    url: https://github.com/flashbots/relay-specs\n  license:\n    name: \"CC0-1.0\"\n    url: \"https://creativecommons.org/publicdomain/zero/1.0/\"\n\nservers:\n  - url: \"{server_url}\"\n    variables:\n      server_url:\n        description: \"Relay URL\"\n        default: \"http://localhost:18550\"\n\ntags:\n  - name: Builder\n    description: Set of endpoints to interact with an external block builder.\n  - name: Data\n    description: Set of endpoints to provide data about the relay.\n\npaths:\n  /relay/v1/builder/validators:\n    $ref: \"./apis/relay/builder/validators.yaml\"\n  /relay/v1/builder/blocks:\n    $ref: \"./apis/relay/builder/blocks.yaml\"\n  /relay/v1/data/bidtraces/proposer_payload_delivered:\n    $ref: \"./apis/relay/data/proposer_payload_delivered.yaml\"\n  /relay/v1/data/bidtraces/builder_blocks_received:\n    $ref: \"./apis/relay/data/builder_blocks_received.yaml\"\n  /relay/v1/data/validator_registration:\n    $ref: \"./apis/relay/data/validator_registration.yaml\"\n\ncomponents:\n  schemas:\n    Uint64:\n      $ref: \"./beacon-apis/types/primitive.yaml#/Uint64\"\n    Root:\n      $ref: \"./beacon-apis/types/primitive.yaml#/Root\"\n    Pubkey:\n      $ref: \"./beacon-apis/types/primitive.yaml#/Pubkey\"\n    ErrorMessage:\n      $ref: \"./beacon-apis/types/http.yaml#/ErrorMessage\"\n    OrderBy:\n      $ref: \"./types/misc.yaml#/OrderBy\"\n    SubmitBlockRequest:\n      $ref: \"./types/requests.yaml#/SubmitBlockRequest\"\n    ValidatorsResponse:\n      $ref: \"./types/responses.yaml#/ValidatorsResponse\"\n    SubmitBlockResponse:\n      $ref: \"./types/responses.yaml#/SubmitBlockResponse\"\n    DeliveredPayloadsResponse:\n      $ref: \"./types/responses.yaml#/DeliveredPayloadsResponse\"\n    ReceivedBlocksResponse:\n      $ref: \"./types/responses.yaml#/ReceivedBlocksResponse\"\n\n  responses:\n    InternalError:\n      $ref: \"./types/http.yaml#/InternalError\"\n",
+			"canonicalURL": "/github.com/flashbots/relay-specs@2ed41d15a66e72421a5fbb4f59729a48c8483a80/-/blob/relay-oapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/flashbots/relay-specs/blob/2ed41d15a66e72421a5fbb4f59729a48c8483a80/relay-oapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Pubkey\": resolve \"#/components/schemas/Pubkey\": at relay-oapi.yaml:47:13: $ref: resolve \"./beacon-apis/types/primitive.yaml#/Pubkey\": get \"https://raw.githubusercontent.com/flashbots/relay-specs/2ed41d15a66e72421a5fbb4f59729a48c8483a80/beacon-apis/types/primitive.yaml\": https: bad HTTP code 404 (Not Found)"
+}

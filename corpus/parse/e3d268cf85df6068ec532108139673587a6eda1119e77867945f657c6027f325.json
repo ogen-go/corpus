@@ -10,14 +10,14 @@
 			"path": "test/data/toBundleExamples/circular_reference_inline/root.yaml",
 			"byteSize": 801,
 			"content": "openapi: \"3.0.2\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  description: A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification\n  termsOfService: http://swagger.io/terms/\n  contact:\n    name: Swagger API Team\n    email: apiteam@swagger.io\n    url: http://swagger.io\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0.html\npaths:\n  /pets:\n    get:\n      description: Returns all pets alesuada ac...\n      operationId: findPets\n      responses:\n        '200':\n          description: An paged array of pets\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: \"./schemas/schemas.yaml#/components/schemas/ErrorResponse\"\n",
-			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@bdfeadb49daea91fe06f4fca3d783eba16793369/-/blob/test/data/toBundleExamples/circular_reference_inline/root.yaml",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@a9111c1712ab3c38677bc62787ab7723e84a20c0/-/blob/test/data/toBundleExamples/circular_reference_inline/root.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/bdfeadb49daea91fe06f4fca3d783eba16793369/test/data/toBundleExamples/circular_reference_inline/root.yaml",
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/toBundleExamples/circular_reference_inline/root.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/pets\": get: operation \"findPets\": responses: 200: content: application/json: schema: parse schema: parse schema: at 1:596: external \"./schemas/schemas.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/pets\": get: operation \"findPets\": responses: 200: content: application/json: schema: parse schema: items: $ref: resolve \"./schemas/schemas.yaml#/components/schemas/ErrorResponse\": property \"error\": at https://raw.githubusercontent.com/postmanlabs/openapi-to-postman/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/toBundleExamples/circular_reference_inline/schemas/schemas.yaml:32:17: $ref: resolve \"#components/schemas/ErrorDetail\": resolve: invalid pointer \"components/schemas/ErrorDetail\": pointer must start with '/'"
 }

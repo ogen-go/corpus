@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "exploded-query-param-array.yaml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/3_0/exploded-query-param-array.yaml",
+			"byteSize": 893,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Exploded query param array\n  description: \"Exploded query params\"\n  version: \"1.0.0\"\nservers:\n  - url: localhost:8080\npaths:\n  /api:\n    get:\n      operationId: GetSomeValue\n      parameters:\n      - in: query\n        name: QueryObject\n        explode: true\n        style: form\n        schema:\n          type: object\n          properties:\n            values:\n                type: array\n                items:\n                    type: string\n      responses:\n        '200':\n          description: Some return value\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/SomeReturnValue'\n              example:\n                someValue: value\ncomponents:\n  schemas:\n    SomeReturnValue:\n      type: object\n      required:\n        - someValue\n      properties:\n        someValue:\n          type: string\n",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a8265b6eec3ca372e28d49de38cf6f4b032a937/-/blob/modules/openapi-generator/src/test/resources/3_0/exploded-query-param-array.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a8265b6eec3ca372e28d49de38cf6f4b032a937/modules/openapi-generator/src/test/resources/3_0/exploded-query-param-array.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/api\": get: parameters: \"QueryObject\": field \"Values\": nested arrays not allowed"
+}

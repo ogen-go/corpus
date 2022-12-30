@@ -10,14 +10,14 @@
 			"path": "docs/openapi-docs/src/test/resources/security/expected_oauth2.yml",
 			"byteSize": 1458,
 			"content": "openapi: 3.0.3\ninfo:\n  title: Fruits\n  version: '1.0'\npaths:\n  /api1/{p1}:\n    get:\n      operationId: getApi1P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - oauth2Auth: []\n  /api2/{p1}:\n    get:\n      operationId: getApi2P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - oauth2Auth:\n            - client\n  /api3/{p1}:\n    get:\n      operationId: getApi3P1\n      parameters:\n        - name: p1\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: ''\n          content:\n            text/plain:\n              schema:\n                type: string\n      security:\n        - oauth2Auth:\n            - admin\ncomponents:\n  securitySchemes:\n    oauth2Auth:\n      type: oauth2\n      flows:\n        authorizationCode:\n          authorizationUrl: https://example.com/auth\n          scopes:\n            client: scope for clients\n            admin: administration scope\n",
-			"canonicalURL": "/github.com/softwaremill/tapir@2a81d93512924b990d5e085362162ad1b4a24481/-/blob/docs/openapi-docs/src/test/resources/security/expected_oauth2.yml",
+			"canonicalURL": "/github.com/softwaremill/tapir@cfab7aeda09154ab62a07d957beab9be4a1945f6/-/blob/docs/openapi-docs/src/test/resources/security/expected_oauth2.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/softwaremill/tapir/blob/2a81d93512924b990d5e085362162ad1b4a24481/docs/openapi-docs/src/test/resources/security/expected_oauth2.yml",
+					"url": "https://github.com/softwaremill/tapir/blob/cfab7aeda09154ab62a07d957beab9be4a1945f6/docs/openapi-docs/src/test/resources/security/expected_oauth2.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/api1/{p1}\": get: operation \"getApi1P1\": security: parse security scheme \"oauth2Auth\": oauth2: flow \"authorizationCode\": at 1:78: \"tokenUrl\" MUST be in the form of a URL: parse \"\": empty url"
+	"Error": "parse: parse spec: parse path items: path \"/api1/{p1}\": get: operation \"getApi1P1\": security: parse security scheme \"oauth2Auth\": oauth2: flow \"authorizationCode\": at docs/openapi-docs/src/test/resources/security/expected_oauth2.yml:68:11: \"tokenUrl\" MUST be in the form of a URL: parse \"\": empty url"
 }

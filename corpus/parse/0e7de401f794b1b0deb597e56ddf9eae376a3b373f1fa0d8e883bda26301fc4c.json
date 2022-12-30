@@ -10,14 +10,14 @@
 			"path": "test-service/openapi.yaml",
 			"byteSize": 766,
 			"content": "openapi: 3.0.1\ninfo:\nservers:\n\npaths:\n  /v0.1/test-service-endpoint:\n    post:\n      operationId: testServiceEndpoint\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ServiceModel'\n        required: true\n\n      responses:\n        '200':\n          description: OK\n        '500':\n          description: Internal Server Error\n\ncomponents:\n  schemas:\n\n    ServiceModel:\n      required:\n        - id\n        - model\n        - items\n      type: object\n      properties:\n        id:\n          type: integer\n          format: int32\n        model:\n          $ref: '#/components/schemas/Model'\n        items:\n          type: array\n          items:\n            $ref: '#/components/schemas/ModelItem'\n",
-			"canonicalURL": "/github.com/rarible/model-generator@84bbe255facf074aded4eb740079a509ad12d55d/-/blob/test-service/openapi.yaml",
+			"canonicalURL": "/github.com/rarible/model-generator@690d3b6f966c40f45500724744c2a56ab41f1d7e/-/blob/test-service/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/rarible/model-generator/blob/84bbe255facf074aded4eb740079a509ad12d55d/test-service/openapi.yaml",
+					"url": "https://github.com/rarible/model-generator/blob/690d3b6f966c40f45500724744c2a56ab41f1d7e/test-service/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ServiceModel\": parse schema: property \"items\": parse schema: parse schema: at 1:123: find schema: resolve: can't find value for \"components/schemas/ModelItem\""
+	"Error": "parse: parse spec: parse components: schemas: \"ServiceModel\": resolve \"#/components/schemas/ServiceModel\": property \"model\": at test-service/openapi.yaml:36:17: $ref: resolve \"#/components/schemas/Model\": resolve: can't find value for \"components/schemas/Model\""
 }

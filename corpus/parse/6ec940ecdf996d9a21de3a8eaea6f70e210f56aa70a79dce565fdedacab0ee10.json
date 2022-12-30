@@ -10,14 +10,14 @@
 			"path": "vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml",
 			"byteSize": 679,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      # this is inside a loaded jar\n      $ref: \"my_fancy_resources/refs/Simple.yaml\"\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@b717a2409af5f3265397b468f797b3f37f37a7b2/-/blob/vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@f7a1b8ae8af8cdfd18ac15868e1412f92873b775/-/blob/vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/b717a2409af5f3265397b468f797b3f37f37a7b2/vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/f7a1b8ae8af8cdfd18ac15868e1412f92873b775/vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Simple\": parse schema: at 1:162: external \"my_fancy_resources/refs/Simple.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Simple\": resolve \"#/components/schemas/Simple\": at vertx-web-openapi/src/test/resources/local_refs_in_jar.yaml:25:13: $ref: resolve \"my_fancy_resources/refs/Simple.yaml\": get \"https://raw.githubusercontent.com/vert-x3/vertx-web/f7a1b8ae8af8cdfd18ac15868e1412f92873b775/vertx-web-openapi/src/test/resources/my_fancy_resources/refs/Simple.yaml\": https: bad HTTP code 404 (Not Found)"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "api_http_with_default_iam_authorizer.yaml",
+			"size": 0,
+			"path": "tests/translator/input/api_http_with_default_iam_authorizer.yaml",
+			"byteSize": 2569,
+			"content": "Resources:\n  HelloWorldFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: s3://bucket/key\n      Handler: app.lambda_handler\n      Runtime: python3.8\n      Role:\n        Fn::GetAtt:\n        - HelloWorldFunctionRole\n        - Arn\n      Architectures:\n      - x86_64\n      Events:\n        HelloWorld:\n          Type: HttpApi\n          Properties:\n            ApiId:\n              Ref: HttpApi\n            Path: /{proxy+}\n            Method: ANY\n        Preflight:\n          Type: HttpApi\n          Properties:\n            ApiId:\n              Ref: HttpApi\n            Path: /{proxy+}\n            Method: OPTIONS\n  HelloWorldFunctionRole:\n    Type: AWS::IAM::Role\n    Properties:\n      AssumeRolePolicyDocument:\n        Version: '2012-10-17'\n        Statement:\n        - Effect: Allow\n          Principal:\n            Service: lambda.amazonaws.com\n          Action: sts:AssumeRole\n      Policies:\n      - PolicyName: HelloWorldFunctionPolicy\n        PolicyDocument:\n          Version: '2012-10-17'\n          Statement:\n          - Effect: Allow\n            Action:\n            - logs:CreateLogGroup\n            - logs:CreateLogStream\n            - logs:PutLogEvents\n            - cognito-idp:List*\n            - cognito-idp:AdminListGroupsForUser\n            - sts:AssumeRole\n            Resource: '*'\n    Metadata:\n      SamResourceId: HelloWorldFunctionRole\n\n  HttpApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      StageName:\n        Fn::Sub: ${StageName}\n      DefinitionBody:\n        openapi: 3.0.1\n        info:\n          title:\n            Ref: AWS::StackName\n        paths: {}\n      CorsConfiguration:\n        AllowOrigins:\n        - '*'\n        AllowCredentials: false\n        AllowHeaders:\n        - Content-Type\n        - X-CSRF-TOKEN\n        - X-Amz-Date\n        - Authorization\n        - X-Requested-With\n        - X-Requested-By\n        - X-Api-Key\n        - X-Forwarded-For\n        - X-Amz-Security-Token\n        AllowMethods:\n        - '*'\n      Auth:\n        EnableIamAuthorizer: true\n        DefaultAuthorizer: AWS_IAM\n        Authorizers:\n          MyAuthorizer:\n            IdentitySource: $request.header.Authorization\n            JwtConfiguration:\n              audience:\n              - Ref: UserPoolClient\n              - Ref: UserPoolClientApp\n              issuer:\n                Fn::Join:\n                - ''\n                - - https://cognito-idp.\n                  - Fn::Sub: ${AWS::Region}\n                  - .amazonaws.com/\n                  - Ref: UserPool\n    Metadata:\n      SamResourceId: HttpApi\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/api_http_with_default_iam_authorizer.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/api_http_with_default_iam_authorizer.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/api_http_with_default_iam_authorizer.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

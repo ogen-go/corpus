@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "SeedLots_GET_POST.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/SeedLots/SeedLots_GET_POST.yaml",
+			"byteSize": 3490,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /seedlots:\n    get:\n      summary: Get a filtered list of Seed Lot descriptions\n      description: Get a filtered list of Seed Lot descriptions available in a system.\n      parameters:\n      - name: seedLotDbId\n        description: Unique id for a seed lot on this server\n        in: query\n        required: false\n        schema:\n          type: string \n      - name: crossDbId \n        description: Search for Cross with this unique id\n        in: query\n        required: false\n        schema:\n          type: string\n      - name: crossName\n        description: Search for Cross with this human readable name\n        in: query\n        required: false\n        schema:\n          type: string\n      - $ref: '#/components/parameters/commonCropName'\n      - $ref: '#/components/parameters/programDbId'\n      - $ref: '#/components/parameters/germplasmDbId'\n      - $ref: '#/components/parameters/germplasmName'\n      - $ref: '#/components/parameters/externalReferenceID'\n      - $ref: '#/components/parameters/externalReferenceId'\n      - $ref: '#/components/parameters/externalReferenceSource'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/SeedLotListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Seed Lots\n    post:\n      summary: Add new Seed Lot descriptions to a server\n      description: Add new Seed Lot descriptions to a server\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items: \n                $ref: '#/components/schemas/SeedLotNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/SeedLotListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Seed Lots\ncomponents:\n  responses:\n    SeedLotListResponse:\n      content:\n        application/json:\n          schema:\n            title: SeedLotListResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                properties:\n                  data:\n                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                    items:\n                      $ref: '#/components/schemas/SeedLot'\n                    type: array\n                required:\n                - data\n                type: object\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}\n    \n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Germplasm/SeedLots/SeedLots_GET_POST.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Germplasm/SeedLots/SeedLots_GET_POST.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"SeedLotListResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Germplasm/SeedLots/SeedLots_GET_POST.yaml:83:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

@@ -1,0 +1,18 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "npm/oazapfts"
+		},
+		"file": {
+			"name": "oneOfRef.yaml",
+			"size": 0,
+			"path": "src/codegen/__fixtures__/oneOfRef.yaml",
+			"byteSize": 492,
+			"content": "openapi: 3.0.3\ninfo:\n  title: PI\n  version: 0.1.0\npaths:\n  /filter:\n    get:\n      description: stats\n      parameters:\n        - name: param1\n          in: query\n          schema:\n            oneOf:\n              - $ref: \"./string.yaml\"\n              - $ref: \"./integer.yaml\"\n        - name: param2\n          in: query\n          schema:\n            oneOf:\n              - $ref: \"./string.yaml\"\n              - $ref: \"./integer.yaml\"\n      responses:\n        \"200\":\n          description: ok\n",
+			"canonicalURL": "/npm/oazapfts@bec7faac97e93f91a66af10b621030fac3298131/-/blob/src/codegen/__fixtures__/oneOfRef.yaml",
+			"externalURLs": []
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/filter\": get: parameters: parse parameter \"param1\": parse schema: oneOf: at src/codegen/__fixtures__/oneOfRef.yaml:14:23: $ref: resolve \"./string.yaml\": get \"jsonschema://dummy/string.yaml\": unsupported scheme \"jsonschema\""
+}

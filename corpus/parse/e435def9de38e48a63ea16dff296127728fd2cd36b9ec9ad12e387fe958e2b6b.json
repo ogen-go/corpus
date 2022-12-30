@@ -19,5 +19,5 @@
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"A\": parse schema: at 1:39: external \"./circular-child.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"A\": resolve \"#/components/schemas/A\": $ref: resolve \"./circular-child.yaml#/definitions/A\": property \"children\": items: $ref: resolve \"./circular-root.yaml#/components/schemas/B\": $ref: resolve \"./circular-child.yaml#/definitions/B\": property \"parent\": at https://raw.githubusercontent.com/whitlockjc/json-refs/3371c1ee0eaf027314ebc321ac311c586f966dd4/test/browser/documents/circular-child.yaml:13:15: $ref: resolve \"./circular-root.yaml#/components/schemas/A\": infinite recursion"
 }

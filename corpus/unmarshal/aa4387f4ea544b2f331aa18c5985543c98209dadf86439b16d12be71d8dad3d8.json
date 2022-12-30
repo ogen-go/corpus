@@ -10,14 +10,14 @@
 			"path": "Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/allOfInsideOneOf.yml",
 			"byteSize": 1492,
 			"content": "openapi: 3.0.0\r\ninfo:\r\n  title: test\r\n  version: 1.0.0\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: test\r\n      responses:\r\n        '200':\r\n          description: Test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                oneOf:\r\n                  - allOf:\r\n                      - type: object\r\n                        properties:\r\n                          firstA:\r\n                            type: string\r\n                      - type: object\r\n                        properties:\r\n                          firstB:\r\n                            type: string\r\n                  - allOf:\r\n                      - type: object\r\n                        properties:\r\n                          secondA:\r\n                            type: string\r\n                      - type: object\r\n                        properties:\r\n                          secondB:\r\n                            type: string\r\n  /test1:\r\n    get:\r\n      summary: test\r\n      responses:\r\n        '200':\r\n          description: Test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                oneOf:\r\n                  - allOf:\r\n                      - $ref: '#/components/schemas/Nose'\r\n                  - allOf:\r\n                      - $ref: '#/components/schemas/Ear'\r\ncomponents:\r\n  schemas:\r\n    Nose:\r\n      type: object\r\n      properties:\r\n        size:\r\n          type: string\r\n    Ear:\r\n      type: object\r\n      properties:\r\n        color: string",
-			"canonicalURL": "/github.com/openl-tablets/openl-tablets@b7dd56917cfa85d7f740a20c7333ee403fe4ceec/-/blob/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/allOfInsideOneOf.yml",
+			"canonicalURL": "/github.com/openl-tablets/openl-tablets@c59bbbda88772178afd934b32625f6ec42e30ba2/-/blob/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/allOfInsideOneOf.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/openl-tablets/openl-tablets/blob/b7dd56917cfa85d7f740a20c7333ee403fe4ceec/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/allOfInsideOneOf.yml",
+					"url": "https://github.com/openl-tablets/openl-tablets/blob/c59bbbda88772178afd934b32625f6ec42e30ba2/Util/openl-openapi-parser/test-resources/test.converter/inheritance_and_polymorphism/allOfInsideOneOf.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `string` into ogen.Schema"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 58: cannot unmarshal !!str `string` into ogen.Schema"
 }

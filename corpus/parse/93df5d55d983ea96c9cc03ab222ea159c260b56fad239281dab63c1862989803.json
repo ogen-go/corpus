@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "mocking-gateway-api-1.yaml",
+			"size": 0,
+			"path": "examples/mocking/gateway/mocking-gateway-api-1.yaml",
+			"byteSize": 2055,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: mocking-gateway-api-1\nspec:\n  fleet:\n    name: default\n    namespace: default\n  spec: |\n    openapi: 3.0.0\n    info:\n      title: mocking-gateway-api-1\n      version: 0.1.0\n    x-kusk:\n      cors:\n        origins:\n          - \"*\"\n        methods:\n          - POST\n          - GET\n        headers:\n          - Content-Type\n        credentials: true\n        max_age: 86200\n      upstream:\n        service:\n          namespace: default\n          name: todo-backend\n          port: 80\n      path:\n        prefix: /\n    paths:\n      /todos:\n        x-kusk:\n          mocking:\n            enabled: true\n        get:\n          responses:\n            \"200\":\n              description: \"ToDos\"\n              content:\n                application/json:\n                  schema:\n                    type: object\n                    properties:\n                      title:\n                        type: string\n                        description: Description of what to do\n                      completed:\n                        type: boolean\n                      order:\n                        type: integer\n                        format: int32\n                      url:\n                        type: string\n                    required:\n                      - title\n                      - completed\n                      - order\n                      - url\n                    example:\n                      title: \"Mocked JSON title\"\n                      completed: true\n                      order: 13\n                      url: \"http://mockedURL.com\"\n                application/xml:\n                  example:\n                    title: \"Mocked XML title\"\n                    completed: true\n                    order: 13\n                    url: \"http://mockedURL.com\"\n                text/plain:\n                  example: |\n                    title: \"Mocked Text title\"\n                    completed: true\n                    order: 13\n                    url: \"http://mockedURL.com\"\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/examples/mocking/gateway/mocking-gateway-api-1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/examples/mocking/gateway/mocking-gateway-api-1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at examples/mocking/gateway/mocking-gateway-api-1.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

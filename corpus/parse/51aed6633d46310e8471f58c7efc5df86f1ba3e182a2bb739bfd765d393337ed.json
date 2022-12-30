@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/marcosborges/baseline_graphql_siler"
+		},
+		"file": {
+			"name": "info.yaml",
+			"size": 0,
+			"path": "info.yaml",
+			"byteSize": 2065,
+			"content": "apiVersion: backstage.io/v1alpha1\nkind: API\nmetadata:\n  name: baseline-graphql-siler\n  description: The Baseline API\n  tags:\n    - baseline\n    - graphql\nspec:\n  type: openapi\n  lifecycle: experimental\n  owner: borges@example.com\n  definition: |\n    openapi: \"3.0.0\"\n    info:\n      version: 1.0.0\n      title: Swagger Baseline\n      license:\n        name: MIT\n    servers:\n      - url: http://baseline.swagger.io/v1\n    paths:\n      /endpoint:\n        get:\n          summary: List all\n          operationId: listAll\n          tags:\n            - endpoints\n          parameters:\n            - name: limit\n              in: query\n              description: How many items to return at one time (max 100)\n              required: false\n              schema:\n                type: integer\n                format: int32\n          responses:\n            '200':\n              description: A paged array of pets\n              headers:\n                x-next:\n                  description: A link to the next page of responses\n                  schema:\n                    type: string\n              content:\n                application/json:\n                  schema:\n                    $ref: \"#/components/schemas/Pets\"\n            default:\n              description: unexpected error\n              content:\n                application/json:\n                  schema:\n                    $ref: \"#/components/schemas/Error\"\n    components:\n      schemas:\n        Pet:\n          type: object\n          required:\n            - id\n            - name\n          properties:\n            id:\n              type: integer\n              format: int64\n            name:\n              type: string\n            tag:\n              type: string\n        Pets:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Pet\"\n        Error:\n          type: object\n          required:\n            - code\n            - message\n          properties:\n            code:\n              type: integer\n              format: int32\n            message:\n              type: string\n",
+			"canonicalURL": "/github.com/marcosborges/baseline_graphql_siler@043e72ce852d9a702c204e774329f8b86271a4d8/-/blob/info.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/marcosborges/baseline_graphql_siler/blob/043e72ce852d9a702c204e774329f8b86271a4d8/info.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at info.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

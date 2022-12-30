@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adzerk/adzerk-api-specification"
+		},
+		"file": {
+			"name": "queued-report.yaml",
+			"size": 0,
+			"path": "management/queued-report.yaml",
+			"byteSize": 2803,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Adzerk Management API - Queued Reporting\n  description: Queued Reporting related Adzerk Management API\n  version: '1.0'\nservers:\n  - url: 'https://api.adzerk.net'\ntags:\n  - name: queued-report\n    description: Queued Reporting\npaths:\n  /v1/report/queue:\n    post:\n      tags:\n        - queued-report\n      operationId: create\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - StartDateISO\n                - EndDateISO\n                - GroupBy\n                - Parameters\n              properties:\n                StartDateISO:\n                  type: string\n                  format: date-time\n                EndDateISO:\n                  type: string\n                  format: date-time\n                GroupBy:\n                  type: array\n                  items:\n                    type: string\n                    enum:\n                      - day\n                      - week\n                      - month\n                      - hour\n                      - brandId\n                      - campaignId\n                      - optionId\n                      - flightId\n                      - creativeId\n                      - adTypeId\n                      - siteId\n                      - zoneId\n                      - publisherAccountId\n                      - countryCode\n                      - metroCode\n                      - keyword\n                      - regionCode\n                      - city\n                Parameters:\n                  type: array\n                  items:\n                    type: object\n                TimeZone:\n                  type: string\n                  nullable: true\n      responses:\n        200:\n          description: The queued report\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  Id:\n                    type: string\n\n  /v1/report/queue/{id}:\n    get:\n      tags:\n        - queued-report\n      operationId: poll\n      security:\n        - ApiKeyAuth: []\n      parameters:\n        - name: id\n          in: path\n          description: The id of the queued report to poll\n          required: true\n          schema:\n            type: string\n      responses:\n        200:\n          description: The queued report\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  Id:\n                    type: string\n                  Status:\n                    type: integer\n                  Message:\n                    type: string\n                  Result:\n                    type: object",
+			"canonicalURL": "/github.com/adzerk/adzerk-api-specification@25b2da9378e96562925f89165bfae045adbe912b/-/blob/management/queued-report.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adzerk/adzerk-api-specification/blob/25b2da9378e96562925f89165bfae045adbe912b/management/queued-report.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/v1/report/queue\": post: operation \"create\": security: at management/queued-report.yaml:18:11: unknown security scheme \"ApiKeyAuth\""
+}

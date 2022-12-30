@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Environment"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "MosquitoDensity/swagger.yaml",
+			"byteSize": 1483,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    MosquitoDensity: \n      $ref: \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/model.yaml#/MosquitoDensity\"\ninfo:\n  description:  |\n    A Data Model for density of mosquitoes in cities.\n  title: MosquitoDensity\n  version: \"0.0.1\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - MosquitoDensity\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Environment@429765a2d41c9b86d5eaa517cb0d731b7a914aca/-/blob/MosquitoDensity/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Environment/blob/429765a2d41c9b86d5eaa517cb0d731b7a914aca/MosquitoDensity/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"MosquitoDensity\": resolve \"#/components/schemas/MosquitoDensity\": at MosquitoDensity/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/model.yaml#/MosquitoDensity\": get \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.Environment/MosquitoDensity/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ImageNewRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/Images/Schemas/ImageNewRequest.yaml",
+			"byteSize": 3033,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ImageNewRequest:\n      type: object\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.  \n          type: object\n        copyright:\n          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'\n          type: string\n          example: Copyright 2018 Bob Robertson\n        description:\n          description: The human readable description of an image.\n          type: string\n          example: This is a picture of a tomato\n        descriptiveOntologyTerms:\n          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.\n          items:\n            type: string\n          type: array\n          example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] \n        imageFileName:\n          description: The name of the image file. Might be the same as 'imageName', but could be different.\n          type: string\n          example: image_0000231.jpg\n        imageFileSize:\n          description: The size of the image in Bytes.\n          type: integer\n          example: 50000\n        imageHeight:\n          description: The height of the image in Pixels.\n          type: integer\n          example: 550\n        imageLocation:\n          $ref: '#/components/schemas/geoJSON'\n        imageName:\n          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.\n          type: string\n          example: Tomato Image 1\n        imageTimeStamp:\n          description: The date and time the image was taken\n          format: date-time\n          type: string\n        imageURL:\n          description: The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.\n          type: string\n          example: https://wiki.brapi.org/images/tomato\n        imageWidth:\n          description: The width of the image in Pixels.\n          type: integer\n          example: 700\n        mimeType:\n          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc\n          pattern: image/.*\n          type: string\n          example: image/jpeg\n        observationDbIds:\n          description: A list of observation Ids this image is associated with, if applicable.\n          items:\n            type: string\n          type: array\n          example: ['d05dd235', '8875177d', 'c08e81b6']\n        observationUnitDbId:\n          description: The related observation unit identifier, if relevant.\n          type: string\n          example: b7e690b6\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n          \n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Phenotyping/Images/Schemas/ImageNewRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Phenotyping/Images/Schemas/ImageNewRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ImageNewRequest\": resolve \"#/components/schemas/ImageNewRequest\": property \"imageLocation\": at Specification/BrAPI-Phenotyping/Images/Schemas/ImageNewRequest.yaml:43:17: $ref: resolve \"#/components/schemas/geoJSON\": resolve: can't find value for \"components/schemas/geoJSON\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/RedHatInsights/rhsm-subscriptions"
+		},
+		"file": {
+			"name": "internal-metering-api-spec.yaml",
+			"size": 0,
+			"path": "src/main/spec/internal-metering-api-spec.yaml",
+			"byteSize": 1797,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: \"rhsm-subscriptions internal metering API\"\n  version: 1.0.0\n\npaths:\n  /internal/metering/{productTag}:\n    description: 'Operations related to product metering.'\n    post:\n      operationId: meterProductForAccount\n      summary: \"Perform product metering for account.\"\n      parameters:\n        - name: accountNumber\n          in: query\n          schema:\n            type: string\n        - name: orgId\n          in: query\n          schema:\n            type: string\n        - name: productTag\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: endDate\n          in: query\n          schema:\n            type: string\n            format: date-time\n            description: \"The end date for the metering request. (e.g. 22-05-03T10:00:00Z). Default: Top of the current hour.\"\n        - name: rangeInMinutes\n          in: query\n          required: true\n          schema:\n            type: integer\n        - name: x-rh-swatch-synchronous-request\n          in: header\n          required: false\n          schema:\n            type: boolean\n            default: \"false\"\n            description: \"When present, a synchronous request is made.\"\n      responses:\n        '200':\n          description: \"Metering was successful.\"\n        '400':\n          $ref: \"../../../spec/error-responses.yaml#/$defs/BadRequest\"\n        '403':\n          $ref: \"../../../spec/error-responses.yaml#/$defs/Forbidden\"\n        '500':\n          $ref: \"../../../spec/error-responses.yaml#/$defs/InternalServerError\"\n      tags:\n        - internalProductMetering\n  /internal-metering-openapi.json:\n    $ref: \"../../../spec/openapi-paths.yaml#/openapi-json\"\n  /internal-metering-openapi.yaml:\n    $ref: \"../../../spec/openapi-paths.yaml#/openapi-yaml\"\n",
+			"canonicalURL": "/github.com/RedHatInsights/rhsm-subscriptions@4303d8b294265880062cd5b4b0774e8a09e44fdc/-/blob/src/main/spec/internal-metering-api-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/RedHatInsights/rhsm-subscriptions/blob/4303d8b294265880062cd5b4b0774e8a09e44fdc/src/main/spec/internal-metering-api-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/internal/metering/{productTag}\": post: operation \"meterProductForAccount\": parameters: parse parameter \"x-rh-swatch-synchronous-request\": parse schema: at src/main/spec/internal-metering-api-spec.yaml:42:22: parse default: expected type \"boolean\", got \"string\""
+}

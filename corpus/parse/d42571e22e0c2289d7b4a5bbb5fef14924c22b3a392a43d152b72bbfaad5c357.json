@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/jdegre/5GC_APIs"
+		},
+		"file": {
+			"name": "TS29522_UEId.yaml",
+			"size": 0,
+			"path": "TS29522_UEId.yaml",
+			"byteSize": 3487,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: 3gpp-ueid\n  version: 1.0.1\n  description: |\n    API for UE ID service.\n    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  \n    All rights reserved.\n\nexternalDocs:\n  description: 3GPP TS 29.522 V17.7.0; 5G System; Network Exposure Function Northbound APIs.\n  url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/'\nsecurity:\n  - {}\n  - oAuth2ClientCredentials: []\n\nservers:\n  - url: '{apiRoot}/3gpp-ueid/v1'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in subclause 5.2.4 of 3GPP TS 29.122.\n\npaths:\n  /retrieve:\n    post:\n      summary: Retrieve AF specific UE ID.\n      operationId: RetrieveUEId\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/UeIdReq'\n      responses:\n        '200':\n          description: The requested information was returned successfully.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/UeIdInfo'\n        '307':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/307'\n        '308':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/308'\n        '400':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/400'\n        '401':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/401'\n        '403':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/403'\n        '404':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/404'\n        '411':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/411'\n        '413':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/413'\n        '415':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/415'\n        '429':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/429'\n        '500':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/503'\n        default:\n          $ref: 'TS29122_CommonData.yaml#/components/responses/default'\n\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: '{tokenUrl}'\n          scopes: {}\n  schemas: \n    UeIdReq:\n      description: Represents the parameters to request the retrieval of AF specific UE ID.\n      type: object\n      properties:\n        afId:\n          type: string\n        appPortId:\n          $ref: 'TS29122_CommonData.yaml#/components/schemas/Port'\n        dnn:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'\n        ipDomain:\n          type: string\n        mtcProviderId:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/MtcProviderInformation'\n        snssai:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'\n        ueIpAddr:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/IpAddr'\n        ueMacAddr:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/MacAddr48'\n      required:\n        - afId\n      oneOf:\n        - required: [ueIpAddr]\n        - required: [ueMacAddr]\n    UeIdInfo:\n      description: Represents UE ID information.\n      type: object\n      properties:\n        externalId:\n          $ref: 'TS29122_CommonData.yaml#/components/schemas/ExternalId'\n      required:\n        - externalId\n",
+			"canonicalURL": "/github.com/jdegre/5GC_APIs@605fe2f5ce468cba9e13880ae876942b930d6b24/-/blob/TS29522_UEId.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/jdegre/5GC_APIs/blob/605fe2f5ce468cba9e13880ae876942b930d6b24/TS29522_UEId.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/retrieve\": post: operation \"RetrieveUEId\": security: parse security scheme \"oAuth2ClientCredentials\": oauth2: flow \"clientCredentials\": at TS29522_UEId.yaml:76:21: \"tokenUrl\" MUST be in the form of a URL: parse \"{tokenUrl}\": invalid URI for request"
+}

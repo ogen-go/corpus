@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Ontologies_GET_POST.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/Ontologies/Ontologies_GET_POST.yaml",
+			"byteSize": 3140,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /ontologies:\n    get:\n      summary: Get a filtered list of Ontologies\n      description: |-\n        Retrieve a list of ontologies available in the system. \n        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.\n      parameters:\n      - description: The human readable identifier for an ontology definition\n        in: query\n        name: ontologyName\n        required: false\n        schema:\n          type: string\n      - $ref: '#/components/parameters/ontologyDbId'\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/OntologyListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Ontologies\n    post:\n      summary: Create a new Ontology record in the database\n      description: |-\n        Use this endpoint to create a new Ontology record in the database\n        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.\n      parameters:\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: array\n              items:\n                $ref: '#/components/schemas/OntologyNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/OntologyListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Ontologies\ncomponents:\n  responses:\n    OntologyListResponse:\n      content:\n        application/json:\n          schema:\n            title: OntologyListResponse\n            type: object\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                properties:\n                  data:\n                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                    items:\n                      $ref: '#/components/schemas/Ontology'\n                    type: array\n                required:\n                - data\n                type: object\n            required:\n            - metadata\n            - result\n      description: OK\n      headers: {}\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Phenotyping/Ontologies/Ontologies_GET_POST.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Phenotyping/Ontologies/Ontologies_GET_POST.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"OntologyListResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Phenotyping/Ontologies/Ontologies_GET_POST.yaml:69:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

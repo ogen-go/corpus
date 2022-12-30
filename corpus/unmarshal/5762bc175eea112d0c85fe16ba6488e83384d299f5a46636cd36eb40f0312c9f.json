@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adzerk/adzerk-api-specification"
+		},
+		"file": {
+			"name": "site-zone-targeting.yaml",
+			"size": 0,
+			"path": "management/site-zone-targeting.yaml",
+			"byteSize": 3795,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Adzerk Management API - Site Zone Targeting\n  description: Advertiser related Adzerk Management API\n  version: '1.0'\nservers:\n  - url: 'https://api.adzerk.net'\ntags:\n  - name: site-zone-targeting\n    description: Manage Size/Zone Targeting\npaths:\n  '/v1/flight/{flightId}/sitezonetargeting':\n    post:\n      tags:\n        - site-zone-targeting\n      operationId: create\n      security:\n        - ApiKeyAuth: []\n      parameters:\n        - name: flightId\n          description: The Flight Id to create the Site Zone Targeting for\n          in: path\n          required: true\n          schema:\n            type: integer\n            format: int32\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                SiteId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                ZoneId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                IsExclude:\n                  type: boolean\n                  default: false\n                  nullable: true\n      responses:\n        200:\n          description: The newly created Site/Zone Targeting\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/site-zone.yaml#/schemas/SiteZone'\n  '/v1/flight/{flightId}/sitezonetargeting/{id}':\n    parameters:\n      - name: flightId\n        description: The Flight Id to update the Site Zone Targeting for\n        in: path\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: id\n        description: The Id of the Site Zone Targeting to update\n        in: path\n        required: true\n        schema:\n          type: integer\n          format: int32\n    put:\n      tags:\n        - site-zone-targeting\n      operationId: update\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                SiteId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                ZoneId:\n                  type: integer\n                  format: int32\n                  nullable: true\n                IsExclude:\n                  type: boolean\n                  default: false\n                  nullable: true\n      responses:\n        200:\n          description: The newly updated Site/Zone Targeting\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/site-zone.yaml#/schemas/SiteZone'\n    get:\n      tags:\n        - site-zone-targeting\n      operationId: get\n      security:\n        - ApiKeyAuth: []\n      responses:\n        200:\n          description: The Site/Zone Targeting\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/site-zone.yaml#/schemas/SiteZone'\n  '/v1/flight/{flightId}/sitezonetargeting/{id}/delete':\n    parameters:\n      - name: flightId\n        description: The Flight Id to update the Site Zone Targeting for\n        in: path\n        required: true\n        schema:\n          type: integer\n          format: int32\n      - name: id\n        description: The Id of the Site Zone Targeting to update\n        in: path\n        required: true\n        schema:\n          type: integer\n          format: int32\n    get:\n      tags:\n        - site-zone-targeting\n      operationId: delete\n      security:\n        - ApiKeyAuth: []\n      responses:\n        200:\n          description: Successfully Deleted\ncomponents:\n  securitySchemes:\n    $ref: './components/security-schemes.yaml#/components/securitySchemes'",
+			"canonicalURL": "/github.com/adzerk/adzerk-api-specification@25b2da9378e96562925f89165bfae045adbe912b/-/blob/management/site-zone-targeting.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adzerk/adzerk-api-specification/blob/25b2da9378e96562925f89165bfae045adbe912b/management/site-zone-targeting.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 139: cannot unmarshal !!str `./compo...` into ogen.SecurityScheme"
+}

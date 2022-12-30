@@ -10,14 +10,14 @@
 			"path": "__tests__/join/with-metadata/pet.yaml",
 			"byteSize": 1047,
 			"content": "openapi: 3.0.0\nservers:\n  - url: http://localhost:8080\ninfo:\n  description: example test\n  version: 1.0.0\n  title: Swagger Petstore\n  termsOfService: 'http://swagger.io/terms/'\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  '/GETUser/{userId}':\n    summary: getPet\n    parameters:\n      - name: param1\n        in: header\n        schema:\n          description: string\n    description: get Pet description\n    servers:\n      - url:\n          /pet\n        description: some description\n\n    get:\n      tags:\n        - pet\n      summary: Find pet by ID\n      description: Returns a single pet\n      operationId: getPetById\n      servers:\n        - url:\n            /pet\n      parameters:\n        - name: petId\n          in: path\n          description: ID of pet to return\n          required: true\n          deprecated: true\n          schema:\n            type: integer\n            format: int64\n      responses:\n        200:\n          description: ok\n        400:\n          description: bad request\n",
-			"canonicalURL": "/github.com/Redocly/redocly-cli@83f8881e7ea5004ebe30e81221fa79a23f6d3a04/-/blob/__tests__/join/with-metadata/pet.yaml",
+			"canonicalURL": "/github.com/Redocly/redocly-cli@9f3d618484a27e1d85ba6097eb4c4130c486ad85/-/blob/__tests__/join/with-metadata/pet.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Redocly/redocly-cli/blob/83f8881e7ea5004ebe30e81221fa79a23f6d3a04/__tests__/join/with-metadata/pet.yaml",
+					"url": "https://github.com/Redocly/redocly-cli/blob/9f3d618484a27e1d85ba6097eb4c4130c486ad85/__tests__/join/with-metadata/pet.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/GETUser/{userId}\": parameters: parse parameter \"param1\": at 1:692: invalid schema:style:explode combination: (\"\":\"simple\":false)"
+	"Error": "parse: parse spec: parse path items: path \"/GETUser/{userId}\": get: operation \"getPetById\": at __tests__/join/with-metadata/pet.yaml:27:7: parse path \"/GETUser/{userId}\": path parameter not specified: \"userId\""
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/validator-badge"
+		},
+		"file": {
+			"name": "valid_oas31.yaml",
+			"size": 0,
+			"path": "src/test/resources/valid_oas31.yaml",
+			"byteSize": 1316,
+			"content": "openapi: 3.1.0\nservers: []\ninfo:\n  version: 1.0.0\n  title: minimal\n  description: News Articles ftw\npaths:\n  /users:\n    get:\n      responses:\n        '200':\n          description: hello world\ncomponents:\n  schemas:\n    NewsArticle:\n      title: NewsArticle\n      type:\n        - object\n        - string\n      properties:\n        id:\n          type: integer\n          format: int32\n          x-mysql-type: int(11)\n    allOfNewsArticle:\n      title: allOfNewsArticle\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    anyOfNewsArticle:\n      title: anyOfNewsArticle\n      type: object\n      anyOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    oneOfNewsArticle:\n      title: oneOfNewsArticle\n      type: object\n      oneOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - properties:\n            articleBody:\n              type: string\n    notNewsArticle:\n      title: notNewsArticle\n      type: object\n      allOf:\n        - $ref: '#/components/schemas/NewsArticle'\n        - not:\n            type: string\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  securitySchemes: {}\n  headers: {}\n",
+			"canonicalURL": "/github.com/swagger-api/validator-badge@75bfd0b70ad4bc4543ca6f83e0f51baba664966a/-/blob/src/test/resources/valid_oas31.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/validator-badge/blob/75bfd0b70ad4bc4543ca6f83e0f51baba664966a/src/test/resources/valid_oas31.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 18: cannot unmarshal !!seq into string"
+}

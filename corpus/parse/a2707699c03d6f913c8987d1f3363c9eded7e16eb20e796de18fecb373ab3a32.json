@@ -10,14 +10,14 @@
 			"path": "src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json",
 			"byteSize": 1268,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n      \"MySchema1\" : {\n        \"type\": \"object\",\n        \"required\": [\n          \"name\"\n        ],\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"address\": {\n            \"$ref\": \"#/components/schemas/Address\"\n          },\n          \"age\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"minimum\": 0\n          }\n        }\n      },\n      \"MySchema2\": {\n        \"type\": \"string\",\n        \"format\": \"email\"\n      },\n      \"RefSchema\":{\n        \"$ref\": \"#/other/Ref\"\n      },\n      \"NewType\": {\n        \"title\": \"Root Type for NewType\",\n        \"description\": \"The root of the NewType type's schema.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"age\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"email\": {\n            \"type\": \"string\"\n          },\n          \"dob\": {\n            \"type\": \"string\",\n            \"format\": \"date\"\n          }\n        },\n        \"example\": {\n\t      \"name\": \"Jason Bourne\",\n\t      \"age\": 46,\n\t      \"email\": \"jbourne@example.com\",\n\t      \"dob\": \"1971-04-15\"\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@72581effc8762fc9afd2d8b6f9c467763575dc46/-/blob/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/-/blob/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/72581effc8762fc9afd2d8b6f9c467763575dc46/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json",
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"MySchema1\": parse schema: property \"address\": parse schema: at 15:21: find schema: resolve: can't find value for \"components/schemas/Address\""
+	"Error": "parse: parse spec: parse components: schemas: \"MySchema1\": resolve \"#/components/schemas/MySchema1\": property \"address\": at src/test/resources/fixtures/cmd/commands/new-schema-definition/openapi-3/new-schema-definition-with-example.after.json:15:21: $ref: resolve \"#/components/schemas/Address\": resolve: can't find value for \"components/schemas/Address\""
 }

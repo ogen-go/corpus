@@ -10,14 +10,14 @@
 			"path": "Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml",
 			"byteSize": 1959,
 			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /variants/{variantDbId}/calls:\n    get:\n      summary: Gets a list of `Calls` associated with a `Variant`.\n      description: |-\n        The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.\n      parameters:\n        - name: variantDbId\n          description: The ID which uniquely identifies a `Variant`\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: expandHomozygotes\n          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)\n          in: query\n          required: false\n          schema:\n            type: boolean\n        - name: unknownString\n          description: The string to use as a representation for missing data\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepPhased\n          description: The string to use as a separator for phased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - name: sepUnphased\n          description: The string to use as a separator for unphased allele calls\n          in: query\n          required: false\n          schema:\n            type: string\n        - $ref: '#/components/parameters/pageToken'\n        - $ref: '#/components/parameters/page'\n        - $ref: '#/components/parameters/pageSize'\n        - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/CallsListResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n        - Variants",
-			"canonicalURL": "/github.com/plantbreeding/BrAPI@37ea4989c56879b1472421c4975cfdd06c397b45/-/blob/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/plantbreeding/BrAPI/blob/37ea4989c56879b1472421c4975cfdd06c397b45/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml",
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/variants/{variantDbId}/calls\": get: parameters: parse parameter \"\": at 1:1126: can't find value for \"components/parameters/pageToken\""
+	"Error": "parse: parse spec: parse path items: path \"/variants/{variantDbId}/calls\": get: parameters: parse parameter \"\": at Specification/BrAPI-Genotyping/Variants/Variants_VariantId_Calls_GET.yaml:42:17: can't find value for \"components/parameters/pageToken\""
 }

@@ -10,14 +10,14 @@
 			"path": "te/static/setup_te_swagger.json",
 			"byteSize": 1855,
 			"content": "{\n    \"openapi\": \"3.0.0\",\n    \"info\" : {\n        \"version\" : \"v2.0\",\n        \"title\" : \"Traffic Engine\",\n        \"description\" : \"`SWAGGER FOR BRINGING UP THE TRAFFIC ENGINE CONTROLLER`\"\n    },\n    \"paths\" : {\n        \"/api/setup_te\" : {\n            \"get\" : {\n                \"tags\" : [\"SETUP\"],\n                \"summary\" : \"Bring up the TE controller container\",\n                \"description\" : \"`This api call will perform a setup te and build up the TE Controller!!`\",\n                \"parameters\" : [\n                    {\n                        \"name\" : \"te_controller_ip\",\n                        \"description\" : \"TE controller ip\",\n                        \"in\" : \"query\",\n                        \"required\" : true,\n                        \"type\": \"string\"\n                    },\n                    {\n                        \"name\" : \"user\",\n                        \"description\" : \"TE controller user name, default is root\",\n                        \"in\" : \"query\",\n                        \"type\": \"string\",\n                        \"default\" : \"root\"\n                    },\n                    {\n                        \"name\" : \"passwd\",\n                        \"description\" : \"TE controller password\",\n                        \"in\" : \"query\",\n                        \"type\": \"string\"\n                    },\n                    {\n                        \"name\" : \"dockerhub_repo\",\n                        \"description\" : \"Dockerhub repo name hosting TE image\",\n                        \"in\" : \"query\",\n                        \"type\": \"string\",\n                        \"default\" : \"projects.registry.vmware.com/tens/te:v2.0\"\n                    }\n\t\t],\n                \"produces\": [\"application/json\"],\n\t\t\"responses\" : {\"200\" :{\"description\" : \"OK\" }, \"5XX\":{\"description\" : \"Bad Request,Internal Server Error!!!\"}}\n            }\n        }\n    }\n}\n\n",
-			"canonicalURL": "/github.com/vmware/te-ns@67d351f4617fb1fcd6b64c452db492cb649d0e3c/-/blob/te/static/setup_te_swagger.json",
+			"canonicalURL": "/github.com/vmware/te-ns@292e95b858d4f4b076c2a609ec379797254b54de/-/blob/te/static/setup_te_swagger.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vmware/te-ns/blob/67d351f4617fb1fcd6b64c452db492cb649d0e3c/te/static/setup_te_swagger.json",
+					"url": "https://github.com/vmware/te-ns/blob/292e95b858d4f4b076c2a609ec379797254b54de/te/static/setup_te_swagger.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/api/setup_te\": get: parameters: parse parameter \"te_controller_ip\": at 15:21: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse path items: path \"/api/setup_te\": get: parameters: parse parameter \"te_controller_ip\": at te/static/setup_te_swagger.json:15:21: parameter MUST contain either a schema property, or a content property"
 }

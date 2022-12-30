@@ -10,14 +10,14 @@
 			"path": "example/example-openapi.yaml",
 			"byteSize": 616,
 			"content": "openapi: 3.0.2\ninfo:\n  title: Sample Vehicle API\n  description: This is an example API to showcase the translation from OpenAPI to PlantUML.\n  version: 0.0.1\n\n\npaths:\n  /vehicles/air:\n    description: Air vehicles\n    get:\n      summary: Returns a list of vehicles.\n      description: Returns a list of vehicles.\n      responses:\n        '200':\n          description: An JSON array of vehicles\n          content:\n            'application/json':\n              schema:\n                type: array\n                minItems: 0\n                items:\n                  $ref: 'vehicle.yaml#/components/schemas/airVehicle'\n",
-			"canonicalURL": "/github.com/armand-janssen/openapi-transformer@0f65d7fab25bc39c5008c7fb77c64748f271a89c/-/blob/example/example-openapi.yaml",
+			"canonicalURL": "/github.com/armand-janssen/openapi-transformer@462e125269128b5b483a206fb47e46d73c3ce355/-/blob/example/example-openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/armand-janssen/openapi-transformer/blob/0f65d7fab25bc39c5008c7fb77c64748f271a89c/example/example-openapi.yaml",
+					"url": "https://github.com/armand-janssen/openapi-transformer/blob/462e125269128b5b483a206fb47e46d73c3ce355/example/example-openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/vehicles/air\": get: responses: 200: content: application/json: schema: parse schema: parse schema: at 1:352: external \"vehicle.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/vehicles/air\": get: responses: 200: content: application/json: schema: parse schema: items: $ref: resolve \"vehicle.yaml#/components/schemas/airVehicle\": allOf: $ref: resolve \"#/components/schemas/vehicle\": property \"registration\": at https://raw.githubusercontent.com/armand-janssen/openapi-transformer/462e125269128b5b483a206fb47e46d73c3ce355/example/vehicle.yaml:23:17: $ref: resolve \"registration.yaml/#/components/schemas/registration\": get \"https://raw.githubusercontent.com/armand-janssen/openapi-transformer/462e125269128b5b483a206fb47e46d73c3ce355/example/registration.yaml/\": https: bad HTTP code 400 (Bad Request)"
 }

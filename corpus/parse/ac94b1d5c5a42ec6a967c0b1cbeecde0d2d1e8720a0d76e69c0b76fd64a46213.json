@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/carpaltunnel/ArCA-NodeJS-Fall-2022"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "045-API Documentation/split-schema/openapi.json",
+			"byteSize": 2889,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Widgets App\",\n    \"description\": \"This is a sample API for widgets\",\n    \"version\": \"3.0.1\"\n  },\n  \"components\": {\n    \"schemas\": {\n      \"widget\": {\n        \"$ref\": \"schemas/widget.json#/components/schemas/widget\"\n      }\n    }\n  },\n  \"paths\": {\n    \"/widgets\": {\n      \"get\": {\n        \"description\": \"Fetch a list of widgets\",\n        \"summary\": \"Widget list\",\n        \"operationId\": \"getWidgets\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"List of widgets response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/widget\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"description\": \"Create a new widget\",\n        \"summary\": \"Create widget\",\n        \"operationId\": \"createWidget\",\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/widget\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Created a new widget successfully\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/widgets/{id}\": {\n      \"get\": {\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Get a widget by ID\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/widget\"\n                }\n              }\n            }\n          }\n        }\n      },\n      \"put\": {\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\"\n            }\n          }\n        ],\n        \"requestBody\": {\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/widget\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Updated a new widget successfully\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/widget\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/carpaltunnel/ArCA-NodeJS-Fall-2022@f3945d6dbecaf8ff92dae3a3f4139431f392a1ba/-/blob/045-API%20Documentation/split-schema/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/carpaltunnel/ArCA-NodeJS-Fall-2022/blob/f3945d6dbecaf8ff92dae3a3f4139431f392a1ba/045-API Documentation/split-schema/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"widget\": resolve \"#/components/schemas/widget\": at 045-API Documentation/split-schema/openapi.json:11:17: $ref: resolve \"schemas/widget.json#/components/schemas/widget\": get \"https://raw.githubusercontent.com/carpaltunnel/ArCA-NodeJS-Fall-2022/f3945d6dbecaf8ff92dae3a3f4139431f392a1ba/045-API%20Documentation/split-schema/schemas/widget.json\": https: bad HTTP code 404 (Not Found)"
+}

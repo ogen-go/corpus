@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-parser"
+		},
+		"file": {
+			"name": "internal-refs.yaml",
+			"size": 0,
+			"path": "modules/swagger-parser-v3/src/test/resources/internal-refs.yaml",
+			"byteSize": 2558,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: test\npaths: {}\ncomponents: \n  schemas:    \n    MemberRef:\n      description: Provides basic ID info about a member with an href to the full object\n      type: object\n      properties:\n        uuid:\n          description: \"Uniquely identifies a member across the entire platform\"\n          type: string\n          format: uuid\n          minLength: 36\n          maxLength: 36\n          example: \"26a0bac8-5c37-4c54-b3b1-1ad4551db061\"\n        alt_id:\n          description: \"An ID defined for a member, typically provided by a customer during integration, which will be unique within a given group.\"\n          type: string\n          minLength: 1\n          maxLength: 36\n          example: \"ABC-123\"\n        group:\n          $ref: \"#/components/schemas/MemberGroup\"\n        href:\n          type: string\n          format: uri\n          readOnly: true\n      anyOf:\n      - required: [\"uuid\"]\n        properties:\n          uuid:\n            $ref: \"#/components/schemas/MemberRef/properties/uuid\"\n          alt_id:\n            $ref: \"#/components/schemas/MemberRef/properties/alt_id\"\n          group:\n            $ref: \"#/components/schemas/MemberRef/properties/group\"\n          href:\n            $ref: \"#/components/schemas/MemberRef/properties/href\"\n      - required: [\"alt_id\", \"group\"]\n        properties:\n          uuid:\n            $ref: \"#/components/schemas/MemberRef/properties/uuid\"\n          alt_id:\n            $ref: \"#/components/schemas/MemberRef/properties/alt_id\"\n          group:\n            $ref: \"#/components/schemas/MemberRef/properties/group\"\n          href:\n            $ref: \"#/components/schemas/MemberRef/properties/href\"\n    MemberSmall:\n      description: \u003e-\n        Provides abbreviated information about a member and is used when returning an array of members\n      readOnly: true\n      properties:\n        uuid:\n          $ref: \"#/components/schemas/MemberRef/properties/uuid\"\n        alt_id:\n          $ref: \"#/components/schemas/MemberRef/properties/alt_id\"\n        group:\n          $ref: \"#/components/schemas/MemberRef/properties/group\"\n        href:\n          $ref: \"#/components/schemas/MemberRef/properties/href\"\n        activated:\n          description: \u003e-\n            Indicates that the member has logged into their account\n          type: boolean\n          example: true\n        disabled:\n          description: \u003e-\n            Indicates that the member's account is disabled and they will no longer be able to login\n          type: boolean\n          example: false\n      \n       ",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/internal-refs.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/internal-refs.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"MemberRef\": resolve \"#/components/schemas/MemberRef\": anyOf: property \"group\": $ref: resolve \"#/components/schemas/MemberRef/properties/group\": at modules/swagger-parser-v3/src/test/resources/internal-refs.yaml:26:17: $ref: resolve \"#/components/schemas/MemberGroup\": resolve: can't find value for \"components/schemas/MemberGroup\""
+}

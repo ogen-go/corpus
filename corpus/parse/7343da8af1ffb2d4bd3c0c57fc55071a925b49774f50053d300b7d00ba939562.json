@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/awslabs/serverless-rules"
+		},
+		"file": {
+			"name": "es2003-rest-missing.fail.yaml",
+			"size": 0,
+			"path": "cfn-lint-serverless/tests/templates/es2003-rest-missing.fail.yaml",
+			"byteSize": 1725,
+			"content": "AWSTemplateFormatVersion: \"2010-09-09\"\nTransform: \"AWS::Serverless-2016-10-31\"\n\nResources:\n  Api:\n    Type: AWS::Serverless::Api\n    Properties:\n      AccessLogSetting:\n        DestinationArn: \" arn:aws:logs:eu-west-1:123456789012:log-group:my-log-group\"\n        Format: |\n          {\n            \"stage\" : \"$context.stage\",\n            \"request_id\" : \"$context.requestId\",\n            \"api_id\" : \"$context.apiId\",\n            \"resource_path\" : \"$context.resourcePath\",\n            \"resource_id\" : \"$context.resourceId\",\n            \"http_method\" : \"$context.httpMethod\",\n            \"source_ip\" : \"$context.identity.sourceIp\",\n            \"user-agent\" : \"$context.identity.userAgent\",\n            \"account_id\" : \"$context.identity.accountId\",\n            \"api_key\" : \"$context.identity.apiKey\",\n            \"caller\" : \"$context.identity.caller\",\n            \"user\" : \"$context.identity.user\",\n            \"user_arn\" : \"$context.identity.userArn\",\n            \"integration_latency\": $context.integration.latency\n          }\n      DefinitionBody:\n        openapi: \"3.0.1\"\n\n        info:\n          title: \"test-api\"\n          version: 1.0.0\n\n        paths:\n          /:\n            get:\n              responses:\n                \"404\":\n                  description: \"404 File Not Found\"\n              x-amazon-apigateway-integration:\n                requestTemplates:\n                  application/json: '{\"statusCode\": 200}'\n                passthroughBehavior: when_no_match\n                responses:\n                  default:\n                    statusCode: \"404\"\n                    responseTemplates:\n                      application/json: \"\"\n                type: mock\n\n      StageName: prod\n      TracingEnabled: true",
+			"canonicalURL": "/github.com/awslabs/serverless-rules@0344f9426263be9a08873425511228a0a310116e/-/blob/cfn-lint-serverless/tests/templates/es2003-rest-missing.fail.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/awslabs/serverless-rules/blob/0344f9426263be9a08873425511228a0a310116e/cfn-lint-serverless/tests/templates/es2003-rest-missing.fail.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at cfn-lint-serverless/tests/templates/es2003-rest-missing.fail.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

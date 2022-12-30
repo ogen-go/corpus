@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cspannos/PRAXIS-Blockchain-API-Maximizer"
+		},
+		"file": {
+			"name": "1808.yaml",
+			"size": 0,
+			"path": "praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1808.yaml",
+			"byteSize": 750,
+			"content": "meta:\n  title: \"#1808 - Misleading errors for a Responses Object within Operation Object\"\ncases:\n- name: in OpenAPI 2.0\n  input:\n    swagger: \"2.0\"\n    info:\n      version: 0.0.0\n      title: test\n    paths:\n      /:\n        get:\n          responses: {}\n  output:\n    length: 1\n    match:\n    - level: error\n      message: should define at least one response\n      path: [paths, /, get, responses]\n      source: structural\n- name: in OpenAPI 3.0\n  input:\n    openapi: \"3.0.0\"\n    info:\n      version: 0.0.0\n      title: test\n    paths:\n      /:\n        get:\n          responses: {}\n  output:\n    length: 1\n    match:\n    - level: error\n      message: should define at least one response\n      path: [paths, /, get, responses]\n      source: structural",
+			"canonicalURL": "/github.com/cspannos/PRAXIS-Blockchain-API-Maximizer@8ee70fc7c85d5bde8da762dbfbefe748d6c89492/-/blob/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1808.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer/blob/8ee70fc7c85d5bde8da762dbfbefe748d6c89492/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1808.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1808.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}
