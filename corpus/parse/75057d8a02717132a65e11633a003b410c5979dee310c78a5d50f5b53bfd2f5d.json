@@ -10,14 +10,14 @@
 			"path": "core/src/test/resources/issue-317_2.json",
 			"byteSize": 1797,
 			"content": "{\n  \"openapi\":\"3.0.0\",\n  \"info\":{\n    \"title\":\"API\",\n    \"version\":\"0.1.0\"\n  },\n  \"paths\":{\n    \"/resource\":{\n      \"post\":{\n        \"responses\":{\n          \"200\":{\n            \"description\":\"Created resource\",\n            \"content\":{\n              \"application/json\":{\n                \"schema\":{\n                  \"type\":\"string\"\n                }\n              }\n            }\n          }\n        },\n        \"summary\":\"Create resource\",\n        \"requestBody\":{\n          \"content\":{\n            \"application/json\":{\n              \"schema\":{\n                \"$ref\":\"#/components/schemas/Resource\"\n              }\n            }\n          },\n          \"description\":\"Definition of the resource\"\n        }\n      }\n    }\n  },\n  \"components\":{\n    \"schemas\":{\n      \"Resource\":{\n        \"type\":\"object\",\n        \"properties\":{\n          \"assignment\":{\n            \"default\":{\n              \"type\":\"Bar\"\n            },\n            \"allOf\":[\n              {\n                \"$ref\":\"#/components/schemas/Foo\"\n              }\n            ]\n          }\n        }\n      },\n      \"Foo\":{\n        \"oneOf\":[\n          {\n            \"$ref\":\"#/components/schemas/Foo.Bar\"\n          },\n          {\n            \"$ref\":\"#/components/schemas/Foo.Baz\"\n          }\n        ],\n        \"discriminator\":{\n          \"propertyName\":\"type\",\n          \"mapping\":{\n            \"Bar\":\"#/components/schemas/Foo.Bar\",\n            \"Baz\":\"#/components/schemas/Foo.Baz\"\n          }\n        }\n      },\n      \"Foo.Bar\":{\n        \"type\":\"object\",\n        \"properties\":{\n          \"type\":{\n            \"type\":\"string\"\n          }\n        }\n      },\n      \"Foo.Baz\":{\n        \"type\":\"object\",\n        \"properties\":{\n          \"type\":{\n            \"type\":\"string\"\n          }\n        }\n      }\n    },\n    \"securitySchemes\":{\n\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@b1519debbd916092646632c29263018f3af117e5/-/blob/core/src/test/resources/issue-317_2.json",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-diff@c7b68484e4c633dfe5eb2be4292c9cbad7596857/-/blob/core/src/test/resources/issue-317_2.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-diff/blob/b1519debbd916092646632c29263018f3af117e5/core/src/test/resources/issue-317_2.json",
+					"url": "https://github.com/OpenAPITools/openapi-diff/blob/c7b68484e4c633dfe5eb2be4292c9cbad7596857/core/src/test/resources/issue-317_2.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Resource\": parse schema: property \"assignment\": parse schema: at 42:23: invalid value \"{\\\"type\\\":\\\"Bar\\\"}\""
+	"Error": "parse: parse spec: parse components: schemas: \"Resource\": resolve \"#/components/schemas/Resource\": property \"assignment\": at core/src/test/resources/issue-317_2.json:42:23: default: invalid value \"{\\\"type\\\":\\\"Bar\\\"}\""
 }

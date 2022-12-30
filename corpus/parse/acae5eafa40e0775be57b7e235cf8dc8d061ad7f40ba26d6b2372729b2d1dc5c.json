@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-samples/aws-proton-cloudformation-sample-templates"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "service-templates/apprunner-svc/v1/schema/schema.yaml",
+			"byteSize": 1648,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  service_input_type: \"ApprunnerServiceInput\"\n  pipeline_input_type: \"PipelineInputs\"\n\n  types:\n    ApprunnerServiceInput:\n      type: object\n      description: \"Input properties for the App runner service\"\n      properties:\n        port:\n          title: \"Port\"\n          type: number\n          description: \"The port to route traffic to\"\n          default: 80\n          minimum: 0\n          maximum: 65535\n        task_size:\n          title: \"Task size\"\n          type: string\n          description: \"The size of the task you want to run\"\n          enum: [\"medium\", \"large\"]\n          default: \"medium\"\n        image:\n          title: \"Image\"\n          type: string\n          description: \"The name/url of the container image\"\n          minLength: 1\n          maxLength: 200\n\n    PipelineInputs:\n      type: object\n      description: \"Pipeline input properties\"\n      properties:\n        service_dir:\n          title: \"Application Code Directory\"\n          type: string\n          description: \"Source directory for the service\"\n          default: \"ecs-static-website\"\n          minLength: 1\n          maxLength: 100\n        dockerfile:\n          title: \"Dockerfile\"\n          type: string\n          description: \"The location of the Dockerfile to build\"\n          default: \"Dockerfile\"\n          minLength: 1\n          maxLength: 100\n        unit_test_command:\n          title: \"Unit test command\"\n          type: string\n          description: \"The command to run to unit test the application code\"\n          default: \"echo 'add your unit test command here'\"\n          minLength: 1\n          maxLength: 200\n",
+			"canonicalURL": "/github.com/aws-samples/aws-proton-cloudformation-sample-templates@afda2c8355a00af1f9670cd7ab15f6c86c0ca492/-/blob/service-templates/apprunner-svc/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-samples/aws-proton-cloudformation-sample-templates/blob/afda2c8355a00af1f9670cd7ab15f6c86c0ca492/service-templates/apprunner-svc/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at service-templates/apprunner-svc/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

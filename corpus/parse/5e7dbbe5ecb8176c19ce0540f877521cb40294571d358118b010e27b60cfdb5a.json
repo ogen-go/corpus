@@ -10,14 +10,14 @@
 			"path": "vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 			"byteSize": 624,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Local relative refs\npaths:\n  /simple:\n    post:\n      summary: Simple\n      operationId: simple\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              $ref: \"#/components/schemas/Simple\"\n      responses:\n        201:\n          description: Created\n        default:\n          $ref: \"#/components/responses/DefaultError\"\n\ncomponents:\n  schemas:\n    Simple:\n      $ref: \"refs/Simple.yaml\"\n  responses:\n    DefaultError:\n      description: unexpected error\n      content:\n        text/plain:\n          schema:\n            type: string\n",
-			"canonicalURL": "/github.com/vert-x3/vertx-web@b717a2409af5f3265397b468f797b3f37f37a7b2/-/blob/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@f7a1b8ae8af8cdfd18ac15868e1412f92873b775/-/blob/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/vert-x3/vertx-web/blob/b717a2409af5f3265397b468f797b3f37f37a7b2/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
+					"url": "https://github.com/vert-x3/vertx-web/blob/f7a1b8ae8af8cdfd18ac15868e1412f92873b775/vertx-web-openapi/src/test/resources/yaml/invalid/local_refs.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Simple\": parse schema: at 1:162: external \"refs/Simple.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Simple\": resolve \"#/components/schemas/Simple\": $ref: resolve \"refs/Simple.yaml\": property \"fileName\": $ref: resolve \"fileName.json\": at https://raw.githubusercontent.com/vert-x3/vertx-web/f7a1b8ae8af8cdfd18ac15868e1412f92873b775/vertx-web-openapi/src/test/resources/yaml/invalid/refs/fileName.json:2:11: type: unexpected schema type: \"1\""
 }

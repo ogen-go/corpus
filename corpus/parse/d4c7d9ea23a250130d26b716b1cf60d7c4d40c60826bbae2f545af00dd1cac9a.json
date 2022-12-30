@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "http_api_with_null_path.json",
+			"size": 0,
+			"path": "tests/translator/output/aws-cn/http_api_with_null_path.json",
+			"byteSize": 3273,
+			"content": "{\n  \"AWSTemplateFormatVersion\": \"2010-09-09\",\n  \"Description\": \"A template to test for API condition handling with a mix of explicit and implicit api events.\",\n  \"Resources\": {\n    \"EXAMPLEPARTIALGateway\": {\n      \"Properties\": {\n        \"Body\": {\n          \"openapi\": \"3.0.1\",\n          \"paths\": {\n            \"/my/route\": {\n              \"post\": {\n                \"responses\": {},\n                \"x-amazon-apigateway-integration\": {\n                  \"httpMethod\": \"POST\",\n                  \"payloadFormatVersion\": \"2.0\",\n                  \"type\": \"aws_proxy\",\n                  \"uri\": {\n                    \"Fn::Sub\": \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${EXAMPLEPARTIALLambda.Arn}/invocations\"\n                  }\n                }\n              }\n            }\n          },\n          \"tags\": [\n            {\n              \"name\": \"httpapi:createdBy\",\n              \"x-amazon-apigateway-tag-value\": \"SAM\"\n            }\n          ]\n        }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Api\"\n    },\n    \"EXAMPLEPARTIALGatewayApiGatewayDefaultStage\": {\n      \"Properties\": {\n        \"ApiId\": {\n          \"Ref\": \"EXAMPLEPARTIALGateway\"\n        },\n        \"AutoDeploy\": true,\n        \"StageName\": \"$default\",\n        \"Tags\": {\n          \"httpapi:createdBy\": \"SAM\"\n        }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Stage\"\n    },\n    \"EXAMPLEPARTIALLambda\": {\n      \"Properties\": {\n        \"Code\": {\n          \"S3Bucket\": \"sam-demo-bucket\",\n          \"S3Key\": \"hello.zip\"\n        },\n        \"Handler\": \"hello.handler\",\n        \"Role\": {\n          \"Fn::GetAtt\": [\n            \"EXAMPLEPARTIALLambdaRole\",\n            \"Arn\"\n          ]\n        },\n        \"Runtime\": \"python3.9\",\n        \"Tags\": [\n          {\n            \"Key\": \"lambda:createdBy\",\n            \"Value\": \"SAM\"\n          }\n        ]\n      },\n      \"Type\": \"AWS::Lambda::Function\"\n    },\n    \"EXAMPLEPARTIALLambdaPostRequestPermission\": {\n      \"Properties\": {\n        \"Action\": \"lambda:InvokeFunction\",\n        \"FunctionName\": {\n          \"Ref\": \"EXAMPLEPARTIALLambda\"\n        },\n        \"Principal\": \"apigateway.amazonaws.com\",\n        \"SourceArn\": {\n          \"Fn::Sub\": [\n            \"arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${__ApiId__}/${__Stage__}/POST/my/route\",\n            {\n              \"__ApiId__\": {\n                \"Ref\": \"EXAMPLEPARTIALGateway\"\n              },\n              \"__Stage__\": \"*\"\n            }\n          ]\n        }\n      },\n      \"Type\": \"AWS::Lambda::Permission\"\n    },\n    \"EXAMPLEPARTIALLambdaRole\": {\n      \"Properties\": {\n        \"AssumeRolePolicyDocument\": {\n          \"Statement\": [\n            {\n              \"Action\": [\n                \"sts:AssumeRole\"\n              ],\n              \"Effect\": \"Allow\",\n              \"Principal\": {\n                \"Service\": [\n                  \"lambda.amazonaws.com\"\n                ]\n              }\n            }\n          ],\n          \"Version\": \"2012-10-17\"\n        },\n        \"ManagedPolicyArns\": [\n          \"arn:aws-cn:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole\"\n        ],\n        \"Tags\": [\n          {\n            \"Key\": \"lambda:createdBy\",\n            \"Value\": \"SAM\"\n          }\n        ]\n      },\n      \"Type\": \"AWS::IAM::Role\"\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/output/aws-cn/http_api_with_null_path.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/output/aws-cn/http_api_with_null_path.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/output/aws-cn/http_api_with_null_path.json:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

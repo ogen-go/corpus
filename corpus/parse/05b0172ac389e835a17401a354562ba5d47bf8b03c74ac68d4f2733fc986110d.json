@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/danielgtaylor/restish"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/testdata/request/openapi.yaml",
+			"byteSize": 1052,
+			"content": "openapi: \"3.1.0\"\ninfo:\n  version: 1.0.0\n  title: Test API\npaths:\n  /items/{item-id}:\n    put:\n      operationId: put-item\n      parameters:\n        - name: item-id\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: MyHeader\n          in: header\n          example: abc123\n          style: form\n          schema:\n            type: string\n      requestBody:\n        content:\n          application/json:\n            examples:\n              default:\n                value:\n                  foo: multi\n            schema:\n              type: object\n              properties:\n                foo:\n                  type: string\n                  example: hello\n      responses:\n        \"200\":\n          description: desc\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  foo:\n                    type: string\n    delete:\n      operationId: delete-item\n      responses:\n        \"204\":\n          description: \"\"\n",
+			"canonicalURL": "/github.com/danielgtaylor/restish@0e19b3c986daaa1fd7f24de2f014939df87e9318/-/blob/openapi/testdata/request/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/danielgtaylor/restish/blob/0e19b3c986daaa1fd7f24de2f014939df87e9318/openapi/testdata/request/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/items/{item-id}\": put: operation \"put-item\": parameters: parse parameter \"MyHeader\": at openapi/testdata/request/openapi.yaml:18:18: invalid style explode combination \"form\", explode:false"
+}

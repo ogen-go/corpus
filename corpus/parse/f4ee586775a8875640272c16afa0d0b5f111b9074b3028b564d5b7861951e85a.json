@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Maps_MapDbId_LinkageGroups_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_LinkageGroups_GET.yaml",
+			"byteSize": 2233,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /maps/{mapDbId}/linkagegroups:\n    get:\n      summary: Get the Linkage Groups of a specific Genomic Map\n      description: Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.\n      parameters:\n      - description: The ID which uniquely identifies a `GenomeMap`\n        in: path\n        name: mapDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: LinkageGroupListResponse\n                type: object\n                required:\n                - metadata\n                - result\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    type: object\n                    required:\n                    - data\n                    properties:\n                      data:\n                        description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                        type: array\n                        items:\n                          $ref: '#/components/schemas/LinkageGroup'\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Genome Maps\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_LinkageGroups_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_LinkageGroups_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/maps/{mapDbId}/linkagegroups\": get: parameters: parse parameter \"\": at Specification/BrAPI-Genotyping/GenomeMaps/Maps_MapDbId_LinkageGroups_GET.yaml:17:15: can't find value for \"components/parameters/page\""
+}

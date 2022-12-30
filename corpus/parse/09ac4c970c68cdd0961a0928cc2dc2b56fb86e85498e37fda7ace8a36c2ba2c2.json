@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/solvedac/unofficial-documentation"
+		},
+		"file": {
+			"name": "lint.yaml",
+			"size": 0,
+			"path": ".github/workflows/lint.yaml",
+			"byteSize": 880,
+			"content": "name: Lint\n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Override OpenAPI Version to 3.0.x (generator does not support 3.1)\n        run: |\n          for file in `find src -type f`; do\n            sed -i 's/openapi: \"3.1.0\"/openapi: \"3.0.0\"/' $file\n          done\n      - uses: stoplightio/spectral-action@v0.7.3\n        with:\n          file_glob: \"src/*.yaml\"\n  library-deployment:\n    needs: [lint]\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        repo:\n          - \"solvedac/api.ts\"\n          - \"solvedac/api.rs\"\n    steps:\n      - name: Invoke Workflow\n        uses: benc-uk/workflow-dispatch@v1\n        with:\n          workflow: Follow Up\n          token: ${{ secrets.WORKFLOW_DISPATCH }}\n          repo: ${{ matrix.repo }}\n",
+			"canonicalURL": "/github.com/solvedac/unofficial-documentation@f0b029765976d6a893a053a583103b68b9196ba6/-/blob/.github/workflows/lint.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/solvedac/unofficial-documentation/blob/f0b029765976d6a893a053a583103b68b9196ba6/.github/workflows/lint.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at .github/workflows/lint.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

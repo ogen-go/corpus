@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/udamir/api-smart-diff"
+		},
+		"file": {
+			"name": "externalref.yaml",
+			"size": 0,
+			"path": "test/resources/externalref.yaml",
+			"byteSize": 973,
+			"content": "openapi: 3.0.0\npaths:\n  /inventory:\n    get:\n      summary: Returns inventory\n      operationId: getInventory\n      responses:\n        '200':\n          description: successful operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Inventory'\ncomponents:\n  schemas:\n    Status:\n      type: string\n      enum:\n        - available\n        - reserved\n        - sold\n    Inventory:\n      type: object\n      properties:\n        id:\n          type: string\n        group:\n          $ref: \"#/components/schemas/Group\"\n        status:\n          $ref: \"#/components/schemas/Status\"\n        extra_info:\n          $ref: \"common.yaml#/components/schemas/Info\"\n    Group:\n      type: object\n      properties:\n        name:\n          type: string\n        items:\n          type: array\n          items:\n            $ref: \"#/components/schemas/Inventory\"\n        parent:\n          $ref: \"#/components/schemas/Group\"\n      ",
+			"canonicalURL": "/github.com/udamir/api-smart-diff@619632ad4ee77d39c18f24b5509e29f51bf5e62f/-/blob/test/resources/externalref.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/udamir/api-smart-diff/blob/619632ad4ee77d39c18f24b5509e29f51bf5e62f/test/resources/externalref.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Inventory\": resolve \"#/components/schemas/Inventory\": property \"extra_info\": at test/resources/externalref.yaml:32:17: $ref: resolve \"common.yaml#/components/schemas/Info\": get \"https://raw.githubusercontent.com/udamir/api-smart-diff/619632ad4ee77d39c18f24b5509e29f51bf5e62f/test/resources/common.yaml\": https: bad HTTP code 404 (Not Found)"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/auth/oauth2/authorization-code-grant-root-disabled/api.yaml",
+			"byteSize": 1483,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: auth-oauth2-oauth0-authorization-code-grant-root-disabled\n  namespace: default\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  spec: |\n    openapi: 3.1.0\n    info:\n      title: auth-oauth2-oauth0-authorization-code-grant-root-disabled\n      description: auth-oauth2-oauth0-authorization-code-grant-root-disabled\n      version: '0.1.0'\n    schemes:\n    - http\n    - https\n    x-kusk:\n      upstream:\n        service:\n          name: auth-oauth2-oauth0-authorization-code-grant-go-httpbin\n          namespace: default\n          port: 80\n      auth:        \n        oauth2:\n          token_endpoint: https://kubeshop-kusk-gateway-oauth2.eu.auth0.com/oauth/token\n          authorization_endpoint: https://kubeshop-kusk-gateway-oauth2.eu.auth0.com/authorize\n          credentials:\n            client_id: upRN78W8GzV4TwFRp0ekZfLx2UnqJJs8\n            client_secret: Z6MX7NreJumWLmf6unsQ5uiEUrTBxfNtqG9Vy5Kjktnvfj-_fRCBO9EU1mL1YzAJ\n          redirect_uri: /oauth2/callback\n          redirect_path_matcher: /oauth2/callback\n          signout_path: /oauth2/signout\n          forward_bearer_token: true\n          auth_scopes:\n            - openid\n    paths:\n      \"/\":\n        get:\n          description: Returns GET data.\n          operationId: \"/get\"\n          responses: {}\n      \"/uuid\":\n        get:\n          description: Returns UUID4.\n          operationId: \"/uuid\"\n          responses: {}\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/examples/auth/oauth2/authorization-code-grant-root-disabled/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/examples/auth/oauth2/authorization-code-grant-root-disabled/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at examples/auth/oauth2/authorization-code-grant-root-disabled/api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

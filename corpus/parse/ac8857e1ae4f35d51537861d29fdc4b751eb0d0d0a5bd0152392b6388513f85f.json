@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cloud-annotations/docusaurus-openapi"
+		},
+		"file": {
+			"name": "openapi-issue-220.yaml",
+			"size": 0,
+			"path": "demo/examples/openapi-issue-220.yaml",
+			"byteSize": 1052,
+			"content": "openapi: 3.0.3\ninfo:\n  version: 1.0.0\n  title: \"\"\nservers:\n  - url: https://example.com\nsecurity:\n  - basic_auth: []\npaths:\n  /Calls:\n    post:\n      tags:\n        - Calls\n      operationId: create_a_call\n      summary: Create a Call\n      requestBody:\n        required: true\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              type: object\n              properties:\n                StatusCallback:\n                  type: string\n                  example: https://your-api-endpoint.com/path\n                StatusCallbackEvent:\n                  type: array\n                  items:\n                    type: string\n                    enum:\n                      - initiated\n                      - ringing\n                      - answered\n                      - completed\n                  example:\n                    - completed\n            encoding:\n              StatusCallbackEvent:\n                style: form\n                explode: true\n      responses:\n        \"200\":\n          description: OK\n",
+			"canonicalURL": "/github.com/cloud-annotations/docusaurus-openapi@947efc5cc20d39e2e488609cb0e96fb07a4df1f3/-/blob/demo/examples/openapi-issue-220.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cloud-annotations/docusaurus-openapi/blob/947efc5cc20d39e2e488609cb0e96fb07a4df1f3/demo/examples/openapi-issue-220.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/Calls\": post: operation \"create_a_call\": security: at demo/examples/openapi-issue-220.yaml:8:5: unknown security scheme \"basic_auth\""
+}

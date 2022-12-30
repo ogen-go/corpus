@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "naming.yml",
+			"size": 0,
+			"path": "rules/naming.yml",
+			"byteSize": 2565,
+			"content": "#\n# Naming convention hints\n#\n# $..parameters.[?(@.name \u0026\u0026 @.name.match(\"^(nome|cognome|name|surname|cf|fiscalcode)$\",i))]\nrules:\n  use-recommended-names-in-parameters: \u0026use-recommended-names\n    description: |-\n      Use well defined parameter and schema names, deriving them\n      from the national ontologies available at https://w3id.org/italia/onto/\n\n      For example, you can model a person using the following names:\n      \n      ```\n      {\n        \"en\": {\n          \"given_name\": \"Mario\",\n          \"family_name\": \"Rossi\",\n          \"tax_code\": \"12345678901\"\n        },\n        \"it\": {\n          \"nome_proprio\": \"Mario\",\n          \"cognome\": \"Rossi\",\n          \"codice_fiscale\": \"12345678901\"\n        }\n      }\n      ```\n\n\n    message: |-\n      Use recommended variable names in {{value}}.\n    formats:\n      - oas3\n    severity: info\n    given: \u003e-\n      $..parameters.[?(@.name \u0026\u0026 @.name.match \u0026\u0026 @.name.match(/^(nome|name|surname|cf|fiscal_?code|fiscal_?number|first_?name|last_?name)$/i) )]\n    then:\n      field: \"name\"\n      function: pattern\n      functionOptions:\n        match: //\n  use-recommended-names-in-schemas:\n    \u003c\u003c: *use-recommended-names\n    given: '$..[?(@ \u0026\u0026 @.type==\"object\")].properties.[?(\n       @property \n       \u0026\u0026 @property.match \n       \u0026\u0026 @property.match(/^(nome|name|surname|cf|fiscal_?code|fiscal_?number|first_?name|last_?name)$/i)\n      )]'\n    then:\n      field: \"@key\"\n      function: pattern\n      functionOptions:\n        match: //\n  no-method-name-in-operationId:\n    description: |-\n      Avoid using method names in `operationId`s because it couples\n      the API design with the implementation.\n\n      An operation that edits an entry can be published with different methods,\n      for example either POST, PUT or PATCH, and while evolving the API\n      you could decide to associate an operationId with another method.\n\n      You can use for example\n\n      ```\n      openapi: 3.0.1\n      ...\n      paths:\n        /entries:\n          get:\n            operationId: list_entries\n          post:\n            operationId: create_entry\n        /entries/{id}:\n          put:\n            operationId: upsert_entry\n          patch:\n            operationId: edit_entry\n      ```\n      \n    message: |-\n      Avoid using method names in operationIds.\n    formats:\n      - oas3\n    severity: hint\n    given: \u003e-\n      $..[?(@.operationId \u0026\u0026 @.operationId.match \u0026\u0026 @.operationId.match(/^(get|post|put|delete|patch|head)/i) )]\n    then:\n      field: \"operationId\"\n      function: pattern\n      functionOptions:\n        match: //",
+			"canonicalURL": "/github.com/italia/api-oas-checker@a09cc2e71a3a7038746845ab4776eedd1a2c50eb/-/blob/rules/naming.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/a09cc2e71a3a7038746845ab4776eedd1a2c50eb/rules/naming.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at rules/naming.yml:5:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

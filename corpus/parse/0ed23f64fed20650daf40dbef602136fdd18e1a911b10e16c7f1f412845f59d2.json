@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cisco-developer/api-insights"
+		},
+		"file": {
+			"name": "5-remove-existing-resource-operation.yaml",
+			"size": 0,
+			"path": "api/pkg/differ/testdata/break/5-remove-existing-resource-operation.yaml",
+			"byteSize": 2098,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Sample API\n  description: This is a sample API.\n  version: '1.0'\n  contact:\n    name: Test\nservers:\n  - url: 'http://api.example.com'\ntags:\n  - name: Sample\n    description: This is a sample tag.\npaths:\n  /test:\n  /pets:\n    post:\n      description: Create a pet.\n      operationId: createPet\n      tags:\n        - Sample\n      security:\n        - api_key: []\n      requestBody:\n        description: desc\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pet'\n      responses:\n        '201':\n          description: Created\n          headers:\n            X-RateLimit-Limit:\n              schema:\n                type: integer\n                example: 1\n          content:\n            application/json:\n              schema:\n                required:\n                  - id\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  name:\n                    type: string\n                  tag:\n                    type: string\n                example:\n                  id: 1\n                  name: tom\n                  tag: man\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\ncomponents:\n  schemas:\n    Pet:\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: '#/components/schemas/Pet'\n    Error:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n      example:\n        code: 2\n        message: m\n  securitySchemes:\n    api_key:\n      description: desc\n      in: header\n      name: api_key\n      type: apiKey\n    bearer:\n      description: desc\n      type: http\n      scheme: bearer\n",
+			"canonicalURL": "/github.com/cisco-developer/api-insights@4d495be2e86aa5aa3e35469bbdd6cfb6adaf9e32/-/blob/api/pkg/differ/testdata/break/5-remove-existing-resource-operation.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cisco-developer/api-insights/blob/4d495be2e86aa5aa3e35469bbdd6cfb6adaf9e32/api/pkg/differ/testdata/break/5-remove-existing-resource-operation.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: at api/pkg/differ/testdata/break/5-remove-existing-resource-operation.yaml:14:9: path \"/test\": pathItem object is empty or null"
+}

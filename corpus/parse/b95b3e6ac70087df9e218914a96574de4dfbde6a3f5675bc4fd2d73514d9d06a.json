@@ -10,14 +10,14 @@
 			"path": "src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json",
 			"byteSize": 1323,
 			"content": "{\n  \"openapi\": \"3.0.2\",\n  \"components\": {\n    \"parameters\": {\n      \"arrayParam-number\": {\n        \"name\": \"arrayp-1\",\n        \"in\": \"query\",\n        \"description\": \"an array of stuff\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"number\",\n            \"maximum\": 100,\n            \"exclusiveMaximum\": true,\n            \"minimum\": 1,\n            \"exclusiveMinimum\": false,\n            \"multipleOf\": 5,\n            \"minItems\": 1,\n            \"maxItems\": 20\n          }\n        }\n      },\n      \"arrayParam-string\": {\n        \"name\": \"arrayp-2\",\n        \"in\": \"query\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\",\n            \"default\": [\n              \"foo\"\n            ],\n            \"maxLength\": 256,\n            \"minLength\": 1,\n            \"pattern\": \"[a-z]+\",\n            \"uniqueItems\": true\n          }\n        }\n      },\n      \"arrayParam-enum\": {\n        \"name\": \"arrayp-3\",\n        \"in\": \"query\",\n        \"required\": true,\n        \"schema\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"value1\",\n              \"value2\",\n              \"value3\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@72581effc8762fc9afd2d8b6f9c467763575dc46/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/-/blob/src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/72581effc8762fc9afd2d8b6f9c467763575dc46/src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json",
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"arrayParam-string\": schema: parse schema: at 32:24: parse default: expected type \"string\", got \"array\""
+	"Error": "parse: parse spec: parse components: parameters: \"arrayParam-string\": parse schema: items: at src/test/resources/fixtures/transformation/oai2-oai3/parameters/array-param.expected.json:32:24: parse default: expected type \"string\", got \"array\""
 }

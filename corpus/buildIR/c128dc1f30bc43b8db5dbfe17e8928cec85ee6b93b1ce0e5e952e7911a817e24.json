@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/quarkiverse/quarkus-openapi-generator"
+		},
+		"file": {
+			"name": "array-enum.yaml",
+			"size": 0,
+			"path": "integration-tests/array-enum/src/main/openapi/array-enum.yaml",
+			"byteSize": 1216,
+			"content": "---\nopenapi: 3.0.3\ninfo:\n  title: greeting-flow API\n  version: \"1.0\"\npaths:\n  /hello:\n    get:\n      tags:\n        - Array Enum Resource\n      operationId: create-a-webhook\n      summary: Add a webhook\n      description: Add a webhook subscription to the account\n      parameters:\n        - name: data\n          in: query\n          required: true\n          schema:\n            $ref: '#/components/schemas/webhook_create_update_payload'\n      responses:\n        \"200\":\n          description: OK\n  /messaging/topics:\n    get:\n      tags:\n        - Quarkus Topics Information Resource\n      responses:\n        \"200\":\n          description: OK\ncomponents:\n  schemas:\n    webhook_create_update_payload:\n      type: object\n      properties:\n        url:\n          type: string\n          description: The url where the events should be sent\n        subscriptions:\n          type: array\n          items:\n            type: string\n            enum:\n              - conversation_created\n              - conversation_status_changed\n              - conversation_updated\n              - message_created\n              - message_updated\n              - webwidget_triggered\n          description: The events you want to subscribe to.",
+			"canonicalURL": "/github.com/quarkiverse/quarkus-openapi-generator@d817cd4f9a77e4f0fcc44ebfe14e4e3f20452b23/-/blob/integration-tests/array-enum/src/main/openapi/array-enum.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/quarkiverse/quarkus-openapi-generator/blob/d817cd4f9a77e4f0fcc44ebfe14e4e3f20452b23/integration-tests/array-enum/src/main/openapi/array-enum.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/hello\": get: parameters: \"data\": field \"Subscriptions\": nested arrays not allowed"
+}

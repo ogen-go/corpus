@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pagopa/cstar-infrastructure"
+		},
+		"file": {
+			"name": "openapi.yml",
+			"size": 0,
+			"path": "src/core/api/rtd_deposited_file_check/openapi.yml",
+			"byteSize": 743,
+			"content": "openapi: 3.0.1\ninfo:\n  title: RTD API to get AdE file\n  description: RTD API to retrieve a deposited ADE file in SFTP by name\n  version: '1.0'\nservers:\n  - url: ${host}\npaths:\n  /{fileName}:\n    get:\n      summary: GET BlobURI\n      operationId: getBlob\n      responses:\n        \"200\":\n          description: \"Ok\"\n      parameters:\n        - name: fileName\n          in: path\n          description: filename to download\n          required: true\n          schema:\n            type: string\ncomponents:\n  securitySchemes:\n    apiKeyHeader:\n      type: apiKey\n      name: Ocp-Apim-Subscription-Key\n      in: header\n    apiKeyQuery:\n      type: apiKey\n      name: subscription-key\n      in: query\nsecurity:\n  - apiKeyHeader: []\n  - apiKeyQuery: []\n",
+			"canonicalURL": "/github.com/pagopa/cstar-infrastructure@e16722a445867264957f942dfc1736f21e8fbc40/-/blob/src/core/api/rtd_deposited_file_check/openapi.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pagopa/cstar-infrastructure/blob/e16722a445867264957f942dfc1736f21e8fbc40/src/core/api/rtd_deposited_file_check/openapi.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at src/core/api/rtd_deposited_file_check/openapi.yml:7:10: path parameter not specified: \"host\""
+}

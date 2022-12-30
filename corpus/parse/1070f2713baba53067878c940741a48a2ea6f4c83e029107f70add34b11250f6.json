@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/stream-services"
+		},
+		"file": {
+			"name": "service-api-v2.yaml",
+			"size": 0,
+			"path": "stream-compositions/api/integrations-api/payment-order-integration-api/src/main/resources/service-api-v2.yaml",
+			"byteSize": 2301,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Payment Order Integration API\n  version: 2.0.0\nservers:\n  - url: http://localhost:8080/service-api/v1\n    description: The server\ntags:\n  - name: PaymentOrderIntegration\npaths:\n  /service-api/v2/payment-order:\n    post:\n      tags:\n        - PaymentOrderIntegration\n      summary: Pulls Payment Orders for the Arrangement and either date range of number of billing cycles.\n      description: Pulls payment orders.\n      operationId: pullPaymentOrders\n      requestBody:\n        description: Push Ingestion Request\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/PullIngestionRequest'\n\n      responses:\n        \"200\":\n          description: Payment Order sucessfully returned.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/PullPaymentOrderResponse'\n\n        \"400\":\n          description: BadRequest\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequest'\n\ncomponents:\n  schemas:\n    BadRequest:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n    InternalServerError:\n      required:\n        - message\n      type: object\n      properties:\n        message:\n          type: string\n\n    PullIngestionRequest:\n      type: object\n      properties:\n        memberNumber:\n          type: string\n        internalUserId:\n          type: string\n        legalEntityInternalId:\n          type: string\n        legalEntityExternalId:\n          type: string\n        serviceAgreementInternalId:\n          type: string\n        arrangementId:\n          type: string\n        externalArrangementId:\n          type: string\n        dateRangeStart:\n          type: string\n          format: date-time\n        dateRangeEnd:\n          type: string\n          format: date-time\n        additions:\n          type: object\n          additionalProperties:\n            type: string\n\n    PullPaymentOrderResponse:\n      type: object\n      properties:\n        paymentOrder:\n          type: array\n          items:\n            $ref: '../../../target/yaml/payment/payment-order-service-api-v2.8.0.yaml#/components/schemas/PaymentOrderPostRequest'\n",
+			"canonicalURL": "/github.com/Backbase/stream-services@5dfcf80544d36ae9ee66fd42c116b29e1abb7071/-/blob/stream-compositions/api/integrations-api/payment-order-integration-api/src/main/resources/service-api-v2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Backbase/stream-services/blob/5dfcf80544d36ae9ee66fd42c116b29e1abb7071/stream-compositions/api/integrations-api/payment-order-integration-api/src/main/resources/service-api-v2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PullPaymentOrderResponse\": resolve \"#/components/schemas/PullPaymentOrderResponse\": property \"paymentOrder\": items: at stream-compositions/api/integrations-api/payment-order-integration-api/src/main/resources/service-api-v2.yaml:92:19: $ref: resolve \"../../../target/yaml/payment/payment-order-service-api-v2.8.0.yaml#/components/schemas/PaymentOrderPostRequest\": get \"https://raw.githubusercontent.com/Backbase/stream-services/5dfcf80544d36ae9ee66fd42c116b29e1abb7071/stream-compositions/api/integrations-api/payment-order-integration-api/target/yaml/payment/payment-order-service-api-v2.8.0.yaml\": https: bad HTTP code 404 (Not Found)"
+}

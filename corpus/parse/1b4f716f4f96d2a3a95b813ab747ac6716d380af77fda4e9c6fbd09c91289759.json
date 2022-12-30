@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "basic_auth_api.yaml",
+			"size": 0,
+			"path": "smoketests/basic_auth/basic_auth_api.yaml",
+			"byteSize": 1565,
+			"content": "---\napiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: test-basic-auth\n  namespace: default\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  spec: |\n    components: {}\n    info:\n      title: test-basic-auth\n      description: test-basic-auth\n      version: 0.1.0\n    openapi: 3.0.0\n    paths:\n      /hello:\n        get:\n          responses:\n            \"200\":\n              content:\n                application/json:\n                  example:\n                    message: Hello from a mocked response!\n                  schema:\n                    properties:\n                      message:\n                        type: string\n                    type: object\n              description: A simple hello world!\n      /validated:\n        post:\n          requestBody:\n            content:\n              application/json:\n                schema:\n                  properties:\n                    name:\n                      type: string\n                  required:\n                  - name\n                  type: object\n          responses:\n            \"200\":\n              content:\n                text/plain:\n                  example: Hello mocked Kusk!\n                  schema:\n                    type: string\n              description: \"\"\n    x-kusk:\n      auth:\n        custom:\n          host:\n            hostname: ext-authz-http-basic-auth.default.svc.cluster.local\n            port: 80\n      cors:\n        methods:\n        - GET\n        - POST\n        origins:\n        - '*'\n      mocking:\n        enabled: true\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/smoketests/basic_auth/basic_auth_api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/smoketests/basic_auth/basic_auth_api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at smoketests/basic_auth/basic_auth_api.yaml:2:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

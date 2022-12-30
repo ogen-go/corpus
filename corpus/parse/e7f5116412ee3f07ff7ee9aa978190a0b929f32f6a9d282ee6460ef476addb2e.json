@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/devtron-labs/devtron"
+		},
+		"file": {
+			"name": "dynamic-handling-of-charts.yaml",
+			"size": 0,
+			"path": "specs/dynamic-handling-of-charts.yaml",
+			"byteSize": 2311,
+			"content": "openapi: \"3.0.2\"\ninfo:\n  title: \"Plugin System Integration - CI stages\"\n  description: \u003e-\n    Provide functionality to user to use plugins in pre/post ci steps.\n  version: \"1.0.0\"\n\npaths:\n  /orchestrator/chartref/autocomplete/{appId}:\n    get:\n      description: Get list of all charts\n      operationId: ChartRefAutocompleteForApp\n      parameters:\n        - name: appId\n          in: query\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Successfully return all charts\n          content:\n            application/json:\n              schema:\n                properties:\n                  code:\n                    type: integer\n                    description: status code\n                  status:\n                    type: string\n                    description: status\n                  result:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/ChartRefResponse'\n        '400':\n          description: Bad Request. Input Validation error/wrong request body.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n        '500':\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n        '403':\n          description: Unauthorized User\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Error'\n\ncomponents:\n  schemas:\n    ChartRefResponse:\n      type: object\n      properties:\n        chartRefs:\n          type: array\n          items:\n            $ref: '#/components/schemas/ChartRef'\n        latestChartRef:\n          type: integer\n        latestAppChartRef:\n          type: integer\n        latestEnvChartRef:\n          type: integer\n        chartMetadata:\n          type: array\n          items:\n           type: string\n    ChartRef:\n      type: object\n      properties:\n        id:\n          type: integer\n        version:\n          type: string\n        name:\n          type: string\n        description:\n          type: string\n        userUploaded:\n          type: boolean\n        isAppMetricsSupported:\n          type: boolean",
+			"canonicalURL": "/github.com/devtron-labs/devtron@a2f8a0105207da71b443f423300906b7c45321bf/-/blob/specs/dynamic-handling-of-charts.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/devtron-labs/devtron/blob/a2f8a0105207da71b443f423300906b7c45321bf/specs/dynamic-handling-of-charts.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/orchestrator/chartref/autocomplete/{appId}\": get: operation \"ChartRefAutocompleteForApp\": at specs/dynamic-handling-of-charts.yaml:11:7: parse path \"/orchestrator/chartref/autocomplete/{appId}\": path parameter not specified: \"appId\""
+}

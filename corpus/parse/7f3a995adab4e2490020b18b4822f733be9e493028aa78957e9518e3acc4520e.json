@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cspannos/PRAXIS-Blockchain-API-Maximizer"
+		},
+		"file": {
+			"name": "1797.yaml",
+			"size": 0,
+			"path": "praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1797.yaml",
+			"byteSize": 633,
+			"content": "meta:\n  title: \"#1797 - Missing `required: true` within a 3.0 Path Parameter Object\"\ninput:\n  openapi: 3.0.0\n  info:\n    title: Foo OpenApi Spec\n    version: 1.0.0\n  paths:\n    /:\n      get:\n        parameters:\n          - name: id\n            in: path\n            allowEmptyValue: true\n            schema:\n              type: integer\n              format: int32\n        responses:\n          '200':\n            description: ok\noutput:\n  length: 1\n  match:\n  - level: error\n    message: |-\n      should have required property 'required'\n      missingProperty: required\n    path: [paths, /, get, parameters, \"0\"]\n    source: structural",
+			"canonicalURL": "/github.com/cspannos/PRAXIS-Blockchain-API-Maximizer@8ee70fc7c85d5bde8da762dbfbefe748d6c89492/-/blob/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1797.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer/blob/8ee70fc7c85d5bde8da762dbfbefe748d6c89492/praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1797.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at praxis-openapi-editor/test/unit/plugins/json-schema-validator/test-documents/1797.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

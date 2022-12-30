@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-containers/proton-codebuild-provisioning-examples"
+		},
+		"file": {
+			"name": "schema.yaml",
+			"size": 0,
+			"path": "cdk/environment-templates/vpc-ecs-cluster/v1/schema/schema.yaml",
+			"byteSize": 1424,
+			"content": "schema:\n  format:\n    openapi: \"3.0.0\"\n  environment_input_type: \"EnvironmentInputs\"\n  types:\n    EnvironmentInputs:\n      type: object\n      description: \"Input properties for my environment\"\n      properties:\n        vpc_cidr_block:\n          type: string\n          title: \"VPC CIDR block\"\n          description: \"VPC CIDR block, or default if left blank\"\n          default: \"10.0.0.0/16\"\n        ec2_capacity:\n          type: boolean\n          title: \"Enable EC2 Capacity\"\n          description: \"Enable EC2 capacity for the cluster\"\n          default: false\n        ec2_instance_type:\n          type: string\n          title: \"EC2 instance types for cluster (if enabled)\"\n          description: \"If EC2 capacity enabled, instance type to be used\"\n          default: \"t3.medium\"\n        allow_ecs_exec:\n          type: boolean\n          title: \"Enable ECS Execute command logging for the cluster\"\n          description: \"Enable ECS Exec on the cluster\"\n          default: false\n        enhanced_cluster_monitoring:\n          type: boolean\n          title: \"Enable Container Insights for this cluster\"\n          default: false\n          description: \"Enable Cloudwatch Container Insights for the cluster\"\n        service_discovery_namespace:\n          type: string\n          title: \"Service discovery namespace domain\"\n          description: \"Service discovery domain\"\n      required:\n        - service_discovery_namespace\n",
+			"canonicalURL": "/github.com/aws-containers/proton-codebuild-provisioning-examples@9bb16415f517ec89e2b2578a405c21a04a957803/-/blob/cdk/environment-templates/vpc-ecs-cluster/v1/schema/schema.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-containers/proton-codebuild-provisioning-examples/blob/9bb16415f517ec89e2b2578a405c21a04a957803/cdk/environment-templates/vpc-ecs-cluster/v1/schema/schema.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at cdk/environment-templates/vpc-ecs-cluster/v1/schema/schema.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

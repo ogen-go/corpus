@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getyourguide/partner-api-spec"
+		},
+		"file": {
+			"name": "configuration.yaml",
+			"size": 0,
+			"path": "spec/paths/configuration.yaml",
+			"byteSize": 3327,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Paths for configuration\n  version: 1.0.0\npaths:\n  /configuration/{version}:\n    get:\n      operationId: configurationVersion\n      summary: Get the configuration for an API version\n      description: This endpoint is not based on the base url as it is version independent.\n      tags:\n        - Configuration\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    $ref: \"../components/schema/configuration.yaml#/components/schemas/ConfigurationVersionResponse\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n\n  /{version}/configuration/payment:\n    get:\n      operationId: configurationPayment\n      tags:\n        - Configuration\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/country\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    $ref: \"../components/schema/configuration.yaml#/components/schemas/ConfigurationPaymentResponse\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n\n  /{version}/configuration/privileges:\n    get:\n      operationId: configurationPrivileges\n      tags:\n        - Configuration\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    $ref: \"../components/schema/configuration.yaml#/components/schemas/ConfigurationPrivilegeResponse\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n",
+			"canonicalURL": "/github.com/getyourguide/partner-api-spec@4860aa395f0e057d6fa4996e554152da64e44fda/-/blob/spec/paths/configuration.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getyourguide/partner-api-spec/blob/4860aa395f0e057d6fa4996e554152da64e44fda/spec/paths/configuration.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reduce default: too complicated to reduce default error"
+}

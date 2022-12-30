@@ -10,14 +10,14 @@
 			"path": "spec/transaction/components/responses.yaml",
 			"byteSize": 1616,
 			"content": "# openapi: 3.0.1\ncomponents:\n  responses:\n    Assets:\n      description: \u003e-\n        The response is a document consisting of all assets of the feature.\n      content:\n        application/json:\n          schema:\n            $ref: \"./schemas.yaml#/components/schemas/assets\"\n    Asset:\n      description: \u003e-\n        The response is a document consisting of one asset of the feature.\n      headers:\n        ETag:\n          $ref: \"../../components/headers.yaml#/components/headers/ETag\"\n      content:\n        application/json:\n          schema:\n            $ref: \"./schemas.yaml#/components/schemas/readUpdateAsset\"\n    DeletedResource:\n      description: Status of the delete resource\n      content:\n        application/json:\n          schema:\n            description: \u003e-\n              Information about the deleted resource and a link to the parent resource\n            type: object\n            properties:\n              code:\n                type: integer\n                example: 200\n              description:\n                type: string\n                example: Resource successfully deleted\n              links:\n                type: array\n                items:\n                  $ref: \"../../components/schemas.yaml#/components/schemas/link\"\n                description: \u003e-\n                  The array contain at least a link to the parent resource (`rel: parent`).\n                example:\n                  - href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale\n                    rel: parent\n            required:\n              - code\n              - links\n",
-			"canonicalURL": "/github.com/geoadmin/service-stac@ccd097dc03c8b4665f9c4845344c37eb011fdb33/-/blob/spec/transaction/components/responses.yaml",
+			"canonicalURL": "/github.com/geoadmin/service-stac@404e7dbef039394caef31c367cfd87db014956d1/-/blob/spec/transaction/components/responses.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/geoadmin/service-stac/blob/ccd097dc03c8b4665f9c4845344c37eb011fdb33/spec/transaction/components/responses.yaml",
+					"url": "https://github.com/geoadmin/service-stac/blob/404e7dbef039394caef31c367cfd87db014956d1/spec/transaction/components/responses.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: responses: \"Asset\": content: application/json: schema: parse schema: at 1:86: external \"./schemas.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse version: at spec/transaction/components/responses.yaml:2:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
 }

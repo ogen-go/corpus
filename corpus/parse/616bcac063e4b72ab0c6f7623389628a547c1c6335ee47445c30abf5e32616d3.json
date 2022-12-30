@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Pocket/firefox-android-home-recommendations"
+		},
+		"file": {
+			"name": "catalog-info.yaml",
+			"size": 0,
+			"path": "catalog-info.yaml",
+			"byteSize": 2792,
+			"content": "apiVersion: backstage.io/v1alpha1\nkind: Component\nmetadata:\n  name: firefox-android-home-recommendations\n  description: Provides recommendations to be consumed by Firefox for Android.\n  annotations:\n    github.com/project-slug: pocket/firefox-android-home-recommendations\n    github.com/team-slug: Pocket/backend\n    circleci.com/project-slug: github/pocket/firefox-android-home-recommendations\n    sentry.io/project-slug: firefox-android-home-recommendations\n  links:\n    - url: https://firefox-android-home-recommendations.getpocket.com/\n      title: Firefox Android Home Recommendations (Production)\n      icon: collections\n    - url: https://firefox-android-home-recommendations.getpocket.dev/\n      title: Firefox Android Home Recommendations (Dev)\n      icon: collections\nspec:\n  type: service\n  owner: backend\n  lifecycle: production\n  consumesApis:\n    - client-api\n  providesApis:\n    - firefox-android-home-recommendations\n\n---\n\napiVersion: backstage.io/v1alpha1\nkind: API\nmetadata:\n  name: firefox-android-home-recommendations\n  description: API of recommendations to be consumed by Firefox for Android.\nspec:\n  type: rest\n  owner: backend\n  definition: |\n    openapi: 3.0.1\n    info:\n      title: Firefox Android Home Recomendations API\n      description: Provides recomendations for Firefox Android Home\n      version: '0.1'\n    servers:\n      - url: https://firefox-android-home-recommendations.getpocket.com\n      - url: https://firefox-android-home-recommendations.getpocket.dev\n    paths:\n      /:\n        get:\n          description: URL to request\n          responses:\n            '200':\n              description: OK\n              content:\n                application/json:\n                  schema:\n                    type: object\n                    properties:\n                      recomendations:\n                        type: array\n                        items:\n                            type: object\n                            properties:\n                              catgeory:\n                                type: string\n                                enum: [general, must-reads, quick-reads, technology, health, self-improvement, food, science, entertainment, career]\n                              url:\n                                type: string\n                              title:\n                                type: string\n                              imageUrl:\n                                type: string\n                                description: The image cdn url to use. You will need to string replace w \u0026 h with your width and height values\n                              publisher:\n                                type: string\n                              timeToRead:\n                                type: integer\n  lifecycle: production\n",
+			"canonicalURL": "/github.com/Pocket/firefox-android-home-recommendations@6cfe691034cc3536d2e94cad9b86a7e05764e707/-/blob/catalog-info.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Pocket/firefox-android-home-recommendations/blob/6cfe691034cc3536d2e94cad9b86a7e05764e707/catalog-info.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at catalog-info.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

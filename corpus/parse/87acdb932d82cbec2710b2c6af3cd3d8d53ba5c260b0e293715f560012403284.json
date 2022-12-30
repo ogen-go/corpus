@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Attributes_Categories_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_Categories_GET.yaml",
+			"byteSize": 1933,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /attributes/categories:\n    get:\n      summary: Get the Categories of Germplasm Attributes\n      description: List all available attribute categories.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                title: GermplasmAttributeCategoryListResponse\n                type: object\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.\n                        items:\n                          type: string\n                        type: array\n                        example:\n                        - Morphological\n                        - Agronomic\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Germplasm Attributes\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_Categories_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_Categories_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/attributes/categories\": get: parameters: parse parameter \"\": at Specification/BrAPI-Germplasm/Germplasm_Attributes/Attributes_Categories_GET.yaml:11:15: can't find value for \"components/parameters/page\""
+}

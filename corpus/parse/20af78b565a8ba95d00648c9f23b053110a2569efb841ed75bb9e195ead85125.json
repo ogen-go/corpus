@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "negative4.yaml",
+			"size": 0,
+			"path": "test/data/production/spectral/negative4.yaml",
+			"byteSize": 1655,
+			"content": "openapi: 3.0.0\n\ninfo:\n  title: Example API\n  contact:\n    name: A-Team\n    email: a-team@goarmy.com\ntags:\n  - name: tag\n    description: description of the tag\n\npaths:\n  /users/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as userId\n        schema:\n          type: string\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as userId\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid1\n      tags:\n        - tag\n      responses:\n        '200':\n          description: the user being returned\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  uuid: # the unique user id\n                    type: string\n                    format: uuid\n\n  /users/find:\n    parameters:\n      - name: other\n        in: query\n        required: true\n        description: the user identifier, as userId\n        schema:\n          type: string\n      - name: other\n        in: query\n        required: true\n        description: the user identifier, as userId\n        schema:\n          type: string\n\n    get:\n      description: op-description\n      operationId: opid2\n      tags:\n        - tag\n      responses:\n        '200':\n          description: the user being returned\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  uuid: # the unique user id\n                    type: string\n                    format: uuid",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/spectral/negative4.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/spectral/negative4.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users/find\": parameters: at test/data/production/spectral/negative4.yaml:52:9: duplicate parameter: \"other\" in \"query\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/IBM/openapi-validator"
+		},
+		"file": {
+			"name": "main.yaml",
+			"size": 0,
+			"path": "packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+			"byteSize": 563,
+			"content": "openapi: 3.0.0\nservers:\n  - url: https://my-service.com/api\npaths:\n  /example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/SchemaDef\"\n  /circular_example:\n    get:\n      summary: Summary\n      responses:\n        \"200\":\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: \"./schema.yaml#/components/schemas/CircularSchema\"\n",
+			"canonicalURL": "/github.com/IBM/openapi-validator@b7c9ef010f456a652524d389a1f72ffdbbae2cb2/-/blob/packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/IBM/openapi-validator/blob/b7c9ef010f456a652524d389a1f72ffdbbae2cb2/packages/validator/test/cli-validator/mock-files/multi-file-spec/main.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/circular_example\": get: responses: code 200: contents: media: \"application/json\": generate schema: save schema types: save referenced type: reference \"https://raw.githubusercontent.com/IBM/openapi-validator/b7c9ef010f456a652524d389a1f72ffdbbae2cb2/packages/validator/test/cli-validator/mock-files/multi-file-spec/city.yaml#/schema\" type name conflict: \"Schema\""
+}

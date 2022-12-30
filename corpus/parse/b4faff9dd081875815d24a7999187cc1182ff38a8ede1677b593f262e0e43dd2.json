@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "Lists_ListDbId_GET_PUT.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Lists/Lists_ListDbId_GET_PUT.yaml",
+			"byteSize": 2234,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /lists/{listDbId}:\n    get:\n      summary: Get the details of a specific List\n      description: Get a specific generic lists\n      parameters:\n      - description: The unique identifier of a List\n        in: path\n        name: listDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          $ref: '#/components/responses/ListsSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Lists\n    put:\n      summary: Update an existing generic list\n      description: Update an existing generic list\n      parameters:\n      - description: The unique identifier of a List\n        in: path\n        name: listDbId\n        required: true\n        schema:\n          type: string\n      - $ref: '#/components/parameters/authorizationHeader'\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/ListNewRequest'\n      responses:\n        '200':\n          $ref: '#/components/responses/ListsSingleResponse'\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n        '404':\n          $ref: '#/components/responses/404NotFound'\n      tags:\n      - Lists\ncomponents:\n  responses:\n    ListsSingleResponse:\n      content:\n        application/json:\n          schema:\n            title: ListsSingleResponse\n            properties:\n              '@context':\n                $ref: '#/components/schemas/Context'\n              metadata:\n                $ref: '#/components/schemas/metadata'\n              result:\n                $ref: '#/components/schemas/ListDetails'\n            required:\n            - metadata\n            - result\n            type: object\n      description: OK\n      headers: {}",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/Lists/Lists_ListDbId_GET_PUT.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/Lists/Lists_ListDbId_GET_PUT.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"ListsSingleResponse\": content: application/json: schema: parse schema: property \"@context\": at Specification/BrAPI-Core/Lists/Lists_ListDbId_GET_PUT.yaml:69:23: $ref: resolve \"#/components/schemas/Context\": resolve: can't find value for \"components/schemas/Context\""
+}

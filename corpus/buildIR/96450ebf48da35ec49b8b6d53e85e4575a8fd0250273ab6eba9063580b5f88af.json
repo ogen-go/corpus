@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/OpenAPITools/openapi-json-schema-generator"
 		},
 		"file": {
 			"name": "issue_1517.yaml",
 			"size": 0,
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+			"path": "modules/openapi-json-schema-generator/src/test/resources/3_0/issue_1517.yaml",
 			"byteSize": 1434,
 			"content": "openapi: 3.0.1\ninfo:\n  title: Test Regex generation for parameter validation\n  version: 1.0.0\ncomponents:\n  headers:\n\n  responses:\n    OK_200:\n      description: OK\n\npaths:\n  /ping:\n    get:\n      summary: Get Payment Information\n      description: Returns the content of a payment object\n      parameters:\n        - name: pattern_no_forward_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern$'\n        - name: pattern_two_slashes\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern$/'\n        - name: pattern_dont_escape_backslash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\d{3}$'\n        - name: pattern_dont_escape_escaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern\\/\\d{3}$'\n        - name: pattern_escape_unescaped_forward_slash\n          in: header\n          schema:\n            type: string\n            pattern: '^pattern/\\d{3}$'\n        - name: pattern_with_modifiers\n          in: header\n          schema:\n            type: string\n            pattern: '/^pattern\\d{3}$/i'\n        - name: pattern_with_backslash_after_bracket\n          in: header\n          schema:\n            type: string\n            pattern: '/^[\\pattern\\d{3}$/i'\n\n      responses:\n        '200':\n          $ref: \"#/components/responses/OK_200\"",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-json-schema-generator@a55dd8b0559d49f669eb133f2768d2ba0c13d60d/-/blob/modules/openapi-json-schema-generator/src/test/resources/3_0/issue_1517.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/modules/openapi-generator/src/test/resources/3_0/issue_1517.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-json-schema-generator/blob/a55dd8b0559d49f669eb133f2768d2ba0c13d60d/modules/openapi-json-schema-generator/src/test/resources/3_0/issue_1517.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/ping\": get: parameters: \"pattern_with_backslash_after_bracket\": string validator: pattern: error parsing regexp: invalid character class range: `\\pa`"
+	"Error": "buildIR: make ir: operations: path \"/ping\": get: parameters: \"pattern_with_backslash_after_bracket\": string validator: pattern: regexp2: error parsing regexp: malformed \\p{X} character escape in `/^[\\pattern\\d{3}$/i`"
 }

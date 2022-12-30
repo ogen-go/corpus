@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getyourguide/partner-api-spec"
+		},
+		"file": {
+			"name": "categories.yaml",
+			"size": 0,
+			"path": "spec/paths/categories.yaml",
+			"byteSize": 2762,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Paths for categories\n  version: 1.0.0\npaths:\n  /{version}/categories:\n    get:\n      operationId: CategoriesList\n      summary: List all categories\n      tags:\n        - Categories\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/limit\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/offset\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    properties:\n                      categories:\n                        type: array\n                        items:\n                          $ref: \"../components/commons/objects.yaml#/components/schemas/TourCategory\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n  /{version}/categories/{category_id}:\n    get:\n      operationId: CategoriesGetById\n      summary: Get information about a category\n      tags:\n        - Categories\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/path.yaml#/components/parameters/categoryId\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    properties:\n                      categories:\n                        type: array\n                        items:\n                          $ref: \"../components/commons/objects.yaml#/components/schemas/TourCategory\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\n",
+			"canonicalURL": "/github.com/getyourguide/partner-api-spec@4860aa395f0e057d6fa4996e554152da64e44fda/-/blob/spec/paths/categories.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getyourguide/partner-api-spec/blob/4860aa395f0e057d6fa4996e554152da64e44fda/spec/paths/categories.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reduce default: too complicated to reduce default error"
+}

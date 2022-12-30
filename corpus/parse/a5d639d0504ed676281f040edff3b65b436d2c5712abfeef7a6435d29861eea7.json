@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "positive4.yaml",
+			"size": 0,
+			"path": "test/data/production/datagraph/positive4.yaml",
+			"byteSize": 1793,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\nservers:\n  - url: https://production.test.com/\n    description: production environment\n\nsecurity:\n  - basicAuth: []\n\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\n  schemas:\n    Customer:\n      description: a customer\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          description: a property\n          type: string\n        name:\n          description: a property\n          type: string\n      required: [\"id\"]\n    Invoice:\n      description: an invoice\n      type: object\n      additionalProperties: false\n      properties:\n        id:\n          description: a property\n          type: string\n      required: [\"id\"]\npaths:\n  /users/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the user identifier, as is\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"\n  /invoices/{id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the invoice identifier, as is\n        schema:\n          type: string\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/yaml:\n              example:\n                a: 1\n                b: 2\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Customer\"",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/datagraph/positive4.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/datagraph/positive4.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/users/{id}\": get: at test/data/production/datagraph/positive4.yaml:50:20: duplicate operationId: \"opid\""
+}

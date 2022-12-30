@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/yandex-cloud-examples/yc-serverless-serverless-game"
+		},
+		"file": {
+			"name": "apigw-example.yml",
+			"size": 0,
+			"path": "files/apigw-example.yml",
+			"byteSize": 3233,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample API\n  version: 1.0.0\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: serverless-game-files\n        object: index.html\n        service_account_id: \u003csa-id\u003e\n      security: []\n  /login.html:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: serverless-game-files\n        object: login.html\n        service_account_id: \u003csa-id\u003e\n      security: []\n  /stats.html:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: serverless-game-files\n        object: stats.html\n        service_account_id: \u003csa-id\u003e\n      security: []\n  /limit.html:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: serverless-game-files\n        object: limit.html\n        service_account_id: \u003csa-id\u003e\n      security: []\n  /static/{file+}:\n    get:\n      x-yc-apigateway-integration:\n        type: object_storage\n        bucket: serverless-game-files\n        object: static/{file}\n        service_account_id: \u003csa-id\u003e\n      parameters:\n        - explode: false\n          in: path\n          name: file\n          required: true\n          schema:\n            type: string\n          style: simple\n      security: []\n  /api/get-state:\n    get:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        tag: $latest\n        service_account_id: \u003csa-id\u003e\n  /api/get-config:\n    get:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        tag: $latest\n        service_account_id: \u003csa-id\u003e\n  /api/move:\n    post:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        tag: $latest\n        service_account_id: \u003csa-id\u003e\n  /api/login:\n    get:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        tag: $latest\n        service_account_id: \u003csa-id\u003e\n      security: []\n  /proxy/tg-avatars/{filePath+}:\n    get:\n      x-yc-apigateway-integration:\n        type: http\n        url: https://t.me/i/userpic/{filePath}\n        method: GET\n      parameters:\n        - explode: false\n          in: path\n          name: filePath\n          required: true\n          schema:\n            type: string\n          style: simple\n  /websocket:\n    x-yc-apigateway-websocket-message:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        service_account_id: \u003csa-id\u003e\n    x-yc-apigateway-websocket-connect:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        service_account_id: \u003csa-id\u003e\n    x-yc-apigateway-websocket-disconnect:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cfunction_id\u003e\n        service_account_id: \u003csa-id\u003e\ncomponents:\n  securitySchemes:\n    cooikeAuth:\n      x-yc-apigateway-authorizer:\n        type: function\n        function_id: \u003cfunction_id\u003e\n        tag: $latest\n        service_account_id: \u003csa-id\u003e\n        authorizer_result_ttl_in_seconds: 180\n      in: cookie\n      name: AUTH\n      type: apiKey\nsecurity:\n  - cooikeAuth: []\n",
+			"canonicalURL": "/github.com/yandex-cloud-examples/yc-serverless-serverless-game@1e62986ffad317967f261d3c2499f97e21730c1f/-/blob/files/apigw-example.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/yandex-cloud-examples/yc-serverless-serverless-game/blob/1e62986ffad317967f261d3c2499f97e21730c1f/files/apigw-example.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/\": get: at files/apigw-example.yml:8:7: responses: no responses"
+}

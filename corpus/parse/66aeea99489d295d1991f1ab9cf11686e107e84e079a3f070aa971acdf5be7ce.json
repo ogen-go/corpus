@@ -10,14 +10,14 @@
 			"path": "pkg/importer/tests/openapi3/nested-types.yaml",
 			"byteSize": 1651,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Fruit API\n  version: 1.0.0\npaths: {}\ncomponents:\n  schemas:\n    Basket:\n      type: object\n      properties:\n        id:\n          description: id of the basket\n          type: string\n        fruit:\n          description: something about fruit\n          $ref: '#/components/schemas/Fruit'\n        veggies:\n          description: something about veggies\n          $ref: '#/components/schemas/Veggies'\n    Fruit:\n      type: object\n      properties:\n        id:\n          description: id of the fruit\n          type: string\n        entity:\n          type: string\n          enum:\n            - expense\n            - income\n        name:\n          type: string\n        details:\n          type: array\n          items:\n            $ref: '#/components/schemas/Details'\n    Veggies:\n      type: object\n      properties:\n        id:\n          description: id of the vegetable\n          type: string\n        entity:\n          type: string\n          enum:\n            - expense\n            - income\n        name:\n          type: string\n        details:\n          type: array\n          items:\n            $ref: '#/components/schemas/Details'\n    Details:\n      type: object\n      properties:\n        month:\n          type: string\n          enum:\n            - Jan\n            - Feb\n            - Mar\n            - Apr\n            - May\n            - Jun\n            - Jul\n            - Aug\n            - Sep\n            - Oct\n            - Nov\n            - Dec\n          description: month of the planting\n        monthlyTotal:\n          type: int\n        transDet:\n          type: array\n          items:\n            type: string\n",
-			"canonicalURL": "/github.com/anz-bank/sysl@0e2d95f5864453719c1a172307baddf03507a076/-/blob/pkg/importer/tests/openapi3/nested-types.yaml",
+			"canonicalURL": "/github.com/anz-bank/sysl@098ecb5416aadf8a0274bf1a77bd65ec8ed49b67/-/blob/pkg/importer/tests/openapi3/nested-types.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/anz-bank/sysl/blob/0e2d95f5864453719c1a172307baddf03507a076/pkg/importer/tests/openapi3/nested-types.yaml",
+					"url": "https://github.com/anz-bank/sysl/blob/098ecb5416aadf8a0274bf1a77bd65ec8ed49b67/pkg/importer/tests/openapi3/nested-types.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Basket\": parse schema: property \"fruit\": parse schema: parse schema: property \"details\": parse schema: parse schema: parse schema: property \"monthlyTotal\": parse schema: at 1:492: unexpected schema type: \"int\""
+	"Error": "parse: parse spec: parse components: schemas: \"Basket\": resolve \"#/components/schemas/Basket\": property \"fruit\": $ref: resolve \"#/components/schemas/Fruit\": property \"details\": items: $ref: resolve \"#/components/schemas/Details\": property \"monthlyTotal\": at pkg/importer/tests/openapi3/nested-types.yaml:74:17: type: unexpected schema type: \"int\""
 }

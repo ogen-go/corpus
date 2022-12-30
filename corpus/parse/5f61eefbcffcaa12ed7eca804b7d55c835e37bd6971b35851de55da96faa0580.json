@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zxkane/cdk-collections"
+		},
+		"file": {
+			"name": "http-sqs.yaml",
+			"size": 0,
+			"path": "create-apis-from-openapi-spec/src/http-sqs.yaml",
+			"byteSize": 2935,
+			"content": "openapi: \"3.0.3\"\ninfo:\n  title: \"httpapi-to-sqs\"\n  version: \"v1.0.0\"\n  license:\n    name: \"Apache 2.0\"\n    url: \"https://www.apache.org/licenses/LICENSE-2.0.html\"  \nservers:\n- url: \"\"\n  variables:\n    basePath:\n      default: \"\"\npaths:\n  /i:\n    post:\n      description: \"Writing sessions, metrics and events\"\n      operationId: \"sendEvents\"\n      parameters:\n      - name: \"content-type\"\n        in: \"header\"\n        required: true\n        schema:\n          type: \"string\"\n      requestBody:\n        content:\n          application/x-www-form-urlencoded:\n            schema:\n              $ref: \"#/components/schemas/events\"\n        required: true\n      responses:\n        \"404\":\n          description: \"404 response\"\n          headers:\n            Content-Type:\n              schema:\n                type: \"string\"\n          content: {}\n        \"200\":\n          description: \"200 response\"\n          headers:\n            Content-Type:\n              schema:\n                type: \"string\"\n            Access-Control-Allow-Origin:\n              schema:\n                type: \"string\"\n          content: {}\n        \"400\":\n          description: \"400 response\"\n          headers:\n            Content-Type:\n              schema:\n                type: \"string\"\n          content: {}\n        \"500\":\n          description: \"500 response\"\n          headers:\n            Content-Type:\n              schema:\n                type: \"string\"\n          content: {}\n      x-amazon-apigateway-request-validator: \"requestvalidator\"\n      x-amazon-apigateway-integration:\n        credentials: \"{{integrationRoleArn}}\"\n        integrationSubtype: \"SQS-SendMessage\"\n        requestParameters:\n          MessageAttributes: \u003e-\n            {\n              \"sourceIp\":{\n                \"StringValue\":\"${context.identity.sourceIp}\",\n                \"DataType\":\"String\"\n              },\n              \"apiTimestamp\":{\n                \"StringValue\":\"${context.requestTimeEpoch}\",\n                \"DataType\":\"Number\"\n              }\n            }\n          MessageBody: \"$request.body\"\n          QueueUrl: \"{{queueUrl}}\"\n        type: \"aws_proxy\"\n        connectionType: \"INTERNET\"\n        payloadFormatVersion: \"1.0\"\n        timeoutInMillis: 2000\ncomponents:\n  schemas:\n    events:\n      type: object\n      required:\n        - app_key\n        - device_id\n      properties:\n        app_key:\n          type: string\n          example: d7d3f96f594f26acd566577a1501e3c82c7ba8fc\n        device_id:\n          type: string\n          example: b452f74e-4770-48f9-b850-eac57240d547\nx-amazon-apigateway-request-validators:\n  requestvalidator:\n    validateRequestParameters: true\n    validateRequestBody: false\nx-amazon-apigateway-cors:\n  allowOrigins:\n    - '*'\n  maxAge: 3600\n  allowMethods:\n    - POST\n    - OPTIONS\n  exposeHeaders:\n    - x-apigateway-header\n    - x-amz-date\n    - content-type\n  allowHeaders:\n    - x-apigateway-header\n    - x-amz-date\n    - content-type",
+			"canonicalURL": "/github.com/zxkane/cdk-collections@91e1b8ea98e1ccd5a37e02ea0274f1f214a7d592/-/blob/create-apis-from-openapi-spec/src/http-sqs.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zxkane/cdk-collections/blob/91e1b8ea98e1ccd5a37e02ea0274f1f214a7d592/create-apis-from-openapi-spec/src/http-sqs.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at create-apis-from-openapi-spec/src/http-sqs.yaml:9:8: server URL must not be empty"
+}

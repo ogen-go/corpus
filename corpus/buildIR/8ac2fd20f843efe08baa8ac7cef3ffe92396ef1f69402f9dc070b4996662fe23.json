@@ -1,0 +1,26 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/cdimascio/express-openapi-validator"
+		},
+		"file": {
+			"name": "oneof.readonly.yaml",
+			"size": 0,
+			"path": "test/oneof.readonly.yaml",
+			"byteSize": 2989,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Dummy API\n  description: Dummy API\n  version: \"0.1.0\"\nservers:\n  - url: /v1\npaths:\n  /any_of_one_required:\n    post:\n      requestBody:\n        content:\n            application/json:\n              schema:\n                anyOf:\n                  - $ref: '#/components/schemas/subE'\n                  - $ref: '#/components/schemas/subF'\n                discriminator:\n                  propertyName: type\n                  mapping:\n                    A: '#/components/schemas/subE'\n                    B: '#/components/schemas/subF'\n      responses:\n          200:\n            description: successful operation\n  /any_of:\n    post:\n      requestBody:\n        content:\n            application/json:\n              schema:\n                anyOf:\n                  - $ref: '#/components/schemas/subA'\n                  - $ref: '#/components/schemas/subB'\n                discriminator:\n                  propertyName: type\n                  mapping:\n                    A: '#/components/schemas/subA'\n                    B: '#/components/schemas/subB'\n      responses:\n          200:\n            description: successful operation\n\n  /one_of:\n    post:\n      requestBody:\n        content:\n            application/json:\n              schema:\n                oneOf:\n                  - $ref: '#/components/schemas/subC'\n                  - $ref: '#/components/schemas/subD'\n                discriminator:\n                  propertyName: type\n                  mapping:\n                    C: '#/components/schemas/subC'\n                    D: '#/components/schemas/subD'\n      responses:\n          200:\n            description: successful operation\n\ncomponents:\n  schemas:\n    common:\n      type: object\n      properties:\n        id:\n          readOnly: true\n          type: string\n        type:\n          type: string\n          enum: [A, B]          \n      required:\n        - id\n        - type  \n\n    one_required:\n      type: object\n      properties:\n        id:\n          readOnly: true\n          type: string\n        type:\n          type: string\n          enum: [A, B]          \n      required:\n        - id\n\n    subA:\n      allOf:\n        - $ref: '#/components/schemas/common'\n\n    subB:\n      allOf:\n        - $ref: '#/components/schemas/common'\n\n    subC:\n      allOf:\n        - type: object\n          properties:\n            id:\n              readOnly: true\n              type: string\n            type:\n              type: string\n              enum: [C, D]          \n          required:\n            - id\n            - type  \n\n    subD:\n      allOf:\n        - type: object\n          properties:\n            id:\n              readOnly: true\n              type: string\n            type:\n              type: string\n              enum: [C, D]          \n          required:\n            - id\n            - type  \n\n    subE:\n      allOf:\n        - $ref: '#/components/schemas/one_required'\n\n    subF:\n      allOf:\n        - $ref: '#/components/schemas/one_required'",
+			"canonicalURL": "/github.com/cdimascio/express-openapi-validator@8d31f9a7f62f474a200b336f817e29f603961915/-/blob/test/oneof.readonly.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/cdimascio/express-openapi-validator/blob/8d31f9a7f62f474a200b336f817e29f603961915/test/oneof.readonly.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/one_of\": post: requestBody: contents: media: \"application/json\": generate schema: oneOf: discriminator: unable to map \"C\" to \"https://raw.githubusercontent.com/cdimascio/express-openapi-validator/8d31f9a7f62f474a200b336f817e29f603961915/test/oneof.readonly.yaml#/components/schemas/subC\"",
+	"NotImplemented": [
+		"sum types with same names"
+	]
+}

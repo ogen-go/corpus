@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ThePalaceProject/circulation"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "docs/openapi.yaml",
+			"byteSize": 3560,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: \"0.1\"\n  title: Circulation API\npaths:\n  /{library}/admin/custom_list/{list_id}:\n    summary: Edit/Delete a custom list as required\n    post:\n      summary: Edit a custom list\n      requestBody:\n        $ref: \"#/components/requestBodies/custom_list\"\n      responses:\n        '200':\n          description: Custom list was edited successfully\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: 5\n        '400':\n          description: Bad input was provided\n          content:\n            application/json:\n              schema:\n                oneOf:\n                  - type: object\n                    properties:\n                      message:\n                        type: string\n                        example: auto_update_query is required when auto_update is enabled\n      tags:\n        - admin\n\n  /admin/announcements:\n    summary: \u003e\n      Create/Edit/Read global announcements meant for every library. \\\n      The announcements will show up in the authentication documents.\n    get:\n      summary: Fetch all global announcements\n      tags:\n        - admin\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  settings:\n                    type: object\n                  announcements:\n                    type: object\n    post:\n      summary: Edit the list of global announcements in its entirety.\n      tags:\n        - admin\n      requestBody:\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              properties:\n                announcements:\n                  type: string\n                  description: JSON stringified list of announcements\n                  example: [{\"id\": \"xxxx-xxx-xxxxx\", \"content\": \"An announcement for all to see\", start: \"1990-01-01\"}, {\"content\": \"This is a new announcement without an id yet\"}]\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  success:\n                    type: boolean\n                    example: true\n        '400':\n          description: Bad Input\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/invalid_input\"\n\n\n\n\ncomponents:\n  requestBodies:\n    custom_list:\n      content:\n        multipart/form-data:\n            schema:\n              type: object\n              properties:\n                name:\n                  type: string\n                entries:\n                  type: object\n                collections:\n                  type: array\n                  items:\n                    type: number\n                deletedEntries:\n                  type: array\n                  items:\n                    type: number\n                auto_update:\n                  type: boolean\n                auto_update_query:\n                  type: object\n                auto_update_facets:\n                  type: object\n  schemas:\n    invalid_input:\n      type: object\n      properties:\n        message:\n          type: string\n          example: You provided invalid or unrecognized input\n        type:\n          type: string\n          example: http://librarysimplified.org/terms/problem/invalid-input\n        title:\n          type: string\n          example: Invalid input.\n",
+			"canonicalURL": "/github.com/ThePalaceProject/circulation@c2c5fe0969c6c5e10fb60451197d95ed093cee67/-/blob/docs/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ThePalaceProject/circulation/blob/c2c5fe0969c6c5e10fb60451197d95ed093cee67/docs/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/{library}/admin/custom_list/{list_id}\": post: at docs/openapi.yaml:9:7: parse path \"/{library}/admin/custom_list/{list_id}\": path parameter not specified: \"library\""
+}

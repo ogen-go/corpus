@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/anymaniax/orval"
+		},
+		"file": {
+			"name": "null-type.yaml",
+			"size": 0,
+			"path": "tests/specifications/null-type.yaml",
+			"byteSize": 1208,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Nullables\n  description: 'Nullable types'\n  version: 1.0.0\ntags:\n  - name: nullables\n    description: Nullable types\nservers:\n  - url: http://localhost\npaths:\n  /nullable:\n    get:\n      tags:\n        - nullables\n      summary: Nullable response\n      operationId: fetchNullable\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                type:\n                  - 'string'\n                  - 'null'\n  /nullable-object:\n    get:\n      tags:\n        - nullables\n      summary: Nullable object response\n      operationId: fetchNullableObject\n      responses:\n        200:\n          description: Successful Operation\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/NullableObject'\ncomponents:\n  schemas:\n    NullableObject:\n      type: object\n      properties:\n        name:\n          type:\n            - 'string'\n            - 'null'\n        age:\n          anyOf:\n            - type: 'integer'\n            - type: 'null'\n        address:\n          oneOf:\n            - type: 'string'\n            - type: 'null'\n",
+			"canonicalURL": "/github.com/anymaniax/orval@128d0c4413b9a672fe585851037104bed85d5503/-/blob/tests/specifications/null-type.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/anymaniax/orval/blob/128d0c4413b9a672fe585851037104bed85d5503/tests/specifications/null-type.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 25: cannot unmarshal !!seq into string; yaml: line 47: cannot unmarshal !!seq into string"
+}

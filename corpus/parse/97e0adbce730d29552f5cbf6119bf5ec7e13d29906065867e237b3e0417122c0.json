@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/vert-x3/vertx-web"
+		},
+		"file": {
+			"name": "security_scopes_test.yaml",
+			"size": 0,
+			"path": "vertx-web-openapi/src/test/resources/specs/security_scopes_test.yaml",
+			"byteSize": 765,
+			"content": "openapi: 3.0.0\n\ninfo:\n  version: 1.0.0\n  title: Test for auth scopes\n  license:\n    name: Apache 2.0 License\n\npaths:\n  /two_scopes_required:\n    get:\n      operationId: twoScopesRequired\n      security:\n        - bearerAuth:\n            - read\n            - write\n      responses:\n        200:\n          description: Something\n\n  /one_scope_required:\n    get:\n      operationId: oneScopeRequired\n      security:\n        - bearerAuth:\n            - read\n      responses:\n        200:\n          description: Something\n\n  /no_scopes:\n    get:\n      operationId: noScopesRequired\n      security:\n        - bearerAuth: []\n      responses:\n        200:\n          description: Something\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer",
+			"canonicalURL": "/github.com/vert-x3/vertx-web@f7a1b8ae8af8cdfd18ac15868e1412f92873b775/-/blob/vertx-web-openapi/src/test/resources/specs/security_scopes_test.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/vert-x3/vertx-web/blob/f7a1b8ae8af8cdfd18ac15868e1412f92873b775/vertx-web-openapi/src/test/resources/specs/security_scopes_test.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/one_scope_required\": get: operation \"oneScopeRequired\": security: at vertx-web-openapi/src/test/resources/specs/security_scopes_test.yaml:26:15: list of scopes MUST be empty for \"type\" \"http\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-editor"
+		},
+		"file": {
+			"name": "security-scheme-http-bearerFormat.yaml",
+			"size": 0,
+			"path": "test/unit/plugins/json-schema-validator/test-documents/security-scheme-http-bearerFormat.yaml",
+			"byteSize": 1259,
+			"content": "cases:\n- name: valid HTTP/bearer security scheme\n  input:\n    openapi: 3.0.0\n    info: { title: \"\", version: 1.0.0 }\n    paths: {}\n    components:\n      securitySchemes:\n        myScheme:\n          type: http\n          scheme: bearer\n  output:\n    equal: null\n- name: valid HTTP/bearer+bearerFormat security scheme\n  input:\n    openapi: 3.0.0\n    info: { title: \"\", version: 1.0.0 }\n    paths: {}\n    components:\n      securitySchemes:\n        myScheme:\n          type: http\n          scheme: bearer\n          bearerFormat: Bearer\n  output:\n    equal: null\n- name: valid HTTP/basic security scheme\n  input:\n    openapi: 3.0.0\n    info: { title: \"\", version: 1.0.0 }\n    paths: {}\n    components:\n      securitySchemes:\n        myScheme:\n          type: http\n          scheme: basic\n  output:\n    equal: null\n- name: invalid HTTP/basic+bearerFormat security scheme\n  input:\n    openapi: 3.0.0\n    info: { title: \"\", version: 1.0.0 }\n    paths: {}\n    components:\n      securitySchemes:\n        myScheme:\n          type: http\n          scheme: basic\n          bearerFormat: Bearer\n  output:\n    length: 1\n    match:\n    - message: \"should NOT have a `bearerFormat` property without `scheme: bearer` being set\"\n      path: [components, securitySchemes, myScheme]",
+			"canonicalURL": "/github.com/swagger-api/swagger-editor@b34403b06d498aaddf480e3a8d34a5ac4d9e09bc/-/blob/test/unit/plugins/json-schema-validator/test-documents/security-scheme-http-bearerFormat.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-editor/blob/b34403b06d498aaddf480e3a8d34a5ac4d9e09bc/test/unit/plugins/json-schema-validator/test-documents/security-scheme-http-bearerFormat.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at test/unit/plugins/json-schema-validator/test-documents/security-scheme-http-bearerFormat.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

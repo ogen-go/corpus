@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/apidom"
+		},
+		"file": {
+			"name": "oas-3.1-basic.yaml",
+			"size": 0,
+			"path": "packages/apidom-ls/test/fixtures/validation/oas/valid/oas-3.1-basic.yaml",
+			"byteSize": 950,
+			"content": "openapi: 3.1.0\ninfo:\n  title: deref\n  version: 1.0.0\nservers:\n  - description: local\n    url: http://localhost:8082/\npaths:\n  /a:\n    get:\n      operationId: aget\n      parameters:\n        - $ref: '#/components/parameters/userId'\n    post:\n      operationId: apost\n  /b:\n    get:\n      operationId: bget\n      parameters:\n        - $ref: '#/components/parameters/userId'\n    post:\n      operationId: bpost\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/foo'\ncomponents:\n  schemas:\n    foo:\n      type: string\n    bar:\n      $id: http://localhost:8082/\n      type: string\n  parameters:\n    indirection2:\n      $ref: '#/components/parameters/userId'\n      summary: indirect summary\n    userId:\n      name: userId\n      in: query\n      description: ID of the user\n      required: true\n    externalRef:\n      $ref: ./ex.json#/externalParameter\n      description: another ref\n",
+			"canonicalURL": "/github.com/swagger-api/apidom@24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/-/blob/packages/apidom-ls/test/fixtures/validation/oas/valid/oas-3.1-basic.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/apidom/blob/24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/packages/apidom-ls/test/fixtures/validation/oas/valid/oas-3.1-basic.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: parameters: \"userId\": at packages/apidom-ls/test/fixtures/validation/oas/valid/oas-3.1-basic.yaml:40:7: parameter MUST contain either a schema property, or a content property"
+}

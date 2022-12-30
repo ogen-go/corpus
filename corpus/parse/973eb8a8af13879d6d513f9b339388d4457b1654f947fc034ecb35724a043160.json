@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/smart-data-models/dataModel.Transportation"
+		},
+		"file": {
+			"name": "swagger.yaml",
+			"size": 0,
+			"path": "TransportStation/swagger.yaml",
+			"byteSize": 1724,
+			"content": "---\n# Copyleft (c) 2022 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    TransportStation: \n      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/model.yaml#/TransportStation\"\ninfo:\n  description:  |\n    The data model is a general description of urban stations (Metro, Bus, Tram, Heliport, ...) according to the GFTS standard https://developers.google.com/transit/gtfs/reference/#stopstxt, as well the detailed description of these (means of access, platform, assistance, ...).\n  title: TransportStation\n  version: \"0.1.3\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - TransportStation\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.Transportation@576f1f84e2c4171b0ca2ba3dbdb28f5666491966/-/blob/TransportStation/swagger.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/smart-data-models/dataModel.Transportation/blob/576f1f84e2c4171b0ca2ba3dbdb28f5666491966/TransportStation/swagger.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"TransportStation\": resolve \"#/components/schemas/TransportStation\": at TransportStation/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/model.yaml#/TransportStation\": get \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.Transportation/TransportStation/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+}

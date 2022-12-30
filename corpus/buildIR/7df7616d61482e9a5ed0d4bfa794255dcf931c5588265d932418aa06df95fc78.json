@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/notesjor/CorpusExplorer.Terminal.Console"
+		},
+		"file": {
+			"name": "swagger.json",
+			"size": 0,
+			"path": "Swagger/WebServiceDirect/swagger.json",
+			"byteSize": 3325,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"CorpusExplorer REST-WebService\",\n    \"termsOfService\": \"https://www.gnu.org/licenses/agpl-3.0.de.html\",\n    \"contact\": {\n      \"name\": \"Jan Oliver Rüdiger\",\n      \"url\": \"https://notes.jan-oliver-ruediger.de/kontakt/\"\n    },\n    \"license\": {\n      \"name\": \"GNU Affero General Public License 3.0\",\n      \"url\": \"https://www.gnu.org/licenses/agpl-3.0.de.html\"\n    },\n    \"version\": \"1.0.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"http://127.0.0.1:9999\"\n    }\n  ],\n  \"paths\": {\n    \"/execute/\": {\n      \"post\": {\n        \"description\": \"Executes a command against a corpus (defined by corpusId)\",\n        \"parameters\": [\n          {\n            \"name\": \"request\",\n            \"in\": \"query\",\n            \"description\": \"Executes a command against the complete corpus or a sub-corpus (defined by GUIDs)\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"action\": {\n                  \"type\": \"string\"\n                },\n                \"arguments\": {\n                  \"type\": \"object\",\n                  \"additionalProperties\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"corpusId\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"execution result\"\n          }\n        }\n      }\n    },\n    \"/add/langauges/\": {\n      \"get\": {\n        \"description\": \"lists all available languages for http://127.0.0.1:9999/add/\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"all available languages\"\n          }\n        }\n      }\n    },\n    \"/add/\": {\n      \"post\": {\n        \"description\": \"Adds/analyzes a new corpus\",\n        \"parameters\": [\n          {\n            \"name\": \"request\",\n            \"in\": \"query\",\n            \"description\": \"Adds/analyzes a new corpus\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"language\": {\n                  \"type\": \"string\",\n                  \"description\": \"see /add/language/ for all available languages.\"\n                },\n                \"documents\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"text\": {\n                        \"type\": \"string\"\n                      },\n                      \"metadata\": {\n                        \"type\": \"object\",\n                        \"additionalProperties\": {\n                          \"type\": \"string\"\n                        }\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"corpusId\"\n          }\n        }\n      }\n    },\n    \"/execute/actions/\": {\n      \"get\": {\n        \"description\": \"Lists all available actions for http://127.0.0.1:9999/execute/\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"action = The name of the action / description = Short description - action and parameter\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/notesjor/CorpusExplorer.Terminal.Console@9da886b65ce656455cc1437dbcea3206abfc12ed/-/blob/Swagger/WebServiceDirect/swagger.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/notesjor/CorpusExplorer.Terminal.Console/blob/9da886b65ce656455cc1437dbcea3206abfc12ed/Swagger/WebServiceDirect/swagger.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/add/\": post: parameters: \"request\": field \"Documents\": nested arrays not allowed"
+}

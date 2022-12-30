@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser/src/test/resources/issue892-main.yaml",
 			"byteSize": 420,
 			"content": "openapi: 3.0.1\ninfo:\n  title: ping test\n  version: '1.0'\nservers:\n  - url: 'http://localhost:8000/'\npaths:\n  some/ping:\n    get:\n      operationId: pingGet\n      parameters:\n        - name: i\n          in: query\n          description: Test\n          required: true\n          schema:\n            $ref: './issue749-reference.yaml#/SomeId'\n      responses:\n        '201':\n          description: OK\ncomponents:\n  schemas: {}",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser/src/test/resources/issue892-main.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser/src/test/resources/issue892-main.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser/src/test/resources/issue892-main.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser/src/test/resources/issue892-main.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"some/ping\": get: operation \"pingGet\": parameters: parse parameter \"i\": schema: parse schema: at 1:239: external \"./issue749-reference.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"some/ping\": get: operation \"pingGet\": at modules/swagger-parser/src/test/resources/issue892-main.yaml:10:7: parse path \"some/ping\": path MUST begin with a forward slash"
 }

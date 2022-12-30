@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Himenon/openapi-typescript-code-generator"
+		},
+		"file": {
+			"name": "index.yml",
+			"size": 0,
+			"path": "test/json.properties/index.yml",
+			"byteSize": 887,
+			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: api.test.domain\n  description: Library test schema\n  license:\n    name: MIT\n\nservers:\n  - url: \"http://dev.api.test.domain/\"\n    description: Development Environment\n  - url: \"https://api.test.domain/\"\n    description: Production Environment\n\ntags:\n  - name: test\n\ncomponents:\n  schemas:\n    Foo:\n      type: object\n      properties:\n        bar:\n          type: object\n          properties:\n            baz:\n              type: string\n            bazbaz:\n              type: object\n              properties:\n                hoge:\n                  type: number\n    Bar:\n      $ref: \"#/components/schemas/Foo/properties/bar\"\n    Baz:\n      $ref: \"#/components/schemas/Bar/properties/baz\"\n    Hoge:\n      $ref: \"#/components/schemas/Bar/properties/bazbaz/properties/hoge\"\n    BazBaz:\n      $ref: \"#/components/schemas/Bar/properties/bazbaz\"\n",
+			"canonicalURL": "/github.com/Himenon/openapi-typescript-code-generator@425502beb9bf90d84a8d289bfb4067765a22d457/-/blob/test/json.properties/index.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Himenon/openapi-typescript-code-generator/blob/425502beb9bf90d84a8d289bfb4067765a22d457/test/json.properties/index.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"BazBaz\": resolve \"#/components/schemas/BazBaz\": at test/json.properties/index.yml:40:13: $ref: resolve \"#/components/schemas/Bar/properties/bazbaz\": resolve: can't find value for \"components/schemas/Bar/properties/bazbaz\""
+}

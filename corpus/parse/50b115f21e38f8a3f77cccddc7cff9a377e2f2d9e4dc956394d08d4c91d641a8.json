@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/regulaforensics/FaceSDK-web-openapi"
+		},
+		"file": {
+			"name": "match_and_search.yml",
+			"size": 0,
+			"path": "match_and_search.yml",
+			"byteSize": 2936,
+			"content": "openapi: 3.0.3\npaths:\n  /match_and_search:\n    parameters:\n      - $ref: './common.yml#/components/parameters/x-request'\n    post:\n      tags:\n        - matching\n      summary: 'Match and Search in one request'\n      operationId: match_and_search\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MatchAndSearchRequest'\n      responses:\n        200:\n          description: 'Successful operation; the compare results are returned.'\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MatchAndSearchResponse'\n        403:\n          $ref: './common.yml#/components/responses/BadLicense'\ncomponents:\n  schemas:\n    MatchAndSearchRequest:\n      allOf:\n        - type: object\n          properties:\n            images:\n              type: array\n              items:\n                type: object\n                properties:\n                  content:\n                    $ref: './common.yml#/components/schemas/ImageData'\n                  type:\n                    $ref: './matching.yml#/components/schemas/ImageSource'\n        - $ref: './search.yml#/definitions/SearchParameters'\n\n    MatchAndSearchResponse:\n      allOf:\n        - $ref: './common.yml#/components/schemas/FaceSDKResult'\n        - type: object\n          properties:\n            results:\n              type: array\n              items:\n                $ref: './matching.yml#/components/schemas/MatchImageResult'\n            elapsedTime:\n              type: float\n              example: 1.317137987\n            metadata:\n              type: object\n              additionalProperties: true\n              description: \"A free-form object containing person's extended attributes.\"\n            detections:\n              type: array\n              items:\n                type: object\n                properties:\n                  faces:\n                    type: array\n                    items:\n                      $ref: '#/components/schemas/FacesResponse'\n                  imageIndex:\n                    $ref: './matching.yml#/components/schemas/MatchImageIndex'\n                  status:\n                    $ref: './common.yml#/components/schemas/FaceSDKResultCode'\n    PersonWithImages:\n      allOf:\n        - type: object\n          properties:\n            images:\n              type: array\n              items:\n                $ref: './search.yml#/definitions/RecognizeImage'\n        - $ref: './identification.yml#/components/schemas/Person'\n\n    FacesResponse:\n      allOf:\n        - $ref: './matching.yml#/components/schemas/DetectionFace'\n        - type: object\n          properties:\n            persons:\n              type: array\n              items:\n                $ref: '#/components/schemas/PersonWithImages'\n            rotationAngle:\n              type: float\n              example: 2.1272900104522705\n",
+			"canonicalURL": "/github.com/regulaforensics/FaceSDK-web-openapi@07562373dd6f7af9e538c70e3f173d614c30b163/-/blob/match_and_search.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/regulaforensics/FaceSDK-web-openapi/blob/07562373dd6f7af9e538c70e3f173d614c30b163/match_and_search.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"MatchAndSearchRequest\": resolve \"#/components/schemas/MatchAndSearchRequest\": allOf: $ref: resolve \"./search.yml#/definitions/SearchParameters\": property \"threshold\": at https://raw.githubusercontent.com/regulaforensics/FaceSDK-web-openapi/07562373dd6f7af9e538c70e3f173d614c30b163/search.yml:44:15: type: unexpected schema type: \"float\""
+}

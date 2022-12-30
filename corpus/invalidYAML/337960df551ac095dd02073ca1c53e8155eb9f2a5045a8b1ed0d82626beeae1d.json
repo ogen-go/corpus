@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/golodnyj/webinar-serverless-slackbot"
+		},
+		"file": {
+			"name": "for-slack-bot.yml",
+			"size": 0,
+			"path": "steps/4-create-command/for-slack-bot.yml",
+			"byteSize": 933,
+			"content": "openapi: 3.0.0\ninfo:\n  title: for-slack-bot\n  version: 1.0.0\nservers:\n  - url: HEREYOURURL # не трогаем, оставляем, как было\npaths:\n  /:\n    get:\n      x-yc-apigateway-integration:\n        type: dummy\n        content:\n          '*': Hello, World!\n        http_code: 200\n        http_headers:\n          Content-Type: text/plain\n    post:\n      x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id:  \u003cIDYOURFUNCTIONCHALLENGE\u003e # \u003c-- ID функции\n        service_account_id: \u003cIDYOURACCOUNT\u003e # \u003c-- ID сервисного аккаунта\n      operationId: slack-challenge\n  /hello-from-serverless:\n    post:\n    x-yc-apigateway-integration:\n        type: cloud_functions\n        function_id: \u003cIDYOURFUNCTIONHELLO\u003e # \u003c-- ID функции\n        service_account_id: \u003cIDYOURACCOUNT\u003e # \u003c-- ID сервисного аккаунта\n      operationId: hello-from-serverless\n\n        \n",
+			"canonicalURL": "/github.com/golodnyj/webinar-serverless-slackbot@791a96aadd7db47bb521ddb0811cf879252e5d8f/-/blob/steps/4-create-command/for-slack-bot.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/golodnyj/webinar-serverless-slackbot/blob/791a96aadd7db47bb521ddb0811cf879252e5d8f/steps/4-create-command/for-slack-bot.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "invalidYAML: yaml: line 23:4: did not find expected key"
+}

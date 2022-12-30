@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/interuss/dss"
+		},
+		"file": {
+			"name": "aux_.yaml",
+			"size": 0,
+			"path": "interfaces/aux_/aux_.yaml",
+			"byteSize": 2168,
+			"content": "openapi: 3.0.2\ninfo:\n  title: DSS Auxiliary API\n  version: 1.0.0\n\ncomponents:\n  schemas:\n    VersionResponse:\n      type: object\n      required:\n        - version\n      properties:\n        version:\n          description: The version of the DSS.\n          type: string\n    ErrorResponse:\n      type: object\n      properties:\n        message:\n          description: Human-readable message indicating what error occurred and/or why.\n          type: string\n\npaths:\n  /aux/v1/version:\n    get:\n      tags: [ dss ]\n      operationId: getVersion\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/VersionResponse'\n          description: The version of the DSS is successfully returned.\n      summary: Queries the version of the DSS.\n  /aux/v1/validate_oauth:\n    get:\n      tags: [ dss ]\n      operationId: validateOauth\n      parameters:\n        - name: owner\n          description: Validate the owner claim matches the provided owner.\n          schema:\n            type: string\n          in: query\n          required: true\n      responses:\n        '200':\n          description: The provided token was validated.\n        '401':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n          description: Bearer access token was not provided in Authorization header,\n            token could not be decoded, or token was invalid.\n        '403':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ErrorResponse'\n          description: The access token was decoded successfully but did not include\n            a scope appropriate to this endpoint.\n      summary: Validate Oauth token against the DSS.\n      security:\n        - Auth:\n            - dss.read.identification_service_areas\n        - Auth:\n            - dss.write.identification_service_areas\nsecurity:\n  - Auth:\n      - dss.read.identification_service_areas\n      - dss.write.identification_service_areas\ntags:\n  - name: dss\n    description: Endpoints exposed by the DSS server.\n",
+			"canonicalURL": "/github.com/interuss/dss@4eb2fb74b35046344a45e80428e83f20e05690f1/-/blob/interfaces/aux_/aux_.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/interuss/dss/blob/4eb2fb74b35046344a45e80428e83f20e05690f1/interfaces/aux_/aux_.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/aux/v1/validate_oauth\": get: operation \"validateOauth\": security: at interfaces/aux_/aux_.yaml:66:11: unknown security scheme \"Auth\""
+}

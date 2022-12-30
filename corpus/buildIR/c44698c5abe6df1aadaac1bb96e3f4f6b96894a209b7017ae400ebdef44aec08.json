@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getyourguide/partner-api-spec"
+		},
+		"file": {
+			"name": "reviews.yaml",
+			"size": 0,
+			"path": "spec/paths/reviews.yaml",
+			"byteSize": 2416,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Reviews\n  version: 1.0.0\n  description: Find reviews for a tour.\npaths:\n  /{version}/reviews/tour/{tour_id}:\n    get:\n      operationId: Reviews\n      tags:\n        - Reviews\n      parameters:\n        - $ref: \"../components/commons/path.yaml#/components/parameters/version\"\n        - $ref: \"../components/commons/path.yaml#/components/parameters/tourId\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/cntLanguage\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/currency\"\n        - $ref: \"#/components/parameters/date\"\n        - $ref: \"#/components/parameters/sortfield\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/sortdirection\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/limit\"\n        - $ref: \"../components/commons/query.yaml#/components/parameters/offset\"\n      responses:\n        200:\n          description: Successful response\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  _metadata:\n                    $ref: \"../components/schema/metadata.yaml#/components/schemas/MetaData\"\n                  data:\n                    type: object\n                    properties:\n                      reviews:\n                        type: object\n                        properties:\n                          outline:\n                            $ref: \"../components/schema/reviews.yaml#/components/schemas/Outline\"\n                          review_items:\n                            $ref: \"../components/schema/reviews.yaml#/components/schemas/ReviewItems\"\n        4XX:\n          $ref: \"../components/schema/errors.yaml#/components/responses/4XX\"\n        default:\n          $ref: \"../components/schema/errors.yaml#/components/responses/Default\"\ncomponents:\n  parameters:\n    sortfield:\n      description: Defines the sort field.\n      in: query\n      name: sortfield\n      required: false\n      schema:\n        enum:\n          - rating\n          - date\n        type: string\n    date:\n      description: Defines the date of the oldest review that should be returned.\n      in: query\n      name: date\n      required: false\n      schema:\n        $ref: \"#/components/schemas/Datetime\"\n  schemas:\n    Datetime:\n      $ref: \"../components/commons/fields.yaml#/components/schemas/Datetime\"",
+			"canonicalURL": "/github.com/getyourguide/partner-api-spec@4860aa395f0e057d6fa4996e554152da64e44fda/-/blob/spec/paths/reviews.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getyourguide/partner-api-spec/blob/4860aa395f0e057d6fa4996e554152da64e44fda/spec/paths/reviews.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reduce default: too complicated to reduce default error"
+}

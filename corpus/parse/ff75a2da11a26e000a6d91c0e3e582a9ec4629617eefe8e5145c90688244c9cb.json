@@ -10,14 +10,14 @@
 			"path": "rt-document-position.yml",
 			"byteSize": 1100,
 			"content": "openapi: 3.0.3\ncomponents:\n  schemas:\n\n    DocumentPositionResult:\n      title: \"Document Position\"\n      description: \"Contains information about document position on the input image, its center, angle, etc\"\n      allOf:\n        - type: object\n          properties:\n            DocumentPosition:\n              $ref: \"#/components/schemas/DocumentPosition\"\n        - $ref: './rt.yml#/components/schemas/ResultItem'\n\n    DocumentPosition:\n      type: object\n      properties:\n        docFormat:\n          $ref: \"./rt-doc-type-old.yml#/components/schemas/DocumentFormat\"\n        Angle:\n          type: number\n        Width:\n          type: integer\n        Height:\n          type: integer\n        Center:\n          $ref: './common.yml#/components/schemas/Point'\n        LeftBottom:\n          $ref: './common.yml#/components/schemas/Point'\n        LeftTop:\n          $ref: './common.yml#/components/schemas/Point'\n        RightBottom:\n          $ref: './common.yml#/components/schemas/Point'\n        RightTop:\n          $ref: './common.yml#/components/schemas/Point'\n        Dpi:\n          type: integer\n",
-			"canonicalURL": "/github.com/regulaforensics/DocumentReader-web-openapi@daaa50378df68dd1fd2ad8c0441ffc9738e3ede5/-/blob/rt-document-position.yml",
+			"canonicalURL": "/github.com/regulaforensics/DocumentReader-web-openapi@ac122a864e149b0e1272fc15954ea856a3057e59/-/blob/rt-document-position.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/regulaforensics/DocumentReader-web-openapi/blob/daaa50378df68dd1fd2ad8c0441ffc9738e3ede5/rt-document-position.yml",
+					"url": "https://github.com/regulaforensics/DocumentReader-web-openapi/blob/ac122a864e149b0e1272fc15954ea856a3057e59/rt-document-position.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"DocumentPosition\": parse schema: property \"Center\": parse schema: at 1:104: external \"./common.yml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"DocumentPositionResult\": resolve \"#/components/schemas/DocumentPositionResult\": allOf: $ref: resolve \"./rt.yml#/components/schemas/ResultItem\": parse discriminator: at https://raw.githubusercontent.com/regulaforensics/DocumentReader-web-openapi/ac122a864e149b0e1272fc15954ea856a3057e59/rt.yml:103:14: resolve mapping: resolve \"DocBarCodeInfo\": get \"https://raw.githubusercontent.com/regulaforensics/DocumentReader-web-openapi/ac122a864e149b0e1272fc15954ea856a3057e59/DocBarCodeInfo\": https: bad HTTP code 404 (Not Found)"
 }

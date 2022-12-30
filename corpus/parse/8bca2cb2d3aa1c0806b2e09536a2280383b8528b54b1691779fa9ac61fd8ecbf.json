@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/tolyo/open-outcry"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi/openapi.yaml",
+			"byteSize": 840,
+			"content": "openapi: 3.0.2\ninfo:\n  description: |\n    # Introduction\n    This API is {cumented in **OpenAPI 3.0 format**.\n\n    This API the following operations:\n    * Retrieve a list of available instruments \n    # TO{\n\n    # Basics\n    * API calls have to be secured with HTTPS.\n    * All data has to be submitted UTF-8 encoded.\n    * The reply is sent JSON encoded.\n\n    \n  version: 1.0.0\n  title: OPEN OUTCY API\n\nsecurity:\n  - basicAuth: []\nservers:\n  - url: https://your.public.url\ncomponents:\n  securitySchemes:\n    basicAuth:\n      type: http\n      scheme: basic\npaths:\n  /currencies:\n    $ref: paths/currencies_list.yaml\n  /instruments:\n    $ref: paths/instruments_list.yaml\n  /order_books/{instrument_name}:\n    $ref: paths/order_books.yaml\n  /trades:\n    $ref: paths/trades_list.yaml\n  /trade_orders:\n    $ref: paths/trade_orders_list.yaml\n\n\n",
+			"canonicalURL": "/github.com/tolyo/open-outcry@b51b932ed2737c0231f646829bf689828e6fce61/-/blob/openapi/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/tolyo/open-outcry/blob/b51b932ed2737c0231f646829bf689828e6fce61/openapi/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/currencies\": get: operation \"getCurrencies\": responses: 200: content: application/json: schema: parse schema: $ref: resolve \"../definitions/currency.yaml#/components/schemas/CurrencyList\": items: at https://raw.githubusercontent.com/tolyo/open-outcry/b51b932ed2737c0231f646829bf689828e6fce61/openapi/definitions/currency.yaml:6:15: type: unexpected schema type: \"Currency\""
+}

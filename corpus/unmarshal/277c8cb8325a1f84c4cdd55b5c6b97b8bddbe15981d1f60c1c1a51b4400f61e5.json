@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pb33f/libopenapi"
+		},
+		"file": {
+			"name": "circular-tests.yaml",
+			"size": 0,
+			"path": "test_specs/circular-tests.yaml",
+			"byteSize": 1258,
+			"content": "openapi: 3.0\npaths:\n  /burgers:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Nine'\ncomponents:\n  schemas:\n    One:\n      description: \"test one\"\n      properties:\n        things:\n          \"$ref\": \"#/components/schemas/Two\"\n    Two:\n      description: \"test two\"\n      properties:\n        testThing:\n          \"$ref\": \"#/components/schemas/One\"\n        anyOf:\n          - \"$ref\": \"#/components/schemas/Four\"\n    Three:\n      description: \"test three\"\n      properties:\n        tester:\n          \"$ref\": \"#/components/schemas/Four\"\n        bester:\n          \"$ref\": \"#/components/schemas/Seven\"\n        yester:\n          \"$ref\": \"#/components/schemas/Seven\"\n    Four:\n      description: \"test four\"\n      properties:\n        lemons:\n          \"$ref\": \"#/components/schemas/Nine\"\n    Five:\n      properties:\n        rice:\n          \"$ref\": \"#/components/schemas/Six\"\n    Six:\n      properties:\n        mints:\n          \"$ref\": \"#/components/schemas/Nine\"\n    Seven:\n      properties:\n        wow:\n          \"$ref\": \"#/components/schemas/Three\"\n    Nine:\n      description: done.\n    Ten:\n      properties:\n        yeah:\n          \"$ref\": \"#/components/schemas/Ten\"\n\n\n\n\n",
+			"canonicalURL": "/github.com/pb33f/libopenapi@07a11be5a3651b840ff34181bec581ef4edb3d85/-/blob/test_specs/circular-tests.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pb33f/libopenapi/blob/07a11be5a3651b840ff34181bec581ef4edb3d85/test_specs/circular-tests.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 23: cannot unmarshal !!seq into ogen.Schema"
+}

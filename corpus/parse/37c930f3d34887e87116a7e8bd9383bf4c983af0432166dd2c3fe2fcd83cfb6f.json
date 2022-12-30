@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/deepmap/oapi-codegen"
+		},
+		"file": {
+			"name": "spec-base.yaml",
+			"size": 0,
+			"path": "internal/test/issues/issue-removed-external-ref/spec-base.yaml",
+			"byteSize": 1027,
+			"content": "eopenapi: 3.0.2\ninfo:\n  version: \"0.0.1\"\npaths:\n  /noTrouble:\n    post:\n      responses:\n        200:\n          description: ...\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  directFoo:\n                    $ref: \"spec-ext.yaml#/components/schemas/Foo\"\n                  directBar:\n                    $ref: \"#/components/schemas/DirectBar\"\n                  indirectFoo:\n                    $ref: \"#/components/schemas/PackedBar\"\n                  name:\n                    type: string\n  /invalidExtRefTrouble:\n    post:\n      responses:\n        300:\n          $ref: \"spec-ext.yaml#/components/responses/pascal\"\n\ncomponents:\n  schemas:\n    DirectBar:\n      $ref: \"spec-ext.yaml#/components/schemas/Foo\"\n    PackedBar:\n      type: object\n      properties:\n        id:\n          type: string\n        core:\n          $ref: \"spec-ext.yaml#/components/schemas/Foo\"\n        directd:\n          $ref: \"#/components/schemas/DirectBar\"\n",
+			"canonicalURL": "/github.com/deepmap/oapi-codegen@ab90f1927bc5ec3e29af216d4298fbb4780ae36d/-/blob/internal/test/issues/issue-removed-external-ref/spec-base.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/deepmap/oapi-codegen/blob/ab90f1927bc5ec3e29af216d4298fbb4780ae36d/internal/test/issues/issue-removed-external-ref/spec-base.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at internal/test/issues/issue-removed-external-ref/spec-base.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

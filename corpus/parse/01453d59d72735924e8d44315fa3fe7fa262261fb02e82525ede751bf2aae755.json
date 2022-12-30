@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/algolia/api-clients-automation"
+		},
+		"file": {
+			"name": "spec.yml",
+			"size": 0,
+			"path": "specs/ingestion/spec.yml",
+			"byteSize": 2279,
+			"content": "openapi: 3.0.2\ninfo:\n  title: Ingestion API\n  description: API powering the Data Ingestion feature of Algolia.\n  version: '1.0'\ncomponents:\n  securitySchemes:\n    appId:\n      $ref: '../common/securitySchemes.yml#/appId'\n    apiKey:\n      $ref: '../common/securitySchemes.yml#/apiKey'\nservers:\n  - url: https://data.{region}.algolia.com\n    variables:\n      region:\n        enum:\n          - us\n        default: us\nsecurity:\n  - appId: []\n    apiKey: []\ntags:\n  - name: authentications\n    x-displayName: Authentications\n    description: Authentications describe the way we connect to Algolia, or any platform.\n  - name: destinations\n    x-displayName: Destinations\n    description: Destinations refers to an Algolia product (Search, Insight, Recommend, ...).\n  - name: observability\n    x-displayName: Observability\n    description: Observability api tracks each runs and events.\n  - name: sources\n    x-displayName: Sources\n    description: Sources describe the platform informations.\n  - name: tasks\n    x-displayName: Tasks\n    description: Tasks refers to all type of Ingestion we can do (Reindex, On demand update, ...).\npaths:\n  # authentications api\n  /1/authentications:\n    $ref: 'paths/authentications/authentications.yml'\n  /1/authentications/{authenticationID}:\n    $ref: 'paths/authentications/authenticationID.yml'\n\n  # destinations api\n  /1/destinations:\n    $ref: 'paths/destinations/destinations.yml'\n  /1/destinations/{destinationID}:\n    $ref: 'paths/destinations/destinationID.yml'\n\n  # sources api\n  /1/sources:\n    $ref: 'paths/sources/sources.yml'\n  /1/sources/{sourceID}:\n    $ref: 'paths/sources/sourceID.yml'\n\n  # tasks api\n  /1/tasks:\n    $ref: 'paths/tasks/tasks.yml'\n  /1/tasks/{taskID}:\n    $ref: 'paths/tasks/taskID.yml'\n  /1/tasks/{taskID}/run:\n    $ref: 'paths/tasks/runTask.yml'\n  /1/tasks/{taskID}/enable:\n    $ref: 'paths/tasks/enableTask.yml'\n  /1/tasks/{taskID}/disable:\n    $ref: 'paths/tasks/disableTask.yml'\n\n  # observability api\n  /1/runs:\n    $ref: 'paths/runs/runs.yml'\n  /1/runs/{runID}:\n    $ref: 'paths/runs/runID.yml'\n  /1/runs/{runID}/events:\n    $ref: 'paths/runs/events/events.yml'\n  /1/runs/{runID}/events/{eventID}:\n    $ref: 'paths/runs/events/eventID.yml'\n  /1/runs/tasks/{taskID}:\n    $ref: 'paths/runs/tasks/taskID.yml'\n",
+			"canonicalURL": "/github.com/algolia/api-clients-automation@86c6168fbf836c9ef55cb1d0b4e053327ccff590/-/blob/specs/ingestion/spec.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/algolia/api-clients-automation/blob/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/ingestion/spec.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/1/authentications\": get: operation \"getAuthentications\": security: parse security scheme \"appId\": at https://raw.githubusercontent.com/algolia/api-clients-automation/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/ingestion/paths/authentications/authentications.yml:9:13: get \"https://raw.githubusercontent.com/algolia/api-clients-automation/86c6168fbf836c9ef55cb1d0b4e053327ccff590/specs/ingestion/paths/common/securitySchemes.yml\": https: bad HTTP code 404 (Not Found)"
+}

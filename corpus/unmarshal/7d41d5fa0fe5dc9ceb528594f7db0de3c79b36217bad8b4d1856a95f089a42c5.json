@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/OpenAPITools/openapi-generator"
+		},
+		"file": {
+			"name": "issue_13365.yml",
+			"size": 0,
+			"path": "modules/openapi-generator/src/test/resources/bugs/issue_13365.yml",
+			"byteSize": 756,
+			"content": "openapi: 3.0.0\ninfo:\n  description: Specification to reproduce nullable issue with Array\n  title: Required Api\npaths:\n  '/person':\n    post:\n      summary: Inserts a person\n      operationId: postPerson\n      tags:\n        - person\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Person'\n\n      responses: ...\n\ncomponents:\n  schemas:\n    Person:\n      type: object\n      required:\n        - name\n      properties:\n        name:\n          type: string\n          maxLength: 50\n          format: email\n        id:\n          type: integer\n    Alien:\n      type: object\n      properties:\n        name:\n          type: string\n        id:\n          type: integer",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@3a8265b6eec3ca372e28d49de38cf6f4b032a937/-/blob/modules/openapi-generator/src/test/resources/bugs/issue_13365.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/OpenAPITools/openapi-generator/blob/3a8265b6eec3ca372e28d49de38cf6f4b032a937/modules/openapi-generator/src/test/resources/bugs/issue_13365.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 19: cannot unmarshal !!str `...` into ogen.Responses"
+}

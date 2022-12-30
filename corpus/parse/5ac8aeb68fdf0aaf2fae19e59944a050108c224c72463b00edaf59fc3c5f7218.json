@@ -10,14 +10,14 @@
 			"path": "LoadAggregate/swagger.yaml",
 			"byteSize": 1774,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    LoadAggregate: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml#/LoadAggregate\"\ninfo:\n  description:  |\n    Adapted from CIM data models. Standard aggregate load model comprised of static and/or dynamic components.  A static load model represents the sensitivity of the real and reactive power consumed by the load to the amplitude and frequency of the bus voltage. A dynamic load model can used to represent the aggregate response of the motor components of the load.\n  title: LoadAggregate\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - LoadAggregate\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@c65de9a61bbc557a160009c1d7d828540e24b4cb/-/blob/LoadAggregate/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@b3306b5a43bd0608292a10c30767ff8c3fa690d7/-/blob/LoadAggregate/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/c65de9a61bbc557a160009c1d7d828540e24b4cb/LoadAggregate/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/b3306b5a43bd0608292a10c30767ff8c3fa690d7/LoadAggregate/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"LoadAggregate\": parse schema: at 1:51: external \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"LoadAggregate\": resolve \"#/components/schemas/LoadAggregate\": at LoadAggregate/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml#/LoadAggregate\": get \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/LoadAggregate/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

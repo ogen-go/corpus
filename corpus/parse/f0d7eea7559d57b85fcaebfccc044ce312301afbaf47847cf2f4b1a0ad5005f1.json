@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Backbase/project-golden-samples"
+		},
+		"file": {
+			"name": "greeting-api-v1.yaml",
+			"size": 0,
+			"path": "boat-example/api/src/main/resources/greeting-api-v1.yaml",
+			"byteSize": 2719,
+			"content": "openapi: 3.0.3\ninfo:\n  title: Boat Example service\n  version: 1.0.0\n  description: Sends greetings to users\nservers:\n  - description: Prism mock server\n    url: http://localhost:8080\ntags:\n  - name: confirmations\npaths:\n  /client-api/v1/greeting:\n    get:\n      tags:\n        - greeting\n      summary: sends a generic greetings\n      description: This endpoint returns a generic greetings.\n      operationId: getGreeting\n      responses:\n        \"200\":\n          description: A successful operation. Greeting is returned.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GreetingGetResponse'\n              examples:\n                greetingGetResponse:\n                  $ref: '#/components/examples/GreetingGetResponse'\n\n    post:\n      tags:\n        - greeting\n      summary: sends a greeting\n      description: This endpoint returns a greeting containing received user's name.\n      operationId: postGreeting\n      requestBody:\n        required: true\n        description: Send user's name\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/GreetingPostRequest'\n            examples:\n              greetingPostRequest:\n                $ref: '#/components/examples/GreetingPostRequest'\n      responses:\n        \"200\":\n          description: A successful operation. Greeting is returned.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/GreetingPostResponse'\n              examples:\n                greetingPostResponse:\n                  $ref: '#/components/examples/GreetingPostResponse'\n        \"400\":\n          description: The request was bad.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/BadRequestError'\n              examples:\n                badRequestError:\n                  $ref: '#/components/examples/BadRequestError'\n\ncomponents:\n  schemas:\n    GreetingGetResponse:\n      $ref: 'schemas/body/greeting-get-response.json'\n    GreetingPostRequest:\n      $ref: 'schemas/body/greeting-post-request.json'\n    GreetingPostResponse:\n      $ref: 'schemas/body/greeting-post-response.json'\n    BadRequestError:\n      $ref: 'lib/schemas/bad-request-error.yaml'\n\n  examples:\n    GreetingGetResponse:\n      value:\n        $ref: 'examples/body/greeting-get-response.json'\n    GreetingPostResponse:\n      value:\n        $ref: 'examples/body/greeting-post-response.json'\n    GreetingPostRequest:\n      value:\n        $ref: 'examples/body/greeting-post-request.json'\n    BadRequestError:\n      value:\n        $ref: 'lib/examples/bad-request-validation-error.json'",
+			"canonicalURL": "/github.com/Backbase/project-golden-samples@8dbbfd56d743cbc814487d5f60aa746cfaa0905c/-/blob/boat-example/api/src/main/resources/greeting-api-v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Backbase/project-golden-samples/blob/8dbbfd56d743cbc814487d5f60aa746cfaa0905c/boat-example/api/src/main/resources/greeting-api-v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"BadRequestError\": resolve \"#/components/schemas/BadRequestError\": at boat-example/api/src/main/resources/greeting-api-v1.yaml:75:13: $ref: resolve \"lib/schemas/bad-request-error.yaml\": get \"https://raw.githubusercontent.com/Backbase/project-golden-samples/8dbbfd56d743cbc814487d5f60aa746cfaa0905c/boat-example/api/src/main/resources/lib/schemas/bad-request-error.yaml\": https: bad HTTP code 404 (Not Found)"
+}

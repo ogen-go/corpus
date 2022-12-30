@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
 			"byteSize": 778,
 			"content": "openapi: 3.0.2\ninfo:\n  title: test - OAS3\n  version: 1.0.0\npaths:\n  /responses:\n    get:\n      responses:\n        '200':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  oneOf:\n                    - \"$ref\": \"#/components/schemas/Macaw1\"\n                    - \"$ref\": \"#/components/schemas/Parakeet1\"\n        '404':\n          description: it works!\n          content:\n            application/json:\n              schema:\n                additionalProperties:\n                  type: array\n                  items:\n                    anyOf:\n                      - \"$ref\": \"#/components/schemas/Macaw2\"\n                      - \"$ref\": \"#/components/schemas/Parakeet2\"\n\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/responses\": get: responses: 200: content: application/json: schema: parse schema: parse schema: parse schema: at 1:201: find schema: resolve: can't find value for \"components/schemas/Macaw1\""
+	"Error": "parse: parse spec: parse path items: path \"/responses\": get: responses: 200: content: application/json: schema: parse schema: additionalProperties: oneOf: at modules/swagger-parser-v3/src/test/resources/additionalPropertiesFlatten.yaml:16:31: $ref: resolve \"#/components/schemas/Macaw1\": resolve: can't find value for \"components/schemas/Macaw1\""
 }

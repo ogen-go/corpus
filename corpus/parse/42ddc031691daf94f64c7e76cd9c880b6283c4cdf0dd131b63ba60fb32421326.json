@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kubeshop/kusk-gateway"
+		},
+		"file": {
+			"name": "cache-api.yaml",
+			"size": 0,
+			"path": "smoketests/cache/cache-api.yaml",
+			"byteSize": 700,
+			"content": "apiVersion: gateway.kusk.io/v1alpha1\nkind: API\nmetadata:\n  name: test-cache\nspec:\n  fleet:\n    name: kusk-gateway-envoy-fleet\n    namespace: kusk-system\n  # service name and port should be specified inside x-kusk annotation\n  # NB: `/post` is not cached.\n  spec: |\n    components: {}\n    info:\n      title: test-cache\n      description: test-cache\n      version: 0.1.0\n    openapi: 3.0.0\n    x-kusk:\n      cache:\n        enabled: true\n        max_age: 2\n      upstream:\n        service:\n          name: test-cache-httpbin\n          namespace: default\n          port: 80\n    paths:\n      /uuid:\n        get:\n          description: Returns UUID4.\n          operationId: \"/uuid\"\n          responses: {}\n",
+			"canonicalURL": "/github.com/kubeshop/kusk-gateway@5f154f54721faab0857b86a41f77402e2bdfc7af/-/blob/smoketests/cache/cache-api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kubeshop/kusk-gateway/blob/5f154f54721faab0857b86a41f77402e2bdfc7af/smoketests/cache/cache-api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at smoketests/cache/cache-api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

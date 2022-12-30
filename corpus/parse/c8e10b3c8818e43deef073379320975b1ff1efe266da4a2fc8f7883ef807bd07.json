@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml",
 			"byteSize": 1924,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Simple API Overview\n  version: 1.0.0\npaths:\n  \"/\":\n    get:\n      summary: List API versions\n      parameters:\n      - content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/User\"\n            examples:\n              user:\n                summary: User Example\n                externalValue: http://foo.bar/examples/user-example.json\n        name: id\n        in: path\n        description: ID of the API version\n        required: true\n        schema:\n          type: integer\n      - \"$ref\": \"#/components/parameters/idParam\"\n      responses:\n        '200':\n          content:\n            application/json:\n              examples:\n                foo:\n                  value:\n                    versions:\n                    - updated: '2011-01-21T11:33:21Z'\n                      id: v2.0\n                      links:\n                      - rel: self\n                        href: http://127.0.0.1:8774/v2/\n                      status: CURRENT\n          description: 200 response\n      operationId: listVersionsv2\n  \"/user/{id}\":\n    parameters:\n    - description: ID of the API version\n      required: true\n      schema:\n        type: integer\n      content:\n        application/json:\n          schema:\n            \"$ref\": \"#/components/schemas/User\"\n          examples:\n            user:\n              summary: User Example\n              externalValue: http://foo.bar/examples/user-example.json\n      name: id\n      in: path\ncomponents:\n  parameters:\n    idParam:\n      name: id\n      in: path\n      description: ID of the API version\n      required: true\n      schema:\n        type: int\n      content:\n        application/xml:\n          examples:\n            user:\n              externalValue: http://foo.bar/examples/user-example.xml\n              summary: User Example in XML\n          schema:\n            \"$ref\": \"#/components/schemas/User\"\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml",
+			"canonicalURL": "/github.com/Checkmarx/kics@78acc8ae8f5004d721f14dcd670abcfb0fbf3897/-/blob/assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml",
+					"url": "https://github.com/Checkmarx/kics/blob/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"idParam\": at 1:319: parameter MUST contain either a schema property, or a content property, but not both"
+	"Error": "parse: parse spec: parse components: parameters: \"idParam\": at assets/queries/openAPI/3.0/parameter_object_without_schema/test/negative6.yaml:65:9: parameter MUST contain either a schema property, or a content property, but not both"
 }

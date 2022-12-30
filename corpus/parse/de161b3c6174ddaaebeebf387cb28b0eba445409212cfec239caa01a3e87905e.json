@@ -10,14 +10,14 @@
 			"path": "tests/testServer/api/invalid.yaml",
 			"byteSize": 1067,
 			"content": "openapi: 3.0.0\npaths:\n  '/api/v1/resources/{resourceId}':\n    get:\n      tags:\n        - Resources\n      description: Returns resource by id\n      operationId: getResource\n      parameters:\n        - name: resourceId\n          in: path\n          description: Resource id\n          required: true\n          schema:\n            type: integer\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/resource'\n        '400':\n          description: Bad Request\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/errorModel'\n        '404':\n          description: Not Found\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/errorModel'\n        '500':\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/errorModel'\n",
-			"canonicalURL": "/github.com/oas-tools/oas-tools@f82c121b9e91e04c95749fbad1f6a4f83c78f90a/-/blob/tests/testServer/api/invalid.yaml",
+			"canonicalURL": "/github.com/oas-tools/oas-tools@ca56d3d3da5d9e72a2cdbf84887478e8ca887c88/-/blob/tests/testServer/api/invalid.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/oas-tools/oas-tools/blob/f82c121b9e91e04c95749fbad1f6a4f83c78f90a/tests/testServer/api/invalid.yaml",
+					"url": "https://github.com/oas-tools/oas-tools/blob/ca56d3d3da5d9e72a2cdbf84887478e8ca887c88/tests/testServer/api/invalid.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/api/v1/resources/{resourceId}\": get: operation \"getResource\": responses: 200: content: application/json: schema: parse schema: at 1:326: find schema: resolve: can't find value for \"components/schemas/resource\""
+	"Error": "parse: parse spec: parse path items: path \"/api/v1/resources/{resourceId}\": get: operation \"getResource\": responses: 200: content: application/json: schema: parse schema: at tests/testServer/api/invalid.yaml:22:23: $ref: resolve \"#/components/schemas/resource\": resolve: can't find value for \"components/schemas/resource\""
 }

@@ -7,17 +7,17 @@
 		"file": {
 			"name": "root.json",
 			"size": 0,
-			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/additional-fields/root.json",
+			"path": "packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/reference-object/fixtures/additional-fields/root.json",
 			"byteSize": 777,
 			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"components\": {\n    \"parameters\": {\n      \"userId\": {\n        \"$ref\": \"#/components/parameters/indirection1\",\n        \"description\": \"description 1\"\n      },\n      \"indirection1\": {\n        \"$ref\": \"#/components/parameters/indirection2\",\n        \"summary\": \"indirect summary 1\"\n      },\n      \"indirection2\": {\n        \"$ref\": \"#/components/parameters/userIdRef\",\n        \"description\": \"indirect description 1\",\n        \"summary\": \"indirect summary 2\"\n      },\n      \"userIdRef\": {\n        \"name\": \"userId\",\n        \"in\": \"query\",\n        \"description\": \"ID of the user\",\n        \"required\": true\n      },\n      \"externalRef\": {\n        \"$ref\": \"./ex.json#/externalParameter\",\n        \"description\": \"pulled from external source\"\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/swagger-api/apidom@f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/additional-fields/root.json",
+			"canonicalURL": "/github.com/swagger-api/apidom@24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/-/blob/packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/reference-object/fixtures/additional-fields/root.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/apidom/blob/f7a9cd72c007c7885d0bca9e6f77e1830110ec4a/packages/apidom-reference/test/dereference/strategies/openapi-3-1/reference-object/fixtures/additional-fields/root.json",
+					"url": "https://github.com/swagger-api/apidom/blob/24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/reference-object/fixtures/additional-fields/root.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"userIdRef\": at 18:20: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse components: parameters: \"externalRef\": at https://raw.githubusercontent.com/swagger-api/apidom/24fb62f6e4da8a1b45a576f310fc65d71ed94b9f/packages/apidom-reference/test/dereference/strategies/openapi-3-1-swagger-client/reference-object/fixtures/additional-fields/ex.json:2:24: parameter MUST contain either a schema property, or a content property"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/yagikota/clean_architecture_with_go"
+		},
+		"file": {
+			"name": "api_doc.yml",
+			"size": 0,
+			"path": "api_doc.yml",
+			"byteSize": 3086,
+			"content": "openapi: 3.0.2\ninfo:\n  title: API to get students information\n  description: |-\n    \u003cb\u003eDocument of API to get students information\u003c/b\u003e\u003cbr\u003e\n  version: 1.0.0\nservers:\n  - url: http://localhost:8080/v1/\ntags:\n  - name: student\n    description: API about student\n\npaths:\n  /students/:\n    get:\n      tags:\n        - student\n      description: |\n        get all students information\n      responses:\n        200:\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/StudentsProlilesGetResponse\"\n        400:\n          description: Bad Request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorResponseBadRequest\"\n        500:\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorResponseInternalServerError\"\n  /students/{student_id}/:\n    get:\n      tags:\n        - student\n      description: |\n        get a student information\n      responses:\n        200:\n          description: A successful response.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/StudentProfileGetResponse\"\n        400:\n          description: Bad Request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorResponseBadRequest\"\n        500:\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ErrorResponseInternalServerError\"\ncomponents:\n  schemas:\n    StudentsProlilesGetResponse:\n      type: object\n      properties:\n        students:\n          type: array\n          items:\n            $ref: \"#/components/schemas/StudentProfileGetResponse\"\n          description: all students information\n    StudentProfileGetResponse:\n      type: object\n      properties:\n        id:\n          type: integer\n          example: 1\n          description: student ID\n        name:\n          type: string\n          example: Yamada Taro\n          description: student name\n        age:\n          type: integer\n          example: 16\n          description: age\n        class:\n          type: integer\n          example: 1\n          description: class number\n    ErrorResponseBadRequest:\n      title: ErrorResponseBadRequest\n      type: object\n      description: bad request error response\n      properties:\n        message:\n          type: string\n          description: Sample of error message\n          example: Bad Request\n      required:\n        - code\n        - message\n    ErrorResponseInternalServerError:\n      title: ErrorResponseInternalServerError\n      type: object\n      description: internal server error response\n      properties:\n        message:\n          type: string\n          description: sample of error message\n          example: internal Server Error\n      required:\n        - message\n",
+			"canonicalURL": "/github.com/yagikota/clean_architecture_with_go@33167931f6660a9d5a8d29bde3b527689a387dc0/-/blob/api_doc.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/yagikota/clean_architecture_with_go/blob/33167931f6660a9d5a8d29bde3b527689a387dc0/api_doc.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/students/{student_id}/\": get: at api_doc.yml:41:7: parse path \"/students/{student_id}/\": path parameter not specified: \"student_id\""
+}

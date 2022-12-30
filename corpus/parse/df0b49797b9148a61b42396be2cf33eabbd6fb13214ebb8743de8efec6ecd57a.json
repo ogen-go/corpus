@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ponelat/overlays-cli"
+		},
+		"file": {
+			"name": "where-empty.yml",
+			"size": 0,
+			"path": "overlays-test-suite/v1.0.0/where-empty.yml",
+			"byteSize": 619,
+			"content": "docs: TBD\ntest: ActionObject with where/empty set to true\n\nrefs:\n  http://example.com:\n    openapi: 3.0.3\n    paths:\n      /foo:\n        get: {}\n        post: {}\n      /bar: {}\n      /baz: {}\n      /null: null\n      /0: 0\n      '/-1': -1\n      /empty-string: ''\n      /false: false\n      /true: true\n      /string: 'foo'\n\ninput:\n  overlays: 1.0.0\n  extends: http://example.com\n  actions:\n    - target: $.paths.*\n      where:\n        empty: true\n      remove: true\n\noutput:\n  openapi: 3.0.3\n  paths:\n    /foo:\n      get: {}\n      post: {}\n    /0: 0\n    '/-1': -1\n    /false: false\n    /true: true\n    /string: 'foo'\n\n  \n",
+			"canonicalURL": "/github.com/ponelat/overlays-cli@0201cd1d05ce8145f9525305aca64c46d53866a1/-/blob/overlays-test-suite/v1.0.0/where-empty.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ponelat/overlays-cli/blob/0201cd1d05ce8145f9525305aca64c46d53866a1/overlays-test-suite/v1.0.0/where-empty.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at overlays-test-suite/v1.0.0/where-empty.yml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

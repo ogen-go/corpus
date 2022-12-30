@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/zikani03/calendago"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "static/openapi.yaml",
+			"byteSize": 1591,
+			"content": "# Calendago API Specification\nopenapi: \"3.1.0\"\ninfo:\n  version: 'v0.0.1'\n  license: \n    name: \"MIT\"\n    url: \"https://github.com/zikani03/calendago\"\n  description: Calendago API\n  title: Calendago API\n  contact:\n    name: Zikani Nyirenda Mwase\n    url: https://code.zikani.me\n    email: zikani.nmwase@ymail.com\nservers:\n  - url: 'http://localhost:3000'\n    description: Development Server\npaths:\n  \"/generate/{year}\":\n    post: \n      operationId: GenerateCalendar\n      summary: Generate a Calendar \n      requestBody: \n        content: \n          multipart/form-data: \n            schema: \n              properties: \n                settings:\n                  type: string\n                  description: JSON String with settings\n                files:\n                  type: array\n      responses:\n        \"200\":\n          summary: Successfully generated PDF\n          description: Successfully generated PDF\n          content:\n            application/octet-stream: \n              schema: \n                contentMediaType: \"application/pdf\"\n        \"400\":\n          $ref: \"#/components/responses/GeneralError\"\ncomponents: \n  schemas:\n    GeneralError:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string\n  responses:\n    NotFound:\n      description: Entity not found.\n    IllegalInput:\n      description: Illegal input for operation.\n    GeneralError:\n      description: General Error\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/GeneralError'",
+			"canonicalURL": "/github.com/zikani03/calendago@e5c6ed30ca698cd7b95a4fe519e82c549cc3dd00/-/blob/static/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/zikani03/calendago/blob/e5c6ed30ca698cd7b95a4fe519e82c549cc3dd00/static/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/generate/{year}\": post: operation \"GenerateCalendar\": at static/openapi.yaml:20:7: parse path \"/generate/{year}\": path parameter not specified: \"year\""
+}

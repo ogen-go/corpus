@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ensi-platform/laravel-openapi-server-generator"
+		},
+		"file": {
+			"name": "index.yaml",
+			"size": 0,
+			"path": "tests/resources/index.yaml",
+			"byteSize": 3765,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Test\n  version: 1.0.0\n  description: Тестовый конфиг\npaths:\n  /resources:test-full-generate/{id}:\n    post:\n      operationId: testFullGenerate\n      x-lg-handler: '\\App\\Http\\Controllers\\ResourcesController@testFullGenerate'\n      x-lg-middleware: 'middleware'\n      x-lg-without-middleware: 'without-middleware'\n      parameters:\n        - name: id\n          in: path\n      responses:\n        \"200\":\n          description: Успешный ответ c контекстом\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Resource'\n        \"500\":\n          $ref: '#/components/responses/ServerError'\n  /resources:test-empty-rename-request:\n    post:\n      operationId: testEmptyRenameRequest\n      x-lg-handler: '\\App\\Http\\Controllers\\ResourcesController@testEmptyRenameRequest'\n      x-lg-request-class-name: ''\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-rename-request:\n    post:\n      operationId: testRenameRequest\n      x-lg-handler: '\\App\\Http\\Controllers\\ResourcesController@testRenameRequest'\n      x-lg-request-class-name: 'TestFooRenameRequest'\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-without-handler:\n    post:\n      operationId: testWithoutHandler\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-with-skip:\n    post:\n      operationId: testWithSkip\n      x-lg-handler: '\\App\\Http\\Controllers\\SkipController@testWithSkip'\n      x-lg-skip-controller-generation: true\n      x-lg-skip-request-generation: true\n      x-lg-skip-tests-generation: true\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-bad-handler:\n    post:\n      operationId: testBadHandler\n      x-lg-handler: ''\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-global-namespace:\n    post:\n      operationId: withoutNamespace\n      x-lg-handler: 'WithoutNamespaceController@testWithoutContext'\n      responses:\n        \"200\":\n          description: Успешный ответ\n  /resources:test-without-responses:\n    post:\n      operationId: testWithoutResponses\n      x-lg-handler: '\\App\\Http\\Controllers\\WithoutResponsesController@testWithoutResponses'\n      x-lg-skip-request-generation: true\n\ncomponents:\n  responses:\n    ServerError:\n      description: Internal Server Error\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              errors:\n                type: array\n                description: Массив ошибок\n            required:\n              - errors\n  schemas:\n    Resource:\n      type: object\n      properties:\n        id:\n          type: integer\n          description: Идентификатор\n    TestIntegerEnum:\n      type: integer\n      description: \u003e\n        Пример перечисления. Расшифровка значений:\n          * `1` - Пример 1\n          * `2` - Пример 2\n      enum:\n        - 1\n        - 2\n      x-enum-varnames:\n        - EXAMPLE_1\n        - EXAMPLE_2\n      x-enum-descriptions:\n        - Пример 1\n        - Пример 2\n    TestStringEnum:\n      type: string\n      description: \u003e\n        Пример перечисления. Расшифровка значений:\n          * `example_1` - Пример 1\n          * `example_2` - Пример 2\n      enum:\n        - example_1\n        - example_2\n      x-enum-varnames:\n        - EXAMPLE_1\n        - EXAMPLE_2\n      x-enum-descriptions:\n        - Пример 1\n        - Пример 2\n\n\n\n",
+			"canonicalURL": "/github.com/ensi-platform/laravel-openapi-server-generator@52798083a1233d62569a395ac32b9a56132bb1fc/-/blob/tests/resources/index.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ensi-platform/laravel-openapi-server-generator/blob/52798083a1233d62569a395ac32b9a56132bb1fc/tests/resources/index.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/resources:test-full-generate/{id}\": post: operation \"testFullGenerate\": parameters: parse parameter \"id\": at tests/resources/index.yaml:14:11: parameter MUST contain either a schema property, or a content property"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "error_implicit_http_api_auth_any_method.yaml",
+			"size": 0,
+			"path": "tests/translator/input/error_implicit_http_api_auth_any_method.yaml",
+			"byteSize": 616,
+			"content": "Resources:\n  SomeHttpApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        paths:\n          /{domain}:\n            any:\n              responses: {}\n          /{domain/}{id}:\n            any:\n              responses: {}\n        openapi: 3.0.1\n      Auth:\n        Authorizers:\n          OAuth2Authorizer:\n            AuthorizationScopes:\n            - email\n            JwtConfiguration:\n              audience:\n              - randomnumber\n              issuer: https://some/issuer\n            IdentitySource: $request.headers.Authorization\n        DefaultAuthorizer: OAuth2Authorizer\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/error_implicit_http_api_auth_any_method.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/error_implicit_http_api_auth_any_method.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/error_implicit_http_api_auth_any_method.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

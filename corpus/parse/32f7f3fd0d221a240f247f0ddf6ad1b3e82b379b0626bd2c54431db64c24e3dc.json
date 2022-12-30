@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "positive2.yaml",
+			"size": 0,
+			"path": "test/data/production/owasp/positive2.yaml",
+			"byteSize": 1241,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\nservers:\n  - url: https://production.test.com/\n    description: production environment\n\ncomponents:\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\nsecurity:\n  - bearerAuth: []\n\npaths:\n  /invoices/{id}/items/{item_id}:\n    parameters:\n      - name: id\n        in: path\n        required: true\n        description: the invoice identifier, as is\n        schema:\n          type: string\n          pattern: \"(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$\"\n      - name: itemId\n        in: path\n        required: true\n        description: the invoice identifier, as is\n        schema:\n          type: string\n          pattern: \"(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$\"\n\n    get:\n      description: op-description\n      operationId: opid\n      tags:\n        - Invoice Items\n      responses:\n        \"200\":\n          description: teapot\n          content:\n            application/json:\n              schema:\n                type: object\n        \"429\":\n          description: too many requests\n          content:\n            application/json:\n              schema:\n                type: string",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/owasp/positive2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/owasp/positive2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/invoices/{id}/items/{item_id}\": get: operation \"opid\": at test/data/production/owasp/positive2.yaml:38:7: parse path \"/invoices/{id}/items/{item_id}\": path parameter not specified: \"item_id\""
+}

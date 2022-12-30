@@ -2,7 +2,7 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "npm/readme/oas-examples"
+			"name": "github.com/readmeio/oas-examples"
 		},
 		"file": {
 			"name": "schema-validation-top-level.yaml",
@@ -10,9 +10,14 @@
 			"path": "3.1/yaml/schema-validation-top-level.yaml",
 			"byteSize": 1261,
 			"content": "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: Support for a top-level `jsonSchemaDialect` declaration\n  description: https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#user-content-oasjsonschemadialect\njsonSchemaDialect: http://json-schema.org/draft-04/schema#\nservers:\n  - url: https://httpbin.org\npaths:\n  '/anything/numbers':\n    parameters:\n      - in: query\n        name: id-exclusive-required\n        schema:\n          '$schema': https://json-schema.org/draft/2020-12/schema#\n          type: number\n          exclusiveMinimum: 10\n          exclusiveMaximum: 20\n          multipleOf: 2\n          default: 12\n          example: 14\n        required: true\n      - in: query\n        name: id-exclusive-required-schema-v4\n        schema:\n          type: number\n          minimum: 10\n          maximum: 20\n          exclusiveMinimum: true\n          exclusiveMaximum: true\n          multipleOf: 2\n          default: 12\n          example: 14\n        required: true\n    get:\n      summary: Number validation\n      description: This operation has a top-level `jsonSchemaDialect` set to abide\n        by [JSON Schema Draft 04](https://json-schema.org/specification-links.html#draft-4).\n      responses:\n        '200':\n          description: OK\n",
-			"canonicalURL": "/npm/readme/oas-examples@c1172d94f9ee52c3c1847b73f9ae1ad55945824b/-/blob/3.1/yaml/schema-validation-top-level.yaml",
-			"externalURLs": []
+			"canonicalURL": "/github.com/readmeio/oas-examples@ce1e5c9b6bda57cbfce4b9ba21c968a30eb63529/-/blob/3.1/yaml/schema-validation-top-level.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/readmeio/oas-examples/blob/ce1e5c9b6bda57cbfce4b9ba21c968a30eb63529/3.1/yaml/schema-validation-top-level.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!int `20` into bool; yaml: line 1: cannot unmarshal !!int `10` into bool"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 17: cannot unmarshal !!int `10` into bool; yaml: line 18: cannot unmarshal !!int `20` into bool"
 }

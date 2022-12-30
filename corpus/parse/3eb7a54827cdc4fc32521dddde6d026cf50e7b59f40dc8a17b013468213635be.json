@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/italia/api-oas-checker"
+		},
+		"file": {
+			"name": "problem-test.yml",
+			"size": 0,
+			"path": "rules/tests/problem-test.yml",
+			"byteSize": 2412,
+			"content": "openapi: 3.0.1\npaths:\n  /ok-default-use-problem:\n    get:\n      responses:\n        \"400\":\n          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'\n        default:\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/Problem'\n            application/problem+xml:\n              schema:\n                $ref: '#/components/schemas/Problem'\n  /ok-default-alternative-problem:\n    get:\n      responses:\n        \"400\":\n          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'\n        default:\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/AlternativeProblem'\n  /ko-default-use-problem:\n    get:\n      responses:\n        default:\n          content:\n            application/json: {}\n  /ko-error-use-problem:\n    get:\n      responses:          \n        \"400\":\n          content:\n            not/problem: {}\n\n  /ko-bad-schema-use-problem:\n    get:\n      responses:\n        \"500\":\n          content:\n            application/problem+json:\n              schema:\n                type: object\n                required:\n                - foo\n                properties:\n                  foo:\n                    type: string\n  /ko-string-problem:\n    get:\n      responses:\n        \"400\":\n          content:\n            application/problem+json:\n              schema:\n                $ref: '#/components/schemas/ko_Problem'\n  /ok-skip-check-when-oauth2:\n    post:\n      responses:\n        \"400\":\n          x-noqa: RFC6902\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error:\n                    type: string\n                    enum:\n                      - invalid_client\n  /ok-regression:\n    post:\n      responses:\n        \"400\": {}\ncomponents:\n  schemas:\n    Problem:\n      properties:\n        type:\n          type: string\n        title:\n          type: string\n        status:\n          type: integer\n          format: int32\n    AlternativeProblem:\n      properties:\n        title:\n          type: string\n        detail:\n          type: string\n    ko_Problem:\n      properties:\n        message:\n          type: string\n        code:\n          type: integer\n          format: int32\n",
+			"canonicalURL": "/github.com/italia/api-oas-checker@a09cc2e71a3a7038746845ab4776eedd1a2c50eb/-/blob/rules/tests/problem-test.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/italia/api-oas-checker/blob/a09cc2e71a3a7038746845ab4776eedd1a2c50eb/rules/tests/problem-test.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/ok-default-alternative-problem\": get: responses: 400: at rules/tests/problem-test.yml:20:17: get \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml\": https: do: Get \"https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml\": host \"teamdigitale.github.io\" is not allowed"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/kevinswiber/spego"
+		},
+		"file": {
+			"name": "openapi.json",
+			"size": 0,
+			"path": "example/spectral/example/openapi.json",
+			"byteSize": 2545,
+			"content": "{\n  \"openapi\": \"3.0.3\",\n  \"info\": {\n    \"title\": \"abcd eval('hi') abcd\",\n    \"version\": \"1.0.0\",\n    \"description\": \"Echo Service\",\n    \"license\": {\n      \"name\": \"MIT\"\n    },\n    \"contact\": {}\n  },\n  \"servers\": [\n    {\n      \"url\": \"localhost:3000\"\n    }\n  ],\n  \"tags\": [{ \"name\": \"users\" }],\n  \"paths\": {\n    \"/user/{userId}\": {\n      \"post\": {\n        \"description\": \"hi \u003cscript\u003ethere\u003c/script\u003e friend\",\n        \"operationId\": \"createUser\",\n        \"responses\": {\n          \"400\": {}\n        },\n        \"parameters\": [\n          { \"name\": \"a\", \"in\": \"body\" },\n          { \"name\": \"a\", \"in\": \"formData\" }\n        ],\n        \"tags\": [\"user\"]\n      },\n      \"get\": {\n        \"summary\": \"Sample endpoint: Returns details about a particular user\",\n        \"operationId\": \"listUser\",\n        \"tags\": [\"user\"],\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"query\",\n            \"description\": \"ID of the user\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"integer\",\n              \"format\": \"int32\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"400\": {\n            \"description\": \"Sample response: Details about a user by ID\",\n            \"headers\": {\n              \"x-next\": {\n                \"description\": \"A link to the next page of responses\",\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            },\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          },\n          \"default\": {\n            \"description\": \"Unexpected error\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Error\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"Error\": {\n        \"type\": \"object\",\n        \"required\": [\"code\", \"message\"],\n        \"properties\": {\n          \"_id\": {\n            \"type\": \"string\"\n          },\n          \"code\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"message\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"BasicAuth\": []\n    }\n  ]\n}\n",
+			"canonicalURL": "/github.com/kevinswiber/spego@5d9c41a4d3eb1d988a880377d7963cd09eb05f62/-/blob/example/spectral/example/openapi.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/kevinswiber/spego/blob/5d9c41a4d3eb1d988a880377d7963cd09eb05f62/example/spectral/example/openapi.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/user/{userId}\": get: operation \"listUser\": at example/spectral/example/openapi.json:32:14: parse path \"/user/{userId}\": path parameter not specified: \"userId\""
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/postmanlabs/openapi-to-postman"
+		},
+		"file": {
+			"name": "global-servers-path-variables-spec.yaml",
+			"size": 0,
+			"path": "test/data/validationData/issues/issue#478/global-servers-path-variables-spec.yaml",
+			"byteSize": 1691,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Swagger Petstore\n  license:\n    name: MIT\nservers:\n  - url:  https://{username}.myTestServer.com:{port}/{basePath}\n    description: Common url for all operations in this path\n    variables:\n      username:\n        default: demo\n        description: Assigned by the service provider\n      port:\n        enum:\n          - '8843'\n          - '443'\n\n        default: '8843'\n      basePath:\n        default: v2    \npaths:\n  /pets/{peterId}:\n    get:\n      summary: Info for a specific pet\n      operationId: showPetById\n      tags:\n        - pets\n      parameters:\n        - name: peterId\n          in: path\n          required: true\n          description: The id of the pet to retrieve\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Expected response to a valid request\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Pet\"\n        default:\n          description: unexpected error\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/Error\" \ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - id\n        - name\n      properties:\n        id:\n          type: integer\n          format: int64\n        name:\n          type: string\n        tag:\n          type: string\n    Pets:\n      type: array\n      items:\n        $ref: \"#/components/schemas/Pet\"\n    Error:\n      type: object\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          format: int32\n        message:\n          type: string",
+			"canonicalURL": "/github.com/postmanlabs/openapi-to-postman@a9111c1712ab3c38677bc62787ab7723e84a20c0/-/blob/test/data/validationData/issues/issue%23478/global-servers-path-variables-spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/postmanlabs/openapi-to-postman/blob/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/validationData/issues/issue#478/global-servers-path-variables-spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"Pets\": resolve \"#/components/schemas/Pets\": items: at test/data/validationData/issues/issue#478/global-servers-path-variables-spec.yaml:67:15: $ref: resolve \"#/components/schemas/Pet\": get \"https://raw.githubusercontent.com/postmanlabs/openapi-to-postman/a9111c1712ab3c38677bc62787ab7723e84a20c0/test/data/validationData/issues/issue\": https: bad HTTP code 404 (Not Found)"
+}

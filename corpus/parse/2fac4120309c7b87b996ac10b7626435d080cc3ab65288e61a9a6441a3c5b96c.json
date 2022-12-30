@@ -10,14 +10,14 @@
 			"path": "test/golden/weird-cookie-trick.yaml",
 			"byteSize": 775,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: Scarf\n  license:\n    name: AllRightsReserved\nservers:\n  - url: https://scarf.sh/api/v1\npaths:\n  /test:\n    get:\n      summary: test\n      operationId: test\n      responses:\n        '200':\n          description: Some response\n          content:\n            application/json: \n              schema:\n                description: Undocumented\n          headers:\n            Set-Cookie:\n              description: Session cookie\n              schema:\n                type: string\n                example: SESSIONID=abcde12345; Path=/\n            \"\\0Set-Cookie\":\n              description: CSRF token\n              schema:\n                type: string\n                example: CSRFTOKEN=fghijk678910; Path=/; HttpOnly\ncomponents: {}",
-			"canonicalURL": "/github.com/scarf-sh/tie@b11089494536a44d2658de5db0b89ad58aba8976/-/blob/test/golden/weird-cookie-trick.yaml",
+			"canonicalURL": "/github.com/scarf-sh/tie@f1bf26d8765a90a3352b4a82e38e7bc36a511670/-/blob/test/golden/weird-cookie-trick.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/scarf-sh/tie/blob/b11089494536a44d2658de5db0b89ad58aba8976/test/golden/weird-cookie-trick.yaml",
+					"url": "https://github.com/scarf-sh/tie/blob/f1bf26d8765a90a3352b4a82e38e7bc36a511670/test/golden/weird-cookie-trick.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/test\": get: operation \"test\": responses: 200: headers: header \"\\x00Set-Cookie\": at 1:317: invalid header name \"\\x00Set-Cookie\""
+	"Error": "parse: parse spec: parse path items: path \"/test\": get: operation \"test\": responses: 200: headers: header \"\\x00Set-Cookie\": at test/golden/weird-cookie-trick.yaml:28:15: invalid header name \"\\x00Set-Cookie\""
 }

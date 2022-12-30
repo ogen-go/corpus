@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/larmic-iot/tp-link-hs110-api"
+		},
+		"file": {
+			"name": "open-api-3.yaml",
+			"size": 0,
+			"path": "open-api-3.yaml",
+			"byteSize": 3497,
+			"content": "openapi: 3.1.0\n\ninfo:\n  title: TP-Link Smart Home HS110 Plug API\n  version: ${VERSION}\n  contact:\n    name: Lars Michaelis\n    email: mail@larmic.de\n  license:\n    name: Apache 2.0\n    url: https://www.apache.org/licenses/LICENSE-2.0\n\npaths:\n  /tp-link-api/api/{plugIp}:\n    get:\n      summary: Returns a smart plug general info by ip.\n      parameters:\n        - name: plugIp\n          in: path\n          required: true\n          description: ip address of plug (i.e. 10.0.0.100)\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Smart plug\n          content:\n            'application/json':\n              schema:\n                $ref: \"#/components/schemas/System\"\n        '404':\n          description: Smart plug not found.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ProtocolError\"\n  /tp-link-api/api/{plugIp}/consumption:\n    get:\n      summary: Returns a smart plug consumption info by ip.\n      parameters:\n        - name: plugIp\n          in: path\n          required: true\n          description: ip address of plug (i.e. 10.0.0.100)\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Smart plug consumption info\n          content:\n            'application/json':\n              schema:\n                $ref: \"#/components/schemas/Consumption\"\n        '404':\n          description: Smart plug not found.\n          content:\n            application/json:\n              schema:\n                $ref: \"#/components/schemas/ProtocolError\"\n\n\ncomponents:\n  schemas:\n    System:\n      required:\n        - ip\n        - port\n        - alias\n        - model\n        - mac\n        - softwareVersion\n        - hardwareVersion\n        - led\n        - switch\n      properties:\n        ip:\n          type: string\n          description: Smart plug ip addres (i.e. 10.0.0.100).\n        port:\n          type: integer\n          description: Smart plug port (i.e. 9999).\n        name:\n          type: string\n          description: Smart plug name or alias.\n        icon:\n          type: string\n          description: Smart plug icon hash.\n        model:\n          type: string\n          description: Smart plug model.\n        mac:\n          type: string\n          description: Smart plug mac address.\n        softwareVersion:\n          type: string\n          description: Smart plug software version.\n        hardwareVersion:\n          type: string\n          description: Smart plug hardware version.\n        led:\n          type: string\n          description: Smart plug led state.\n          enum:\n            - on\n            - off\n        power:\n          type: string\n          description: Smart plug power switch state.\n          enum:\n            - on\n            - off\n    Consumption:\n      required:\n        - current_mw\n        - today_wh\n        - total_wh\n      properties:\n        current_mw:\n          type: integer\n          description: Actual consumption in milli watt\n        today_wh:\n          type: integer\n          description: Consumption of the day in watt per hours\n        total_wh:\n          type: integer\n          description: Consumption since switch on device in watt per hours\n    ProtocolError:\n      required:\n        - code\n        - message\n      properties:\n        code:\n          type: integer\n          description: HTTP code.\n        message:\n          type: string\n          description: Error message.\n",
+			"canonicalURL": "/github.com/larmic-iot/tp-link-hs110-api@9adad9dcdeae7732cd4713c0acc486e731cbc3b7/-/blob/open-api-3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/larmic-iot/tp-link-hs110-api/blob/9adad9dcdeae7732cd4713c0acc486e731cbc3b7/open-api-3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"System\": resolve \"#/components/schemas/System\": property \"led\": at open-api-3.yaml:104:13: parse enum values: parse value \"true\": expected type \"string\", got \"bool\""
+}

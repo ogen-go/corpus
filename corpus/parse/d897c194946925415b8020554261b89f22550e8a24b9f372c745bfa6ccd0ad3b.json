@@ -10,14 +10,14 @@
 			"path": "GovHydro4/swagger.yaml",
 			"byteSize": 1643,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    GovHydro4: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml#/GovHydro4\"\ninfo:\n  description:  |\n    Adapted from CIM data models. Hydro turbine and governor. Represents plants with straight-forward penstock configurations and hydraulic governors of traditional 'dashpot' type.  This model can be used to represent simple, Francis, Pelton or Kaplan turbines.\n  title: GovHydro4\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - GovHydro4\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@c65de9a61bbc557a160009c1d7d828540e24b4cb/-/blob/GovHydro4/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@b3306b5a43bd0608292a10c30767ff8c3fa690d7/-/blob/GovHydro4/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/c65de9a61bbc557a160009c1d7d828540e24b4cb/GovHydro4/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/b3306b5a43bd0608292a10c30767ff8c3fa690d7/GovHydro4/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"GovHydro4\": parse schema: at 1:47: external \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"GovHydro4\": resolve \"#/components/schemas/GovHydro4\": at GovHydro4/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml#/GovHydro4\": get \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/GovHydro4/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

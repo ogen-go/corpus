@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/SeUniVr/RestTestGen"
+		},
+		"file": {
+			"name": "recursive_ref_solved.json",
+			"size": 0,
+			"path": "src/test/resources/specifications/solved/recursive_ref_solved.json",
+			"byteSize": 1076,
+			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"servers\": [\n    {\n      \"url\": \"http://localhost\"\n    }\n  ],\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"getRoot\"\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyRecursiveSchema\": {\n        \"properties\": {\n          \"recursive\": {}\n        },\n        \"x-schemaName\": \"MyRecursiveSchema\"\n      },\n      \"MyRecursiveSchema2\": {\n        \"properties\": {\n          \"recursive\": {\n            \"properties\": {\n              \"recursive\": {}\n            },\n            \"x-schemaName\": \"MyRecursiveSchema3\"\n          }\n        },\n        \"x-schemaName\": \"MyRecursiveSchema2\"\n      },\n      \"MyRecursiveSchema3\": {\n        \"properties\": {\n          \"recursive\": {\n            \"properties\": {\n              \"recursive\": {\n                \"properties\": {\n                  \"recursive\": {}\n                },\n                \"x-schemaName\": \"MyRecursiveSchema3\"\n              }\n            },\n            \"x-schemaName\": \"MyRecursiveSchema2\"\n          }\n        },\n        \"x-schemaName\": \"MyRecursiveSchema3\"\n      }\n    }\n  }\n}",
+			"canonicalURL": "/github.com/SeUniVr/RestTestGen@c2182e83cbf652575339456966944312edf50a38/-/blob/src/test/resources/specifications/solved/recursive_ref_solved.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/SeUniVr/RestTestGen/blob/c2182e83cbf652575339456966944312edf50a38/src/test/resources/specifications/solved/recursive_ref_solved.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/\": get: operation \"getRoot\": at src/test/resources/specifications/solved/recursive_ref_solved.json:10:14: responses: no responses"
+}

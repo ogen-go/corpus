@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/wundergraph/wundergraph"
+		},
+		"file": {
+			"name": "api.yaml",
+			"size": 0,
+			"path": "examples/openapi-mocking/.wundergraph/api.yaml",
+			"byteSize": 1624,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Notes API\n  description: An API which supports storing and retrieving notes\n  version: '0.1'\n\nservers:\n  - url: http://api.example.com/v1\n    description: Example Server\n\npaths:\n  /notes/note/{noteID}:\n    get:\n      summary: Returns a note by ID\n      operationId: noteByID\n      parameters:\n        - name: noteID\n          in: path\n          required: true\n          description: Note unique identifier\n          schema:\n            type: integer\n            format: int64\n            minimum: 1\n      responses:\n        '200':\n          description: A note object\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n                  text:\n                    type: string\n        '400':\n          description: The specified note ID is invalid (not a number).\n        '404':\n          description: A note with the specified ID was not found.\n        default:\n          description: Unexpected error\n  /notes/new:\n    post:\n      summary: Creates a new note\n      operationId: newNote\n      parameters:\n        - name: text\n          in: body\n          required: true\n          description: Note text\n          schema:\n            type: string\n      responses:\n        '200':\n          description: Created\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  id:\n                    type: integer\n                    format: int64\n",
+			"canonicalURL": "/github.com/wundergraph/wundergraph@b4de00b62ec9f29b36f8e0f95cbbe6d6c523b400/-/blob/examples/openapi-mocking/.wundergraph/api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/wundergraph/wundergraph/blob/b4de00b62ec9f29b36f8e0f95cbbe6d6c523b400/examples/openapi-mocking/.wundergraph/api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/notes/new\": post: operation \"newNote\": parameters: parse parameter \"text\": at examples/openapi-mocking/.wundergraph/api.yaml:50:15: unknown parameter location \"body\""
+}

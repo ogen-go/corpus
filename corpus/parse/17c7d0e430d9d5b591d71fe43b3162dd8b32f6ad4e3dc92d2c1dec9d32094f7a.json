@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/regulaforensics/FaceSDK-web-openapi"
+		},
+		"file": {
+			"name": "search.yml",
+			"size": 0,
+			"path": "search.yml",
+			"byteSize": 2487,
+			"content": "openapi: 3.0.3\n\n\npaths:\n  /search:\n    parameters:\n      - $ref: './common.yml#/components/parameters/x-request'\n    post:\n      tags:\n        - search\n      summary: Find person by image in groups.\n      operationId: search\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: \"#/definitions/SearchRequest\"\n      responses:\n        200:\n          description: \"Successful operation; search result returned.\"\n          content:\n            application/json:\n              schema:\n                $ref: \"#/definitions/SearchResult\"\n        400:\n          $ref: \"./common.yml#/components/responses/BadRequest\"\n\ndefinitions:\n  SearchRequest:\n    allOf:\n      - $ref: \"#/definitions/SearchParameters\"\n      - $ref: \"./identification.yml#/components/schemas/ImageFields\"\n\n  SearchParameters:\n    type: object\n    description: \"Request search data.\"\n    properties:\n      limit:\n        type: integer\n        default: 100\n        description: \"The number of returned Persons limit.\"\n      threshold:\n        type: float\n        default: 1.0\n        description: \"The similarity distance threshold, should be between 0.0 and 2.0, where 0.0 is for returning results for only the most similar persons and 2.0 is for all the persons, even the dissimilar ones. If not set, the default 1.0 value is used.\"\n      group_ids:\n        type: array\n        description: \"The IDs of the groups in which the search is performed.\"\n        items:\n          type: integer\n\n  RecognizeImage:\n    allOf:\n      - $ref: \"./identification.yml#/components/schemas/Image\"\n      - type: object\n        properties:\n          similarity:\n            type: number\n            format: float\n            description: \"The similarity score.\"\n          distance:\n            type: number\n            format: float\n            description: \"The similarity distance score: the lower the distance, the higher the face's similarity.\"\n  SearchResult:\n    type: object\n    properties:\n      code:\n        type: integer\n        description: \"The search result code.\"\n      persons:\n        type: array\n        items:\n          $ref: \"#/definitions/SearchPerson\"\n\n  SearchPerson:\n    allOf:\n      - $ref: \"./identification.yml#/components/schemas/Person\"\n      - type: object\n        description: \"The array of Person images.\"\n        properties:\n          images:\n            type: array\n            items:\n              $ref: \"#/definitions/RecognizeImage\"\n",
+			"canonicalURL": "/github.com/regulaforensics/FaceSDK-web-openapi@07562373dd6f7af9e538c70e3f173d614c30b163/-/blob/search.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/regulaforensics/FaceSDK-web-openapi/blob/07562373dd6f7af9e538c70e3f173d614c30b163/search.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/search\": post: operation \"search\": requestBody: parse content: application/json: schema: parse schema: $ref: resolve \"#/definitions/SearchRequest\": allOf: $ref: resolve \"#/definitions/SearchParameters\": property \"threshold\": at search.yml:44:15: type: unexpected schema type: \"float\""
+}

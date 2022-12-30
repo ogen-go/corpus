@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/open5gs/open5gs"
+			"name": "github.com/uw-ictd/dAuth"
 		},
 		"file": {
 			"name": "TS29122_MsisdnLessMoSms.yaml",
 			"size": 0,
-			"path": "lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
+			"path": "open5gs/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
 			"byteSize": 3104,
 			"content": "openapi: 3.0.0\ninfo:\n  title: 3gpp-msisdn-less-mo-sms\n  version: 1.1.0\n  description: |\n    API for MSISDN-less Mobile Originated SMS.\n    © 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).\n    All rights reserved.\nexternalDocs:\n  description: 3GPP TS 29.122 V16.9.0 T8 reference point for Northbound APIs\n  url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.122/'\nsecurity:\n  - {}\n  - oAuth2ClientCredentials: []\nservers:\n  - url: '{apiRoot}'\n    variables:\n      apiRoot:\n        default: https://example.com\n        description: apiRoot as defined in subclause 5.2.4 of 3GPP TS 29.122.\npaths:\n  /:\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/MsisdnLessMoSmsNotification'\n      responses:\n        '200':\n          description: Success\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/MsisdnLessMoSmsNotificationReply'\n        '307':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/307'\n        '308':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/308'\n        '400':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/400'\n        '401':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/401'\n        '403':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/403'\n        '404':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/404'\n        '411':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/411'\n        '413':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/413'\n        '415':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/415'\n        '429':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/429'\n        '500':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/500'\n        '503':\n          $ref: 'TS29122_CommonData.yaml#/components/responses/503'\n        default:\n          $ref: 'TS29122_CommonData.yaml#/components/responses/default'\n\ncomponents:\n  securitySchemes:\n    oAuth2ClientCredentials:\n      type: oauth2\n      flows:\n        clientCredentials:\n          tokenUrl: '{tokenUrl}'\n          scopes: {}\n  schemas: \n    MsisdnLessMoSmsNotification:\n      type: object\n      properties:\n        supportedFeatures:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n        sms:\n          $ref: 'TS29122_CommonData.yaml#/components/schemas/Bytes'\n        externalId:\n          type: string\n          description: External identifier has the form username@realm.\n        applicationPort:\n          $ref: 'TS29122_CommonData.yaml#/components/schemas/Port'\n      required:\n        - supportedFeatures\n        - sms\n        - externalId\n        - applicationPort\n    MsisdnLessMoSmsNotificationReply:\n      type: object\n      properties:\n        supportedFeatures:\n          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'\n      required:\n        - supportedFeatures\n",
-			"canonicalURL": "/github.com/open5gs/open5gs@7d5fbc6e06b537ef49c10fbea452969167aa6a69/-/blob/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
+			"canonicalURL": "/github.com/uw-ictd/dAuth@fe78789ab07a3362c831b3fc7d770eb5447717c9/-/blob/open5gs/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/open5gs/open5gs/blob/7d5fbc6e06b537ef49c10fbea452969167aa6a69/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
+					"url": "https://github.com/uw-ictd/dAuth/blob/fe78789ab07a3362c831b3fc7d770eb5447717c9/open5gs/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"MsisdnLessMoSmsNotification\": parse schema: property \"applicationPort\": parse schema: at 1:98: external \"TS29122_CommonData.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/\": post: security: parse security scheme \"oAuth2ClientCredentials\": oauth2: flow \"clientCredentials\": at open5gs/lib/sbi/support/20210629/standard/TS29122_MsisdnLessMoSms.yaml:70:21: \"tokenUrl\" MUST be in the form of a URL: parse \"{tokenUrl}\": invalid URI for request"
 }

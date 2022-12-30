@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "api_with_no_properties.json",
+			"size": 0,
+			"path": "tests/translator/output/aws-us-gov/api_with_no_properties.json",
+			"byteSize": 3099,
+			"content": "{\n  \"Resources\": {\n    \"HTTPApi\": {\n      \"Properties\": {\n        \"Body\": {\n          \"info\": {\n            \"title\": {\n              \"Ref\": \"AWS::StackName\"\n            },\n            \"version\": \"1.0\"\n          },\n          \"openapi\": \"3.0.1\",\n          \"paths\": {\n            \"/\": {\n              \"get\": {\n                \"responses\": {},\n                \"x-amazon-apigateway-integration\": {\n                  \"httpMethod\": \"POST\",\n                  \"payloadFormatVersion\": \"2.0\",\n                  \"type\": \"aws_proxy\",\n                  \"uri\": {\n                    \"Fn::Sub\": \"arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HtmlFunction.Arn}/invocations\"\n                  }\n                }\n              }\n            }\n          },\n          \"tags\": [\n            {\n              \"name\": \"httpapi:createdBy\",\n              \"x-amazon-apigateway-tag-value\": \"SAM\"\n            }\n          ]\n        }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Api\"\n    },\n    \"HTTPApiApiGatewayDefaultStage\": {\n      \"Properties\": {\n        \"ApiId\": {\n          \"Ref\": \"HTTPApi\"\n        },\n        \"AutoDeploy\": true,\n        \"StageName\": \"$default\",\n        \"Tags\": {\n          \"httpapi:createdBy\": \"SAM\"\n        }\n      },\n      \"Type\": \"AWS::ApiGatewayV2::Stage\"\n    },\n    \"HtmlFunction\": {\n      \"Properties\": {\n        \"Code\": {\n          \"S3Bucket\": \"sam-demo-bucket\",\n          \"S3Key\": \"member_portal.zip\"\n        },\n        \"Handler\": \"index.gethtml\",\n        \"Role\": {\n          \"Fn::GetAtt\": [\n            \"HtmlFunctionRole\",\n            \"Arn\"\n          ]\n        },\n        \"Runtime\": \"nodejs12.x\",\n        \"Tags\": [\n          {\n            \"Key\": \"lambda:createdBy\",\n            \"Value\": \"SAM\"\n          }\n        ]\n      },\n      \"Type\": \"AWS::Lambda::Function\"\n    },\n    \"HtmlFunctionGetHtmlPermission\": {\n      \"Properties\": {\n        \"Action\": \"lambda:InvokeFunction\",\n        \"FunctionName\": {\n          \"Ref\": \"HtmlFunction\"\n        },\n        \"Principal\": \"apigateway.amazonaws.com\",\n        \"SourceArn\": {\n          \"Fn::Sub\": [\n            \"arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${__ApiId__}/${__Stage__}/GET/\",\n            {\n              \"__ApiId__\": \"HTTPApi\",\n              \"__Stage__\": \"*\"\n            }\n          ]\n        }\n      },\n      \"Type\": \"AWS::Lambda::Permission\"\n    },\n    \"HtmlFunctionRole\": {\n      \"Properties\": {\n        \"AssumeRolePolicyDocument\": {\n          \"Statement\": [\n            {\n              \"Action\": [\n                \"sts:AssumeRole\"\n              ],\n              \"Effect\": \"Allow\",\n              \"Principal\": {\n                \"Service\": [\n                  \"lambda.amazonaws.com\"\n                ]\n              }\n            }\n          ],\n          \"Version\": \"2012-10-17\"\n        },\n        \"ManagedPolicyArns\": [\n          \"arn:aws-us-gov:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole\"\n        ],\n        \"Tags\": [\n          {\n            \"Key\": \"lambda:createdBy\",\n            \"Value\": \"SAM\"\n          }\n        ]\n      },\n      \"Type\": \"AWS::IAM::Role\"\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/output/aws-us-gov/api_with_no_properties.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/output/aws-us-gov/api_with_no_properties.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/output/aws-us-gov/api_with_no_properties.json:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

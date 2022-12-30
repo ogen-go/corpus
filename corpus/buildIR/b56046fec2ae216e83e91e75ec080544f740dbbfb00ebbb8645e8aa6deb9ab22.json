@@ -10,14 +10,14 @@
 			"path": "assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative1.json",
 			"byteSize": 1009,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Simple API Overview\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/\": {\n      \"get\": {\n        \"operationId\": \"listVersionsv2\",\n        \"summary\": \"List API versions\",\n        \"responses\": {\n          \"200\": {\n            \"$ref\": \"#/components/schemas/MyObject\"\n          }\n        },\n        \"requestBody\": {\n          \"$ref\": \"#/components/requestBodies/MyObjectBody\"\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"MyObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    },\n    \"requestBodies\": {\n      \"MyObjectBody\": {\n        \"description\": \"A JSON object containing my object information\",\n        \"content\": {\n          \"application/json\": {\n            \"schema\": {\n              \"$ref\": \"#/components/schemas/MyObject\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/Checkmarx/kics@9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/-/blob/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative1.json",
+			"canonicalURL": "/github.com/Checkmarx/kics@78acc8ae8f5004d721f14dcd670abcfb0fbf3897/-/blob/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative1.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Checkmarx/kics/blob/9eeb00bf34b3238ba073b8a49df74c3c4ce0192a/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative1.json",
+					"url": "https://github.com/Checkmarx/kics/blob/78acc8ae8f5004d721f14dcd670abcfb0fbf3897/assets/queries/openAPI/3.0/json_reference_does_not_exists_request_body/test/negative1.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/\": get: responses: code 200: save type: schema name conflict: \"MyObject\""
+	"Error": "buildIR: make ir: operations: path \"/\": get: responses: code 200: save type: schema name conflict: \"MyObject\""
 }

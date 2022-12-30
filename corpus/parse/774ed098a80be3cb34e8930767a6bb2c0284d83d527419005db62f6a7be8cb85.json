@@ -10,14 +10,14 @@
 			"path": "openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml",
 			"byteSize": 2081,
 			"content": "# This file contains a post request definition with multipart form data with a custom header\nopenapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: OpenApi Petstore\n  license:\n    name: MIT\nservers:\n  - url: http://petstore.{host}.io/v1\n    description: The production API server\npaths:\n  /pets:\n    post:\n      summary: Create a pet\n      operationId: createPet\n      requestBody:\n        description: Pet\n        content:\n          multipart/form-data:\n            schema:\n              type: object\n              required:\n                - id\n              properties:\n                id:\n                  type: string\n                  format: uuid\n                  description: ID\n                name:\n                  type: string\n                  description: Name\n                address:\n                  type: object\n                  description: Address\n                  properties:\n                    street:\n                      type: string\n                      description: Street\n                    city:\n                      type: string\n                      description: City\n                profileImage:\n                  type: string\n                  format: binary\n                  description: Image\n            encoding:\n              profileImage:\n                contentType: image/png, image/jpeg\n                headers:\n                  X-Custom-Header:\n                    description: This is a custom header\n                    schema:\n                      type: string\n              id:\n                headers:\n                  X-Custom-Header:\n                    description: This is a custom header\n                    schema:\n                      type: string\n              address:\n                headers:\n                  X-Address-Header:\n                    description: This is a custom header\n                    schema:\n                      type: string\n                    required: true\n              name:\n                contentType: text/plain\n      responses:\n        '201':\n          description: Null response\n",
-			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@b707e95d277db08e68a567b3189235dbe654ff0c/-/blob/openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml",
+			"canonicalURL": "/github.com/ballerina-platform/openapi-tools@d6440e180261462963e85de1bc22fb9f8309543b/-/blob/openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ballerina-platform/openapi-tools/blob/b707e95d277db08e68a567b3189235dbe654ff0c/openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml",
+					"url": "https://github.com/ballerina-platform/openapi-tools/blob/d6440e180261462963e85de1bc22fb9f8309543b/openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse servers: at 1:1200: path parameter not specified: \"host\""
+	"Error": "parse: parse spec: parse servers: at openapi-cli/src/test/resources/generators/client/swagger/multipart_formdata_custom.yaml:9:10: path parameter not specified: \"host\""
 }

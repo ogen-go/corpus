@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/flowchartsman/swaggerui"
+		},
+		"file": {
+			"name": "petstore.yml",
+			"size": 0,
+			"path": "example/spec/petstore.yml",
+			"byteSize": 2732,
+			"content": "---\nopenapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Simple Petstore\n  description: This is an example of embedded spec served with API using flowchartsman/swaggerui\npaths:\n  '/pet/{id}':\n    parameters:\n      - name: id\n        in: path\n        required: true\n        schema:\n          type: integer\n    put:\n      tags:\n        - pet\n      summary: Update a pet\n      description: This operation will update a pet in the database.\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/Pet'\n      responses:\n        '200':\n          description: Pet updated\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n        '404':\n          description: Pet not found\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n        '400':\n          description: Invalid id or pet object\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n        '401':\n          description: Unauthorized\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n      security:\n        - ApiKey: []\n    get:\n      tags:\n        - pet\n      summary: Find a pet\n      description: This operation will find a pet in the database.\n      responses:\n        '200':\n          description: pet retrieval\n          content:\n            application/json:\n              schema:\n                '$ref': '#components/schemas/Pet'\n        '404':\n          description: Pet not found\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n        '400':\n          description: Invalid id\n          content:\n            application/json:\n              schema:\n                '$ref': '#/components/schemas/ApiResponse'\n      security: []\ncomponents:\n  securitySchemes:\n    ApiKey:\n      type: apiKey\n      in: header\n      name: X-API-KEY\n  schemas:\n    Pet:\n      type: object\n      required:\n        - name\n        - pet_type\n      properties:\n        id:\n          type: integer\n          format: int64\n          readOnly: true\n          default: 0\n          example: 1\n        name:\n          type: string\n          example: francine\n        pet_type:\n          type: string\n          example: shark\n    ApiResponse:\n      type: object\n      properties:\n        code:\n          type: integer\n          format: int32\n        type:\n          type: string\n        message:\n          type: string\n",
+			"canonicalURL": "/github.com/flowchartsman/swaggerui@909ed4f3701bf816e382617c2e92c0741cb2b7c2/-/blob/example/spec/petstore.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/flowchartsman/swaggerui/blob/909ed4f3701bf816e382617c2e92c0741cb2b7c2/example/spec/petstore.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/pet/{id}\": get: responses: 200: content: application/json: schema: parse schema: at example/spec/petstore.yml:64:25: $ref: resolve \"#components/schemas/Pet\": resolve: invalid pointer \"components/schemas/Pet\": pointer must start with '/'"
+}

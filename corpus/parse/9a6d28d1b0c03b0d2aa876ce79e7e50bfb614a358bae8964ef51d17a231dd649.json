@@ -10,9 +10,9 @@
 			"path": "src/__tests__/fixtures/refs/externalref.yaml",
 			"byteSize": 728,
 			"content": "openapi: 3.1.0\r\ninfo:\r\n  title: My API\r\n  description: It ain't so wonderful, but at least it's mine.\r\n  version: '1.0'\r\n  contact:\r\n    email: me@theintenet.com\r\n    name: me\r\npaths:\r\n  /test:\r\n    get:\r\n      summary: 'test'\r\n      responses:\r\n        200:\r\n          description: test\r\n          content:\r\n            application/json:\r\n              schema:\r\n                $ref: ./vendor.schema.yaml\r\ncomponents:\r\n  schemas:\r\n    vendor:\r\n      $ref: ./vendor.schema.yaml\r\n    myvendor:\r\n      $ref: ./vendor.schema.yaml\r\n    simple:\r\n      $ref: ./simple.yaml\r\n    A:\r\n      $ref: ./definitions.yaml#/$defs/A\r\n    test:\r\n      $ref: ./rename.yaml\r\n    rename:\r\n      type: string\r\n    rename-2:\r\n      $ref: ./rename.yaml",
-			"canonicalURL": "/npm/redocly/openapi-core@a8cc37f336a0dc3b98eddf231c60d2383b44dd8d/-/blob/src/__tests__/fixtures/refs/externalref.yaml",
+			"canonicalURL": "/npm/redocly/openapi-core@86851e7068efb14dda73ed0ee42c2931f6d8af4f/-/blob/src/__tests__/fixtures/refs/externalref.yaml",
 			"externalURLs": []
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"simple\": parse schema: at 1:193: external \"./simple.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"simple\": resolve \"#/components/schemas/simple\": at src/__tests__/fixtures/refs/externalref.yaml:27:13: $ref: resolve \"./simple.yaml\": get \"jsonschema://dummy/simple.yaml\": unsupported scheme \"jsonschema\""
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/typelevel/fabric"
+		},
+		"file": {
+			"name": "openapi-tictactoe.yml",
+			"size": 0,
+			"path": "io/jvm/src/test/resources/openapi-tictactoe.yml",
+			"byteSize": 3598,
+			"content": "openapi: 3.1.0\ninfo:\n  title: Tic Tac Toe\n  description: This API allows writing down marks on a Tic Tac Toe board and requesting the state of the board or of individual squares.\n  version: 1.0.0\ntags:\n  - name: Gameplay\npaths:\n  /board:\n    get:\n      summary: Get the whole board\n      description: Retrieves the current state of the board and the winner.\n      tags:\n        - Gameplay\n      operationId: get-board\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: #/components/schemas/status\n  /board/{row}/{column}:\n    parameters:\n      - $ref: #/components/parameters/rowParam\n      - $ref: #/components/parameters/columnParam\n    get:\n      summary: Get a single board square\n      description: Retrieves the requested square.\n      tags:\n        - Gameplay\n      operationId: get-square\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: #/components/schemas/mark\n        400:\n          description: The provided parameters are incorrect\n          content:\n            text/html:\n              schema:\n                $ref: #/components/schemas/errorMessage\n              example: Illegal coordinates\n    put:\n      summary: Set a single board square\n      description: Places a mark on the board and retrieves the whole board and the winner (if any).\n      tags:\n        - Gameplay\n      operationId: put-square\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: #/components/schemas/mark\n      responses:\n        200:\n          description: OK\n          content:\n            application/json:\n              schema:\n                $ref: #/components/schemas/status\n        400:\n          description: The provided parameters are incorrect\n          content:\n            text/html:\n              schema:\n                $ref: #/components/schemas/errorMessage\n              examples:\n                illegalCoordinates:\n                  value: Illegal coordinates.\n                notEmpty:\n                  value: Square is not empty.\n                invalidMark:\n                  value: Invalid Mark (X or O).\ncomponents:\n  parameters:\n    rowParam:\n      description: Board row (vertical coordinate)\n      name: row\n      in: path\n      required: true\n      schema:\n        $ref: #/components/schemas/coordinate\n    columnParam:\n      description: Board column (horizontal coordinate)\n      name: column\n      in: path\n      required: true\n      schema:\n        $ref: #/components/schemas/coordinate\n  schemas:\n    errorMessage:\n      type: string\n      maxLength: 256\n      description: A text message describing an error\n    coordinate:\n      type: integer\n      minimum: 1\n      maximum: 3\n      example: 1\n    mark:\n      type: string\n      enum:\n        - .\n        - X\n        - O\n      description: Possible values for a board square. `.` means empty square.\n      example: .\n    board:\n      type: array\n      maxItems: 3\n      minItems: 3\n      items:\n        type: array\n        maxItems: 3\n        minItems: 3\n        items:\n          $ref: #/components/schemas/mark\n    winner:\n      type: string\n      enum:\n        - .\n        - X\n        - O\n      description: Winner of the game. `.` means nobody has won yet.\n      example: .\n    status:\n      type: object\n      properties:\n        winner:\n          $ref: #/components/schemas/winner\n        board:\n          $ref: #/components/schemas/board",
+			"canonicalURL": "/github.com/typelevel/fabric@62e9e4646adf73faabdec8c457512055739bc9c0/-/blob/io/jvm/src/test/resources/openapi-tictactoe.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/typelevel/fabric/blob/62e9e4646adf73faabdec8c457512055739bc9c0/io/jvm/src/test/resources/openapi-tictactoe.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/board/{row}/{column}\": parameters: parse parameter \"\": at io/jvm/src/test/resources/openapi-tictactoe.yml:25:9: unknown parameter location \"\""
+}

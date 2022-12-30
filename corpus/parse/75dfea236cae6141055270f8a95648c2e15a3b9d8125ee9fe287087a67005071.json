@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
 			"byteSize": 1575,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'https://example.com/api/v1'\ninfo:\n  title: Test API\n  version: '1'\npaths:\n  /events:\n    get:\n      description: A list of events\n      operationId: getEvents\n      requestBody:\n        content:\n          application/json:\n            schema:\n              required:\n                - test\n              type: object\n              properties:\n                test:\n                  type: string\n            examples:\n              plain:\n                summary: plain example\n                value:\n                  test: plain\n              local:\n                $ref: '#/components/examples/LocalRef'\n              external:\n                $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                required:\n                  - test\n                type: object\n                properties:\n                  test:\n                    type: string\n              examples:\n                plain:\n                  summary: plain example\n                  value:\n                    test: plain\n                local:\n                  $ref: '#/components/examples/LocalRef'\n                external:\n                  $ref: './issue-837-853-1131/components.yaml#/components/examples/ExternalRef'\n  /guests:\n    $ref: './issue-837-853-1131/external-operation.yaml'\n\ncomponents:\n  examples:\n    LocalRef:\n      summary: A local reference\n      value:\n        test: local\n\n\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/events\": get: operation \"getEvents\": requestBody: parse content: application/json: examples: \"external\": at 1:321: external \"./issue-837-853-1131/components.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/events\": get: operation \"getEvents\": requestBody: parse content: application/json: examples: \"external\": at modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/main.yaml:30:23: get \"https://raw.githubusercontent.com/swagger-api/swagger-parser/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-837-853-1131/issue-837-853-1131/components.yaml\": https: bad HTTP code 404 (Not Found)"
 }

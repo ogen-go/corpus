@@ -10,14 +10,14 @@
 			"path": "test/suite/functional/Generator/Request/patchResource.yaml",
 			"byteSize": 999,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 1.0.0\n  title: Example API\npaths:\n  '/v1/resources/{resourceId}':\n    patch:\n      description: Update resource\n      operationId: patchResource\n      parameters:\n        - in: header\n          name: Accept\n          required: true\n          schema:\n            type: string\n            default: application/json\n            enum:\n              - application/json\n              - application/xml\n      requestBody:\n        $ref: '#/components/requestBodies/UpdateResourceBody'\n      responses:\n        '201':\n          description: Successful operation.\ncomponents:\n  requestBodies:\n    UpdateResourceBody:\n      description: Updated values.\n      content:\n        application/json:\n          schema:\n            type: object\n            properties:\n              name:\n                type: string\n                enum:\n                  - 'one'\n                  - 'two'\n              value:\n                type: integer\n            required:\n              - value",
-			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@4e55a32b900df7ebd1ac02dc3b3705c44c8b10c3/-/blob/test/suite/functional/Generator/Request/patchResource.yaml",
+			"canonicalURL": "/github.com/DoclerLabs/api-client-generator@dd30187e0e7a2c9dccec2bc2f4cc4a27514fddd5/-/blob/test/suite/functional/Generator/Request/patchResource.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/DoclerLabs/api-client-generator/blob/4e55a32b900df7ebd1ac02dc3b3705c44c8b10c3/test/suite/functional/Generator/Request/patchResource.yaml",
+					"url": "https://github.com/DoclerLabs/api-client-generator/blob/dd30187e0e7a2c9dccec2bc2f4cc4a27514fddd5/test/suite/functional/Generator/Request/patchResource.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/v1/resources/{resourceId}\": patch: operation \"patchResource\": at 1:373: parse path \"/v1/resources/{resourceId}\": path parameter not specified: \"resourceId\""
+	"Error": "parse: parse spec: parse path items: path \"/v1/resources/{resourceId}\": patch: operation \"patchResource\": at test/suite/functional/Generator/Request/patchResource.yaml:8:7: parse path \"/v1/resources/{resourceId}\": path parameter not specified: \"resourceId\""
 }

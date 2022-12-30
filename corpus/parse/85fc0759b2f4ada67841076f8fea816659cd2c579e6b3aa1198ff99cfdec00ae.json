@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/input-output-hk/catalyst-core"
+		},
+		"file": {
+			"name": "v0.yaml",
+			"size": 0,
+			"path": "book/src/core-testing-doc/api/vitup/mock-farm/v0.yaml",
+			"byteSize": 2850,
+			"content": "openapi: 3.0.2\n\ninfo:\n  title: Mock farm REST API\n  description: Mock Farm Rest API v0\n  version: 0.0.1\n  contact:\n    url: 'https://github.com/input-output-hk/vit-testing/'\n\nservers:\n  - url: 'https://localhost'\n\ntags:\n  - name: active\n  - name: start\n  - name: shutdown\n\npaths:\n  '/api/v0/active':\n    get:\n      description: Lists active mock environments\n      operationId: Active\n      tags:\n        - active\n      responses:\n        '200':\n            description: Success\n            content:\n              application/json:\n                schema:\n                  description: assigned port number\n                  type: string\n                  format: text\n        '400':\n            description: Mock env with given ID or port already exists\n\n  '/api/v0/start/{env_name}':\n    post:\n      description: Starts new mock env with random free port\n      operationId: StartEnvRandomPort\n      tags:\n        - start\n      parameters:\n        - name: env_name\n          in: path\n          required: true\n          schema:\n            description: Environment name\n            type: string\n            pattern: '[0-9a-f]+'\n      responses:\n        '200':\n            description: Success\n            content:\n              application/json:\n                schema:\n                  description: assigned port number\n                  type: string\n                  format: text\n        '400':\n            description: Mock env with given ID or port already exists\n\n  '/api/v0/start/{env_name}/{port}':\n    post:\n      description: Starts new mock env with random free port\n      operationId: StartEnv\n      tags:\n        - start\n      parameters:\n        - name: env_name\n          in: path\n          required: true\n          schema:\n            description: Environment name\n            type: string\n            pattern: '[0-9a-f]+'\n      responses:\n        '200':\n            description: Success\n            content:\n              application/json:\n                schema:\n                  description: assigned port number\n                  type: string\n                  format: text\n        '400':\n          description: Mock env with given ID or port already exists\n\n  '/api/v0/shutdown/{env_name}':\n    post:\n      description: Shutdown new mock env with random free port\n      operationId: ShutdownEnv\n      tags:\n        - shutdown\n      parameters:\n        - name: env_name\n          in: path\n          required: true\n          schema:\n            description: Environment name\n            type: string\n            pattern: '[0-9a-f]+'\n    responses:\n      '200':\n        description: Success\n        content:\n          application/json:\n            schema:\n              description: assigned port number\n              type: string\n              format: text\n      '404':\n        description: Mock env with given ID was not found\n",
+			"canonicalURL": "/github.com/input-output-hk/catalyst-core@ece9105654a08835c6f779cfd54f2df3eda744d4/-/blob/book/src/core-testing-doc/api/vitup/mock-farm/v0.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/input-output-hk/catalyst-core/blob/ece9105654a08835c6f779cfd54f2df3eda744d4/book/src/core-testing-doc/api/vitup/mock-farm/v0.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/api/v0/shutdown/{env_name}\": post: operation \"ShutdownEnv\": at book/src/core-testing-doc/api/vitup/mock-farm/v0.yaml:91:7: responses: no responses"
+}

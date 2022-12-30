@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ObservationVariable.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/ObservationVariables/Schemas/ObservationVariable.yaml",
+			"byteSize": 1355,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ObservationVariable:\n      allOf:\n      - $ref: '#/components/schemas/VariableBaseClass'\n      - properties:\n          observationVariableDbId:\n            description: |-\n              Variable unique identifier\n              \n              MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: \u003ctrait abbreviation\u003e_\u003cmethod abbreviation\u003e_\u003cscale abbreviation\u003e). A variable ID must be unique within a given investigation.\n            type: string\n            example: b9b7edd1\n          observationVariableName:\n            description: |-\n              Variable name (usually a short name)\n              \n              MIAPPE V1.1 (DM-84) Variable name - Name of the variable.\n            type: string\n            example: Variable Name\n        required:\n        - observationVariableDbId\n        - observationVariableName\n        type: object\n        x-brapi-metadata:\n          primaryModel: true\n          module: BrAPI-Phenotyping\n          title: ObservationVariable\n          description: A unique combination of Trait, Method, and Scale to define a clear context for an Observation. \n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Phenotyping/ObservationVariables/Schemas/ObservationVariable.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Phenotyping/ObservationVariables/Schemas/ObservationVariable.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ObservationVariable\": resolve \"#/components/schemas/ObservationVariable\": allOf: at Specification/BrAPI-Phenotyping/ObservationVariables/Schemas/ObservationVariable.yaml:10:15: $ref: resolve \"#/components/schemas/VariableBaseClass\": resolve: can't find value for \"components/schemas/VariableBaseClass\""
+}

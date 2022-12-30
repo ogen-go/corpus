@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "PlannedCrossNewRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Germplasm/PlannedCrosses/Schemas/PlannedCrossNewRequest.yaml",
+			"byteSize": 1760,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    PlannedCrossNewRequest:\n      type: object\n      properties:\n        additionalInfo:\n          additionalProperties:\n            type: string\n          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.\n          type: object\n        crossingProjectDbId:\n          description: the unique identifier for a crossing project\n          type: string\n          example: 696d7c92\n        crossingProjectName: \n          description: the human readable name for a crossing project\n          type: string\n          example: my_Crosses_2018\n        plannedCrossName: \n          description: the human readable name for a planned cross\n          type: string\n          example: my_Crosses_2018_01\n        crossType: \n          description: the type of cross\n          type: string\n          enum:\n          - BIPARENTAL\n          - SELF\n          - OPEN_POLLINATED\n          - BULK\n          - BULK_SELFED\n          - BULK_OPEN_POLLINATED\n          - DOUBLE_HAPLOID\n          example: BIPARENTAL\n        status: \n          description: The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').\n          type: string\n          enum:\n          - TODO\n          - DONE\n          - SKIPPED\n          example: TODO\n        parent1: \n          $ref: '#/components/schemas/CrossParent'\n        parent2: \n          $ref: '#/components/schemas/CrossParent'\n        externalReferences: \n          $ref: '#/components/schemas/ExternalReferences'\n          ",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Germplasm/PlannedCrosses/Schemas/PlannedCrossNewRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Germplasm/PlannedCrosses/Schemas/PlannedCrossNewRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"PlannedCrossNewRequest\": resolve \"#/components/schemas/PlannedCrossNewRequest\": property \"parent1\": at Specification/BrAPI-Germplasm/PlannedCrosses/Schemas/PlannedCrossNewRequest.yaml:49:17: $ref: resolve \"#/components/schemas/CrossParent\": resolve: can't find value for \"components/schemas/CrossParent\""
+}

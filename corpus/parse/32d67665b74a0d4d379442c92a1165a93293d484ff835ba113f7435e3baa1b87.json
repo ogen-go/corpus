@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
 			"byteSize": 920,
 			"content": "openapi: 3.0.0\nservers:\n  - url: /v1\ninfo:\n  description: This is a simple API\n  version: 1.0.0\n  title: Simple Inventory API\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'\ntags:\n  - name: admins\n    description: Secured Admin-only calls\n  - name: developers\n    description: Operations available to regular developers\npaths:\n  /inventory:\n    get:\n      summary: searches inventory test\n      operationId: searchInventory\n      responses:\n        '200':\n          description: search results matching criteria\n        default:\n          $ref: 'https://remote-components.com/issue-454-components#/components/responses/GeneralError'\ncomponents:\n  schemas:\n    ModelWithNestedProperties:\n      properties:\n        remoteProperty:\n          $ref: 'https://remote-components.com/issue-454-components#/components/schemas/RemoteComponent'\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ModelWithNestedProperties\": parse schema: property \"remoteProperty\": parse schema: at 1:95: external \"https://remote-components.com/issue-454-components\": get: https: do: Get \"https://remote-components.com/issue-454-components\": host \"remote-components.com\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"ModelWithNestedProperties\": resolve \"#/components/schemas/ModelWithNestedProperties\": property \"remoteProperty\": at modules/swagger-parser-v3/src/test/resources/nested-network-references/issue-454.yaml:33:17: $ref: resolve \"https://remote-components.com/issue-454-components#/components/schemas/RemoteComponent\": get \"https://remote-components.com/issue-454-components\": https: do: Get \"https://remote-components.com/issue-454-components\": host \"remote-components.com\" is not allowed"
 }

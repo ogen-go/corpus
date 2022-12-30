@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/disneystreaming/smithy-translate"
+		},
+		"file": {
+			"name": "issue-23.json",
+			"size": 0,
+			"path": "modules/openapi/tests/resources/issue-23.json",
+			"byteSize": 2413,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Testers Service v1\",\n    \"description\": \"\",\n    \"contact\": {\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    \"version\": \"1.0\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"\"\n    }\n  ],\n  \"paths\": {\n    \"/Testers/{id}\": {\n      \"get\": {\n        \"tags\": [\"Testers\"],\n        \"summary\": \"Testers_GetTest\",\n        \"operationId\": \"Testers_GetTest\",\n        \"parameters\": [\n          {\n            \"name\": \"id\",\n            \"in\": \"path\",\n            \"description\": \"Format - uuid.\",\n            \"required\": true,\n            \"schema\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"text/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Testers.DataContracts.Responses.Command.GetTestByIdCommandResponse\"\n                },\n                \"example\": {\n                  \"Test\": {}\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/Testers/queries/unique-tags\": {\n      \"get\": {\n        \"tags\": [\"Testers\"],\n        \"summary\": \"Testers_GetTestTags\",\n        \"operationId\": \"Testers_GetTestTags\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"text/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Testers.DataContracts.Responses.Command.GetUniqueTestTagsCommandResponse\"\n                },\n                \"example\": {\n                  \"tags\": [\"string\"]\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"Testers.DataContracts.Responses.Command.GetUniqueTestTagsCommandResponse\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"tags\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            },\n            \"nullable\": true\n          }\n        },\n        \"additionalProperties\": false\n      },\n      \"Testers.DataContracts.Responses.Command.GetTestByIdCommandResponse\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          }\n        },\n        \"additionalProperties\": false\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/disneystreaming/smithy-translate@b0033add74a5a40afcb33d2324a091194ea40b6c/-/blob/modules/openapi/tests/resources/issue-23.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/disneystreaming/smithy-translate/blob/b0033add74a5a40afcb33d2324a091194ea40b6c/modules/openapi/tests/resources/issue-23.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse servers: at modules/openapi/tests/resources/issue-23.json:14:14: server URL must not be empty"
+}

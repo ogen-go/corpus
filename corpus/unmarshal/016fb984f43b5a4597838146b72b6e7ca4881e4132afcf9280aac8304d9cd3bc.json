@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/apache/airflow"
+		},
+		"file": {
+			"name": "internal_api_v1.yaml",
+			"size": 0,
+			"path": "airflow/api_internal/openapi/internal_api_v1.yaml",
+			"byteSize": 2642,
+			"content": "# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n# KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n\n---\nopenapi: 3.0.2\ninfo:\n  title: Airflow Internal API\n  version: 1.0.0\n  description: |\n    This is Airflow Internal API - which is a proxy for components running\n    customer code for connecting to Airflow Database.\n\n    It is not intended to be used by any external code.\n\n    You can find more information in AIP-44\n    https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-44+Airflow+Internal+API\n\n\nservers:\n  - url: /internal_api/v1\n    description: Airflow Internal API\npaths:\n  \"/rpcapi\":\n    post:\n      operationId: rpcapi\n      deprecated: false\n      x-openapi-router-controller: airflow.api_internal.endpoints.rpc_api_endpoint\n      operationId: internal_airflow_api\n      tags:\n      - JSONRPC\n      parameters: []\n      responses:\n        '200':\n          description: Successful response\n      requestBody:\n        x-body-name: body\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n              - method\n              - jsonrpc\n              - params\n              properties:\n                jsonrpc:\n                  type: string\n                  default: '2.0'\n                  description: JSON-RPC Version (2.0)\n                method:\n                  type: string\n                  description: Method name\n                params:\n                  title: Parameters\n                  type: string\nx-headers: []\nx-explorer-enabled: true\nx-proxy-enabled: true\ncomponents:\n  schemas:\n    JsonRpcRequired:\n      type: object\n      required:\n      - method\n      - jsonrpc\n      properties:\n        method:\n          type: string\n          description: Method name\n        jsonrpc:\n          type: string\n          default: '2.0'\n          description: JSON-RPC Version (2.0)\n      discriminator:\n        propertyName: method_name\ntags: []\n",
+			"canonicalURL": "/github.com/apache/airflow@3ce7cbbda178799c6a07bed9ca695957affdff98/-/blob/airflow/api_internal/openapi/internal_api_v1.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/apache/airflow/blob/3ce7cbbda178799c6a07bed9ca695957affdff98/airflow/api_internal/openapi/internal_api_v1.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 42: mapping key \"operationId\" already defined at line 39"
+}

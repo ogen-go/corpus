@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ndelvalle/rustapi"
+		},
+		"file": {
+			"name": "openapi.yaml",
+			"size": 0,
+			"path": "openapi.yaml",
+			"byteSize": 3358,
+			"content": "openapi: 3.1.0\n\ninfo:\n  version: 1.0.0\n  title: v1 REST API\n  description: v1 REST API\n\nservers:\n- url: https://api.yoururl.com\n\nexternalDocs:\n  description: v1 REST API\n  url: https://github.com/ndelvalle/rustapi\n\npaths:\n  \"/v1/cats\":\n    # Query cats\n    get:\n      summary: Query cats \n      description: Query cats\n      operationId: application/query-cats\n      security:\n        - bearerAuth: []\n      responses:\n        '200':\n          description: Response\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Cat\"\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\n    # Create a new cat\n    post:\n      summary: Create a new cat\n      description: Create a new cat\n      operationId: application/create-cat\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n                  description: The cat name\n      responses:\n        '201':\n          description: Response\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Cat\"\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\n  \"/v1/cats/{cat_id}\":\n    # Get cat by ID\n    get:\n      summary: Get cat by ID\n      description: get cat by ID\n      operationId: application/get-cat-by-id\n      responses:\n        '200':\n          description: Response\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Cat\"\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\n    # Remove cat by ID\n    delete:\n      summary: Remove a cat by ID\n      description: Removes a cat by ID\n      operationId: application/remove-cat-by-id\n      responses:\n        '204':\n          description: Response\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\n    # Update cat by ID\n    patch:\n      summary: Update a cat by ID\n      description: Update cat by ID\n      operationId: application/update-cat-by-id\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - name\n              properties:\n                name:\n                  type: string\n                  description: The cat name\n      responses:\n        '200':\n          description: Response\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/Cat\"\n        '401':\n          $ref: '#/components/responses/Unauthorized'\n\ncomponents:\n  schemas:\n    # Cat schema\n    Cat:\n      type: object\n      required:\n        - id\n        - user\n        - name\n        - created_at\n        - updated_at\n      properties:\n        id:\n          type: string\n        user:\n          type: string\n        name:\n          type: string\n        created_at:\n          type: string\n        updated_at:\n          type: string\n\n  securitySchemes:\n    bearerAuth:\n      type: http\n      scheme: bearer\n      bearerFormat: JWT\n\n  responses:\n    Unauthorized:\n      description: Authentication information is missing or invalid\n",
+			"canonicalURL": "/github.com/ndelvalle/rustapi@d3f69970da0d7e36de96e08755870cf672c212f7/-/blob/openapi.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ndelvalle/rustapi/blob/d3f69970da0d7e36de96e08755870cf672c212f7/openapi.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/v1/cats/{cat_id}\": get: operation \"application/get-cat-by-id\": at openapi.yaml:64:7: parse path \"/v1/cats/{cat_id}\": path parameter not specified: \"cat_id\""
+}

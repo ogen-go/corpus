@@ -10,14 +10,14 @@
 			"path": "ShuntCompensator/swagger.yaml",
 			"byteSize": 1769,
 			"content": "---\n# Copyleft (c) 2021 Contributors to Smart Data Models initiative\n# \n\n\ncomponents:\n  schemas: \n    ShuntCompensator: \n      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml#/ShuntCompensator\"\ninfo:\n  description:  |\n    Adapted from CIM data models. A shunt capacitor or reactor or switchable bank of shunt capacitors or reactors. A section of a shunt compensator is an individual capacitor or reactor.  A negative value for reactivePerSection indicates that the compensator is a reactor. ShuntCompensator is a single terminal device.  Ground is implied.\n  title: ShuntCompensator\n  version: \"1.0.0\"\nopenapi: \"3.0.0\"\n\npaths: \n  /ngsi-ld/v1/entities: \n    get: \n      description: \"Retrieve a set of entities which matches a specific query from an NGSI-LD system\"\n      parameters: \n        - \n          in: query\n          name: type\n          required: true\n          schema: \n            enum: \n              - ShuntCompensator\n            type: string\n      responses: \n        ? \"200\"\n        : \n          content: \n            application/ld+json: \n              examples: \n                keyvalues: \n                  summary: \"Key-Values Pairs\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/examples/example.json\"\n                normalized: \n                  summary: \"Normalized NGSI-LD\"\n                  value: \n                    - \n                      $ref: \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/examples/example-normalized.jsonld\"\n          description: OK\n      tags: \n        - ngsi-ld\ntags: \n  - \n    description: \"NGSI-LD Linked-data Format\"\n    name: ngsi-ld\n",
-			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@c65de9a61bbc557a160009c1d7d828540e24b4cb/-/blob/ShuntCompensator/swagger.yaml",
+			"canonicalURL": "/github.com/smart-data-models/dataModel.EnergyCIM@b3306b5a43bd0608292a10c30767ff8c3fa690d7/-/blob/ShuntCompensator/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/c65de9a61bbc557a160009c1d7d828540e24b4cb/ShuntCompensator/swagger.yaml",
+					"url": "https://github.com/smart-data-models/dataModel.EnergyCIM/blob/b3306b5a43bd0608292a10c30767ff8c3fa690d7/ShuntCompensator/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ShuntCompensator\": parse schema: at 1:54: external \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml\": get: https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"ShuntCompensator\": resolve \"#/components/schemas/ShuntCompensator\": at ShuntCompensator/swagger.yaml:9:13: $ref: resolve \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml#/ShuntCompensator\": get \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml\": https: do: Get \"https://smart-data-models.github.io/dataModel.EnergyCIM/ShuntCompensator/model.yaml\": host \"smart-data-models.github.io\" is not allowed"
 }

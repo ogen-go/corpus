@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf-custom-validator"
+		},
+		"file": {
+			"name": "positive3.yaml",
+			"size": 0,
+			"path": "test/data/production/best-practices/positive3.yaml",
+			"byteSize": 880,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  title: Awesome API\n  version: \"1.0\"\n  description: the awesome API\nservers:\n  - url: https://production.test.com/api/v1\n    description: production environment\nexternalDocs:\n  description: \"Find more info here\",\n  url: \"https://example.com\"\n\npaths:\n  /users/{id}:\n    description: path description\n    get: # operation does not define description, but is inherited from the endpoint as defined in the oas 3 spec\n      operationId: opid\n      tags:\n        - sometag\n      responses:\n        \"200\":\n          description: teapot\n          headers:\n            content-type:\n              description: content\n              schema:\n                type: string\n          content:\n            application/json:\n              schema:\n                type: object\n                description: some description\n              example:\n                id: test\n\n\n",
+			"canonicalURL": "/github.com/aml-org/amf-custom-validator@1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/-/blob/test/data/production/best-practices/positive3.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf-custom-validator/blob/1eb8c6aa28edfaa350e4c99c04c5d99e7f49aa9e/test/data/production/best-practices/positive3.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "invalidYAML: yaml: line 9:2: did not find expected key"
+}

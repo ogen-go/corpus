@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "StudyTypes_GET.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Studies/StudyTypes_GET.yaml",
+			"byteSize": 1582,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths:\n  /studytypes:\n    get:\n      summary: Get the Study Types\n      description: Call to retrieve the list of study types.\n      parameters:\n      - $ref: '#/components/parameters/page'\n      - $ref: '#/components/parameters/pageSize'\n      - $ref: '#/components/parameters/authorizationHeader'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                properties:\n                  '@context':\n                    $ref: '#/components/schemas/Context'\n                  metadata:\n                    $ref: '#/components/schemas/metadata'\n                  result:\n                    properties:\n                      data:\n                        description: The list of all StudyTypes available on a given server.\n                        items:\n                          type: string\n                        type: array\n                        example:\n                          - Crossing Nursery\n                          - Yield study\n                    required:\n                    - data\n                    type: object\n                required:\n                - metadata\n                - result\n                title: studyTypesResponse\n                type: object\n          description: OK\n          headers: {}\n        '400':\n          $ref: '#/components/responses/400BadRequest'\n        '401':\n          $ref: '#/components/responses/401Unauthorized'\n        '403':\n          $ref: '#/components/responses/403Forbidden'\n      tags:\n      - Studies\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/Studies/StudyTypes_GET.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/Studies/StudyTypes_GET.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/studytypes\": get: parameters: parse parameter \"\": at Specification/BrAPI-Core/Studies/StudyTypes_GET.yaml:11:15: can't find value for \"components/parameters/page\""
+}

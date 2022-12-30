@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ObservationUnit.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Phenotyping/ObservationUnits/Schemas/ObservationUnit.yaml",
+			"byteSize": 1350,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ObservationUnit:\n      allOf:\n      - $ref: '#/components/schemas/ObservationUnitNewRequest'\n      - type: object\n        x-brapi-metadata:\n          primaryModel: true\n          module: BrAPI-Phenotyping\n          title: ObservationUnit\n          description: A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.\n        properties:\n          observationUnitDbId:\n            description: |-\n              The ID which uniquely identifies an observation unit\n              \n              MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. \n            type: string\n            example: 8c67503c\n          observations:\n            description: |-\n              All observations attached to this observation unit. \n              \n              Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.\n            type: array\n            items:\n              $ref: '#/components/schemas/Observation'",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Phenotyping/ObservationUnits/Schemas/ObservationUnit.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Phenotyping/ObservationUnits/Schemas/ObservationUnit.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ObservationUnit\": resolve \"#/components/schemas/ObservationUnit\": allOf: at Specification/BrAPI-Phenotyping/ObservationUnits/Schemas/ObservationUnit.yaml:10:15: $ref: resolve \"#/components/schemas/ObservationUnitNewRequest\": resolve: can't find value for \"components/schemas/ObservationUnitNewRequest\""
+}

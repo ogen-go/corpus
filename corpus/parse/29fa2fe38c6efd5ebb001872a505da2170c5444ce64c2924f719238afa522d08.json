@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/aws-sam-cli"
+		},
+		"file": {
+			"name": "http_api_description.yaml",
+			"size": 0,
+			"path": "tests/functional/commands/validate/lib/models/http_api_description.yaml",
+			"byteSize": 450,
+			"content": "%YAML 1.1\n---\nResources:\n  HttpApi:\n    Type: AWS::Serverless::HttpApi\n    Properties:\n      DefinitionBody:\n        openapi: 3.0.1\n        paths:\n          /foo: {}\n      Description: my description\n\n  Function:\n    Type: AWS::Serverless::Function\n    Properties:\n      Runtime: python3.7\n      Handler: index.handler\n      CodeUri: s3://bucket/key\n      Events:\n        Api:\n          Type: HttpApi\n          Properties:\n            ApiId: HttpApi\n",
+			"canonicalURL": "/github.com/aws/aws-sam-cli@bce85fd41c1b522ac20899ff4f2917db6ed96b93/-/blob/tests/functional/commands/validate/lib/models/http_api_description.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/aws-sam-cli/blob/bce85fd41c1b522ac20899ff4f2917db6ed96b93/tests/functional/commands/validate/lib/models/http_api_description.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/functional/commands/validate/lib/models/http_api_description.yaml:3:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

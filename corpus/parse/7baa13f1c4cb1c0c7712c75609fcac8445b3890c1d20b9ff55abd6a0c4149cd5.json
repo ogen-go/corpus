@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/plantbreeding/BrAPI"
+		},
+		"file": {
+			"name": "ListSearchRequest.yaml",
+			"size": 0,
+			"path": "Specification/BrAPI-Core/Lists/Schemas/ListSearchRequest.yaml",
+			"byteSize": 2655,
+			"content": "info:\n  title: BrAPI\n  version: ''\nopenapi: 3.0.0\npaths: {}\ncomponents:\n  schemas:\n    ListSearchRequest:\n      allOf:\n      - $ref: '#/components/schemas/SearchRequestParametersPaging'\n      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'\n      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'\n      - $ref: '#/components/schemas/SearchRequestParametersPrograms'\n      - type: object\n        properties:\n          dateCreatedRangeStart:\n            description: Define the begining for an interval of time and only include Lists that are created within this interval.\n            format: date-time\n            type: string\n          dateCreatedRangeEnd:\n            description: Define the end for an interval of time and only include Lists that are created within this interval.\n            format: date-time\n            type: string\n          dateModifiedRangeStart:\n            description: Define the begining for an interval of time and only include Lists that are modified within this interval.\n            format: date-time\n            type: string\n          dateModifiedRangeEnd:\n            description: Define the end for an interval of time and only include Lists that are modified within this interval.\n            format: date-time\n            type: string\n          listDbIds:\n            description: An array of primary database identifiers to identify a set of Lists\n            type: array\n            items:\n              type: string\n            example: ['55f20cf6', '3193ca3d']\n          listNames:\n            description: An array of human readable names to identify a set of Lists\n            type: array\n            items:\n              type: string\n            example: ['Planing List 1', 'Bobs List']\n          listOwnerNames:\n            description: An array of names for the people or entities who are responsible for a set of Lists\n            type: array\n            items:\n              type: string\n            example: ['Bob Robertson', 'Rob Robertson']\n          listOwnerPersonDbIds:\n            description: An array of primary database identifiers to identify people or entities who are responsible for a set of Lists\n            type: array\n            items:\n              type: string\n            example: ['bob@bob.com', 'rob@bob.com']\n          listSources:\n            description: An array of terms identifying lists from different sources (ie 'USER', 'SYSTEM', etc)\n            type: array\n            items:\n              type: string\n            example: ['USER', 'SYSTEM', 'EXTERNAL']\n          listType:\n            $ref: '#/components/schemas/ListTypes'\n\n",
+			"canonicalURL": "/github.com/plantbreeding/BrAPI@99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/-/blob/Specification/BrAPI-Core/Lists/Schemas/ListSearchRequest.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/plantbreeding/BrAPI/blob/99a2ff6e980fc6b34c5675fe27b7608d0bbf2d4e/Specification/BrAPI-Core/Lists/Schemas/ListSearchRequest.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"ListSearchRequest\": resolve \"#/components/schemas/ListSearchRequest\": allOf: at Specification/BrAPI-Core/Lists/Schemas/ListSearchRequest.yaml:10:15: $ref: resolve \"#/components/schemas/SearchRequestParametersPaging\": resolve: can't find value for \"components/schemas/SearchRequestParametersPaging\""
+}

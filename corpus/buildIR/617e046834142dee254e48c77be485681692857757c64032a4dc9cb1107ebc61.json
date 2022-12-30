@@ -10,14 +10,14 @@
 			"path": "packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml",
 			"byteSize": 863,
 			"content": "openapi: 3.0.1\n\ninfo:\n  title: Testing Circular\n  version: 1.1.1\n\n  contact:\n    name: Kong Insomnia\n\nservers:\n  - url: https://some.random.url\n\nx-kong-plugin-request-validator:\n  enabled: true\n  version: draft4\n  config:\n    verbose_response: true\n\ntags:\n  - name: Testing\n\npaths:\n  /testing:\n    post:\n      requestBody:\n        $ref: '#/components/requestBodies/TestRequest'\n      responses:\n        '200':\n          description: success\n\ncomponents:\n  requestBodies:\n    TestRequest:\n      content:\n        application/json:\n          schema:\n            $ref: '#/components/schemas/TestRequest'\n\n  schemas:\n    TestRequest:\n      allOf:\n        - $ref: '#/components/schemas/CircularStart'\n\n    CircularStart:\n      allOf:\n        - $ref: '#/components/schemas/CircularEnd'\n\n    CircularEnd:\n      allOf:\n        - $ref: '#/components/schemas/CircularStart'\n",
-			"canonicalURL": "/github.com/Kong/insomnia@29805590b2ed562f8f18a88177c40b79336df273/-/blob/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml",
+			"canonicalURL": "/github.com/Kong/insomnia@45704e43f1b33439f01320e15e92f9ea95939cc6/-/blob/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Kong/insomnia/blob/29805590b2ed562f8f18a88177c40b79336df273/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml",
+					"url": "https://github.com/Kong/insomnia/blob/45704e43f1b33439f01320e15e92f9ea95939cc6/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "buildIR: make ir: path \"/testing\": post: requestBody: contents: media: \"application/json\": generate schema: allOf: allOf \"#/components/schemas/TestRequest\" [0]: allOf \"#/components/schemas/CircularStart\" [0]: allOf \"#/components/schemas/CircularEnd\" [0]: reference \"#/components/schemas/CircularStart\" [0] leads to infinite recursion"
+	"Error": "buildIR: make ir: operations: path \"/testing\": post: requestBody: contents: media: \"application/json\": generate schema: allOf: allOf \"https://raw.githubusercontent.com/Kong/insomnia/45704e43f1b33439f01320e15e92f9ea95939cc6/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml#/components/schemas/TestRequest\" [0]: allOf \"https://raw.githubusercontent.com/Kong/insomnia/45704e43f1b33439f01320e15e92f9ea95939cc6/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml#/components/schemas/CircularStart\" [0]: allOf \"https://raw.githubusercontent.com/Kong/insomnia/45704e43f1b33439f01320e15e92f9ea95939cc6/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml#/components/schemas/CircularEnd\" [0]: reference \"https://raw.githubusercontent.com/Kong/insomnia/45704e43f1b33439f01320e15e92f9ea95939cc6/packages/openapi-2-kong/src/declarative-config/fixtures/circular-requestBody.yaml#/components/schemas/CircularStart\" [0] leads to infinite recursion"
 }

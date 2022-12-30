@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "error_swagger_security_not_dict_with_api_key_required.yaml",
+			"size": 0,
+			"path": "tests/translator/input/error_swagger_security_not_dict_with_api_key_required.yaml",
+			"byteSize": 1235,
+			"content": "transformId: AWS::Serverless-2016-10-31\nAWSTemplateFormatVersion: '2010-09-09'\nResources:\n  AuthFunction:\n    Type: AWS::Serverless::Function\n  AccessingPartyAPI:\n    Type: AWS::Serverless::Api\n    Properties:\n      EndpointConfiguration: REGIONAL\n      StageName: demo\n      Auth:\n        ApiKeyRequired: true\n\n      DefinitionBody:\n        paths:\n          /path:\n            put:\n              responses:\n                '201':\n                  content:\n                    application/json:\n                      schema:\n                        $ref: abcd\n              x-amazon-apigateway-integration:\n                contentHandling: CONVERT_TO_TEXT\n                responses:\n                  default:\n                    statusCode: '200'\n                uri:\n                  Fn::Sub: foobar\n                httpMethod: POST\n                passthroughBehavior: when_no_match\n                type: aws_proxy\n              requestBody:\n                content:\n                  application/json:\n                    schema:\n                      required:\n                      - readoutId\n                      - status\n                      type: object\n              security:\n              - []\n\n        openapi: 3.0.3\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/error_swagger_security_not_dict_with_api_key_required.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/error_swagger_security_not_dict_with_api_key_required.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/error_swagger_security_not_dict_with_api_key_required.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

@@ -10,14 +10,14 @@
 			"path": "packages/laminar/examples/oapi-split.yaml",
 			"byteSize": 757,
 			"content": "---\nopenapi: 3.0.0\ninfo:\n  title: Simple API\n  version: 1.0.0\nservers:\n  - url: 'http: //localhost:3333'\npaths:\n  '/user':\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              $ref: 'file://./oapi-split-types.yaml#/components/schemas/User'\n      responses:\n        '200':\n          description: Newly Created User\n          content:\n            application/json:\n              schema:\n                $ref: 'oapi-split-types.yaml#/components/schemas/NewUser'\n    get:\n      responses:\n        '200':\n          description: Loaded User\n          content:\n            application/json:\n              schema:\n                $ref: './oapi-split-types.yaml#/components/schemas/User'\n",
-			"canonicalURL": "/github.com/ovotech/laminar@339c0d9d5a461b261166737eb7300ee6cb36bae9/-/blob/packages/laminar/examples/oapi-split.yaml",
+			"canonicalURL": "/github.com/ovotech/laminar@4ca0ed2dd51383530489720a0ecc4b96f93eb797/-/blob/packages/laminar/examples/oapi-split.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/ovotech/laminar/blob/339c0d9d5a461b261166737eb7300ee6cb36bae9/packages/laminar/examples/oapi-split.yaml",
+					"url": "https://github.com/ovotech/laminar/blob/4ca0ed2dd51383530489720a0ecc4b96f93eb797/packages/laminar/examples/oapi-split.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/user\": get: responses: 200: content: application/json: schema: parse schema: at 1:161: external \"./oapi-split-types.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/user\": post: requestBody: parse content: application/json: schema: parse schema: at packages/laminar/examples/oapi-split.yaml:16:21: $ref: resolve \"file://./oapi-split-types.yaml#/components/schemas/User\": get \"file://./oapi-split-types.yaml\": file: convert url to file path: file URL specifies non-local host"
 }

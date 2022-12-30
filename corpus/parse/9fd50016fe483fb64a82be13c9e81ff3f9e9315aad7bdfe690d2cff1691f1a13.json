@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/getkin/kin-openapi"
+		},
+		"file": {
+			"name": "test2.yaml",
+			"size": 0,
+			"path": "openapi3/testdata/issue638/test2.yaml",
+			"byteSize": 257,
+			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: reference test part 2\n  description: reference test part 2\ncomponents:\n  schemas:\n    test2a:\n      type: number\n    test2b:\n      $ref: \"test1.yaml#/components/schemas/test1b\"\n    test1c:\n      type: string\n",
+			"canonicalURL": "/github.com/getkin/kin-openapi@92d47ad2141d9618ac66847c0618b03a3e44763a/-/blob/openapi3/testdata/issue638/test2.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/getkin/kin-openapi/blob/92d47ad2141d9618ac66847c0618b03a3e44763a/openapi3/testdata/issue638/test2.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: schemas: \"test2b\": resolve \"#/components/schemas/test2b\": $ref: resolve \"test1.yaml#/components/schemas/test1b\": $ref: resolve \"#/components/schemas/test1c\": at https://raw.githubusercontent.com/getkin/kin-openapi/92d47ad2141d9618ac66847c0618b03a3e44763a/openapi3/testdata/issue638/test1.yaml:13:13: type: unexpected schema type: \"int\""
+}

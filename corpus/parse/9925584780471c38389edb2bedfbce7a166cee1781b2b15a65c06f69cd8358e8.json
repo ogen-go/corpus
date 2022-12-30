@@ -10,14 +10,14 @@
 			"path": "etl/docs/openapi/openapi.yaml",
 			"byteSize": 574,
 			"content": "openapi: 3.0.0\ninfo:\n  title: Bulk upload API\n  version: 2.0.0\n  description: API for uploading bulk participant data\ntags:\n  - name: \"Upload\"\nservers:\n  - url: /bulk/{stateAbbr}/v2\n    variables:\n      stateAbbr:\n        default: ea\n        description: Lowercase two-letter postal code abbreviation\npaths:\n  '/upload/{filename}':\n    $ref: './upload.yaml'\n  '/uploads/{uploadIdentifier}':\n    $ref: './getUploadById.yaml'\nsecurity:\n  - ApiKeyAuth: []\ncomponents:\n  securitySchemes:\n    ApiKeyAuth:\n      type: apiKey\n      in: header\n      name: Ocp-Apim-Subscription-Key\n",
-			"canonicalURL": "/github.com/18F/piipan@e9a84b6b86fa3833a8400dae0b4976e2df029bba/-/blob/etl/docs/openapi/openapi.yaml",
+			"canonicalURL": "/github.com/18F/piipan@a385b7c7792a3c14560e90b0f9448876295b3de6/-/blob/etl/docs/openapi/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/18F/piipan/blob/e9a84b6b86fa3833a8400dae0b4976e2df029bba/etl/docs/openapi/openapi.yaml",
+					"url": "https://github.com/18F/piipan/blob/a385b7c7792a3c14560e90b0f9448876295b3de6/etl/docs/openapi/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/upload/{filename}\": at 1:282: external \"./upload.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/uploads/{uploadIdentifier}\": get: operation \"Get Upload Details\": at https://raw.githubusercontent.com/18F/piipan/a385b7c7792a3c14560e90b0f9448876295b3de6/etl/docs/openapi/getUploadById.yaml:2:3: parse path \"/uploads/{uploadIdentifier}\": path parameter not specified: \"uploadIdentifier\""
 }

@@ -10,14 +10,14 @@
 			"path": "src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json",
 			"byteSize": 1176,
 			"content": "{\n\t\"openapi\": \"3.0.2\",\n\t\"components\": {\n\t\t\"schemas\": {\n\t\t\t\"Widget\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"name\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"description\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"owner\": {\n\t\t\t\t\t\t\"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/PersonWithAddress\"\n\t\t\t\t\t},\n\t\t\t\t\t\"tester\": {\n\t\t\t\t\t\t\"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/PersonWithAddress\"\n\t\t\t\t\t},\n\t\t\t\t\t\"address\": {\n\t\t\t\t\t\t\"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/Address\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"Widget2\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"name\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"inventor\": {\n\t\t\t\t\t\t\"$ref\": \"#/components/schemas/Inventor\"\n\t\t\t\t\t},\n\t\t\t\t\t\"address\": {\n\t\t\t\t\t\t\"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/Address\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"Inventor\": {\n\t\t\t\t\"description\": \"\",\n\t\t\t\t\"required\": [\n\t\t\t\t\t\"name\",\n\t\t\t\t\t\"address\"\n\t\t\t\t],\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"name\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"address\": {\n\t\t\t\t\t\t\"$ref\": \"http://www.example.com/schemas/foo.json#/components/schemas/Address\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
-			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@72581effc8762fc9afd2d8b6f9c467763575dc46/-/blob/src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json",
+			"canonicalURL": "/github.com/Apicurio/apicurio-data-models@49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/-/blob/src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/Apicurio/apicurio-data-models/blob/72581effc8762fc9afd2d8b6f9c467763575dc46/src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json",
+					"url": "https://github.com/Apicurio/apicurio-data-models/blob/49c8602dfcbef18a9d47f3d2d3bc53d520ec21d0/src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"Widget2\": parse schema: property \"inventor\": parse schema: parse schema: property \"address\": parse schema: at 51:15: external \"http://www.example.com/schemas/foo.json\": get: http: do: Get \"http://www.example.com/schemas/foo.json\": host \"www.example.com\" is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"Widget\": resolve \"#/components/schemas/Widget\": property \"owner\": at src/test/resources/fixtures/dereference/oai3/multi-ref-1.input.json:15:15: $ref: resolve \"http://www.example.com/schemas/foo.json#/components/schemas/PersonWithAddress\": get \"http://www.example.com/schemas/foo.json\": http: do: Get \"http://www.example.com/schemas/foo.json\": host \"www.example.com\" is not allowed"
 }

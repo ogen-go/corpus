@@ -10,14 +10,14 @@
 			"path": "gateway-api/openapi.yaml",
 			"byteSize": 1161,
 			"content": "openapi: 3.0.3\ninfo:\n  title: OpenAPI definition\n  version: v0.1\n\npaths:\n  \"/v0.1/transactions\":\n    post:\n      tags:\n        - gateway-controller\n      operationId: createGatewayPendingTransactions\n      requestBody:\n        content:\n          application/json:\n            schema:\n              \"$ref\": \"#/components/schemas/CreateTransactionRequest\"\n        required: true\n      responses:\n        '200':\n          description: OK\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  \"$ref\": \"#/components/schemas/LogEvent\"\n        '500':\n          description: Internal Server Error\n          content:\n            application/json:\n              schema:\n                \"$ref\": \"#/components/schemas/GatewayApiError\"\n\ncomponents:\n  schemas:\n    GatewayApiError:\n      required:\n        - code\n        - message\n        - status\n      type: object\n      properties:\n        status:\n          type: integer\n          format: int32\n        code:\n          type: string\n          enum:\n            - UNKNOWN\n            - VALIDATION\n        message:\n          type: string\n",
-			"canonicalURL": "/github.com/rarible/ethereum-openapi@b11fef9d6921c8812c9e46c37b5fbe516af99ec5/-/blob/gateway-api/openapi.yaml",
+			"canonicalURL": "/github.com/rarible/ethereum-openapi@3aadb540fd6d66bf48de73b3f01378615d54ec88/-/blob/gateway-api/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/rarible/ethereum-openapi/blob/b11fef9d6921c8812c9e46c37b5fbe516af99ec5/gateway-api/openapi.yaml",
+					"url": "https://github.com/rarible/ethereum-openapi/blob/3aadb540fd6d66bf48de73b3f01378615d54ec88/gateway-api/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/v0.1/transactions\": post: operation \"createGatewayPendingTransactions\": requestBody: parse content: application/json: schema: parse schema: at 1:473: find schema: resolve: can't find value for \"components/schemas/CreateTransactionRequest\""
+	"Error": "parse: parse spec: parse path items: path \"/v0.1/transactions\": post: operation \"createGatewayPendingTransactions\": requestBody: parse content: application/json: schema: parse schema: at gateway-api/openapi.yaml:16:23: $ref: resolve \"#/components/schemas/CreateTransactionRequest\": resolve: can't find value for \"components/schemas/CreateTransactionRequest\""
 }

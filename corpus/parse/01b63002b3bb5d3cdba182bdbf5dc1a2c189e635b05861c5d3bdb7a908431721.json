@@ -10,14 +10,14 @@
 			"path": "src/test/resources/badInput/ErrorMissingRefObject.yaml",
 			"byteSize": 244,
 			"content": "openapi: 3.0.0\ncomponents:\n  schemas:\n    ContainsAllOf:\n      type: object\n      required:\n        - propA\n        - propB\n      properties:\n        propA:\n          type: integer\n        propB:\n          $ref: \"#/components/schemas/SomeAllOf\"",
-			"canonicalURL": "/github.com/cjbooms/fabrikt@2e20560c0e25c2fc887c66ac99394af4cd4e163f/-/blob/src/test/resources/badInput/ErrorMissingRefObject.yaml",
+			"canonicalURL": "/github.com/cjbooms/fabrikt@3bbb22f25c61cf17c86f3fdad1e323c07ff1dd80/-/blob/src/test/resources/badInput/ErrorMissingRefObject.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/cjbooms/fabrikt/blob/2e20560c0e25c2fc887c66ac99394af4cd4e163f/src/test/resources/badInput/ErrorMissingRefObject.yaml",
+					"url": "https://github.com/cjbooms/fabrikt/blob/3bbb22f25c61cf17c86f3fdad1e323c07ff1dd80/src/test/resources/badInput/ErrorMissingRefObject.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ContainsAllOf\": parse schema: property \"propB\": parse schema: at 1:101: find schema: resolve: can't find value for \"components/schemas/SomeAllOf\""
+	"Error": "parse: parse spec: parse components: schemas: \"ContainsAllOf\": resolve \"#/components/schemas/ContainsAllOf\": property \"propB\": at src/test/resources/badInput/ErrorMissingRefObject.yaml:13:17: $ref: resolve \"#/components/schemas/SomeAllOf\": resolve: can't find value for \"components/schemas/SomeAllOf\""
 }

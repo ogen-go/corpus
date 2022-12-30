@@ -10,14 +10,14 @@
 			"path": "rules/tests/ratelimit-test.yml",
 			"byteSize": 1011,
 			"content": "openapi: 3.0.1\npaths:\n  /ok:\n    get:\n      responses:\n        \"201\":\n          description: 2xx must ratelimit\n          headers:\n            X-RateLimit-Limit: {}\n            X-RateLimit-Remaining: {}\n            X-RateLimit-Reset: {}\n        \"200\":\n          description: 2xx must ratelimit\n          headers:\n            RateLimit-Limit: {}\n            RateLimit-Remaining: {}\n            RateLimit-Reset: {}\n        \"400\":\n          description: no restrictions on error responses\n\n        \"429\":\n          description: 429 must have retry-after\n          headers:\n            Retry-After: {}\n\n        \"503\":\n          description: 503 must have retry-after\n          headers:\n            Retry-After: {}\n  /ko:\n    get:\n      responses:\n        \"201\":\n          description: 2xx must ratelimit\n          headers:\n            Foo: {}\n        \"429\":\n          description: 429 must have retry-after\n          headers: {}\n        \"503\":\n          description: 503 must have retry-after\n          headers: {}\n",
-			"canonicalURL": "/github.com/italia/api-oas-checker@980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/-/blob/rules/tests/ratelimit-test.yml",
+			"canonicalURL": "/github.com/italia/api-oas-checker@a09cc2e71a3a7038746845ab4776eedd1a2c50eb/-/blob/rules/tests/ratelimit-test.yml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/italia/api-oas-checker/blob/980c7e59e1b8a7ca114e58a9e1da5c67b34cd46b/rules/tests/ratelimit-test.yml",
+					"url": "https://github.com/italia/api-oas-checker/blob/a09cc2e71a3a7038746845ab4776eedd1a2c50eb/rules/tests/ratelimit-test.yml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/ko\": get: responses: 201: headers: header \"Foo\": at 1:115: parameter MUST contain either a schema property, or a content property"
+	"Error": "parse: parse spec: parse path items: path \"/ko\": get: responses: 201: headers: header \"Foo\": at rules/tests/ratelimit-test.yml:36:18: parameter MUST contain either a schema property, or a content property"
 }

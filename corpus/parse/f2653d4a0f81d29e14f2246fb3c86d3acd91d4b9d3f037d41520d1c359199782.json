@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ponelat/overlays-cli"
+		},
+		"file": {
+			"name": "update-scalar.yml",
+			"size": 0,
+			"path": "overlays-test-suite/v1.0.0/update-scalar.yml",
+			"byteSize": 485,
+			"content": "docs: https://github.com/OAI/Overlay-Specification/blob/main/versions/1.0.0.md#actionObject\ntest: ActionObject update with a scalar (str) value\n\nrefs:\n  http://example.com:\n    openapi: 3.0.3\n    paths:\n      /foo:\n        get: \n          description: ok\n\ninput:\n  overlay: 1.0.0\n  extends: http://example.com\n  actions:\n    - target: '$.paths.[\"/foo\"].get.description'\n      update: ok but...\n\noutput:\n  openapi: 3.0.3\n  paths:\n    /foo:\n      get:\n        description: ok but...\n\n  \n",
+			"canonicalURL": "/github.com/ponelat/overlays-cli@0201cd1d05ce8145f9525305aca64c46d53866a1/-/blob/overlays-test-suite/v1.0.0/update-scalar.yml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ponelat/overlays-cli/blob/0201cd1d05ce8145f9525305aca64c46d53866a1/overlays-test-suite/v1.0.0/update-scalar.yml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at overlays-test-suite/v1.0.0/update-scalar.yml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

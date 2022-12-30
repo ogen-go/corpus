@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Urigo/graphql-mesh"
+		},
+		"file": {
+			"name": "headers.json",
+			"size": 0,
+			"path": "packages/loaders/openapi/tests/fixtures/headers.json",
+			"byteSize": 893,
+			"content": "{\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"Server\",\n    \"version\": \"v1\"\n  },\n  \"paths\": {\n    \"/user\": {\n      \"post\": {\n        \"parameters\": [\n          {\n            \"name\": \"X-Country\",\n            \"in\": \"header\",\n            \"description\": \"User Country\",\n            \"required\": true\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/User\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"User\": {\n        \"required\": [\"name\"],\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          }\n        },\n        \"additionalProperties\": false\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/Urigo/graphql-mesh@9587d06d04f5f8eb8fb8594b51b8197a9dd67cfb/-/blob/packages/loaders/openapi/tests/fixtures/headers.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Urigo/graphql-mesh/blob/9587d06d04f5f8eb8fb8594b51b8197a9dd67cfb/packages/loaders/openapi/tests/fixtures/headers.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse path items: path \"/user\": post: parameters: parse parameter \"X-Country\": at packages/loaders/openapi/tests/fixtures/headers.json:11:11: parameter MUST contain either a schema property, or a content property"
+}

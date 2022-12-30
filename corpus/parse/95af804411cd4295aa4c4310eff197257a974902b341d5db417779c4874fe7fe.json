@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws-controllers-k8s/apigatewayv2-controller"
+		},
+		"file": {
+			"name": "import_api.yaml",
+			"size": 0,
+			"path": "test/e2e/resources/import_api.yaml",
+			"byteSize": 672,
+			"content": "apiVersion: apigatewayv2.services.k8s.aws/v1alpha1\nkind: API\nmetadata:\n  name: \"$IMPORT_API_NAME\"\nspec:\n  body: '{\n            \"openapi\": \"3.0.1\",\n            \"info\": {\n              \"title\": \"$IMPORT_API_TITLE\",\n              \"version\": \"v1\"\n            },\n            \"paths\": {\n              \"/\": {\n                \"get\": {\n                  \"x-amazon-apigateway-integration\": {\n                    \"uri\": \"http://example.com\",\n                    \"httpMethod\": \"GET\",\n                    \"type\": \"HTTP_PROXY\",\n                    \"payloadFormatVersion\": \"1.0\"\n                  }\n                }\n              }\n            },\n            \"components\": {}\n        }'",
+			"canonicalURL": "/github.com/aws-controllers-k8s/apigatewayv2-controller@66d3850cd1652efc3c4aacaef695e5d4d093f306/-/blob/test/e2e/resources/import_api.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws-controllers-k8s/apigatewayv2-controller/blob/66d3850cd1652efc3c4aacaef695e5d4d093f306/test/e2e/resources/import_api.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at test/e2e/resources/import_api.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

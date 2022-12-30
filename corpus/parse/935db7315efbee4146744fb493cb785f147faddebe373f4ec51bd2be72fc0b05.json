@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/pagopa/pn-local-emulator"
+		},
+		"file": {
+			"name": "internal.yaml",
+			"size": 0,
+			"path": "openapi/internal.yaml",
+			"byteSize": 2884,
+			"content": "openapi: 3.0.3\ninfo:\n  title: 'Internal HTTP API'\n  version: '0.0.0'\npaths:\n  \"/uploadS3/{key}\":\n    parameters:\n      - $ref: \"#/components/parameters/pathAwsDocumentKeyParam\"\n    put:\n      summary: \"Simulate the s3 upload\"\n      description: \u003e\n        This endpoint simulate the upload to s3.\n      parameters:\n        - $ref: \"#/components/parameters/headerAmzSdkChecksumAlgParam\"\n        - $ref: \"#/components/parameters/headerAmzMetaSecretParam\"\n        - $ref: \"#/components/parameters/headerAmzChecksumSHA256Param\"\n      responses:\n        '200':\n          $ref: \"#/components/responses/200UploadS3Response\"\n\n  \"/checklistresult\":\n    get:\n      description: \u003e-\n        Return checklist result\n      operationId: getChecklistResult\n      responses:\n        '200':\n          $ref: '#/components/responses/200ChecklistResultResponse'\n\ncomponents:\n  parameters:\n    pathAwsDocumentKeyParam:\n      name: key\n      in: path\n      description: The key of the document\n      required: true\n      schema:\n        $ref: '#/components/schemas/AmzDocumentKey'\n    headerAmzSdkChecksumAlgParam:\n      name: x-amz-sdk-checksum-algorithm\n      in: header\n      required: false\n      schema:\n        $ref: '#/components/schemas/AmzSdkChecksumAlg'\n    headerAmzMetaSecretParam:\n      name: x-amz-meta-secret\n      in: header\n      required: true\n      schema:\n        $ref: '#/components/schemas/AmzMetaSecret'\n    headerAmzChecksumSHA256Param:\n      name: x-amz-checksum-sha256\n      in: header\n      required: true\n      schema:\n        $ref: '#/components/schemas/AmzChecksumSHA256'\n\n  schemas:\n    ApiKey:\n      type: string\n    AmzDocumentKey:\n      example: '8F7E/9A3B/1234/AB87'\n      type: string\n    AmzSdkChecksumAlg:\n      type: string\n      enum:\n        - SHA256\n    AmzMetaSecret:\n      type: string\n    AmzChecksumSHA256:\n      type: string\n    AmzVersionId:\n      type: integer\n\n    ChecklistResult:\n      type: array\n      items:\n        $ref: '#/components/schemas/ChecklistResultElement'\n    ChecklistResultElement:\n      type: object\n      properties:\n        title:\n          type: string\n        results:\n          type: array\n          items:\n            $ref: '#/components/schemas/CheckResult'\n      required:\n        - title\n        - results\n    CheckResult:\n      type: object\n      properties:\n        name:\n          type: string\n        result:\n          type: string\n          enum:\n            - \"ok\"\n            - \"ko\"\n      required:\n        - name\n        - result\n\n  responses:\n    200UploadS3Response:\n      description: \u003e\n        The upload to s3 response\n      headers:\n        x-amz-version-id:\n          schema:\n          $ref: \"#/components/schemas/AmzVersionId\"\n    200ChecklistResultResponse:\n      description: Checklist result\n      content:\n        \"application/json\":\n          schema:\n            $ref: '#/components/schemas/ChecklistResult'\n",
+			"canonicalURL": "/github.com/pagopa/pn-local-emulator@efd3efb41fcee30365fbe460849b02be3c70e3fd/-/blob/openapi/internal.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/pagopa/pn-local-emulator/blob/efd3efb41fcee30365fbe460849b02be3c70e3fd/openapi/internal.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse components: responses: \"200UploadS3Response\": headers: header \"x-amz-version-id\": at openapi/internal.yaml:73:7: parameter MUST contain either a schema property, or a content property"
+}

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/swagger-api/swagger-editor"
+		},
+		"file": {
+			"name": "3.0.0-schema-additional-properties.yaml",
+			"size": 0,
+			"path": "test/unit/plugins/json-schema-validator/test-documents/3.0.0-schema-additional-properties.yaml",
+			"byteSize": 2389,
+			"content": "\ncases:\n- name: a valid additionalProperties schema\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties:\n            type: string\n  output:\n    equal: null\n- name: a valid schema with an invalid additionalProperties schema\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties:\n            type: int\n  output:\n    length: 1\n    match:\n    - message: |-\n        should be equal to one of the allowed values\n        allowedValues: array, boolean, integer, number, object, string\n      path: [components, schemas, mySchema, additionalProperties]\n- name: a valid schema with an invalid additionalProperties string value\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties: \"wow\"\n  output:\n    length: 1\n    match:\n    - message: should be a Reference Object, Schema Object, or boolean value\n      path: [components, schemas, mySchema, additionalProperties]\n- name: a valid schema with a valid additionalProperties reference\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties:\n            $ref: \"#\"\n  output:\n    equal: null\n- name: \"a valid schema with `additionalProperties: true`\"\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties: true\n  output:\n    equal: null\n- name: \"a valid schema with `additionalProperties: false`\"\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n          additionalProperties: false\n  output:\n    equal: null\n- name: \"a valid schema without `additionalProperties`\"\n  input:\n    openapi: 3.0.0\n    info:\n      title: \"\"\n      version: 1.0.0\n    paths: {}\n    components:\n      schemas:\n        mySchema:\n          type: object\n  output:\n    equal: null",
+			"canonicalURL": "/github.com/swagger-api/swagger-editor@b34403b06d498aaddf480e3a8d34a5ac4d9e09bc/-/blob/test/unit/plugins/json-schema-validator/test-documents/3.0.0-schema-additional-properties.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/swagger-api/swagger-editor/blob/b34403b06d498aaddf480e3a8d34a5ac4d9e09bc/test/unit/plugins/json-schema-validator/test-documents/3.0.0-schema-additional-properties.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at test/unit/plugins/json-schema-validator/test-documents/3.0.0-schema-additional-properties.yaml:2:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}

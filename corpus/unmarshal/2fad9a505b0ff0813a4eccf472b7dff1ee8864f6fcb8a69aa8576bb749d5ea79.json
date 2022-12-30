@@ -10,14 +10,14 @@
 			"path": "api/swagger.yaml",
 			"byteSize": 2049,
 			"content": "openapi: 3.0.0\ninfo:\n  version: 0.1.2\n  title: Four Keys\n  description: The four keys project is responsible for aggregating information from our CI and ticketing systems to generate activity metrics. These metrics are used by us to improve our internal processes.\n  contact:\n    name: Italo Vietro\n    url: 'https://github.com/italolelis'\n    email: me@italovietro.com\nservers:\n  - url: 'https://{environment}/'\n    variables:\n      environment:\n        default: staging\npaths:\n  '/webhooks':\n    post:\n      summary: Received event data from a webhook from different sources (Github, Jira, and OpsGenie)\n      operationId: incoming-webhook\n      description: Receives event data from a webhook, checks if the source is authorized, checks if the signature is verified, and then sends the data to Kinesis.\n      security:\n        - GithubAPIKey: []\n        - OpsGenieAPIKey: []\n      responses:\n        '200':\n          description: The event data was queued successfully.\n        '401':\n          $ref: \"#/components/responses/UnauthorizedError\"\n        '500':\n          $ref: \"#/components/responses/InternalServerError\"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties: {}\n            examples:\n              $ref: \"./api/examples/github.json\"\n        description: 'The JSON body is a dynamic body coming from the source (Github, Jira, and OpsGenie). These data are defined in the provider documentation and should be checked there. It should not be null, use {} instead'\n      tags:\n        - Webhooks\ncomponents:\n  responses:\n    UnauthorizedError:\n      description: API key is missing or invalid\n    InternalServerError:\n      description: Internal Server Error\n  securitySchemes:\n    GithubAPIKey:\n      type: apiKey\n      in: header\n      name: X-Hub-Signature\n    OpsGenieAPIKey:\n      type: apiKey\n      in: header\n      name: X-TOKEN\nsecurity:\n  - GithubAPIKey: []\n  - OpsGenieAPIKey: []\ntags:\n  - name: WatchOps\n    description: WatchOps endpoints.\n",
-			"canonicalURL": "/github.com/italolelis/watchops@2cabea391accc7c5027ecf22558858f53cb0ebcc/-/blob/api/swagger.yaml",
+			"canonicalURL": "/github.com/italolelis/watchops@641851fbc29e674f9ae66521b2e9911dfa2cc65d/-/blob/api/swagger.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/italolelis/watchops/blob/2cabea391accc7c5027ecf22558858f53cb0ebcc/api/swagger.yaml",
+					"url": "https://github.com/italolelis/watchops/blob/641851fbc29e674f9ae66521b2e9911dfa2cc65d/api/swagger.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `./api/e...` into ogen.Example"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 38: cannot unmarshal !!str `./api/e...` into ogen.Example"
 }

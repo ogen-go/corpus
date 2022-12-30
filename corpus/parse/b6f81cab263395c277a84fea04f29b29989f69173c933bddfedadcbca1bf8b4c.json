@@ -10,14 +10,14 @@
 			"path": "core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json",
 			"byteSize": 761,
 			"content": "{\n  \"openapi\": \"3.0.0\",\n  \"components\": {\n    \"schemas\": {\n\t    \"ErrorModel\": {\n\t      \"type\": \"object\",\n\t      \"required\": [\n\t        \"message\",\n\t        \"code\"\n\t      ],\n\t      \"properties\": {\n\t        \"message\": {\n\t          \"type\": \"string\"\n\t        },\n\t        \"code\": {\n\t          \"type\": \"integer\",\n\t          \"minimum\": 100,\n\t          \"maximum\": 600\n\t        }\n\t      }\n\t    },\n\t    \"ExtendedErrorModel\": {\n\t      \"allOf\": [\n\t        {\n\t          \"$ref\": \"#/definitions/ErrorModel\"\n\t        },\n\t        {\n\t          \"type\": \"object\",\n\t          \"required\": [\n\t            \"rootCause\"\n\t          ],\n\t          \"properties\": {\n\t            \"rootCause\": {\n\t              \"type\": \"string\"\n\t            }\n\t          }\n\t        }\n\t      ]\n\t    }\n    }\n  }\n}\n",
-			"canonicalURL": "/github.com/smallrye/smallrye-open-api@7325871c77076ccedbb7a8e6666ac576ee6e45c1/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json",
+			"canonicalURL": "/github.com/smallrye/smallrye-open-api@a19098a0129c3481ec413138841d7dbd2ff48f9a/-/blob/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json",
 			"externalURLs": [
 				{
-					"url": "https://github.com/smallrye/smallrye-open-api/blob/7325871c77076ccedbb7a8e6666ac576ee6e45c1/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json",
+					"url": "https://github.com/smallrye/smallrye-open-api/blob/a19098a0129c3481ec413138841d7dbd2ff48f9a/core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"ExtendedErrorModel\": parse schema: parse schema: at 25:20: find schema: resolve: can't find value for \"definitions/ErrorModel\""
+	"Error": "parse: parse spec: parse components: schemas: \"ExtendedErrorModel\": resolve \"#/components/schemas/ExtendedErrorModel\": allOf: at core/src/test/resources/io/smallrye/openapi/runtime/io/schemas-with-composition.json:25:20: $ref: resolve \"#/definitions/ErrorModel\": resolve: can't find value for \"definitions/ErrorModel\""
 }

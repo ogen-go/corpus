@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/OpenAPITools/openapi-json-schema-generator"
 		},
 		"file": {
 			"name": "composed-schemas.yaml",
 			"size": 0,
-			"path": "modules/openapi-generator/src/test/resources/3_0/composed-schemas.yaml",
+			"path": "modules/openapi-json-schema-generator/src/test/resources/3_0/composed-schemas.yaml",
 			"byteSize": 2422,
 			"content": "\n\nopenapi: 3.0.1\ninfo:\n  version: 1.0.0\n  title: Example\n  license:\n    name: MIT\nservers:\n  - url: http://api.example.xyz/v1\npaths:\n  /pets:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              oneOf:\n                - $ref: '#/components/schemas/Cat'\n                - $ref: '#/components/schemas/Dog'\n                # This field will not match to any type.\n                - description: Any kind of pet\n              discriminator:\n                propertyName: pet_type\n      responses:\n        '200':\n          description: Updated\n\n  /pets-filtered:\n    patch:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              anyOf:\n                - $ref: '#/components/schemas/PetByAge'\n                - $ref: '#/components/schemas/PetByType'\n                # This field will not match to any type.\n                - description: Any kind of filter\n      responses:\n        '200':\n          description: Updated\n\n  /file:\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              properties:\n                file:\n                  allOf:\n                    - type: file\n                    # This field will not match to any type.\n                    - description: The file to upload\n      responses:\n        '200':\n          description: File uploaded\n\ncomponents:\n  schemas:\n    Pet:\n      type: object\n      required:\n        - pet_type\n    Dog:\n      allOf:\n        # This field will not match to any type.\n        - description: Dog information\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          properties:\n            bark:\n              type: boolean\n            breed:\n              type: string\n              enum: [Dingo, Husky, Retriever, Shepherd]\n    Cat:\n      allOf:\n        - $ref: '#/components/schemas/Pet'\n        - type: object\n          properties:\n            hunts:\n              type: boolean\n            age:\n              type: integer\n    PetByAge:\n      type: object\n      properties:\n        age:\n          type: integer\n        nickname:\n          type: string\n      required:\n        - age\n\n    PetByType:\n      type: object\n      properties:\n        pet_type:\n          type: string\n          enum: [Cat, Dog]\n        hunts:\n          type: boolean\n      required:\n        - pet_type",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/-/blob/modules/openapi-generator/src/test/resources/3_0/composed-schemas.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-json-schema-generator@a55dd8b0559d49f669eb133f2768d2ba0c13d60d/-/blob/modules/openapi-json-schema-generator/src/test/resources/3_0/composed-schemas.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/modules/openapi-generator/src/test/resources/3_0/composed-schemas.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-json-schema-generator/blob/a55dd8b0559d49f669eb133f2768d2ba0c13d60d/modules/openapi-json-schema-generator/src/test/resources/3_0/composed-schemas.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/file\": post: requestBody: parse content: application/json: schema: parse schema: property \"file\": parse schema: parse schema: at 1:909: unexpected schema type: \"file\""
+	"Error": "parse: parse spec: parse path items: path \"/file\": post: requestBody: parse content: application/json: schema: parse schema: property \"file\": allOf: at modules/openapi-json-schema-generator/src/test/resources/3_0/composed-schemas.yaml:54:29: type: unexpected schema type: \"file\""
 }

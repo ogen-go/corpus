@@ -10,14 +10,14 @@
 			"path": "aiidalab/registry/static/api/openapi-v1.yaml",
 			"byteSize": 1222,
 			"content": "---\nopenapi: 3.0.1\ninfo:\n    title: AiiDAlab apps registry API\n    description: API to query for registered AiiDAlab apps.\n    version: '1.1'\npaths:\n    /api/v1/apps_index.json:\n        get:\n            description: Complete index of all registered AiiDAlab apps.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/apps_index.schema.json#/definitions/AppsAndCategories\n    /api/v1/apps/{appId}.json:\n        parameters:\n            - name: appId\n              in: path\n              required: true\n              schema:\n                  type: string\n              example: hello-world\n        get:\n            description: Curated data and metadata for a single app entry.\n            responses:\n                '200':\n                    description: OK\n                    content:\n                        application/json:\n                            schema:\n                                $ref: https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\n",
-			"canonicalURL": "/github.com/aiidalab/aiidalab@4452bf3c537d73c0ee5409aafa21c761b4836c32/-/blob/aiidalab/registry/static/api/openapi-v1.yaml",
+			"canonicalURL": "/github.com/aiidalab/aiidalab@a7e0f083f25271f4f7ccc1621655059d43e61d9d/-/blob/aiidalab/registry/static/api/openapi-v1.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/aiidalab/aiidalab/blob/4452bf3c537d73c0ee5409aafa21c761b4836c32/aiidalab/registry/static/api/openapi-v1.yaml",
+					"url": "https://github.com/aiidalab/aiidalab/blob/a7e0f083f25271f4f7ccc1621655059d43e61d9d/aiidalab/registry/static/api/openapi-v1.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse path items: path \"/api/v1/apps/{appId}.json\": get: responses: 200: content: application/json: schema: parse schema: at 1:320: external \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json\": get: https: do: Get \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json\": host \"aiidalab.github.io\" is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/api/v1/apps/{appId}.json\": get: responses: 200: content: application/json: schema: parse schema: at aiidalab/registry/static/api/openapi-v1.yaml:34:39: $ref: resolve \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json#/definitions/App\": get \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json\": https: do: Get \"https://aiidalab.github.io/aiidalab-registry/schemas/v1/app.schema.json\": host \"aiidalab.github.io\" is not allowed"
 }

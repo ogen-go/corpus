@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
 			"byteSize": 325,
 			"content": "openapi: \"3.0.0\"\ninfo:\n  version: 1.0.0\n  title: spec2\ncomponents:\n  schemas:\n    FlowDescription:\n      type: string\n    EthFlowDescription:\n      type: object\n      properties:\n        fDesc:\n          $ref: '#/components/schemas/FlowDescription'\n        fDir:\n          $ref: 'spec1.yaml#/components/schemas/FlowDirection'",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"EthFlowDescription\": parse schema: property \"fDir\": parse schema: at 1:134: external \"spec1.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse components: schemas: \"EthFlowDescription\": resolve \"#/components/schemas/EthFlowDescription\": property \"fDir\": at modules/swagger-parser-v3/src/test/resources/issue-1081/spec2.yaml:15:17: $ref: resolve \"spec1.yaml#/components/schemas/FlowDirection\": get \"https://raw.githubusercontent.com/swagger-api/swagger-parser/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/issue-1081/spec1.yaml\": https: bad HTTP code 404 (Not Found)"
 }

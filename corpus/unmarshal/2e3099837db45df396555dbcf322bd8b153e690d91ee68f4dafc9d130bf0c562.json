@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/adzerk/adzerk-api-specification"
+		},
+		"file": {
+			"name": "user.yaml",
+			"size": 0,
+			"path": "management/user.yaml",
+			"byteSize": 3690,
+			"content": "openapi: 3.0.1\ninfo:\n  title: Adzerk Management API - User Management\n  description: Manage access to Kevel, create new Kevel users, or update the names or emails of Kevel users in your account\n  version: '1.0'\nservers:\n  - url: 'https://api.adzerk.net'\ntags:\n  - name: user\n    description: User Management\npaths:\n  /v1/login:\n    get:\n      tags:\n        - user\n      operationId: list\n      security:\n        - ApiKeyAuth: []\n      parameters:\n        - name: pageSize\n          in: query\n          description: The size of the page to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n            default: 500\n        - name: page\n          in: query\n          description: The page number to be returned\n          required: false\n          schema:\n            type: integer\n            format: int32\n            nullable: true\n      responses:\n        200:\n          description: A paged list of Scheduled Reports\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/user.yaml#/schemas/UserList'\n    post:\n      tags:\n        - user\n      operationId: create\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - Email\n              properties:\n                Email:\n                  type: string\n                Password:\n                  type: string\n                Name:\n                  type: string\n                  nullable: true\n                AccessLevel:\n                  $ref: './schemas/user.yaml#/schemas/AccessLevel'\n                  nullable: true\n                DefaultTimeZone:\n                  type: string\n                  nullable: true\n                CanAccessStudio:\n                  type: boolean\n      responses:\n        200:\n          description: The user\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/user.yaml#/schemas/User'\n  '/v1/login/{id}':\n    parameters:\n      - name: id\n        in: path\n        description: Id of the User to update\n        required: true\n        schema:\n          type: integer\n    put:\n      tags:\n        - user\n      operationId: update\n      security:\n        - ApiKeyAuth: []\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n              required:\n                - id\n                - Email\n                - Name\n              properties:\n                id:\n                  type: integer\n                  format: int32\n                Email:\n                  type: string\n                Name:\n                  type: string\n                AccessLevel:\n                  $ref: './schemas/user.yaml#/schemas/AccessLevel'\n                  nullable: true\n                DefaultTimeZone:\n                  type: string\n                  nullable: true\n                CanAccessStudio:\n                  type: boolean\n      responses:\n        200:\n          description: Updated User\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/user.yaml#/schemas/User'\n    get:\n      tags:\n        - user\n      operationId: get\n      security:\n        - ApiKeyAuth: []\n      responses:\n        200:\n          description: The User\n          content:\n            application/json:\n              schema:\n                $ref: './schemas/user.yaml#/schemas/User'\ncomponents:\n  securitySchemes:\n    $ref: './components/security-schemes.yaml#/components/securitySchemes'\n",
+			"canonicalURL": "/github.com/adzerk/adzerk-api-specification@25b2da9378e96562925f89165bfae045adbe912b/-/blob/management/user.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/adzerk/adzerk-api-specification/blob/25b2da9378e96562925f89165bfae045adbe912b/management/user.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 141: cannot unmarshal !!str `./compo...` into ogen.SecurityScheme"
+}

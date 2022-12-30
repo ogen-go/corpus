@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/ivamuno/redoc-asyncapi"
+		},
+		"file": {
+			"name": "pathItems.json",
+			"size": 0,
+			"path": "src/services/__tests__/fixtures/3.1/pathItems.json",
+			"byteSize": 1638,
+			"content": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"version\": \"1.0.0\",\n    \"title\": \"Swagger Petstore\"\n  },\n  \"webhooks\": {\n    \"myWebhook\": {\n      \"$ref\": \"#/components/pathItems/catsWebhook\",\n      \"description\": \"Overriding description\",\n      \"summary\": \"Overriding summary\"\n    }\n  },\n  \"components\": {\n    \"pathItems\": {\n      \"catsWebhook\": {\n        \"put\": {\n          \"summary\": \"Get a cat details after update\",\n          \"description\": \"Get a cat details after update\",\n          \"operationId\": \"updatedCat\",\n          \"tags\": [\n            \"pet\"\n          ],\n          \"requestBody\": {\n            \"description\": \"Information about cat in the system\",\n            \"content\": {\n              \"multipart/form-data\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"responses\": {\n            \"200\": {\n              \"description\": \"update Cat details\"\n            }\n          }\n        },\n        \"post\": {\n          \"summary\": \"Create new cat\",\n          \"description\": \"Info about new cat\",\n          \"operationId\": \"createdCat\",\n          \"tags\": [\n            \"pet\"\n          ],\n          \"requestBody\": {\n            \"description\": \"Information about cat in the system\",\n            \"content\": {\n              \"multipart/form-data\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/Pet\"\n                }\n              }\n            }\n          },\n          \"responses\": {\n            \"200\": {\n              \"description\": \"create Cat details\"\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+			"canonicalURL": "/github.com/ivamuno/redoc-asyncapi@0b73f9e3d7a3244b6f2efbb95f32c712eebcf7da/-/blob/src/services/__tests__/fixtures/3.1/pathItems.json",
+			"externalURLs": [
+				{
+					"url": "https://github.com/ivamuno/redoc-asyncapi/blob/0b73f9e3d7a3244b6f2efbb95f32c712eebcf7da/src/services/__tests__/fixtures/3.1/pathItems.json",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse webhooks: parse webhook \"myWebhook\": parse pathItem: put: operation \"updatedCat\": requestBody: parse content: multipart/form-data: schema: parse schema: at src/services/__tests__/fixtures/3.1/pathItems.json:29:27: $ref: resolve \"#/components/schemas/Pet\": resolve: can't find value for \"components/schemas/Pet\""
+}

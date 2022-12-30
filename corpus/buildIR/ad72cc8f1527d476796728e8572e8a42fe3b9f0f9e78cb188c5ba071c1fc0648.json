@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aml-org/amf"
+		},
+		"file": {
+			"name": "valid-ref-to-header-with-ref.yaml",
+			"size": 0,
+			"path": "amf-cli/shared/src/test/resources/validations/oas3/double-references/valid-ref-to-header-with-ref.yaml",
+			"byteSize": 511,
+			"content": "openapi: 3.0.0\ninfo:\n  title: Sample Pet Store App\n  description: This is a sample server for a pet store.\n  version: 1.0.1\n\npaths:\n  /path:\n    summary: an endpoint\n    description: still an endpoint\n    get:\n      tags:\n        - pet\n      summary: Updates a pet in the store with form data\n      description: Updates a pet in the store with form data\n      responses:\n        '200':\n          description: a response\n          headers:\n              header:\n                $ref: \"firstRefLevel/header.yaml\"\n",
+			"canonicalURL": "/github.com/aml-org/amf@db08879c7092296bac1404c740c559a9e3f273ec/-/blob/amf-cli/shared/src/test/resources/validations/oas3/double-references/valid-ref-to-header-with-ref.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aml-org/amf/blob/db08879c7092296bac1404c740c559a9e3f273ec/amf-cli/shared/src/test/resources/validations/oas3/double-references/valid-ref-to-header-with-ref.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: path \"/path\": get: responses: code 200: headers: \"header\": nested objects not allowed"
+}

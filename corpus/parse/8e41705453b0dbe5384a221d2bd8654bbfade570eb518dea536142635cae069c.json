@@ -2,22 +2,22 @@
 	"File": {
 		"__typename": "FileMatch",
 		"repository": {
-			"name": "github.com/OpenAPITools/openapi-generator"
+			"name": "github.com/OpenAPITools/openapi-json-schema-generator"
 		},
 		"file": {
 			"name": "issue_6762.yaml",
 			"size": 0,
-			"path": "modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
+			"path": "modules/openapi-json-schema-generator/src/test/resources/3_0/issue_6762.yaml",
 			"byteSize": 1272,
 			"content": "openapi: 3.0.0\nservers:\n  - url: 'localhost:8080'\ninfo:\n  version: 1.0.0\n  title: OpenAPI Zoo\n  license:\n    name: Apache-2.0\n    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'\npaths:\n  /girafes/{refStatus}:\n    get:\n      operationId: getGirafes\n      parameters:\n        - $ref: '#/components/parameters/refStatus'\n  /zebras/{status}:\n    get:\n      operationId: getZebras\n      parameters:\n        - in: path\n          name: status\n          required: true\n          schema:\n            type: integer\n            enum: [0,1]\n            default: 0\n  /bears/{refCondition}:\n    get:\n      operationId: getBears\n      parameters:\n        - $ref: '#/components/parameters/refCondition'\n  /camels/{condition}:\n    get:\n      operationId: getCamels\n      parameters:\n        - in: path\n          name: condition\n          required: true\n          schema:\n            type: string\n            enum:\n              - sleeping\n              - awake\ncomponents:\n  parameters:\n    refStatus:\n      in: path\n      name: refStatus\n      required: true\n      schema:\n        type: integer\n        enum: [0,1]\n        default: 0\n    refCondition:\n      in: path\n      name: refCondition\n      schema:\n        type: string\n        enum:\n          - sleeping\n          - awake\n",
-			"canonicalURL": "/github.com/OpenAPITools/openapi-generator@ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/-/blob/modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
+			"canonicalURL": "/github.com/OpenAPITools/openapi-json-schema-generator@a55dd8b0559d49f669eb133f2768d2ba0c13d60d/-/blob/modules/openapi-json-schema-generator/src/test/resources/3_0/issue_6762.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/OpenAPITools/openapi-generator/blob/ac7ebf67dd67e4a347fa142aa6a95ab12f0198de/modules/openapi-generator/src/test/resources/3_0/issue_6762.yaml",
+					"url": "https://github.com/OpenAPITools/openapi-json-schema-generator/blob/a55dd8b0559d49f669eb133f2768d2ba0c13d60d/modules/openapi-json-schema-generator/src/test/resources/3_0/issue_6762.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: parameters: \"refCondition\": at 1:45: path parameters must be required"
+	"Error": "parse: parse spec: parse components: parameters: \"refCondition\": at modules/openapi-json-schema-generator/src/test/resources/3_0/issue_6762.yaml:55:7: path parameters must be required"
 }

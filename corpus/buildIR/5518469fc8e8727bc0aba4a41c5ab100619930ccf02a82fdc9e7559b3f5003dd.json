@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/deepmap/oapi-codegen"
+		},
+		"file": {
+			"name": "spec.yaml",
+			"size": 0,
+			"path": "internal/test/issues/issue-832/spec.yaml",
+			"byteSize": 948,
+			"content": "openapi: 3.0.2\ninfo:\n  version: '0.0.1'\n  title: example\n  description: |\n    Make sure that recursive types are handled properly\npaths:\n  /example:\n    get:\n      operationId: exampleGet\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            'application/json':\n              schema:\n                $ref: '#/components/schemas/Document'\n  /example2:\n    get:\n      operationId: exampleGet2\n      responses:\n        '200':\n          description: \"OK\"\n          content:\n            'application/json':\n              schema:\n                $ref: '#/components/schemas/DocumentStatus'\ncomponents:\n  schemas:\n    Document:\n      type: object\n      properties:\n        name:\n          type: string\n        status:\n          x-go-type-name: Document_Status\n          type: string\n          enum: [one, two, three, four]\n    DocumentStatus:\n      type: object\n      properties:\n        value:\n          type: string\n",
+			"canonicalURL": "/github.com/deepmap/oapi-codegen@ab90f1927bc5ec3e29af216d4298fbb4780ae36d/-/blob/internal/test/issues/issue-832/spec.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/deepmap/oapi-codegen/blob/ab90f1927bc5ec3e29af216d4298fbb4780ae36d/internal/test/issues/issue-832/spec.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "buildIR: make ir: operations: reference type \"https://raw.githubusercontent.com/deepmap/oapi-codegen/ab90f1927bc5ec3e29af216d4298fbb4780ae36d/internal/test/issues/issue-832/spec.yaml#/components/schemas/DocumentStatus\" name conflict: \"DocumentStatus\""
+}

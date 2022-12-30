@@ -10,14 +10,14 @@
 			"path": "api/openapi_server/openapi/openapi.yaml",
 			"byteSize": 1664,
 			"content": "openapi: 3.0.0\ninfo:\n  license:\n    name: GPL 2.0\n  title: Home Unite Us\n  version: 1.0.0\nservers:\n  - url: http://homeunite.us/api\npaths:\n  /serviceProviders:\n    $ref: './paths/serviceProviders.yaml'\n  /serviceProviders/{providerId}:\n    $ref: './paths/serviceProvider.yaml'\n  /auth/signup:\n    $ref: './paths/auth/authSignup.yaml'\n  /auth/signin:\n    $ref: './paths/auth/authSignin.yaml'\n  /auth/confirm:\n    $ref: './paths/auth/authConfirm.yaml'\n  /auth/signout:\n    $ref: './paths/auth/authSignout.yaml'\n  /auth/token:\n    $ref: './paths/auth/authToken.yaml'\n  /auth/session:\n    $ref: './paths/auth/authSession.yaml'\n  /auth/refresh:\n    $ref: './paths/auth/authRefresh.yaml'\n  /auth/forgot_password:\n    $ref: './paths/auth/authForgotPassword.yaml'\n  /auth/confirm_forgot_password:\n    $ref: './paths/auth/authConfirmForgotPassword.yaml'\n  /auth/user:\n    $ref: './paths/auth/authUser.yaml'\n  /auth/private:\n    $ref: './paths/auth/authPrivate.yaml'\ncomponents:\n  securitySchemes:\n      jwt:\n        type: http\n        scheme: bearer\n        bearerFormat: JWT\n        x-bearerInfoFunc: openapi_server.controllers.security_controller.requires_auth\n  responses:\n    $ref: './responses/_index.yaml'\n  parameters:\n    $ref: './parameters/_index.yaml'\n  schemas:\n    $ref: './schemas/_index.yaml'\n    ApiResponse:\n      example:\n        code: 0\n        type: type\n        message: message\n      properties:\n        code:\n          format: int32\n          title: code\n          type: integer\n        type:\n          title: type\n          type: string\n        message:\n          title: message\n          type: string\n      title: ApiResponse\n      type: object\n  \n",
-			"canonicalURL": "/github.com/hackforla/HomeUniteUs@e270e0460b1d6867bbbb0c6d6f2dc35ba80d6363/-/blob/api/openapi_server/openapi/openapi.yaml",
+			"canonicalURL": "/github.com/hackforla/HomeUniteUs@643ef1cc9edbafd8554b80d43e12b604b14e724c/-/blob/api/openapi_server/openapi/openapi.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/hackforla/HomeUniteUs/blob/e270e0460b1d6867bbbb0c6d6f2dc35ba80d6363/api/openapi_server/openapi/openapi.yaml",
+					"url": "https://github.com/hackforla/HomeUniteUs/blob/643ef1cc9edbafd8554b80d43e12b604b14e724c/api/openapi_server/openapi/openapi.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 1: cannot unmarshal !!str `./param...` into ogen.Parameter; yaml: line 1: cannot unmarshal !!str `./respo...` into ogen.Response; yaml: line 1: cannot unmarshal !!str `./schem...` into ogen.Schema"
+	"Error": "unmarshal: yaml: unmarshal errors:\n  yaml: line 44: cannot unmarshal !!str `./respo...` into ogen.Response; yaml: line 46: cannot unmarshal !!str `./param...` into ogen.Parameter; yaml: line 48: cannot unmarshal !!str `./schem...` into ogen.Schema"
 }

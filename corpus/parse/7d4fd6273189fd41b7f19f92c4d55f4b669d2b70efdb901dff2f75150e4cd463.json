@@ -10,14 +10,14 @@
 			"path": "modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
 			"byteSize": 1100,
 			"content": "openapi: 3.0.0\nservers: []\npaths:\n  /health:\n    $ref: ./paths/healthPath.yaml\ninfo:\n  version: \"\"\n  title: \"\"\ncomponents:\n  schemas:\n    refInDefinitions:\n      $ref: ./models/example.yaml\n    arrayModel:\n      type: array\n      items:\n        $ref: ./models/foo.yaml\n    composedCat:\n      allOf:\n      - $ref: ./models/pet.yaml\n      - $ref: ./models/conflict.yaml#/foo\n      - properties:\n          huntingSkill:\n            type: string\n            description: The measured skill for hunting\n            default: lazy\n            enum:\n            - clueless\n            - lazy\n            - adventurous\n            - aggressive\n          prop2:\n            $ref: ./models/foo.yaml\n          reflexes:\n            type: array\n            items:\n              $ref: ./models/reflex.yaml\n          reflexMap:\n            type: object\n            additionalProperties:\n              $ref: ./models/reflex.yaml\n        required:\n        - huntingSkill\n    externalArray:\n      $ref: ./models/localreference.yaml#/localArray\n    externalObject:\n      $ref: ./models/localreference.yaml#/localObject\n",
-			"canonicalURL": "/github.com/swagger-api/swagger-parser@87220efc5e2241d2192874f7ff244dc6eb729268/-/blob/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
+			"canonicalURL": "/github.com/swagger-api/swagger-parser@19f7529d660387db1b19b438df9f3312277d637b/-/blob/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
 			"externalURLs": [
 				{
-					"url": "https://github.com/swagger-api/swagger-parser/blob/87220efc5e2241d2192874f7ff244dc6eb729268/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
+					"url": "https://github.com/swagger-api/swagger-parser/blob/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parent.yaml",
 					"serviceKind": "GITHUB"
 				}
 			]
 		}
 	},
-	"Error": "parse: parse spec: parse components: schemas: \"composedCat\": parse schema: parse schema: at 1:126: external \"./models/pet.yaml\": get: file: local file reference is not allowed"
+	"Error": "parse: parse spec: parse path items: path \"/health\": get: operation \"getHealth\": parameters: parse parameter \"\": at https://raw.githubusercontent.com/swagger-api/swagger-parser/19f7529d660387db1b19b438df9f3312277d637b/modules/swagger-parser-v3/src/test/resources/relative-file-references/yaml/parameters/params.yaml:16:13: path parameters must be required"
 }

@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/Azure/apiops"
+		},
+		"file": {
+			"name": "specification.yaml",
+			"size": 0,
+			"path": "SampleArtifacts/apis/helloworldfromlogicapp/specification.yaml",
+			"byteSize": 1397,
+			"content": "openapi: 3.0.1\ninfo:\n  title: helloworldfromlogicapp\n  description: Azure Logic App.\n  version: '1.0'\nservers:\n  - url: [url goes here]]\n  - url: [url goes here]]\npaths:\n  /manual/paths/invoke:\n    get:\n      summary: manual-invoke\n      description: Trigger a run of the logic app.\n      operationId: manual-invoke\n      requestBody:\n        description: The request body.\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/request-manual'\n      responses:\n        '200':\n          description: The Logic App Response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ManualPathsInvokeGet200ApplicationJsonResponse'\n        '500':\n          description: The Logic App Response.\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/ManualPathsInvokeGet500ApplicationJsonResponse'\ncomponents:\n  schemas:\n    request-manual: { }\n    ManualPathsInvokeGet200ApplicationJsonResponse:\n      type: object\n    ManualPathsInvokeGet500ApplicationJsonResponse:\n      type: object\n  securitySchemes:\n    apiKeyHeader:\n      type: apiKey\n      name: Ocp-Apim-Subscription-Key\n      in: header\n    apiKeyQuery:\n      type: apiKey\n      name: subscription-key\n      in: query\nsecurity:\n  - apiKeyHeader: [ ]\n  - apiKeyQuery: [ ]",
+			"canonicalURL": "/github.com/Azure/apiops@3116f7d8ae61cda386838b796bdcda2fd94ea699/-/blob/SampleArtifacts/apis/helloworldfromlogicapp/specification.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/Azure/apiops/blob/3116f7d8ae61cda386838b796bdcda2fd94ea699/SampleArtifacts/apis/helloworldfromlogicapp/specification.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "invalidYAML: yaml: line 6:4: did not find expected key"
+}

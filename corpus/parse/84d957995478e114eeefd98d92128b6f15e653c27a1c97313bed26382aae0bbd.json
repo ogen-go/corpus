@@ -1,0 +1,23 @@
+{
+	"File": {
+		"__typename": "FileMatch",
+		"repository": {
+			"name": "github.com/aws/serverless-application-model"
+		},
+		"file": {
+			"name": "api_with_swagger_and_openapi_with_auth.yaml",
+			"size": 0,
+			"path": "tests/translator/input/api_with_swagger_and_openapi_with_auth.yaml",
+			"byteSize": 1539,
+			"content": "Globals:\n  Api:\n    Name: some api\n    CacheClusterEnabled: true\n    CacheClusterSize: '1.6'\n    Auth:\n      DefaultAuthorizer: MyCognitoAuth\n      Authorizers:\n        MyCognitoAuth:\n          UserPoolArn: !GetAtt MyUserPool.Arn\n    Variables:\n      SomeVar: Value\n\nResources:\n  ImplicitApiFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: s3://sam-demo-bucket/member_portal.zip\n      Handler: index.gethtml\n      Runtime: nodejs12.x\n      Events:\n        GetHtml:\n          Type: Api\n          Properties:\n            Path: /\n            Method: get\n        GetHtmlAnyMethod:\n          Type: Api\n          Properties:\n            Path: /any\n            Method: any\n\n  ExplicitApi:\n    Type: AWS::Serverless::Api\n    Properties:\n      StageName: SomeStage\n      DefinitionBody:\n        openapi: 3.1.1\n        swagger: 2.0\n        info:\n          version: '1.0'\n          title: !Ref AWS::StackName\n        paths:\n          /:\n            get:\n              x-amazon-apigateway-integration:\n                httpMethod: POST\n                type: aws_proxy\n                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ImplicitApiFunction.Arn}/invocations\n              responses: {}\n\n  MyUserPool:\n    Type: AWS::Cognito::UserPool\n    Properties:\n      UserPoolName: UserPoolName\n      Policies:\n        PasswordPolicy:\n          MinimumLength: 8\n      UsernameAttributes:\n      - email\n      Schema:\n      - AttributeDataType: String\n        Name: email\n        Required: false\n",
+			"canonicalURL": "/github.com/aws/serverless-application-model@2f53aebdcf9b322a395eaa872e5368ddc3c76c95/-/blob/tests/translator/input/api_with_swagger_and_openapi_with_auth.yaml",
+			"externalURLs": [
+				{
+					"url": "https://github.com/aws/serverless-application-model/blob/2f53aebdcf9b322a395eaa872e5368ddc3c76c95/tests/translator/input/api_with_swagger_and_openapi_with_auth.yaml",
+					"serviceKind": "GITHUB"
+				}
+			]
+		}
+	},
+	"Error": "parse: parse spec: parse version: at tests/translator/input/api_with_swagger_and_openapi_with_auth.yaml:1:1: invalid version: invalid major version: strconv.Atoi: parsing \"\": invalid syntax"
+}
